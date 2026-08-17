@@ -1,6 +1,7 @@
 import { Prisma } from '@prisma/client';
 import { prisma } from '@/lib/prisma';
 import { registerSchema } from '@/lib/validation/auth';
+import { requestOtp } from '@/lib/auth/otp-service';
 import { ok, fail, readJson } from '@/lib/http';
 
 export const runtime = 'nodejs';
@@ -54,5 +55,14 @@ export async function POST(req: Request) {
     throw e;
   }
 
-  return ok({ registered: true, mobile: d.mobile });
+  const otp = await requestOtp(d.mobile, 'REGISTRATION', {
+    email: d.email,
+    language: d.preferredLanguage,
+  });
+  if (!otp.ok) {
+    if (otp.reason === 'delivery_failed') return fail('otpDeliveryFailed', 502);
+    return fail('rateLimited', 429, { retryAfterSeconds: otp.retryAfterSeconds });
+  }
+
+  return ok({ registered: true, mobile: d.mobile, devOtp: otp.devOtp });
 }

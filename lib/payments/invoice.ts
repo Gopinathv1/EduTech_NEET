@@ -22,7 +22,7 @@ export function generateInvoicePdf(data: InvoiceData): Promise<Buffer> {
     });
 
     // Header
-    doc.fillColor('#1e40af').font('Helvetica-Bold').fontSize(20).text(SITE_NAME, 50, 50);
+    doc.fillColor('#dc2626').font('Helvetica-Bold').fontSize(20).text(SITE_NAME, 50, 50);
     doc.fillColor('#475569').font('Helvetica').fontSize(10).text('Tax Invoice');
     doc.moveTo(50, 100).lineTo(545, 100).strokeColor('#e2e8f0').stroke();
 

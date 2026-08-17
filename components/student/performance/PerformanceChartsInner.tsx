@@ -26,7 +26,7 @@ import { strengthOf } from '@/lib/attempts/analysis';
  * out of the initial page payload on slow connections.
  */
 
-const BRAND = '#1e40af';
+const BRAND = '#dc2626';
 const AXIS = '#94a3b8';
 const GRID = '#e2e8f0';
 const STRENGTH_FILL = { strong: '#16a34a', average: '#d97706', weak: '#dc2626' } as const;

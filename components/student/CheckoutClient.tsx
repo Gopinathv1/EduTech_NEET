@@ -85,9 +85,9 @@ export default function CheckoutClient({
       order_id: String(order.orderId),
       amount: Number(order.amount),
       currency: String(order.currency),
-      name: 'VVOC',
+      name: 'VV Overseas',
       description: title,
-      theme: { color: '#1e40af' },
+      theme: { color: '#dc2626' },
       handler: async (resp) => {
         setState('verifying');
         const v = await apiPost('/api/payments/verify', {

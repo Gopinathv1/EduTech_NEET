@@ -1,10 +1,10 @@
 {
   "meta": {
-    "title": "VVOC - प्रतियोगी परीक्षा तैयारी",
+    "title": "VV Overseas - प्रतियोगी परीक्षा तैयारी",
     "description": "पिछले वर्षों के प्रश्न, अध्याय-वार प्रश्न बैंक, मॉक टेस्ट और विस्तृत समाधान के साथ तैयारी करें - शुरुआत NEET से."
   },
   "nav": {
-    "brand": "VVOC",
+    "brand": "VV Overseas",
     "language": "भाषा",
     "login": "लॉगिन",
     "register": "रजिस्टर",
@@ -66,7 +66,7 @@
       "contact": "हमसे बात करें"
     },
     "footer": {
-      "blurb": "VVOC छात्रों को प्रश्न बैंक, मॉक टेस्ट और विस्तृत समीक्षा के साथ प्रतियोगी परीक्षाओं की तैयारी में मदद करता है - शुरुआत NEET से.",
+      "blurb": "VV Overseas छात्रों को प्रश्न बैंक, मॉक टेस्ट और विस्तृत समीक्षा के साथ प्रतियोगी परीक्षाओं की तैयारी में मदद करता है - शुरुआत NEET से.",
       "explore": "एक्सप्लोर",
       "company": "कंपनी",
       "getStarted": "शुरू करें",
@@ -74,7 +74,7 @@
       "loginLink": "लॉगिन",
       "contactLink": "संपर्क",
       "disclaimer": "अस्वीकरण: एडमिशन मार्गदर्शन एक सलाहकारी सेवा है. हर देश और विश्वविद्यालय के नियम, पात्रता और निर्णय संबंधित संस्थाओं पर निर्भर करते हैं. हम एडमिशन की गारंटी नहीं देते.",
-      "rights": "VVOC. सर्वाधिकार सुरक्षित.",
+      "rights": "VV Overseas. सर्वाधिकार सुरक्षित.",
       "exams": "परीक्षाएं",
       "neet": "NEET",
       "jeeSoon": "JEE - जल्द आ रहा है",
@@ -85,7 +85,7 @@
     }
   },
   "home": {
-    "brand": "VVOC",
+    "brand": "VV Overseas",
     "title": "भारत की प्रतियोगी परीक्षाओं के लिए बेहतर तैयारी करें.",
     "subtitle": "पिछले वर्षों के प्रश्न, अध्याय-वार प्रश्न बैंक, मॉक टेस्ट और विस्तृत समाधान - अभी NEET से शुरुआत.",
     "ctaPrimary": "अभ्यास शुरू करें",
@@ -161,7 +161,7 @@
     "neet": {
       "eyebrow": "सक्रिय परीक्षा",
       "title": "NEET एक्सप्लोर करें",
-      "subtitle": "NEET, VVOC पर पहली सक्रिय परीक्षा है. विषय आगे अध्याय, टॉपिक, प्रश्न, PYQ और मॉक टेस्ट से जुड़ते हैं.",
+      "subtitle": "NEET, VV Overseas पर पहली सक्रिय परीक्षा है. विषय आगे अध्याय, टॉपिक, प्रश्न, PYQ और मॉक टेस्ट से जुड़ते हैं.",
       "subjectCta": "NEET अभ्यास करें",
       "subjects": [
         {
@@ -248,11 +248,11 @@
     },
     "pyq": {
       "title": "फर्जी संख्या के बिना पिछले वर्ष का अभ्यास",
-      "body": "VVOC मौजूदा टेस्ट catalogue के माध्यम से पिछले वर्ष के पैटर्न वाला अभ्यास दिखाता है. संख्या केवल वास्तविक डेटा होने पर दिखाई जाएगी.",
+      "body": "VV Overseas मौजूदा टेस्ट catalogue के माध्यम से पिछले वर्ष के पैटर्न वाला अभ्यास दिखाता है. संख्या केवल वास्तविक डेटा होने पर दिखाई जाएगी.",
       "cta": "मॉक टेस्ट खोलें"
     },
     "benefits": {
-      "eyebrow": "VVOC क्यों",
+      "eyebrow": "VV Overseas क्यों",
       "title": "व्यावहारिक परीक्षा-तैयारी प्लेटफॉर्म",
       "subtitle": "बढ़ा-चढ़ाकर दावे किए बिना स्पष्ट अभ्यास, ईमानदार scope और progress tracking.",
       "items": [
@@ -283,7 +283,7 @@
       ]
     },
     "finalCta": {
-      "title": "NEET से शुरू करें. VVOC के साथ आगे बढ़ें.",
+      "title": "NEET से शुरू करें. VV Overseas के साथ आगे बढ़ें.",
       "subtitle": "Passwordless student account बनाएं और active NEET platform पर अभ्यास शुरू करें.",
       "primary": "शुरू करें",
       "secondary": "लॉगिन"
@@ -441,7 +441,7 @@
     "vision": "ऐसा भविष्य जहां student का district, board या family income doctor बनने की संभावना तय न करे.",
     "storyTitle": "हमारी कहानी",
     "story": [
-      "VVOC एक simple observation से शुरू हुआ: कई capable students को realistic practice नहीं मिलती क्योंकि coaching और test series महंगी और mostly English में होती हैं.",
+      "VV Overseas एक simple observation से शुरू हुआ: कई capable students को realistic practice नहीं मिलती क्योंकि coaching और test series महंगी और mostly English में होती हैं.",
       "हमने affordable, mobile-first, bilingual platform बनाया जहां mock tests clear chapter-level feedback के साथ मिलते हैं.",
       "जो students मेहनत के बावजूद India में seat miss करते हैं, उनके लिए हमारी admission guidance team विदेश में recognised universities के regulated रास्ते समझाती है."
     ],
@@ -468,7 +468,7 @@
   "whyChoose": {
     "eyebrow": "हमें क्यों चुनें",
     "heroTitle": "Real NEET aspirants के लिए बना, सिर्फ toppers के लिए नहीं",
-    "heroSubtitle": "Tamil Nadu के students और parents VVOC पर क्यों भरोसा करते हैं.",
+    "heroSubtitle": "Tamil Nadu के students और parents VV Overseas पर क्यों भरोसा करते हैं.",
     "points": [
       {
         "title": "वास्तव में किफायती",
@@ -783,12 +783,12 @@
   },
   "seo": {
     "home": {
-      "title": "VVOC - प्रतियोगी परीक्षा तैयारी",
+      "title": "VV Overseas - प्रतियोगी परीक्षा तैयारी",
       "description": "पिछले वर्षों के प्रश्न, अध्याय-वार प्रश्न बैंक, मॉक टेस्ट और विस्तृत समाधान के साथ तैयारी करें - शुरुआत NEET से."
     },
     "about": {
       "title": "हमारे बारे में",
-      "description": "VVOC कैसे quality bilingual NEET preparation को affordable बनाता है."
+      "description": "VV Overseas कैसे quality bilingual NEET preparation को affordable बनाता है."
     },
     "whyChoose": {
       "title": "हमें क्यों चुनें",
@@ -812,7 +812,7 @@
     },
     "testimonials": {
       "title": "Testimonials",
-      "description": "VVOC के साथ practice करने वाले aspirants और parents की बातें."
+      "description": "VV Overseas के साथ practice करने वाले aspirants और parents की बातें."
     },
     "faq": {
       "title": "FAQ",
@@ -820,7 +820,7 @@
     },
     "contact": {
       "title": "संपर्क",
-      "description": "Mock tests या admission guidance के सवालों के लिए VVOC से संपर्क करें."
+      "description": "Mock tests या admission guidance के सवालों के लिए VV Overseas से संपर्क करें."
     },
     "help": {
       "title": "मदद और सहायता",
@@ -828,11 +828,11 @@
     },
     "terms": {
       "title": "नियम और शर्तें",
-      "description": "VVOC के competitive-exam preparation, mock tests और student accounts के नियम."
+      "description": "VV Overseas के competitive-exam preparation, mock tests और student accounts के नियम."
     },
     "privacy": {
       "title": "गोपनीयता नीति",
-      "description": "VVOC student account, OTP, test और progress information कैसे संभालता है."
+      "description": "VV Overseas student account, OTP, test और progress information कैसे संभालता है."
     }
   },
   "catalogue": {
@@ -1276,11 +1276,11 @@
     }
   },
   "sms": {
-    "otp": "Your VVOC OTP is {otp}. Valid for {minutes} minutes. Do not share it with anyone."
+    "otp": "Your VV Overseas OTP is {otp}. Valid for {minutes} minutes. Do not share it with anyone."
   },
   "help": {
     "eyebrow": "मदद और सहायता",
-    "heroTitle": "VVOC कैसे इस्तेमाल करें",
+    "heroTitle": "VV Overseas कैसे इस्तेमाल करें",
     "heroSubtitle": "Register, test खरीदना, test देना, results पढ़ना और admission team तक पहुंचना - simple step-by-step guides.",
     "screenshotLabel": "Screenshot",
     "stepLabel": "Step",

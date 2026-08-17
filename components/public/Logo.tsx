@@ -26,7 +26,7 @@ export default function Logo({ className = '' }: { className?: string }) {
         </text>
       </svg>
       <span className="whitespace-nowrap text-base font-extrabold leading-tight text-brand-dark sm:text-lg">
-        VVOC
+        VV Overseas
       </span>
     </Link>
   );

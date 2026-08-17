@@ -77,7 +77,7 @@ html[data-contrast='high'] .text-slate-700 {
 }
 /* Brand-tinted text darkened for stronger contrast on white. */
 html[data-contrast='high'] .text-brand {
-  color: #1e3a8a !important;
+  color: #991b1b !important;
 }
 /* Hairline borders → visible slate-700 so cards/inputs have clear edges. */
 html[data-contrast='high'] .border-slate-100,

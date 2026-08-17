@@ -14,16 +14,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Single trustworthy primary: deep blue. One colour used throughout the
-        // education brand; amber accent reserved for the ₹30 value cue.
+        // VV Overseas public theme: red primary, black accent, white surfaces.
         brand: {
-          DEFAULT: '#1e40af', // blue-800
-          dark: '#1e3a8a', // blue-900
-          light: '#3b82f6', // blue-500
-          soft: '#eff6ff', // blue-50 (tint backgrounds)
+          DEFAULT: '#dc2626', // red-600
+          dark: '#991b1b', // red-800
+          light: '#ef4444', // red-500
+          soft: '#fef2f2', // red-50
         },
         accent: {
-          DEFAULT: '#f59e0b', // amber-500 (affordable / value cues)
+          DEFAULT: '#111827', // near-black
         },
       },
       fontFamily: {

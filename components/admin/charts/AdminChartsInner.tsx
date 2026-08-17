@@ -21,10 +21,10 @@ import {
  *  Heavy inner module — loaded lazily by `AdminCharts.tsx` via next/dynamic so
  *  recharts stays out of the initial admin-page payload. */
 
-const BRAND = '#1e40af';
+const BRAND = '#dc2626';
 const AXIS = '#94a3b8';
 const GRID = '#e2e8f0';
-const PIE_COLORS = ['#1e40af', '#0891b2', '#16a34a', '#d97706', '#db2777', '#7c3aed', '#dc2626', '#0d9488'];
+const PIE_COLORS = ['#dc2626', '#111827', '#16a34a', '#d97706', '#db2777', '#7c3aed', '#991b1b', '#0d9488'];
 const axisTick = { fontSize: 11, fill: AXIS };
 
 function shortDay(v: string) {

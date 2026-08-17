@@ -39,6 +39,7 @@ export default function RegisterForm() {
 
   const [step, setStep] = useState<'form' | 'otp'>('form');
   const [mobile, setMobile] = useState('');
+  const [devOtp, setDevOtp] = useState<string>();
   const [banner, setBanner] = useState<string>();
 
   const {
@@ -73,6 +74,7 @@ export default function RegisterForm() {
     const res = await apiPost('/api/auth/register', data);
     if (res.ok) {
       setMobile(data.mobile);
+      setDevOtp(typeof res.devOtp === 'string' ? res.devOtp : undefined);
       setStep('otp');
       return;
     }
@@ -88,6 +90,7 @@ export default function RegisterForm() {
       <OtpStep
         mobile={mobile}
         purpose="REGISTRATION"
+        initialDevOtp={devOtp}
         onBack={() => setStep('form')}
       />
     );

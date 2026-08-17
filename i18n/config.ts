@@ -13,8 +13,7 @@
  * A language can be *scaffolded but hidden*: list it in `ALL_LOCALES` with a
  * `messages/<code>.json` file but leave `localeEnabled[code] = false`. It then
  * never appears in the switcher and its cookie value is ignored, so the file
- * can be translated over time and switched on with a single flag. `hi` (Hindi)
- * ships this way today as a ready scaffold.
+ * can be translated over time and switched on with a single flag.
  * ---------------------------------------------------------------------------
  */
 

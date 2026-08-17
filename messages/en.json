@@ -1,10 +1,10 @@
 {
   "meta": {
-    "title": "VVOC - Competitive Exam Preparation",
+    "title": "VV Overseas - Competitive Exam Preparation",
     "description": "Practice previous-year questions, chapter-wise question banks, mock tests and detailed solutions - starting with NEET."
   },
   "nav": {
-    "brand": "VVOC",
+    "brand": "VV Overseas",
     "language": "Language",
     "login": "Login",
     "register": "Register",
@@ -66,7 +66,7 @@
       "contact": "Talk to us"
     },
     "footer": {
-      "blurb": "VVOC helps students practise for competitive exams with question banks, mock tests and detailed review - starting with NEET.",
+      "blurb": "VV Overseas helps students practise for competitive exams with question banks, mock tests and detailed review - starting with NEET.",
       "explore": "Explore",
       "company": "Company",
       "getStarted": "Get started",
@@ -74,7 +74,7 @@
       "loginLink": "Login",
       "contactLink": "Contact",
       "disclaimer": "Disclaimer: Admission guidance is an advisory service. We clearly disclose the eligibility requirements and country-specific regulations for every destination, and outcomes depend on each university's admission criteria and the applicable authorities' rules. We do not guarantee admission.",
-      "rights": "VVOC. All rights reserved.",
+      "rights": "VV Overseas. All rights reserved.",
       "exams": "Exams",
       "neet": "NEET",
       "jeeSoon": "JEE - Coming Soon",
@@ -85,7 +85,7 @@
     }
   },
   "home": {
-    "brand": "VVOC",
+    "brand": "VV Overseas",
     "title": "Prepare smarter for India's competitive exams.",
     "subtitle": "Practice previous-year questions, chapter-wise question banks, mock tests and detailed solutions - starting with NEET.",
     "ctaPrimary": "Start Practising",
@@ -161,7 +161,7 @@
     "neet": {
       "eyebrow": "Active exam",
       "title": "Explore NEET",
-      "subtitle": "NEET is the first active exam on VVOC. Subjects connect into chapters, topics, questions, previous-year practice and mock tests.",
+      "subtitle": "NEET is the first active exam on VV Overseas. Subjects connect into chapters, topics, questions, previous-year practice and mock tests.",
       "subjectCta": "Practise NEET",
       "subjects": [
         {
@@ -248,11 +248,11 @@
     },
     "pyq": {
       "title": "Previous-year practice without fake counts",
-      "body": "VVOC surfaces previous-year style practice through the existing test catalogue. Counts will appear only when backed by real data.",
+      "body": "VV Overseas surfaces previous-year style practice through the existing test catalogue. Counts will appear only when backed by real data.",
       "cta": "Open mock tests"
     },
     "benefits": {
-      "eyebrow": "Why VVOC",
+      "eyebrow": "Why VV Overseas",
       "title": "A practical exam-prep platform",
       "subtitle": "Clear practice, honest scope and progress tracking without inflated claims.",
       "items": [
@@ -283,7 +283,7 @@
       ]
     },
     "finalCta": {
-      "title": "Start with NEET. Grow with VVOC.",
+      "title": "Start with NEET. Grow with VV Overseas.",
       "subtitle": "Create a passwordless student account and begin practising on the active NEET platform.",
       "primary": "Get Started",
       "secondary": "Login"
@@ -441,7 +441,7 @@
     "vision": "A future where a student's district, board or family income never decides whether they can become a doctor.",
     "storyTitle": "Our story",
     "story": [
-      "VVOC began with a simple observation: thousands of capable students, especially from government and state-board schools, never get enough realistic practice because coaching and test series are expensive and mostly in English.",
+      "VV Overseas began with a simple observation: thousands of capable students, especially from government and state-board schools, never get enough realistic practice because coaching and test series are expensive and mostly in English.",
       "We built an affordable, mobile-first, bilingual platform where a full mock test costs just ₹30 — with clear, chapter-level feedback after every attempt.",
       "For students who work hard but still miss a seat in India, our admission guidance team explains the honest, regulated pathways to study medicine at recognised universities abroad."
     ],
@@ -468,7 +468,7 @@
   "whyChoose": {
     "eyebrow": "Why Choose Us",
     "heroTitle": "Built for real NEET aspirants, not just toppers",
-    "heroSubtitle": "Six reasons students and parents across Tamil Nadu trust VVOC.",
+    "heroSubtitle": "Six reasons students and parents across Tamil Nadu trust VV Overseas.",
     "points": [
       {
         "title": "Genuinely affordable",
@@ -783,16 +783,16 @@
   },
   "seo": {
     "home": {
-      "title": "VVOC - Competitive Exam Preparation",
+      "title": "VV Overseas - Competitive Exam Preparation",
       "description": "Prepare smarter for competitive exams with previous-year questions, chapter-wise question banks, mock tests and detailed solutions - starting with NEET."
     },
     "about": {
       "title": "About Us",
-      "description": "Learn how VVOC makes quality, bilingual NEET preparation affordable for government-school, state-board and rural students across Tamil Nadu."
+      "description": "Learn how VV Overseas makes quality, bilingual NEET preparation affordable for government-school, state-board and rural students across Tamil Nadu."
     },
     "whyChoose": {
       "title": "Why Choose Us",
-      "description": "Affordable ₹30 tests, English & Tamil support, real exam pattern, detailed analytics and honest admission guidance — why aspirants trust VVOC."
+      "description": "Affordable ₹30 tests, English & Tamil support, real exam pattern, detailed analytics and honest admission guidance — why aspirants trust VV Overseas."
     },
     "services": {
       "title": "Services",
@@ -820,7 +820,7 @@
     },
     "contact": {
       "title": "Contact Us",
-      "description": "Get in touch with VVOC for questions about mock tests or admission guidance."
+      "description": "Get in touch with VV Overseas for questions about mock tests or admission guidance."
     },
     "help": {
       "title": "Help & Support",
@@ -828,11 +828,11 @@
     },
     "terms": {
       "title": "Terms & Conditions",
-      "description": "VVOC terms for competitive-exam preparation, mock tests and student accounts."
+      "description": "VV Overseas terms for competitive-exam preparation, mock tests and student accounts."
     },
     "privacy": {
       "title": "Privacy Policy",
-      "description": "How VVOC handles student account, OTP, test and progress information."
+      "description": "How VV Overseas handles student account, OTP, test and progress information."
     }
   },
   "catalogue": {
@@ -1276,11 +1276,11 @@
     }
   },
   "sms": {
-    "otp": "Your VVOC OTP is {otp}. Valid for {minutes} minutes. Do not share it with anyone."
+    "otp": "Your VV Overseas OTP is {otp}. Valid for {minutes} minutes. Do not share it with anyone."
   },
   "help": {
     "eyebrow": "Help & Support",
-    "heroTitle": "How to use VVOC",
+    "heroTitle": "How to use VV Overseas",
     "heroSubtitle": "Simple, step-by-step guides to register, buy a test, take a test, read your results, and reach our admission team.",
     "screenshotLabel": "Screenshot",
     "stepLabel": "Step",

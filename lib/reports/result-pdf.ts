@@ -11,7 +11,7 @@ import type { ResultReport } from './result-report';
  * report is English-only.
  */
 
-const BRAND = '#1e40af';
+const BRAND = '#dc2626';
 const INK = '#0f172a';
 const MUTED = '#64748b';
 const LINE = '#e2e8f0';
@@ -154,7 +154,7 @@ export function generateResultPdf(report: ResultReport): Promise<Buffer> {
 
     // ---- Footer ------------------------------------------------------------
     doc.font('Helvetica').fillColor('#94a3b8').fontSize(8);
-    doc.text('This is a computer-generated report from VVOC.', LEFT, 800, { width: 495, align: 'center' });
+    doc.text('This is a computer-generated report from VV Overseas.', LEFT, 800, { width: 495, align: 'center' });
 
     doc.end();
   });

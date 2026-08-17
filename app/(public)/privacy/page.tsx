@@ -11,11 +11,11 @@ export default function PrivacyPage() {
   return (
     <Container className="py-14 sm:py-20">
       <div className="max-w-3xl">
-        <p className="text-sm font-bold uppercase tracking-wide text-brand">VVOC</p>
+        <p className="text-sm font-bold uppercase tracking-wide text-brand">VV Overseas</p>
         <h1 className="mt-3 text-3xl font-extrabold text-slate-950">Privacy Policy</h1>
         <div className="mt-6 space-y-4 text-sm leading-7 text-slate-600">
           <p>
-            VVOC collects account details such as name, email, mobile number, school information,
+            VV Overseas collects account details such as name, email, mobile number, school information,
             preferred language and test activity to provide registration, OTP login, practice, results
             and support workflows.
           </p>
