@@ -23,6 +23,7 @@ export async function POST(req: Request) {
     language: student.preferredLanguage,
   });
   if (!res.ok) {
+    if (res.reason === 'delivery_failed') return fail('otpDeliveryFailed', 502);
     return fail('rateLimited', 429, { retryAfterSeconds: res.retryAfterSeconds });
   }
   return ok({ devOtp: res.devOtp });

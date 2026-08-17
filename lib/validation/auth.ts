@@ -41,46 +41,24 @@ export const registerSchema = z
     name: z.string().trim().min(2, 'nameTooShort').max(80, 'nameTooLong'),
     email: emailSchema,
     mobile: mobileSchema,
-    password: passwordSchema,
-    confirmPassword: z.string().min(1, 'required'),
     state: z.string().trim().min(1, 'required'),
     district: z.string().trim().min(1, 'required'),
     schoolName: z.string().trim().min(2, 'schoolTooShort').max(120, 'schoolTooLong'),
     class: z.enum(CLASS_OPTIONS, { message: 'required' }),
     board: z.enum(BOARD_OPTIONS, { message: 'required' }),
     preferredLanguage: localeSchema,
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: 'passwordMismatch',
-    path: ['confirmPassword'],
   });
 export type RegisterInput = z.infer<typeof registerSchema>;
 
-// Password login accepts either a mobile number or an email as the identifier.
-const loginIdentifierSchema = z
-  .string()
-  .trim()
-  .min(1, 'required')
-  .refine(
-    (value) => emailSchema.safeParse(value).success || mobileSchema.safeParse(value).success,
-    'identifierInvalid',
-  )
-  .transform((value) => {
-    const email = emailSchema.safeParse(value);
-    if (email.success) return email.data;
-    return mobileSchema.parse(value);
-  });
-
-export const passwordLoginSchema = z.object({
-  identifier: loginIdentifierSchema,
-  password: z.string().min(1, 'required'),
+export const loginOtpRequestSchema = z.object({
+  mobile: mobileSchema,
 });
-export type PasswordLoginInput = z.infer<typeof passwordLoginSchema>;
+export type LoginOtpRequestInput = z.infer<typeof loginOtpRequestSchema>;
 
-// Request an OTP (login / password reset / registration resend).
+// Request an OTP (login / registration resend).
 export const otpRequestSchema = z.object({
   mobile: mobileSchema,
-  purpose: z.enum(['REGISTRATION', 'LOGIN', 'PASSWORD_RESET'], { message: 'required' }),
+  purpose: z.enum(['REGISTRATION', 'LOGIN'], { message: 'required' }),
 });
 export type OtpRequestInput = z.infer<typeof otpRequestSchema>;
 
@@ -91,14 +69,6 @@ export const otpVerifySchema = z.object({
   purpose: z.enum(['REGISTRATION', 'LOGIN'], { message: 'required' }),
 });
 export type OtpVerifyInput = z.infer<typeof otpVerifySchema>;
-
-// Reset a forgotten password using a PASSWORD_RESET OTP.
-export const passwordResetSchema = z.object({
-  mobile: mobileSchema,
-  otp: otpSchema,
-  newPassword: passwordSchema,
-});
-export type PasswordResetInput = z.infer<typeof passwordResetSchema>;
 
 export const adminLoginSchema = z.object({
   email: emailSchema,

@@ -51,6 +51,12 @@ export default function PublicHeader() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-2">
+          <div className="hidden items-center rounded-lg border border-slate-200 bg-white px-2 py-1.5 text-sm font-semibold text-slate-700 lg:flex">
+            <span>{t('examNeet')}</span>
+            <span className="ml-2 rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-500">
+              {t('examJeeSoon')}
+            </span>
+          </div>
           <AccessibilityMenu />
           <LanguageSwitcher />
           <Link

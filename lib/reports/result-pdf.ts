@@ -154,7 +154,7 @@ export function generateResultPdf(report: ResultReport): Promise<Buffer> {
 
     // ---- Footer ------------------------------------------------------------
     doc.font('Helvetica').fillColor('#94a3b8').fontSize(8);
-    doc.text('This is a computer-generated report from NEET Smart Practice.', LEFT, 800, { width: 495, align: 'center' });
+    doc.text('This is a computer-generated report from VVOC.', LEFT, 800, { width: 495, align: 'center' });
 
     doc.end();
   });

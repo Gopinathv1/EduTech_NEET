@@ -1,4 +1,4 @@
-// Prisma schema for the NEET Smart Practice & Admission Assistance Platform.
+// Prisma schema for the VVOC competitive-exam preparation platform.
 //
 // Multilingual convention:
 //   Simple label fields (subject/chapter/test/country/notification names, titles,
@@ -134,7 +134,7 @@ model Student {
   name              String
   email             String?  @unique
   mobile            String   @unique
-  passwordHash      String
+  passwordHash      String?
   state             String?
   district          String?
   schoolName        String?
@@ -682,7 +682,7 @@ model AppSetting {
 
 /// Fixed-window rate-limit counter, keyed by `<scope>:<identifier>` (e.g.
 /// "login:ip:1.2.3.4" or "login:id:9000000001"). Backs brute-force protection
-/// on the password-login and public contact endpoints. Rows are self-expiring:
+/// on authentication and public contact endpoints. Rows are self-expiring:
 /// once `windowEnd` passes, the next hit resets the window. A periodic cleanup
 /// job (or a TTL policy) can prune stale rows.
 model RateLimit {

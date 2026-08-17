@@ -23,8 +23,6 @@ type FormValues = {
   name: string;
   email: string;
   mobile: string;
-  password: string;
-  confirmPassword: string;
   state: string;
   district: string;
   schoolName: string;
@@ -54,8 +52,6 @@ export default function RegisterForm() {
       name: '',
       email: '',
       mobile: '',
-      password: '',
-      confirmPassword: '',
       state: DEFAULT_STATE,
       district: '',
       schoolName: '',
@@ -134,35 +130,6 @@ export default function RegisterForm() {
           autoComplete="tel"
           className={inputClass}
           {...register('mobile')}
-        />
-      </Field>
-
-      <Field
-        label={t('password')}
-        htmlFor="password"
-        hint={t('passwordHint')}
-        error={errors.password?.message}
-      >
-        <input
-          id="password"
-          type="password"
-          autoComplete="new-password"
-          className={inputClass}
-          {...register('password')}
-        />
-      </Field>
-
-      <Field
-        label={t('confirmPassword')}
-        htmlFor="confirmPassword"
-        error={errors.confirmPassword?.message}
-      >
-        <input
-          id="confirmPassword"
-          type="password"
-          autoComplete="new-password"
-          className={inputClass}
-          {...register('confirmPassword')}
         />
       </Field>
 

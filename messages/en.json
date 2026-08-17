@@ -1,10 +1,10 @@
 {
   "meta": {
-    "title": "NEET Smart Practice & Admission Assistance",
-    "description": "Affordable NEET mock tests and guidance for medical admissions abroad."
+    "title": "VVOC - Competitive Exam Preparation",
+    "description": "Practice previous-year questions, chapter-wise question banks, mock tests and detailed solutions - starting with NEET."
   },
   "nav": {
-    "brand": "NEET Smart Practice",
+    "brand": "VVOC",
     "language": "Language",
     "login": "Login",
     "register": "Register",
@@ -40,7 +40,7 @@
   },
   "publicNav": {
     "home": "Home",
-    "about": "About Us",
+    "about": "About",
     "whyUs": "Why Choose Us",
     "services": "Services",
     "mockTests": "Mock Tests",
@@ -48,8 +48,15 @@
     "countries": "Countries",
     "testimonials": "Testimonials",
     "faq": "FAQ",
-    "contact": "Contact Us",
-    "help": "Help"
+    "contact": "Contact",
+    "help": "Help",
+    "questionBank": "Question Bank",
+    "previousYear": "Previous Year Papers",
+    "resultsProgress": "Results/Progress",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "examNeet": "NEET",
+    "examJeeSoon": "JEE - Coming Soon"
   },
   "site": {
     "cta": {
@@ -59,93 +66,228 @@
       "contact": "Talk to us"
     },
     "footer": {
-      "blurb": "Affordable NEET mock tests and honest guidance for medical admissions abroad.",
+      "blurb": "VVOC helps students practise for competitive exams with question banks, mock tests and detailed review - starting with NEET.",
       "explore": "Explore",
       "company": "Company",
       "getStarted": "Get started",
-      "registerLink": "Create account",
+      "registerLink": "Get Started",
       "loginLink": "Login",
-      "contactLink": "Contact us",
+      "contactLink": "Contact",
       "disclaimer": "Disclaimer: Admission guidance is an advisory service. We clearly disclose the eligibility requirements and country-specific regulations for every destination, and outcomes depend on each university's admission criteria and the applicable authorities' rules. We do not guarantee admission.",
-      "rights": "NEET Smart Practice. All rights reserved."
+      "rights": "VVOC. All rights reserved.",
+      "exams": "Exams",
+      "neet": "NEET",
+      "jeeSoon": "JEE - Coming Soon",
+      "languages": "Languages",
+      "english": "English",
+      "tamil": "தமிழ்",
+      "hindi": "हिन्दी"
     }
   },
   "home": {
-    "badge": "Only ₹30 per test",
-    "title": "Practise smarter for NEET",
-    "subtitle": "Affordable previous-year pattern, chapter-wise and year-wise mock tests — built for Government School, State Board and rural students, and repeat NEET candidates.",
-    "ctaPractice": "Start practising",
-    "ctaLearn": "See mock tests",
-    "heroImageAlt": "A student practising a NEET mock test on a mobile phone",
-    "stats": [
+    "brand": "VVOC",
+    "title": "Prepare smarter for India's competitive exams.",
+    "subtitle": "Practice previous-year questions, chapter-wise question banks, mock tests and detailed solutions - starting with NEET.",
+    "ctaPrimary": "Start Practising",
+    "ctaSecondary": "Explore Question Bank",
+    "examSelectorLabel": "Available exams",
+    "examChips": [
       {
-        "value": "₹30",
-        "label": "Per mock test"
+        "label": "NEET",
+        "status": "Available",
+        "available": true
       },
       {
-        "value": "4",
-        "label": "NEET subjects"
-      },
-      {
-        "value": "2",
-        "label": "Languages"
-      },
-      {
-        "value": "6",
-        "label": "Study destinations"
+        "label": "JEE",
+        "status": "Coming Soon",
+        "available": false
       }
     ],
-    "featuresEyebrow": "Why students choose us",
-    "featuresTitle": "Everything you need to score higher",
-    "featuresSubtitle": "Focused, affordable practice with clear feedback — even on a slow connection.",
-    "features": [
-      {
-        "title": "Just ₹30 a test",
-        "body": "Full-length and topic tests at a price every student can afford. Pay only for what you attempt."
-      },
-      {
-        "title": "Smart analysis",
-        "body": "Subject, chapter and time-wise breakdowns after every test so you know exactly what to fix."
-      },
-      {
-        "title": "English & Tamil",
-        "body": "Take every test and read every explanation in English or Tamil."
-      },
-      {
-        "title": "Works on low data",
-        "body": "A fast, lightweight site designed for rural internet and budget phones."
-      }
+    "heroStats": [
+      "Previous-year questions",
+      "Chapter-wise practice",
+      "Mock tests",
+      "Detailed solutions"
     ],
-    "stepsEyebrow": "How it works",
-    "stepsTitle": "Start practising in three steps",
-    "stepLabel": "Step {n}",
-    "steps": [
-      {
-        "title": "Register free",
-        "body": "Sign up with your mobile number and verify with a quick OTP."
-      },
-      {
-        "title": "Pick a test",
-        "body": "Choose a full test, chapter-wise or year-wise practice for just ₹30."
-      },
-      {
-        "title": "Practise & improve",
-        "body": "Attempt with a timer, then review your detailed performance report."
-      }
-    ],
-    "admissionEyebrow": "Beyond NEET",
-    "admissionTitle": "Didn't secure a seat in India? You still have options.",
-    "admissionBody": "Our admission guidance team helps eligible students pursue medical degrees at recognised universities abroad.",
-    "admissionLink": "Admission guidance",
-    "countriesLink": "View countries",
-    "countryFlags": [
-      "🇷🇺",
-      "🇬🇪",
-      "🇰🇿",
-      "🇰🇬",
-      "🇺🇿",
-      "🇵🇭"
-    ]
+    "search": {
+      "label": "Search questions, chapters or topics",
+      "placeholder": "Search questions, chapters or topics",
+      "button": "Search",
+      "note": "Search UI is ready. Global search can be connected when the backend search index is implemented."
+    },
+    "quickActions": {
+      "eyebrow": "Start with what you need",
+      "title": "Practice paths for competitive exams",
+      "subtitle": "NEET is active now; the layout is ready for more exams without changing the public experience.",
+      "items": [
+        {
+          "title": "Question Bank",
+          "body": "Browse exam questions by subject, chapter and topic.",
+          "cta": "Explore questions",
+          "href": "#question-bank"
+        },
+        {
+          "title": "Previous Year Papers",
+          "body": "Practise questions shaped by real previous-year exam patterns.",
+          "cta": "View papers",
+          "href": "#previous-year-papers"
+        },
+        {
+          "title": "Mock Tests",
+          "body": "Attempt timed tests with autosave, scoring and review.",
+          "cta": "See mock tests",
+          "href": "/mock-tests"
+        },
+        {
+          "title": "Chapter-wise Practice",
+          "body": "Focus on one chapter at a time and build accuracy steadily.",
+          "cta": "Start chapter practice",
+          "href": "/mock-tests"
+        },
+        {
+          "title": "Topic-wise Practice",
+          "body": "Prepare topic by topic as the bank grows across exams.",
+          "cta": "Explore topics",
+          "href": "#question-bank"
+        },
+        {
+          "title": "Performance / Results",
+          "body": "Track attempts, scores, strong areas and weak chapters after login.",
+          "cta": "Go to progress",
+          "href": "/login"
+        }
+      ]
+    },
+    "neet": {
+      "eyebrow": "Active exam",
+      "title": "Explore NEET",
+      "subtitle": "NEET is the first active exam on VVOC. Subjects connect into chapters, topics, questions, previous-year practice and mock tests.",
+      "subjectCta": "Practise NEET",
+      "subjects": [
+        {
+          "title": "Physics",
+          "body": "Build concepts through chapter-wise and previous-year practice.",
+          "href": "/mock-tests"
+        },
+        {
+          "title": "Chemistry",
+          "body": "Practise physical, organic and inorganic topics through tests.",
+          "href": "/mock-tests"
+        },
+        {
+          "title": "Biology",
+          "body": "Cover Botany and Zoology with structured practice paths.",
+          "href": "/mock-tests"
+        }
+      ]
+    },
+    "discovery": {
+      "eyebrow": "Question discovery",
+      "title": "Filters designed for multiple exams",
+      "subtitle": "The public UI uses exam-agnostic filters so NEET works today and future exams can fit the same model.",
+      "filters": [
+        {
+          "label": "Exam",
+          "values": [
+            "NEET",
+            "JEE soon"
+          ]
+        },
+        {
+          "label": "Subject",
+          "values": [
+            "Physics",
+            "Chemistry",
+            "Biology"
+          ]
+        },
+        {
+          "label": "Chapter",
+          "values": [
+            "Class 11",
+            "Class 12"
+          ]
+        },
+        {
+          "label": "Topic",
+          "values": [
+            "Concepts",
+            "PYQs"
+          ]
+        },
+        {
+          "label": "Question type",
+          "values": [
+            "Single correct",
+            "Image based"
+          ]
+        },
+        {
+          "label": "Year",
+          "values": [
+            "Previous years"
+          ]
+        },
+        {
+          "label": "Difficulty",
+          "values": [
+            "Easy",
+            "Medium",
+            "Hard"
+          ]
+        },
+        {
+          "label": "Language",
+          "values": [
+            "English",
+            "Tamil",
+            "Hindi UI"
+          ]
+        }
+      ]
+    },
+    "pyq": {
+      "title": "Previous-year practice without fake counts",
+      "body": "VVOC surfaces previous-year style practice through the existing test catalogue. Counts will appear only when backed by real data.",
+      "cta": "Open mock tests"
+    },
+    "benefits": {
+      "eyebrow": "Why VVOC",
+      "title": "A practical exam-prep platform",
+      "subtitle": "Clear practice, honest scope and progress tracking without inflated claims.",
+      "items": [
+        {
+          "title": "Previous-year exam questions",
+          "body": "Practise with exam-relevant questions where data exists."
+        },
+        {
+          "title": "Chapter-wise practice",
+          "body": "Move through subjects in small, focused sessions."
+        },
+        {
+          "title": "Detailed solutions",
+          "body": "Review answers and explanations after attempts."
+        },
+        {
+          "title": "Mock tests",
+          "body": "Use timed tests to build exam rhythm."
+        },
+        {
+          "title": "English, Tamil and Hindi interface",
+          "body": "UI language is separate from reviewed question translations."
+        },
+        {
+          "title": "Track practice and results",
+          "body": "Students can review attempts, scores and weak areas after login."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Start with NEET. Grow with VVOC.",
+      "subtitle": "Create a passwordless student account and begin practising on the active NEET platform.",
+      "primary": "Get Started",
+      "secondary": "Login"
+    }
   },
   "footer": {
     "rights": "All rights reserved."
@@ -188,9 +330,6 @@
       "email": "Email",
       "mobile": "Mobile number",
       "mobileHint": "We'll send a 6-digit OTP to this number.",
-      "password": "Password",
-      "passwordHint": "At least 8 characters.",
-      "confirmPassword": "Confirm password",
       "state": "State",
       "district": "District",
       "school": "School name",
@@ -216,28 +355,12 @@
     "login": {
       "title": "Welcome back",
       "subtitle": "Login to your student account.",
-      "tabOtp": "Mobile + OTP",
-      "tabPassword": "Password",
-      "identifier": "Mobile or email",
       "mobile": "Mobile number",
-      "password": "Password",
       "requestOtp": "Send OTP",
       "submit": "Login",
       "noAccount": "New here?",
       "register": "Create an account",
-      "forgot": "Forgot password?",
       "adminLogin": "Admin login"
-    },
-    "forgot": {
-      "title": "Reset your password",
-      "subtitle": "We'll send an OTP to your registered mobile number.",
-      "mobile": "Mobile number",
-      "sendOtp": "Send OTP",
-      "otp": "OTP",
-      "newPassword": "New password",
-      "submit": "Reset password",
-      "success": "Password reset. Please login with your new password.",
-      "backToLogin": "Back to login"
     },
     "adminLogin": {
       "title": "Admin Login",
@@ -280,17 +403,15 @@
       "nameTooShort": "Please enter your full name.",
       "nameTooLong": "Name is too long.",
       "emailInvalid": "Enter a valid email address.",
-      "identifierInvalid": "Enter a valid mobile number or email address.",
+      "identifierInvalid": "Enter a valid mobile number.",
       "mobileInvalid": "Enter a valid 10-digit mobile number.",
-      "passwordTooShort": "Password must be at least 8 characters.",
-      "passwordTooLong": "Password is too long.",
-      "passwordMismatch": "Passwords do not match.",
       "schoolTooShort": "Please enter your school name.",
       "schoolTooLong": "School name is too long.",
       "otpInvalid": "Incorrect OTP. Please try again.",
       "otpExpired": "This OTP has expired. Please request a new one.",
       "tooManyAttempts": "Too many attempts. Please request a new OTP.",
       "rateLimited": "Too many OTP requests. Please wait a few minutes.",
+      "otpDeliveryFailed": "We could not send the OTP right now. Please try again shortly.",
       "mobileTaken": "This mobile number is already registered.",
       "emailTaken": "This email is already registered.",
       "conflict": "These details are already in use.",
@@ -300,6 +421,7 @@
       "notVerified": "Please verify your mobile number first.",
       "accountInactive": "This account is inactive. Contact support.",
       "unauthorized": "Please login to continue.",
+      "notAvailable": "This option is no longer available.",
       "messageTooShort": "Message must be at least 10 characters.",
       "messageTooLong": "Message is too long.",
       "consentRequired": "Please agree to be contacted.",
@@ -319,7 +441,7 @@
     "vision": "A future where a student's district, board or family income never decides whether they can become a doctor.",
     "storyTitle": "Our story",
     "story": [
-      "NEET Smart Practice began with a simple observation: thousands of capable students, especially from government and state-board schools, never get enough realistic practice because coaching and test series are expensive and mostly in English.",
+      "VVOC began with a simple observation: thousands of capable students, especially from government and state-board schools, never get enough realistic practice because coaching and test series are expensive and mostly in English.",
       "We built an affordable, mobile-first, bilingual platform where a full mock test costs just ₹30 — with clear, chapter-level feedback after every attempt.",
       "For students who work hard but still miss a seat in India, our admission guidance team explains the honest, regulated pathways to study medicine at recognised universities abroad."
     ],
@@ -346,7 +468,7 @@
   "whyChoose": {
     "eyebrow": "Why Choose Us",
     "heroTitle": "Built for real NEET aspirants, not just toppers",
-    "heroSubtitle": "Six reasons students and parents across Tamil Nadu trust NEET Smart Practice.",
+    "heroSubtitle": "Six reasons students and parents across Tamil Nadu trust VVOC.",
     "points": [
       {
         "title": "Genuinely affordable",
@@ -661,16 +783,16 @@
   },
   "seo": {
     "home": {
-      "title": "NEET Smart Practice — ₹30 NEET Mock Tests & Admission Guidance",
-      "description": "Affordable NEET mock tests at ₹30 — previous-year pattern, chapter-wise and year-wise practice in English & Tamil. Plus honest guidance for medical admissions abroad."
+      "title": "VVOC - Competitive Exam Preparation",
+      "description": "Prepare smarter for competitive exams with previous-year questions, chapter-wise question banks, mock tests and detailed solutions - starting with NEET."
     },
     "about": {
       "title": "About Us",
-      "description": "Learn how NEET Smart Practice makes quality, bilingual NEET preparation affordable for government-school, state-board and rural students across Tamil Nadu."
+      "description": "Learn how VVOC makes quality, bilingual NEET preparation affordable for government-school, state-board and rural students across Tamil Nadu."
     },
     "whyChoose": {
       "title": "Why Choose Us",
-      "description": "Affordable ₹30 tests, English & Tamil support, real exam pattern, detailed analytics and honest admission guidance — why aspirants trust NEET Smart Practice."
+      "description": "Affordable ₹30 tests, English & Tamil support, real exam pattern, detailed analytics and honest admission guidance — why aspirants trust VVOC."
     },
     "services": {
       "title": "Services",
@@ -698,11 +820,19 @@
     },
     "contact": {
       "title": "Contact Us",
-      "description": "Get in touch with NEET Smart Practice for questions about mock tests or admission guidance."
+      "description": "Get in touch with VVOC for questions about mock tests or admission guidance."
     },
     "help": {
       "title": "Help & Support",
       "description": "Step-by-step guides to register, buy and take NEET mock tests, read results, and contact admission guidance."
+    },
+    "terms": {
+      "title": "Terms & Conditions",
+      "description": "VVOC terms for competitive-exam preparation, mock tests and student accounts."
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "description": "How VVOC handles student account, OTP, test and progress information."
     }
   },
   "catalogue": {
@@ -1146,11 +1276,11 @@
     }
   },
   "sms": {
-    "otp": "Your NEET Smart Practice OTP is {otp}. Valid for {minutes} minutes. Do not share it with anyone."
+    "otp": "Your VVOC OTP is {otp}. Valid for {minutes} minutes. Do not share it with anyone."
   },
   "help": {
     "eyebrow": "Help & Support",
-    "heroTitle": "How to use NEET Smart Practice",
+    "heroTitle": "How to use VVOC",
     "heroSubtitle": "Simple, step-by-step guides to register, buy a test, take a test, read your results, and reach our admission team.",
     "screenshotLabel": "Screenshot",
     "stepLabel": "Step",
@@ -1158,15 +1288,14 @@
       {
         "id": "register",
         "title": "1. Create your account",
-        "intro": "You only need your name and a mobile number to start.",
+        "intro": "You only need your profile details and mobile number to start.",
         "steps": [
           "Tap “Register” on the home page.",
-          "Enter your name, mobile number, and choose your language (English or Tamil).",
-          "Create a password you will remember.",
+          "Enter your name, email, mobile number, location, school, class, board, and preferred language.",
           "Enter the 6-digit OTP sent to your mobile by SMS.",
           "Your account is ready — you are taken to your dashboard."
         ],
-        "shot": "The registration form with name, mobile, and language fields."
+        "shot": "The registration form with profile, school, and language fields."
       },
       {
         "id": "buyTest",

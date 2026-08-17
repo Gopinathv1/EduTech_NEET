@@ -15,8 +15,6 @@ const validBody = {
   name: 'Test Student',
   email: 'new@example.com',
   mobile: '9876543210',
-  password: 'secret12',
-  confirmPassword: 'secret12',
   state: 'Tamil Nadu',
   district: 'Chennai',
   schoolName: 'Govt Higher Secondary School',
@@ -48,7 +46,11 @@ describe('POST /api/auth/register', () => {
     expect(res.status).toBe(200);
     expect(json.registered).toBe(true);
     expect(json.mobile).toBe('9876543210');
-    expect(p.student.create).toHaveBeenCalled();
+    expect(p.student.create).toHaveBeenCalledWith(
+      expect.objectContaining({
+        data: expect.not.objectContaining({ passwordHash: expect.anything() }),
+      }),
+    );
   });
 
   it('blocks a mobile that already belongs to a verified account', async () => {
@@ -92,13 +94,17 @@ describe('POST /api/auth/register', () => {
     expect((await res.json()).error).toBe('validation');
   });
 
-  it('rejects mismatched password confirmation with 400', async () => {
-    const res = await POST(req({ ...validBody, confirmPassword: 'different12' }));
-    const json = await res.json();
+  it('does not require a password during registration', async () => {
+    p.student.findUnique.mockResolvedValue(null);
+    p.student.create.mockResolvedValue({ id: 's1' });
 
-    expect(res.status).toBe(400);
-    expect(json.error).toBe('validation');
-    expect(json.fields.confirmPassword).toContain('passwordMismatch');
-    expect(p.student.create).not.toHaveBeenCalled();
+    const res = await POST(req(validBody));
+
+    expect(res.status).toBe(200);
+    expect(p.student.create).toHaveBeenCalledWith(
+      expect.objectContaining({
+        data: expect.not.objectContaining({ passwordHash: expect.anything() }),
+      }),
+    );
   });
 });

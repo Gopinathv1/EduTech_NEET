@@ -17,6 +17,26 @@ export interface OtpProvider {
   sendEmail?(email: string, otp: string, subject: string, message: string): Promise<void>;
 }
 
+export class OtpDeliveryError extends Error {
+  constructor(message = 'OTP delivery failed') {
+    super(message);
+    this.name = 'OtpDeliveryError';
+  }
+}
+
+function maskMobile(mobile: string): string {
+  return `xxxxxx${mobile.slice(-4)}`;
+}
+
+function toMsg91Mobile(mobile: string): string {
+  const digits = mobile.replace(/\D/g, '');
+  const normalized = digits.length === 12 && digits.startsWith('91') ? digits.slice(2) : digits;
+  if (!/^[6-9]\d{9}$/.test(normalized)) {
+    throw new OtpDeliveryError('Invalid mobile number for OTP delivery');
+  }
+  return `91${normalized}`;
+}
+
 /** Dev/test provider: logs to the console. Never used in production. */
 export class ConsoleOtpProvider implements OtpProvider {
   async sendSms(mobile: string, otp: string, message: string): Promise<void> {
@@ -33,14 +53,55 @@ export class ConsoleOtpProvider implements OtpProvider {
  * Left as a thin, clearly-marked stub — wire the real HTTP call when going live.
  */
 export class Msg91OtpProvider implements OtpProvider {
-  constructor(private readonly apiKey: string) {}
+  constructor(
+    private readonly apiKey: string,
+    private readonly templateId: string,
+    private readonly otpVariableName = 'OTP',
+  ) {}
 
   async sendSms(mobile: string, otp: string, message: string): Promise<void> {
-    // TODO(go-live): POST to https://control.msg91.com/api/v5/flow/ with this.apiKey.
-    // Intentionally throws until configured so failures are loud, not silent.
-    throw new Error(
-      `Msg91OtpProvider not implemented. Would send OTP to +91${mobile} using message "${message}".`,
-    );
+    if (!/^\d{6}$/.test(otp)) {
+      throw new OtpDeliveryError('Invalid OTP format for delivery');
+    }
+
+    const msg91Mobile = toMsg91Mobile(mobile);
+    const url = new URL('https://control.msg91.com/api/v5/otp');
+    url.searchParams.set('template_id', this.templateId);
+    url.searchParams.set('mobile', msg91Mobile);
+    url.searchParams.set('authkey', this.apiKey);
+    // The app generates/stores/verifies the OTP; MSG91 is used for delivery.
+    url.searchParams.set('otp', otp);
+    url.searchParams.set('otp_expiry', '5');
+
+    try {
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: {
+          accept: 'application/json',
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify({ [this.otpVariableName]: otp }),
+      });
+      const payload = (await res.json().catch(() => null)) as { type?: string } | null;
+
+      if (!res.ok || payload?.type === 'error') {
+        console.error('[otp] MSG91 send failed', {
+          mobile: maskMobile(mobile),
+          status: res.status,
+          providerType: payload?.type ?? 'unknown',
+        });
+        throw new OtpDeliveryError();
+      }
+
+      console.log('[otp] MSG91 send accepted', { mobile: maskMobile(mobile), status: res.status });
+    } catch (err) {
+      if (err instanceof OtpDeliveryError) throw err;
+      console.error('[otp] MSG91 send errored', {
+        mobile: maskMobile(mobile),
+        message: err instanceof Error ? err.message : 'unknown',
+      });
+      throw new OtpDeliveryError();
+    }
   }
 }
 
@@ -73,7 +134,11 @@ export function getOtpProvider(): OtpProvider {
   if (!apiKey) {
     throw new Error('OTP_PROVIDER_API_KEY is required in production (or set OTP_DEV_MODE=true for testing)');
   }
-  cached = new Msg91OtpProvider(apiKey);
+  const templateId = process.env.OTP_PROVIDER_TEMPLATE_ID;
+  if (!templateId) {
+    throw new Error('OTP_PROVIDER_TEMPLATE_ID is required in production (or set OTP_DEV_MODE=true for testing)');
+  }
+  cached = new Msg91OtpProvider(apiKey, templateId, process.env.OTP_PROVIDER_OTP_VARIABLE ?? 'OTP');
   return cached;
 }
 

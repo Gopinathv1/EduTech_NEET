@@ -4,7 +4,7 @@ import { prisma } from '@/lib/prisma';
  * DB-backed fixed-window rate limiter (see the `RateLimit` model). Shared across
  * instances via Postgres, so it works on serverless/multi-instance hosts where
  * an in-memory limiter would not. Used to blunt brute-force / credential-
- * stuffing on password login and spam on the public contact form.
+ * stuffing on authentication endpoints and spam on the public contact form.
  *
  * For very high traffic a Redis/edge limiter is faster, but Postgres is more
  * than adequate for auth-endpoint volumes and needs no extra infrastructure.

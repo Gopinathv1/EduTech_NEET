@@ -22,7 +22,7 @@ export async function POST(req: Request) {
     return fail(otpErrorCode(result), result === 'too_many_attempts' ? 429 : 400);
   }
 
-  if (purpose === 'REGISTRATION' && !student.isMobileVerified) {
+  if (!student.isMobileVerified) {
     await prisma.student.update({
       where: { id: student.id },
       data: { isMobileVerified: true },

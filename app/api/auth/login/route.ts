@@ -1,40 +1,35 @@
 import { prisma } from '@/lib/prisma';
-import { passwordLoginSchema } from '@/lib/validation/auth';
-import { verifyPassword } from '@/lib/auth/password';
-import { createSession } from '@/lib/auth/session';
-import { syncLocaleFromProfile } from '@/lib/locale';
+import { loginOtpRequestSchema } from '@/lib/validation/auth';
+import { requestOtp } from '@/lib/auth/otp-service';
 import { enforceRateLimit, clientIp } from '@/lib/auth/rate-limit';
 import { ok, fail, readJson } from '@/lib/http';
 
 export const runtime = 'nodejs';
 
-// POST /api/auth/login — student password login by mobile OR email.
+// POST /api/auth/login — request a passwordless student login OTP by mobile.
 export async function POST(req: Request) {
-  const parsed = passwordLoginSchema.safeParse(await readJson(req));
+  const parsed = loginOtpRequestSchema.safeParse(await readJson(req));
   if (!parsed.success) return fail('validation', 400);
-  const { identifier, password } = parsed.data;
+  const { mobile } = parsed.data;
 
-  // Throttle brute force: cap attempts per IP and per identifier (10 / 10 min).
+  // Throttle login OTP requests per IP and per mobile before creating an OTP.
   const ip = clientIp(req);
-  for (const key of [`login:ip:${ip}`, `login:id:${identifier}`]) {
+  for (const key of [`login:ip:${ip}`, `login:mobile:${mobile}`]) {
     const retryAfter = await enforceRateLimit(key, { max: 10, windowSeconds: 600 });
     if (retryAfter !== null) return fail('rateLimited', 429, { retryAfterSeconds: retryAfter });
   }
 
-  const student = identifier.includes('@')
-    ? await prisma.student.findUnique({ where: { email: identifier } })
-    : await prisma.student.findUnique({ where: { mobile: identifier } });
+  const student = await prisma.student.findUnique({ where: { mobile } });
+  if (!student) return fail('accountNotFound', 404);
 
-  // Same generic error whether the account is missing or the password is wrong.
-  if (!student || !(await verifyPassword(password, student.passwordHash))) {
-    return fail('invalidCredentials', 401);
-  }
-  if (!student.isMobileVerified) {
-    return fail('notVerified', 403, { mobile: student.mobile });
+  const res = await requestOtp(mobile, 'LOGIN', {
+    email: student.email ?? undefined,
+    language: student.preferredLanguage,
+  });
+  if (!res.ok) {
+    if (res.reason === 'delivery_failed') return fail('otpDeliveryFailed', 502);
+    return fail('rateLimited', 429, { retryAfterSeconds: res.retryAfterSeconds });
   }
 
-  await createSession({ sub: student.id, kind: 'student', role: 'STUDENT', name: student.name });
-  // Restore the student's saved UI language as the active locale on this device.
-  await syncLocaleFromProfile(student.preferredLanguage);
-  return ok({ redirect: '/student' });
+  return ok({ mobile, devOtp: res.devOtp });
 }

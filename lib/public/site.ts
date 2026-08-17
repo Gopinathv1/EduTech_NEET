@@ -1,5 +1,5 @@
 // Site-wide constants for the public marketing website.
-export const SITE_NAME = 'NEET Smart Practice';
+export const SITE_NAME = 'VVOC';
 
 // Absolute base URL, used for canonical + Open Graph URLs. Override in prod via
 // NEXT_PUBLIC_SITE_URL (e.g. https://neetsmartpractice.com).

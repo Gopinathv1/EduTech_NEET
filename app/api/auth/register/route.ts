@@ -1,12 +1,11 @@
 import { Prisma } from '@prisma/client';
 import { prisma } from '@/lib/prisma';
 import { registerSchema } from '@/lib/validation/auth';
-import { hashPassword } from '@/lib/auth/password';
 import { ok, fail, readJson } from '@/lib/http';
 
 export const runtime = 'nodejs';
 
-// POST /api/auth/register — create an (unverified) student and send a mobile OTP.
+// POST /api/auth/register — create an unverified passwordless student account.
 export async function POST(req: Request) {
   const parsed = registerSchema.safeParse(await readJson(req));
   if (!parsed.success) {
@@ -30,7 +29,6 @@ export async function POST(req: Request) {
     name: d.name,
     email: d.email,
     mobile: d.mobile,
-    passwordHash: await hashPassword(d.password),
     state: d.state,
     district: d.district,
     schoolName: d.schoolName,

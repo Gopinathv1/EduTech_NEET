@@ -1,7 +1,7 @@
 import type { OtpPurpose } from '@prisma/client';
 import { getTranslations } from 'next-intl/server';
 import { createOtp, OTP_TTL_MINUTES } from '@/lib/auth/otp';
-import { getOtpProvider, isOtpEchoAllowed } from '@/lib/otp/provider';
+import { getOtpProvider, isOtpEchoAllowed, OtpDeliveryError } from '@/lib/otp/provider';
 import { locales, defaultLocale, type Locale } from '@/i18n/config';
 
 /**
@@ -11,7 +11,8 @@ import { locales, defaultLocale, type Locale } from '@/i18n/config';
  */
 export type RequestOtpResult =
   | { ok: true; expiresAt: Date; devOtp?: string }
-  | { ok: false; reason: 'rate_limited'; retryAfterSeconds: number };
+  | { ok: false; reason: 'rate_limited'; retryAfterSeconds: number }
+  | { ok: false; reason: 'delivery_failed' };
 
 export async function requestOtp(
   mobile: string,
@@ -29,7 +30,14 @@ export async function requestOtp(
       : defaultLocale;
   const t = await getTranslations({ locale, namespace: 'sms' });
   const message = t('otp', { otp: created.otp, minutes: OTP_TTL_MINUTES });
-  await getOtpProvider().sendSms(mobile, created.otp, message);
+  try {
+    await getOtpProvider().sendSms(mobile, created.otp, message);
+  } catch (err) {
+    if (err instanceof OtpDeliveryError) {
+      return { ok: false, reason: 'delivery_failed' };
+    }
+    throw err;
+  }
 
   return {
     ok: true,

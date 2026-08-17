@@ -85,7 +85,7 @@ export default function CheckoutClient({
       order_id: String(order.orderId),
       amount: Number(order.amount),
       currency: String(order.currency),
-      name: 'NEET Smart Practice',
+      name: 'VVOC',
       description: title,
       theme: { color: '#1e40af' },
       handler: async (resp) => {

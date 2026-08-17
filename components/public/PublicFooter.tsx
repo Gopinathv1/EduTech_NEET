@@ -28,7 +28,7 @@ export default function PublicFooter() {
   return (
     <footer className="border-t border-slate-200 bg-white">
       <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5">
           <div className="sm:col-span-2 lg:col-span-1">
             <Logo />
             <p className="mt-3 max-w-xs text-sm text-slate-600">{t('blurb')}</p>
@@ -53,6 +53,25 @@ export default function PublicFooter() {
                   {t('contactLink')}
                 </Link>
               </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-sm font-semibold text-slate-900">{t('exams')}</h3>
+            <ul className="mt-3 space-y-2">
+              <li>
+                <Link href="/#question-bank" className="text-sm text-slate-600 hover:text-brand">
+                  {t('neet')}
+                </Link>
+              </li>
+              <li>
+                <span className="text-sm text-slate-500">{t('jeeSoon')}</span>
+              </li>
+            </ul>
+            <h3 className="mt-6 text-sm font-semibold text-slate-900">{t('languages')}</h3>
+            <ul className="mt-3 space-y-2 text-sm text-slate-600">
+              <li>{t('english')}</li>
+              <li>{t('tamil')}</li>
+              <li>{t('hindi')}</li>
             </ul>
           </div>
         </div>

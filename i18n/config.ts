@@ -29,7 +29,7 @@ export const defaultLocale: Locale = 'en';
 export const localeEnabled: Record<Locale, boolean> = {
   en: true,
   ta: true,
-  hi: false, // scaffolded — messages/hi.json exists, awaiting Hindi translation
+  hi: true,
 };
 
 // Human-readable names shown in the language switcher (each in its own script).

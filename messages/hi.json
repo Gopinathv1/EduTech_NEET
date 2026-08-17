@@ -1,269 +1,392 @@
 {
   "meta": {
-    "title": "NEET Smart Practice & Admission Assistance",
-    "description": "Affordable NEET mock tests and guidance for medical admissions abroad."
+    "title": "VVOC - प्रतियोगी परीक्षा तैयारी",
+    "description": "पिछले वर्षों के प्रश्न, अध्याय-वार प्रश्न बैंक, मॉक टेस्ट और विस्तृत समाधान के साथ तैयारी करें - शुरुआत NEET से."
   },
   "nav": {
-    "brand": "NEET Smart Practice",
-    "language": "Language",
-    "login": "Login",
-    "register": "Register",
-    "logout": "Logout",
-    "profile": "Profile",
-    "dashboard": "Dashboard",
-    "tests": "Tests",
-    "payments": "Payments",
-    "performance": "Performance",
-    "admission": "Study Abroad",
-    "notifications": "Notifications",
-    "help": "Help"
+    "brand": "VVOC",
+    "language": "भाषा",
+    "login": "लॉगिन",
+    "register": "रजिस्टर",
+    "logout": "लॉगआउट",
+    "profile": "प्रोफाइल",
+    "dashboard": "डैशबोर्ड",
+    "tests": "टेस्ट",
+    "payments": "भुगतान",
+    "performance": "प्रदर्शन",
+    "admission": "विदेश में पढ़ाई",
+    "notifications": "सूचनाएं",
+    "help": "मदद"
   },
   "a11y": {
-    "skipToContent": "Skip to main content",
-    "menuLabel": "Accessibility",
-    "largeFont": "Large font",
-    "largeFontHint": "Make all text bigger and easier to read",
-    "highContrast": "High contrast",
-    "highContrastHint": "Stronger colours for better visibility",
-    "settingsTitle": "Accessibility & language",
-    "settingsSubtitle": "Adjust how the app looks and reads. Your choices are saved on this device.",
-    "language": "Display language",
-    "languageHint": "Choose the language for menus and buttons",
-    "on": "On",
-    "off": "Off",
-    "primaryNav": "Primary navigation",
-    "openMenu": "Open menu",
-    "previous": "Previous",
-    "next": "Next",
-    "goToSlide": "Go to testimonial {number}",
-    "homeLink": "Go to homepage"
+    "skipToContent": "मुख्य सामग्री पर जाएं",
+    "menuLabel": "एक्सेसिबिलिटी",
+    "largeFont": "बड़ा फ़ॉन्ट",
+    "largeFontHint": "सभी टेक्स्ट को बड़ा और पढ़ने में आसान बनाएं",
+    "highContrast": "हाई कॉन्ट्रास्ट",
+    "highContrastHint": "बेहतर दृश्यता के लिए रंगों को अधिक स्पष्ट करें",
+    "settingsTitle": "एक्सेसिबिलिटी और भाषा",
+    "settingsSubtitle": "ऐप कैसे दिखे और पढ़े, इसे बदलें. आपकी पसंद इस डिवाइस पर सेव होगी.",
+    "language": "डिस्प्ले भाषा",
+    "languageHint": "मेनू और बटन की भाषा चुनें",
+    "on": "चालू",
+    "off": "बंद",
+    "primaryNav": "मुख्य नेविगेशन",
+    "openMenu": "मेनू खोलें",
+    "previous": "पिछला",
+    "next": "अगला",
+    "goToSlide": "टेस्टिमोनियल {number} पर जाएं",
+    "homeLink": "होमपेज पर जाएं"
   },
   "publicNav": {
-    "home": "Home",
-    "about": "About Us",
-    "whyUs": "Why Choose Us",
-    "services": "Services",
-    "mockTests": "Mock Tests",
-    "admission": "Admission Guidance",
-    "countries": "Countries",
-    "testimonials": "Testimonials",
+    "home": "होम",
+    "about": "हमारे बारे में",
+    "whyUs": "हमें क्यों चुनें",
+    "services": "सेवाएं",
+    "mockTests": "मॉक टेस्ट",
+    "admission": "एडमिशन मार्गदर्शन",
+    "countries": "देश",
+    "testimonials": "प्रतिक्रिया",
     "faq": "FAQ",
-    "contact": "Contact Us",
-    "help": "Help"
+    "contact": "संपर्क",
+    "help": "मदद",
+    "questionBank": "प्रश्न बैंक",
+    "previousYear": "पिछले वर्ष के पेपर",
+    "resultsProgress": "परिणाम/प्रगति",
+    "terms": "नियम और शर्तें",
+    "privacy": "गोपनीयता नीति",
+    "examNeet": "NEET",
+    "examJeeSoon": "JEE - जल्द आ रहा है"
   },
   "site": {
     "cta": {
-      "title": "Ready to start practising?",
-      "subtitle": "Create a free account and take your first NEET mock test for just ₹30.",
-      "register": "Register free",
-      "contact": "Talk to us"
+      "title": "अभ्यास शुरू करने के लिए तैयार हैं?",
+      "subtitle": "मुफ्त अकाउंट बनाएं और अपना पहला NEET मॉक टेस्ट सिर्फ ₹30 में दें.",
+      "register": "मुफ्त रजिस्टर करें",
+      "contact": "हमसे बात करें"
     },
     "footer": {
-      "blurb": "Affordable NEET mock tests and honest guidance for medical admissions abroad.",
-      "explore": "Explore",
-      "company": "Company",
-      "getStarted": "Get started",
-      "registerLink": "Create account",
-      "loginLink": "Login",
-      "contactLink": "Contact us",
-      "disclaimer": "Disclaimer: Admission guidance is an advisory service. We clearly disclose the eligibility requirements and country-specific regulations for every destination, and outcomes depend on each university's admission criteria and the applicable authorities' rules. We do not guarantee admission.",
-      "rights": "NEET Smart Practice. All rights reserved."
+      "blurb": "VVOC छात्रों को प्रश्न बैंक, मॉक टेस्ट और विस्तृत समीक्षा के साथ प्रतियोगी परीक्षाओं की तैयारी में मदद करता है - शुरुआत NEET से.",
+      "explore": "एक्सप्लोर",
+      "company": "कंपनी",
+      "getStarted": "शुरू करें",
+      "registerLink": "शुरू करें",
+      "loginLink": "लॉगिन",
+      "contactLink": "संपर्क",
+      "disclaimer": "अस्वीकरण: एडमिशन मार्गदर्शन एक सलाहकारी सेवा है. हर देश और विश्वविद्यालय के नियम, पात्रता और निर्णय संबंधित संस्थाओं पर निर्भर करते हैं. हम एडमिशन की गारंटी नहीं देते.",
+      "rights": "VVOC. सर्वाधिकार सुरक्षित.",
+      "exams": "परीक्षाएं",
+      "neet": "NEET",
+      "jeeSoon": "JEE - जल्द आ रहा है",
+      "languages": "भाषाएं",
+      "english": "English",
+      "tamil": "தமிழ்",
+      "hindi": "हिन्दी"
     }
   },
   "home": {
-    "badge": "Only ₹30 per test",
-    "title": "Practise smarter for NEET",
-    "subtitle": "Affordable previous-year pattern, chapter-wise and year-wise mock tests — built for Government School, State Board and rural students, and repeat NEET candidates.",
-    "ctaPractice": "Start practising",
-    "ctaLearn": "See mock tests",
-    "heroImageAlt": "A student practising a NEET mock test on a mobile phone",
-    "stats": [
+    "brand": "VVOC",
+    "title": "भारत की प्रतियोगी परीक्षाओं के लिए बेहतर तैयारी करें.",
+    "subtitle": "पिछले वर्षों के प्रश्न, अध्याय-वार प्रश्न बैंक, मॉक टेस्ट और विस्तृत समाधान - अभी NEET से शुरुआत.",
+    "ctaPrimary": "अभ्यास शुरू करें",
+    "ctaSecondary": "प्रश्न बैंक देखें",
+    "examSelectorLabel": "उपलब्ध परीक्षाएं",
+    "examChips": [
       {
-        "value": "₹30",
-        "label": "Per mock test"
+        "label": "NEET",
+        "status": "उपलब्ध",
+        "available": true
       },
       {
-        "value": "4",
-        "label": "NEET subjects"
-      },
-      {
-        "value": "2",
-        "label": "Languages"
-      },
-      {
-        "value": "6",
-        "label": "Study destinations"
+        "label": "JEE",
+        "status": "जल्द आ रहा है",
+        "available": false
       }
     ],
-    "featuresEyebrow": "Why students choose us",
-    "featuresTitle": "Everything you need to score higher",
-    "featuresSubtitle": "Focused, affordable practice with clear feedback — even on a slow connection.",
-    "features": [
-      {
-        "title": "Just ₹30 a test",
-        "body": "Full-length and topic tests at a price every student can afford. Pay only for what you attempt."
-      },
-      {
-        "title": "Smart analysis",
-        "body": "Subject, chapter and time-wise breakdowns after every test so you know exactly what to fix."
-      },
-      {
-        "title": "English & Tamil",
-        "body": "Take every test and read every explanation in English or Tamil."
-      },
-      {
-        "title": "Works on low data",
-        "body": "A fast, lightweight site designed for rural internet and budget phones."
-      }
+    "heroStats": [
+      "पिछले वर्ष के प्रश्न",
+      "अध्याय-वार अभ्यास",
+      "मॉक टेस्ट",
+      "विस्तृत समाधान"
     ],
-    "stepsEyebrow": "How it works",
-    "stepsTitle": "Start practising in three steps",
-    "stepLabel": "Step {n}",
-    "steps": [
-      {
-        "title": "Register free",
-        "body": "Sign up with your mobile number and verify with a quick OTP."
-      },
-      {
-        "title": "Pick a test",
-        "body": "Choose a full test, chapter-wise or year-wise practice for just ₹30."
-      },
-      {
-        "title": "Practise & improve",
-        "body": "Attempt with a timer, then review your detailed performance report."
-      }
-    ],
-    "admissionEyebrow": "Beyond NEET",
-    "admissionTitle": "Didn't secure a seat in India? You still have options.",
-    "admissionBody": "Our admission guidance team helps eligible students pursue medical degrees at recognised universities abroad.",
-    "admissionLink": "Admission guidance",
-    "countriesLink": "View countries",
-    "countryFlags": [
-      "🇷🇺",
-      "🇬🇪",
-      "🇰🇿",
-      "🇰🇬",
-      "🇺🇿",
-      "🇵🇭"
-    ]
+    "search": {
+      "label": "प्रश्न, अध्याय या टॉपिक खोजें",
+      "placeholder": "प्रश्न, अध्याय या टॉपिक खोजें",
+      "button": "खोजें",
+      "note": "सर्च UI तैयार है. बैकएंड सर्च इंडेक्स लागू होने पर ग्लोबल सर्च जोड़ा जा सकता है."
+    },
+    "quickActions": {
+      "eyebrow": "अपनी जरूरत से शुरू करें",
+      "title": "प्रतियोगी परीक्षाओं के लिए अभ्यास पथ",
+      "subtitle": "NEET अभी सक्रिय है; यह लेआउट भविष्य की परीक्षाओं के लिए भी तैयार है.",
+      "items": [
+        {
+          "title": "प्रश्न बैंक",
+          "body": "विषय, अध्याय और टॉपिक के अनुसार परीक्षा प्रश्न देखें.",
+          "cta": "प्रश्न देखें",
+          "href": "#question-bank"
+        },
+        {
+          "title": "पिछले वर्ष के पेपर",
+          "body": "वास्तविक परीक्षा पैटर्न से जुड़े प्रश्नों का अभ्यास करें.",
+          "cta": "पेपर देखें",
+          "href": "#previous-year-papers"
+        },
+        {
+          "title": "मॉक टेस्ट",
+          "body": "टाइमर, ऑटोसेव, स्कोरिंग और रिव्यू के साथ टेस्ट दें.",
+          "cta": "मॉक टेस्ट देखें",
+          "href": "/mock-tests"
+        },
+        {
+          "title": "अध्याय-वार अभ्यास",
+          "body": "एक-एक अध्याय पर ध्यान देकर सटीकता बढ़ाएं.",
+          "cta": "अध्याय अभ्यास शुरू करें",
+          "href": "/mock-tests"
+        },
+        {
+          "title": "टॉपिक-वार अभ्यास",
+          "body": "प्रश्न बैंक बढ़ने के साथ टॉपिक के अनुसार तैयारी करें.",
+          "cta": "टॉपिक देखें",
+          "href": "#question-bank"
+        },
+        {
+          "title": "प्रदर्शन / परिणाम",
+          "body": "लॉगिन के बाद प्रयास, स्कोर, मजबूत और कमजोर अध्याय देखें.",
+          "cta": "प्रगति देखें",
+          "href": "/login"
+        }
+      ]
+    },
+    "neet": {
+      "eyebrow": "सक्रिय परीक्षा",
+      "title": "NEET एक्सप्लोर करें",
+      "subtitle": "NEET, VVOC पर पहली सक्रिय परीक्षा है. विषय आगे अध्याय, टॉपिक, प्रश्न, PYQ और मॉक टेस्ट से जुड़ते हैं.",
+      "subjectCta": "NEET अभ्यास करें",
+      "subjects": [
+        {
+          "title": "भौतिकी",
+          "body": "अध्याय-वार और पिछले वर्ष के अभ्यास से अवधारणाएं मजबूत करें.",
+          "href": "/mock-tests"
+        },
+        {
+          "title": "रसायन विज्ञान",
+          "body": "फिजिकल, ऑर्गेनिक और इनऑर्गेनिक टॉपिक का टेस्ट से अभ्यास करें.",
+          "href": "/mock-tests"
+        },
+        {
+          "title": "जीव विज्ञान",
+          "body": "बॉटनी और जूलॉजी को संरचित अभ्यास पथों से कवर करें.",
+          "href": "/mock-tests"
+        }
+      ]
+    },
+    "discovery": {
+      "eyebrow": "प्रश्न खोज",
+      "title": "कई परीक्षाओं के लिए बने फ़िल्टर",
+      "subtitle": "Public UI परीक्षा-agnostic फ़िल्टर इस्तेमाल करता है ताकि NEET आज चले और भविष्य की परीक्षाएं भी उसी मॉडल में फिट हों.",
+      "filters": [
+        {
+          "label": "परीक्षा",
+          "values": [
+            "NEET",
+            "JEE जल्द"
+          ]
+        },
+        {
+          "label": "विषय",
+          "values": [
+            "भौतिकी",
+            "रसायन विज्ञान",
+            "जीव विज्ञान"
+          ]
+        },
+        {
+          "label": "अध्याय",
+          "values": [
+            "कक्षा 11",
+            "कक्षा 12"
+          ]
+        },
+        {
+          "label": "टॉपिक",
+          "values": [
+            "कॉन्सेप्ट",
+            "PYQ"
+          ]
+        },
+        {
+          "label": "प्रश्न प्रकार",
+          "values": [
+            "सिंगल करेक्ट",
+            "इमेज आधारित"
+          ]
+        },
+        {
+          "label": "वर्ष",
+          "values": [
+            "पिछले वर्ष"
+          ]
+        },
+        {
+          "label": "कठिनाई",
+          "values": [
+            "आसान",
+            "मध्यम",
+            "कठिन"
+          ]
+        },
+        {
+          "label": "भाषा",
+          "values": [
+            "English",
+            "தமிழ்",
+            "हिन्दी UI"
+          ]
+        }
+      ]
+    },
+    "pyq": {
+      "title": "फर्जी संख्या के बिना पिछले वर्ष का अभ्यास",
+      "body": "VVOC मौजूदा टेस्ट catalogue के माध्यम से पिछले वर्ष के पैटर्न वाला अभ्यास दिखाता है. संख्या केवल वास्तविक डेटा होने पर दिखाई जाएगी.",
+      "cta": "मॉक टेस्ट खोलें"
+    },
+    "benefits": {
+      "eyebrow": "VVOC क्यों",
+      "title": "व्यावहारिक परीक्षा-तैयारी प्लेटफॉर्म",
+      "subtitle": "बढ़ा-चढ़ाकर दावे किए बिना स्पष्ट अभ्यास, ईमानदार scope और progress tracking.",
+      "items": [
+        {
+          "title": "पिछले वर्षों के परीक्षा प्रश्न",
+          "body": "जहां डेटा उपलब्ध है, वहां परीक्षा-संबंधित प्रश्नों से अभ्यास करें."
+        },
+        {
+          "title": "अध्याय-वार अभ्यास",
+          "body": "विषयों को छोटे और focused sessions में पूरा करें."
+        },
+        {
+          "title": "विस्तृत समाधान",
+          "body": "प्रयास के बाद उत्तर और explanations review करें."
+        },
+        {
+          "title": "मॉक टेस्ट",
+          "body": "Timed tests से exam rhythm बनाएं."
+        },
+        {
+          "title": "English, Tamil और Hindi interface",
+          "body": "UI language, reviewed question translations से अलग है."
+        },
+        {
+          "title": "अभ्यास और परिणाम tracking",
+          "body": "Students login के बाद attempts, scores और weak areas देख सकते हैं."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "NEET से शुरू करें. VVOC के साथ आगे बढ़ें.",
+      "subtitle": "Passwordless student account बनाएं और active NEET platform पर अभ्यास शुरू करें.",
+      "primary": "शुरू करें",
+      "secondary": "लॉगिन"
+    }
   },
   "footer": {
     "rights": "All rights reserved."
   },
   "student": {
     "dashboardTitle": "Student Dashboard",
-    "dashboardPlaceholder": "Your tests, results and reports will appear here.",
-    "greeting": "Welcome, {name}!",
-    "editProfile": "Edit profile",
-    "browseTests": "Browse tests",
+    "dashboardPlaceholder": "आपके tests, results और reports यहां दिखाई देंगे.",
+    "greeting": "स्वागत है, {name}!",
+    "editProfile": "Profile edit करें",
+    "browseTests": "Tests देखें",
     "paymentsLink": "Payment history",
-    "myTests": "Your tests",
-    "noTests": "You haven't purchased any tests yet.",
-    "startTest": "Start",
-    "notifications": "Notifications",
-    "noNotifications": "No notifications yet.",
+    "myTests": "आपके tests",
+    "noTests": "आपने अभी कोई test नहीं खरीदा है.",
+    "startTest": "शुरू करें",
+    "notifications": "सूचनाएं",
+    "noNotifications": "अभी कोई notification नहीं.",
     "performanceLink": "Performance"
   },
   "admin": {
     "dashboardTitle": "Admin Dashboard",
-    "dashboardPlaceholder": "Question bank, mock tests, payments and student data will appear here.",
-    "greeting": "Signed in as {name}",
+    "dashboardPlaceholder": "Question bank, mock tests, payments और student data यहां दिखाई देंगे.",
+    "greeting": "{name} के रूप में signed in",
     "superAreaTitle": "System Configuration",
-    "superAreaPlaceholder": "Super-admin-only: manage admins, access logs and system settings."
+    "superAreaPlaceholder": "Super-admin only: admins, access logs और system settings manage करें."
   },
   "auth": {
     "common": {
-      "submit": "Submit",
-      "back": "Back",
-      "continue": "Continue",
-      "sending": "Sending…",
-      "verifying": "Verifying…",
-      "saving": "Saving…",
-      "loggingIn": "Signing in…"
+      "submit": "सबमिट",
+      "back": "वापस",
+      "continue": "जारी रखें",
+      "sending": "भेजा जा रहा है…",
+      "verifying": "सत्यापित हो रहा है…",
+      "saving": "सेव हो रहा है…",
+      "loggingIn": "साइन इन हो रहा है…"
     },
     "register": {
-      "title": "Create your account",
-      "subtitle": "Register to start practising NEET mock tests for just ₹30.",
-      "name": "Full name",
-      "email": "Email",
-      "mobile": "Mobile number",
-      "mobileHint": "We'll send a 6-digit OTP to this number.",
-      "password": "Password",
-      "passwordHint": "At least 8 characters.",
-      "confirmPassword": "Confirm password",
-      "state": "State",
-      "district": "District",
-      "school": "School name",
-      "class": "Class",
-      "board": "Board",
-      "language": "Preferred language",
-      "submit": "Register",
-      "submitting": "Creating account…",
-      "haveAccount": "Already have an account?",
-      "login": "Login"
+      "title": "अपना अकाउंट बनाएं",
+      "subtitle": "NEET मॉक टेस्ट का अभ्यास शुरू करने के लिए रजिस्टर करें.",
+      "name": "पूरा नाम",
+      "email": "ईमेल",
+      "mobile": "मोबाइल नंबर",
+      "mobileHint": "इस नंबर पर 6 अंकों का OTP भेजा जाएगा.",
+      "state": "राज्य",
+      "district": "जिला",
+      "school": "स्कूल का नाम",
+      "class": "कक्षा",
+      "board": "बोर्ड",
+      "language": "पसंदीदा भाषा",
+      "submit": "रजिस्टर",
+      "submitting": "अकाउंट बन रहा है…",
+      "haveAccount": "पहले से अकाउंट है?",
+      "login": "लॉगिन"
     },
     "otp": {
-      "title": "Verify your mobile",
-      "subtitle": "Enter the 6-digit code sent to {mobile}.",
+      "title": "मोबाइल सत्यापित करें",
+      "subtitle": "{mobile} पर भेजा गया 6 अंकों का कोड दर्ज करें.",
       "label": "OTP",
-      "verify": "Verify",
-      "resend": "Resend OTP",
-      "resendIn": "Resend in {seconds}s",
-      "sent": "A new OTP has been sent.",
-      "devHint": "Dev mode: your OTP is {otp}",
-      "changeNumber": "Change number"
+      "verify": "सत्यापित करें",
+      "resend": "OTP फिर भेजें",
+      "resendIn": "{seconds}s में फिर भेजें",
+      "sent": "नया OTP भेज दिया गया है.",
+      "devHint": "Dev mode: आपका OTP {otp} है",
+      "changeNumber": "नंबर बदलें"
     },
     "login": {
-      "title": "Welcome back",
-      "subtitle": "Login to your student account.",
-      "tabOtp": "Mobile + OTP",
-      "tabPassword": "Password",
-      "identifier": "Mobile or email",
-      "mobile": "Mobile number",
-      "password": "Password",
-      "requestOtp": "Send OTP",
-      "submit": "Login",
-      "noAccount": "New here?",
-      "register": "Create an account",
-      "forgot": "Forgot password?",
+      "title": "वापसी पर स्वागत है",
+      "subtitle": "अपने student account में लॉगिन करें.",
+      "mobile": "मोबाइल नंबर",
+      "requestOtp": "OTP भेजें",
+      "submit": "लॉगिन",
+      "noAccount": "नए हैं?",
+      "register": "अकाउंट बनाएं",
       "adminLogin": "Admin login"
-    },
-    "forgot": {
-      "title": "Reset your password",
-      "subtitle": "We'll send an OTP to your registered mobile number.",
-      "mobile": "Mobile number",
-      "sendOtp": "Send OTP",
-      "otp": "OTP",
-      "newPassword": "New password",
-      "submit": "Reset password",
-      "success": "Password reset. Please login with your new password.",
-      "backToLogin": "Back to login"
     },
     "adminLogin": {
       "title": "Admin Login",
-      "subtitle": "Authorised staff only.",
-      "email": "Email",
+      "subtitle": "केवल अधिकृत staff के लिए.",
+      "email": "ईमेल",
       "password": "Password",
-      "submit": "Login",
+      "submit": "लॉगिन",
       "studentLogin": "Student login"
     },
     "profile": {
-      "title": "Profile settings",
-      "subtitle": "Update your details. Changing your language switches the app language.",
-      "name": "Full name",
-      "school": "School name",
-      "class": "Class",
-      "board": "Board",
-      "language": "Preferred language",
-      "save": "Save changes",
-      "success": "Profile updated.",
-      "readonlyNote": "Mobile and email cannot be changed here.",
-      "backToDashboard": "Back to dashboard"
+      "title": "प्रोफाइल सेटिंग्स",
+      "subtitle": "अपनी जानकारी अपडेट करें. भाषा बदलने से ऐप की भाषा बदलती है.",
+      "name": "पूरा नाम",
+      "school": "स्कूल का नाम",
+      "class": "कक्षा",
+      "board": "बोर्ड",
+      "language": "पसंदीदा भाषा",
+      "save": "बदलाव सेव करें",
+      "success": "प्रोफाइल अपडेट हो गई.",
+      "readonlyNote": "मोबाइल और ईमेल यहां बदले नहीं जा सकते.",
+      "backToDashboard": "डैशबोर्ड पर वापस"
     },
     "options": {
       "class": {
-        "11": "Class 11",
-        "12": "Class 12",
+        "11": "कक्षा 11",
+        "12": "कक्षा 12",
         "Repeater": "Repeater"
       },
       "board": {
@@ -273,223 +396,222 @@
       }
     },
     "errors": {
-      "generic": "Something went wrong. Please try again.",
-      "validation": "Please check the highlighted fields.",
-      "network": "Network error. Please check your connection.",
-      "required": "This field is required.",
-      "nameTooShort": "Please enter your full name.",
-      "nameTooLong": "Name is too long.",
-      "emailInvalid": "Enter a valid email address.",
-      "identifierInvalid": "Enter a valid mobile number or email address.",
-      "mobileInvalid": "Enter a valid 10-digit mobile number.",
-      "passwordTooShort": "Password must be at least 8 characters.",
-      "passwordTooLong": "Password is too long.",
-      "passwordMismatch": "Passwords do not match.",
-      "schoolTooShort": "Please enter your school name.",
-      "schoolTooLong": "School name is too long.",
-      "otpInvalid": "Incorrect OTP. Please try again.",
-      "otpExpired": "This OTP has expired. Please request a new one.",
-      "tooManyAttempts": "Too many attempts. Please request a new OTP.",
-      "rateLimited": "Too many OTP requests. Please wait a few minutes.",
-      "mobileTaken": "This mobile number is already registered.",
-      "emailTaken": "This email is already registered.",
-      "conflict": "These details are already in use.",
-      "accountNotFound": "No account found for this number.",
-      "alreadyVerified": "This number is already verified. Please login.",
-      "invalidCredentials": "Incorrect login details.",
-      "notVerified": "Please verify your mobile number first.",
-      "accountInactive": "This account is inactive. Contact support.",
-      "unauthorized": "Please login to continue.",
-      "messageTooShort": "Message must be at least 10 characters.",
-      "messageTooLong": "Message is too long.",
-      "consentRequired": "Please agree to be contacted.",
-      "countryRequired": "Select at least one country.",
-      "scoreRange": "Enter a score between 0 and 720.",
-      "selectRequired": "Please choose an option.",
-      "leadExists": "You already have an admission request."
+      "generic": "कुछ गलत हुआ. कृपया फिर कोशिश करें.",
+      "validation": "कृपया highlighted fields जांचें.",
+      "network": "Network error. कृपया connection जांचें.",
+      "required": "यह field आवश्यक है.",
+      "nameTooShort": "कृपया अपना पूरा नाम दर्ज करें.",
+      "nameTooLong": "नाम बहुत लंबा है.",
+      "emailInvalid": "मान्य ईमेल दर्ज करें.",
+      "identifierInvalid": "मान्य मोबाइल नंबर दर्ज करें.",
+      "mobileInvalid": "मान्य 10 अंकों का मोबाइल नंबर दर्ज करें.",
+      "schoolTooShort": "कृपया स्कूल का नाम दर्ज करें.",
+      "schoolTooLong": "स्कूल का नाम बहुत लंबा है.",
+      "otpInvalid": "गलत OTP. कृपया फिर कोशिश करें.",
+      "otpExpired": "यह OTP expire हो गया है. नया OTP मांगें.",
+      "tooManyAttempts": "बहुत अधिक attempts. कृपया नया OTP मांगें.",
+      "rateLimited": "बहुत अधिक OTP requests. कृपया कुछ मिनट प्रतीक्षा करें.",
+      "otpDeliveryFailed": "अभी OTP भेजा नहीं जा सका. थोड़ी देर बाद फिर कोशिश करें.",
+      "mobileTaken": "यह मोबाइल नंबर पहले से registered है.",
+      "emailTaken": "यह ईमेल पहले से registered है.",
+      "conflict": "ये details पहले से उपयोग में हैं.",
+      "accountNotFound": "इस नंबर के लिए कोई account नहीं मिला.",
+      "alreadyVerified": "यह नंबर पहले से verified है. कृपया login करें.",
+      "invalidCredentials": "Login details गलत हैं.",
+      "notVerified": "कृपया पहले मोबाइल नंबर verify करें.",
+      "accountInactive": "यह account inactive है. Support से संपर्क करें.",
+      "unauthorized": "जारी रखने के लिए login करें.",
+      "notAvailable": "यह option अब उपलब्ध नहीं है.",
+      "messageTooShort": "Message कम से कम 10 characters का होना चाहिए.",
+      "messageTooLong": "Message बहुत लंबा है.",
+      "consentRequired": "कृपया contact किए जाने की अनुमति दें.",
+      "countryRequired": "कम से कम एक country चुनें.",
+      "scoreRange": "0 से 720 के बीच score दर्ज करें.",
+      "selectRequired": "कृपया एक option चुनें.",
+      "leadExists": "आपकी admission request पहले से मौजूद है."
     }
   },
   "about": {
-    "eyebrow": "About Us",
-    "heroTitle": "Making quality NEET preparation affordable for everyone",
-    "heroSubtitle": "We help Tamil Nadu's government-school, state-board and rural students prepare for NEET — and guide those who need it toward medical seats abroad.",
-    "missionTitle": "Our mission",
-    "mission": "To remove cost and language as barriers to NEET preparation, so every serious aspirant can practise, measure progress and improve — for the price of a bus ticket.",
-    "visionTitle": "Our vision",
-    "vision": "A future where a student's district, board or family income never decides whether they can become a doctor.",
-    "storyTitle": "Our story",
+    "eyebrow": "हमारे बारे में",
+    "heroTitle": "गुणवत्तापूर्ण NEET तैयारी को सभी के लिए किफायती बनाना",
+    "heroSubtitle": "हम तमिलनाडु के government-school, state-board और rural students को NEET की तैयारी में मदद करते हैं - और जरूरत पड़ने पर विदेश में medical seats के रास्ते समझाते हैं.",
+    "missionTitle": "हमारा मिशन",
+    "mission": "Cost और language को NEET preparation की बाधा न बनने देना, ताकि हर serious aspirant practice, progress measure और improve कर सके.",
+    "visionTitle": "हमारा vision",
+    "vision": "ऐसा भविष्य जहां student का district, board या family income doctor बनने की संभावना तय न करे.",
+    "storyTitle": "हमारी कहानी",
     "story": [
-      "NEET Smart Practice began with a simple observation: thousands of capable students, especially from government and state-board schools, never get enough realistic practice because coaching and test series are expensive and mostly in English.",
-      "We built an affordable, mobile-first, bilingual platform where a full mock test costs just ₹30 — with clear, chapter-level feedback after every attempt.",
-      "For students who work hard but still miss a seat in India, our admission guidance team explains the honest, regulated pathways to study medicine at recognised universities abroad."
+      "VVOC एक simple observation से शुरू हुआ: कई capable students को realistic practice नहीं मिलती क्योंकि coaching और test series महंगी और mostly English में होती हैं.",
+      "हमने affordable, mobile-first, bilingual platform बनाया जहां mock tests clear chapter-level feedback के साथ मिलते हैं.",
+      "जो students मेहनत के बावजूद India में seat miss करते हैं, उनके लिए हमारी admission guidance team विदेश में recognised universities के regulated रास्ते समझाती है."
     ],
-    "valuesTitle": "What we stand for",
+    "valuesTitle": "हम किन बातों पर खड़े हैं",
     "values": [
       {
         "title": "Affordable",
-        "body": "Practice priced for every student, not just those who can afford coaching."
+        "body": "Practice हर student के budget के हिसाब से, सिर्फ coaching afford करने वालों के लिए नहीं."
       },
       {
         "title": "Honest",
-        "body": "Clear eligibility and regulations up front — no false promises."
+        "body": "Eligibility और regulations पहले से साफ - कोई false promises नहीं."
       },
       {
         "title": "Accessible",
-        "body": "Bilingual, mobile-first and light enough for rural connections."
+        "body": "Bilingual, mobile-first और rural connections पर भी हल्का."
       },
       {
         "title": "Student-first",
-        "body": "Every decision starts with what helps the aspirant."
+        "body": "हर decision aspirant की मदद से शुरू होता है."
       }
     ]
   },
   "whyChoose": {
-    "eyebrow": "Why Choose Us",
-    "heroTitle": "Built for real NEET aspirants, not just toppers",
-    "heroSubtitle": "Six reasons students and parents across Tamil Nadu trust NEET Smart Practice.",
+    "eyebrow": "हमें क्यों चुनें",
+    "heroTitle": "Real NEET aspirants के लिए बना, सिर्फ toppers के लिए नहीं",
+    "heroSubtitle": "Tamil Nadu के students और parents VVOC पर क्यों भरोसा करते हैं.",
     "points": [
       {
-        "title": "Genuinely affordable",
-        "body": "At ₹30 a test there's no big upfront fee — start with a single test and add more when you want."
+        "title": "वास्तव में किफायती",
+        "body": "बड़ा upfront fee नहीं - एक test से शुरू करें और जरूरत पर और जोड़ें."
       },
       {
-        "title": "Bilingual by design",
-        "body": "Questions, options and explanations in both English and Tamil, so language never holds you back."
+        "title": "Bilingual design",
+        "body": "Questions, options और explanations English और Tamil में, ताकि language बाधा न बने."
       },
       {
         "title": "Real exam pattern",
-        "body": "Previous-year pattern, chapter-wise and year-wise tests that mirror the actual NEET blueprint and weightage."
+        "body": "Previous-year pattern, chapter-wise और year-wise tests जो NEET blueprint और weightage से जुड़े हैं."
       },
       {
         "title": "Detailed feedback",
-        "body": "See accuracy and time spent by subject and chapter, so you revise what actually matters."
+        "body": "Subject और chapter के हिसाब से accuracy और time देखें, ताकि सही चीज revise करें."
       },
       {
         "title": "Low-bandwidth friendly",
-        "body": "A fast, lightweight platform that works on modest phones and slow rural internet."
+        "body": "Budget phones और slow rural internet पर चलने वाला fast, lightweight platform."
       },
       {
-        "title": "Guidance beyond the exam",
-        "body": "Missed a seat in India? Get honest advice on studying medicine abroad."
+        "title": "Exam के आगे guidance",
+        "body": "India में seat miss हुई? Medicine abroad पर honest advice लें."
       }
     ]
   },
   "services": {
-    "eyebrow": "Services",
-    "heroTitle": "What we offer",
-    "heroSubtitle": "Everything an aspirant needs — from daily practice to admission guidance.",
+    "eyebrow": "सेवाएं",
+    "heroTitle": "हम क्या देते हैं",
+    "heroSubtitle": "Daily practice से admission guidance तक, aspirant की जरूरत की चीजें.",
     "items": [
       {
         "title": "Full-length mock tests",
-        "body": "Previous-year pattern papers that simulate the real NEET exam, with a timer and autosave."
+        "body": "Timer और autosave के साथ real NEET exam जैसा previous-year pattern paper."
       },
       {
         "title": "Chapter & year-wise practice",
-        "body": "Target weak chapters or practise a specific year's paper — all for ₹30 each."
+        "body": "Weak chapters target करें या किसी specific year का paper practice करें."
       },
       {
         "title": "Performance analytics",
-        "body": "Subject, chapter and time analysis after every attempt to sharpen your revision."
+        "body": "हर attempt के बाद subject, chapter और time analysis."
       },
       {
         "title": "Bilingual learning",
-        "body": "Take tests and read explanations in English or Tamil, your choice."
+        "body": "English या Tamil में tests और explanations पढ़ें."
       },
       {
         "title": "Admission guidance",
-        "body": "Advisory support on recognised medical universities abroad for eligible students."
+        "body": "Eligible students के लिए abroad recognised medical universities पर advisory support."
       },
       {
         "title": "Timely notifications",
-        "body": "Stay updated on new tests, offers and important admission alerts."
+        "body": "New tests, offers और important admission alerts पर updated रहें."
       }
     ]
   },
   "mockTests": {
-    "eyebrow": "NEET Mock Tests",
-    "heroTitle": "Realistic NEET practice for just ₹30 a test",
-    "heroSubtitle": "Previous-year pattern, chapter-wise and year-wise tests — with a timer, autosave and detailed analysis.",
-    "typesTitle": "Three ways to practise",
-    "typesSubtitle": "Pick what fits your preparation today.",
+    "eyebrow": "NEET मॉक टेस्ट",
+    "heroTitle": "सिर्फ ₹30 प्रति टेस्ट में realistic NEET practice",
+    "heroSubtitle": "Previous-year pattern, chapter-wise और year-wise tests - timer, autosave और detailed analysis के साथ.",
+    "typesTitle": "अभ्यास के तीन तरीके",
+    "typesSubtitle": "आज की preparation के अनुसार चुनें.",
     "types": [
       {
         "title": "Previous-year pattern",
-        "body": "Full-length tests that follow the latest NEET blueprint and subject weightage."
+        "body": "Latest NEET blueprint और subject weightage follow करने वाले full-length tests."
       },
       {
         "title": "Chapter-wise practice",
-        "body": "Drill a single chapter until you're confident, then move to the next."
+        "body": "एक chapter को confidence आने तक drill करें, फिर अगले पर जाएं."
       },
       {
         "title": "Year-wise practice",
-        "body": "Attempt a specific year's paper to benchmark yourself against real exams."
+        "body": "Real exams से benchmark करने के लिए किसी specific year का paper attempt करें."
       }
     ],
-    "featuresTitle": "Every test includes",
+    "featuresTitle": "हर test में शामिल",
     "features": [
-      "A real exam-style timer with autosave, so you never lose progress",
+      "Real exam-style timer with autosave",
       "Questions in English and Tamil",
-      "Mark-for-review and easy navigation between questions",
-      "Instant scoring with the NEET +4 / −1 scheme",
-      "Chapter, subject and time-wise performance analysis",
-      "A downloadable report after every attempt"
+      "Mark-for-review और easy navigation",
+      "NEET +4 / -1 scheme से instant scoring",
+      "Chapter, subject और time-wise analysis",
+      "हर attempt के बाद downloadable report"
     ],
     "pricing": {
       "title": "Simple pricing",
       "price": "₹30",
-      "per": "per test",
+      "per": "प्रति test",
       "points": [
         "No subscription, no hidden charges",
-        "Pay per test, only for what you attempt",
+        "Pay per test",
         "Secure payment via Razorpay"
       ],
-      "cta": "Register to start",
-      "note": "Create a free account first — then buy any test for ₹30."
+      "cta": "शुरू करने के लिए register करें",
+      "note": "पहले free account बनाएं - फिर कोई भी test ₹30 में खरीदें."
     }
   },
   "admission": {
     "eyebrow": "Admission Guidance",
-    "heroTitle": "A second pathway to your medical dream",
-    "heroSubtitle": "For students who work hard but don't secure a medical seat in India, we explain the honest, regulated route to studying medicine abroad.",
+    "heroTitle": "Medical dream के लिए दूसरा रास्ता",
+    "heroSubtitle": "जो students मेहनत के बाद भी India में medical seat नहीं पाते, उन्हें हम abroad medicine study का honest और regulated route समझाते हैं.",
     "intro": [
-      "Every year many capable students narrowly miss an MBBS seat in India because of limited seats and high cut-offs. Giving up on medicine isn't the only option.",
-      "Our admission guidance service helps eligible students explore recognised medical universities in approved countries — with clear information about cost, eligibility and the rules that apply."
+      "हर साल कई capable students limited seats और high cut-offs के कारण India में MBBS seat narrowly miss करते हैं. Medicine छोड़ना ही एकमात्र option नहीं है.",
+      "हमारी admission guidance service eligible students को approved countries की recognised medical universities explore करने में मदद करती है - cost, eligibility और लागू rules साफ बताते हुए."
     ],
-    "processTitle": "How our guidance works",
-    "processSubtitle": "A simple, transparent process.",
+    "processTitle": "हमारी guidance कैसे काम करती है",
+    "processSubtitle": "Simple और transparent process.",
     "process": [
       {
-        "title": "Share your profile",
-        "body": "Tell us your NEET score, budget and preferences through a short enquiry."
+        "title": "अपनी profile share करें",
+        "body": "Short enquiry में अपना NEET score, budget और preferences बताएं."
       },
       {
-        "title": "Get matched",
-        "body": "We suggest suitable countries and universities based on your eligibility."
+        "title": "Suitable options पाएं",
+        "body": "Eligibility के आधार पर suitable countries और universities suggest किए जाते हैं."
       },
       {
-        "title": "Understand the details",
-        "body": "We explain cost, duration, eligibility and the country-specific regulations."
+        "title": "Details समझें",
+        "body": "Cost, duration, eligibility और country-specific regulations समझाए जाते हैं."
       },
       {
-        "title": "Apply with support",
-        "body": "Our team guides you through documentation and the application steps."
+        "title": "Support के साथ apply करें",
+        "body": "Documentation और application steps में हमारी team guide करती है."
       }
     ],
     "countriesTitle": "Approved study destinations",
-    "countriesBody": "We guide students toward recognised universities in these countries.",
-    "countriesLink": "Explore all countries",
-    "disclosureTitle": "Eligibility & regulations — disclosed clearly",
-    "disclosure": "Admission guidance is an advisory service. Eligibility to study medicine abroad and to practise afterwards depends on your NEET qualification, each university's criteria, and the regulations of India and the destination country (including any screening or licensing examinations). We clearly disclose these requirements for every destination and do not guarantee admission."
+    "countriesBody": "हम students को इन countries की recognised universities की ओर guide करते हैं.",
+    "countriesLink": "सभी countries देखें",
+    "disclosureTitle": "Eligibility और regulations साफ बताए जाते हैं",
+    "disclosure": "Admission guidance advisory service है. Abroad medicine study और बाद में practice करने की eligibility आपके NEET qualification, university criteria और India/destination country के regulations पर निर्भर करती है. हम requirements साफ बताते हैं और admission guarantee नहीं करते."
   },
   "countries": {
-    "eyebrow": "Countries",
-    "heroTitle": "Approved destinations to study medicine abroad",
-    "heroSubtitle": "An overview of recognised study destinations, with why students choose them, approximate costs and key eligibility notes.",
-    "intro": "These are the countries we guide eligible students toward. Costs are approximate ranges for the full course and vary by university and year; always confirm current figures during counselling.",
-    "whyLabel": "Why study here",
+    "eyebrow": "देश",
+    "heroTitle": "Medicine abroad study के approved destinations",
+    "heroSubtitle": "Recognised destinations का overview, cost ranges और key eligibility notes.",
+    "intro": "ये वे countries हैं जिनकी ओर हम eligible students को guide करते हैं. Costs approximate ranges हैं और university/year के अनुसार बदल सकते हैं.",
+    "whyLabel": "यहां क्यों पढ़ें",
     "costLabel": "Approximate cost",
     "eligibilityLabel": "Eligibility note",
-    "disclosure": "Cost ranges are indicative only and cover the full medical programme; they exclude living expenses and change over time. Eligibility and the right to practise in India depend on NEET qualification, the national regulator's rules and any required screening or licensing examination. We disclose country-specific regulations clearly during guidance.",
+    "disclosure": "Cost ranges indicative हैं. Eligibility और India में practice का अधिकार NEET qualification, regulator rules और required screening/licensing exams पर निर्भर करता है.",
     "items": {
       "ru": {
         "name": "Russia",
@@ -594,50 +716,50 @@
   },
   "faq": {
     "eyebrow": "FAQ",
-    "heroTitle": "Frequently asked questions",
-    "heroSubtitle": "Answers to the questions students and parents ask most.",
+    "heroTitle": "अक्सर पूछे जाने वाले प्रश्न",
+    "heroSubtitle": "Students और parents के common questions के जवाब.",
     "items": [
       {
-        "q": "How much does a mock test cost?",
-        "a": "Each mock test costs ₹30. There is no subscription — you pay only for the tests you choose to attempt."
+        "q": "Mock test की कीमत कितनी है?",
+        "a": "हर mock test ₹30 का है. Subscription नहीं है - आप सिर्फ चुने हुए tests के लिए pay करते हैं."
       },
       {
-        "q": "Are the tests available in Tamil?",
-        "a": "Yes. You can take tests and read every explanation in English or Tamil, and switch language anytime."
+        "q": "क्या tests Tamil में उपलब्ध हैं?",
+        "a": "हां. आप tests और explanations English या Tamil में पढ़ सकते हैं और भाषा कभी भी बदल सकते हैं."
       },
       {
-        "q": "What types of tests are available?",
-        "a": "Previous-year pattern full tests, chapter-wise practice and year-wise practice papers."
+        "q": "किस तरह के tests उपलब्ध हैं?",
+        "a": "Previous-year pattern full tests, chapter-wise practice और year-wise papers."
       },
       {
-        "q": "How do I pay?",
-        "a": "Payments are made securely online via Razorpay. You'll need to register a free account first."
+        "q": "Payment कैसे होगा?",
+        "a": "Payments Razorpay के जरिए securely online होते हैं. पहले free account बनाना होगा."
       },
       {
-        "q": "Do I get my results and analysis?",
-        "a": "Yes. After every test you get your score plus a chapter, subject and time-wise performance analysis, with a downloadable report."
+        "q": "क्या results और analysis मिलता है?",
+        "a": "हां. हर test के बाद score, chapter, subject और time-wise performance analysis मिलता है."
       },
       {
-        "q": "What is the admission guidance service?",
-        "a": "For students who don't secure a medical seat in India, we advise on recognised universities abroad and clearly disclose eligibility and country-specific regulations."
+        "q": "Admission guidance service क्या है?",
+        "a": "India में medical seat नहीं मिलने पर हम recognised universities abroad और country-specific rules पर advisory guidance देते हैं."
       },
       {
-        "q": "Do you guarantee admission abroad?",
-        "a": "No. Admission guidance is advisory. Outcomes depend on each university's criteria and the applicable regulations; we never guarantee admission."
+        "q": "क्या आप abroad admission guarantee करते हैं?",
+        "a": "नहीं. Guidance advisory है. Outcomes university criteria और regulations पर निर्भर करते हैं."
       },
       {
-        "q": "Will the site work on a slow connection?",
-        "a": "Yes. The platform is mobile-first and lightweight, designed to work on budget phones and rural internet."
+        "q": "क्या site slow connection पर चलेगी?",
+        "a": "हां. Platform mobile-first और lightweight है."
       }
     ]
   },
   "contact": {
-    "eyebrow": "Contact Us",
-    "heroTitle": "We'd love to hear from you",
-    "heroSubtitle": "Questions about mock tests or admission guidance? Send us a message and our team will respond.",
-    "infoTitle": "Reach us",
-    "formTitle": "Send a message",
-    "formSubtitle": "Fill in the form and we'll get back to you soon.",
+    "eyebrow": "संपर्क",
+    "heroTitle": "हम आपसे सुनना चाहेंगे",
+    "heroSubtitle": "Mock tests या admission guidance पर सवाल हैं? Message भेजें, हमारी team जवाब देगी.",
+    "infoTitle": "हमसे संपर्क करें",
+    "formTitle": "Message भेजें",
+    "formSubtitle": "Form भरें, हम जल्द contact करेंगे.",
     "info": {
       "emailLabel": "Email",
       "email": "support@neetsmartpractice.in",
@@ -649,92 +771,100 @@
       "hours": "Mon–Sat, 9 am – 7 pm IST"
     },
     "form": {
-      "name": "Your name",
-      "mobile": "Mobile number",
-      "email": "Email",
+      "name": "आपका नाम",
+      "mobile": "मोबाइल नंबर",
+      "email": "ईमेल",
       "message": "Message",
-      "submit": "Send message",
-      "sending": "Sending…",
+      "submit": "Message भेजें",
+      "sending": "भेजा जा रहा है…",
       "successTitle": "Message sent",
-      "success": "Thank you for reaching out. Our team will contact you soon."
+      "success": "संपर्क करने के लिए धन्यवाद. हमारी team जल्द contact करेगी."
     }
   },
   "seo": {
     "home": {
-      "title": "NEET Smart Practice — ₹30 NEET Mock Tests & Admission Guidance",
-      "description": "Affordable NEET mock tests at ₹30 — previous-year pattern, chapter-wise and year-wise practice in English & Tamil. Plus honest guidance for medical admissions abroad."
+      "title": "VVOC - प्रतियोगी परीक्षा तैयारी",
+      "description": "पिछले वर्षों के प्रश्न, अध्याय-वार प्रश्न बैंक, मॉक टेस्ट और विस्तृत समाधान के साथ तैयारी करें - शुरुआत NEET से."
     },
     "about": {
-      "title": "About Us",
-      "description": "Learn how NEET Smart Practice makes quality, bilingual NEET preparation affordable for government-school, state-board and rural students across Tamil Nadu."
+      "title": "हमारे बारे में",
+      "description": "VVOC कैसे quality bilingual NEET preparation को affordable बनाता है."
     },
     "whyChoose": {
-      "title": "Why Choose Us",
-      "description": "Affordable ₹30 tests, English & Tamil support, real exam pattern, detailed analytics and honest admission guidance — why aspirants trust NEET Smart Practice."
+      "title": "हमें क्यों चुनें",
+      "description": "Affordable tests, bilingual support, exam pattern और detailed analytics."
     },
     "services": {
-      "title": "Services",
-      "description": "Full-length and chapter/year-wise NEET mock tests, performance analytics, bilingual learning and admission guidance abroad — all in one platform."
+      "title": "सेवाएं",
+      "description": "Mock tests, analytics, bilingual learning और admission guidance."
     },
     "mockTests": {
-      "title": "NEET Mock Tests — ₹30",
-      "description": "Practise NEET with previous-year pattern, chapter-wise and year-wise mock tests for just ₹30 each, with timer, autosave and detailed analysis."
+      "title": "NEET Mock Tests - ₹30",
+      "description": "NEET previous-year pattern, chapter-wise और year-wise mock tests."
     },
     "admission": {
       "title": "Admission Guidance",
-      "description": "Didn't secure a medical seat in India? Get honest guidance on recognised universities abroad, with clear eligibility and country-specific regulations."
+      "description": "Recognised universities abroad पर honest guidance और eligibility जानकारी."
     },
     "countries": {
-      "title": "Study Medicine Abroad — Countries",
-      "description": "Overview of approved destinations to study medicine abroad — Russia, Georgia, Kazakhstan, Kyrgyzstan, Uzbekistan and the Philippines — with cost and eligibility notes."
+      "title": "Study Medicine Abroad - Countries",
+      "description": "Recognised study destinations का overview, cost और eligibility notes."
     },
     "testimonials": {
       "title": "Testimonials",
-      "description": "Hear from NEET aspirants and parents who practise with our affordable, bilingual mock tests."
+      "description": "VVOC के साथ practice करने वाले aspirants और parents की बातें."
     },
     "faq": {
       "title": "FAQ",
-      "description": "Answers about ₹30 NEET mock tests, Tamil support, payments, results and our admission guidance service."
+      "description": "NEET mock tests, language support, payments, results और admission guidance पर answers."
     },
     "contact": {
-      "title": "Contact Us",
-      "description": "Get in touch with NEET Smart Practice for questions about mock tests or admission guidance."
+      "title": "संपर्क",
+      "description": "Mock tests या admission guidance के सवालों के लिए VVOC से संपर्क करें."
     },
     "help": {
-      "title": "Help & Support",
-      "description": "Step-by-step guides to register, buy and take NEET mock tests, read results, and contact admission guidance."
+      "title": "मदद और सहायता",
+      "description": "Register, tests, results और admission guidance के step-by-step guides."
+    },
+    "terms": {
+      "title": "नियम और शर्तें",
+      "description": "VVOC के competitive-exam preparation, mock tests और student accounts के नियम."
+    },
+    "privacy": {
+      "title": "गोपनीयता नीति",
+      "description": "VVOC student account, OTP, test और progress information कैसे संभालता है."
     }
   },
   "catalogue": {
-    "title": "Mock tests",
-    "subtitle": "Choose a test and practise for just ₹30.",
-    "searchPlaceholder": "Search tests…",
-    "resultsCount": "{count} tests",
-    "empty": "No tests match your filters.",
-    "clear": "Clear filters",
-    "search": "Search",
-    "anyYear": "Any year",
-    "anyDifficulty": "Any difficulty",
-    "anySubject": "All subjects",
-    "anyChapter": "All chapters",
-    "anyType": "All types",
-    "subjectPhysics": "Physics",
-    "subjectChemistry": "Chemistry",
-    "subjectBiology": "Biology",
-    "filterYear": "Year",
-    "filterDifficulty": "Difficulty",
-    "filterSubject": "Subject",
-    "filterChapter": "Chapter",
-    "filterType": "Type",
-    "questions": "{count} questions",
-    "minutes": "{count} min",
-    "start": "Start Test",
-    "viewDetails": "View details",
-    "owned": "Purchased",
+    "title": "मॉक टेस्ट",
+    "subtitle": "एक टेस्ट चुनें और सिर्फ ₹30 में अभ्यास करें.",
+    "searchPlaceholder": "टेस्ट खोजें…",
+    "resultsCount": "{count} टेस्ट",
+    "empty": "आपके filters से कोई test match नहीं हुआ.",
+    "clear": "Filters साफ करें",
+    "search": "खोजें",
+    "anyYear": "कोई भी वर्ष",
+    "anyDifficulty": "कोई भी कठिनाई",
+    "anySubject": "सभी विषय",
+    "anyChapter": "सभी अध्याय",
+    "anyType": "सभी प्रकार",
+    "subjectPhysics": "भौतिकी",
+    "subjectChemistry": "रसायन विज्ञान",
+    "subjectBiology": "जीव विज्ञान",
+    "filterYear": "वर्ष",
+    "filterDifficulty": "कठिनाई",
+    "filterSubject": "विषय",
+    "filterChapter": "अध्याय",
+    "filterType": "प्रकार",
+    "questions": "{count} प्रश्न",
+    "minutes": "{count} मिनट",
+    "start": "टेस्ट शुरू करें",
+    "viewDetails": "Details देखें",
+    "owned": "खरीदा गया",
     "difficulty": {
-      "EASY": "Easy",
-      "MEDIUM": "Medium",
-      "HARD": "Hard"
+      "EASY": "आसान",
+      "MEDIUM": "मध्यम",
+      "HARD": "कठिन"
     },
     "types": {
       "FULL_TEST": "Full Test",
@@ -744,31 +874,31 @@
       "YEAR_PATTERN": "Year Pattern"
     },
     "detail": {
-      "back": "All tests",
-      "about": "About this test",
+      "back": "सभी टेस्ट",
+      "about": "इस टेस्ट के बारे में",
       "coverage": "Syllabus coverage",
       "rules": "Test details",
-      "duration": "Duration",
-      "questionsLabel": "Questions",
-      "difficultyLabel": "Difficulty",
-      "languagesLabel": "Languages",
-      "typeLabel": "Type",
-      "yearLabel": "Year",
-      "randomNote": "Questions are generated fresh for every attempt, so no two students get the same paper.",
-      "fixedNote": "A curated, fixed set of questions.",
-      "ownedNote": "You own this test.",
-      "buyCta": "Buy for ₹{price}",
-      "startCta": "Start Test"
+      "duration": "अवधि",
+      "questionsLabel": "प्रश्न",
+      "difficultyLabel": "कठिनाई",
+      "languagesLabel": "भाषाएं",
+      "typeLabel": "प्रकार",
+      "yearLabel": "वर्ष",
+      "randomNote": "हर attempt के लिए नए प्रश्न generate होते हैं, इसलिए दो students को same paper नहीं मिलता.",
+      "fixedNote": "Curated fixed question set.",
+      "ownedNote": "यह test आपके पास है.",
+      "buyCta": "₹{price} में खरीदें",
+      "startCta": "टेस्ट शुरू करें"
     },
     "checkout": {
       "title": "Checkout",
-      "coming": "Secure online payment is coming in the next phase. This test will cost ₹{price}.",
-      "back": "Back to test"
+      "coming": "Secure online payment next phase में आएगा. यह test ₹{price} का होगा.",
+      "back": "Test पर वापस"
     },
     "startPlaceholder": {
-      "title": "Test engine coming soon",
-      "coming": "The test-taking experience — timer, autosave and question navigation — is built in the next phase.",
-      "back": "Back to test"
+      "title": "Test engine जल्द आएगा",
+      "coming": "Timer, autosave और question navigation वाला test-taking experience next phase में बनेगा.",
+      "back": "Test पर वापस"
     }
   },
   "payments": {
@@ -878,75 +1008,75 @@
     }
   },
   "results": {
-    "backToDashboard": "Dashboard",
-    "downloadReport": "Download Report",
-    "downloading": "Preparing…",
-    "submittedOn": "Submitted on {date}",
-    "autoSubmitted": "Auto-submitted (time ran out)",
+    "backToDashboard": "डैशबोर्ड",
+    "downloadReport": "Report download करें",
+    "downloading": "तैयार हो रहा है…",
+    "submittedOn": "{date} को submitted",
+    "autoSubmitted": "Auto-submitted (समय समाप्त)",
     "tabs": {
       "analysis": "Analysis",
       "review": "Answer review"
     },
     "summary": {
-      "heading": "Your score",
+      "heading": "आपका score",
       "score": "Score",
-      "outOf": "out of {max}",
-      "total": "Questions",
-      "correct": "Correct",
-      "wrong": "Wrong",
-      "skipped": "Skipped",
+      "outOf": "{max} में से",
+      "total": "प्रश्न",
+      "correct": "सही",
+      "wrong": "गलत",
+      "skipped": "छोड़े गए",
       "accuracy": "Accuracy",
-      "timeTaken": "Time taken",
+      "timeTaken": "लिया गया समय",
       "percentile": "Percentile",
       "rank": "Estimated rank",
-      "comingSoon": "Coming soon",
+      "comingSoon": "जल्द आएगा",
       "overallPercentage": "{pct}% overall"
     },
     "subject": {
       "heading": "Subject analysis",
-      "subject": "Subject",
+      "subject": "विषय",
       "attempted": "Attempted",
-      "correct": "Correct",
+      "correct": "सही",
       "accuracy": "Accuracy",
       "marks": "Marks",
-      "time": "Time"
+      "time": "समय"
     },
     "chapter": {
       "heading": "Chapter analysis",
-      "chapter": "Chapter",
+      "chapter": "अध्याय",
       "accuracy": "Accuracy",
       "strong": "Strong",
       "average": "Average",
       "weak": "Weak",
-      "legend": "Strong ≥ 70% · Average 40–69% · Weak < 40%",
-      "empty": "No chapter data for this test."
+      "legend": "Strong ≥ 70% · Average 40-69% · Weak < 40%",
+      "empty": "इस test के लिए chapter data नहीं है."
     },
     "time": {
       "heading": "Time analysis",
-      "taken": "Time taken",
-      "allotted": "Allotted",
+      "taken": "लिया गया समय",
+      "allotted": "दिया गया समय",
       "avgPerQuestion": "Avg / question",
-      "perSubject": "Time per subject",
-      "slowest": "Where you spent the most time",
+      "perSubject": "Subject-wise time",
+      "slowest": "सबसे ज्यादा समय जहां लगा",
       "question": "Q{number}",
-      "noSlowest": "No time was recorded."
+      "noSlowest": "कोई time record नहीं हुआ."
     },
     "review": {
-      "filterAll": "All",
-      "filterWrong": "Wrong",
-      "filterSkipped": "Skipped",
+      "filterAll": "सभी",
+      "filterWrong": "गलत",
+      "filterSkipped": "छोड़े गए",
       "filterMarked": "Marked",
-      "badgeCorrect": "Correct",
-      "badgeWrong": "Wrong",
-      "badgeSkipped": "Skipped",
-      "badgeMarked": "Marked for review",
-      "yourAnswer": "Your answer",
-      "correctAnswer": "Correct answer",
-      "notAnswered": "Not answered",
+      "badgeCorrect": "सही",
+      "badgeWrong": "गलत",
+      "badgeSkipped": "छोड़ा गया",
+      "badgeMarked": "Review के लिए marked",
+      "yourAnswer": "आपका उत्तर",
+      "correctAnswer": "सही उत्तर",
+      "notAnswered": "उत्तर नहीं दिया",
       "explanation": "Explanation",
-      "noExplanation": "No explanation available.",
-      "taNotice": "Tamil is not available for this question; showing English.",
-      "empty": "No questions match this filter."
+      "noExplanation": "Explanation available नहीं है.",
+      "taNotice": "इस प्रश्न के लिए Tamil available नहीं है; English दिखाया जा रहा है.",
+      "empty": "इस filter से कोई question match नहीं हुआ."
     }
   },
   "performance": {
@@ -1095,38 +1225,38 @@
     }
   },
   "dashboard": {
-    "welcome": "Welcome back, {name}",
-    "subtitle": "Here’s your NEET practice at a glance.",
-    "continueTitle": "You have a test in progress",
-    "continueBody": "Pick up where you left off before the timer runs out.",
-    "resume": "Resume test",
-    "purchased": "Your tests",
-    "upcoming": "New tests to try",
-    "start": "Start",
+    "welcome": "वापसी पर स्वागत है, {name}",
+    "subtitle": "आपका NEET practice एक नजर में.",
+    "continueTitle": "आपका एक test चल रहा है",
+    "continueBody": "Timer खत्म होने से पहले वहीं से जारी रखें.",
+    "resume": "Test resume करें",
+    "purchased": "आपके tests",
+    "upcoming": "नए tests",
+    "start": "शुरू करें",
     "resumeShort": "Resume",
-    "viewResult": "View result",
-    "buy": "Buy ₹{price}",
-    "noPurchased": "You haven’t bought any tests yet.",
-    "noUpcoming": "You own every available test — nice!",
+    "viewResult": "Result देखें",
+    "buy": "₹{price} खरीदें",
+    "noPurchased": "आपने अभी कोई test नहीं खरीदा है.",
+    "noUpcoming": "आपके पास सभी available tests हैं.",
     "previousScores": "Recent scores",
-    "noScores": "Take a test to see your scores here.",
+    "noScores": "Scores देखने के लिए test दें.",
     "score": "Score",
     "platformRank": "Platform Rank",
     "rankValue": "#{rank}",
-    "rankOf": "of {total} students",
-    "noRank": "Take a full test to get ranked.",
+    "rankOf": "{total} students में",
+    "noRank": "Rank पाने के लिए full test दें.",
     "bestScore": "Best full test: {score}",
     "weakChapters": "Focus areas",
-    "strongChapters": "Your strengths",
-    "noWeak": "No weak chapters yet — keep practising.",
-    "noStrong": "Attempt more tests to reveal your strengths.",
-    "practise": "Practise now",
+    "strongChapters": "आपकी strengths",
+    "noWeak": "अभी weak chapters नहीं हैं - अभ्यास जारी रखें.",
+    "noStrong": "Strengths दिखाने के लिए और tests दें.",
+    "practise": "अभी अभ्यास करें",
     "topRecommendation": "Recommended next",
     "paymentHistory": "Payment history",
-    "viewAll": "View all",
-    "browseCta": "Browse tests",
-    "emptyTitle": "Welcome! Let’s begin.",
-    "emptyBody": "Buy your first ₹30 mock test and start practising for NEET."
+    "viewAll": "सभी देखें",
+    "browseCta": "Tests देखें",
+    "emptyTitle": "स्वागत है! शुरू करें.",
+    "emptyBody": "अपना पहला ₹30 mock test खरीदें और NEET practice शुरू करें."
   },
   "errors": {
     "notFound": {
@@ -1146,27 +1276,26 @@
     }
   },
   "sms": {
-    "otp": "Your NEET Smart Practice OTP is {otp}. Valid for {minutes} minutes. Do not share it with anyone."
+    "otp": "Your VVOC OTP is {otp}. Valid for {minutes} minutes. Do not share it with anyone."
   },
   "help": {
-    "eyebrow": "Help & Support",
-    "heroTitle": "How to use NEET Smart Practice",
-    "heroSubtitle": "Simple, step-by-step guides to register, buy a test, take a test, read your results, and reach our admission team.",
+    "eyebrow": "मदद और सहायता",
+    "heroTitle": "VVOC कैसे इस्तेमाल करें",
+    "heroSubtitle": "Register, test खरीदना, test देना, results पढ़ना और admission team तक पहुंचना - simple step-by-step guides.",
     "screenshotLabel": "Screenshot",
     "stepLabel": "Step",
     "sections": [
       {
         "id": "register",
         "title": "1. Create your account",
-        "intro": "You only need your name and a mobile number to start.",
+        "intro": "You only need your profile details and mobile number to start.",
         "steps": [
           "Tap “Register” on the home page.",
-          "Enter your name, mobile number, and choose your language (English or Tamil).",
-          "Create a password you will remember.",
+          "Enter your name, email, mobile number, location, school, class, board, and preferred language.",
           "Enter the 6-digit OTP sent to your mobile by SMS.",
           "Your account is ready — you are taken to your dashboard."
         ],
-        "shot": "The registration form with name, mobile, and language fields."
+        "shot": "The registration form with profile, school, and language fields."
       },
       {
         "id": "buyTest",
@@ -1223,8 +1352,8 @@
         "shot": "The admission guidance form with score and country fields."
       }
     ],
-    "moreTitle": "Still need help?",
-    "moreText": "Our team is happy to help you in English or Tamil.",
-    "moreCta": "Contact us"
+    "moreTitle": "अभी भी मदद चाहिए?",
+    "moreText": "हमारी team English, Tamil या Hindi में मदद कर सकती है.",
+    "moreCta": "संपर्क करें"
   }
 }

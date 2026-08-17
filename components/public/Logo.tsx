@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
 /**
- * Brand logo placeholder: a deep-blue rounded "N" mark + wordmark. Inline SVG
+ * Brand logo placeholder: a deep-blue rounded "V" mark + wordmark. Inline SVG
  * (crisp, no request). Swap for a real logo asset later without touching pages.
  */
 export default function Logo({ className = '' }: { className?: string }) {
@@ -22,11 +22,11 @@ export default function Logo({ className = '' }: { className?: string }) {
           fill="#ffffff"
           fontFamily="system-ui, sans-serif"
         >
-          N
+          V
         </text>
       </svg>
       <span className="whitespace-nowrap text-base font-extrabold leading-tight text-brand-dark sm:text-lg">
-        NEET Smart Practice
+        VVOC
       </span>
     </Link>
   );
