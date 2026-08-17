@@ -29,6 +29,7 @@ type AdmissionCard = { title: string; body: string; href: string };
 
 const MARQUEE = [
   'MBBS ABROAD',
+  'STUDY IN EUROPE',
   'NEET PREPARATION',
   'PREVIOUS YEAR PAPERS',
   'QUESTION BANK',
@@ -52,7 +53,9 @@ export default function HomePage() {
   const t = useTranslations('home');
   const quickActions = t.raw('quickActions.items') as Action[];
   const admissionCards = t.raw('admissions.cards') as AdmissionCard[];
+  const studyAbroadSupport = t.raw('admissions.supportItems') as string[];
   const subjects = t.raw('neet.subjects') as Subject[];
+  const europeDestinations = t.raw('countriesSection.europeExamples') as string[];
 
   return (
     <>
@@ -148,6 +151,16 @@ export default function HomePage() {
               <PrimaryLink href="/admission-guidance">{t('admissions.cta')}</PrimaryLink>
               <SecondaryLink href="/countries">{t('admissions.countriesCta')}</SecondaryLink>
             </div>
+            <div className="mt-8 border-y border-white/10 py-5">
+              <p className="text-xs font-black uppercase tracking-[0.22em] text-accent">{t('admissions.supportLabel')}</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {studyAbroadSupport.map((item) => (
+                  <span key={item} className="rounded-lg border border-white/10 bg-background/50 px-3 py-1.5 text-xs font-semibold text-textSecondary">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
           <div className="grid grid-cols-1 gap-px overflow-hidden border-y border-white/10 bg-white/10 sm:grid-cols-2">
             {admissionCards.map((card, index) => (
@@ -182,6 +195,30 @@ export default function HomePage() {
         </div>
         <div className="mt-8">
           <PrimaryLink href="/countries">{t('countriesSection.cta')}</PrimaryLink>
+        </div>
+
+        <div id="study-europe" className="mt-16 border-y border-brand/30 bg-[linear-gradient(135deg,#06283A,#03080D_58%,#0A121A)] p-6 sm:p-10">
+          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <div>
+              <p className="text-xs font-black uppercase tracking-[0.3em] text-accent">{t('countriesSection.europeEyebrow')}</p>
+              <h2 className="mt-4 text-3xl font-black uppercase leading-[0.95] text-white sm:text-5xl">
+                {t('countriesSection.europeTitle')}
+              </h2>
+              <p className="mt-5 max-w-2xl text-base leading-8 text-textSecondary">{t('countriesSection.europeSubtitle')}</p>
+              <p className="mt-5 border-l border-accent/40 pl-4 text-sm leading-7 text-textSecondary">{t('countriesSection.europeNote')}</p>
+              <div className="mt-8">
+                <SecondaryLink href="/countries">{t('countriesSection.europeCta')}</SecondaryLink>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-px overflow-hidden border-y border-white/10 bg-white/10 sm:grid-cols-3">
+              {europeDestinations.map((destination) => (
+                <div key={destination} className="bg-background/90 p-4 transition hover:bg-surfaceElevated sm:p-5">
+                  <p className="text-base font-black text-white">{destination}</p>
+                  <p className="mt-2 text-xs uppercase tracking-wide text-textSecondary">{t('countriesSection.europeCardLabel')}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </Section>
 

@@ -16,6 +16,7 @@ export const NAV_GROUPS: NavGroup[] = [
     key: 'studyAbroadMenu',
     links: [
       { href: '/countries', key: 'mbbsAbroad' },
+      { href: '/#study-europe', key: 'studyEurope' },
       { href: '/countries', key: 'internationalEducation' },
       { href: '/admission-guidance', key: 'applicationGuidance' },
     ],

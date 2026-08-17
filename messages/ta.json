@@ -66,6 +66,7 @@
     "mbbsIndia": "MBBS Counselling in India",
     "mbbsCounsellingIndia": "MBBS Counselling in India",
     "mbbsAbroad": "MBBS Abroad",
+    "studyEurope": "ஐரோப்பாவில் படிப்பு",
     "medicalAdmissions": "Medical Admissions",
     "otherPrograms": "Other Programs",
     "internationalEducation": "International Education",
@@ -145,7 +146,7 @@
       "items": [
         {
           "title": "Admissions & Study Abroad",
-          "body": "Explore international education opportunities with guidance through course selection, applications and the admission process, including MBBS abroad and other overseas education pathways.",
+          "body": "MBBS Abroad, ஐரோப்பாவில் படிப்பு மற்றும் பிற வெளிநாட்டு கல்வி வாய்ப்புகளுக்கான நாடு, பல்கலைக்கழகம், பாடநெறி தேர்வு மற்றும் application pathway வழிகாட்டுதல்.",
           "cta": "Explore Study Abroad",
           "href": "#admissions"
         },
@@ -319,6 +320,15 @@
       "subtitle": "Separate from exam preparation, VV Overseas supports students and families with overseas education guidance, application assistance where applicable, and counselling for important education decisions.",
       "cta": "Talk to a counsellor",
       "countriesCta": "Study Destinations ???????????",
+      "supportLabel": "Study Abroad Guidance",
+      "supportItems": [
+        "MBBS Abroad",
+        "ஐரோப்பாவில் படிப்பு",
+        "International Higher Education",
+        "நாடு & பல்கலைக்கழக தேர்வு",
+        "பாடநெறி தேர்வு",
+        "Application Guidance"
+      ],
       "cards": [
         {
           "title": "MBBS Counselling in India",
@@ -329,6 +339,11 @@
           "title": "MBBS Abroad",
           "body": "Explore overseas medical education opportunities with guidance for country, university and application selection.",
           "href": "/countries"
+        },
+        {
+          "title": "ஐரோப்பாவில் படிப்பு",
+          "body": "சரியான நாடு, பல்கலைக்கழகம், பாடநெறி மற்றும் application pathway தேர்வுக்கான வழிகாட்டுதலுடன் ஐரோப்பிய நாடுகளில் உயர்கல்வி வாய்ப்புகளை ஆராயுங்கள்.",
+          "href": "/#study-europe"
         },
         {
           "title": "Career & Counselling Guidance",
@@ -346,7 +361,27 @@
       "eyebrow": "Countries",
       "title": "Study destinations ??????? ???????????",
       "subtitle": "Verified information ?????????? ???? destinations ?????????? ??????? ???? UI ?????????????????????.",
-      "cta": "Study Destinations ???????????"
+      "cta": "Study Destinations ???????????",
+      "europeEyebrow": "ஐரோப்பாவில் படிப்பு",
+      "europeTitle": "ஐரோப்பிய study destinations ஆராயுங்கள்",
+      "europeSubtitle": "சரியான நாடு, பல்கலைக்கழகம், பாடநெறி மற்றும் application pathway தேர்வுக்கான வழிகாட்டுதலுடன் ஐரோப்பிய நாடுகளில் உயர்கல்வி வாய்ப்புகளை ஆராயுங்கள்.",
+      "europeCta": "ஐரோப்பிய destinations ஆராயுங்கள்",
+      "europeNote": "Verified destination information கிடைக்கும் போது ஐரோப்பிய நாடு விருப்பங்கள் படிப்படியாக சேர்க்கப்படலாம்.",
+      "europeCardLabel": "Explore option",
+      "europeExamples": [
+        "Germany",
+        "France",
+        "Italy",
+        "Ireland",
+        "Netherlands",
+        "Spain",
+        "Poland",
+        "Hungary",
+        "Czech Republic",
+        "Lithuania",
+        "Latvia",
+        "Malta"
+      ]
     }
   },
   "footer": {
