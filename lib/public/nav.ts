@@ -6,7 +6,6 @@ export type NavLink = { href: string; key: string };
 export type NavGroup = { key: string; links: NavLink[] };
 
 export const NAV_LINKS: NavLink[] = [
-  { href: '/', key: 'home' },
   { href: '/about', key: 'about' },
   { href: '/contact', key: 'contact' },
 ];

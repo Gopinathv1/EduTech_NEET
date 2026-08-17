@@ -57,11 +57,11 @@
     "privacy": "தனியுரிமைக் கொள்கை",
     "examNeet": "NEET",
     "examJeeSoon": "JEE - விரைவில்",
-    "getStarted": "தொடங்குங்கள்",
+    "getStarted": "Free Counselling பெறுங்கள்",
     "admissionsMenu": "Admissions",
-    "studyAbroadMenu": "Admissions / Study Abroad",
+    "studyAbroadMenu": "Admissions",
     "examPrepMenu": "Exam Preparation",
-    "counsellingMenu": "Career & Counselling",
+    "counsellingMenu": "Counselling",
     "coursesMenu": "Courses",
     "mbbsIndia": "MBBS Counselling in India",
     "mbbsCounsellingIndia": "MBBS Counselling in India",
@@ -85,7 +85,7 @@
       "contact": "எங்களிடம் பேசுங்கள்"
     },
     "footer": {
-      "blurb": "VV Overseas கேள்வி வங்கிகள், மாதிரி தேர்வுகள் மற்றும் விரிவான மதிப்பாய்வுடன் போட்டித் தேர்வுகளுக்கான பயிற்சிக்கு உதவுகிறது - NEET-இல் தொடங்கி.",
+      "blurb": "VV Overseas supports students with international education guidance, career and academic counselling, learning programs and competitive exam preparation.",
       "explore": "ஆராயுங்கள்",
       "company": "நிறுவனம்",
       "getStarted": "தொடங்குங்கள்",
@@ -106,9 +106,9 @@
   "home": {
     "brand": "VV Overseas",
     "title": "?????? ?????????? ?????? ????? ????? ????????????",
-    "subtitle": "Explore overseas education opportunities, get counselling guidance for important academic decisions, and prepare smarter for competitive exams with VV Overseas.",
-    "ctaPrimary": "Explore Study Abroad",
-    "ctaSecondary": "NEET Preparation ???????",
+    "subtitle": "உலகளாவிய கல்வி வாய்ப்புகளை ஆராயுங்கள், முக்கிய கல்வி முடிவுகளுக்கான personalised counselling பெறுங்கள், மற்றும் VV Overseas உடன் competitive exams க்காக smart ஆக தயாராகுங்கள்.",
+    "ctaPrimary": "Free Counselling பெறுங்கள்",
+    "ctaSecondary": "Study Abroad ஆராயுங்கள்",
     "examSelectorLabel": "Current services",
     "examChips": [
       {
@@ -142,17 +142,19 @@
     "quickActions": {
       "eyebrow": "Four service areas",
       "title": "Guidance, preparation and learning programs",
-      "subtitle": "VV Overseas supports students across study abroad, exam preparation, career counselling and learning opportunities.",
+      "titleLine1": "How VV Overseas",
+      "titleLine2": "Helps Students Move Forward",
+      "subtitle": "Study abroad, exam preparation, career counselling மற்றும் learning opportunities முழுவதும் VV Overseas மாணவர்களுக்கு ஆதரவு தருகிறது.",
       "items": [
         {
           "title": "Admissions & Study Abroad",
-          "body": "MBBS Abroad, ஐரோப்பாவில் படிப்பு மற்றும் பிற வெளிநாட்டு கல்வி வாய்ப்புகளுக்கான நாடு, பல்கலைக்கழகம், பாடநெறி தேர்வு மற்றும் application pathway வழிகாட்டுதல்.",
+          "body": "Explore international education, MBBS abroad, European study opportunities, country, course and university selection, and application guidance.",
           "cta": "Explore Study Abroad",
           "href": "#admissions"
         },
         {
           "title": "Exam Preparation",
-          "body": "NEET question bank, previous-year papers, chapter-wise practice, mock tests, answers ??????? explanations.",
+          "body": "NEET question bank, previous-year papers, chapter-wise practice, mock tests, answers and explanations.",
           "cta": "Start NEET Preparation",
           "href": "#neet-preparation"
         },
@@ -171,24 +173,24 @@
       ]
     },
     "neet": {
-      "eyebrow": "Active exam preparation",
-      "title": "NEET Preparation",
-      "subtitle": "VV Overseas-??? NEET ??????? active exam-preparation area.",
-      "subjectCta": "Practice ???????",
+      "eyebrow": "VV Overseas உடன் தயாராகுங்கள்",
+      "title": "NEET Available Now",
+      "subtitle": "Keep NEET preparation focused with question bank access, previous-year practice, mock tests and chapter-wise practice.",
+      "subjectCta": "Start practice",
       "subjects": [
         {
-          "title": "இயற்பியல்",
-          "body": "அத்தியாய வாரியான மற்றும் முந்தைய ஆண்டு பயிற்சியால் கருத்துகளை வலுப்படுத்துங்கள்.",
+          "title": "Physics",
+          "body": "Build concepts through chapter-wise and previous-year practice.",
           "href": "/mock-tests"
         },
         {
-          "title": "வேதியியல்",
-          "body": "Physical, Organic, Inorganic தலைப்புகளை தேர்வுகள் மூலம் பயிற்சி செய்யுங்கள்.",
+          "title": "Chemistry",
+          "body": "Practise physical, organic and inorganic topics through tests.",
           "href": "/mock-tests"
         },
         {
-          "title": "உயிரியல்",
-          "body": "Botany மற்றும் Zoology-ஐ அமைப்பான பயிற்சி பாதைகளில் கற்றுக்கொள்ளுங்கள்.",
+          "title": "Biology",
+          "body": "Cover Botany and Zoology with structured practice paths.",
           "href": "/mock-tests"
         }
       ]
@@ -259,9 +261,9 @@
       ]
     },
     "pyq": {
-      "title": "Previous Year Questions ??????? mock-test practice",
-      "body": "Existing question bank ??????? test catalogue ????? NEET-focused practice.",
-      "cta": "Mock tests ??????????"
+      "title": "Practice previous-year questions.",
+      "body": "Practice previous-year questions, review your results and identify areas to improve.",
+      "cta": "Explore Previous Year Papers"
     },
     "benefits": {
       "eyebrow": "Platform scope",
@@ -295,10 +297,11 @@
       ]
     },
     "finalCta": {
-      "title": "VV Overseas ???? ?????? ??????? ?????????????????.",
-      "subtitle": "Admission guidance ??????????? ?????? active NEET preparation ??????????.",
-      "primary": "Admissions ???????????",
-      "secondary": "NEET Preparation ???????"
+      "eyebrow": "உங்கள் next step திட்டமிட தயாரா?",
+      "title": "Ready to plan your next step?",
+      "subtitle": "Overseas education, MBBS counselling அல்லது NEET preparation எதுவாக இருந்தாலும், ஒரு உரையாடலுடன் தொடங்குங்கள்.",
+      "primary": "Get Free Counselling",
+      "secondary": "Start NEET Preparation"
     },
     "heroServices": [
       {
@@ -315,44 +318,31 @@
       }
     ],
     "admissions": {
-      "eyebrow": "Admissions & Study Abroad",
-      "title": "Study Abroad and Education Guidance",
-      "subtitle": "Separate from exam preparation, VV Overseas supports students and families with overseas education guidance, application assistance where applicable, and counselling for important education decisions.",
+      "eyebrow": "Study Abroad & Education Guidance",
+      "title": "Study Abroad & Education Guidance",
+      "subtitle": "Explore MBBS abroad, European study options, international higher education and application guidance without unsupported partnership or guarantee claims.",
       "cta": "Talk to a counsellor",
-      "countriesCta": "Study Destinations ???????????",
+      "countriesCta": "Explore Study Destinations",
       "supportLabel": "Study Abroad Guidance",
-      "supportItems": [
-        "MBBS Abroad",
-        "ஐரோப்பாவில் படிப்பு",
-        "International Higher Education",
-        "நாடு & பல்கலைக்கழக தேர்வு",
-        "பாடநெறி தேர்வு",
-        "Application Guidance"
-      ],
       "cards": [
         {
-          "title": "MBBS Counselling in India",
-          "body": "Guidance through the MBBS counselling process, college choices and important admission-related decisions in India.",
-          "href": "/admission-guidance"
-        },
-        {
           "title": "MBBS Abroad",
-          "body": "Explore overseas medical education opportunities with guidance for country, university and application selection.",
+          "body": "Explore overseas medical education pathways with guidance for country, university and application selection.",
           "href": "/countries"
         },
         {
-          "title": "ஐரோப்பாவில் படிப்பு",
-          "body": "சரியான நாடு, பல்கலைக்கழகம், பாடநெறி மற்றும் application pathway தேர்வுக்கான வழிகாட்டுதலுடன் ஐரோப்பிய நாடுகளில் உயர்கல்வி வாய்ப்புகளை ஆராயுங்கள்.",
+          "title": "Study in Europe",
+          "body": "Explore higher-education opportunities across European countries with guidance for choosing the right country, university, course and application pathway.",
           "href": "/#study-europe"
         },
         {
-          "title": "Career & Counselling Guidance",
-          "body": "Goals, budget, timelines ??????? next steps ????? VV Overseas team ???? ?????????.",
+          "title": "International Higher Education",
+          "body": "Understand broader higher-education options beyond medical programs as destination information is verified.",
           "href": "/contact"
         },
         {
-          "title": "College Guidance",
-          "body": "Programs compare ?????? application ???? ??????? ???????? ???????????????????.",
+          "title": "Application & University Guidance",
+          "body": "Get guidance for course selection, university comparison and application pathways.",
           "href": "/admission-guidance"
         }
       ]
@@ -381,6 +371,122 @@
         "Lithuania",
         "Latvia",
         "Malta"
+      ]
+    },
+    "ctaTertiary": "NEET Preparation தொடங்குங்கள்",
+    "whoHelp": {
+      "eyebrow": "யாருக்கு உதவுகிறோம்",
+      "title": "முக்கிய கல்வி முடிவுகளை எடுக்கும் மாணவர்கள் மற்றும் குடும்பங்களுக்கு.",
+      "items": [
+        "Study abroad திட்டமிடும் மாணவர்கள்",
+        "NEET க்குத் தயாராகும் மாணவர்கள்",
+        "India MBBS counselling வழிகாட்டல் தேடும் மாணவர்கள் மற்றும் பெற்றோர்",
+        "Courses மற்றும் career options ஆராயும் மாணவர்கள்"
+      ]
+    },
+    "destinations": {
+      "eyebrow": "Explore Study Destinations",
+      "title": "Find the right destination path without the noise.",
+      "subtitle": "Use the homepage to choose a broad direction. Detailed country information belongs on destination pages where it can stay accurate and verified.",
+      "items": [
+        {
+          "title": "MBBS Abroad",
+          "body": "Explore overseas medical education pathways with country and university guidance.",
+          "cta": "Explore",
+          "href": "/countries"
+        },
+        {
+          "title": "Study in Europe",
+          "body": "Understand European higher-education options and application pathways.",
+          "cta": "Explore",
+          "href": "/countries"
+        },
+        {
+          "title": "International Destinations",
+          "body": "Compare broader global education options as verified information is added.",
+          "cta": "Explore",
+          "href": "/countries"
+        },
+        {
+          "title": "Explore All Destinations",
+          "body": "Move to the destinations page for country-specific guidance and disclosures.",
+          "cta": "View All",
+          "href": "/countries"
+        }
+      ]
+    },
+    "leadForm": {
+      "eyebrow": "Callback Request",
+      "title": "நீங்கள் தேடுவது என்ன என்பதை சொல்லுங்கள்.",
+      "subtitle": "Counselling, study abroad, NEET preparation அல்லது learning programs பற்றி VV Overseas team உங்களை தொடர்பு கொள்ள சில விவரங்களை பகிருங்கள்.",
+      "name": "முழு பெயர்",
+      "mobile": "மொபைல் எண்",
+      "email": "Email",
+      "interest": "Area of Interest",
+      "destination": "Preferred Destination",
+      "submit": "Request a Callback",
+      "sending": "அனுப்புகிறது...",
+      "consent": "Submit செய்தால், உங்கள் enquiry குறித்து VV Overseas உங்களை தொடர்பு கொள்ளலாம் என்பதை ஏற்கிறீர்கள்.",
+      "privacy": "Privacy Policy",
+      "successTitle": "Enquiry பெறப்பட்டது",
+      "success": "நன்றி. VV Overseas team விரைவில் உங்களை தொடர்பு கொள்ளும்.",
+      "interests": [
+        "MBBS Abroad",
+        "Study in Europe",
+        "International Education",
+        "MBBS Counselling in India",
+        "Career & College Guidance",
+        "NEET Preparation",
+        "Courses & Learning Programs",
+        "Other"
+      ]
+    },
+    "why": {
+      "eyebrow": "Why VV Overseas",
+      "title": "Clear guidance. Practical next steps.",
+      "items": [
+        {
+          "title": "Personalised Guidance",
+          "body": "Guidance based on education goals, course preferences and next steps."
+        },
+        {
+          "title": "India + Global Education Support",
+          "body": "Explore education options in India and overseas."
+        },
+        {
+          "title": "Career & Counselling Support",
+          "body": "Get help understanding academic and career pathways."
+        },
+        {
+          "title": "Exam Preparation",
+          "body": "Structured NEET question banks, previous-year practice and mock tests."
+        },
+        {
+          "title": "Multilingual Experience",
+          "body": "English, தமிழ் and हिन्दी interface support."
+        }
+      ]
+    },
+    "how": {
+      "eyebrow": "How It Works",
+      "title": "Start with a conversation.",
+      "items": [
+        {
+          "title": "Tell Us Your Goal",
+          "body": "Share what you are planning for: study abroad, counselling, NEET preparation or courses."
+        },
+        {
+          "title": "Speak With a Counsellor",
+          "body": "Discuss your education goals, preferences, timelines and next steps."
+        },
+        {
+          "title": "Explore Suitable Options",
+          "body": "Review relevant pathways without unsupported guarantees or partnership claims."
+        },
+        {
+          "title": "Plan Your Next Steps",
+          "body": "Move forward with clearer actions for applications, counselling or preparation."
+        }
       ]
     }
   },

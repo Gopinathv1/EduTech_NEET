@@ -4,13 +4,13 @@ import { getTranslations } from 'next-intl/server';
 import { pageMetadata } from '@/lib/seo';
 import {
   Section,
-  SectionHeading,
   PrimaryLink,
   SecondaryLink,
   ArrowLink,
   Container,
 } from '@/components/public/ui';
 import PeacockQuillArtwork from '@/components/brand/PeacockQuillArtwork';
+import HomeLeadForm from '@/components/public/HomeLeadForm';
 
 export async function generateMetadata() {
   const t = await getTranslations('seo.home');
@@ -37,8 +37,6 @@ const MARQUEE = [
   'COUNSELLING',
 ];
 
-const DESTINATIONS = ['India', 'Russia', 'Georgia', 'Kazakhstan', 'Uzbekistan', 'Other destinations'];
-
 const PREP_ACTIONS = [
   { title: 'Question Bank', href: '/mock-tests' },
   { title: 'Previous Year Papers', href: '/#previous-year-papers' },
@@ -52,9 +50,11 @@ export default function HomePage() {
   const t = useTranslations('home');
   const quickActions = t.raw('quickActions.items') as Action[];
   const admissionCards = t.raw('admissions.cards') as AdmissionCard[];
-  const studyAbroadSupport = t.raw('admissions.supportItems') as string[];
+  const destinationCards = t.raw('destinations.items') as Action[];
+  const whoHelp = t.raw('whoHelp.items') as string[];
+  const whyItems = t.raw('why.items') as { title: string; body: string }[];
+  const howItems = t.raw('how.items') as { title: string; body: string }[];
   const subjects = t.raw('neet.subjects') as Subject[];
-  const europeDestinations = t.raw('countriesSection.europeExamples') as string[];
 
   return (
     <>
@@ -81,11 +81,12 @@ export default function HomePage() {
               <span className="text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.72)]">Across Borders.</span>
             </h1>
             <p className="mt-8 max-w-2xl text-base leading-8 text-textSecondary sm:text-xl">
-              Explore overseas education opportunities, get counselling guidance for important academic decisions, and prepare smarter for competitive exams.
+              {t('subtitle')}
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <PrimaryLink href="#admissions">{t('ctaPrimary')}</PrimaryLink>
-              <SecondaryLink href="#neet-preparation">{t('ctaSecondary')}</SecondaryLink>
+              <PrimaryLink href="#callback">{t('ctaPrimary')}</PrimaryLink>
+              <SecondaryLink href="#admissions">{t('ctaSecondary')}</SecondaryLink>
+              <ArrowLink href="#neet-preparation">{t('ctaTertiary')}</ArrowLink>
             </div>
           </div>
         </Container>
@@ -113,9 +114,9 @@ export default function HomePage() {
           <div>
             <p className="text-xs font-black uppercase tracking-[0.32em] text-accent">What We Do</p>
             <h2 className="mt-5 text-[clamp(2.75rem,6vw,6.5rem)] font-black uppercase leading-[0.9] text-white">
-              How VV Overseas
+              {t('quickActions.titleLine1')}
               <br />
-              Helps Students Move Forward
+              {t('quickActions.titleLine2')}
             </h2>
           </div>
           <p className="max-w-2xl text-base leading-8 text-textSecondary">{t('quickActions.subtitle')}</p>
@@ -134,29 +135,34 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section id="admissions" tinted lazy>
+      <Section id="who-we-help" tinted lazy>
+        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-accent">{t('whoHelp.eyebrow')}</p>
+            <h2 className="mt-5 text-[clamp(2.75rem,6vw,6rem)] font-black uppercase leading-[0.9] text-white">
+              {t('whoHelp.title')}
+            </h2>
+          </div>
+          <div className="grid gap-px overflow-hidden border-y border-white/10 bg-white/10 sm:grid-cols-2">
+            {whoHelp.map((item) => (
+              <div key={item} className="bg-background p-5 text-lg font-black uppercase leading-tight text-white">
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      <Section id="admissions" lazy>
         <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.32em] text-accent">Study Abroad</p>
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-accent">{t('admissions.eyebrow')}</p>
             <h2 className="mt-5 text-[clamp(2.75rem,6vw,6.25rem)] font-black uppercase leading-[0.9] text-white">
-              Explore Education
-              <br />
-              Beyond Borders.
+              {t('admissions.title')}
             </h2>
             <p className="mt-6 max-w-2xl text-base leading-8 text-textSecondary">{t('admissions.subtitle')}</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <PrimaryLink href="/admission-guidance">{t('admissions.cta')}</PrimaryLink>
-              <SecondaryLink href="/countries">{t('admissions.countriesCta')}</SecondaryLink>
-            </div>
-            <div className="mt-8 border-y border-white/10 py-5">
-              <p className="text-xs font-black uppercase tracking-[0.22em] text-accent">{t('admissions.supportLabel')}</p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {studyAbroadSupport.map((item) => (
-                  <span key={item} className="rounded-lg border border-white/10 bg-background/50 px-3 py-1.5 text-xs font-semibold text-textSecondary">
-                    {item}
-                  </span>
-                ))}
-              </div>
+            <div className="mt-8">
+              <PrimaryLink href="#callback">{t('ctaPrimary')}</PrimaryLink>
             </div>
           </div>
           <div className="border-y border-white/10">
@@ -166,9 +172,6 @@ export default function HomePage() {
                 <div>
                   <h3 className="text-2xl font-black uppercase leading-tight text-white">{card.title}</h3>
                   <p className="mt-3 max-w-2xl text-sm leading-7 text-textSecondary">{card.body}</p>
-                  <div className="mt-5">
-                    <ArrowLink href={card.href}>{card.title}</ArrowLink>
-                  </div>
                 </div>
               </div>
             ))}
@@ -176,73 +179,67 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section id="study-destinations" lazy>
-        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-          <SectionHeading
-            eyebrow={t('countriesSection.eyebrow')}
-            title="Explore Study Destinations"
-            subtitle={t('countriesSection.subtitle')}
-          />
-          <div className="grid grid-cols-2 gap-px overflow-hidden border-y border-white/10 bg-white/10 sm:grid-cols-3">
-            {DESTINATIONS.map((destination) => (
-              <div key={destination} className="bg-background p-5 transition hover:bg-surfaceElevated">
-                <p className="text-lg font-black text-white">{destination}</p>
-                <p className="mt-2 text-xs uppercase tracking-wide text-textSecondary">Informational</p>
-              </div>
-            ))}
+      <Section id="destinations" tinted lazy>
+        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-accent">{t('destinations.eyebrow')}</p>
+            <h2 className="mt-5 text-[clamp(2.75rem,6vw,6rem)] font-black uppercase leading-[0.9] text-white">
+              {t('destinations.title')}
+            </h2>
+            <p className="mt-6 max-w-2xl text-base leading-8 text-textSecondary">{t('destinations.subtitle')}</p>
           </div>
-        </div>
-        <div className="mt-8">
-          <PrimaryLink href="/countries">{t('countriesSection.cta')}</PrimaryLink>
-        </div>
-
-        <div id="study-europe" className="mt-16 border-y border-brand/30 bg-[linear-gradient(135deg,#06283A,#03080D_58%,#0A121A)] p-6 sm:p-10">
-          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-            <div>
-              <p className="text-xs font-black uppercase tracking-[0.3em] text-accent">{t('countriesSection.europeEyebrow')}</p>
-              <h2 className="mt-4 text-3xl font-black uppercase leading-[0.95] text-white sm:text-5xl">
-                {t('countriesSection.europeTitle')}
-              </h2>
-              <p className="mt-5 max-w-2xl text-base leading-8 text-textSecondary">{t('countriesSection.europeSubtitle')}</p>
-              <p className="mt-5 border-l border-accent/40 pl-4 text-sm leading-7 text-textSecondary">{t('countriesSection.europeNote')}</p>
-              <div className="mt-8">
-                <SecondaryLink href="/countries">{t('countriesSection.europeCta')}</SecondaryLink>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-px overflow-hidden border-y border-white/10 bg-white/10 sm:grid-cols-3">
-              {europeDestinations.map((destination) => (
-                <div key={destination} className="bg-background/90 p-4 transition hover:bg-surfaceElevated sm:p-5">
-                  <p className="text-base font-black text-white">{destination}</p>
-                  <p className="mt-2 text-xs uppercase tracking-wide text-textSecondary">{t('countriesSection.europeCardLabel')}</p>
-                </div>
-              ))}
-            </div>
+          <div className="grid gap-px overflow-hidden border-y border-white/10 bg-white/10 sm:grid-cols-2">
+            {destinationCards.map((card) => (
+              <Link key={card.title} href={card.href} className="group bg-background p-6 transition hover:bg-surfaceElevated">
+                <h3 className="text-xl font-black uppercase leading-tight text-white">{card.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-textSecondary">{card.body}</p>
+                <span className="mt-6 inline-flex text-xs font-black uppercase tracking-[0.12em] text-accent transition group-hover:translate-x-1">
+                  {card.cta} -&gt;
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </Section>
 
-      <section className="border-y border-white/10 bg-[#020608] py-20 sm:py-28 lg:py-36">
-        <Container>
-          <p className="max-w-6xl text-[clamp(2.8rem,7vw,8rem)] font-black uppercase leading-[0.9] text-white">
-            Guidance for
-            <br />
-            <span className="text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.68)]">where you are.</span>
-            <br />
-            Opportunities for
-            <br />
-            <span className="text-accent">where you want to go.</span>
-          </p>
-        </Container>
-      </section>
+      <Section id="callback" lazy>
+        <div className="grid gap-10 border-y border-brand/30 bg-[#020608] p-6 sm:p-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-accent">{t('leadForm.eyebrow')}</p>
+            <h2 className="mt-5 text-[clamp(2.75rem,6vw,6.25rem)] font-black uppercase leading-[0.9] text-white">
+              {t('leadForm.title')}
+            </h2>
+            <p className="mt-6 max-w-2xl text-base leading-8 text-textSecondary">{t('leadForm.subtitle')}</p>
+          </div>
+          <HomeLeadForm />
+        </div>
+      </Section>
 
-      <Section id="neet-preparation" tinted lazy>
+      <Section id="why-vv" tinted lazy>
+        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-accent">{t('why.eyebrow')}</p>
+            <h2 className="mt-5 text-[clamp(2.75rem,6vw,6rem)] font-black uppercase leading-[0.9] text-white">
+              {t('why.title')}
+            </h2>
+          </div>
+          <div className="grid gap-px overflow-hidden border-y border-white/10 bg-white/10 sm:grid-cols-2">
+            {whyItems.map((item) => (
+              <div key={item.title} className="bg-background p-6">
+                <h3 className="text-lg font-black uppercase text-white">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-textSecondary">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      <Section id="neet-preparation" lazy>
         <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr]">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.32em] text-accent">Exam Preparation</p>
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-accent">{t('neet.eyebrow')}</p>
             <h2 className="mt-5 text-[clamp(3rem,6vw,7rem)] font-black uppercase leading-[0.88] text-white">
-              Prepare
-              <br />
-              Smarter.
+              {t('neet.title')}
             </h2>
             <p className="mt-6 max-w-2xl text-base leading-8 text-textSecondary">{t('neet.subtitle')}</p>
             <div className="mt-6 flex flex-wrap gap-2">
@@ -282,28 +279,41 @@ export default function HomePage() {
       </Section>
 
       <Section id="previous-year-papers" lazy>
-        <div className="overflow-hidden border-y border-brand/30 bg-[linear-gradient(135deg,#06283A,#03080D_56%,#07111A)] p-6 shadow-2xl shadow-brand/10 sm:p-10">
-          <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
-            <div>
-              <p className="text-sm font-black uppercase tracking-[0.28em] text-accent">NEET Previous Year Papers</p>
-              <h2 className="mt-4 text-3xl font-black uppercase text-white sm:text-5xl">
-                Practice the paper. Review the result. Improve the next attempt.
-              </h2>
-              <p className="mt-5 max-w-2xl text-base leading-8 text-textSecondary">{t('pyq.body')}</p>
+        <div className="grid gap-8 border-y border-white/10 py-10 lg:grid-cols-[1fr_auto] lg:items-center">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.28em] text-accent">NEET Previous Year Papers</p>
+            <h2 className="mt-4 text-3xl font-black uppercase text-white sm:text-5xl">
+              {t('pyq.title')}
+            </h2>
+            <p className="mt-5 max-w-2xl text-base leading-8 text-textSecondary">{t('pyq.body')}</p>
+          </div>
+          <div>
+            <SecondaryLink href="/mock-tests">{t('pyq.cta')}</SecondaryLink>
+          </div>
+        </div>
+      </Section>
+
+      <Section id="how-it-works" tinted lazy>
+        <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-accent">{t('how.eyebrow')}</p>
+            <h2 className="mt-5 text-[clamp(2.75rem,6vw,6rem)] font-black uppercase leading-[0.9] text-white">
+              {t('how.title')}
+            </h2>
+            <div className="mt-8">
+              <ArrowLink href="#neet-preparation">{t('ctaTertiary')}</ArrowLink>
             </div>
-            <div className="border-l border-white/10 bg-surface/75 p-5">
-              <p className="text-xs font-bold uppercase tracking-wide text-textSecondary">Year selector</p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                <span className="rounded-lg border border-brand/50 bg-brand-soft px-4 py-2 text-sm font-black text-accent">
-                  2025 - Ready when data is loaded
-                </span>
-                <span className="rounded-lg border border-white/10 px-4 py-2 text-sm text-textSecondary">More years later</span>
+          </div>
+          <div className="border-y border-white/10">
+            {howItems.map((item, index) => (
+              <div key={item.title} className="grid gap-5 border-b border-white/10 py-7 last:border-b-0 sm:grid-cols-[auto_1fr]">
+                <p className="text-4xl font-black text-brand/80">0{index + 1}</p>
+                <div>
+                  <h3 className="text-2xl font-black uppercase text-white">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-textSecondary">{item.body}</p>
+                </div>
               </div>
-              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                <PrimaryLink href="/mock-tests">Start Mock Test</PrimaryLink>
-                <SecondaryLink href="/mock-tests">View Question Bank</SecondaryLink>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </Section>
@@ -312,19 +322,17 @@ export default function HomePage() {
         <div className="border-y border-brand/30 bg-[#020608] p-8 text-white shadow-2xl shadow-brand/10 sm:p-12 lg:p-16">
           <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
             <div>
-              <p className="text-sm font-black uppercase tracking-[0.3em] text-accent">Ready to get started?</p>
+              <p className="text-sm font-black uppercase tracking-[0.3em] text-accent">{t('finalCta.eyebrow')}</p>
               <h2 className="mt-5 max-w-4xl text-[clamp(3.5rem,8vw,8.5rem)] font-black uppercase leading-[0.86]">
-                Plan Your
-                <br />
-                Next Step.
+                {t('finalCta.title')}
               </h2>
               <p className="mt-5 max-w-2xl text-base leading-8 text-cyan-50/80">{t('finalCta.subtitle')}</p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-              <PrimaryLink href="/contact" className="bg-white text-slate-950 hover:bg-amber-100">
-                Talk to VV Overseas
+              <PrimaryLink href="#callback" className="bg-white text-slate-950 hover:bg-amber-100">
+                {t('ctaPrimary')}
               </PrimaryLink>
-              <SecondaryLink href="/admission-guidance">{t('finalCta.primary')}</SecondaryLink>
+              <SecondaryLink href="#neet-preparation">{t('ctaTertiary')}</SecondaryLink>
             </div>
           </div>
         </div>

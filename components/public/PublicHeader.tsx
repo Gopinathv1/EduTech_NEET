@@ -50,14 +50,6 @@ export default function PublicHeader() {
         </div>
 
         <nav className="hidden min-w-0 flex-1 items-center justify-center gap-0.5 min-[1360px]:flex" aria-label={tA11y('primaryNav')}>
-          <Link
-            href="/"
-            className={navLinkClass('/')}
-            aria-current={isActive(pathname, '/') ? 'page' : undefined}
-          >
-            {t('home')}
-          </Link>
-
           {NAV_GROUPS.map((group) => (
             <div key={group.key} className="group relative">
               <button
@@ -114,7 +106,7 @@ export default function PublicHeader() {
             {tNav('login')}
           </Link>
           <Link
-            href="/register"
+            href="/#callback"
             className="hidden rounded-lg bg-brand px-4 py-2 text-sm font-black uppercase tracking-[0.06em] text-white shadow-lg shadow-brand/20 hover:bg-accentBlue sm:inline-flex"
           >
             {t('getStarted')}
@@ -139,21 +131,6 @@ export default function PublicHeader() {
           className="border-t border-white/10 bg-background/96 px-4 py-4 shadow-2xl shadow-black/40 backdrop-blur-xl min-[1360px]:hidden"
         >
           <ul className="flex flex-col">
-            <li>
-              <Link
-                href="/"
-                onClick={() => setOpen(false)}
-                className={`block rounded-lg px-3 py-3 text-base font-medium ${
-                  isActive(pathname, '/')
-                    ? 'bg-brand-soft text-accent'
-                    : 'text-textSecondary hover:bg-white/5 hover:text-white'
-                }`}
-                aria-current={isActive(pathname, '/') ? 'page' : undefined}
-              >
-                {t('home')}
-              </Link>
-            </li>
-
             {NAV_GROUPS.map((group) => (
               <li key={group.key} className="py-1">
                 <p className="px-3 pb-1 pt-3 text-xs font-bold uppercase tracking-wide text-accent">
@@ -205,7 +182,7 @@ export default function PublicHeader() {
               {tNav('login')}
             </Link>
             <Link
-              href="/register"
+              href="/#callback"
               onClick={() => setOpen(false)}
               className="rounded-lg bg-brand px-3 py-2.5 text-center text-sm font-semibold text-white"
             >

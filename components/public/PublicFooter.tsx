@@ -23,8 +23,8 @@ function FooterColumn({ title, links }: { title: string; links: NavLink[] }) {
 
 const ADMISSIONS: NavLink[] = [
   { href: '/countries', key: 'mbbsAbroad' },
+  { href: '/#admissions', key: 'studyEurope' },
   { href: '/countries', key: 'internationalEducation' },
-  { href: '/admission-guidance', key: 'applicationGuidance' },
 ];
 
 const COUNSELLING: NavLink[] = [
@@ -38,6 +38,10 @@ const EXAM_PREP: NavLink[] = [
   { href: '/mock-tests', key: 'questionBank' },
   { href: '/#previous-year-papers', key: 'previousYear' },
   { href: '/mock-tests', key: 'mockTests' },
+];
+
+const LEARNING: NavLink[] = [
+  { href: '/contact', key: 'coursesLearning' },
 ];
 
 export default function PublicFooter() {
@@ -58,25 +62,11 @@ export default function PublicFooter() {
             </div>
           </div>
 
-          <FooterColumn title="Study Abroad" links={ADMISSIONS} />
-          <FooterColumn title={t('exams')} links={EXAM_PREP} />
+          <FooterColumn title="Admissions & Study Abroad" links={ADMISSIONS} />
+          <FooterColumn title="Exam Preparation" links={EXAM_PREP} />
           <FooterColumn title="Counselling" links={COUNSELLING} />
+          <FooterColumn title="Learning" links={LEARNING} />
           <FooterColumn title={t('company')} links={FOOTER_COMPANY} />
-
-          <div>
-            <h3 className="text-xs font-black uppercase tracking-[0.22em] text-accent">{t('getStarted')}</h3>
-            <div className="mt-4 space-y-3">
-              <Link href="/register" className="block text-sm text-textSecondary transition hover:text-accent">
-                {t('registerLink')}
-              </Link>
-              <Link href="/login" className="block text-sm text-textSecondary transition hover:text-accent">
-                {t('loginLink')}
-              </Link>
-              <Link href="/contact" className="block text-sm text-textSecondary transition hover:text-accent">
-                {t('contactLink')}
-              </Link>
-            </div>
-          </div>
         </div>
 
         <p className="mt-8 border-l border-accent/40 bg-white/[0.025] p-4 text-xs leading-relaxed text-slate-400">
