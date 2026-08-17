@@ -29,6 +29,13 @@ export default function PublicHeader() {
     return () => window.removeEventListener('scroll', update);
   }, []);
 
+  const navLinkClass = (href: string) =>
+    `whitespace-nowrap rounded-full px-2.5 py-2 text-[13px] font-medium transition-colors min-[1440px]:px-3 min-[1440px]:text-sm ${
+      isActive(pathname, href)
+        ? 'bg-brand-soft text-accent'
+        : 'text-textSecondary hover:bg-white/5 hover:text-white'
+    }`;
+
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
@@ -37,17 +44,15 @@ export default function PublicHeader() {
           : 'border-b border-transparent bg-background/55 backdrop-blur-md'
       }`}
     >
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 px-4 py-3 sm:px-6 lg:px-8">
-        <Logo />
+      <div className="mx-auto flex w-full max-w-[1600px] items-center gap-3 px-[clamp(1rem,3vw,3rem)] py-3">
+        <div className="flex min-w-0 flex-1 items-center min-[1360px]:flex-none">
+          <Logo />
+        </div>
 
-        <nav className="hidden items-center gap-1 2xl:flex" aria-label={tA11y('primaryNav')}>
+        <nav className="hidden min-w-0 flex-1 items-center justify-center gap-0.5 min-[1360px]:flex" aria-label={tA11y('primaryNav')}>
           <Link
             href="/"
-            className={`whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-colors ${
-              isActive(pathname, '/')
-                ? 'bg-brand-soft text-accent'
-                : 'text-textSecondary hover:bg-white/5 hover:text-white'
-            }`}
+            className={navLinkClass('/')}
             aria-current={isActive(pathname, '/') ? 'page' : undefined}
           >
             {t('home')}
@@ -57,7 +62,7 @@ export default function PublicHeader() {
             <div key={group.key} className="group relative">
               <button
                 type="button"
-                className="whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium text-textSecondary transition-colors hover:bg-white/5 hover:text-white"
+                className="whitespace-nowrap rounded-full px-2.5 py-2 text-[13px] font-medium text-textSecondary transition-colors hover:bg-white/5 hover:text-white min-[1440px]:px-3 min-[1440px]:text-sm"
               >
                 {t(group.key)}
               </button>
@@ -79,11 +84,7 @@ export default function PublicHeader() {
             <Link
               key={link.href}
               href={link.href}
-              className={`whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-colors ${
-                isActive(pathname, link.href)
-                  ? 'bg-brand-soft text-accent'
-                  : 'text-textSecondary hover:bg-white/5 hover:text-white'
-              }`}
+              className={navLinkClass(link.href)}
               aria-current={isActive(pathname, link.href) ? 'page' : undefined}
             >
               {t(link.key)}
@@ -91,16 +92,20 @@ export default function PublicHeader() {
           ))}
         </nav>
 
-        <div className="flex shrink-0 items-center gap-2">
-          <div className="hidden items-center rounded-full border border-brand/30 bg-brand-soft/70 px-3 py-1.5 text-xs font-semibold text-textPrimary lg:flex">
-            <span className="text-accent">{t('examNeet')}</span>
-            <span className="ml-2 rounded-full border border-white/10 bg-surface/70 px-2 py-0.5 text-[11px] text-textSecondary">
-              {t('examJeeSoon')}
-            </span>
-          </div>
+        <div className="flex shrink-0 items-center justify-end gap-1.5 sm:gap-2">
+          <details className="group relative hidden lg:block">
+            <summary className="flex cursor-pointer list-none items-center gap-1 rounded-full border border-brand/30 bg-brand-soft/70 px-3 py-1.5 text-xs font-semibold text-accent marker:hidden">
+              {t('examNeet')}
+              <span className="text-textSecondary transition group-open:rotate-180">v</span>
+            </summary>
+            <div className="absolute right-0 top-full z-50 mt-2 min-w-44 rounded-2xl border border-white/10 bg-surfaceElevated p-2 shadow-2xl shadow-black/40">
+              <div className="rounded-xl px-3 py-2 text-sm font-semibold text-textPrimary">{t('examNeet')} - Available</div>
+              <div className="rounded-xl px-3 py-2 text-sm text-textSecondary">JEE - Coming Soon</div>
+            </div>
+          </details>
           <AccessibilityMenu />
           <div className="hidden md:block">
-            <LanguageSwitcher />
+            <LanguageSwitcher variant="select" />
           </div>
           <Link
             href="/login"
@@ -117,7 +122,7 @@ export default function PublicHeader() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-2 text-textPrimary hover:bg-surfaceElevated 2xl:hidden"
+            className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-2 text-textPrimary hover:bg-surfaceElevated min-[1360px]:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={tA11y('openMenu')}
@@ -131,7 +136,7 @@ export default function PublicHeader() {
         <nav
           id="mobile-nav"
           aria-label={tA11y('primaryNav')}
-          className="border-t border-brand/20 bg-background/95 px-4 py-4 shadow-2xl shadow-black/40 backdrop-blur-xl 2xl:hidden"
+          className="border-t border-brand/20 bg-background/95 px-4 py-4 shadow-2xl shadow-black/40 backdrop-blur-xl min-[1360px]:hidden"
         >
           <ul className="flex flex-col">
             <li>

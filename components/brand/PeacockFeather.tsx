@@ -7,38 +7,41 @@ type Props = SVGProps<SVGSVGElement> & {
 export default function PeacockFeather({ decorative = true, className = '', ...props }: Props) {
   return (
     <svg
-      viewBox="0 0 72 118"
+      viewBox="0 0 56 128"
       fill="none"
       className={className}
       aria-hidden={decorative}
       role={decorative ? undefined : 'img'}
       {...props}
     >
-      <path d="M18 111C34 77 47 42 51 7" stroke="url(#pf-stem)" strokeWidth="2.4" strokeLinecap="round" />
-      <path d="M20 100C33 82 42 60 49 31" stroke="#f0d28a" strokeWidth="0.85" strokeLinecap="round" opacity="0.78" />
-      <path d="M26 82C14 75 8 63 8 49c15 4 27 15 36 33" stroke="#9a6528" strokeWidth="1.15" strokeLinecap="round" opacity="0.72" />
-      <path d="M31 72C18 60 15 43 22 27c13 11 21 25 24 43" stroke="#c5903a" strokeWidth="1.15" strokeLinecap="round" opacity="0.78" />
-      <path d="M39 63C30 45 32 27 45 10c8 17 8 34 1 52" stroke="#e5b960" strokeWidth="1.15" strokeLinecap="round" opacity="0.82" />
-      <path d="M48 66C59 51 62 35 57 20c-8 12-12 27-12 45" stroke="#8a561f" strokeWidth="1.05" strokeLinecap="round" opacity="0.58" />
-      <path d="M23 93c8-13 17-34 22-60" stroke="#5d3919" strokeWidth="0.75" strokeLinecap="round" opacity="0.65" />
-      <path d="M15 58c12 3 22 11 30 24M25 34c10 9 17 20 20 34M56 27c-5 11-8 24-10 39" stroke="#f5d990" strokeWidth="0.55" strokeLinecap="round" opacity="0.54" />
-      <ellipse cx="43.5" cy="35" rx="15.5" ry="21" transform="rotate(16 43.5 35)" fill="#070b0a" opacity="0.96" />
-      <ellipse cx="43.5" cy="35" rx="13.1" ry="18" transform="rotate(16 43.5 35)" stroke="url(#pf-eye-gold)" strokeWidth="2.6" />
-      <ellipse cx="43.5" cy="35" rx="8.2" ry="11.2" transform="rotate(16 43.5 35)" fill="url(#pf-eye-teal)" />
-      <ellipse cx="43.5" cy="35" rx="3.6" ry="5" transform="rotate(16 43.5 35)" fill="#08243b" />
-      <path d="M36.5 37c4.2 2.4 9.4 2 14-1.1" stroke="#86ead8" strokeWidth="1.05" strokeLinecap="round" opacity="0.68" />
+      <path d="M12 119C24 86 35 48 43 9" stroke="url(#pf-stem)" strokeWidth="2.05" strokeLinecap="round" />
+      <path d="M15 111C26 82 36 48 42 17" stroke="#ffe1a1" strokeWidth="0.65" strokeLinecap="round" opacity="0.72" />
+
+      <path d="M22 91C12 84 8 72 10 58c12 5 21 16 28 30" stroke="#b47a2d" strokeWidth="0.95" strokeLinecap="round" opacity="0.7" />
+      <path d="M25 81C14 69 13 53 19 39c11 11 17 25 19 41" stroke="#d9ad55" strokeWidth="0.95" strokeLinecap="round" opacity="0.78" />
+      <path d="M31 72C23 55 25 35 39 14c6 19 5 38-2 57" stroke="#f2cc76" strokeWidth="1" strokeLinecap="round" opacity="0.88" />
+      <path d="M38 75C49 58 52 40 48 24c-8 13-12 29-12 49" stroke="#9a6426" strokeWidth="0.9" strokeLinecap="round" opacity="0.68" />
+      <path d="M13 66c9 4 17 12 25 23M19 43c9 9 15 22 18 37M48 32c-5 12-8 26-10 41" stroke="#f8dd96" strokeWidth="0.45" strokeLinecap="round" opacity="0.52" />
+      <path d="M16 102c8-15 17-40 23-74" stroke="#6a431c" strokeWidth="0.55" strokeLinecap="round" opacity="0.58" />
+
+      <ellipse cx="39" cy="34" rx="12.2" ry="17.2" transform="rotate(14 39 34)" fill="#070b0a" opacity="0.96" />
+      <ellipse cx="39" cy="34" rx="10.4" ry="14.7" transform="rotate(14 39 34)" stroke="url(#pf-eye-gold)" strokeWidth="2.25" />
+      <ellipse cx="39" cy="34" rx="6.5" ry="9.2" transform="rotate(14 39 34)" fill="url(#pf-eye-teal)" />
+      <ellipse cx="39" cy="34" rx="2.85" ry="4.05" transform="rotate(14 39 34)" fill="#08284d" />
+      <circle cx="37" cy="30" r="1.2" fill="#c8fff2" opacity="0.88" />
+      <path d="M33.4 36.2c3.4 1.9 7.4 1.5 10.9-1" stroke="#8ef2dd" strokeWidth="0.8" strokeLinecap="round" opacity="0.6" />
       <defs>
-        <linearGradient id="pf-stem" x1="18" y1="111" x2="54" y2="8" gradientUnits="userSpaceOnUse">
+        <linearGradient id="pf-stem" x1="12" y1="119" x2="43" y2="9" gradientUnits="userSpaceOnUse">
           <stop stopColor="#674017" />
           <stop offset="0.48" stopColor="#d2a14a" />
           <stop offset="1" stopColor="#ffe2a0" />
         </linearGradient>
-        <linearGradient id="pf-eye-gold" x1="30" y1="16" x2="58" y2="55" gradientUnits="userSpaceOnUse">
+        <linearGradient id="pf-eye-gold" x1="29" y1="19" x2="49" y2="48" gradientUnits="userSpaceOnUse">
           <stop stopColor="#ffe6a3" />
           <stop offset="0.45" stopColor="#bd8131" />
           <stop offset="1" stopColor="#5b3312" />
         </linearGradient>
-        <radialGradient id="pf-eye-teal" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(43 34) rotate(90) scale(12.5 9)">
+        <radialGradient id="pf-eye-teal" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(38.8 33.5) rotate(90) scale(10.3 7.3)">
           <stop stopColor="#63f3d7" />
           <stop offset="0.54" stopColor="#0f918d" />
           <stop offset="1" stopColor="#125137" />

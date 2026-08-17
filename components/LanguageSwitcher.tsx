@@ -11,7 +11,7 @@ import { setUserLocale } from '@/lib/locale';
  * language. Adding a new language needs no change here — it renders whatever
  * is listed in i18n/config.
  */
-export default function LanguageSwitcher() {
+export default function LanguageSwitcher({ variant = 'segmented' }: { variant?: 'segmented' | 'select' }) {
   const activeLocale = useLocale();
   const t = useTranslations('nav');
   const [isPending, startTransition] = useTransition();
@@ -21,6 +21,27 @@ export default function LanguageSwitcher() {
     startTransition(() => {
       setUserLocale(next);
     });
+  }
+
+  if (variant === 'select') {
+    return (
+      <label className="inline-flex items-center rounded-full border border-border bg-surface px-3 py-1.5 text-sm font-medium text-textPrimary">
+        <span className="sr-only">{t('language')}</span>
+        <select
+          value={activeLocale}
+          disabled={isPending}
+          onChange={(event) => onSelect(event.target.value as Locale)}
+          className="max-w-[8.5rem] bg-transparent text-sm font-medium text-textPrimary outline-none disabled:opacity-60"
+          aria-label={t('language')}
+        >
+          {locales.map((code) => (
+            <option key={code} value={code} className="bg-surface text-textPrimary">
+              {localeNames[code]}
+            </option>
+          ))}
+        </select>
+      </label>
+    );
   }
 
   return (
