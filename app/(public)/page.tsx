@@ -5,7 +5,6 @@ import { pageMetadata } from '@/lib/seo';
 import {
   Section,
   SectionHeading,
-  Card,
   PrimaryLink,
   SecondaryLink,
   ArrowLink,
@@ -136,13 +135,15 @@ export default function HomePage() {
       </Section>
 
       <Section id="admissions" tinted lazy>
-        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+        <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
           <div>
-            <SectionHeading
-              eyebrow={t('admissions.eyebrow')}
-              title="Find the Right Path for Your Education"
-              subtitle={t('admissions.subtitle')}
-            />
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-accent">Study Abroad</p>
+            <h2 className="mt-5 text-[clamp(2.75rem,6vw,6.25rem)] font-black uppercase leading-[0.9] text-white">
+              Explore Education
+              <br />
+              Beyond Borders.
+            </h2>
+            <p className="mt-6 max-w-2xl text-base leading-8 text-textSecondary">{t('admissions.subtitle')}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <PrimaryLink href="/admission-guidance">{t('admissions.cta')}</PrimaryLink>
               <SecondaryLink href="/countries">{t('admissions.countriesCta')}</SecondaryLink>
@@ -158,16 +159,18 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-1 gap-px overflow-hidden border-y border-white/10 bg-white/10 sm:grid-cols-2">
+          <div className="border-y border-white/10">
             {admissionCards.map((card, index) => (
-              <Card key={card.title} className="rounded-none border-0 bg-surface p-7">
+              <div key={card.title} className="grid gap-5 border-b border-white/10 py-7 last:border-b-0 sm:grid-cols-[auto_1fr] sm:items-start">
                 <p className="text-4xl font-black leading-none text-brand/80">0{index + 1}</p>
-                <h3 className="mt-8 text-xl font-black uppercase text-white">{card.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-textSecondary">{card.body}</p>
-                <div className="mt-7">
-                  <ArrowLink href={card.href}>{card.title}</ArrowLink>
+                <div>
+                  <h3 className="text-2xl font-black uppercase leading-tight text-white">{card.title}</h3>
+                  <p className="mt-3 max-w-2xl text-sm leading-7 text-textSecondary">{card.body}</p>
+                  <div className="mt-5">
+                    <ArrowLink href={card.href}>{card.title}</ArrowLink>
+                  </div>
                 </div>
-              </Card>
+              </div>
             ))}
           </div>
         </div>
@@ -218,18 +221,34 @@ export default function HomePage() {
         </div>
       </Section>
 
+      <section className="border-y border-white/10 bg-[#020608] py-20 sm:py-28 lg:py-36">
+        <Container>
+          <p className="max-w-6xl text-[clamp(2.8rem,7vw,8rem)] font-black uppercase leading-[0.9] text-white">
+            Guidance for
+            <br />
+            <span className="text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.68)]">where you are.</span>
+            <br />
+            Opportunities for
+            <br />
+            <span className="text-accent">where you want to go.</span>
+          </p>
+        </Container>
+      </section>
+
       <Section id="neet-preparation" tinted lazy>
-        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+        <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr]">
           <div>
-            <span className="inline-flex rounded-lg border border-brand/40 bg-brand-soft px-3 py-1 text-xs font-black uppercase tracking-wide text-accent">
-              Available Now
-            </span>
-            <SectionHeading
-              eyebrow={t('neet.eyebrow')}
-              title="Prepare With VV Overseas"
-              subtitle={t('neet.subtitle')}
-            />
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-accent">Exam Preparation</p>
+            <h2 className="mt-5 text-[clamp(3rem,6vw,7rem)] font-black uppercase leading-[0.88] text-white">
+              Prepare
+              <br />
+              Smarter.
+            </h2>
+            <p className="mt-6 max-w-2xl text-base leading-8 text-textSecondary">{t('neet.subtitle')}</p>
             <div className="mt-6 flex flex-wrap gap-2">
+              <span className="rounded-lg border border-brand/40 bg-brand-soft px-3 py-1.5 text-sm font-black uppercase tracking-wide text-accent">
+                NEET - Available Now
+              </span>
               {FUTURE_EXAMS.map((exam) => (
                 <span key={exam} className="rounded-lg border border-white/10 px-3 py-1.5 text-sm text-textSecondary">
                   {exam} - Coming Soon
@@ -237,21 +256,21 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-          <div className="grid gap-4">
-            <div className="grid gap-4 sm:grid-cols-3">
+          <div className="grid gap-6">
+            <div className="grid gap-px overflow-hidden border-y border-white/10 bg-white/10 sm:grid-cols-3">
               {subjects.map((subject) => (
-                <Card key={subject.title} className="p-5">
+                <div key={subject.title} className="bg-surface p-5 transition hover:bg-surfaceElevated">
                   <h3 className="text-xl font-black text-white">{subject.title}</h3>
                   <p className="mt-2 text-sm leading-6 text-textSecondary">{subject.body}</p>
-                </Card>
+                </div>
               ))}
             </div>
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div className="grid gap-px overflow-hidden border-y border-white/10 bg-white/10 sm:grid-cols-2">
               {PREP_ACTIONS.map((action) => (
                 <Link
                   key={action.title}
                   href={action.href}
-                  className="group rounded-xl border border-white/10 bg-surface/70 p-5 text-sm font-bold text-white transition hover:-translate-y-1 hover:border-accent/50 hover:bg-brand-soft"
+                  className="group bg-background p-5 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:bg-brand-soft"
                 >
                   {action.title}
                   <span className="ml-2 inline-block text-accent transition group-hover:translate-x-1">-&gt;</span>
@@ -290,16 +309,20 @@ export default function HomePage() {
       </Section>
 
       <Section lazy>
-        <div className="border-y border-brand/30 bg-[linear-gradient(120deg,#06283A,#03080D_62%,#0A121A)] p-8 text-white shadow-2xl shadow-brand/10 sm:p-12 lg:p-16">
-          <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+        <div className="border-y border-brand/30 bg-[#020608] p-8 text-white shadow-2xl shadow-brand/10 sm:p-12 lg:p-16">
+          <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
             <div>
-              <p className="text-sm font-black uppercase tracking-[0.3em] text-accent">Ready to plan your next step?</p>
-              <h2 className="mt-5 max-w-4xl text-[clamp(2.75rem,6vw,6.5rem)] font-black uppercase leading-[0.88]">{t('finalCta.title')}</h2>
+              <p className="text-sm font-black uppercase tracking-[0.3em] text-accent">Ready to get started?</p>
+              <h2 className="mt-5 max-w-4xl text-[clamp(3.5rem,8vw,8.5rem)] font-black uppercase leading-[0.86]">
+                Plan Your
+                <br />
+                Next Step.
+              </h2>
               <p className="mt-5 max-w-2xl text-base leading-8 text-cyan-50/80">{t('finalCta.subtitle')}</p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
               <PrimaryLink href="/contact" className="bg-white text-slate-950 hover:bg-amber-100">
-                Talk to Us
+                Talk to VV Overseas
               </PrimaryLink>
               <SecondaryLink href="/admission-guidance">{t('finalCta.primary')}</SecondaryLink>
             </div>
