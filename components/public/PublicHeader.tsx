@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl';
 import Logo from './Logo';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import AccessibilityMenu from '@/components/a11y/AccessibilityMenu';
-import { NAV_LINKS } from '@/lib/public/nav';
+import { NAV_GROUPS, NAV_LINKS } from '@/lib/public/nav';
 import { MenuIcon, CloseIcon } from './icons';
 
 function isActive(pathname: string, href: string) {
@@ -34,7 +34,39 @@ export default function PublicHeader() {
         {/* Inline nav — only shown when there is genuinely room for all links;
             narrower screens use the hamburger drawer below. */}
         <nav className="hidden items-center min-[1440px]:flex" aria-label={tA11y('primaryNav')}>
-          {NAV_LINKS.map((link) => (
+          <Link
+            href="/"
+            className={`whitespace-nowrap rounded-md px-2 py-2 text-[13px] font-medium transition-colors ${
+              isActive(pathname, '/')
+                ? 'bg-brand-soft text-red-200'
+                : 'text-textSecondary hover:text-white'
+            }`}
+            aria-current={isActive(pathname, '/') ? 'page' : undefined}
+          >
+            {t('home')}
+          </Link>
+          {NAV_GROUPS.map((group) => (
+            <div key={group.key} className="group relative">
+              <button
+                type="button"
+                className="whitespace-nowrap rounded-md px-2 py-2 text-[13px] font-medium text-textSecondary transition-colors hover:text-white"
+              >
+                {t(group.key)}
+              </button>
+              <div className="invisible absolute left-0 top-full z-50 min-w-56 translate-y-1 rounded-xl border border-border bg-surfaceElevated p-2 opacity-0 shadow-lg shadow-black/40 transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                {group.links.map((link) => (
+                  <Link
+                    key={`${group.key}-${link.href}-${link.key}`}
+                    href={link.href}
+                    className="block rounded-lg px-3 py-2 text-sm font-medium text-textSecondary hover:bg-surface hover:text-white"
+                  >
+                    {t(link.key)}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
+          {NAV_LINKS.filter((link) => link.href !== '/').map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -92,7 +124,40 @@ export default function PublicHeader() {
           className="border-t border-border bg-black px-4 py-3 min-[1440px]:hidden"
         >
           <ul className="flex flex-col">
-            {NAV_LINKS.map((link) => (
+            <li>
+              <Link
+                href="/"
+                onClick={() => setOpen(false)}
+                className={`block rounded-md px-3 py-2.5 text-base font-medium ${
+                  isActive(pathname, '/')
+                    ? 'bg-brand-soft text-red-200'
+                    : 'text-textSecondary hover:bg-surfaceElevated hover:text-white'
+                }`}
+                aria-current={isActive(pathname, '/') ? 'page' : undefined}
+              >
+                {t('home')}
+              </Link>
+            </li>
+            {NAV_GROUPS.map((group) => (
+              <li key={group.key} className="py-1">
+                <p className="px-3 pb-1 pt-2 text-xs font-bold uppercase tracking-wide text-red-300">
+                  {t(group.key)}
+                </p>
+                <div className="space-y-1">
+                  {group.links.map((link) => (
+                    <Link
+                      key={`${group.key}-${link.href}-${link.key}`}
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      className="block rounded-md px-3 py-2 text-sm font-medium text-textSecondary hover:bg-surfaceElevated hover:text-white"
+                    >
+                      {t(link.key)}
+                    </Link>
+                  ))}
+                </div>
+              </li>
+            ))}
+            {NAV_LINKS.filter((link) => link.href !== '/').map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}

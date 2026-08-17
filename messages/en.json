@@ -56,7 +56,14 @@
     "terms": "Terms & Conditions",
     "privacy": "Privacy Policy",
     "examNeet": "NEET",
-    "examJeeSoon": "JEE - Coming Soon"
+    "examJeeSoon": "JEE - Coming Soon",
+    "admissionsMenu": "Admissions",
+    "examPrepMenu": "Exam Preparation",
+    "mbbsIndia": "MBBS in India",
+    "mbbsAbroad": "MBBS Abroad",
+    "medicalAdmissions": "Medical Admissions",
+    "otherPrograms": "Other Programs",
+    "neet": "NEET"
   },
   "site": {
     "cta": {
@@ -86,15 +93,20 @@
   },
   "home": {
     "brand": "VV Overseas",
-    "title": "Prepare smarter for India's competitive exams.",
-    "subtitle": "Practice previous-year questions, chapter-wise question banks, mock tests and detailed solutions - starting with NEET.",
-    "ctaPrimary": "Start Practising",
-    "ctaSecondary": "Explore Question Bank",
-    "examSelectorLabel": "Available exams",
+    "title": "Your Journey to the Right Education Starts Here",
+    "subtitle": "Explore medical education opportunities in India and abroad, get expert admission guidance, and prepare smarter for competitive exams with VV Overseas.",
+    "ctaPrimary": "Explore Admissions",
+    "ctaSecondary": "Start NEET Preparation",
+    "examSelectorLabel": "Current services",
     "examChips": [
       {
+        "label": "Admissions",
+        "status": "Guidance available",
+        "available": true
+      },
+      {
         "label": "NEET",
-        "status": "Available",
+        "status": "Active preparation",
         "available": true
       },
       {
@@ -104,10 +116,10 @@
       }
     ],
     "heroStats": [
-      "Previous-year questions",
-      "Chapter-wise practice",
-      "Mock tests",
-      "Detailed solutions"
+      "MBBS admissions guidance",
+      "India & abroad options",
+      "NEET question bank",
+      "Mock tests and explanations"
     ],
     "search": {
       "label": "Search questions, chapters or topics",
@@ -116,53 +128,29 @@
       "note": "Search UI is ready. Global search can be connected when the backend search index is implemented."
     },
     "quickActions": {
-      "eyebrow": "Start with what you need",
-      "title": "Practice paths for competitive exams",
-      "subtitle": "NEET is active now; the layout is ready for more exams without changing the public experience.",
+      "eyebrow": "Two service areas",
+      "title": "Admissions and preparation, clearly separated",
+      "subtitle": "Students can get education guidance and also prepare for active exams without mixing the two workflows.",
       "items": [
         {
-          "title": "Question Bank",
-          "body": "Browse exam questions by subject, chapter and topic.",
-          "cta": "Explore questions",
+          "title": "Admissions",
+          "body": "MBBS in India, MBBS abroad, medical admission counselling, college guidance and application assistance.",
+          "cta": "Explore admissions",
+          "href": "#admissions"
+        },
+        {
+          "title": "Exam Preparation",
+          "body": "NEET question bank, previous-year papers, chapter-wise practice, mock tests, answers and explanations.",
+          "cta": "Start NEET preparation",
           "href": "#question-bank"
-        },
-        {
-          "title": "Previous Year Papers",
-          "body": "Practise questions shaped by real previous-year exam patterns.",
-          "cta": "View papers",
-          "href": "#previous-year-papers"
-        },
-        {
-          "title": "Mock Tests",
-          "body": "Attempt timed tests with autosave, scoring and review.",
-          "cta": "See mock tests",
-          "href": "/mock-tests"
-        },
-        {
-          "title": "Chapter-wise Practice",
-          "body": "Focus on one chapter at a time and build accuracy steadily.",
-          "cta": "Start chapter practice",
-          "href": "/mock-tests"
-        },
-        {
-          "title": "Topic-wise Practice",
-          "body": "Prepare topic by topic as the bank grows across exams.",
-          "cta": "Explore topics",
-          "href": "#question-bank"
-        },
-        {
-          "title": "Performance / Results",
-          "body": "Track attempts, scores, strong areas and weak chapters after login.",
-          "cta": "Go to progress",
-          "href": "/login"
         }
       ]
     },
     "neet": {
-      "eyebrow": "Active exam",
-      "title": "Explore NEET",
-      "subtitle": "NEET is the first active exam on VV Overseas. Subjects connect into chapters, topics, questions, previous-year practice and mock tests.",
-      "subjectCta": "Practise NEET",
+      "eyebrow": "Active exam preparation",
+      "title": "NEET Preparation",
+      "subtitle": "NEET is the currently active exam-preparation area on VV Overseas, with question bank access, previous-year practice, mock tests, answers and explanations.",
+      "subjectCta": "Start practice",
       "subjects": [
         {
           "title": "Physics",
@@ -182,9 +170,9 @@
       ]
     },
     "discovery": {
-      "eyebrow": "Question discovery",
-      "title": "Filters designed for multiple exams",
-      "subtitle": "The public UI uses exam-agnostic filters so NEET works today and future exams can fit the same model.",
+      "eyebrow": "Exam preparation tools",
+      "title": "Question Bank, PYQs and Mock Tests",
+      "subtitle": "Use focused filters for NEET practice today while the platform remains ready for future competitive exams.",
       "filters": [
         {
           "label": "Exam",
@@ -247,14 +235,14 @@
       ]
     },
     "pyq": {
-      "title": "Previous-year practice without fake counts",
-      "body": "VV Overseas surfaces previous-year style practice through the existing test catalogue. Counts will appear only when backed by real data.",
+      "title": "Previous Year Questions and mock-test practice",
+      "body": "Practice NEET-focused previous-year style questions through the existing question bank and test catalogue. Counts appear only where backed by real data.",
       "cta": "Open mock tests"
     },
     "benefits": {
-      "eyebrow": "Why VV Overseas",
-      "title": "A practical exam-prep platform",
-      "subtitle": "Clear practice, honest scope and progress tracking without inflated claims.",
+      "eyebrow": "Platform scope",
+      "title": "Built for higher-education decisions",
+      "subtitle": "VV Overseas is positioned for medical education, admissions and exam preparation now, with room for engineering and other higher-education programs later.",
       "items": [
         {
           "title": "Previous-year exam questions",
@@ -283,10 +271,59 @@
       ]
     },
     "finalCta": {
-      "title": "Start with NEET. Grow with VV Overseas.",
-      "subtitle": "Create a passwordless student account and begin practising on the active NEET platform.",
-      "primary": "Get Started",
-      "secondary": "Login"
+      "title": "Choose your next step with VV Overseas.",
+      "subtitle": "Explore admission guidance or begin NEET preparation using the active question bank and mock-test experience.",
+      "primary": "Explore Admissions",
+      "secondary": "Start NEET Preparation"
+    },
+    "heroServices": [
+      {
+        "title": "Education & Admission Services",
+        "body": "Guidance for MBBS admissions in India and abroad, college options, counselling and application support.",
+        "cta": "Explore Admissions",
+        "href": "#admissions"
+      },
+      {
+        "title": "Exam Preparation",
+        "body": "NEET-focused previous-year questions, chapter-wise practice, mock tests, answers and explanations.",
+        "cta": "Start NEET Preparation",
+        "href": "#question-bank"
+      }
+    ],
+    "admissions": {
+      "eyebrow": "Admissions",
+      "title": "Study Medicine in India & Abroad",
+      "subtitle": "Separate from exam preparation, VV Overseas supports students and families with medical education guidance and admission counselling.",
+      "cta": "Talk to an admission counsellor",
+      "countriesCta": "Explore Study Destinations",
+      "cards": [
+        {
+          "title": "MBBS in India",
+          "body": "Guidance for medical admission paths in India, eligibility conversations and college-choice planning.",
+          "href": "/admission-guidance"
+        },
+        {
+          "title": "MBBS Abroad",
+          "body": "Explore international medical education options with careful guidance and transparent counselling.",
+          "href": "/countries"
+        },
+        {
+          "title": "Admission Counselling",
+          "body": "Discuss goals, budgets, timelines and next steps with the VV Overseas team.",
+          "href": "/contact"
+        },
+        {
+          "title": "College Guidance",
+          "body": "Compare programs and understand what information is needed before applying.",
+          "href": "/admission-guidance"
+        }
+      ]
+    },
+    "countriesSection": {
+      "eyebrow": "Countries",
+      "title": "Study destinations can grow over time",
+      "subtitle": "The country experience is designed so destinations can be added as verified information becomes available. No partnerships or outcomes are claimed here.",
+      "cta": "Explore Study Destinations"
     }
   },
   "footer": {

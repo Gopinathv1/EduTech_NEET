@@ -37,15 +37,20 @@ type Subject = { title: string; body: string; href: string };
 type Filter = { label: string; values: string[] };
 type Benefit = { title: string; body: string };
 type ExamChip = { label: string; status: string; available: boolean };
+type ServiceCard = { title: string; body: string; cta: string; href: string };
+type AdmissionCard = { title: string; body: string; href: string };
 
 const ACTION_ICONS = [BookIcon, ClockIcon, ShieldIcon, BookIcon, UsersIcon, ChartIcon];
 const SUBJECT_ICONS = [BookIcon, ShieldIcon, GlobeIcon];
 const BENEFIT_ICONS = [BookIcon, ShieldIcon, CheckIcon, ClockIcon, GlobeIcon, ChartIcon];
+const ADMISSION_ICONS = [ShieldIcon, GlobeIcon, UsersIcon, BookIcon];
 
 export default function HomePage() {
   const t = useTranslations('home');
 
   const examChips = t.raw('examChips') as ExamChip[];
+  const heroServices = t.raw('heroServices') as ServiceCard[];
+  const admissionCards = t.raw('admissions.cards') as AdmissionCard[];
   const quickActions = t.raw('quickActions.items') as Action[];
   const subjects = t.raw('neet.subjects') as Subject[];
   const filters = t.raw('discovery.filters') as Filter[];
@@ -64,7 +69,7 @@ export default function HomePage() {
               {t('subtitle')}
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <PrimaryLink href="/register">{t('ctaPrimary')}</PrimaryLink>
+              <PrimaryLink href="#admissions">{t('ctaPrimary')}</PrimaryLink>
               <SecondaryLink href="#question-bank">{t('ctaSecondary')}</SecondaryLink>
             </div>
             <div className="mt-7 flex flex-wrap gap-2" aria-label={t('examSelectorLabel')}>
@@ -84,30 +89,27 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-border bg-surface p-5 shadow-sm shadow-black/30">
-            <label htmlFor="home-search" className="text-sm font-semibold text-textPrimary">
-              {t('search.label')}
-            </label>
-            <div className="mt-3 flex rounded-xl border border-border bg-surfaceElevated p-2">
-              <input
-                id="home-search"
-                type="search"
-                placeholder={t('search.placeholder')}
-                className="min-w-0 flex-1 bg-transparent px-3 py-2 text-sm text-textPrimary outline-none placeholder:text-textSecondary"
-                aria-describedby="home-search-note"
-              />
-              <button
-                type="button"
-                className="rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white disabled:opacity-80"
-                disabled
-              >
-                {t('search.button')}
-              </button>
-            </div>
-            <p id="home-search-note" className="mt-2 text-xs leading-5 text-textSecondary">
-              {t('search.note')}
-            </p>
-            <div className="mt-6 grid grid-cols-2 gap-3">
+          <div className="space-y-4">
+            {heroServices.map((service, index) => {
+              const Icon = index === 0 ? GlobeIcon : BookIcon;
+              return (
+                <Card key={service.title} className="border-brand/20 bg-surface">
+                  <div className="flex items-start gap-4">
+                    <IconBadge>
+                      <Icon className="h-6 w-6" />
+                    </IconBadge>
+                    <div>
+                      <h2 className="text-lg font-extrabold text-textPrimary">{service.title}</h2>
+                      <p className="mt-2 text-sm leading-6 text-textSecondary">{service.body}</p>
+                      <div className="mt-4">
+                        <ArrowLink href={service.href}>{service.cta}</ArrowLink>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              );
+            })}
+            <div className="grid grid-cols-2 gap-3">
               {(t.raw('heroStats') as string[]).map((item) => (
                 <div
                   key={item}
@@ -146,7 +148,40 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section id="question-bank" tinted>
+      <Section id="admissions" tinted>
+        <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+          <div>
+            <SectionHeading
+              eyebrow={t('admissions.eyebrow')}
+              title={t('admissions.title')}
+              subtitle={t('admissions.subtitle')}
+            />
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <PrimaryLink href="/contact">{t('admissions.cta')}</PrimaryLink>
+              <SecondaryLink href="/countries">{t('admissions.countriesCta')}</SecondaryLink>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {admissionCards.map((card, index) => {
+              const Icon = ADMISSION_ICONS[index] ?? ShieldIcon;
+              return (
+                <Card key={card.title}>
+                  <IconBadge>
+                    <Icon className="h-6 w-6" />
+                  </IconBadge>
+                  <h3 className="mt-4 text-lg font-bold text-textPrimary">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-textSecondary">{card.body}</p>
+                  <div className="mt-5">
+                    <ArrowLink href={card.href}>{card.title}</ArrowLink>
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </Section>
+
+      <Section id="question-bank">
         <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <SectionHeading
             eyebrow={t('neet.eyebrow')}
@@ -169,6 +204,19 @@ export default function HomePage() {
                 </Card>
               );
             })}
+          </div>
+        </div>
+      </Section>
+
+      <Section id="countries" tinted>
+        <div className="rounded-2xl border border-border bg-surfaceElevated p-6 sm:p-8">
+          <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
+            <SectionHeading
+              eyebrow={t('countriesSection.eyebrow')}
+              title={t('countriesSection.title')}
+              subtitle={t('countriesSection.subtitle')}
+            />
+            <PrimaryLink href="/countries">{t('countriesSection.cta')}</PrimaryLink>
           </div>
         </div>
       </Section>
@@ -248,13 +296,13 @@ export default function HomePage() {
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
               <Link
-                href="/register"
+                href="/admission-guidance"
                 className="rounded-lg bg-brand px-5 py-3 text-center text-sm font-bold text-white hover:bg-brand-dark"
               >
                 {t('finalCta.primary')}
               </Link>
               <Link
-                href="/login"
+                href="/register"
                 className="rounded-lg border border-white/30 px-5 py-3 text-center text-sm font-bold text-white"
               >
                 {t('finalCta.secondary')}

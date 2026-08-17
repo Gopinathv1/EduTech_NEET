@@ -56,7 +56,14 @@
     "terms": "नियम और शर्तें",
     "privacy": "गोपनीयता नीति",
     "examNeet": "NEET",
-    "examJeeSoon": "JEE - जल्द आ रहा है"
+    "examJeeSoon": "JEE - जल्द आ रहा है",
+    "admissionsMenu": "Admissions",
+    "examPrepMenu": "Exam Preparation",
+    "mbbsIndia": "???? ??? MBBS",
+    "mbbsAbroad": "????? ??? MBBS",
+    "medicalAdmissions": "Medical Admissions",
+    "otherPrograms": "Other Programs",
+    "neet": "NEET"
   },
   "site": {
     "cta": {
@@ -86,28 +93,33 @@
   },
   "home": {
     "brand": "VV Overseas",
-    "title": "भारत की प्रतियोगी परीक्षाओं के लिए बेहतर तैयारी करें.",
-    "subtitle": "पिछले वर्षों के प्रश्न, अध्याय-वार प्रश्न बैंक, मॉक टेस्ट और विस्तृत समाधान - अभी NEET से शुरुआत.",
-    "ctaPrimary": "अभ्यास शुरू करें",
-    "ctaSecondary": "प्रश्न बैंक देखें",
-    "examSelectorLabel": "उपलब्ध परीक्षाएं",
+    "title": "??? ?????? ?? ???? ?????? ???? ???? ???? ??",
+    "subtitle": "???? ?? ????? ??? medical education opportunities explore ????, expert admission guidance ????, ?? VV Overseas ?? ??? competitive exams ?? ??? smarter preparation ????.",
+    "ctaPrimary": "Explore Admissions",
+    "ctaSecondary": "Start NEET Preparation",
+    "examSelectorLabel": "Current services",
     "examChips": [
       {
+        "label": "Admissions",
+        "status": "Guidance available",
+        "available": true
+      },
+      {
         "label": "NEET",
-        "status": "उपलब्ध",
+        "status": "Active preparation",
         "available": true
       },
       {
         "label": "JEE",
-        "status": "जल्द आ रहा है",
+        "status": "Coming Soon",
         "available": false
       }
     ],
     "heroStats": [
-      "पिछले वर्ष के प्रश्न",
-      "अध्याय-वार अभ्यास",
-      "मॉक टेस्ट",
-      "विस्तृत समाधान"
+      "MBBS admissions guidance",
+      "India & abroad options",
+      "NEET question bank",
+      "Mock tests and explanations"
     ],
     "search": {
       "label": "प्रश्न, अध्याय या टॉपिक खोजें",
@@ -116,53 +128,29 @@
       "note": "सर्च UI तैयार है. बैकएंड सर्च इंडेक्स लागू होने पर ग्लोबल सर्च जोड़ा जा सकता है."
     },
     "quickActions": {
-      "eyebrow": "अपनी जरूरत से शुरू करें",
-      "title": "प्रतियोगी परीक्षाओं के लिए अभ्यास पथ",
-      "subtitle": "NEET अभी सक्रिय है; यह लेआउट भविष्य की परीक्षाओं के लिए भी तैयार है.",
+      "eyebrow": "Two service areas",
+      "title": "Admissions ?? preparation ???-???",
+      "subtitle": "Students education guidance ?? ???? ??? ?? active exams ?? preparation ?? ?? ???? ???.",
       "items": [
         {
-          "title": "प्रश्न बैंक",
-          "body": "विषय, अध्याय और टॉपिक के अनुसार परीक्षा प्रश्न देखें.",
-          "cta": "प्रश्न देखें",
+          "title": "Admissions",
+          "body": "???? ??? MBBS, ????? ??? MBBS, medical admission counselling, college guidance ?? application assistance.",
+          "cta": "Explore admissions",
+          "href": "#admissions"
+        },
+        {
+          "title": "Exam Preparation",
+          "body": "NEET question bank, previous-year papers, chapter-wise practice, mock tests, answers ?? explanations.",
+          "cta": "Start NEET preparation",
           "href": "#question-bank"
-        },
-        {
-          "title": "पिछले वर्ष के पेपर",
-          "body": "वास्तविक परीक्षा पैटर्न से जुड़े प्रश्नों का अभ्यास करें.",
-          "cta": "पेपर देखें",
-          "href": "#previous-year-papers"
-        },
-        {
-          "title": "मॉक टेस्ट",
-          "body": "टाइमर, ऑटोसेव, स्कोरिंग और रिव्यू के साथ टेस्ट दें.",
-          "cta": "मॉक टेस्ट देखें",
-          "href": "/mock-tests"
-        },
-        {
-          "title": "अध्याय-वार अभ्यास",
-          "body": "एक-एक अध्याय पर ध्यान देकर सटीकता बढ़ाएं.",
-          "cta": "अध्याय अभ्यास शुरू करें",
-          "href": "/mock-tests"
-        },
-        {
-          "title": "टॉपिक-वार अभ्यास",
-          "body": "प्रश्न बैंक बढ़ने के साथ टॉपिक के अनुसार तैयारी करें.",
-          "cta": "टॉपिक देखें",
-          "href": "#question-bank"
-        },
-        {
-          "title": "प्रदर्शन / परिणाम",
-          "body": "लॉगिन के बाद प्रयास, स्कोर, मजबूत और कमजोर अध्याय देखें.",
-          "cta": "प्रगति देखें",
-          "href": "/login"
         }
       ]
     },
     "neet": {
-      "eyebrow": "सक्रिय परीक्षा",
-      "title": "NEET एक्सप्लोर करें",
-      "subtitle": "NEET, VV Overseas पर पहली सक्रिय परीक्षा है. विषय आगे अध्याय, टॉपिक, प्रश्न, PYQ और मॉक टेस्ट से जुड़ते हैं.",
-      "subjectCta": "NEET अभ्यास करें",
+      "eyebrow": "Active exam preparation",
+      "title": "NEET Preparation",
+      "subtitle": "VV Overseas ?? NEET ??? active exam-preparation area ??.",
+      "subjectCta": "Start practice",
       "subjects": [
         {
           "title": "भौतिकी",
@@ -182,9 +170,9 @@
       ]
     },
     "discovery": {
-      "eyebrow": "प्रश्न खोज",
-      "title": "कई परीक्षाओं के लिए बने फ़िल्टर",
-      "subtitle": "Public UI परीक्षा-agnostic फ़िल्टर इस्तेमाल करता है ताकि NEET आज चले और भविष्य की परीक्षाएं भी उसी मॉडल में फिट हों.",
+      "eyebrow": "Exam preparation tools",
+      "title": "Question Bank, PYQs and Mock Tests",
+      "subtitle": "NEET practice ?? ??? focused filters; future exams ?? ??? platform ready ??.",
       "filters": [
         {
           "label": "परीक्षा",
@@ -247,14 +235,14 @@
       ]
     },
     "pyq": {
-      "title": "फर्जी संख्या के बिना पिछले वर्ष का अभ्यास",
-      "body": "VV Overseas मौजूदा टेस्ट catalogue के माध्यम से पिछले वर्ष के पैटर्न वाला अभ्यास दिखाता है. संख्या केवल वास्तविक डेटा होने पर दिखाई जाएगी.",
-      "cta": "मॉक टेस्ट खोलें"
+      "title": "Previous Year Questions ?? mock-test practice",
+      "body": "Existing question bank ?? test catalogue ?? NEET-focused practice ????.",
+      "cta": "Open mock tests"
     },
     "benefits": {
-      "eyebrow": "VV Overseas क्यों",
-      "title": "व्यावहारिक परीक्षा-तैयारी प्लेटफॉर्म",
-      "subtitle": "बढ़ा-चढ़ाकर दावे किए बिना स्पष्ट अभ्यास, ईमानदार scope और progress tracking.",
+      "eyebrow": "Platform scope",
+      "title": "Higher-education decisions ?? ??? platform",
+      "subtitle": "Medical education, admissions ?? exam preparation ???; engineering ?? ???? programs later.",
       "items": [
         {
           "title": "पिछले वर्षों के परीक्षा प्रश्न",
@@ -283,10 +271,59 @@
       ]
     },
     "finalCta": {
-      "title": "NEET से शुरू करें. VV Overseas के साथ आगे बढ़ें.",
-      "subtitle": "Passwordless student account बनाएं और active NEET platform पर अभ्यास शुरू करें.",
-      "primary": "शुरू करें",
-      "secondary": "लॉगिन"
+      "title": "VV Overseas ?? ??? ???? next step ?????.",
+      "subtitle": "Admission guidance explore ???? ?? active NEET preparation ???? ????.",
+      "primary": "Explore Admissions",
+      "secondary": "Start NEET Preparation"
+    },
+    "heroServices": [
+      {
+        "title": "Education & Admission Services",
+        "body": "???? ?? ????? ??? MBBS admissions, college options, counselling ?? application support.",
+        "cta": "Explore Admissions",
+        "href": "#admissions"
+      },
+      {
+        "title": "Exam Preparation",
+        "body": "NEET previous-year questions, chapter-wise practice, mock tests, answers ?? explanations.",
+        "cta": "Start NEET Preparation",
+        "href": "#question-bank"
+      }
+    ],
+    "admissions": {
+      "eyebrow": "Admissions",
+      "title": "???? ?? ????? ??? Medicine ?????",
+      "subtitle": "Exam preparation ?? ???, VV Overseas medical education guidance ?? admission counselling support ???? ??.",
+      "cta": "Talk to an admission counsellor",
+      "countriesCta": "Explore Study Destinations",
+      "cards": [
+        {
+          "title": "???? ??? MBBS",
+          "body": "India medical admission paths, eligibility conversations ?? college-choice planning.",
+          "href": "/admission-guidance"
+        },
+        {
+          "title": "????? ??? MBBS",
+          "body": "International medical education options ?? transparent counselling ?? ??? explore ????.",
+          "href": "/countries"
+        },
+        {
+          "title": "Admission Counselling",
+          "body": "Goals, budget, timelines ?? next steps ?? VV Overseas team ?? ??? ????.",
+          "href": "/contact"
+        },
+        {
+          "title": "College Guidance",
+          "body": "Programs compare ???? ?? application ?? ???? ????? information ?????.",
+          "href": "/admission-guidance"
+        }
+      ]
+    },
+    "countriesSection": {
+      "eyebrow": "Countries",
+      "title": "Study destinations ??? ?? ??? ????? ?? ???? ???",
+      "subtitle": "?? UI verified information ??? ?? destinations ?????? ?? ??? designed ??.",
+      "cta": "Explore Study Destinations"
     }
   },
   "footer": {
