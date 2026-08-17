@@ -11,6 +11,7 @@ import {
   ArrowLink,
   Container,
 } from '@/components/public/ui';
+import PeacockFeatherLogo from '@/components/brand/PeacockFeatherLogo';
 
 export async function generateMetadata() {
   const t = await getTranslations('seo.home');
@@ -27,14 +28,13 @@ type Subject = { title: string; body: string; href: string };
 type AdmissionCard = { title: string; body: string; href: string };
 
 const MARQUEE = [
-  'MBBS Counselling',
+  'MBBS Abroad',
   'Study Abroad',
   'NEET Preparation',
-  'Previous Year Papers',
+  'Question Bank',
   'Career Guidance',
-  'Courses',
   'Global Education',
-  'VV Overseas',
+  'Learning Programs',
 ];
 
 const DESTINATIONS = ['India', 'Russia', 'Georgia', 'Kazakhstan', 'Uzbekistan', 'Other destinations'];
@@ -61,9 +61,11 @@ export default function HomePage() {
         <div className="absolute left-1/2 top-28 h-px w-[80vw] -translate-x-1/2 bg-gradient-to-r from-transparent via-brand to-transparent vv-pulse-line" />
         <div className="absolute -right-28 top-24 h-72 w-72 rounded-full border border-brand/20 bg-brand/10 blur-3xl" />
         <div className="absolute bottom-8 left-4 h-44 w-44 rounded-full border border-accent/20 bg-accent/10 blur-3xl" />
+        <PeacockFeatherLogo className="pointer-events-none absolute -right-16 top-20 hidden h-[620px] w-[420px] rotate-12 opacity-[0.12] drop-shadow-[0_0_60px_rgba(244,63,63,0.24)] md:block lg:right-10 lg:top-16 lg:h-[720px] lg:w-[480px]" />
+        <PeacockFeatherLogo className="pointer-events-none absolute -right-20 bottom-10 h-[360px] w-[240px] rotate-12 opacity-[0.06] md:hidden" />
 
-        <Container className="relative grid min-h-[calc(100vh-65px)] items-center gap-12 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
-          <div className="vv-reveal">
+        <Container className="relative z-10 flex min-h-[calc(100vh-65px)] items-center py-16 lg:py-24">
+          <div className="max-w-6xl vv-reveal">
             <p className="text-sm font-bold uppercase tracking-[0.35em] text-red-300">{t('brand')}</p>
             <h1 className="mt-6 max-w-5xl text-[clamp(3.25rem,9vw,8.5rem)] font-black uppercase leading-[0.88] text-white">
               Your Education.
@@ -79,17 +81,13 @@ export default function HomePage() {
               <PrimaryLink href="#admissions">{t('ctaPrimary')}</PrimaryLink>
               <SecondaryLink href="#neet-preparation">{t('ctaSecondary')}</SecondaryLink>
             </div>
-          </div>
-
-          <div className="relative vv-reveal lg:justify-self-end" style={{ animationDelay: '140ms' }}>
-            <div className="absolute -inset-6 rounded-[2rem] border border-brand/20 bg-brand/10 blur-2xl" />
-            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-5 shadow-2xl shadow-black/40 backdrop-blur-xl">
-              <div className="grid gap-3 sm:grid-cols-2">
+            <div className="mt-12 max-w-4xl rounded-[2rem] border border-white/10 bg-black/35 p-4 shadow-2xl shadow-black/30 backdrop-blur-md">
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 {quickActions.map((item, index) => (
-                  <div key={item.title} className="rounded-[1.25rem] border border-white/10 bg-black/45 p-5">
-                    <p className="text-3xl font-black text-brand/80">0{index + 1}</p>
+                  <div key={item.title} className="rounded-[1.25rem] border border-white/10 bg-white/[0.035] p-4">
+                    <p className="text-2xl font-black text-brand/80">0{index + 1}</p>
                     <h2 className="mt-3 text-lg font-black uppercase text-white">{item.title}</h2>
-                    <p className="mt-3 text-sm leading-7 text-textSecondary">{item.body}</p>
+                    <p className="mt-3 text-xs leading-6 text-textSecondary">{item.body}</p>
                     <div className="mt-4">
                       <ArrowLink href={item.href}>{item.cta}</ArrowLink>
                     </div>
@@ -101,14 +99,18 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="overflow-hidden border-y border-white/10 bg-black py-5">
-        <div className="flex min-w-max gap-10 vv-marquee-track">
+      <section className="overflow-hidden border-y border-brand/25 bg-[#0a0505] py-3 shadow-[inset_0_1px_0_rgba(244,63,63,0.12),inset_0_-1px_0_rgba(244,63,63,0.12)] sm:py-4">
+        <div className="flex min-w-max items-center gap-0 vv-marquee-track">
           {[...MARQUEE, ...MARQUEE].map((item, index) => (
-            <span
-              key={`${item}-${index}`}
-              className="text-3xl font-black uppercase tracking-tight text-transparent [-webkit-text-stroke:1px_rgba(244,63,63,0.72)] sm:text-5xl"
-            >
-              {item}
+            <span key={`${item}-${index}`} className="flex items-center">
+              <span
+                className={`px-4 text-xl font-black uppercase tracking-[0.12em] sm:px-6 sm:text-3xl ${
+                  index % 3 === 0 ? 'text-brand' : index % 3 === 1 ? 'text-white' : 'text-stone-400'
+                }`}
+              >
+                {item}
+              </span>
+              <span className="text-brand/70">◆</span>
             </span>
           ))}
         </div>

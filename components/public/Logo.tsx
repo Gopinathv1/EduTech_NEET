@@ -2,29 +2,14 @@
 
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import PeacockFeatherLogo from '@/components/brand/PeacockFeatherLogo';
 
-/**
- * Brand logo placeholder: a red rounded "V" mark + wordmark. Inline SVG
- * (crisp, no request). Swap for a real logo asset later without touching pages.
- */
+/** Compact public wordmark with an original peacock feather brand mark. */
 export default function Logo({ className = '' }: { className?: string }) {
   const t = useTranslations('a11y');
   return (
-    <Link href="/" className={`flex shrink-0 items-center gap-2 ${className}`} aria-label={t('homeLink')}>
-      <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true" className="shrink-0">
-        <rect width="32" height="32" rx="8" className="fill-brand" />
-        <text
-          x="16"
-          y="22"
-          textAnchor="middle"
-          fontSize="18"
-          fontWeight="800"
-          fill="#ffffff"
-          fontFamily="system-ui, sans-serif"
-        >
-          V
-        </text>
-      </svg>
+    <Link href="/" className={`flex shrink-0 items-center gap-2.5 ${className}`} aria-label={t('homeLink')}>
+      <PeacockFeatherLogo className="h-9 w-6 shrink-0 sm:h-11 sm:w-7" />
       <span className="whitespace-nowrap text-base font-extrabold leading-tight text-textPrimary sm:text-lg">
         <span className="text-brand">VV</span> Overseas
       </span>
