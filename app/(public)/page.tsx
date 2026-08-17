@@ -27,11 +27,12 @@ type Subject = { title: string; body: string; href: string };
 type AdmissionCard = { title: string; body: string; href: string };
 
 const MARQUEE = [
-  'MBBS Admissions',
+  'MBBS Counselling',
   'Study Abroad',
   'NEET Preparation',
   'Previous Year Papers',
-  'Admission Guidance',
+  'Career Guidance',
+  'Courses',
   'Global Education',
   'VV Overseas',
 ];
@@ -72,7 +73,7 @@ export default function HomePage() {
               <span className="text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.72)]">Without Borders.</span>
             </h1>
             <p className="mt-7 max-w-2xl text-base leading-8 text-textSecondary sm:text-xl">
-              Explore medical education opportunities in India and abroad, get admission guidance, and prepare smarter for competitive exams.
+              Explore overseas education opportunities, get counselling guidance for important academic decisions, and prepare smarter for competitive exams.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <PrimaryLink href="#admissions">{t('ctaPrimary')}</PrimaryLink>
@@ -83,13 +84,13 @@ export default function HomePage() {
           <div className="relative vv-reveal lg:justify-self-end" style={{ animationDelay: '140ms' }}>
             <div className="absolute -inset-6 rounded-[2rem] border border-brand/20 bg-brand/10 blur-2xl" />
             <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-5 shadow-2xl shadow-black/40 backdrop-blur-xl">
-              <div className="grid gap-3">
-                {quickActions.slice(0, 2).map((item, index) => (
-                  <div key={item.title} className="rounded-[1.5rem] border border-white/10 bg-black/45 p-6">
-                    <p className="text-5xl font-black text-brand/80">0{index + 1}</p>
-                    <h2 className="mt-4 text-2xl font-black uppercase text-white">{item.title}</h2>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {quickActions.map((item, index) => (
+                  <div key={item.title} className="rounded-[1.25rem] border border-white/10 bg-black/45 p-5">
+                    <p className="text-3xl font-black text-brand/80">0{index + 1}</p>
+                    <h2 className="mt-3 text-lg font-black uppercase text-white">{item.title}</h2>
                     <p className="mt-3 text-sm leading-7 text-textSecondary">{item.body}</p>
-                    <div className="mt-5">
+                    <div className="mt-4">
                       <ArrowLink href={item.href}>{item.cta}</ArrowLink>
                     </div>
                   </div>
@@ -119,13 +120,13 @@ export default function HomePage() {
           title="What We Do"
           subtitle={t('quickActions.subtitle')}
         />
-        <div className="mt-10 grid gap-5 lg:grid-cols-2">
-          {quickActions.slice(0, 2).map((item, index) => (
-            <Card key={item.title} className="min-h-72 p-8">
-              <p className="text-7xl font-black text-brand/80">0{index + 1}</p>
-              <h3 className="mt-6 text-3xl font-black uppercase text-white">{item.title}</h3>
-              <p className="mt-4 max-w-xl text-base leading-8 text-textSecondary">{item.body}</p>
-              <div className="mt-8">
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
+          {quickActions.map((item, index) => (
+            <Card key={item.title} className="p-7">
+              <p className="text-5xl font-black text-brand/80">0{index + 1}</p>
+              <h3 className="mt-5 text-2xl font-black uppercase text-white">{item.title}</h3>
+              <p className="mt-4 max-w-xl text-sm leading-7 text-textSecondary sm:text-base">{item.body}</p>
+              <div className="mt-6">
                 <PrimaryLink href={item.href}>{item.cta}</PrimaryLink>
               </div>
             </Card>

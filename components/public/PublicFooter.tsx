@@ -22,9 +22,15 @@ function FooterColumn({ title, links }: { title: string; links: NavLink[] }) {
 }
 
 const ADMISSIONS: NavLink[] = [
-  { href: '/admission-guidance', key: 'mbbsIndia' },
   { href: '/countries', key: 'mbbsAbroad' },
-  { href: '/admission-guidance', key: 'admission' },
+  { href: '/countries', key: 'internationalEducation' },
+  { href: '/admission-guidance', key: 'applicationGuidance' },
+];
+
+const COUNSELLING: NavLink[] = [
+  { href: '/admission-guidance', key: 'mbbsCounsellingIndia' },
+  { href: '/admission-guidance', key: 'collegeGuidance' },
+  { href: '/contact', key: 'careerGuidance' },
 ];
 
 const EXAM_PREP: NavLink[] = [
@@ -41,7 +47,7 @@ export default function PublicFooter() {
   return (
     <footer className="border-t border-white/10 bg-black">
       <div className="mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-[1.25fr_0.8fr_0.8fr_0.8fr_0.8fr]">
+        <div className="grid gap-10 lg:grid-cols-[1.25fr_0.8fr_0.8fr_0.8fr_0.8fr_0.8fr]">
           <div>
             <Logo />
             <p className="mt-5 max-w-sm text-sm leading-7 text-textSecondary">{t('blurb')}</p>
@@ -52,8 +58,9 @@ export default function PublicFooter() {
             </div>
           </div>
 
-          <FooterColumn title="Admissions" links={ADMISSIONS} />
+          <FooterColumn title="Study Abroad" links={ADMISSIONS} />
           <FooterColumn title={t('exams')} links={EXAM_PREP} />
+          <FooterColumn title="Counselling" links={COUNSELLING} />
           <FooterColumn title={t('company')} links={FOOTER_COMPANY} />
 
           <div>

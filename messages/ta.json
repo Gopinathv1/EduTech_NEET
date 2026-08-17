@@ -59,11 +59,21 @@
     "examJeeSoon": "JEE - விரைவில்",
     "getStarted": "தொடங்குங்கள்",
     "admissionsMenu": "Admissions",
+    "studyAbroadMenu": "Admissions / Study Abroad",
     "examPrepMenu": "Exam Preparation",
-    "mbbsIndia": "??????????? MBBS",
-    "mbbsAbroad": "???????????? MBBS",
+    "counsellingMenu": "Career & Counselling",
+    "coursesMenu": "Courses",
+    "mbbsIndia": "MBBS Counselling in India",
+    "mbbsCounsellingIndia": "MBBS Counselling in India",
+    "mbbsAbroad": "MBBS Abroad",
     "medicalAdmissions": "Medical Admissions",
-    "otherPrograms": "???? Programs",
+    "otherPrograms": "Other Programs",
+    "internationalEducation": "International Education",
+    "applicationGuidance": "Application Guidance",
+    "collegeGuidance": "College Guidance",
+    "careerGuidance": "Career Guidance",
+    "coursesLearning": "Courses & Learning Programs",
+    "trainingPrograms": "Training Programs",
     "neet": "NEET"
   },
   "site": {
@@ -95,8 +105,8 @@
   "home": {
     "brand": "VV Overseas",
     "title": "?????? ?????????? ?????? ????? ????? ????????????",
-    "subtitle": "??????? ??????? ???????????? ?????????? ????? ??????????? ??????????, admission guidance ?????????, ?????? VV Overseas ???? competitive exams-???? smarter ?? ????????????.",
-    "ctaPrimary": "Admissions ???????????",
+    "subtitle": "Explore overseas education opportunities, get counselling guidance for important academic decisions, and prepare smarter for competitive exams with VV Overseas.",
+    "ctaPrimary": "Explore Study Abroad",
     "ctaSecondary": "NEET Preparation ???????",
     "examSelectorLabel": "Current services",
     "examChips": [
@@ -117,8 +127,8 @@
       }
     ],
     "heroStats": [
-      "MBBS admission guidance",
-      "India & abroad options",
+      "MBBS counselling guidance",
+      "Study abroad options",
       "NEET question bank",
       "Mock tests and explanations"
     ],
@@ -129,21 +139,33 @@
       "note": "தேடல் UI தயாராக உள்ளது. Backend search index செயல்படுத்தப்பட்டதும் global search இணைக்கலாம்."
     },
     "quickActions": {
-      "eyebrow": "Two service areas",
-      "title": "Admissions ??????? preparation ???????????",
-      "subtitle": "Students education guidance ??????? active exams-???? prepare ????????? ??? workflows.",
+      "eyebrow": "Four service areas",
+      "title": "Guidance, preparation and learning programs",
+      "subtitle": "VV Overseas supports students across study abroad, exam preparation, career counselling and learning opportunities.",
       "items": [
         {
-          "title": "Admissions",
-          "body": "??????????? MBBS, ???????????? MBBS, medical admission counselling, college guidance ??????? application assistance.",
-          "cta": "Admissions ???????????",
+          "title": "Admissions & Study Abroad",
+          "body": "Explore international education opportunities with guidance through course selection, applications and the admission process, including MBBS abroad and other overseas education pathways.",
+          "cta": "Explore Study Abroad",
           "href": "#admissions"
         },
         {
           "title": "Exam Preparation",
           "body": "NEET question bank, previous-year papers, chapter-wise practice, mock tests, answers ??????? explanations.",
-          "cta": "NEET preparation ???????",
-          "href": "#question-bank"
+          "cta": "Start NEET Preparation",
+          "href": "#neet-preparation"
+        },
+        {
+          "title": "Career & Counselling Guidance",
+          "body": "Get guidance for MBBS counselling in India, college and course selection, career planning and important education decisions.",
+          "cta": "Get Guidance",
+          "href": "/admission-guidance"
+        },
+        {
+          "title": "Courses & Learning Programs",
+          "body": "Explore courses, training programs and learning opportunities designed to support students in their academic and career development.",
+          "cta": "Explore Courses",
+          "href": "/contact"
         }
       ]
     },
@@ -243,7 +265,7 @@
     "benefits": {
       "eyebrow": "Platform scope",
       "title": "Higher-education decisions-????? platform",
-      "subtitle": "Medical education, admissions ??????? exam preparation ???????; engineering ??????? ??? programs later.",
+      "subtitle": "VV Overseas is positioned for study abroad, counselling guidance, courses and exam preparation now, with room for engineering and other higher-education programs later.",
       "items": [
         {
           "title": "முந்தைய ஆண்டு தேர்வு கேள்விகள்",
@@ -279,9 +301,9 @@
     },
     "heroServices": [
       {
-        "title": "Education & Admission Services",
-        "body": "??????? ??????? ???????????? MBBS admissions, college options, counselling ??????? application support.",
-        "cta": "Admissions ???????????",
+        "title": "Admissions & Study Abroad",
+        "body": "Guidance for overseas education pathways, including MBBS abroad, course selection, applications and admission-process support where applicable.",
+        "cta": "Explore Study Abroad",
         "href": "#admissions"
       },
       {
@@ -292,24 +314,24 @@
       }
     ],
     "admissions": {
-      "eyebrow": "Admissions",
-      "title": "??????? & ???????????? Medicine ??????????",
-      "subtitle": "Exam preparation-????????? ??????, VV Overseas medical education guidance ??????? admission counselling ???????????.",
-      "cta": "Admission counsellor-? ??????? ???????????",
+      "eyebrow": "Admissions & Study Abroad",
+      "title": "Study Abroad and Education Guidance",
+      "subtitle": "Separate from exam preparation, VV Overseas supports students and families with overseas education guidance, application assistance where applicable, and counselling for important education decisions.",
+      "cta": "Talk to a counsellor",
       "countriesCta": "Study Destinations ???????????",
       "cards": [
         {
-          "title": "??????????? MBBS",
-          "body": "India medical admission paths, eligibility conversations ??????? college-choice planning.",
+          "title": "MBBS Counselling in India",
+          "body": "Guidance through the MBBS counselling process, college choices and important admission-related decisions in India.",
           "href": "/admission-guidance"
         },
         {
-          "title": "???????????? MBBS",
-          "body": "International medical education options-? transparent counselling ???? ??????????.",
+          "title": "MBBS Abroad",
+          "body": "Explore overseas medical education opportunities with guidance for country, university and application selection.",
           "href": "/countries"
         },
         {
-          "title": "Admission Counselling",
+          "title": "Career & Counselling Guidance",
           "body": "Goals, budget, timelines ??????? next steps ????? VV Overseas team ???? ?????????.",
           "href": "/contact"
         },

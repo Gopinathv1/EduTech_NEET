@@ -7,19 +7,17 @@ export type NavGroup = { key: string; links: NavLink[] };
 
 export const NAV_LINKS: NavLink[] = [
   { href: '/', key: 'home' },
-  { href: '/countries', key: 'countries' },
   { href: '/about', key: 'about' },
   { href: '/contact', key: 'contact' },
 ];
 
 export const NAV_GROUPS: NavGroup[] = [
   {
-    key: 'admissionsMenu',
+    key: 'studyAbroadMenu',
     links: [
-      { href: '/admission-guidance', key: 'mbbsIndia' },
       { href: '/countries', key: 'mbbsAbroad' },
-      { href: '/admission-guidance', key: 'medicalAdmissions' },
-      { href: '/contact', key: 'otherPrograms' },
+      { href: '/countries', key: 'internationalEducation' },
+      { href: '/admission-guidance', key: 'applicationGuidance' },
     ],
   },
   {
@@ -29,6 +27,21 @@ export const NAV_GROUPS: NavGroup[] = [
       { href: '/#question-bank', key: 'questionBank' },
       { href: '/#previous-year-papers', key: 'previousYear' },
       { href: '/mock-tests', key: 'mockTests' },
+    ],
+  },
+  {
+    key: 'counsellingMenu',
+    links: [
+      { href: '/admission-guidance', key: 'mbbsCounsellingIndia' },
+      { href: '/admission-guidance', key: 'collegeGuidance' },
+      { href: '/contact', key: 'careerGuidance' },
+    ],
+  },
+  {
+    key: 'coursesMenu',
+    links: [
+      { href: '/contact', key: 'coursesLearning' },
+      { href: '/contact', key: 'trainingPrograms' },
     ],
   },
 ];
