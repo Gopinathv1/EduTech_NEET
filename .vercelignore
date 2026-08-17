@@ -1,9 +1,23 @@
-# Keep the Vercel deployment lean — these aren't needed at runtime.
-e2e/
-load/
-tests/
-playwright.config.ts
-playwright-report/
-test-results/
+# Keep the Vercel deployment lean — these aren't needed at runtime./e2e/
+/load/
+/tests/
+/playwright-report/
+/test-results/
+/playwright/.cache/
+
+# Test/development config not needed by the Vercel runtime.
+/playwright.config.ts
+/vitest.config.ts
+/vitest.setup.ts
+
+# Local/generated artifacts.
+/.next/
+/node_modules/
+*.tsbuildinfo
+*.log
+.DS_Store
+
+# Documentation is not needed for runtime deployment.
+ults/
 *.md
 !README.md
