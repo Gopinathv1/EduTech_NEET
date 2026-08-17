@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
+import Link from 'next/link';
 import { pageMetadata } from '@/lib/seo';
 import PageHero from '@/components/public/PageHero';
 import { Section, PrimaryLink } from '@/components/public/ui';
@@ -61,13 +62,13 @@ export default function PartnersPage() {
               <p className="mt-5 max-w-2xl text-base leading-8 text-cyan-50/80">{t('cta.subtitle')}</p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-              <PrimaryLink href="/contact">{t('cta.becomePartner')}</PrimaryLink>
-              <span
-                aria-disabled="true"
-                className="inline-flex cursor-not-allowed items-center justify-center gap-2 rounded-lg border border-accent/30 bg-white/[0.02] px-5 py-3 text-sm font-black uppercase tracking-[0.08em] text-white/55"
+              <PrimaryLink href="/partner/register">{t('cta.becomePartner')}</PrimaryLink>
+              <Link
+                href="/partner/login"
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-accent/30 bg-white/[0.02] px-5 py-3 text-sm font-black uppercase tracking-[0.08em] text-white transition hover:-translate-y-0.5 hover:bg-white/[0.06]"
               >
                 {t('cta.partnerLogin')}
-              </span>
+              </Link>
               <WhatsAppLink
                 label={t('cta.whatsapp')}
                 message={t('cta.whatsappMessage')}

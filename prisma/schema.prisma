@@ -32,6 +32,19 @@ enum AdminRole {
   SUPER_ADMIN
 }
 
+enum AgencyApprovalStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  MORE_INFO_REQUIRED
+  SUSPENDED
+}
+
+enum AgencyUserRole {
+  OWNER
+  STAFF
+}
+
 enum Difficulty {
   EASY
   MEDIUM
@@ -175,6 +188,52 @@ model Admin {
   auditLogs     AuditLog[]
 
   @@index([role])
+}
+
+model Agency {
+  id                 String               @id @default(cuid())
+  partnerCode        String               @unique
+  name               String
+  contactPerson      String
+  email              String               @unique
+  mobile             String
+  city               String
+  state              String
+  country            String               @default("India")
+  website            String?
+  registrationNumber String?
+  approvalStatus     AgencyApprovalStatus @default(PENDING)
+  isActive           Boolean              @default(false)
+  reviewNote         String?
+  approvedAt         DateTime?
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime             @updatedAt
+
+  users AgencyUser[]
+
+  @@index([approvalStatus])
+  @@index([isActive])
+  @@index([createdAt])
+}
+
+model AgencyUser {
+  id           String         @id @default(cuid())
+  agencyId     String
+  name         String
+  email        String         @unique
+  mobile       String
+  passwordHash String
+  role         AgencyUserRole @default(OWNER)
+  isActive     Boolean        @default(false)
+  lastLoginAt  DateTime?
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+
+  agency Agency @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+
+  @@index([agencyId])
+  @@index([role])
+  @@index([isActive])
 }
 
 /// Immutable record of a back-office action (who, what, when) for accountability.

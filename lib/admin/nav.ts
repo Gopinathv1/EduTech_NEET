@@ -18,6 +18,7 @@ export const ADMIN_NAV: AdminNavItem[] = [
   { href: '/admin/students', label: 'Students', icon: 'users', functional: true },
   { href: '/admin/payments', label: 'Payments', icon: 'card', functional: true },
   { href: '/admin/leads', label: 'Leads', icon: 'target', functional: true },
+  { href: '/admin/partners', label: 'Partners / Agencies', icon: 'briefcase', functional: true },
   { href: '/admin/notifications', label: 'Notifications', icon: 'bell', functional: true },
   { href: '/admin/reports', label: 'Reports', icon: 'chart', functional: true },
   // Super-admin only.

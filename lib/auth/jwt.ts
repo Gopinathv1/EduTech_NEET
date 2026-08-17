@@ -6,14 +6,15 @@ import { SignJWT, jwtVerify, type JWTPayload } from 'jose';
  * middleware can verify sessions without importing Prisma or bcrypt.
  */
 
-export type SessionKind = 'student' | 'admin';
-export type SessionRole = 'STUDENT' | 'ADMIN' | 'SUPER_ADMIN';
+export type SessionKind = 'student' | 'admin' | 'partner';
+export type SessionRole = 'STUDENT' | 'ADMIN' | 'SUPER_ADMIN' | 'PARTNER';
 
 export interface SessionClaims {
   sub: string; // user id (Student.id or Admin.id)
   kind: SessionKind;
   role: SessionRole;
   name: string;
+  agencyId?: string;
 }
 
 // Cookie name lives here (no next/headers import) so Edge middleware can use it.
@@ -35,7 +36,7 @@ function getSecret(): Uint8Array {
 }
 
 export async function signSession(claims: SessionClaims): Promise<string> {
-  return new SignJWT({ kind: claims.kind, role: claims.role, name: claims.name })
+  return new SignJWT({ kind: claims.kind, role: claims.role, name: claims.name, agencyId: claims.agencyId })
     .setProtectedHeader({ alg: ALG })
     .setSubject(claims.sub)
     .setIssuer(ISSUER)
@@ -58,18 +59,23 @@ export async function verifySession(token: string): Promise<SessionClaims | null
 }
 
 function claimsFromPayload(payload: JWTPayload): SessionClaims | null {
-  const { sub, kind, role, name } = payload as JWTPayload & {
+  const { sub, kind, role, name, agencyId } = payload as JWTPayload & {
     kind?: unknown;
     role?: unknown;
     name?: unknown;
+    agencyId?: unknown;
   };
   if (
     typeof sub !== 'string' ||
-    (kind !== 'student' && kind !== 'admin') ||
-    (role !== 'STUDENT' && role !== 'ADMIN' && role !== 'SUPER_ADMIN') ||
-    typeof name !== 'string'
+    (kind !== 'student' && kind !== 'admin' && kind !== 'partner') ||
+    (role !== 'STUDENT' && role !== 'ADMIN' && role !== 'SUPER_ADMIN' && role !== 'PARTNER') ||
+    typeof name !== 'string' ||
+    (agencyId !== undefined && typeof agencyId !== 'string')
   ) {
     return null;
   }
-  return { sub, kind, role, name };
+  if (kind === 'student' && role !== 'STUDENT') return null;
+  if (kind === 'admin' && role !== 'ADMIN' && role !== 'SUPER_ADMIN') return null;
+  if (kind === 'partner' && (!agencyId || role !== 'PARTNER')) return null;
+  return { sub, kind, role, name, agencyId };
 }

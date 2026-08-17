@@ -20,8 +20,7 @@ const SUPER_ADMIN_PREFIXES = ['/admin/super', ...SUPER_ADMIN_PATHS];
 export async function middleware(req: NextRequest) {
   const { pathname, search } = req.nextUrl;
 
-  // /admin/login is the only public page under /admin.
-  if (pathname === '/admin/login') {
+  if (pathname === '/admin/login' || pathname === '/partner/login' || pathname === '/partner/register') {
     return NextResponse.next();
   }
 
@@ -49,6 +48,13 @@ export async function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
+  if (pathname.startsWith('/partner')) {
+    if (session?.kind !== 'partner' || session.role !== 'PARTNER') {
+      return redirectTo(req, '/partner/login', pathname + search);
+    }
+    return NextResponse.next();
+  }
+
   return NextResponse.next();
 }
 
@@ -60,5 +66,5 @@ function redirectTo(req: NextRequest, loginPath: string, next: string) {
 
 // Only run on protected areas — keeps public pages and API routes untouched.
 export const config = {
-  matcher: ['/student/:path*', '/admin/:path*'],
+  matcher: ['/student/:path*', '/admin/:path*', '/partner/:path*'],
 };

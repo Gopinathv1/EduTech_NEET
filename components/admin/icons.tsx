@@ -48,6 +48,13 @@ export const CardIcon = (p: P) => (
     <path d="M2 10h20" />
   </svg>
 );
+export const BriefcaseIcon = (p: P) => (
+  <svg {...base(p)}>
+    <rect x="2" y="7" width="20" height="14" rx="2" />
+    <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+    <path d="M2 12h20" />
+  </svg>
+);
 export const TargetIcon = (p: P) => (
   <svg {...base(p)}>
     <circle cx="12" cy="12" r="9" />

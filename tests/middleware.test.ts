@@ -16,6 +16,7 @@ const vs = verifySession as any;
 const student = { sub: 's1', kind: 'student', role: 'STUDENT', name: 'S' };
 const admin = { sub: 'a1', kind: 'admin', role: 'ADMIN', name: 'A' };
 const superAdmin = { sub: 'a2', kind: 'admin', role: 'SUPER_ADMIN', name: 'Su' };
+const partner = { sub: 'p1', kind: 'partner', role: 'PARTNER', name: 'P', agencyId: 'ag1' };
 
 function request(path: string, withCookie = true) {
   return new NextRequest(`http://localhost${path}`, {
@@ -69,5 +70,30 @@ describe('middleware role guards', () => {
     vs.mockResolvedValue(null);
     const res = await middleware(request('/admin/login', false));
     expect(location(res)).toBeNull();
+  });
+
+  it('redirects unauthenticated partner pages to partner login', async () => {
+    vs.mockResolvedValue(null);
+    const res = await middleware(request('/partner/profile', false));
+    expect(location(res)).toContain('/partner/login');
+    expect(location(res)).toContain('next=%2Fpartner%2Fprofile');
+  });
+
+  it('lets a partner into /partner pages', async () => {
+    vs.mockResolvedValue(partner);
+    const res = await middleware(request('/partner/profile'));
+    expect(location(res)).toBeNull();
+  });
+
+  it('blocks a student from the partner portal', async () => {
+    vs.mockResolvedValue(student);
+    const res = await middleware(request('/partner'));
+    expect(location(res)).toContain('/partner/login');
+  });
+
+  it('leaves partner auth pages public', async () => {
+    vs.mockResolvedValue(null);
+    expect(location(await middleware(request('/partner/login', false)))).toBeNull();
+    expect(location(await middleware(request('/partner/register', false)))).toBeNull();
   });
 });
