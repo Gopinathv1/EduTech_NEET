@@ -1,0 +1,1227 @@
+{
+  "meta": {
+    "title": "NEET Smart Practice & Admission Assistance",
+    "description": "Affordable NEET mock tests and guidance for medical admissions abroad."
+  },
+  "nav": {
+    "brand": "NEET Smart Practice",
+    "language": "Language",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "profile": "Profile",
+    "dashboard": "Dashboard",
+    "tests": "Tests",
+    "payments": "Payments",
+    "performance": "Performance",
+    "admission": "Study Abroad",
+    "notifications": "Notifications",
+    "help": "Help"
+  },
+  "a11y": {
+    "skipToContent": "Skip to main content",
+    "menuLabel": "Accessibility",
+    "largeFont": "Large font",
+    "largeFontHint": "Make all text bigger and easier to read",
+    "highContrast": "High contrast",
+    "highContrastHint": "Stronger colours for better visibility",
+    "settingsTitle": "Accessibility & language",
+    "settingsSubtitle": "Adjust how the app looks and reads. Your choices are saved on this device.",
+    "language": "Display language",
+    "languageHint": "Choose the language for menus and buttons",
+    "on": "On",
+    "off": "Off",
+    "primaryNav": "Primary navigation",
+    "openMenu": "Open menu",
+    "previous": "Previous",
+    "next": "Next",
+    "goToSlide": "Go to testimonial {number}",
+    "homeLink": "Go to homepage"
+  },
+  "publicNav": {
+    "home": "Home",
+    "about": "About Us",
+    "whyUs": "Why Choose Us",
+    "services": "Services",
+    "mockTests": "Mock Tests",
+    "admission": "Admission Guidance",
+    "countries": "Countries",
+    "testimonials": "Testimonials",
+    "faq": "FAQ",
+    "contact": "Contact Us",
+    "help": "Help"
+  },
+  "site": {
+    "cta": {
+      "title": "Ready to start practising?",
+      "subtitle": "Create a free account and take your first NEET mock test for just ₹30.",
+      "register": "Register free",
+      "contact": "Talk to us"
+    },
+    "footer": {
+      "blurb": "Affordable NEET mock tests and honest guidance for medical admissions abroad.",
+      "explore": "Explore",
+      "company": "Company",
+      "getStarted": "Get started",
+      "registerLink": "Create account",
+      "loginLink": "Login",
+      "contactLink": "Contact us",
+      "disclaimer": "Disclaimer: Admission guidance is an advisory service. We clearly disclose the eligibility requirements and country-specific regulations for every destination, and outcomes depend on each university's admission criteria and the applicable authorities' rules. We do not guarantee admission.",
+      "rights": "NEET Smart Practice. All rights reserved."
+    }
+  },
+  "home": {
+    "badge": "Only ₹30 per test",
+    "title": "Practise smarter for NEET",
+    "subtitle": "Affordable previous-year pattern, chapter-wise and year-wise mock tests — built for Government School, State Board and rural students, and repeat NEET candidates.",
+    "ctaPractice": "Start practising",
+    "ctaLearn": "See mock tests",
+    "heroImageAlt": "A student practising a NEET mock test on a mobile phone",
+    "stats": [
+      {
+        "value": "₹30",
+        "label": "Per mock test"
+      },
+      {
+        "value": "4",
+        "label": "NEET subjects"
+      },
+      {
+        "value": "2",
+        "label": "Languages"
+      },
+      {
+        "value": "6",
+        "label": "Study destinations"
+      }
+    ],
+    "featuresEyebrow": "Why students choose us",
+    "featuresTitle": "Everything you need to score higher",
+    "featuresSubtitle": "Focused, affordable practice with clear feedback — even on a slow connection.",
+    "features": [
+      {
+        "title": "Just ₹30 a test",
+        "body": "Full-length and topic tests at a price every student can afford. Pay only for what you attempt."
+      },
+      {
+        "title": "Smart analysis",
+        "body": "Subject, chapter and time-wise breakdowns after every test so you know exactly what to fix."
+      },
+      {
+        "title": "English & Tamil",
+        "body": "Take every test and read every explanation in English or Tamil."
+      },
+      {
+        "title": "Works on low data",
+        "body": "A fast, lightweight site designed for rural internet and budget phones."
+      }
+    ],
+    "stepsEyebrow": "How it works",
+    "stepsTitle": "Start practising in three steps",
+    "stepLabel": "Step {n}",
+    "steps": [
+      {
+        "title": "Register free",
+        "body": "Sign up with your mobile number and verify with a quick OTP."
+      },
+      {
+        "title": "Pick a test",
+        "body": "Choose a full test, chapter-wise or year-wise practice for just ₹30."
+      },
+      {
+        "title": "Practise & improve",
+        "body": "Attempt with a timer, then review your detailed performance report."
+      }
+    ],
+    "admissionEyebrow": "Beyond NEET",
+    "admissionTitle": "Didn't secure a seat in India? You still have options.",
+    "admissionBody": "Our admission guidance team helps eligible students pursue medical degrees at recognised universities abroad.",
+    "admissionLink": "Admission guidance",
+    "countriesLink": "View countries",
+    "countryFlags": [
+      "🇷🇺",
+      "🇬🇪",
+      "🇰🇿",
+      "🇰🇬",
+      "🇺🇿",
+      "🇵🇭"
+    ]
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  },
+  "student": {
+    "dashboardTitle": "Student Dashboard",
+    "dashboardPlaceholder": "Your tests, results and reports will appear here.",
+    "greeting": "Welcome, {name}!",
+    "editProfile": "Edit profile",
+    "browseTests": "Browse tests",
+    "paymentsLink": "Payment history",
+    "myTests": "Your tests",
+    "noTests": "You haven't purchased any tests yet.",
+    "startTest": "Start",
+    "notifications": "Notifications",
+    "noNotifications": "No notifications yet.",
+    "performanceLink": "Performance"
+  },
+  "admin": {
+    "dashboardTitle": "Admin Dashboard",
+    "dashboardPlaceholder": "Question bank, mock tests, payments and student data will appear here.",
+    "greeting": "Signed in as {name}",
+    "superAreaTitle": "System Configuration",
+    "superAreaPlaceholder": "Super-admin-only: manage admins, access logs and system settings."
+  },
+  "auth": {
+    "common": {
+      "submit": "Submit",
+      "back": "Back",
+      "continue": "Continue",
+      "sending": "Sending…",
+      "verifying": "Verifying…",
+      "saving": "Saving…",
+      "loggingIn": "Signing in…"
+    },
+    "register": {
+      "title": "Create your account",
+      "subtitle": "Register to start practising NEET mock tests for just ₹30.",
+      "name": "Full name",
+      "email": "Email",
+      "mobile": "Mobile number",
+      "mobileHint": "We'll send a 6-digit OTP to this number.",
+      "password": "Password",
+      "passwordHint": "At least 8 characters.",
+      "state": "State",
+      "district": "District",
+      "school": "School name",
+      "class": "Class",
+      "board": "Board",
+      "language": "Preferred language",
+      "submit": "Register",
+      "submitting": "Creating account…",
+      "haveAccount": "Already have an account?",
+      "login": "Login"
+    },
+    "otp": {
+      "title": "Verify your mobile",
+      "subtitle": "Enter the 6-digit code sent to {mobile}.",
+      "label": "OTP",
+      "verify": "Verify",
+      "resend": "Resend OTP",
+      "resendIn": "Resend in {seconds}s",
+      "sent": "A new OTP has been sent.",
+      "devHint": "Dev mode: your OTP is {otp}",
+      "changeNumber": "Change number"
+    },
+    "login": {
+      "title": "Welcome back",
+      "subtitle": "Login to your student account.",
+      "tabOtp": "Mobile + OTP",
+      "tabPassword": "Password",
+      "identifier": "Mobile or email",
+      "mobile": "Mobile number",
+      "password": "Password",
+      "requestOtp": "Send OTP",
+      "submit": "Login",
+      "noAccount": "New here?",
+      "register": "Create an account",
+      "forgot": "Forgot password?",
+      "adminLogin": "Admin login"
+    },
+    "forgot": {
+      "title": "Reset your password",
+      "subtitle": "We'll send an OTP to your registered mobile number.",
+      "mobile": "Mobile number",
+      "sendOtp": "Send OTP",
+      "otp": "OTP",
+      "newPassword": "New password",
+      "submit": "Reset password",
+      "success": "Password reset. Please login with your new password.",
+      "backToLogin": "Back to login"
+    },
+    "adminLogin": {
+      "title": "Admin Login",
+      "subtitle": "Authorised staff only.",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Login",
+      "studentLogin": "Student login"
+    },
+    "profile": {
+      "title": "Profile settings",
+      "subtitle": "Update your details. Changing your language switches the app language.",
+      "name": "Full name",
+      "school": "School name",
+      "class": "Class",
+      "board": "Board",
+      "language": "Preferred language",
+      "save": "Save changes",
+      "success": "Profile updated.",
+      "readonlyNote": "Mobile and email cannot be changed here.",
+      "backToDashboard": "Back to dashboard"
+    },
+    "options": {
+      "class": {
+        "11": "Class 11",
+        "12": "Class 12",
+        "Repeater": "Repeater"
+      },
+      "board": {
+        "State Board": "State Board",
+        "CBSE": "CBSE",
+        "Other": "Other"
+      }
+    },
+    "errors": {
+      "generic": "Something went wrong. Please try again.",
+      "validation": "Please check the highlighted fields.",
+      "network": "Network error. Please check your connection.",
+      "required": "This field is required.",
+      "nameTooShort": "Please enter your full name.",
+      "nameTooLong": "Name is too long.",
+      "emailInvalid": "Enter a valid email address.",
+      "mobileInvalid": "Enter a valid 10-digit mobile number.",
+      "passwordTooShort": "Password must be at least 8 characters.",
+      "passwordTooLong": "Password is too long.",
+      "schoolTooShort": "Please enter your school name.",
+      "schoolTooLong": "School name is too long.",
+      "otpInvalid": "Incorrect OTP. Please try again.",
+      "otpExpired": "This OTP has expired. Please request a new one.",
+      "tooManyAttempts": "Too many attempts. Please request a new OTP.",
+      "rateLimited": "Too many OTP requests. Please wait a few minutes.",
+      "mobileTaken": "This mobile number is already registered.",
+      "emailTaken": "This email is already registered.",
+      "conflict": "These details are already in use.",
+      "accountNotFound": "No account found for this number.",
+      "alreadyVerified": "This number is already verified. Please login.",
+      "invalidCredentials": "Incorrect login details.",
+      "notVerified": "Please verify your mobile number first.",
+      "accountInactive": "This account is inactive. Contact support.",
+      "unauthorized": "Please login to continue.",
+      "messageTooShort": "Message must be at least 10 characters.",
+      "messageTooLong": "Message is too long.",
+      "consentRequired": "Please agree to be contacted.",
+      "countryRequired": "Select at least one country.",
+      "scoreRange": "Enter a score between 0 and 720.",
+      "selectRequired": "Please choose an option.",
+      "leadExists": "You already have an admission request."
+    }
+  },
+  "about": {
+    "eyebrow": "About Us",
+    "heroTitle": "Making quality NEET preparation affordable for everyone",
+    "heroSubtitle": "We help Tamil Nadu's government-school, state-board and rural students prepare for NEET — and guide those who need it toward medical seats abroad.",
+    "missionTitle": "Our mission",
+    "mission": "To remove cost and language as barriers to NEET preparation, so every serious aspirant can practise, measure progress and improve — for the price of a bus ticket.",
+    "visionTitle": "Our vision",
+    "vision": "A future where a student's district, board or family income never decides whether they can become a doctor.",
+    "storyTitle": "Our story",
+    "story": [
+      "NEET Smart Practice began with a simple observation: thousands of capable students, especially from government and state-board schools, never get enough realistic practice because coaching and test series are expensive and mostly in English.",
+      "We built an affordable, mobile-first, bilingual platform where a full mock test costs just ₹30 — with clear, chapter-level feedback after every attempt.",
+      "For students who work hard but still miss a seat in India, our admission guidance team explains the honest, regulated pathways to study medicine at recognised universities abroad."
+    ],
+    "valuesTitle": "What we stand for",
+    "values": [
+      {
+        "title": "Affordable",
+        "body": "Practice priced for every student, not just those who can afford coaching."
+      },
+      {
+        "title": "Honest",
+        "body": "Clear eligibility and regulations up front — no false promises."
+      },
+      {
+        "title": "Accessible",
+        "body": "Bilingual, mobile-first and light enough for rural connections."
+      },
+      {
+        "title": "Student-first",
+        "body": "Every decision starts with what helps the aspirant."
+      }
+    ]
+  },
+  "whyChoose": {
+    "eyebrow": "Why Choose Us",
+    "heroTitle": "Built for real NEET aspirants, not just toppers",
+    "heroSubtitle": "Six reasons students and parents across Tamil Nadu trust NEET Smart Practice.",
+    "points": [
+      {
+        "title": "Genuinely affordable",
+        "body": "At ₹30 a test there's no big upfront fee — start with a single test and add more when you want."
+      },
+      {
+        "title": "Bilingual by design",
+        "body": "Questions, options and explanations in both English and Tamil, so language never holds you back."
+      },
+      {
+        "title": "Real exam pattern",
+        "body": "Previous-year pattern, chapter-wise and year-wise tests that mirror the actual NEET blueprint and weightage."
+      },
+      {
+        "title": "Detailed feedback",
+        "body": "See accuracy and time spent by subject and chapter, so you revise what actually matters."
+      },
+      {
+        "title": "Low-bandwidth friendly",
+        "body": "A fast, lightweight platform that works on modest phones and slow rural internet."
+      },
+      {
+        "title": "Guidance beyond the exam",
+        "body": "Missed a seat in India? Get honest advice on studying medicine abroad."
+      }
+    ]
+  },
+  "services": {
+    "eyebrow": "Services",
+    "heroTitle": "What we offer",
+    "heroSubtitle": "Everything an aspirant needs — from daily practice to admission guidance.",
+    "items": [
+      {
+        "title": "Full-length mock tests",
+        "body": "Previous-year pattern papers that simulate the real NEET exam, with a timer and autosave."
+      },
+      {
+        "title": "Chapter & year-wise practice",
+        "body": "Target weak chapters or practise a specific year's paper — all for ₹30 each."
+      },
+      {
+        "title": "Performance analytics",
+        "body": "Subject, chapter and time analysis after every attempt to sharpen your revision."
+      },
+      {
+        "title": "Bilingual learning",
+        "body": "Take tests and read explanations in English or Tamil, your choice."
+      },
+      {
+        "title": "Admission guidance",
+        "body": "Advisory support on recognised medical universities abroad for eligible students."
+      },
+      {
+        "title": "Timely notifications",
+        "body": "Stay updated on new tests, offers and important admission alerts."
+      }
+    ]
+  },
+  "mockTests": {
+    "eyebrow": "NEET Mock Tests",
+    "heroTitle": "Realistic NEET practice for just ₹30 a test",
+    "heroSubtitle": "Previous-year pattern, chapter-wise and year-wise tests — with a timer, autosave and detailed analysis.",
+    "typesTitle": "Three ways to practise",
+    "typesSubtitle": "Pick what fits your preparation today.",
+    "types": [
+      {
+        "title": "Previous-year pattern",
+        "body": "Full-length tests that follow the latest NEET blueprint and subject weightage."
+      },
+      {
+        "title": "Chapter-wise practice",
+        "body": "Drill a single chapter until you're confident, then move to the next."
+      },
+      {
+        "title": "Year-wise practice",
+        "body": "Attempt a specific year's paper to benchmark yourself against real exams."
+      }
+    ],
+    "featuresTitle": "Every test includes",
+    "features": [
+      "A real exam-style timer with autosave, so you never lose progress",
+      "Questions in English and Tamil",
+      "Mark-for-review and easy navigation between questions",
+      "Instant scoring with the NEET +4 / −1 scheme",
+      "Chapter, subject and time-wise performance analysis",
+      "A downloadable report after every attempt"
+    ],
+    "pricing": {
+      "title": "Simple pricing",
+      "price": "₹30",
+      "per": "per test",
+      "points": [
+        "No subscription, no hidden charges",
+        "Pay per test, only for what you attempt",
+        "Secure payment via Razorpay"
+      ],
+      "cta": "Register to start",
+      "note": "Create a free account first — then buy any test for ₹30."
+    }
+  },
+  "admission": {
+    "eyebrow": "Admission Guidance",
+    "heroTitle": "A second pathway to your medical dream",
+    "heroSubtitle": "For students who work hard but don't secure a medical seat in India, we explain the honest, regulated route to studying medicine abroad.",
+    "intro": [
+      "Every year many capable students narrowly miss an MBBS seat in India because of limited seats and high cut-offs. Giving up on medicine isn't the only option.",
+      "Our admission guidance service helps eligible students explore recognised medical universities in approved countries — with clear information about cost, eligibility and the rules that apply."
+    ],
+    "processTitle": "How our guidance works",
+    "processSubtitle": "A simple, transparent process.",
+    "process": [
+      {
+        "title": "Share your profile",
+        "body": "Tell us your NEET score, budget and preferences through a short enquiry."
+      },
+      {
+        "title": "Get matched",
+        "body": "We suggest suitable countries and universities based on your eligibility."
+      },
+      {
+        "title": "Understand the details",
+        "body": "We explain cost, duration, eligibility and the country-specific regulations."
+      },
+      {
+        "title": "Apply with support",
+        "body": "Our team guides you through documentation and the application steps."
+      }
+    ],
+    "countriesTitle": "Approved study destinations",
+    "countriesBody": "We guide students toward recognised universities in these countries.",
+    "countriesLink": "Explore all countries",
+    "disclosureTitle": "Eligibility & regulations — disclosed clearly",
+    "disclosure": "Admission guidance is an advisory service. Eligibility to study medicine abroad and to practise afterwards depends on your NEET qualification, each university's criteria, and the regulations of India and the destination country (including any screening or licensing examinations). We clearly disclose these requirements for every destination and do not guarantee admission."
+  },
+  "countries": {
+    "eyebrow": "Countries",
+    "heroTitle": "Approved destinations to study medicine abroad",
+    "heroSubtitle": "An overview of recognised study destinations, with why students choose them, approximate costs and key eligibility notes.",
+    "intro": "These are the countries we guide eligible students toward. Costs are approximate ranges for the full course and vary by university and year; always confirm current figures during counselling.",
+    "whyLabel": "Why study here",
+    "costLabel": "Approximate cost",
+    "eligibilityLabel": "Eligibility note",
+    "disclosure": "Cost ranges are indicative only and cover the full medical programme; they exclude living expenses and change over time. Eligibility and the right to practise in India depend on NEET qualification, the national regulator's rules and any required screening or licensing examination. We disclose country-specific regulations clearly during guidance.",
+    "items": {
+      "ru": {
+        "name": "Russia",
+        "tagline": "Long-established destination with recognised universities.",
+        "why": [
+          "Decades of experience teaching international medical students",
+          "Many universities recognised by Indian and global authorities",
+          "English-medium programmes at several universities"
+        ],
+        "cost": "₹18–35 lakh for the full course",
+        "eligibility": "NEET qualification required; verify the university's current recognition."
+      },
+      "ge": {
+        "name": "Georgia",
+        "tagline": "European-standard education at moderate cost.",
+        "why": [
+          "European academic standards and modern campuses",
+          "English-medium programmes",
+          "A growing choice among Indian students"
+        ],
+        "cost": "₹25–40 lakh for the full course",
+        "eligibility": "NEET qualification required; confirm recognition and course structure."
+      },
+      "kz": {
+        "name": "Kazakhstan",
+        "tagline": "Affordable fees and low living costs.",
+        "why": [
+          "Lower tuition and living expenses",
+          "English-medium programmes available",
+          "Recognised universities for Indian students"
+        ],
+        "cost": "₹18–30 lakh for the full course",
+        "eligibility": "NEET qualification required; check the university's current recognition."
+      },
+      "kg": {
+        "name": "Kyrgyzstan",
+        "tagline": "Budget-friendly with recognised universities.",
+        "why": [
+          "Among the more affordable destinations",
+          "English-medium teaching",
+          "A simple, student-friendly admission process"
+        ],
+        "cost": "₹16–28 lakh for the full course",
+        "eligibility": "NEET qualification required; verify recognition before applying."
+      },
+      "uz": {
+        "name": "Uzbekistan",
+        "tagline": "An emerging destination with modern facilities.",
+        "why": [
+          "Newer campuses and improving infrastructure",
+          "Competitive, low fees",
+          "English-medium options"
+        ],
+        "cost": "₹18–30 lakh for the full course",
+        "eligibility": "NEET qualification required; confirm the programme's recognition."
+      },
+      "ph": {
+        "name": "Philippines",
+        "tagline": "US-pattern curriculum taught in English.",
+        "why": [
+          "US-style medical curriculum",
+          "Instruction fully in English",
+          "Popular among international students"
+        ],
+        "cost": "₹28–45 lakh for the full course",
+        "eligibility": "NEET qualification required; note the BS + MD structure and recognition."
+      }
+    }
+  },
+  "testimonials": {
+    "eyebrow": "Testimonials",
+    "heroTitle": "What students say",
+    "heroSubtitle": "Real words from aspirants who practise with us. (Sample content — managed by our team.)",
+    "allTitle": "More student voices",
+    "items": [
+      {
+        "name": "Priya R.",
+        "role": "State Board student, Madurai",
+        "quote": "The ₹30 tests made it possible for me to practise every week. The chapter analysis showed exactly where I was losing marks."
+      },
+      {
+        "name": "Arun K.",
+        "role": "Repeat NEET aspirant, Salem",
+        "quote": "Studying in Tamil made a huge difference. I finally understood the explanations properly and my score improved."
+      },
+      {
+        "name": "Fathima S.",
+        "role": "Government School student, Trichy",
+        "quote": "I could not afford a coaching test series. This platform gave me real exam practice at a price my family could manage."
+      },
+      {
+        "name": "Vignesh M.",
+        "role": "Class 12 student, Coimbatore",
+        "quote": "The timer and autosave feel just like the real exam. The report after each test keeps me motivated."
+      },
+      {
+        "name": "Lakshmi N.",
+        "role": "Parent, Tirunelveli",
+        "quote": "The admission guidance team explained our options abroad honestly, including the eligibility rules. No false promises."
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "heroTitle": "Frequently asked questions",
+    "heroSubtitle": "Answers to the questions students and parents ask most.",
+    "items": [
+      {
+        "q": "How much does a mock test cost?",
+        "a": "Each mock test costs ₹30. There is no subscription — you pay only for the tests you choose to attempt."
+      },
+      {
+        "q": "Are the tests available in Tamil?",
+        "a": "Yes. You can take tests and read every explanation in English or Tamil, and switch language anytime."
+      },
+      {
+        "q": "What types of tests are available?",
+        "a": "Previous-year pattern full tests, chapter-wise practice and year-wise practice papers."
+      },
+      {
+        "q": "How do I pay?",
+        "a": "Payments are made securely online via Razorpay. You'll need to register a free account first."
+      },
+      {
+        "q": "Do I get my results and analysis?",
+        "a": "Yes. After every test you get your score plus a chapter, subject and time-wise performance analysis, with a downloadable report."
+      },
+      {
+        "q": "What is the admission guidance service?",
+        "a": "For students who don't secure a medical seat in India, we advise on recognised universities abroad and clearly disclose eligibility and country-specific regulations."
+      },
+      {
+        "q": "Do you guarantee admission abroad?",
+        "a": "No. Admission guidance is advisory. Outcomes depend on each university's criteria and the applicable regulations; we never guarantee admission."
+      },
+      {
+        "q": "Will the site work on a slow connection?",
+        "a": "Yes. The platform is mobile-first and lightweight, designed to work on budget phones and rural internet."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contact Us",
+    "heroTitle": "We'd love to hear from you",
+    "heroSubtitle": "Questions about mock tests or admission guidance? Send us a message and our team will respond.",
+    "infoTitle": "Reach us",
+    "formTitle": "Send a message",
+    "formSubtitle": "Fill in the form and we'll get back to you soon.",
+    "info": {
+      "emailLabel": "Email",
+      "email": "support@neetsmartpractice.in",
+      "phoneLabel": "Phone",
+      "phone": "+91 90000 00000",
+      "addressLabel": "Address",
+      "address": "Tamil Nadu, India",
+      "hoursLabel": "Hours",
+      "hours": "Mon–Sat, 9 am – 7 pm IST"
+    },
+    "form": {
+      "name": "Your name",
+      "mobile": "Mobile number",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send message",
+      "sending": "Sending…",
+      "successTitle": "Message sent",
+      "success": "Thank you for reaching out. Our team will contact you soon."
+    }
+  },
+  "seo": {
+    "home": {
+      "title": "NEET Smart Practice — ₹30 NEET Mock Tests & Admission Guidance",
+      "description": "Affordable NEET mock tests at ₹30 — previous-year pattern, chapter-wise and year-wise practice in English & Tamil. Plus honest guidance for medical admissions abroad."
+    },
+    "about": {
+      "title": "About Us",
+      "description": "Learn how NEET Smart Practice makes quality, bilingual NEET preparation affordable for government-school, state-board and rural students across Tamil Nadu."
+    },
+    "whyChoose": {
+      "title": "Why Choose Us",
+      "description": "Affordable ₹30 tests, English & Tamil support, real exam pattern, detailed analytics and honest admission guidance — why aspirants trust NEET Smart Practice."
+    },
+    "services": {
+      "title": "Services",
+      "description": "Full-length and chapter/year-wise NEET mock tests, performance analytics, bilingual learning and admission guidance abroad — all in one platform."
+    },
+    "mockTests": {
+      "title": "NEET Mock Tests — ₹30",
+      "description": "Practise NEET with previous-year pattern, chapter-wise and year-wise mock tests for just ₹30 each, with timer, autosave and detailed analysis."
+    },
+    "admission": {
+      "title": "Admission Guidance",
+      "description": "Didn't secure a medical seat in India? Get honest guidance on recognised universities abroad, with clear eligibility and country-specific regulations."
+    },
+    "countries": {
+      "title": "Study Medicine Abroad — Countries",
+      "description": "Overview of approved destinations to study medicine abroad — Russia, Georgia, Kazakhstan, Kyrgyzstan, Uzbekistan and the Philippines — with cost and eligibility notes."
+    },
+    "testimonials": {
+      "title": "Testimonials",
+      "description": "Hear from NEET aspirants and parents who practise with our affordable, bilingual mock tests."
+    },
+    "faq": {
+      "title": "FAQ",
+      "description": "Answers about ₹30 NEET mock tests, Tamil support, payments, results and our admission guidance service."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "Get in touch with NEET Smart Practice for questions about mock tests or admission guidance."
+    },
+    "help": {
+      "title": "Help & Support",
+      "description": "Step-by-step guides to register, buy and take NEET mock tests, read results, and contact admission guidance."
+    }
+  },
+  "catalogue": {
+    "title": "Mock tests",
+    "subtitle": "Choose a test and practise for just ₹30.",
+    "searchPlaceholder": "Search tests…",
+    "resultsCount": "{count} tests",
+    "empty": "No tests match your filters.",
+    "clear": "Clear filters",
+    "search": "Search",
+    "anyYear": "Any year",
+    "anyDifficulty": "Any difficulty",
+    "anySubject": "All subjects",
+    "anyChapter": "All chapters",
+    "anyType": "All types",
+    "subjectPhysics": "Physics",
+    "subjectChemistry": "Chemistry",
+    "subjectBiology": "Biology",
+    "filterYear": "Year",
+    "filterDifficulty": "Difficulty",
+    "filterSubject": "Subject",
+    "filterChapter": "Chapter",
+    "filterType": "Type",
+    "questions": "{count} questions",
+    "minutes": "{count} min",
+    "start": "Start Test",
+    "viewDetails": "View details",
+    "owned": "Purchased",
+    "difficulty": {
+      "EASY": "Easy",
+      "MEDIUM": "Medium",
+      "HARD": "Hard"
+    },
+    "types": {
+      "FULL_TEST": "Full Test",
+      "MINI_TEST": "Mini Test",
+      "CHAPTER_TEST": "Chapter Test",
+      "SUBJECT_TEST": "Subject Test",
+      "YEAR_PATTERN": "Year Pattern"
+    },
+    "detail": {
+      "back": "All tests",
+      "about": "About this test",
+      "coverage": "Syllabus coverage",
+      "rules": "Test details",
+      "duration": "Duration",
+      "questionsLabel": "Questions",
+      "difficultyLabel": "Difficulty",
+      "languagesLabel": "Languages",
+      "typeLabel": "Type",
+      "yearLabel": "Year",
+      "randomNote": "Questions are generated fresh for every attempt, so no two students get the same paper.",
+      "fixedNote": "A curated, fixed set of questions.",
+      "ownedNote": "You own this test.",
+      "buyCta": "Buy for ₹{price}",
+      "startCta": "Start Test"
+    },
+    "checkout": {
+      "title": "Checkout",
+      "coming": "Secure online payment is coming in the next phase. This test will cost ₹{price}.",
+      "back": "Back to test"
+    },
+    "startPlaceholder": {
+      "title": "Test engine coming soon",
+      "coming": "The test-taking experience — timer, autosave and question navigation — is built in the next phase.",
+      "back": "Back to test"
+    }
+  },
+  "payments": {
+    "checkout": {
+      "title": "Complete your purchase",
+      "subtitle": "Pay securely to unlock this test.",
+      "payButton": "Pay ₹{price}",
+      "processing": "Please wait…",
+      "retry": "Try again",
+      "cancelled": "Payment was cancelled. You can try again — no money was charged.",
+      "failed": "The payment could not be completed. Please try again.",
+      "verifying": "Confirming your payment…",
+      "notConfigured": "Online payment isn't configured yet. Add your Razorpay test keys to enable checkout.",
+      "methods": "Pay via UPI, debit/credit card or net banking. Secured by Razorpay.",
+      "back": "Back to test"
+    },
+    "history": {
+      "title": "Payment history",
+      "subtitle": "Your purchases and invoices.",
+      "empty": "You have no payments yet.",
+      "colTest": "Test",
+      "colDate": "Date",
+      "colAmount": "Amount",
+      "colStatus": "Status",
+      "colInvoice": "Invoice",
+      "download": "Download",
+      "retry": "Retry",
+      "status": {
+        "CREATED": "Pending",
+        "SUCCESS": "Paid",
+        "FAILED": "Failed",
+        "REFUNDED": "Refunded"
+      }
+    }
+  },
+  "exam": {
+    "instructions": {
+      "title": "Test instructions",
+      "subtitle": "Read carefully before you begin. The timer starts as soon as you press Start.",
+      "durationLabel": "Duration",
+      "questionsLabel": "Questions",
+      "marking": "Marking scheme",
+      "markCorrect": "+4 for every correct answer",
+      "markWrong": "-1 for every wrong answer",
+      "markSkipped": "0 for an unanswered question",
+      "navigation": "How to navigate",
+      "navHelp": "Use Previous / Next or tap a number in the question palette to jump. Mark questions for review to revisit them. Your answers save automatically.",
+      "languageChoice": "Choose the language for this attempt",
+      "languageNote": "You can switch language any time during the test without losing your answers.",
+      "timerNote": "Once started, the timer runs on the server and cannot be paused. If you close the browser, you can resume within the remaining time.",
+      "start": "Start Test",
+      "starting": "Starting…",
+      "resumeTitle": "You have a test in progress",
+      "resume": "Resume Test",
+      "completedTitle": "You have already taken this test",
+      "completedNote": "Each test can be attempted once. You can view your result.",
+      "viewResult": "View result",
+      "back": "Back to test",
+      "startError": "Could not start the test. Please try again."
+    },
+    "ui": {
+      "questionOf": "Question {current} of {total}",
+      "previous": "Previous",
+      "next": "Next",
+      "markReview": "Mark for review",
+      "marked": "Marked for review",
+      "clear": "Clear response",
+      "submit": "Submit test",
+      "palette": "Questions",
+      "student": "Student",
+      "timeLeft": "Time left",
+      "saving": "Saving…",
+      "saved": "Saved",
+      "saveError": "Save failed — retrying",
+      "taFallbackNotice": "Tamil is not available for this question yet; showing English.",
+      "legendAnswered": "Answered",
+      "legendUnanswered": "Not answered",
+      "legendMarked": "Marked for review",
+      "legendNotVisited": "Not visited"
+    },
+    "submitDialog": {
+      "title": "Submit your test?",
+      "intro": "Here is a summary of your answers:",
+      "answered": "Answered",
+      "unanswered": "Not answered",
+      "marked": "Marked for review",
+      "notVisited": "Not visited",
+      "warning": "You cannot change your answers after submitting.",
+      "confirm": "Yes, submit",
+      "cancel": "Keep going"
+    },
+    "timeUp": {
+      "title": "Time is up",
+      "message": "Your time has ended and the test was submitted automatically."
+    },
+    "result": {
+      "title": "Test submitted",
+      "placeholder": "Your detailed result and analysis will appear here in the next phase.",
+      "autoSubmitted": "This test was auto-submitted because the time ran out.",
+      "submitted": "Your responses have been recorded.",
+      "score": "Score",
+      "correct": "Correct",
+      "wrong": "Wrong",
+      "skipped": "Skipped",
+      "dashboard": "Go to dashboard",
+      "myTests": "Browse more tests"
+    }
+  },
+  "results": {
+    "backToDashboard": "Dashboard",
+    "downloadReport": "Download Report",
+    "downloading": "Preparing…",
+    "submittedOn": "Submitted on {date}",
+    "autoSubmitted": "Auto-submitted (time ran out)",
+    "tabs": {
+      "analysis": "Analysis",
+      "review": "Answer review"
+    },
+    "summary": {
+      "heading": "Your score",
+      "score": "Score",
+      "outOf": "out of {max}",
+      "total": "Questions",
+      "correct": "Correct",
+      "wrong": "Wrong",
+      "skipped": "Skipped",
+      "accuracy": "Accuracy",
+      "timeTaken": "Time taken",
+      "percentile": "Percentile",
+      "rank": "Estimated rank",
+      "comingSoon": "Coming soon",
+      "overallPercentage": "{pct}% overall"
+    },
+    "subject": {
+      "heading": "Subject analysis",
+      "subject": "Subject",
+      "attempted": "Attempted",
+      "correct": "Correct",
+      "accuracy": "Accuracy",
+      "marks": "Marks",
+      "time": "Time"
+    },
+    "chapter": {
+      "heading": "Chapter analysis",
+      "chapter": "Chapter",
+      "accuracy": "Accuracy",
+      "strong": "Strong",
+      "average": "Average",
+      "weak": "Weak",
+      "legend": "Strong ≥ 70% · Average 40–69% · Weak < 40%",
+      "empty": "No chapter data for this test."
+    },
+    "time": {
+      "heading": "Time analysis",
+      "taken": "Time taken",
+      "allotted": "Allotted",
+      "avgPerQuestion": "Avg / question",
+      "perSubject": "Time per subject",
+      "slowest": "Where you spent the most time",
+      "question": "Q{number}",
+      "noSlowest": "No time was recorded."
+    },
+    "review": {
+      "filterAll": "All",
+      "filterWrong": "Wrong",
+      "filterSkipped": "Skipped",
+      "filterMarked": "Marked",
+      "badgeCorrect": "Correct",
+      "badgeWrong": "Wrong",
+      "badgeSkipped": "Skipped",
+      "badgeMarked": "Marked for review",
+      "yourAnswer": "Your answer",
+      "correctAnswer": "Correct answer",
+      "notAnswered": "Not answered",
+      "explanation": "Explanation",
+      "noExplanation": "No explanation available.",
+      "taNotice": "Tamil is not available for this question; showing English.",
+      "empty": "No questions match this filter."
+    }
+  },
+  "performance": {
+    "title": "Performance analytics",
+    "subtitle": "Your progress across all tests.",
+    "noData": "No results yet",
+    "noDataHint": "Take a test to see your performance trends, strengths and weak areas here.",
+    "browseTests": "Browse tests",
+    "charts": {
+      "scoreTrend": "Score over time",
+      "subjectAccuracy": "Accuracy by subject",
+      "timeTrend": "Average time per question",
+      "score": "Score",
+      "accuracy": "Accuracy (%)",
+      "seconds": "Seconds",
+      "attempt": "Test"
+    },
+    "strong": {
+      "heading": "Strong chapters",
+      "empty": "Keep practising — no strong chapters yet (need {min}+ questions)."
+    },
+    "weak": {
+      "heading": "Weak chapters",
+      "empty": "No weak chapters — great work!"
+    },
+    "minNote": "Chapters are ranked once you have attempted at least {min} questions in them.",
+    "history": {
+      "heading": "Attempt history",
+      "test": "Test",
+      "date": "Date",
+      "score": "Score",
+      "accuracy": "Accuracy",
+      "avgTime": "Avg / Q",
+      "view": "View",
+      "auto": "Auto-submitted"
+    }
+  },
+  "recommendations": {
+    "heading": "Recommended for you",
+    "subtitle": "Based on your recent tests.",
+    "empty": "Take a few more tests and we will suggest what to practise next.",
+    "practise": "Practise",
+    "noTest": "No matching test yet",
+    "accuracyAcross": "{accuracy}% accuracy across {tests, plural, one {# test} other {# tests}}",
+    "reason": {
+      "weakChapter": "Your accuracy in {chapter} is {accuracy}% across {tests, plural, one {# test} other {# tests}} — practise it to lift your score.",
+      "decliningChapter": "Your accuracy in {chapter} is slipping ({accuracy}%) — revise it before the next test.",
+      "slowAccurate": "You are accurate in {chapter} ({accuracy}%) but slow — practise to build speed."
+    }
+  },
+  "consultancy": {
+    "title": "Study MBBS abroad",
+    "subtitle": "Free admission guidance for NEET aspirants who want to study medicine overseas.",
+    "intro": "Our admission counselling partner helps Indian students secure MBBS seats at recognised medical universities in Russia, Georgia, Kazakhstan, Kyrgyzstan, Uzbekistan, the Philippines and other approved destinations — with support on eligibility, documents, visas and travel.",
+    "countriesHeading": "Approved destinations",
+    "countriesSubtitle": "Popular countries our students choose. Tap a country to learn more.",
+    "disclosure": {
+      "title": "Eligibility & country regulations",
+      "body": "Admission is subject to each university’s eligibility criteria and the medical-education regulations of the destination country, which change from time to time. NMC/FMGE norms apply for practising in India after graduation. We disclose the applicable requirements before you commit, and admission is not guaranteed."
+    },
+    "form": {
+      "heading": "Request free guidance",
+      "subtitle": "Share a few details and our team will reach out. Fields marked optional can be left blank.",
+      "neetScore": "NEET score",
+      "neetScoreHint": "Out of 720. Leave blank if you haven’t appeared yet.",
+      "optional": "optional",
+      "marks": "NEET marks",
+      "category": "Category",
+      "budget": "Budget range",
+      "selectPlaceholder": "Select…",
+      "countries": "Interested countries",
+      "countriesHint": "Choose one or more.",
+      "parentContact": "Parent contact number",
+      "consent": "I agree to be contacted by the admission counselling team about studying abroad.",
+      "submit": "Submit request",
+      "submitting": "Submitting…"
+    },
+    "budgets": {
+      "UNDER_15": "Under ₹15 lakhs",
+      "B15_25": "₹15–25 lakhs",
+      "B25_40": "₹25–40 lakhs",
+      "ABOVE_40": "Above ₹40 lakhs",
+      "UNSURE": "Not sure yet"
+    },
+    "success": {
+      "title": "Request received",
+      "body": "Thank you! Our admission counselling team will contact you soon.",
+      "viewStatus": "Track your request"
+    },
+    "status": {
+      "heading": "Your admission request",
+      "submittedOn": "Submitted on {date}",
+      "steps": {
+        "submitted": "Submitted",
+        "under_review": "Under review",
+        "contacted": "Contacted"
+      },
+      "statusLabel": {
+        "NEW": "Submitted",
+        "IN_PROGRESS": "Under review",
+        "CONTACTED": "Contacted",
+        "CONVERTED": "Enrolled",
+        "CLOSED": "Closed"
+      },
+      "detailsHeading": "What you submitted",
+      "neetScore": "NEET score",
+      "marks": "Marks",
+      "category": "Category",
+      "budget": "Budget",
+      "countries": "Interested countries",
+      "parentContact": "Parent contact",
+      "notProvided": "Not provided",
+      "contactNote": "Our team will call the parent contact number you shared. Keep it reachable."
+    },
+    "banner": {
+      "title": "Explore admission options abroad",
+      "body": "Based on this score, studying MBBS overseas could be a strong option. Get free guidance on universities abroad.",
+      "cta": "Explore options"
+    },
+    "dashboardCard": {
+      "title": "Study MBBS abroad",
+      "body": "Get free admission guidance for medical universities overseas.",
+      "cta": "Learn more",
+      "trackCta": "Track your request"
+    }
+  },
+  "notifications": {
+    "title": "Notifications",
+    "subtitle": "Updates about your tests, results, offers and admissions.",
+    "empty": "No notifications yet.",
+    "dropdownEmpty": "You’re all caught up.",
+    "markAllRead": "Mark all read",
+    "markingAll": "Marking…",
+    "seeAll": "See all notifications",
+    "bell": "Notifications",
+    "unreadCount": "{count} unread",
+    "filterAll": "All",
+    "newBadge": "New",
+    "types": {
+      "NEW_MOCK_TEST": "New tests",
+      "RESULT": "Results",
+      "OFFER": "Offers",
+      "COUNSELLING": "Counselling",
+      "ADMISSION_ALERT": "Admissions",
+      "PAYMENT_CONFIRMATION": "Payments"
+    }
+  },
+  "dashboard": {
+    "welcome": "Welcome back, {name}",
+    "subtitle": "Here’s your NEET practice at a glance.",
+    "continueTitle": "You have a test in progress",
+    "continueBody": "Pick up where you left off before the timer runs out.",
+    "resume": "Resume test",
+    "purchased": "Your tests",
+    "upcoming": "New tests to try",
+    "start": "Start",
+    "resumeShort": "Resume",
+    "viewResult": "View result",
+    "buy": "Buy ₹{price}",
+    "noPurchased": "You haven’t bought any tests yet.",
+    "noUpcoming": "You own every available test — nice!",
+    "previousScores": "Recent scores",
+    "noScores": "Take a test to see your scores here.",
+    "score": "Score",
+    "platformRank": "Platform Rank",
+    "rankValue": "#{rank}",
+    "rankOf": "of {total} students",
+    "noRank": "Take a full test to get ranked.",
+    "bestScore": "Best full test: {score}",
+    "weakChapters": "Focus areas",
+    "strongChapters": "Your strengths",
+    "noWeak": "No weak chapters yet — keep practising.",
+    "noStrong": "Attempt more tests to reveal your strengths.",
+    "practise": "Practise now",
+    "topRecommendation": "Recommended next",
+    "paymentHistory": "Payment history",
+    "viewAll": "View all",
+    "browseCta": "Browse tests",
+    "emptyTitle": "Welcome! Let’s begin.",
+    "emptyBody": "Buy your first ₹30 mock test and start practising for NEET."
+  },
+  "errors": {
+    "notFound": {
+      "title": "Page not found",
+      "message": "The page you are looking for does not exist or has moved.",
+      "home": "Go to home"
+    },
+    "generic": {
+      "title": "Something went wrong",
+      "message": "Sorry, an unexpected error occurred. Please try again.",
+      "retry": "Try again",
+      "home": "Go to home"
+    },
+    "maintenance": {
+      "title": "We’ll be right back",
+      "message": "The platform is under maintenance. Please check again shortly."
+    }
+  },
+  "sms": {
+    "otp": "Your NEET Smart Practice OTP is {otp}. Valid for {minutes} minutes. Do not share it with anyone."
+  },
+  "help": {
+    "eyebrow": "Help & Support",
+    "heroTitle": "How to use NEET Smart Practice",
+    "heroSubtitle": "Simple, step-by-step guides to register, buy a test, take a test, read your results, and reach our admission team.",
+    "screenshotLabel": "Screenshot",
+    "stepLabel": "Step",
+    "sections": [
+      {
+        "id": "register",
+        "title": "1. Create your account",
+        "intro": "You only need your name and a mobile number to start.",
+        "steps": [
+          "Tap “Register” on the home page.",
+          "Enter your name, mobile number, and choose your language (English or Tamil).",
+          "Create a password you will remember.",
+          "Enter the 6-digit OTP sent to your mobile by SMS.",
+          "Your account is ready — you are taken to your dashboard."
+        ],
+        "shot": "The registration form with name, mobile, and language fields."
+      },
+      {
+        "id": "buyTest",
+        "title": "2. Buy a mock test for ₹30",
+        "intro": "Every test costs just ₹30. Pay with UPI, card, or net banking.",
+        "steps": [
+          "Open “Mock Tests” from the menu.",
+          "Use the filters or search box to find a test (by subject, chapter, year, or type).",
+          "Tap a test to see its syllabus, duration, and number of questions.",
+          "Tap “Buy ₹30” and complete the payment.",
+          "The test unlocks instantly and a payment confirmation appears."
+        ],
+        "shot": "A test card showing the ₹30 price and the Buy button."
+      },
+      {
+        "id": "takeTest",
+        "title": "3. Take a test",
+        "intro": "Your answers save automatically, even on a slow connection.",
+        "steps": [
+          "Open a purchased test and tap “Start”.",
+          "Choose the language you want to attempt the test in.",
+          "Read each question and tap your chosen option (A, B, C, or D).",
+          "Use “Mark for Review” to flag questions to revisit.",
+          "Move between questions with Next/Previous or the question grid.",
+          "Tap “Submit” when done — the test also submits automatically when the timer ends."
+        ],
+        "shot": "The test screen with a question, options, timer, and question grid."
+      },
+      {
+        "id": "readResults",
+        "title": "4. Read your results",
+        "intro": "See exactly where you are strong and where to improve.",
+        "steps": [
+          "Your result opens as soon as you submit.",
+          "See your score and the count of correct, wrong, and skipped questions.",
+          "Check the subject and chapter analysis to spot strong and weak topics.",
+          "Review every question with the correct answer and explanation.",
+          "Download your result as a PDF to keep or share.",
+          "Open “Performance” to track your progress across all tests."
+        ],
+        "shot": "The result page with score, subject bars, and chapter analysis."
+      },
+      {
+        "id": "contactConsultancy",
+        "title": "5. Contact admission guidance",
+        "intro": "Explore MBBS abroad and let our team guide you — for free.",
+        "steps": [
+          "Open “Admission Guidance” from the menu.",
+          "Read about the study destinations, cost, and eligibility.",
+          "Fill the short form with your NEET score and preferred country.",
+          "Submit the form — our counselling team will contact you.",
+          "Track your request status on the same page any time."
+        ],
+        "shot": "The admission guidance form with score and country fields."
+      }
+    ],
+    "moreTitle": "Still need help?",
+    "moreText": "Our team is happy to help you in English or Tamil.",
+    "moreCta": "Contact us"
+  }
+}

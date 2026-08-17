@@ -1,0 +1,9 @@
+# Keep the Vercel deployment lean — these aren't needed at runtime.
+e2e/
+load/
+tests/
+playwright.config.ts
+playwright-report/
+test-results/
+*.md
+!README.md

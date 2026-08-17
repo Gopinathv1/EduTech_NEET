@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Base document styles. Mobile-first: keep the default paint light for
+ * low-bandwidth rural connections. Accessibility helpers (large-font mode,
+ * high-contrast mode) will be layered on top of these variables in a later
+ * phase via a class on <html>.
+ */
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+/*
+ * Below-the-fold sections use `.cv-auto` so the browser can skip rendering
+ * off-screen content until it is scrolled near — cheaper first paint on slow
+ * devices/connections. `contain-intrinsic-size` reserves height to avoid
+ * scrollbar jumps. Progressive enhancement: ignored where unsupported.
+ */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 640px;
+}
+
+/* Respect users who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/*
+ * ---------------------------------------------------------------------------
+ * Accessibility modes (stamped on <html> by the root layout from cookies).
+ * ---------------------------------------------------------------------------
+ */
+
+/*
+ * Large-font mode. Tailwind's rem-based utilities all scale off the root
+ * font-size, so bumping <html> to 125% enlarges the whole app uniformly
+ * (text, spacing, controls) — no per-component changes needed.
+ */
+html[data-font-scale='large'] {
+  font-size: 125%;
+}
+
+/*
+ * High-contrast mode — a WCAG-AA (or better) theme. Because the UI is built
+ * with Tailwind colour utilities rather than CSS variables, we override the
+ * specific low-contrast classes the app actually uses (muted greys, hairline
+ * borders) plus links and focus rings. Everything below meets ≥4.5:1 (normal
+ * text) or ≥3:1 (large text / UI) against its background.
+ */
+html[data-contrast='high'] {
+  --background: #ffffff;
+  --foreground: #000000;
+}
+html[data-contrast='high'] body {
+  background: #ffffff;
+  color: #000000;
+}
+/* Muted greys → slate-800 (#1f2937), which is ≥12:1 on white. */
+html[data-contrast='high'] .text-slate-400,
+html[data-contrast='high'] .text-slate-500,
+html[data-contrast='high'] .text-slate-600 {
+  color: #1f2937 !important;
+}
+html[data-contrast='high'] .text-slate-700 {
+  color: #0f172a !important;
+}
+/* Brand-tinted text darkened for stronger contrast on white. */
+html[data-contrast='high'] .text-brand {
+  color: #1e3a8a !important;
+}
+/* Hairline borders → visible slate-700 so cards/inputs have clear edges. */
+html[data-contrast='high'] .border-slate-100,
+html[data-contrast='high'] .border-slate-200,
+html[data-contrast='high'] .border-slate-300 {
+  border-color: #334155 !important;
+}
+/* Faint tint backgrounds → white so text keeps maximum contrast. */
+html[data-contrast='high'] .bg-slate-50,
+html[data-contrast='high'] .bg-brand-soft {
+  background-color: #ffffff !important;
+}
+/* Links are underlined so colour isn't the only cue. */
+html[data-contrast='high'] a:not([class*='bg-']):not([role='button']) {
+  text-decoration: underline;
+}
+/* Thicker, always-dark focus indicator for keyboard users. */
+html[data-contrast='high'] :focus-visible {
+  outline: 3px solid #000000 !important;
+  outline-offset: 2px !important;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-feature-settings: 'rlig' 1, 'calt' 1;
+}

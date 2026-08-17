@@ -1,0 +1,12 @@
+# Netlify configuration. The @netlify/plugin-nextjs runtime handles SSR/functions.
+[build]
+  # Runs Prisma migrations on every deploy ONLY once a database is configured:
+  # the guard skips `migrate deploy` when DATABASE_URL is unset, so the build
+  # still succeeds before you've connected a DB. Once DATABASE_URL + DIRECT_URL
+  # are set in Netlify env, the schema (incl. the new engine tables) auto-applies.
+  command = "npx prisma generate && if [ -n \"$DATABASE_URL\" ]; then npx prisma migrate deploy; fi && npx next build"
+  publish = ".next"
+
+[build.environment]
+  # Next 15.5 + React 19 need Node 20+ (matches package.json "engines").
+  NODE_VERSION = "20"

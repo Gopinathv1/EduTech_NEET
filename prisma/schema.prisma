@@ -1,0 +1,694 @@
+// Prisma schema for the NEET Smart Practice & Admission Assistance Platform.
+//
+// Multilingual convention:
+//   Simple label fields (subject/chapter/test/country/notification names, titles,
+//   messages) are stored as `Json` shaped like { "en": "...", "ta": "..." }.
+//   Adding a language = add a key; no migration needed.
+//   Rich per-question content uses the dedicated `QuestionTranslation` table.
+
+generator client {
+  provider      = "prisma-client-js"
+  // `native` for local dev; `rhel-openssl-3.0.x` is the AWS Lambda / Netlify
+  // Functions runtime, so the query engine binary is available in production.
+  binaryTargets = ["native", "rhel-openssl-3.0.x"]
+}
+
+datasource db {
+  provider  = "postgresql"
+  // Runtime queries use the POOLED connection (serverless opens many); DDL from
+  // `prisma migrate deploy` uses DIRECT_URL (a transaction pooler can't run DDL).
+  // Locally, set DIRECT_URL to the same value as DATABASE_URL.
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ---------------------------------------------------------------------------
+// Enums
+// ---------------------------------------------------------------------------
+
+/// Access level for back-office staff.
+enum AdminRole {
+  ADMIN
+  SUPER_ADMIN
+}
+
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+enum QuestionType {
+  SINGLE_CORRECT
+  IMAGE_BASED
+  ASSERTION_REASON
+}
+
+/// Editorial workflow status for a question. Only PUBLISHED questions are shown
+/// to students / used by the generator (mirrored to `isActive` for compatibility).
+enum QuestionStatus {
+  DRAFT
+  REVIEW
+  PUBLISHED
+}
+
+/// The four selectable options on every question.
+enum AnswerOption {
+  A
+  B
+  C
+  D
+}
+
+enum TestType {
+  FULL_TEST
+  MINI_TEST
+  CHAPTER_TEST
+  SUBJECT_TEST
+  YEAR_PATTERN
+}
+
+enum AttemptStatus {
+  IN_PROGRESS
+  SUBMITTED
+  AUTO_SUBMITTED
+}
+
+enum PaymentStatus {
+  CREATED
+  SUCCESS
+  FAILED
+  REFUNDED
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  IN_PROGRESS
+  CONVERTED
+  CLOSED
+}
+
+enum NotificationType {
+  NEW_MOCK_TEST
+  RESULT
+  OFFER
+  COUNSELLING
+  ADMISSION_ALERT
+  PAYMENT_CONFIRMATION
+}
+
+/// Who a notification is aimed at.
+enum NotificationAudience {
+  ALL
+  STUDENTS
+  ADMINS
+}
+
+/// Why an OTP was issued.
+enum OtpPurpose {
+  REGISTRATION
+  LOGIN
+  PASSWORD_RESET
+}
+
+/// Delivery channel for an OTP.
+enum OtpChannel {
+  SMS
+  EMAIL
+}
+
+/// Lifecycle of a public "Contact Us" enquiry.
+enum ContactStatus {
+  NEW
+  RESPONDED
+  CLOSED
+}
+
+// ---------------------------------------------------------------------------
+// People
+// ---------------------------------------------------------------------------
+
+model Student {
+  id                String   @id @default(cuid())
+  name              String
+  email             String?  @unique
+  mobile            String   @unique
+  passwordHash      String
+  state             String?
+  district          String?
+  schoolName        String?
+  class             String? // "11", "12", "Repeater", ...
+  board             String? // "State Board", "CBSE", ...
+  preferredLanguage String   @default("en")
+  isMobileVerified  Boolean  @default(false)
+  isEmailVerified   Boolean  @default(false)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  attempts          TestAttempt[]
+  payments          Payment[]
+  leads             AdmissionLead[]
+  notificationReads NotificationRead[]
+  entitlements      TestEntitlement[]
+  notifications     Notification[]
+
+  @@index([state, district])
+  // Admin reporting: registrations-over-time and district/board/class filters.
+  @@index([createdAt])
+  @@index([board])
+  @@index([class])
+}
+
+model Admin {
+  id           String    @id @default(cuid())
+  name         String
+  email        String    @unique
+  passwordHash String
+  role         AdminRole @default(ADMIN)
+  isActive     Boolean   @default(true)
+  lastLoginAt  DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  assignedLeads AdmissionLead[] @relation("LeadAssignee")
+  auditLogs     AuditLog[]
+
+  @@index([role])
+}
+
+/// Immutable record of a back-office action (who, what, when) for accountability.
+model AuditLog {
+  id         String   @id @default(cuid())
+  adminId    String
+  adminName  String // denormalised snapshot so logs read even if an admin is renamed
+  action     String // e.g. "question.create", "chapter.update", "question.bulkImport"
+  entityType String // "Question" | "Chapter" | "Subject" | ...
+  entityId   String?
+  details    Json? // small context payload (changed fields, counts, ...)
+  createdAt  DateTime @default(now())
+
+  admin Admin @relation(fields: [adminId], references: [id], onDelete: Cascade)
+
+  @@index([adminId])
+  @@index([createdAt])
+  @@index([entityType, entityId])
+  // Access-log filtering by action.
+  @@index([action])
+}
+
+// ---------------------------------------------------------------------------
+// Question bank
+// ---------------------------------------------------------------------------
+
+model Subject {
+  id        String   @id @default(cuid())
+  code      String   @unique // PHYSICS | CHEMISTRY | BOTANY | ZOOLOGY
+  name      Json // { "en": "...", "ta": "..." }
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  chapters  Chapter[]
+  questions Question[]
+  tests     Test[]
+}
+
+model Chapter {
+  id        String   @id @default(cuid())
+  subjectId String
+  name      Json // { "en": "...", "ta": "..." }
+  class     Int // 11 or 12
+  weightage Float    @default(0) // % share used by the random generator
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  subject   Subject    @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+  questions Question[]
+  tests     Test[]
+
+  @@index([subjectId])
+  @@index([subjectId, class])
+}
+
+model Question {
+  id           String         @id @default(cuid())
+  subjectId    String
+  chapterId    String
+  topic        String? // finer-grained than chapter (NEET topic), optional
+  difficulty   Difficulty     @default(MEDIUM)
+  year         Int? // NEET year this question is drawn from, if any
+  tags         String[]       @default([])
+  questionType QuestionType   @default(SINGLE_CORRECT)
+  status       QuestionStatus @default(DRAFT)
+  imageUrl     String?
+  // Mirrors `status == PUBLISHED`; kept for the generator/catalogue queries.
+  isActive     Boolean        @default(true)
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+
+  subject       Subject               @relation(fields: [subjectId], references: [id], onDelete: Restrict)
+  chapter       Chapter               @relation(fields: [chapterId], references: [id], onDelete: Restrict)
+  translations  QuestionTranslation[]
+  testQuestions TestQuestion[]
+  answers       Answer[]
+  versions      QuestionVersion[]
+
+  // Primary lookup path for the random generator and question browser.
+  @@index([subjectId, chapterId, difficulty])
+  @@index([status])
+  @@index([year])
+}
+
+/// Immutable version-history entry for a question — one row per create/edit, so
+/// administrators can audit who changed what and when. `snapshot` is the full
+/// question + translations at that version.
+model QuestionVersion {
+  id           String   @id @default(cuid())
+  questionId   String
+  version      Int
+  action       String // "created" | "updated" | "status:PUBLISHED" | ...
+  editedById   String?
+  editedByName String?
+  snapshot     Json
+  createdAt    DateTime @default(now())
+
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@unique([questionId, version])
+  @@index([questionId])
+}
+
+/// One row per language for a question. English (en) is mandatory at the data
+/// layer; Tamil (ta) and future languages are optional.
+model QuestionTranslation {
+  id            String       @id @default(cuid())
+  questionId    String
+  language      String // "en", "ta", ...
+  questionText  String
+  optionA       String
+  optionB       String
+  optionC       String
+  optionD       String
+  correctOption AnswerOption
+  explanation   String?
+  // Only reviewed non-English translations are shown to students. English is
+  // authoritative and always considered reviewed.
+  reviewed      Boolean      @default(false)
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@unique([questionId, language])
+}
+
+// ---------------------------------------------------------------------------
+// Tests
+// ---------------------------------------------------------------------------
+
+model Test {
+  id                 String      @id @default(cuid())
+  title              Json // { "en": "...", "ta": "..." }
+  description        Json? // { "en": "...", "ta": "..." }
+  testType           TestType
+  year               Int?
+  subjectId          String?
+  chapterId          String?
+  totalQuestions     Int
+  durationMinutes    Int
+  price              Int         @default(30) // in INR
+  difficulty         Difficulty?
+  isRandom           Boolean     @default(false) // true => questions generated per attempt
+  isPublished        Boolean     @default(false)
+  availableLanguages String[]    @default(["en"])
+  // Generation rules for RANDOM tests + difficulty mix for all tests.
+  // Shape: { difficultyMix: { EASY, MEDIUM, HARD }, random?: { scope, subjectIds[], chapterIds[] } }
+  rules              Json?
+  createdAt          DateTime    @default(now())
+  updatedAt          DateTime    @updatedAt
+
+  subject       Subject?          @relation(fields: [subjectId], references: [id], onDelete: SetNull)
+  chapter       Chapter?          @relation(fields: [chapterId], references: [id], onDelete: SetNull)
+  testQuestions TestQuestion[]
+  attempts      TestAttempt[]
+  payments      Payment[]
+  entitlements  TestEntitlement[]
+
+  @@index([testType])
+  @@index([isPublished])
+}
+
+/// Fixed question set for a test (used when `Test.isRandom` is false).
+model TestQuestion {
+  id         String @id @default(cuid())
+  testId     String
+  questionId String
+  order      Int
+
+  test     Test     @relation(fields: [testId], references: [id], onDelete: Cascade)
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@unique([testId, questionId])
+  @@unique([testId, order])
+  @@index([testId])
+}
+
+// ---------------------------------------------------------------------------
+// Attempts, answers, results
+// ---------------------------------------------------------------------------
+
+model TestAttempt {
+  id               String        @id @default(cuid())
+  studentId        String
+  testId           String
+  startedAt        DateTime      @default(now())
+  submittedAt      DateTime?
+  status           AttemptStatus @default(IN_PROGRESS)
+  selectedLanguage String        @default("en")
+  remainingSeconds Int // cached remaining time for a fast resume (authoritative value is recomputed from startedAt + the test duration)
+  // Snapshot of the question ids in presentation order, frozen when the attempt
+  // starts. For random tests this is the generated set; for fixed tests it is the
+  // TestQuestion order. `seed` records the generator seed for reproducibility.
+  questionOrder    String[]      @default([])
+  seed             String?
+  // When true, answer options are presented in a per-attempt shuffled order
+  // (derived from `seed` + questionId). Set on new attempts; false for pre-
+  // existing attempts so their saved answers still score correctly.
+  shuffleOptions   Boolean       @default(false)
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+
+  student Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  test    Test     @relation(fields: [testId], references: [id], onDelete: Cascade)
+  answers Answer[]
+  result  Result?
+
+  @@index([studentId])
+  @@index([testId])
+  @@index([status])
+  // Attempts-per-day reporting.
+  @@index([createdAt])
+}
+
+model Answer {
+  id                String        @id @default(cuid())
+  attemptId         String
+  questionId        String
+  selectedOption    AnswerOption? // null => not answered
+  isCorrect         Boolean?
+  isMarkedForReview Boolean       @default(false)
+  // Whether the student has navigated to this question at least once. Distinguishes
+  // the "not visited" and "unanswered" palette states on resume.
+  visited           Boolean       @default(false)
+  timeSpentSeconds  Int           @default(0)
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+
+  attempt  TestAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  question Question    @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@unique([attemptId, questionId])
+  @@index([attemptId])
+}
+
+model Result {
+  id              String   @id @default(cuid())
+  attemptId       String   @unique
+  totalQuestions  Int
+  correct         Int
+  wrong           Int
+  skipped         Int
+  score           Float // NEET scoring can be negative (+4 / -1)
+  chapterAnalysis Json? // per-chapter correct/wrong breakdown
+  subjectAnalysis Json? // per-subject correct/wrong breakdown
+  timeAnalysis    Json? // time spent per question/section
+  createdAt       DateTime @default(now())
+
+  attempt TestAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+}
+
+// ---------------------------------------------------------------------------
+// Payments
+// ---------------------------------------------------------------------------
+
+model Payment {
+  id                String        @id @default(cuid())
+  studentId         String
+  testId            String
+  amount            Int // in INR
+  currency          String        @default("INR")
+  razorpayOrderId   String?       @unique
+  razorpayPaymentId String?       @unique
+  status            PaymentStatus @default(CREATED)
+  invoiceNumber     String?       @unique
+  // Snapshot of invoice fields at success (name/title/amount/GST) so the PDF is
+  // reproducible even if the test or student later changes.
+  invoiceData       Json?
+  failureReason     String?
+  paidAt            DateTime?
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+
+  student     Student          @relation(fields: [studentId], references: [id], onDelete: Restrict)
+  test        Test             @relation(fields: [testId], references: [id], onDelete: Restrict)
+  events      PaymentEvent[]
+  entitlement TestEntitlement?
+
+  @@index([studentId])
+  @@index([status])
+  @@index([createdAt])
+  // Revenue-over-time reporting scans SUCCESS payments by date.
+  @@index([status, createdAt])
+}
+
+/// Immutable log of a payment's state transitions (never trust a single path).
+model PaymentEvent {
+  id         String         @id @default(cuid())
+  paymentId  String
+  fromStatus PaymentStatus?
+  toStatus   PaymentStatus
+  source     String // "order_create" | "verify" | "webhook"
+  detail     Json?
+  createdAt  DateTime       @default(now())
+
+  payment Payment @relation(fields: [paymentId], references: [id], onDelete: Cascade)
+
+  @@index([paymentId])
+}
+
+/// A student's ownership of a test — the entitlement that unlocks "Start Test".
+model TestEntitlement {
+  id        String   @id @default(cuid())
+  studentId String
+  testId    String
+  paymentId String?  @unique
+  source    String   @default("PURCHASE") // PURCHASE | GRANT
+  grantedAt DateTime @default(now())
+
+  student Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  test    Test     @relation(fields: [testId], references: [id], onDelete: Cascade)
+  payment Payment? @relation(fields: [paymentId], references: [id], onDelete: SetNull)
+
+  @@unique([studentId, testId])
+  @@index([studentId])
+}
+
+/// Per-year sequential counter for invoice numbers (INV-YYYY-NNNNN).
+model InvoiceCounter {
+  year    Int @id
+  lastSeq Int @default(0)
+}
+
+// ---------------------------------------------------------------------------
+// Admission consultancy
+// ---------------------------------------------------------------------------
+
+model Country {
+  id          String   @id @default(cuid())
+  code        String   @unique // RU, GE, KZ, KG, UZ, PH
+  name        Json // { "en": "...", "ta": "..." }
+  description Json? // { "en": "...", "ta": "..." }
+  isActive    Boolean  @default(true)
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  leads AdmissionLead[]
+}
+
+model AdmissionLead {
+  id                   String     @id @default(cuid())
+  studentId            String
+  neetScore            Int?
+  marks                Int?
+  category             String? // General / OBC / SC / ST / EWS
+  budget               String? // budget-range code, e.g. "B15_25" (see lib/admission/config)
+  // Primary interested country (kept for the Country relation + simple filters);
+  // `interestedCountryIds` holds the full multi-select the student submitted.
+  interestedCountryId  String?
+  interestedCountryIds String[]   @default([])
+  parentContact        String?
+  status               LeadStatus @default(NEW)
+  assignedToId         String?
+  notes                String? // legacy free-form; the running log lives in LeadEvent
+  // Set when the student ticks the "you may contact me" consent box.
+  consentAt            DateTime?
+  createdAt            DateTime   @default(now())
+  updatedAt            DateTime   @updatedAt
+
+  student           Student     @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  interestedCountry Country?    @relation(fields: [interestedCountryId], references: [id], onDelete: SetNull)
+  assignedTo        Admin?      @relation("LeadAssignee", fields: [assignedToId], references: [id], onDelete: SetNull)
+  events            LeadEvent[]
+
+  @@index([status])
+  @@index([studentId])
+  @@index([assignedToId])
+}
+
+/// Append-only activity log for a lead: creation, status changes, assignments and
+/// free-text follow-up notes (with a timestamp and the acting admin snapshot).
+/// Shown as the timeline in the admin lead drawer.
+enum LeadEventType {
+  CREATED
+  STATUS_CHANGE
+  ASSIGNMENT
+  NOTE
+}
+
+model LeadEvent {
+  id         String        @id @default(cuid())
+  leadId     String
+  adminId    String? // null for the student-triggered CREATED event
+  adminName  String? // snapshot so the log reads even if an admin is renamed
+  type       LeadEventType
+  note       String?
+  fromStatus LeadStatus?
+  toStatus   LeadStatus?
+  createdAt  DateTime      @default(now())
+
+  lead AdmissionLead @relation(fields: [leadId], references: [id], onDelete: Cascade)
+
+  @@index([leadId])
+}
+
+// ---------------------------------------------------------------------------
+// Notifications
+// ---------------------------------------------------------------------------
+
+model Notification {
+  id             String               @id @default(cuid())
+  title          Json // { "en": "...", "ta": "..." }
+  message        Json // { "en": "...", "ta": "..." }
+  type           NotificationType
+  targetAudience NotificationAudience @default(ALL)
+  // When set, the notification targets a single student (e.g. payment
+  // confirmation); when null it is a broadcast per `targetAudience`.
+  studentId      String?
+  // Optional broadcast sub-filters: when set, a STUDENTS/ALL broadcast is only
+  // visible to students matching the given class / district / board.
+  targetClass    String?
+  targetDistrict String?
+  targetBoard    String?
+  // Optional deep link the notification opens (e.g. /student/results/<id>).
+  linkUrl        String?
+  // Snapshot of how many students matched at send time (for the admin history).
+  deliveredCount Int?
+  // Snapshot of the admin who composed a broadcast (null for system messages).
+  createdByName  String?
+  isPublished    Boolean              @default(true)
+  publishedAt    DateTime?
+  createdAt      DateTime             @default(now())
+  updatedAt      DateTime             @updatedAt
+
+  reads   NotificationRead[]
+  student Student?           @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  @@index([type])
+  @@index([studentId])
+  // Broadcast lookups (visibility query) + admin history ordering.
+  @@index([targetAudience, isPublished, createdAt])
+}
+
+// ---------------------------------------------------------------------------
+// Public website — contact enquiries
+// ---------------------------------------------------------------------------
+
+/// A message submitted from the public "Contact Us" form. Admins triage these
+/// later; kept separate from AdmissionLead (which is a qualified sales lead).
+model ContactEnquiry {
+  id        String        @id @default(cuid())
+  name      String
+  mobile    String
+  email     String?
+  message   String
+  status    ContactStatus @default(NEW)
+  createdAt DateTime      @default(now())
+
+  @@index([status])
+  @@index([createdAt])
+}
+
+// ---------------------------------------------------------------------------
+// Authentication — one-time passwords
+// ---------------------------------------------------------------------------
+
+/// A hashed one-time password. Never stores the OTP in clear text.
+/// Rate limiting counts recent rows per (mobile, purpose) — see lib/auth/otp.ts.
+model OtpToken {
+  id         String     @id @default(cuid())
+  mobile     String
+  email      String? // set when the OTP was also/instead delivered by email
+  otpHash    String
+  purpose    OtpPurpose
+  channel    OtpChannel @default(SMS)
+  expiresAt  DateTime
+  attempts   Int        @default(0) // failed verification attempts
+  consumedAt DateTime? // set once successfully verified (single use)
+  createdAt  DateTime   @default(now())
+
+  @@index([mobile, purpose])
+  @@index([expiresAt])
+}
+
+/// Per-student read receipt for a notification.
+model NotificationRead {
+  id             String   @id @default(cuid())
+  notificationId String
+  studentId      String
+  readAt         DateTime @default(now())
+
+  notification Notification @relation(fields: [notificationId], references: [id], onDelete: Cascade)
+  student      Student      @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  @@unique([notificationId, studentId])
+  @@index([studentId])
+}
+
+// ---------------------------------------------------------------------------
+// System configuration
+// ---------------------------------------------------------------------------
+
+/// Key/value application settings edited by a super admin (test price default,
+/// consultancy score cutoff, OTP provider toggle, supported languages,
+/// maintenance mode, ...). One row per setting; `value` is a small Json blob.
+model AppSetting {
+  key       String   @id
+  value     Json
+  updatedAt DateTime @updatedAt
+}
+
+/// Fixed-window rate-limit counter, keyed by `<scope>:<identifier>` (e.g.
+/// "login:ip:1.2.3.4" or "login:id:9000000001"). Backs brute-force protection
+/// on the password-login and public contact endpoints. Rows are self-expiring:
+/// once `windowEnd` passes, the next hit resets the window. A periodic cleanup
+/// job (or a TTL policy) can prune stale rows.
+model RateLimit {
+  key       String   @id
+  count     Int      @default(0)
+  windowEnd DateTime
+
+  @@index([windowEnd])
+}

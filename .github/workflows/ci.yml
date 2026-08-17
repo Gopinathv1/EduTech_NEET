@@ -1,0 +1,90 @@
+name: CI
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+# Cancel superseded runs on the same ref to save minutes.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Fast gate: lint + typecheck + unit/integration tests + a production build.
+  # No database needed — the tests mock Prisma, and no page hits the DB at build.
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      # `postinstall` runs `prisma generate`, so the client types exist for tsc.
+      - run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Unit & integration tests
+        run: npm run test
+
+      - name: Production build
+        run: npm run build
+        env:
+          # Build never connects to these; dummy values satisfy module init.
+          JWT_SECRET: build-time-placeholder-secret-not-used-at-runtime
+          DATABASE_URL: postgresql://user:pass@localhost:5432/db?schema=public
+          NEXT_PUBLIC_SITE_URL: http://localhost:3000
+
+  # End-to-end happy path against a real Postgres + the dev server.
+  # Kept separate so a browser flake never blocks the fast quality gate.
+  e2e:
+    runs-on: ubuntu-latest
+    needs: quality
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: neet_test
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 10s --health-timeout 5s --health-retries 5
+    env:
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/neet_test?schema=public
+      JWT_SECRET: e2e-test-secret
+      # Placeholder Razorpay keys keep payments in mock-order mode (no gateway).
+      RAZORPAY_KEY_ID: rzp_test_xxxxxxxxxxxxxx
+      RAZORPAY_KEY_SECRET: e2e_secret_xxxx
+      RAZORPAY_WEBHOOK_SECRET: whsec_test_xxxx
+      NEXT_PUBLIC_SITE_URL: http://localhost:3000
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Sync schema to the test database
+        run: npx prisma db push
+      - name: Seed reference data
+        run: npm run db:seed
+      - name: Install Playwright browser (chromium)
+        run: npx playwright install --with-deps chromium
+      - name: Run E2E happy path
+        run: npm run test:e2e
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
