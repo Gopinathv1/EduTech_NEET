@@ -57,16 +57,16 @@ export default function HomePage() {
   return (
     <>
       <section className="relative -mt-[65px] min-h-[calc(100vh+65px)] max-w-full overflow-hidden bg-background pt-[65px]">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(244,63,63,0.24),transparent_32%),radial-gradient(circle_at_80%_10%,rgba(56,189,248,0.12),transparent_28%),linear-gradient(180deg,#050505_0%,#080808_58%,#050505_100%)]" />
-        <div className="absolute inset-0 z-[1] bg-[linear-gradient(90deg,#050505_0%,rgba(5,5,5,0.97)_38%,rgba(5,5,5,0.78)_66%,rgba(5,5,5,0.34)_100%)]" />
-        <div className="absolute left-1/2 top-28 h-px w-[80vw] -translate-x-1/2 bg-gradient-to-r from-transparent via-brand to-transparent vv-pulse-line" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(0,124,145,0.24),transparent_32%),radial-gradient(circle_at_80%_10%,rgba(212,165,58,0.14),transparent_28%),linear-gradient(180deg,#050B12_0%,#07121A_58%,#050B12_100%)]" />
+        <div className="absolute inset-0 z-[1] bg-[linear-gradient(90deg,#050B12_0%,rgba(5,11,18,0.97)_38%,rgba(5,11,18,0.8)_66%,rgba(5,11,18,0.34)_100%)]" />
+        <div className="absolute left-1/2 top-28 h-px w-[80vw] -translate-x-1/2 bg-gradient-to-r from-transparent via-accent to-transparent vv-pulse-line" />
         <div className="absolute -right-28 top-24 h-72 w-72 rounded-full border border-brand/20 bg-brand/10 blur-3xl" />
         <div className="absolute bottom-8 left-4 h-44 w-44 rounded-full border border-accent/20 bg-accent/10 blur-3xl" />
         <PeacockQuillArtwork className="right-[-210px] top-[14%] z-0 h-[430px] w-[620px] opacity-[0.13] sm:right-[-170px] sm:h-[520px] sm:w-[760px] sm:opacity-[0.2] lg:right-[-70px] lg:top-[10%] lg:h-[650px] lg:w-[940px] lg:opacity-[0.28] xl:right-0" />
 
         <Container className="relative z-10 flex min-h-[calc(100vh-65px)] items-center py-16 lg:py-24">
           <div className="w-full max-w-6xl min-w-0 vv-reveal">
-            <p className="text-sm font-bold uppercase tracking-[0.35em] text-red-300">{t('brand')}</p>
+            <p className="text-sm font-bold uppercase tracking-[0.35em] text-accent">{t('brand')}</p>
             <h1 className="mt-6 max-w-5xl text-[clamp(3.25rem,9vw,8.5rem)] font-black uppercase leading-[0.88] text-white">
               Your Education.
               <br />
@@ -81,10 +81,10 @@ export default function HomePage() {
               <PrimaryLink href="#admissions">{t('ctaPrimary')}</PrimaryLink>
               <SecondaryLink href="#neet-preparation">{t('ctaSecondary')}</SecondaryLink>
             </div>
-            <div className="mt-12 w-full max-w-6xl rounded-[2rem] border border-white/10 bg-black/35 p-4 shadow-2xl shadow-black/30 backdrop-blur-md">
+            <div className="mt-12 w-full max-w-6xl rounded-[2rem] border border-white/10 bg-surface/70 p-4 shadow-2xl shadow-black/30 backdrop-blur-md">
               <div className="grid min-w-0 gap-3 sm:grid-cols-2 xl:grid-cols-4">
                 {quickActions.map((item, index) => (
-                  <div key={item.title} className="min-w-0 rounded-[1.25rem] border border-white/10 bg-white/[0.035] p-4">
+                  <div key={item.title} className="min-w-0 rounded-[1.25rem] border border-brand/20 bg-surfaceElevated/80 p-4">
                     <p className="text-2xl font-black text-brand/80">0{index + 1}</p>
                     <h2 className="mt-3 text-base font-black uppercase leading-tight text-white sm:text-lg xl:text-base 2xl:text-lg">{item.title}</h2>
                     <p className="mt-3 text-xs leading-6 text-textSecondary">{item.body}</p>
@@ -99,13 +99,13 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="max-w-full overflow-hidden border-y border-brand/25 bg-[#0a0505] py-3 shadow-[inset_0_1px_0_rgba(244,63,63,0.16),inset_0_-1px_0_rgba(244,63,63,0.16),inset_0_0_40px_rgba(244,63,63,0.08)] sm:py-4">
+      <section className="max-w-full overflow-hidden border-y border-brand/30 bg-[#061018] py-3 shadow-[inset_0_1px_0_rgba(0,124,145,0.18),inset_0_-1px_0_rgba(0,124,145,0.18),inset_0_0_40px_rgba(15,143,125,0.08)] sm:py-4">
         <div className="flex w-max max-w-none items-center gap-0 whitespace-nowrap will-change-transform vv-marquee-track">
           {[...MARQUEE, ...MARQUEE].map((item, index) => (
             <span key={`${item}-${index}`} className="flex items-center">
               <span
                 className={`px-4 text-lg font-bold uppercase tracking-[0.14em] sm:px-6 sm:text-2xl ${
-                  index % 3 === 0 ? 'text-brand' : index % 3 === 1 ? 'text-red-50' : 'text-[#d8c7a4]'
+                  index % 3 === 0 ? 'text-accent' : index % 3 === 1 ? 'text-cyan-50' : 'text-brand-light'
                 }`}
               >
                 {item}
@@ -188,7 +188,7 @@ export default function HomePage() {
       <Section id="neet-preparation" tinted lazy>
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <span className="rounded-full border border-brand/40 bg-brand-soft px-3 py-1 text-xs font-black uppercase tracking-wide text-red-200">
+            <span className="rounded-full border border-brand/40 bg-brand-soft px-3 py-1 text-xs font-black uppercase tracking-wide text-accent">
               Available Now
             </span>
             <SectionHeading
@@ -218,10 +218,10 @@ export default function HomePage() {
                 <Link
                   key={action.title}
                   href={action.href}
-                  className="group rounded-[1.25rem] border border-white/10 bg-black/35 p-5 text-sm font-bold text-white transition hover:border-brand/50 hover:bg-brand-soft"
+                  className="group rounded-[1.25rem] border border-white/10 bg-surface/70 p-5 text-sm font-bold text-white transition hover:border-accent/50 hover:bg-brand-soft"
                 >
                   {action.title}
-                  <span className="ml-2 inline-block text-red-300 transition group-hover:translate-x-1">-&gt;</span>
+                  <span className="ml-2 inline-block text-accent transition group-hover:translate-x-1">-&gt;</span>
                 </Link>
               ))}
             </div>
@@ -230,19 +230,19 @@ export default function HomePage() {
       </Section>
 
       <Section id="previous-year-papers" lazy>
-        <div className="overflow-hidden rounded-[2rem] border border-brand/30 bg-[linear-gradient(135deg,#130707,#050505_55%,#08111a)] p-6 shadow-2xl shadow-brand/10 sm:p-10">
+        <div className="overflow-hidden rounded-[2rem] border border-brand/30 bg-[linear-gradient(135deg,#06283A,#050B12_55%,#071B24)] p-6 shadow-2xl shadow-brand/10 sm:p-10">
           <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
             <div>
-              <p className="text-sm font-black uppercase tracking-[0.28em] text-red-300">NEET Previous Year Papers</p>
+              <p className="text-sm font-black uppercase tracking-[0.28em] text-accent">NEET Previous Year Papers</p>
               <h2 className="mt-4 text-3xl font-black uppercase text-white sm:text-5xl">
                 Practice the paper. Review the result. Improve the next attempt.
               </h2>
               <p className="mt-5 max-w-2xl text-base leading-8 text-textSecondary">{t('pyq.body')}</p>
             </div>
-            <div className="rounded-[1.5rem] border border-white/10 bg-black/45 p-5">
+            <div className="rounded-[1.5rem] border border-white/10 bg-surface/75 p-5">
               <p className="text-xs font-bold uppercase tracking-wide text-textSecondary">Year selector</p>
               <div className="mt-4 flex flex-wrap gap-2">
-                <span className="rounded-full border border-brand/50 bg-brand-soft px-4 py-2 text-sm font-black text-red-100">
+                <span className="rounded-full border border-brand/50 bg-brand-soft px-4 py-2 text-sm font-black text-accent">
                   2025 - Ready when data is loaded
                 </span>
                 <span className="rounded-full border border-white/10 px-4 py-2 text-sm text-textSecondary">More years later</span>
@@ -260,12 +260,12 @@ export default function HomePage() {
         <div className="rounded-[2rem] border border-brand/30 bg-brand-soft p-8 text-white shadow-2xl shadow-brand/10 sm:p-12">
           <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
-              <p className="text-sm font-black uppercase tracking-[0.3em] text-red-200">Ready to plan your next step?</p>
+              <p className="text-sm font-black uppercase tracking-[0.3em] text-accent">Ready to plan your next step?</p>
               <h2 className="mt-4 text-3xl font-black uppercase sm:text-5xl">{t('finalCta.title')}</h2>
-              <p className="mt-5 max-w-2xl text-base leading-8 text-red-100/80">{t('finalCta.subtitle')}</p>
+              <p className="mt-5 max-w-2xl text-base leading-8 text-cyan-50/80">{t('finalCta.subtitle')}</p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-              <PrimaryLink href="/contact" className="bg-white text-black hover:bg-red-100">
+              <PrimaryLink href="/contact" className="bg-white text-slate-950 hover:bg-amber-100">
                 Talk to Us
               </PrimaryLink>
               <SecondaryLink href="/admission-guidance">{t('finalCta.primary')}</SecondaryLink>

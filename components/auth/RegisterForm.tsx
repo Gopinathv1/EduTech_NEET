@@ -209,7 +209,7 @@ export default function RegisterForm() {
 
       <p className="text-center text-sm text-textSecondary">
         {t('haveAccount')}{' '}
-        <Link href="/login" className="font-semibold text-brand hover:text-red-200">
+        <Link href="/login" className="font-semibold text-brand hover:text-accent">
           {t('login')}
         </Link>
       </p>

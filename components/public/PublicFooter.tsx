@@ -11,7 +11,7 @@ function FooterColumn({ title, links }: { title: string; links: NavLink[] }) {
       <ul className="mt-4 space-y-3">
         {links.map((link) => (
           <li key={`${link.href}-${link.key}`}>
-            <Link href={link.href} className="text-sm text-textSecondary transition hover:text-red-200">
+            <Link href={link.href} className="text-sm text-textSecondary transition hover:text-accent">
               {t(link.key)}
             </Link>
           </li>
@@ -45,7 +45,7 @@ export default function PublicFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/10 bg-black">
+    <footer className="border-t border-brand/20 bg-background">
       <div className="mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[1.25fr_0.8fr_0.8fr_0.8fr_0.8fr_0.8fr]">
           <div>
@@ -66,13 +66,13 @@ export default function PublicFooter() {
           <div>
             <h3 className="text-sm font-black uppercase tracking-wide text-white">{t('getStarted')}</h3>
             <div className="mt-4 space-y-3">
-              <Link href="/register" className="block text-sm text-textSecondary transition hover:text-red-200">
+              <Link href="/register" className="block text-sm text-textSecondary transition hover:text-accent">
                 {t('registerLink')}
               </Link>
-              <Link href="/login" className="block text-sm text-textSecondary transition hover:text-red-200">
+              <Link href="/login" className="block text-sm text-textSecondary transition hover:text-accent">
                 {t('loginLink')}
               </Link>
-              <Link href="/contact" className="block text-sm text-textSecondary transition hover:text-red-200">
+              <Link href="/contact" className="block text-sm text-textSecondary transition hover:text-accent">
                 {t('contactLink')}
               </Link>
             </div>

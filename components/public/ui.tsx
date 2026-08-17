@@ -71,7 +71,7 @@ export function Card({ children, className = '' }: { children: ReactNode; classN
 /** Circular tinted badge that holds an icon. */
 export function IconBadge({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-brand/30 bg-brand-soft text-red-300 shadow-lg shadow-brand/10">
+    <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-brand/30 bg-brand-soft text-accent shadow-lg shadow-brand/10">
       {children}
     </span>
   );
@@ -120,7 +120,7 @@ export function ArrowLink({ href, children }: { href: string; children: ReactNod
   return (
     <Link
       href={href}
-      className="inline-flex items-center gap-1 text-sm font-semibold text-red-300 transition hover:gap-2 hover:text-red-200"
+      className="inline-flex items-center gap-1 text-sm font-semibold text-brand-light transition hover:gap-2 hover:text-accent"
     >
       {children}
       <ArrowRightIcon className="h-4 w-4" />

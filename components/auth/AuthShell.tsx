@@ -1,7 +1,7 @@
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import AccessibilityMenu from '@/components/a11y/AccessibilityMenu';
+import VVOverseasLogo from '@/components/brand/VVOverseasLogo';
 
 /**
  * Shared layout for the auth screens: brand header, language switcher, and a
@@ -11,10 +11,8 @@ export default function AuthShell({ children }: { children: React.ReactNode }) {
   const t = useTranslations('nav');
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <header className="flex items-center justify-between border-b border-border bg-black px-4 py-4 sm:px-8">
-        <Link href="/" className="text-lg font-bold text-textPrimary" aria-label={t('brand')}>
-          <span className="text-brand">VV</span> Overseas
-        </Link>
+      <header className="flex items-center justify-between border-b border-border bg-background px-4 py-4 sm:px-8">
+        <VVOverseasLogo label={t('brand')} />
         <div className="flex items-center gap-2">
           <AccessibilityMenu />
           <LanguageSwitcher />

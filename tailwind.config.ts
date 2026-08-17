@@ -14,11 +14,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: '#080808',
-        surface: '#111111',
-        surfaceElevated: '#181818',
+        background: '#050B12',
+        surface: '#07121A',
+        surfaceElevated: '#0B1722',
         textPrimary: '#f8fafc',
-        textSecondary: '#cbd5e1',
+        textSecondary: '#c8d3de',
         primaryRed: {
           DEFAULT: '#ef4444',
           hover: '#dc2626',
@@ -26,19 +26,26 @@ const config: Config = {
           soft: '#2a0d0d',
         },
         accentBlue: {
-          DEFAULT: '#38bdf8',
-          hover: '#0ea5e9',
-          soft: '#082f49',
+          DEFAULT: '#0B5FA5',
+          hover: '#007C91',
+          soft: '#06283A',
         },
-        border: '#2a2a2a',
+        peacock: {
+          blue: '#0B5FA5',
+          teal: '#007C91',
+          green: '#0F8F7D',
+          gold: '#D4A53A',
+          navy: '#07121A',
+        },
+        border: '#183040',
         brand: {
-          DEFAULT: '#ef4444',
-          dark: '#dc2626',
-          light: '#f87171',
-          soft: '#2a0d0d',
+          DEFAULT: '#007C91',
+          dark: '#0B5FA5',
+          light: '#22B8B0',
+          soft: '#06283A',
         },
         accent: {
-          DEFAULT: '#38bdf8',
+          DEFAULT: '#D4A53A',
         },
       },
       fontFamily: {

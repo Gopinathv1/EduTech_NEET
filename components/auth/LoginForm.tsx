@@ -88,7 +88,7 @@ export default function LoginForm() {
       <div className="space-y-2 border-t border-border pt-4 text-center text-sm">
         <p className="text-textSecondary">
           {t('noAccount')}{' '}
-          <Link href="/register" className="font-semibold text-brand hover:text-red-200">
+          <Link href="/register" className="font-semibold text-brand hover:text-accent">
             {t('register')}
           </Link>
         </p>

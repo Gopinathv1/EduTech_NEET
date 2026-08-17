@@ -33,8 +33,8 @@ export default function PublicHeader() {
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'border-b border-white/10 bg-black/90 shadow-2xl shadow-black/30 backdrop-blur-xl'
-          : 'border-b border-transparent bg-black/45 backdrop-blur-md'
+          ? 'border-b border-brand/20 bg-background/90 shadow-2xl shadow-black/30 backdrop-blur-xl'
+          : 'border-b border-transparent bg-background/55 backdrop-blur-md'
       }`}
     >
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 px-4 py-3 sm:px-6 lg:px-8">
@@ -45,7 +45,7 @@ export default function PublicHeader() {
             href="/"
             className={`whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-colors ${
               isActive(pathname, '/')
-                ? 'bg-brand-soft text-red-200'
+                ? 'bg-brand-soft text-accent'
                 : 'text-textSecondary hover:bg-white/5 hover:text-white'
             }`}
             aria-current={isActive(pathname, '/') ? 'page' : undefined}
@@ -81,7 +81,7 @@ export default function PublicHeader() {
               href={link.href}
               className={`whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-colors ${
                 isActive(pathname, link.href)
-                  ? 'bg-brand-soft text-red-200'
+                  ? 'bg-brand-soft text-accent'
                   : 'text-textSecondary hover:bg-white/5 hover:text-white'
               }`}
               aria-current={isActive(pathname, link.href) ? 'page' : undefined}
@@ -93,8 +93,8 @@ export default function PublicHeader() {
 
         <div className="flex shrink-0 items-center gap-2">
           <div className="hidden items-center rounded-full border border-brand/30 bg-brand-soft/70 px-3 py-1.5 text-xs font-semibold text-textPrimary lg:flex">
-            <span className="text-red-200">{t('examNeet')}</span>
-            <span className="ml-2 rounded-full border border-white/10 bg-black/50 px-2 py-0.5 text-[11px] text-textSecondary">
+            <span className="text-accent">{t('examNeet')}</span>
+            <span className="ml-2 rounded-full border border-white/10 bg-surface/70 px-2 py-0.5 text-[11px] text-textSecondary">
               {t('examJeeSoon')}
             </span>
           </div>
@@ -131,7 +131,7 @@ export default function PublicHeader() {
         <nav
           id="mobile-nav"
           aria-label={tA11y('primaryNav')}
-          className="border-t border-white/10 bg-black/95 px-4 py-4 shadow-2xl shadow-black/40 backdrop-blur-xl 2xl:hidden"
+          className="border-t border-brand/20 bg-background/95 px-4 py-4 shadow-2xl shadow-black/40 backdrop-blur-xl 2xl:hidden"
         >
           <ul className="flex flex-col">
             <li>
@@ -140,7 +140,7 @@ export default function PublicHeader() {
                 onClick={() => setOpen(false)}
                 className={`block rounded-2xl px-3 py-3 text-base font-medium ${
                   isActive(pathname, '/')
-                    ? 'bg-brand-soft text-red-200'
+                    ? 'bg-brand-soft text-accent'
                     : 'text-textSecondary hover:bg-white/5 hover:text-white'
                 }`}
                 aria-current={isActive(pathname, '/') ? 'page' : undefined}
@@ -151,7 +151,7 @@ export default function PublicHeader() {
 
             {NAV_GROUPS.map((group) => (
               <li key={group.key} className="py-1">
-                <p className="px-3 pb-1 pt-3 text-xs font-bold uppercase tracking-wide text-red-300">
+                <p className="px-3 pb-1 pt-3 text-xs font-bold uppercase tracking-wide text-accent">
                   {t(group.key)}
                 </p>
                 <div className="space-y-1">
@@ -176,7 +176,7 @@ export default function PublicHeader() {
                   onClick={() => setOpen(false)}
                   className={`block rounded-2xl px-3 py-3 text-base font-medium ${
                     isActive(pathname, link.href)
-                      ? 'bg-brand-soft text-red-200'
+                      ? 'bg-brand-soft text-accent'
                       : 'text-textSecondary hover:bg-white/5 hover:text-white'
                   }`}
                   aria-current={isActive(pathname, link.href) ? 'page' : undefined}

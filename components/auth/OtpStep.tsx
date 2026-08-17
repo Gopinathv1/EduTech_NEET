@@ -100,7 +100,7 @@ export default function OtpStep({
           type="button"
           onClick={resend}
           disabled={seconds > 0}
-          className="font-medium text-brand hover:text-red-200 disabled:opacity-50"
+          className="font-medium text-brand hover:text-accent disabled:opacity-50"
         >
           {seconds > 0 ? t('resendIn', { seconds }) : t('resend')}
         </button>
