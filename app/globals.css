@@ -7,16 +7,16 @@
  * palette: deep navy surfaces, teal-blue primary accents, and warm gold detail.
  */
 :root {
-  --bg-primary: #03080d;
-  --bg-secondary: #050b12;
-  --surface: #0a121a;
-  --surface-elevated: #0d1720;
+  --bg-primary: #020608;
+  --bg-secondary: #04090d;
+  --surface: #081117;
+  --surface-elevated: #0b141b;
   --peacock-blue: #087da8;
   --peacock-teal: #007c91;
   --peacock-green: #008c86;
   --peacock-gold: #d2a63c;
   --text-primary: #f5f7f8;
-  --text-secondary: #aebbc6;
+  --text-secondary: #aab3ba;
   --border: #142937;
   --focus: #22b8b0;
   --background: var(--bg-primary);

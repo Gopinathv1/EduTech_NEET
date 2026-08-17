@@ -14,11 +14,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: '#03080D',
-        surface: '#0A121A',
-        surfaceElevated: '#0D1720',
-        textPrimary: '#F5F7F8',
-        textSecondary: '#AEBBC6',
+        background: '#020608',
+        surface: '#081117',
+        surfaceElevated: '#0B141B',
+        textPrimary: '#F6F7F8',
+        textSecondary: '#AAB3BA',
         primaryRed: {
           DEFAULT: '#ef4444',
           hover: '#dc2626',
@@ -35,7 +35,7 @@ const config: Config = {
           teal: '#007C91',
           green: '#008C86',
           gold: '#D2A63C',
-          navy: '#050B12',
+          navy: '#04090D',
         },
         border: '#142937',
         brand: {

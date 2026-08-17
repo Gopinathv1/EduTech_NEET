@@ -31,10 +31,10 @@ const MARQUEE = [
   'MBBS ABROAD',
   'STUDY IN EUROPE',
   'NEET PREPARATION',
-  'PREVIOUS YEAR PAPERS',
-  'QUESTION BANK',
-  'CAREER GUIDANCE',
   'GLOBAL EDUCATION',
+  'PREVIOUS YEAR PAPERS',
+  'CAREER GUIDANCE',
+  'QUESTION BANK',
   'COUNSELLING',
 ];
 
@@ -60,22 +60,26 @@ export default function HomePage() {
   return (
     <>
       <section className="relative -mt-[65px] min-h-[calc(100vh+65px)] max-w-full overflow-hidden bg-background pt-[65px]">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(0,124,145,0.2),transparent_30%),radial-gradient(circle_at_82%_12%,rgba(210,166,60,0.13),transparent_26%),linear-gradient(180deg,#03080D_0%,#07111A_58%,#03080D_100%)]" />
-        <div className="absolute inset-0 z-[1] bg-[linear-gradient(90deg,#03080D_0%,rgba(3,8,13,0.97)_42%,rgba(3,8,13,0.8)_68%,rgba(3,8,13,0.42)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(0,140,145,0.15),transparent_28%),radial-gradient(circle_at_78%_10%,rgba(210,166,60,0.1),transparent_24%),linear-gradient(180deg,#020608_0%,#04090D_58%,#020608_100%)]" />
+        <div className="absolute inset-0 z-[1] bg-[linear-gradient(90deg,#020608_0%,rgba(2,6,8,0.98)_43%,rgba(2,6,8,0.78)_70%,rgba(2,6,8,0.46)_100%)]" />
         <div className="absolute left-1/2 top-28 h-px w-[80vw] -translate-x-1/2 bg-gradient-to-r from-transparent via-accent to-transparent vv-pulse-line" />
         <div className="absolute -right-28 top-24 h-72 w-72 rounded-full border border-brand/10 bg-brand/10 blur-3xl" />
         <div className="absolute bottom-8 left-4 h-44 w-44 rounded-full border border-accent/10 bg-accent/10 blur-3xl" />
-        <PeacockQuillArtwork className="right-[-250px] top-[17%] z-0 h-[430px] w-[620px] opacity-[0.1] sm:right-[-190px] sm:h-[520px] sm:w-[760px] sm:opacity-[0.16] lg:right-[-90px] lg:top-[12%] lg:h-[650px] lg:w-[940px] lg:opacity-[0.22] xl:right-0" />
+        <PeacockQuillArtwork className="right-[-300px] top-[20%] z-0 h-[430px] w-[620px] opacity-[0.08] sm:right-[-210px] sm:h-[520px] sm:w-[760px] sm:opacity-[0.13] lg:right-[-90px] lg:top-[14%] lg:h-[650px] lg:w-[940px] lg:opacity-[0.18] xl:right-0" />
 
         <Container className="relative z-10 flex min-h-[calc(100vh-65px)] items-center py-20 lg:py-28">
           <div className="w-full max-w-6xl min-w-0 vv-reveal">
-            <p className="text-sm font-bold uppercase tracking-[0.35em] text-accent">{t('brand')}</p>
-            <h1 className="mt-7 max-w-6xl text-[clamp(3.5rem,8.6vw,9rem)] font-black uppercase leading-[0.84] text-white">
+            <div className="inline-flex max-w-full items-center gap-3 border-y border-white/10 bg-white/[0.03] px-4 py-3">
+              <span className="h-2 w-2 bg-accent" />
+              <p className="text-xs font-black uppercase tracking-[0.3em] text-textPrimary sm:text-sm">{t('brand')}</p>
+              <span className="h-2 w-2 bg-brand" />
+            </div>
+            <h1 className="mt-8 max-w-6xl text-[clamp(4rem,8.5vw,9rem)] font-black uppercase leading-[0.88] text-white">
               Your Education.
               <br />
               Your Future.
               <br />
-              <span className="text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.72)]">Without Borders.</span>
+              <span className="text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.72)]">Across Borders.</span>
             </h1>
             <p className="mt-8 max-w-2xl text-base leading-8 text-textSecondary sm:text-xl">
               Explore overseas education opportunities, get counselling guidance for important academic decisions, and prepare smarter for competitive exams.
@@ -84,57 +88,49 @@ export default function HomePage() {
               <PrimaryLink href="#admissions">{t('ctaPrimary')}</PrimaryLink>
               <SecondaryLink href="#neet-preparation">{t('ctaSecondary')}</SecondaryLink>
             </div>
-            <div className="mt-14 w-full max-w-6xl border-y border-white/10 py-4 backdrop-blur-md vv-reveal-delayed">
-              <div className="grid min-w-0 divide-y divide-white/10 sm:grid-cols-2 sm:divide-x sm:divide-y-0 xl:grid-cols-4">
-                {quickActions.map((item, index) => (
-                  <div key={item.title} className="min-w-0 p-4 first:pl-0 sm:px-5 xl:px-6">
-                    <p className="text-3xl font-black text-brand/85">0{index + 1}</p>
-                    <h2 className="mt-4 text-base font-black uppercase leading-tight text-white sm:text-lg xl:text-base 2xl:text-lg">{item.title}</h2>
-                    <p className="mt-3 text-xs leading-6 text-textSecondary line-clamp-3">{item.body}</p>
-                    <div className="mt-4">
-                      <ArrowLink href={item.href}>{item.cta}</ArrowLink>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </Container>
       </section>
 
-      <section className="max-w-full overflow-hidden border-y border-brand/30 bg-[#02060a] py-4 shadow-[inset_0_1px_0_rgba(0,124,145,0.2),inset_0_-1px_0_rgba(210,166,60,0.18),inset_0_0_40px_rgba(0,124,145,0.08)] sm:py-5">
+      <section className="max-w-full overflow-hidden border-y border-brand/40 bg-[#020608] py-5 shadow-[inset_0_1px_0_rgba(0,140,145,0.2),inset_0_-1px_0_rgba(210,166,60,0.18)] sm:py-6">
         <div className="flex w-max max-w-none items-center gap-0 whitespace-nowrap will-change-transform vv-marquee-track">
           {[...MARQUEE, ...MARQUEE].map((item, index) => (
             <span key={`${item}-${index}`} className="flex items-center">
               <span
-                className={`px-4 text-xl font-black uppercase tracking-[0.18em] sm:px-7 sm:text-3xl lg:text-4xl ${
-                  index % 3 === 0 ? 'text-accent' : index % 3 === 1 ? 'text-cyan-50' : 'text-brand-light'
+                className={`px-4 text-2xl font-black uppercase tracking-[0.12em] sm:px-8 sm:text-4xl lg:text-5xl ${
+                  index % 4 === 0 ? 'text-accent' : index % 4 === 1 ? 'text-cyan-50' : 'text-textPrimary'
                 }`}
               >
                 {item}
               </span>
-              <span className="text-brand/70">/</span>
+              <span className="text-brand/70">•</span>
             </span>
           ))}
         </div>
       </section>
 
       <Section id="what-we-do">
-        <SectionHeading
-          eyebrow={t('quickActions.eyebrow')}
-          title="What We Do"
-          subtitle={t('quickActions.subtitle')}
-        />
-        <div className="mt-12 grid min-w-0 gap-px overflow-hidden border-y border-white/10 bg-white/10 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-accent">What We Do</p>
+            <h2 className="mt-5 text-[clamp(2.75rem,6vw,6.5rem)] font-black uppercase leading-[0.9] text-white">
+              How VV Overseas
+              <br />
+              Helps Students Move Forward
+            </h2>
+          </div>
+          <p className="max-w-2xl text-base leading-8 text-textSecondary">{t('quickActions.subtitle')}</p>
+        </div>
+        <div className="mt-14 grid min-w-0 gap-px overflow-hidden border-y border-white/10 bg-white/10 md:grid-cols-2 xl:grid-cols-4">
           {quickActions.map((item, index) => (
-            <Card key={item.title} className="min-w-0 rounded-none border-0 bg-background p-6 sm:p-8">
-              <p className="text-6xl font-black leading-none text-brand/75 sm:text-7xl">0{index + 1}</p>
-              <h3 className="mt-8 text-xl font-black uppercase leading-tight text-white xl:text-lg 2xl:text-xl">{item.title}</h3>
+            <div key={item.title} className="group min-w-0 bg-background p-6 transition hover:bg-surface sm:p-8">
+              <p className="text-7xl font-black leading-none text-brand/75 sm:text-8xl">0{index + 1}</p>
+              <h3 className="mt-10 text-xl font-black uppercase leading-tight text-white xl:text-lg 2xl:text-xl">{item.title}</h3>
               <p className="mt-5 text-sm leading-7 text-textSecondary">{item.body}</p>
-              <div className="mt-6">
-                <PrimaryLink href={item.href}>{item.cta}</PrimaryLink>
+              <div className="mt-8">
+                <ArrowLink href={item.href}>{item.cta}</ArrowLink>
               </div>
-            </Card>
+            </div>
           ))}
         </div>
       </Section>
