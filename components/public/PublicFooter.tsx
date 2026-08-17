@@ -7,8 +7,8 @@ function FooterColumn({ title, links }: { title: string; links: NavLink[] }) {
   const t = useTranslations('publicNav');
   return (
     <div>
-      <h3 className="text-sm font-black uppercase tracking-wide text-white">{title}</h3>
-      <ul className="mt-4 space-y-3">
+      <h3 className="text-xs font-black uppercase tracking-[0.22em] text-accent">{title}</h3>
+      <ul className="mt-5 space-y-3">
         {links.map((link) => (
           <li key={`${link.href}-${link.key}`}>
             <Link href={link.href} className="text-sm text-textSecondary transition hover:text-accent">
@@ -45,16 +45,16 @@ export default function PublicFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-brand/20 bg-background">
-      <div className="mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-[1.25fr_0.8fr_0.8fr_0.8fr_0.8fr_0.8fr]">
+    <footer className="border-t border-white/10 bg-[#02060a]">
+      <div className="mx-auto w-full max-w-[1600px] px-[clamp(1rem,3vw,3rem)] py-16 sm:py-20">
+        <div className="grid gap-10 border-b border-white/10 pb-12 lg:grid-cols-[1.25fr_0.8fr_0.8fr_0.8fr_0.8fr_0.8fr]">
           <div>
             <Logo />
             <p className="mt-5 max-w-sm text-sm leading-7 text-textSecondary">{t('blurb')}</p>
             <div className="mt-7 flex flex-wrap gap-2 text-xs text-textSecondary">
-              <span className="rounded-full border border-white/10 px-3 py-1.5">{t('english')}</span>
-              <span className="rounded-full border border-white/10 px-3 py-1.5">{t('tamil')}</span>
-              <span className="rounded-full border border-white/10 px-3 py-1.5">{t('hindi')}</span>
+              <span className="rounded-lg border border-white/10 px-3 py-1.5">{t('english')}</span>
+              <span className="rounded-lg border border-white/10 px-3 py-1.5">{t('tamil')}</span>
+              <span className="rounded-lg border border-white/10 px-3 py-1.5">{t('hindi')}</span>
             </div>
           </div>
 
@@ -64,7 +64,7 @@ export default function PublicFooter() {
           <FooterColumn title={t('company')} links={FOOTER_COMPANY} />
 
           <div>
-            <h3 className="text-sm font-black uppercase tracking-wide text-white">{t('getStarted')}</h3>
+            <h3 className="text-xs font-black uppercase tracking-[0.22em] text-accent">{t('getStarted')}</h3>
             <div className="mt-4 space-y-3">
               <Link href="/register" className="block text-sm text-textSecondary transition hover:text-accent">
                 {t('registerLink')}
@@ -79,11 +79,11 @@ export default function PublicFooter() {
           </div>
         </div>
 
-        <p className="mt-12 rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-xs leading-relaxed text-slate-400">
+        <p className="mt-8 border-l border-accent/40 bg-white/[0.025] p-4 text-xs leading-relaxed text-slate-400">
           {t('disclaimer')}
         </p>
 
-        <div className="mt-8 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-textSecondary sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-8 flex flex-col gap-3 text-xs text-textSecondary sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {t('rights')}
           </p>

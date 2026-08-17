@@ -57,37 +57,37 @@ export default function HomePage() {
   return (
     <>
       <section className="relative -mt-[65px] min-h-[calc(100vh+65px)] max-w-full overflow-hidden bg-background pt-[65px]">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(0,124,145,0.24),transparent_32%),radial-gradient(circle_at_80%_10%,rgba(212,165,58,0.14),transparent_28%),linear-gradient(180deg,#050B12_0%,#07121A_58%,#050B12_100%)]" />
-        <div className="absolute inset-0 z-[1] bg-[linear-gradient(90deg,#050B12_0%,rgba(5,11,18,0.97)_38%,rgba(5,11,18,0.8)_66%,rgba(5,11,18,0.34)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(0,124,145,0.2),transparent_30%),radial-gradient(circle_at_82%_12%,rgba(210,166,60,0.13),transparent_26%),linear-gradient(180deg,#03080D_0%,#07111A_58%,#03080D_100%)]" />
+        <div className="absolute inset-0 z-[1] bg-[linear-gradient(90deg,#03080D_0%,rgba(3,8,13,0.97)_42%,rgba(3,8,13,0.8)_68%,rgba(3,8,13,0.42)_100%)]" />
         <div className="absolute left-1/2 top-28 h-px w-[80vw] -translate-x-1/2 bg-gradient-to-r from-transparent via-accent to-transparent vv-pulse-line" />
-        <div className="absolute -right-28 top-24 h-72 w-72 rounded-full border border-brand/20 bg-brand/10 blur-3xl" />
-        <div className="absolute bottom-8 left-4 h-44 w-44 rounded-full border border-accent/20 bg-accent/10 blur-3xl" />
-        <PeacockQuillArtwork className="right-[-210px] top-[14%] z-0 h-[430px] w-[620px] opacity-[0.13] sm:right-[-170px] sm:h-[520px] sm:w-[760px] sm:opacity-[0.2] lg:right-[-70px] lg:top-[10%] lg:h-[650px] lg:w-[940px] lg:opacity-[0.28] xl:right-0" />
+        <div className="absolute -right-28 top-24 h-72 w-72 rounded-full border border-brand/10 bg-brand/10 blur-3xl" />
+        <div className="absolute bottom-8 left-4 h-44 w-44 rounded-full border border-accent/10 bg-accent/10 blur-3xl" />
+        <PeacockQuillArtwork className="right-[-250px] top-[17%] z-0 h-[430px] w-[620px] opacity-[0.1] sm:right-[-190px] sm:h-[520px] sm:w-[760px] sm:opacity-[0.16] lg:right-[-90px] lg:top-[12%] lg:h-[650px] lg:w-[940px] lg:opacity-[0.22] xl:right-0" />
 
-        <Container className="relative z-10 flex min-h-[calc(100vh-65px)] items-center py-16 lg:py-24">
+        <Container className="relative z-10 flex min-h-[calc(100vh-65px)] items-center py-20 lg:py-28">
           <div className="w-full max-w-6xl min-w-0 vv-reveal">
             <p className="text-sm font-bold uppercase tracking-[0.35em] text-accent">{t('brand')}</p>
-            <h1 className="mt-6 max-w-5xl text-[clamp(3.25rem,9vw,8.5rem)] font-black uppercase leading-[0.88] text-white">
+            <h1 className="mt-7 max-w-6xl text-[clamp(3.5rem,8.6vw,9rem)] font-black uppercase leading-[0.84] text-white">
               Your Education.
               <br />
               Your Future.
               <br />
               <span className="text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.72)]">Without Borders.</span>
             </h1>
-            <p className="mt-7 max-w-2xl text-base leading-8 text-textSecondary sm:text-xl">
+            <p className="mt-8 max-w-2xl text-base leading-8 text-textSecondary sm:text-xl">
               Explore overseas education opportunities, get counselling guidance for important academic decisions, and prepare smarter for competitive exams.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <PrimaryLink href="#admissions">{t('ctaPrimary')}</PrimaryLink>
               <SecondaryLink href="#neet-preparation">{t('ctaSecondary')}</SecondaryLink>
             </div>
-            <div className="mt-12 w-full max-w-6xl rounded-[2rem] border border-white/10 bg-surface/70 p-4 shadow-2xl shadow-black/30 backdrop-blur-md">
-              <div className="grid min-w-0 gap-3 sm:grid-cols-2 xl:grid-cols-4">
+            <div className="mt-14 w-full max-w-6xl border-y border-white/10 py-4 backdrop-blur-md vv-reveal-delayed">
+              <div className="grid min-w-0 divide-y divide-white/10 sm:grid-cols-2 sm:divide-x sm:divide-y-0 xl:grid-cols-4">
                 {quickActions.map((item, index) => (
-                  <div key={item.title} className="min-w-0 rounded-[1.25rem] border border-brand/20 bg-surfaceElevated/80 p-4">
-                    <p className="text-2xl font-black text-brand/80">0{index + 1}</p>
-                    <h2 className="mt-3 text-base font-black uppercase leading-tight text-white sm:text-lg xl:text-base 2xl:text-lg">{item.title}</h2>
-                    <p className="mt-3 text-xs leading-6 text-textSecondary">{item.body}</p>
+                  <div key={item.title} className="min-w-0 p-4 first:pl-0 sm:px-5 xl:px-6">
+                    <p className="text-3xl font-black text-brand/85">0{index + 1}</p>
+                    <h2 className="mt-4 text-base font-black uppercase leading-tight text-white sm:text-lg xl:text-base 2xl:text-lg">{item.title}</h2>
+                    <p className="mt-3 text-xs leading-6 text-textSecondary line-clamp-3">{item.body}</p>
                     <div className="mt-4">
                       <ArrowLink href={item.href}>{item.cta}</ArrowLink>
                     </div>
@@ -99,18 +99,18 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="max-w-full overflow-hidden border-y border-brand/30 bg-[#061018] py-3 shadow-[inset_0_1px_0_rgba(0,124,145,0.18),inset_0_-1px_0_rgba(0,124,145,0.18),inset_0_0_40px_rgba(15,143,125,0.08)] sm:py-4">
+      <section className="max-w-full overflow-hidden border-y border-brand/30 bg-[#02060a] py-4 shadow-[inset_0_1px_0_rgba(0,124,145,0.2),inset_0_-1px_0_rgba(210,166,60,0.18),inset_0_0_40px_rgba(0,124,145,0.08)] sm:py-5">
         <div className="flex w-max max-w-none items-center gap-0 whitespace-nowrap will-change-transform vv-marquee-track">
           {[...MARQUEE, ...MARQUEE].map((item, index) => (
             <span key={`${item}-${index}`} className="flex items-center">
               <span
-                className={`px-4 text-lg font-bold uppercase tracking-[0.14em] sm:px-6 sm:text-2xl ${
+                className={`px-4 text-xl font-black uppercase tracking-[0.18em] sm:px-7 sm:text-3xl lg:text-4xl ${
                   index % 3 === 0 ? 'text-accent' : index % 3 === 1 ? 'text-cyan-50' : 'text-brand-light'
                 }`}
               >
                 {item}
               </span>
-              <span className="text-brand/70">◆</span>
+              <span className="text-brand/70">/</span>
             </span>
           ))}
         </div>
@@ -122,12 +122,12 @@ export default function HomePage() {
           title="What We Do"
           subtitle={t('quickActions.subtitle')}
         />
-        <div className="mt-10 grid min-w-0 gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-12 grid min-w-0 gap-px overflow-hidden border-y border-white/10 bg-white/10 md:grid-cols-2 xl:grid-cols-4">
           {quickActions.map((item, index) => (
-            <Card key={item.title} className="min-w-0 p-6">
-              <p className="text-5xl font-black text-brand/80">0{index + 1}</p>
-              <h3 className="mt-5 text-xl font-black uppercase leading-tight text-white xl:text-lg 2xl:text-xl">{item.title}</h3>
-              <p className="mt-4 text-sm leading-7 text-textSecondary">{item.body}</p>
+            <Card key={item.title} className="min-w-0 rounded-none border-0 bg-background p-6 sm:p-8">
+              <p className="text-6xl font-black leading-none text-brand/75 sm:text-7xl">0{index + 1}</p>
+              <h3 className="mt-8 text-xl font-black uppercase leading-tight text-white xl:text-lg 2xl:text-xl">{item.title}</h3>
+              <p className="mt-5 text-sm leading-7 text-textSecondary">{item.body}</p>
               <div className="mt-6">
                 <PrimaryLink href={item.href}>{item.cta}</PrimaryLink>
               </div>
@@ -149,11 +149,11 @@ export default function HomePage() {
               <SecondaryLink href="/countries">{t('admissions.countriesCta')}</SecondaryLink>
             </div>
           </div>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-px overflow-hidden border-y border-white/10 bg-white/10 sm:grid-cols-2">
             {admissionCards.map((card, index) => (
-              <Card key={card.title} className="p-7">
-                <p className="text-sm font-black text-brand">0{index + 1}</p>
-                <h3 className="mt-5 text-xl font-black uppercase text-white">{card.title}</h3>
+              <Card key={card.title} className="rounded-none border-0 bg-surface p-7">
+                <p className="text-4xl font-black leading-none text-brand/80">0{index + 1}</p>
+                <h3 className="mt-8 text-xl font-black uppercase text-white">{card.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-textSecondary">{card.body}</p>
                 <div className="mt-7">
                   <ArrowLink href={card.href}>{card.title}</ArrowLink>
@@ -171,9 +171,9 @@ export default function HomePage() {
             title="Explore Study Destinations"
             subtitle={t('countriesSection.subtitle')}
           />
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+          <div className="grid grid-cols-2 gap-px overflow-hidden border-y border-white/10 bg-white/10 sm:grid-cols-3">
             {DESTINATIONS.map((destination) => (
-              <div key={destination} className="rounded-[1.25rem] border border-white/10 bg-white/[0.04] p-5 transition hover:border-brand/50">
+              <div key={destination} className="bg-background p-5 transition hover:bg-surfaceElevated">
                 <p className="text-lg font-black text-white">{destination}</p>
                 <p className="mt-2 text-xs uppercase tracking-wide text-textSecondary">Informational</p>
               </div>
@@ -188,7 +188,7 @@ export default function HomePage() {
       <Section id="neet-preparation" tinted lazy>
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <span className="rounded-full border border-brand/40 bg-brand-soft px-3 py-1 text-xs font-black uppercase tracking-wide text-accent">
+            <span className="inline-flex rounded-lg border border-brand/40 bg-brand-soft px-3 py-1 text-xs font-black uppercase tracking-wide text-accent">
               Available Now
             </span>
             <SectionHeading
@@ -198,7 +198,7 @@ export default function HomePage() {
             />
             <div className="mt-6 flex flex-wrap gap-2">
               {FUTURE_EXAMS.map((exam) => (
-                <span key={exam} className="rounded-full border border-white/10 px-3 py-1.5 text-sm text-textSecondary">
+                <span key={exam} className="rounded-lg border border-white/10 px-3 py-1.5 text-sm text-textSecondary">
                   {exam} - Coming Soon
                 </span>
               ))}
@@ -218,7 +218,7 @@ export default function HomePage() {
                 <Link
                   key={action.title}
                   href={action.href}
-                  className="group rounded-[1.25rem] border border-white/10 bg-surface/70 p-5 text-sm font-bold text-white transition hover:border-accent/50 hover:bg-brand-soft"
+                  className="group rounded-xl border border-white/10 bg-surface/70 p-5 text-sm font-bold text-white transition hover:-translate-y-1 hover:border-accent/50 hover:bg-brand-soft"
                 >
                   {action.title}
                   <span className="ml-2 inline-block text-accent transition group-hover:translate-x-1">-&gt;</span>
@@ -230,7 +230,7 @@ export default function HomePage() {
       </Section>
 
       <Section id="previous-year-papers" lazy>
-        <div className="overflow-hidden rounded-[2rem] border border-brand/30 bg-[linear-gradient(135deg,#06283A,#050B12_55%,#071B24)] p-6 shadow-2xl shadow-brand/10 sm:p-10">
+        <div className="overflow-hidden border-y border-brand/30 bg-[linear-gradient(135deg,#06283A,#03080D_56%,#07111A)] p-6 shadow-2xl shadow-brand/10 sm:p-10">
           <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
             <div>
               <p className="text-sm font-black uppercase tracking-[0.28em] text-accent">NEET Previous Year Papers</p>
@@ -239,13 +239,13 @@ export default function HomePage() {
               </h2>
               <p className="mt-5 max-w-2xl text-base leading-8 text-textSecondary">{t('pyq.body')}</p>
             </div>
-            <div className="rounded-[1.5rem] border border-white/10 bg-surface/75 p-5">
+            <div className="border-l border-white/10 bg-surface/75 p-5">
               <p className="text-xs font-bold uppercase tracking-wide text-textSecondary">Year selector</p>
               <div className="mt-4 flex flex-wrap gap-2">
-                <span className="rounded-full border border-brand/50 bg-brand-soft px-4 py-2 text-sm font-black text-accent">
+                <span className="rounded-lg border border-brand/50 bg-brand-soft px-4 py-2 text-sm font-black text-accent">
                   2025 - Ready when data is loaded
                 </span>
-                <span className="rounded-full border border-white/10 px-4 py-2 text-sm text-textSecondary">More years later</span>
+                <span className="rounded-lg border border-white/10 px-4 py-2 text-sm text-textSecondary">More years later</span>
               </div>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                 <PrimaryLink href="/mock-tests">Start Mock Test</PrimaryLink>
@@ -257,11 +257,11 @@ export default function HomePage() {
       </Section>
 
       <Section lazy>
-        <div className="rounded-[2rem] border border-brand/30 bg-brand-soft p-8 text-white shadow-2xl shadow-brand/10 sm:p-12">
+        <div className="border-y border-brand/30 bg-[linear-gradient(120deg,#06283A,#03080D_62%,#0A121A)] p-8 text-white shadow-2xl shadow-brand/10 sm:p-12 lg:p-16">
           <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
               <p className="text-sm font-black uppercase tracking-[0.3em] text-accent">Ready to plan your next step?</p>
-              <h2 className="mt-4 text-3xl font-black uppercase sm:text-5xl">{t('finalCta.title')}</h2>
+              <h2 className="mt-5 max-w-4xl text-[clamp(2.75rem,6vw,6.5rem)] font-black uppercase leading-[0.88]">{t('finalCta.title')}</h2>
               <p className="mt-5 max-w-2xl text-base leading-8 text-cyan-50/80">{t('finalCta.subtitle')}</p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
