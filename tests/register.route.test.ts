@@ -4,8 +4,6 @@ import { Prisma } from '@prisma/client';
 vi.mock('@/lib/prisma', () => ({
   prisma: { student: { findUnique: vi.fn(), create: vi.fn(), update: vi.fn() } },
 }));
-const otp = vi.hoisted(() => ({ requestOtp: vi.fn() }));
-vi.mock('@/lib/auth/otp-service', () => otp);
 
 import { prisma } from '@/lib/prisma';
 import { POST } from '@/app/api/auth/register/route';
@@ -37,11 +35,10 @@ function req(body: unknown) {
 
 beforeEach(() => {
   vi.clearAllMocks();
-  otp.requestOtp.mockResolvedValue({ ok: true, devOtp: '123456', expiresAt: new Date() });
 });
 
 describe('POST /api/auth/register', () => {
-  it('creates an unverified student and sends an OTP in their language', async () => {
+  it('creates an unverified student without requesting an OTP', async () => {
     p.student.findUnique.mockResolvedValue(null);
     p.student.create.mockResolvedValue({ id: 's1' });
 
@@ -49,15 +46,9 @@ describe('POST /api/auth/register', () => {
     const json = await res.json();
 
     expect(res.status).toBe(200);
-    expect(json.next).toBe('verify');
+    expect(json.registered).toBe(true);
     expect(json.mobile).toBe('9876543210');
     expect(p.student.create).toHaveBeenCalled();
-    // The OTP is requested in the student's chosen language.
-    expect(otp.requestOtp).toHaveBeenCalledWith(
-      '9876543210',
-      'REGISTRATION',
-      expect.objectContaining({ language: 'ta' }),
-    );
   });
 
   it('blocks a mobile that already belongs to a verified account', async () => {
@@ -65,7 +56,6 @@ describe('POST /api/auth/register', () => {
     const res = await POST(req(validBody));
     expect(res.status).toBe(409);
     expect((await res.json()).error).toBe('mobileTaken');
-    expect(otp.requestOtp).not.toHaveBeenCalled();
   });
 
   it('blocks an email that already belongs to a different account', async () => {
@@ -80,7 +70,6 @@ describe('POST /api/auth/register', () => {
     expect(res.status).toBe(409);
     expect((await res.json()).error).toBe('emailTaken');
     expect(p.student.create).not.toHaveBeenCalled();
-    expect(otp.requestOtp).not.toHaveBeenCalled();
   });
 
   it('maps a P2002 email conflict to emailTaken', async () => {
@@ -95,16 +84,6 @@ describe('POST /api/auth/register', () => {
     const res = await POST(req(validBody));
     expect(res.status).toBe(409);
     expect((await res.json()).error).toBe('emailTaken');
-  });
-
-  it('returns 429 when the OTP request is rate limited', async () => {
-    p.student.findUnique.mockResolvedValue(null);
-    p.student.create.mockResolvedValue({ id: 's1' });
-    otp.requestOtp.mockResolvedValue({ ok: false, reason: 'rate_limited', retryAfterSeconds: 300 });
-
-    const res = await POST(req(validBody));
-    expect(res.status).toBe(429);
-    expect((await res.json()).error).toBe('rateLimited');
   });
 
   it('rejects invalid input with 400', async () => {
