@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import Logo from './Logo';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
@@ -14,51 +14,59 @@ function isActive(pathname: string, href: string) {
   return href === '/' ? pathname === '/' : pathname.startsWith(href);
 }
 
-/**
- * Sticky public header: logo, full nav (inline on xl, drawer below),
- * language switcher, and Login / Register. Mobile drawer toggles with the
- * hamburger and closes on navigation.
- */
 export default function PublicHeader() {
   const t = useTranslations('publicNav');
   const tNav = useTranslations('nav');
   const tA11y = useTranslations('a11y');
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const update = () => setScrolled(window.scrollY > 12);
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    return () => window.removeEventListener('scroll', update);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-black/95 backdrop-blur supports-[backdrop-filter]:bg-black/85">
-      <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between gap-2 px-4 py-3 sm:px-6">
+    <header
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'border-b border-white/10 bg-black/90 shadow-2xl shadow-black/30 backdrop-blur-xl'
+          : 'border-b border-transparent bg-black/45 backdrop-blur-md'
+      }`}
+    >
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 px-4 py-3 sm:px-6 lg:px-8">
         <Logo />
 
-        {/* Inline nav — only shown when there is genuinely room for all links;
-            narrower screens use the hamburger drawer below. */}
-        <nav className="hidden items-center min-[1440px]:flex" aria-label={tA11y('primaryNav')}>
+        <nav className="hidden items-center gap-1 xl:flex" aria-label={tA11y('primaryNav')}>
           <Link
             href="/"
-            className={`whitespace-nowrap rounded-md px-2 py-2 text-[13px] font-medium transition-colors ${
+            className={`whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-colors ${
               isActive(pathname, '/')
                 ? 'bg-brand-soft text-red-200'
-                : 'text-textSecondary hover:text-white'
+                : 'text-textSecondary hover:bg-white/5 hover:text-white'
             }`}
             aria-current={isActive(pathname, '/') ? 'page' : undefined}
           >
             {t('home')}
           </Link>
+
           {NAV_GROUPS.map((group) => (
             <div key={group.key} className="group relative">
               <button
                 type="button"
-                className="whitespace-nowrap rounded-md px-2 py-2 text-[13px] font-medium text-textSecondary transition-colors hover:text-white"
+                className="whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium text-textSecondary transition-colors hover:bg-white/5 hover:text-white"
               >
                 {t(group.key)}
               </button>
-              <div className="invisible absolute left-0 top-full z-50 min-w-56 translate-y-1 rounded-xl border border-border bg-surfaceElevated p-2 opacity-0 shadow-lg shadow-black/40 transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+              <div className="invisible absolute left-0 top-full z-50 min-w-64 translate-y-2 rounded-2xl border border-white/10 bg-[#111]/95 p-2 opacity-0 shadow-2xl shadow-black/50 backdrop-blur-xl transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                 {group.links.map((link) => (
                   <Link
                     key={`${group.key}-${link.href}-${link.key}`}
                     href={link.href}
-                    className="block rounded-lg px-3 py-2 text-sm font-medium text-textSecondary hover:bg-surface hover:text-white"
+                    className="block rounded-xl px-3 py-2.5 text-sm font-medium text-textSecondary hover:bg-white/5 hover:text-white"
                   >
                     {t(link.key)}
                   </Link>
@@ -66,14 +74,15 @@ export default function PublicHeader() {
               </div>
             </div>
           ))}
+
           {NAV_LINKS.filter((link) => link.href !== '/').map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`whitespace-nowrap rounded-md px-2 py-2 text-[13px] font-medium transition-colors ${
+              className={`whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-colors ${
                 isActive(pathname, link.href)
                   ? 'bg-brand-soft text-red-200'
-                  : 'text-textSecondary hover:text-white'
+                  : 'text-textSecondary hover:bg-white/5 hover:text-white'
               }`}
               aria-current={isActive(pathname, link.href) ? 'page' : undefined}
             >
@@ -83,30 +92,32 @@ export default function PublicHeader() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-2">
-          <div className="hidden items-center rounded-lg border border-brand/30 bg-surface px-2 py-1.5 text-sm font-semibold text-textPrimary lg:flex">
+          <div className="hidden items-center rounded-full border border-brand/30 bg-brand-soft/70 px-3 py-1.5 text-xs font-semibold text-textPrimary lg:flex">
             <span className="text-red-200">{t('examNeet')}</span>
-            <span className="ml-2 rounded-full border border-border bg-surfaceElevated px-2 py-0.5 text-xs text-textSecondary">
+            <span className="ml-2 rounded-full border border-white/10 bg-black/50 px-2 py-0.5 text-[11px] text-textSecondary">
               {t('examJeeSoon')}
             </span>
           </div>
           <AccessibilityMenu />
-          <LanguageSwitcher />
+          <div className="hidden md:block">
+            <LanguageSwitcher />
+          </div>
           <Link
             href="/login"
-            className="hidden rounded-lg px-3 py-1.5 text-sm font-medium text-textSecondary hover:bg-surfaceElevated hover:text-white sm:inline-flex"
+            className="hidden rounded-full px-3 py-2 text-sm font-medium text-textSecondary hover:bg-white/5 hover:text-white sm:inline-flex"
           >
             {tNav('login')}
           </Link>
           <Link
             href="/register"
-            className="hidden rounded-lg bg-brand px-3 py-1.5 text-sm font-semibold text-white hover:bg-brand-dark sm:inline-flex"
+            className="hidden rounded-full bg-brand px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-brand/20 hover:bg-brand-dark sm:inline-flex"
           >
-            {tNav('register')}
+            {t('getStarted')}
           </Link>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex items-center justify-center rounded-lg p-2 text-textPrimary hover:bg-surfaceElevated min-[1440px]:hidden"
+            className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-2 text-textPrimary hover:bg-surfaceElevated xl:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={tA11y('openMenu')}
@@ -116,31 +127,31 @@ export default function PublicHeader() {
         </div>
       </div>
 
-      {/* Mobile / tablet drawer */}
       {open ? (
         <nav
           id="mobile-nav"
           aria-label={tA11y('primaryNav')}
-          className="border-t border-border bg-black px-4 py-3 min-[1440px]:hidden"
+          className="border-t border-white/10 bg-black/95 px-4 py-4 shadow-2xl shadow-black/40 backdrop-blur-xl xl:hidden"
         >
           <ul className="flex flex-col">
             <li>
               <Link
                 href="/"
                 onClick={() => setOpen(false)}
-                className={`block rounded-md px-3 py-2.5 text-base font-medium ${
+                className={`block rounded-2xl px-3 py-3 text-base font-medium ${
                   isActive(pathname, '/')
                     ? 'bg-brand-soft text-red-200'
-                    : 'text-textSecondary hover:bg-surfaceElevated hover:text-white'
+                    : 'text-textSecondary hover:bg-white/5 hover:text-white'
                 }`}
                 aria-current={isActive(pathname, '/') ? 'page' : undefined}
               >
                 {t('home')}
               </Link>
             </li>
+
             {NAV_GROUPS.map((group) => (
               <li key={group.key} className="py-1">
-                <p className="px-3 pb-1 pt-2 text-xs font-bold uppercase tracking-wide text-red-300">
+                <p className="px-3 pb-1 pt-3 text-xs font-bold uppercase tracking-wide text-red-300">
                   {t(group.key)}
                 </p>
                 <div className="space-y-1">
@@ -149,7 +160,7 @@ export default function PublicHeader() {
                       key={`${group.key}-${link.href}-${link.key}`}
                       href={link.href}
                       onClick={() => setOpen(false)}
-                      className="block rounded-md px-3 py-2 text-sm font-medium text-textSecondary hover:bg-surfaceElevated hover:text-white"
+                      className="block rounded-xl px-3 py-2.5 text-sm font-medium text-textSecondary hover:bg-white/5 hover:text-white"
                     >
                       {t(link.key)}
                     </Link>
@@ -157,15 +168,16 @@ export default function PublicHeader() {
                 </div>
               </li>
             ))}
+
             {NAV_LINKS.filter((link) => link.href !== '/').map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className={`block rounded-md px-3 py-2.5 text-base font-medium ${
+                  className={`block rounded-2xl px-3 py-3 text-base font-medium ${
                     isActive(pathname, link.href)
                       ? 'bg-brand-soft text-red-200'
-                      : 'text-textSecondary hover:bg-surfaceElevated hover:text-white'
+                      : 'text-textSecondary hover:bg-white/5 hover:text-white'
                   }`}
                   aria-current={isActive(pathname, link.href) ? 'page' : undefined}
                 >
@@ -174,20 +186,25 @@ export default function PublicHeader() {
               </li>
             ))}
           </ul>
-          <div className="mt-3 grid grid-cols-2 gap-2 border-t border-border pt-3">
+
+          <div className="mt-4 border-t border-white/10 pt-4">
+            <LanguageSwitcher />
+          </div>
+
+          <div className="mt-3 grid grid-cols-2 gap-2">
             <Link
               href="/login"
               onClick={() => setOpen(false)}
-              className="rounded-lg border border-brand/60 px-3 py-2.5 text-center text-sm font-medium text-white"
+              className="rounded-full border border-brand/60 px-3 py-2.5 text-center text-sm font-medium text-white"
             >
               {tNav('login')}
             </Link>
             <Link
               href="/register"
               onClick={() => setOpen(false)}
-              className="rounded-lg bg-brand px-3 py-2.5 text-center text-sm font-semibold text-white"
+              className="rounded-full bg-brand px-3 py-2.5 text-center text-sm font-semibold text-white"
             >
-              {tNav('register')}
+              {t('getStarted')}
             </Link>
           </div>
         </nav>

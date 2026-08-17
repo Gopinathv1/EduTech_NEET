@@ -17,6 +17,8 @@
     "db:push": "prisma db push",
     "db:seed": "prisma db seed",
     "db:seed:reference": "tsx prisma/seed-reference.ts",
+    "neet:2025:validate": "tsx scripts/import-neet-paper.ts data/neet-2025-template.json",
+    "neet:2025:import": "tsx scripts/import-neet-paper.ts data/neet-2025-template.json --import",
     "admin:create": "tsx prisma/create-admin.ts",
     "test": "vitest run",
     "test:e2e": "playwright test",

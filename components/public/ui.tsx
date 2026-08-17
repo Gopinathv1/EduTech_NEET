@@ -8,7 +8,7 @@ import { ArrowRightIcon } from './icons';
  */
 
 export function Container({ children, className = '' }: { children: ReactNode; className?: string }) {
-  return <div className={`mx-auto w-full max-w-6xl px-4 sm:px-6 ${className}`}>{children}</div>;
+  return <div className={`mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 ${className}`}>{children}</div>;
 }
 
 export function Section({
@@ -27,7 +27,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={`py-14 sm:py-20 ${tinted ? 'bg-surface' : 'bg-background'} ${lazy ? 'cv-auto' : ''} ${className}`}
+      className={`py-16 sm:py-24 ${tinted ? 'bg-surface' : 'bg-background'} ${lazy ? 'cv-auto' : ''} ${className}`}
     >
       <Container>{children}</Container>
     </section>
@@ -54,7 +54,7 @@ export function SectionHeading({
   return (
     <div className={`${center ? 'mx-auto text-center' : ''} max-w-2xl`}>
       {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
-      <h2 className="text-2xl font-extrabold tracking-tight text-textPrimary sm:text-3xl">{title}</h2>
+      <h2 className="text-3xl font-extrabold tracking-tight text-textPrimary sm:text-5xl">{title}</h2>
       {subtitle ? <p className="mt-3 text-base leading-7 text-textSecondary">{subtitle}</p> : null}
     </div>
   );
@@ -62,7 +62,7 @@ export function SectionHeading({
 
 export function Card({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
-    <div className={`rounded-2xl border border-border bg-surfaceElevated p-6 shadow-sm shadow-black/20 ${className}`}>
+    <div className={`group rounded-[1.5rem] border border-white/10 bg-surfaceElevated/90 p-6 shadow-2xl shadow-black/20 transition duration-300 hover:-translate-y-1 hover:border-brand/40 hover:bg-[#181818] ${className}`}>
       {children}
     </div>
   );
@@ -71,14 +71,14 @@ export function Card({ children, className = '' }: { children: ReactNode; classN
 /** Circular tinted badge that holds an icon. */
 export function IconBadge({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-brand/30 bg-brand-soft text-red-300">
+    <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-brand/30 bg-brand-soft text-red-300 shadow-lg shadow-brand/10">
       {children}
     </span>
   );
 }
 
 const linkBase =
-  'inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand';
+  'inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand';
 
 export function PrimaryLink({
   href,
@@ -90,7 +90,7 @@ export function PrimaryLink({
   className?: string;
 }) {
   return (
-    <Link href={href} className={`${linkBase} bg-brand text-white hover:bg-brand-dark ${className}`}>
+    <Link href={href} className={`${linkBase} bg-brand text-white shadow-lg shadow-brand/20 hover:-translate-y-0.5 hover:bg-brand-dark ${className}`}>
       {children}
     </Link>
   );
@@ -108,7 +108,7 @@ export function SecondaryLink({
   return (
     <Link
       href={href}
-      className={`${linkBase} border border-brand/70 bg-surface text-white hover:bg-brand-soft hover:text-white ${className}`}
+      className={`${linkBase} border border-white/20 bg-white/5 text-white hover:-translate-y-0.5 hover:border-brand/70 hover:bg-brand-soft hover:text-white ${className}`}
     >
       {children}
     </Link>
@@ -120,7 +120,7 @@ export function ArrowLink({ href, children }: { href: string; children: ReactNod
   return (
     <Link
       href={href}
-      className="inline-flex items-center gap-1 text-sm font-semibold text-red-300 hover:text-red-200"
+      className="inline-flex items-center gap-1 text-sm font-semibold text-red-300 transition hover:gap-2 hover:text-red-200"
     >
       {children}
       <ArrowRightIcon className="h-4 w-4" />

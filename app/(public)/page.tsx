@@ -6,21 +6,11 @@ import {
   Section,
   SectionHeading,
   Card,
-  IconBadge,
   PrimaryLink,
   SecondaryLink,
   ArrowLink,
   Container,
 } from '@/components/public/ui';
-import {
-  BookIcon,
-  ChartIcon,
-  ClockIcon,
-  GlobeIcon,
-  ShieldIcon,
-  CheckIcon,
-  UsersIcon,
-} from '@/components/public/icons';
 
 export async function generateMetadata() {
   const t = await getTranslations('seo.home');
@@ -34,279 +24,248 @@ export async function generateMetadata() {
 
 type Action = { title: string; body: string; cta: string; href: string };
 type Subject = { title: string; body: string; href: string };
-type Filter = { label: string; values: string[] };
-type Benefit = { title: string; body: string };
-type ExamChip = { label: string; status: string; available: boolean };
-type ServiceCard = { title: string; body: string; cta: string; href: string };
 type AdmissionCard = { title: string; body: string; href: string };
 
-const ACTION_ICONS = [BookIcon, ClockIcon, ShieldIcon, BookIcon, UsersIcon, ChartIcon];
-const SUBJECT_ICONS = [BookIcon, ShieldIcon, GlobeIcon];
-const BENEFIT_ICONS = [BookIcon, ShieldIcon, CheckIcon, ClockIcon, GlobeIcon, ChartIcon];
-const ADMISSION_ICONS = [ShieldIcon, GlobeIcon, UsersIcon, BookIcon];
+const MARQUEE = [
+  'MBBS Admissions',
+  'Study Abroad',
+  'NEET Preparation',
+  'Previous Year Papers',
+  'Admission Guidance',
+  'Global Education',
+  'VV Overseas',
+];
+
+const DESTINATIONS = ['India', 'Russia', 'Georgia', 'Kazakhstan', 'Uzbekistan', 'Other destinations'];
+
+const PREP_ACTIONS = [
+  { title: 'Question Bank', href: '/mock-tests' },
+  { title: 'Previous Year Papers', href: '/#previous-year-papers' },
+  { title: 'Mock Tests', href: '/mock-tests' },
+  { title: 'Chapter-wise Practice', href: '/mock-tests' },
+];
+
+const FUTURE_EXAMS = ['JEE Main', 'JEE Advanced'];
 
 export default function HomePage() {
   const t = useTranslations('home');
-
-  const examChips = t.raw('examChips') as ExamChip[];
-  const heroServices = t.raw('heroServices') as ServiceCard[];
-  const admissionCards = t.raw('admissions.cards') as AdmissionCard[];
   const quickActions = t.raw('quickActions.items') as Action[];
+  const admissionCards = t.raw('admissions.cards') as AdmissionCard[];
   const subjects = t.raw('neet.subjects') as Subject[];
-  const filters = t.raw('discovery.filters') as Filter[];
-  const benefits = t.raw('benefits.items') as Benefit[];
 
   return (
     <>
-      <section className="border-b border-border bg-black">
-        <Container className="grid gap-10 py-12 sm:py-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-          <div>
-            <p className="text-sm font-bold uppercase tracking-wide text-red-300">{t('brand')}</p>
-            <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-tight text-textPrimary sm:text-5xl">
-              {t('title')}
+      <section className="relative -mt-[65px] min-h-[calc(100vh+65px)] overflow-hidden bg-background pt-[65px]">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(244,63,63,0.24),transparent_32%),radial-gradient(circle_at_80%_10%,rgba(56,189,248,0.12),transparent_28%),linear-gradient(180deg,#050505_0%,#080808_58%,#050505_100%)]" />
+        <div className="absolute left-1/2 top-28 h-px w-[80vw] -translate-x-1/2 bg-gradient-to-r from-transparent via-brand to-transparent vv-pulse-line" />
+        <div className="absolute -right-28 top-24 h-72 w-72 rounded-full border border-brand/20 bg-brand/10 blur-3xl" />
+        <div className="absolute bottom-8 left-4 h-44 w-44 rounded-full border border-accent/20 bg-accent/10 blur-3xl" />
+
+        <Container className="relative grid min-h-[calc(100vh-65px)] items-center gap-12 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
+          <div className="vv-reveal">
+            <p className="text-sm font-bold uppercase tracking-[0.35em] text-red-300">{t('brand')}</p>
+            <h1 className="mt-6 max-w-5xl text-[clamp(3.25rem,9vw,8.5rem)] font-black uppercase leading-[0.88] text-white">
+              Your Education.
+              <br />
+              Your Future.
+              <br />
+              <span className="text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.72)]">Without Borders.</span>
             </h1>
-            <p className="mt-5 max-w-2xl text-base leading-8 text-textSecondary sm:text-lg">
-              {t('subtitle')}
+            <p className="mt-7 max-w-2xl text-base leading-8 text-textSecondary sm:text-xl">
+              Explore medical education opportunities in India and abroad, get admission guidance, and prepare smarter for competitive exams.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <PrimaryLink href="#admissions">{t('ctaPrimary')}</PrimaryLink>
-              <SecondaryLink href="#question-bank">{t('ctaSecondary')}</SecondaryLink>
-            </div>
-            <div className="mt-7 flex flex-wrap gap-2" aria-label={t('examSelectorLabel')}>
-              {examChips.map((exam) => (
-                <span
-                  key={exam.label}
-                  className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm font-semibold ${
-                    exam.available
-                      ? 'border-brand/50 bg-brand-soft text-red-100'
-                      : 'border-border bg-surface text-textSecondary'
-                  }`}
-                >
-                  {exam.label}
-                  <span className="text-xs font-medium">{exam.status}</span>
-                </span>
-              ))}
+              <SecondaryLink href="#neet-preparation">{t('ctaSecondary')}</SecondaryLink>
             </div>
           </div>
 
-          <div className="space-y-4">
-            {heroServices.map((service, index) => {
-              const Icon = index === 0 ? GlobeIcon : BookIcon;
-              return (
-                <Card key={service.title} className="border-brand/20 bg-surface">
-                  <div className="flex items-start gap-4">
-                    <IconBadge>
-                      <Icon className="h-6 w-6" />
-                    </IconBadge>
-                    <div>
-                      <h2 className="text-lg font-extrabold text-textPrimary">{service.title}</h2>
-                      <p className="mt-2 text-sm leading-6 text-textSecondary">{service.body}</p>
-                      <div className="mt-4">
-                        <ArrowLink href={service.href}>{service.cta}</ArrowLink>
-                      </div>
+          <div className="relative vv-reveal lg:justify-self-end" style={{ animationDelay: '140ms' }}>
+            <div className="absolute -inset-6 rounded-[2rem] border border-brand/20 bg-brand/10 blur-2xl" />
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-5 shadow-2xl shadow-black/40 backdrop-blur-xl">
+              <div className="grid gap-3">
+                {quickActions.slice(0, 2).map((item, index) => (
+                  <div key={item.title} className="rounded-[1.5rem] border border-white/10 bg-black/45 p-6">
+                    <p className="text-5xl font-black text-brand/80">0{index + 1}</p>
+                    <h2 className="mt-4 text-2xl font-black uppercase text-white">{item.title}</h2>
+                    <p className="mt-3 text-sm leading-7 text-textSecondary">{item.body}</p>
+                    <div className="mt-5">
+                      <ArrowLink href={item.href}>{item.cta}</ArrowLink>
                     </div>
                   </div>
-                </Card>
-              );
-            })}
-            <div className="grid grid-cols-2 gap-3">
-              {(t.raw('heroStats') as string[]).map((item) => (
-                <div
-                  key={item}
-                  className="rounded-xl border border-border bg-surfaceElevated p-4 text-sm font-semibold text-textPrimary"
-                >
-                  {item}
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </Container>
       </section>
 
-      <Section id="quick-actions">
+      <section className="overflow-hidden border-y border-white/10 bg-black py-5">
+        <div className="flex min-w-max gap-10 vv-marquee-track">
+          {[...MARQUEE, ...MARQUEE].map((item, index) => (
+            <span
+              key={`${item}-${index}`}
+              className="text-3xl font-black uppercase tracking-tight text-transparent [-webkit-text-stroke:1px_rgba(244,63,63,0.72)] sm:text-5xl"
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      <Section id="what-we-do">
         <SectionHeading
           eyebrow={t('quickActions.eyebrow')}
-          title={t('quickActions.title')}
+          title="What We Do"
           subtitle={t('quickActions.subtitle')}
         />
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {quickActions.map((action, index) => {
-            const Icon = ACTION_ICONS[index] ?? BookIcon;
-            return (
-              <Card key={action.title} className="flex h-full flex-col">
-                <IconBadge>
-                  <Icon className="h-6 w-6" />
-                </IconBadge>
-                <h3 className="mt-4 text-lg font-bold text-textPrimary">{action.title}</h3>
-                <p className="mt-2 flex-1 text-sm leading-6 text-textSecondary">{action.body}</p>
-                <div className="mt-5">
-                  <ArrowLink href={action.href}>{action.cta}</ArrowLink>
-                </div>
-              </Card>
-            );
-          })}
+        <div className="mt-10 grid gap-5 lg:grid-cols-2">
+          {quickActions.slice(0, 2).map((item, index) => (
+            <Card key={item.title} className="min-h-72 p-8">
+              <p className="text-7xl font-black text-brand/80">0{index + 1}</p>
+              <h3 className="mt-6 text-3xl font-black uppercase text-white">{item.title}</h3>
+              <p className="mt-4 max-w-xl text-base leading-8 text-textSecondary">{item.body}</p>
+              <div className="mt-8">
+                <PrimaryLink href={item.href}>{item.cta}</PrimaryLink>
+              </div>
+            </Card>
+          ))}
         </div>
       </Section>
 
-      <Section id="admissions" tinted>
-        <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+      <Section id="admissions" tinted lazy>
+        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <div>
             <SectionHeading
               eyebrow={t('admissions.eyebrow')}
-              title={t('admissions.title')}
+              title="Find the Right Path for Your Education"
               subtitle={t('admissions.subtitle')}
             />
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <PrimaryLink href="/contact">{t('admissions.cta')}</PrimaryLink>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <PrimaryLink href="/admission-guidance">{t('admissions.cta')}</PrimaryLink>
               <SecondaryLink href="/countries">{t('admissions.countriesCta')}</SecondaryLink>
             </div>
           </div>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {admissionCards.map((card, index) => {
-              const Icon = ADMISSION_ICONS[index] ?? ShieldIcon;
-              return (
-                <Card key={card.title}>
-                  <IconBadge>
-                    <Icon className="h-6 w-6" />
-                  </IconBadge>
-                  <h3 className="mt-4 text-lg font-bold text-textPrimary">{card.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-textSecondary">{card.body}</p>
-                  <div className="mt-5">
-                    <ArrowLink href={card.href}>{card.title}</ArrowLink>
-                  </div>
-                </Card>
-              );
-            })}
+            {admissionCards.map((card, index) => (
+              <Card key={card.title} className="p-7">
+                <p className="text-sm font-black text-brand">0{index + 1}</p>
+                <h3 className="mt-5 text-xl font-black uppercase text-white">{card.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-textSecondary">{card.body}</p>
+                <div className="mt-7">
+                  <ArrowLink href={card.href}>{card.title}</ArrowLink>
+                </div>
+              </Card>
+            ))}
           </div>
         </div>
       </Section>
 
-      <Section id="question-bank">
-        <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+      <Section id="study-destinations" lazy>
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <SectionHeading
-            eyebrow={t('neet.eyebrow')}
-            title={t('neet.title')}
-            subtitle={t('neet.subtitle')}
+            eyebrow={t('countriesSection.eyebrow')}
+            title="Explore Study Destinations"
+            subtitle={t('countriesSection.subtitle')}
           />
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-            {subjects.map((subject, index) => {
-              const Icon = SUBJECT_ICONS[index] ?? BookIcon;
-              return (
-                <Card key={subject.title}>
-                  <IconBadge>
-                    <Icon className="h-6 w-6" />
-                  </IconBadge>
-                  <h3 className="mt-4 text-lg font-bold text-textPrimary">{subject.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-textSecondary">{subject.body}</p>
-                  <div className="mt-5">
-                    <ArrowLink href={subject.href}>{t('neet.subjectCta')}</ArrowLink>
-                  </div>
-                </Card>
-              );
-            })}
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+            {DESTINATIONS.map((destination) => (
+              <div key={destination} className="rounded-[1.25rem] border border-white/10 bg-white/[0.04] p-5 transition hover:border-brand/50">
+                <p className="text-lg font-black text-white">{destination}</p>
+                <p className="mt-2 text-xs uppercase tracking-wide text-textSecondary">Informational</p>
+              </div>
+            ))}
           </div>
+        </div>
+        <div className="mt-8">
+          <PrimaryLink href="/countries">{t('countriesSection.cta')}</PrimaryLink>
         </div>
       </Section>
 
-      <Section id="countries" tinted>
-        <div className="rounded-2xl border border-border bg-surfaceElevated p-6 sm:p-8">
-          <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
-            <SectionHeading
-              eyebrow={t('countriesSection.eyebrow')}
-              title={t('countriesSection.title')}
-              subtitle={t('countriesSection.subtitle')}
-            />
-            <PrimaryLink href="/countries">{t('countriesSection.cta')}</PrimaryLink>
-          </div>
-        </div>
-      </Section>
-
-      <Section id="previous-year-papers">
-        <div className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-center">
+      <Section id="neet-preparation" tinted lazy>
+        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
+            <span className="rounded-full border border-brand/40 bg-brand-soft px-3 py-1 text-xs font-black uppercase tracking-wide text-red-200">
+              Available Now
+            </span>
             <SectionHeading
-              eyebrow={t('discovery.eyebrow')}
-              title={t('discovery.title')}
-              subtitle={t('discovery.subtitle')}
+              eyebrow={t('neet.eyebrow')}
+              title="Prepare With VV Overseas"
+              subtitle={t('neet.subtitle')}
             />
             <div className="mt-6 flex flex-wrap gap-2">
-              {filters.map((filter) => (
-                <div key={filter.label} className="rounded-xl border border-border bg-surfaceElevated p-3">
-                  <p className="text-xs font-bold uppercase text-slate-400">{filter.label}</p>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    {filter.values.map((value) => (
-                      <span
-                        key={value}
-                        className="rounded-full border border-border bg-surface px-2.5 py-1 text-xs font-medium text-textSecondary"
-                      >
-                        {value}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+              {FUTURE_EXAMS.map((exam) => (
+                <span key={exam} className="rounded-full border border-white/10 px-3 py-1.5 text-sm text-textSecondary">
+                  {exam} - Coming Soon
+                </span>
               ))}
             </div>
           </div>
-          <Card className="border-brand/30 bg-black text-white">
-            <h3 className="text-xl font-bold">{t('pyq.title')}</h3>
-            <p className="mt-3 text-sm leading-7 text-slate-300">{t('pyq.body')}</p>
-            <div className="mt-6">
-              <Link
-                href="/mock-tests"
-                className="inline-flex rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark"
-              >
-                {t('pyq.cta')}
-              </Link>
+          <div className="grid gap-4">
+            <div className="grid gap-4 sm:grid-cols-3">
+              {subjects.map((subject) => (
+                <Card key={subject.title} className="p-5">
+                  <h3 className="text-xl font-black text-white">{subject.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-textSecondary">{subject.body}</p>
+                </Card>
+              ))}
             </div>
-          </Card>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {PREP_ACTIONS.map((action) => (
+                <Link
+                  key={action.title}
+                  href={action.href}
+                  className="group rounded-[1.25rem] border border-white/10 bg-black/35 p-5 text-sm font-bold text-white transition hover:border-brand/50 hover:bg-brand-soft"
+                >
+                  {action.title}
+                  <span className="ml-2 inline-block text-red-300 transition group-hover:translate-x-1">-&gt;</span>
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </Section>
 
-      <Section id="value" tinted>
-        <SectionHeading
-          center
-          eyebrow={t('benefits.eyebrow')}
-          title={t('benefits.title')}
-          subtitle={t('benefits.subtitle')}
-        />
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {benefits.map((benefit, index) => {
-            const Icon = BENEFIT_ICONS[index] ?? CheckIcon;
-            return (
-              <div key={benefit.title} className="flex gap-3 rounded-xl border border-border bg-surfaceElevated p-5">
-                <Icon className="mt-1 h-5 w-5 shrink-0 text-red-300" />
-                <div>
-                  <h3 className="font-bold text-textPrimary">{benefit.title}</h3>
-                  <p className="mt-1 text-sm leading-6 text-textSecondary">{benefit.body}</p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </Section>
-
-      <Section>
-        <div className="rounded-2xl border border-brand/30 bg-black p-8 text-white sm:p-10">
-          <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
+      <Section id="previous-year-papers" lazy>
+        <div className="overflow-hidden rounded-[2rem] border border-brand/30 bg-[linear-gradient(135deg,#130707,#050505_55%,#08111a)] p-6 shadow-2xl shadow-brand/10 sm:p-10">
+          <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
             <div>
-              <h2 className="text-2xl font-extrabold sm:text-3xl">{t('finalCta.title')}</h2>
-              <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-300">
-                {t('finalCta.subtitle')}
-              </p>
+              <p className="text-sm font-black uppercase tracking-[0.28em] text-red-300">NEET Previous Year Papers</p>
+              <h2 className="mt-4 text-3xl font-black uppercase text-white sm:text-5xl">
+                Practice the paper. Review the result. Improve the next attempt.
+              </h2>
+              <p className="mt-5 max-w-2xl text-base leading-8 text-textSecondary">{t('pyq.body')}</p>
+            </div>
+            <div className="rounded-[1.5rem] border border-white/10 bg-black/45 p-5">
+              <p className="text-xs font-bold uppercase tracking-wide text-textSecondary">Year selector</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                <span className="rounded-full border border-brand/50 bg-brand-soft px-4 py-2 text-sm font-black text-red-100">
+                  2025 - Ready when data is loaded
+                </span>
+                <span className="rounded-full border border-white/10 px-4 py-2 text-sm text-textSecondary">More years later</span>
+              </div>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                <PrimaryLink href="/mock-tests">Start Mock Test</PrimaryLink>
+                <SecondaryLink href="/mock-tests">View Question Bank</SecondaryLink>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section lazy>
+        <div className="rounded-[2rem] border border-brand/30 bg-brand-soft p-8 text-white shadow-2xl shadow-brand/10 sm:p-12">
+          <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.3em] text-red-200">Ready to plan your next step?</p>
+              <h2 className="mt-4 text-3xl font-black uppercase sm:text-5xl">{t('finalCta.title')}</h2>
+              <p className="mt-5 max-w-2xl text-base leading-8 text-red-100/80">{t('finalCta.subtitle')}</p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-              <Link
-                href="/admission-guidance"
-                className="rounded-lg bg-brand px-5 py-3 text-center text-sm font-bold text-white hover:bg-brand-dark"
-              >
-                {t('finalCta.primary')}
-              </Link>
-              <Link
-                href="/register"
-                className="rounded-lg border border-white/30 px-5 py-3 text-center text-sm font-bold text-white"
-              >
-                {t('finalCta.secondary')}
-              </Link>
+              <PrimaryLink href="/contact" className="bg-white text-black hover:bg-red-100">
+                Talk to Us
+              </PrimaryLink>
+              <SecondaryLink href="/admission-guidance">{t('finalCta.primary')}</SecondaryLink>
             </div>
           </div>
         </div>

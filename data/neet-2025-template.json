@@ -1,0 +1,21 @@
+{
+  "title": "NEET 2025 Previous Year Paper",
+  "year": 2025,
+  "durationMinutes": 180,
+  "questions": [
+    {
+      "order": 1,
+      "subjectCode": "PHYSICS",
+      "chapterName": "Replace with existing chapter name",
+      "topic": "Optional topic",
+      "difficulty": "MEDIUM",
+      "questionText": "Replace with NEET 2025 question text.",
+      "optionA": "Option A",
+      "optionB": "Option B",
+      "optionC": "Option C",
+      "optionD": "Option D",
+      "correctOption": "A",
+      "explanation": "Optional explanation."
+    }
+  ]
+}

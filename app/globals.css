@@ -7,12 +7,12 @@
  * red as the primary brand accent.
  */
 :root {
-  --background: #080808;
+  --background: #050505;
   --foreground: #f8fafc;
-  --surface: #111111;
-  --surface-elevated: #181818;
+  --surface: #0b0b0b;
+  --surface-elevated: #151515;
   --text-secondary: #cbd5e1;
-  --primary-red: #ef4444;
+  --primary-red: #f43f3f;
   --primary-red-hover: #dc2626;
   --accent-blue: #38bdf8;
   --border: #2a2a2a;
@@ -40,6 +40,58 @@ html {
   html {
     scroll-behavior: auto;
   }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes vv-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes vv-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes vv-pulse-line {
+  0%,
+  100% {
+    opacity: 0.28;
+    transform: scaleX(0.92);
+  }
+  50% {
+    opacity: 0.72;
+    transform: scaleX(1);
+  }
+}
+
+.vv-reveal {
+  animation: vv-fade-up 700ms ease-out both;
+}
+
+.vv-marquee-track {
+  animation: vv-marquee 34s linear infinite;
+}
+
+.vv-pulse-line {
+  animation: vv-pulse-line 4s ease-in-out infinite;
 }
 
 /*
