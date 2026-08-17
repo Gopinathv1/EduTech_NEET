@@ -40,7 +40,7 @@ export default function PublicHeader() {
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 px-4 py-3 sm:px-6 lg:px-8">
         <Logo />
 
-        <nav className="hidden items-center gap-1 xl:flex" aria-label={tA11y('primaryNav')}>
+        <nav className="hidden items-center gap-1 2xl:flex" aria-label={tA11y('primaryNav')}>
           <Link
             href="/"
             className={`whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-colors ${
@@ -117,7 +117,7 @@ export default function PublicHeader() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-2 text-textPrimary hover:bg-surfaceElevated xl:hidden"
+            className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-2 text-textPrimary hover:bg-surfaceElevated 2xl:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={tA11y('openMenu')}
@@ -131,7 +131,7 @@ export default function PublicHeader() {
         <nav
           id="mobile-nav"
           aria-label={tA11y('primaryNav')}
-          className="border-t border-white/10 bg-black/95 px-4 py-4 shadow-2xl shadow-black/40 backdrop-blur-xl xl:hidden"
+          className="border-t border-white/10 bg-black/95 px-4 py-4 shadow-2xl shadow-black/40 backdrop-blur-xl 2xl:hidden"
         >
           <ul className="flex flex-col">
             <li>
