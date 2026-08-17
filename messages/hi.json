@@ -75,7 +75,8 @@
     "careerGuidance": "Career Guidance",
     "coursesLearning": "Courses & Learning Programs",
     "trainingPrograms": "Training Programs",
-    "neet": "NEET"
+    "neet": "NEET",
+    "partnerWithUs": "पार्टनर बनें"
   },
   "site": {
     "cta": {
@@ -1037,6 +1038,10 @@
     "privacy": {
       "title": "गोपनीयता नीति",
       "description": "VV Overseas student account, OTP, test और progress information कैसे संभालता है."
+    },
+    "partners": {
+      "title": "Partner With Us",
+      "description": "VV Overseas के साथ partner बनकर student applications manage करें, international education opportunities explore करें और admission progress track करें."
     }
   },
   "catalogue": {
@@ -1559,5 +1564,50 @@
     "moreTitle": "अभी भी मदद चाहिए?",
     "moreText": "हमारी team English, Tamil या Hindi में मदद कर सकती है.",
     "moreCta": "संपर्क करें"
+  },
+  "partners": {
+    "eyebrow": "VV Overseas के साथ पार्टनरशिप",
+    "heroTitle": "VV Overseas के साथ आगे बढ़ें.",
+    "heroSubtitle": "VV Overseas के साथ पार्टनर बनकर छात्र आवेदन प्रबंधित करें, अंतरराष्ट्रीय शिक्षा अवसर खोजें और admission progress को एक streamlined platform में track करें.",
+    "benefits": {
+      "eyebrow": "VV Overseas के साथ पार्टनर क्यों बनें",
+      "title": "छात्रों को support करने का स्पष्ट तरीका.",
+      "subtitle": "अपनी agency को student applications के लिए structured workflow दें, बिना unsupported claims या hidden steps के.",
+      "items": [
+        {
+          "title": "Centralised Student Application Management",
+          "body": "Student enquiries और application progress को एक partner workflow में organise करें."
+        },
+        {
+          "title": "Available Universities And Programs",
+          "body": "Verified information जुड़ने पर VV Overseas द्वारा उपलब्ध destination और program options देखें."
+        },
+        {
+          "title": "Application Status Tracking",
+          "body": "हर application को review, document और admission stages में clearly follow करें."
+        },
+        {
+          "title": "Document Coordination",
+          "body": "Partner portal expand होने पर VV Overseas support के साथ required documents coordinate करें."
+        },
+        {
+          "title": "Dedicated Support",
+          "body": "Configured होने पर WhatsApp click-to-chat सहित partner support channels इस्तेमाल करें."
+        },
+        {
+          "title": "Transparent Workflow",
+          "body": "Student-facing communication को real progress और verified next steps के साथ aligned रखें."
+        }
+      ]
+    },
+    "cta": {
+      "eyebrow": "Collaborate करने के लिए तैयार?",
+      "title": "Partner बनें.",
+      "subtitle": "International education और admission guidance में students को support करने के बारे में VV Overseas से बातचीत शुरू करें.",
+      "becomePartner": "Become A Partner",
+      "partnerLogin": "Partner Login",
+      "whatsapp": "WhatsApp पर Partner Team से बात करें",
+      "whatsappMessage": "Hello VV Overseas,\nI am interested in becoming a B2B education partner."
+    }
   }
 }
