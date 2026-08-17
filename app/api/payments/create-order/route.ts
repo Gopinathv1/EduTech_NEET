@@ -29,6 +29,15 @@ export async function POST(req: Request) {
   if (owned > 0) return fail('alreadyOwned', 409);
 
   const amountInr = test.price; // trusted, server-side
+  if (amountInr === 0) {
+    await prisma.testEntitlement.upsert({
+      where: { studentId_testId: { studentId: session.sub, testId } },
+      create: { studentId: session.sub, testId, source: 'FREE' },
+      update: {},
+    });
+    return fail('alreadyOwned', 409);
+  }
+
   const currency = 'INR';
 
   // Create the Payment row first so we have a stable id for the order receipt.

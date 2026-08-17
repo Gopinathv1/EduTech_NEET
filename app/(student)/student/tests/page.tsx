@@ -66,7 +66,7 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
     if (cov.subjectCodes.has('BOTANY') || cov.subjectCodes.has('ZOOLOGY')) {
       searchParts.push('Biology', 'உயிரியல்');
     }
-    return { test, cov, searchText: searchParts.join(' ').toLowerCase(), owned: purchased.has(test.id) };
+    return { test, cov, searchText: searchParts.join(' ').toLowerCase(), owned: test.price === 0 || purchased.has(test.id) };
   });
 
   // Apply combined filters.

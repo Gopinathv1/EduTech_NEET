@@ -37,12 +37,19 @@ export async function startOrResumeAttempt(
 ): Promise<StartOutcome> {
   const test = await prisma.test.findUnique({
     where: { id: testId },
-    select: { id: true, isPublished: true, durationMinutes: true, availableLanguages: true },
+    select: { id: true, isPublished: true, durationMinutes: true, availableLanguages: true, price: true },
   });
   if (!test || !test.isPublished) return { ok: false, code: 'notFound' };
 
   const owned = (await prisma.testEntitlement.count({ where: { studentId, testId } })) > 0;
-  if (!owned) return { ok: false, code: 'notOwned' };
+  if (!owned) {
+    if (test.price > 0) return { ok: false, code: 'notOwned' };
+    await prisma.testEntitlement.upsert({
+      where: { studentId_testId: { studentId, testId } },
+      create: { studentId, testId, source: 'FREE' },
+      update: {},
+    });
+  }
 
   // One attempt per test: resume an active one, block a completed one.
   const existing = await prisma.testAttempt.findFirst({
@@ -353,10 +360,10 @@ export async function finalizeAttempt(
     await tx.result.create({
       data: {
         attemptId,
-        totalQuestions: orderIds.length,
+        totalQuestions: result.totalQuestions,
         correct: result.correct,
         wrong: result.wrong,
-        skipped: orderIds.length - result.correct - result.wrong,
+        skipped: result.skipped,
         score: result.score,
         chapterAnalysis: result.chapterAnalysis as unknown as Prisma.InputJsonValue,
         subjectAnalysis: result.subjectAnalysis as unknown as Prisma.InputJsonValue,

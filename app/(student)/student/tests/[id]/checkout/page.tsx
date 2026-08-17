@@ -18,6 +18,7 @@ export default async function CheckoutPage({ params }: { params: Promise<{ id: s
     select: { id: true, price: true, isPublished: true, title: true },
   });
   if (!test || !test.isPublished) notFound();
+  if (test.price === 0) redirect(`/student/tests/${id}/start`);
 
   if (session) {
     const owned = await prisma.testEntitlement.count({ where: { studentId: session.sub, testId: id } });

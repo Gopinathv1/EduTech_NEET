@@ -32,12 +32,13 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
       durationMinutes: true,
       totalQuestions: true,
       availableLanguages: true,
+      price: true,
     },
   });
   if (!test || !test.isPublished) notFound();
 
   const owned = (await prisma.testEntitlement.count({ where: { studentId: session.sub, testId: id } })) > 0;
-  if (!owned) redirect(`/student/tests/${id}`);
+  if (!owned && test.price > 0) redirect(`/student/tests/${id}`);
 
   const existing = await prisma.testAttempt.findFirst({
     where: { studentId: session.sub, testId: id },

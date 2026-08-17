@@ -24,9 +24,9 @@ export default async function TestDetailPage({ params }: { params: Promise<{ id:
   ]);
   if (!test || !test.isPublished) notFound();
 
-  const owned = session
+  const owned = test.price === 0 || (session
     ? (await prisma.testEntitlement.count({ where: { studentId: session.sub, testId: id } })) > 0
-    : false;
+    : false);
 
   const subjectsById = new Map(subjects.map((s) => [s.id, { id: s.id, code: s.code }]));
   const chaptersById = new Map(chapters.map((c) => [c.id, { id: c.id, subjectId: c.subjectId }]));
