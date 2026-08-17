@@ -40,7 +40,7 @@ export default function StudentFilters({ initial }: { initial: StudentFilterValu
   const exportHref = `/api/admin/students/export${toQuery(v) ? `?${toQuery(v)}` : ''}`;
 
   return (
-    <form onSubmit={onSubmit} className="mb-6 rounded-xl border border-slate-200 bg-white p-4">
+    <form onSubmit={onSubmit} className="mb-6 rounded-xl border border-border bg-surfaceElevated p-4">
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <div className="relative">
           <SearchIcon className="pointer-events-none absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
@@ -79,11 +79,11 @@ export default function StudentFilters({ initial }: { initial: StudentFilterValu
       </div>
 
       <div className="mt-3 flex flex-wrap items-end gap-3">
-        <label className="text-xs text-slate-500">
+        <label className="text-xs text-textSecondary">
           From
           <input type="date" className={dateCls} value={v.from} onChange={(e) => set('from', e.target.value)} />
         </label>
-        <label className="text-xs text-slate-500">
+        <label className="text-xs text-textSecondary">
           To
           <input type="date" className={dateCls} value={v.to} onChange={(e) => set('to', e.target.value)} />
         </label>

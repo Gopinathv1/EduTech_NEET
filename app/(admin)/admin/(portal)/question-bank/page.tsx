@@ -107,15 +107,15 @@ export default async function QuestionBankPage({ searchParams }: { searchParams:
 
       <QuestionFilters subjects={subjectOptions} years={years} initial={filters} />
 
-      <p className="mb-3 text-sm text-slate-500">
+      <p className="mb-3 text-sm text-textSecondary">
         {total} question{total === 1 ? '' : 's'} found
         {total > PAGE_SIZE ? ` · page ${page} of ${totalPages}` : ''}
       </p>
 
-      <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+      <div className="overflow-x-auto rounded-xl border border-border bg-surfaceElevated shadow-sm">
         <table className="w-full min-w-[760px] text-sm">
           <thead>
-            <tr className="border-b border-slate-200 text-left text-xs uppercase tracking-wide text-slate-500">
+            <tr className="border-b border-border text-left text-xs uppercase tracking-wide text-textSecondary">
               <th className="px-4 py-3 font-medium">Question</th>
               <th className="px-3 py-3 font-medium">Type</th>
               <th className="px-3 py-3 font-medium">Year</th>
@@ -127,7 +127,7 @@ export default async function QuestionBankPage({ searchParams }: { searchParams:
           <tbody>
             {questions.length === 0 ? (
               <tr>
-                <td colSpan={6} className="px-4 py-10 text-center text-slate-500">
+                <td colSpan={6} className="px-4 py-10 text-center text-textSecondary">
                   No questions match these filters.
                 </td>
               </tr>
@@ -137,13 +137,13 @@ export default async function QuestionBankPage({ searchParams }: { searchParams:
                 const ta = qn.translations.find((t) => t.language === 'ta');
                 const preview = (en?.questionText ?? '').slice(0, 110);
                 return (
-                  <tr key={qn.id} className="border-b border-slate-100 align-top">
+                  <tr key={qn.id} className="border-b border-border align-top">
                     <td className="px-4 py-3">
-                      <p className="font-medium text-slate-900">
+                      <p className="font-medium text-textPrimary">
                         {preview || '(no English text)'}
                         {(en?.questionText.length ?? 0) > 110 ? '…' : ''}
                       </p>
-                      <p className="mt-1 text-xs text-slate-500">
+                      <p className="mt-1 text-xs text-textSecondary">
                         {localizedName(qn.subject.name)} · {localizedName(qn.chapter.name)}
                         {qn.topic ? ` · ${qn.topic}` : ''} · {qn.difficulty.toLowerCase()}
                       </p>
@@ -157,8 +157,8 @@ export default async function QuestionBankPage({ searchParams }: { searchParams:
                         </Badge>
                       </div>
                     </td>
-                    <td className="px-3 py-3 text-slate-600">{TYPE_LABEL[qn.questionType] ?? qn.questionType}</td>
-                    <td className="px-3 py-3 text-slate-600">{qn.year ?? '—'}</td>
+                    <td className="px-3 py-3 text-textSecondary">{TYPE_LABEL[qn.questionType] ?? qn.questionType}</td>
+                    <td className="px-3 py-3 text-textSecondary">{qn.year ?? '—'}</td>
                     <td className="px-3 py-3">
                       {!ta ? (
                         <Badge color="slate">EN only</Badge>
@@ -175,13 +175,13 @@ export default async function QuestionBankPage({ searchParams }: { searchParams:
                       <div className="flex items-center justify-end gap-3">
                         <Link
                           href={`/admin/question-bank/${qn.id}/history`}
-                          className="text-slate-500 hover:text-slate-800"
+                          className="text-textSecondary hover:text-textPrimary"
                         >
                           History
                         </Link>
                         <Link
                           href={`/admin/question-bank/${qn.id}`}
-                          className="inline-flex items-center gap-1 text-brand hover:text-brand-dark"
+                          className="inline-flex items-center gap-1 text-brand hover:text-red-200"
                         >
                           <EditIcon className="h-4 w-4" />
                           Edit
@@ -201,20 +201,20 @@ export default async function QuestionBankPage({ searchParams }: { searchParams:
           <Link
             href={pageHref(page - 1)}
             aria-disabled={page <= 1}
-            className={`rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium ${
-              page <= 1 ? 'pointer-events-none opacity-50' : 'text-slate-700 hover:bg-slate-100'
+            className={`rounded-lg border border-border px-4 py-2 text-sm font-medium ${
+              page <= 1 ? 'pointer-events-none opacity-50' : 'text-textSecondary hover:bg-surfaceElevated'
             }`}
           >
             ← Previous
           </Link>
-          <span className="text-sm text-slate-500">
+          <span className="text-sm text-textSecondary">
             Page {page} of {totalPages}
           </span>
           <Link
             href={pageHref(page + 1)}
             aria-disabled={page >= totalPages}
-            className={`rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium ${
-              page >= totalPages ? 'pointer-events-none opacity-50' : 'text-slate-700 hover:bg-slate-100'
+            className={`rounded-lg border border-border px-4 py-2 text-sm font-medium ${
+              page >= totalPages ? 'pointer-events-none opacity-50' : 'text-textSecondary hover:bg-surfaceElevated'
             }`}
           >
             Next →

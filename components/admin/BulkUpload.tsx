@@ -68,9 +68,9 @@ export default function BulkUpload() {
 
   return (
     <div className="space-y-5">
-      <div className="rounded-xl border border-slate-200 bg-white p-5">
-        <h2 className="text-base font-semibold text-slate-900">1. Download the template</h2>
-        <p className="mt-1 text-sm text-slate-600">
+      <div className="rounded-xl border border-border bg-surfaceElevated p-5">
+        <h2 className="text-base font-semibold text-textPrimary">1. Download the template</h2>
+        <p className="mt-1 text-sm text-textSecondary">
           Fill one question per row. Bulk import supports single-correct text questions. Reference a
           chapter by its subject code and English chapter name.
         </p>
@@ -80,7 +80,7 @@ export default function BulkUpload() {
         </button>
         <details className="mt-3">
           <summary className="cursor-pointer text-sm font-medium text-brand">Column reference</summary>
-          <ul className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-slate-600 sm:grid-cols-3">
+          <ul className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-textSecondary sm:grid-cols-3">
             {BULK_COLUMNS.map((c) => (
               <li key={c} className="font-mono">
                 {c}
@@ -90,8 +90,8 @@ export default function BulkUpload() {
         </details>
       </div>
 
-      <div className="rounded-xl border border-slate-200 bg-white p-5">
-        <h2 className="text-base font-semibold text-slate-900">2. Upload &amp; validate</h2>
+      <div className="rounded-xl border border-border bg-surfaceElevated p-5">
+        <h2 className="text-base font-semibold text-textPrimary">2. Upload &amp; validate</h2>
         <div className="mt-3 flex flex-wrap items-center gap-3">
           <label className={`${btnSecondary} cursor-pointer`}>
             <UploadIcon className="h-4 w-4" />
@@ -106,9 +106,9 @@ export default function BulkUpload() {
       </div>
 
       {summary ? (
-        <div className="rounded-xl border border-slate-200 bg-white p-5">
+        <div className="rounded-xl border border-border bg-surfaceElevated p-5">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <h2 className="text-base font-semibold text-slate-900">
+            <h2 className="text-base font-semibold text-textPrimary">
               {committed ? 'Import complete' : '3. Review report'}
             </h2>
             <div className="flex flex-wrap gap-2">
@@ -125,7 +125,7 @@ export default function BulkUpload() {
             </button>
           ) : null}
           {committed ? (
-            <p className="mt-3 text-sm text-green-700">
+            <p className="mt-3 text-sm text-green-200">
               {summary.committed} question{summary.committed === 1 ? '' : 's'} imported. Rows with
               errors were skipped — fix and re-upload them separately.
             </p>
@@ -134,7 +134,7 @@ export default function BulkUpload() {
           <div className="mt-4 overflow-x-auto">
             <table className="w-full min-w-[560px] text-sm">
               <thead>
-                <tr className="border-b border-slate-200 text-left text-xs uppercase tracking-wide text-slate-500">
+                <tr className="border-b border-border text-left text-xs uppercase tracking-wide text-textSecondary">
                   <th className="px-3 py-2 font-medium">Row</th>
                   <th className="px-3 py-2 font-medium">Status</th>
                   <th className="px-3 py-2 font-medium">Preview / errors</th>
@@ -142,8 +142,8 @@ export default function BulkUpload() {
               </thead>
               <tbody>
                 {results?.map((r) => (
-                  <tr key={r.line} className="border-b border-slate-100 align-top">
-                    <td className="px-3 py-2 text-slate-500">{r.line}</td>
+                  <tr key={r.line} className="border-b border-border align-top">
+                    <td className="px-3 py-2 text-textSecondary">{r.line}</td>
                     <td className="px-3 py-2">
                       {r.status === 'error' ? (
                         <Badge color="red">Error</Badge>
@@ -154,7 +154,7 @@ export default function BulkUpload() {
                       )}
                     </td>
                     <td className="px-3 py-2">
-                      <p className="text-slate-700">{r.preview}</p>
+                      <p className="text-textSecondary">{r.preview}</p>
                       {r.errors.length > 0 ? (
                         <ul className="mt-1 list-inside list-disc text-xs text-red-600">
                           {r.errors.map((e, i) => (

@@ -25,7 +25,7 @@ export default function LanguageSwitcher() {
 
   return (
     <div
-      className="inline-flex max-w-full flex-wrap items-center gap-1 rounded-full border border-slate-200 p-1"
+      className="inline-flex max-w-full flex-wrap items-center gap-1 rounded-full border border-border bg-surface p-1"
       role="group"
       aria-label={t('language')}
     >
@@ -41,7 +41,7 @@ export default function LanguageSwitcher() {
             className={`rounded-full px-2.5 py-1 text-xs font-medium transition-colors disabled:opacity-60 sm:px-3 sm:text-sm ${
               isActive
                 ? 'bg-brand text-white'
-                : 'text-slate-600 hover:bg-slate-100'
+                : 'text-textSecondary hover:bg-surfaceElevated hover:text-white'
             }`}
           >
             {localeNames[code]}

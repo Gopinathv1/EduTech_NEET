@@ -99,8 +99,8 @@ export default function RegisterForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
       <div>
-        <h1 className="text-xl font-bold text-slate-900">{t('title')}</h1>
-        <p className="mt-1 text-sm text-slate-600">{t('subtitle')}</p>
+        <h1 className="text-xl font-bold text-textPrimary">{t('title')}</h1>
+        <p className="mt-1 text-sm text-textSecondary">{t('subtitle')}</p>
       </div>
 
       {banner ? <Banner kind="error">{banner}</Banner> : null}
@@ -207,9 +207,9 @@ export default function RegisterForm() {
         {t('submit')}
       </SubmitButton>
 
-      <p className="text-center text-sm text-slate-600">
+      <p className="text-center text-sm text-textSecondary">
         {t('haveAccount')}{' '}
-        <Link href="/login" className="font-semibold text-brand hover:text-brand-dark">
+        <Link href="/login" className="font-semibold text-brand hover:text-red-200">
           {t('login')}
         </Link>
       </p>

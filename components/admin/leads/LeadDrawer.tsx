@@ -115,27 +115,27 @@ export default function LeadDrawer({
 
   return (
     <div className="fixed inset-0 z-50 flex justify-end">
-      <div className="absolute inset-0 bg-slate-900/40" onClick={onClose} aria-hidden="true" />
-      <aside className="relative flex h-full w-full max-w-lg flex-col overflow-y-auto bg-slate-50 shadow-xl">
-        <header className="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200 bg-white px-5 py-4">
+      <div className="absolute inset-0 bg-brand/40" onClick={onClose} aria-hidden="true" />
+      <aside className="relative flex h-full w-full max-w-lg flex-col overflow-y-auto bg-surface shadow-xl">
+        <header className="sticky top-0 z-10 flex items-center justify-between border-b border-border bg-surfaceElevated px-5 py-4">
           <div>
-            <h2 className="text-lg font-bold text-slate-900">{s?.name ?? 'Lead'}</h2>
+            <h2 className="text-lg font-bold text-textPrimary">{s?.name ?? 'Lead'}</h2>
             {lead ? <Badge color={STATUS_BADGE[lead.status] ?? 'slate'}>{STATUS_LABEL[lead.status] ?? lead.status}</Badge> : null}
           </div>
-          <button type="button" onClick={onClose} className="rounded-lg p-2 text-slate-500 hover:bg-slate-100" aria-label="Close">
+          <button type="button" onClick={onClose} className="rounded-lg p-2 text-textSecondary hover:bg-surfaceElevated" aria-label="Close">
             <CloseIcon className="h-5 w-5" />
           </button>
         </header>
 
         {loading || !lead ? (
-          <div className="p-6 text-sm text-slate-500">Loading…</div>
+          <div className="p-6 text-sm text-textSecondary">Loading…</div>
         ) : (
           <div className="space-y-5 p-5">
             {/* Status + assignment controls */}
-            <section className="rounded-xl border border-slate-200 bg-white p-4">
-              <h3 className="text-sm font-semibold text-slate-800">Pipeline</h3>
+            <section className="rounded-xl border border-border bg-surfaceElevated p-4">
+              <h3 className="text-sm font-semibold text-textPrimary">Pipeline</h3>
               <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                <label className="text-xs text-slate-500">
+                <label className="text-xs text-textSecondary">
                   Status
                   <select className={`${selectClass} !mt-1 py-2 text-sm`} value={statusDraft} onChange={(e) => setStatusDraft(e.target.value)}>
                     {LEAD_STATUSES.map((st) => (
@@ -145,7 +145,7 @@ export default function LeadDrawer({
                     ))}
                   </select>
                 </label>
-                <label className="text-xs text-slate-500">
+                <label className="text-xs text-textSecondary">
                   Assigned to
                   <select
                     className={`${selectClass} !mt-1 py-2 text-sm`}
@@ -175,8 +175,8 @@ export default function LeadDrawer({
             </section>
 
             {/* Student profile */}
-            <section className="rounded-xl border border-slate-200 bg-white p-4">
-              <h3 className="text-sm font-semibold text-slate-800">Student profile</h3>
+            <section className="rounded-xl border border-border bg-surfaceElevated p-4">
+              <h3 className="text-sm font-semibold text-textPrimary">Student profile</h3>
               <dl className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
                 <Row label="Mobile" value={s ? `+91 ${s.mobile}` : '—'} />
                 <Row label="Email" value={s?.email ?? '—'} />
@@ -189,16 +189,16 @@ export default function LeadDrawer({
             </section>
 
             {/* Test performance */}
-            <section className="rounded-xl border border-slate-200 bg-white p-4">
-              <h3 className="text-sm font-semibold text-slate-800">Test performance</h3>
+            <section className="rounded-xl border border-border bg-surfaceElevated p-4">
+              <h3 className="text-sm font-semibold text-textPrimary">Test performance</h3>
               <div className="mt-3 flex gap-4 text-sm">
-                <div className="rounded-lg bg-slate-50 px-4 py-2">
-                  <p className="text-xs text-slate-500">Attempts</p>
-                  <p className="text-lg font-bold text-slate-900">{lead.performance.attempts}</p>
+                <div className="rounded-lg bg-surface px-4 py-2">
+                  <p className="text-xs text-textSecondary">Attempts</p>
+                  <p className="text-lg font-bold text-textPrimary">{lead.performance.attempts}</p>
                 </div>
-                <div className="rounded-lg bg-slate-50 px-4 py-2">
-                  <p className="text-xs text-slate-500">Best score</p>
-                  <p className="text-lg font-bold text-slate-900">
+                <div className="rounded-lg bg-surface px-4 py-2">
+                  <p className="text-xs text-textSecondary">Best score</p>
+                  <p className="text-lg font-bold text-textPrimary">
                     {lead.performance.bestScore != null ? `${lead.performance.bestScore}${lead.performance.bestMax ? ` / ${lead.performance.bestMax}` : ''}` : '—'}
                   </p>
                 </div>
@@ -206,8 +206,8 @@ export default function LeadDrawer({
             </section>
 
             {/* Submitted form data */}
-            <section className="rounded-xl border border-slate-200 bg-white p-4">
-              <h3 className="text-sm font-semibold text-slate-800">Submitted request</h3>
+            <section className="rounded-xl border border-border bg-surfaceElevated p-4">
+              <h3 className="text-sm font-semibold text-textPrimary">Submitted request</h3>
               <dl className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
                 <Row label="NEET score" value={lead.neetScore != null ? String(lead.neetScore) : '—'} />
                 <Row label="Marks" value={lead.marks != null ? String(lead.marks) : '—'} />
@@ -217,14 +217,14 @@ export default function LeadDrawer({
                 <Row label="Consent" value={lead.consentAt ? `Yes · ${fmt(lead.consentAt)}` : 'No'} />
               </dl>
               <div className="mt-2 text-sm">
-                <span className="text-slate-500">Interested countries: </span>
-                <span className="font-medium text-slate-800">{lead.countries.map((c) => c.name).join(', ') || '—'}</span>
+                <span className="text-textSecondary">Interested countries: </span>
+                <span className="font-medium text-textPrimary">{lead.countries.map((c) => c.name).join(', ') || '—'}</span>
               </div>
             </section>
 
             {/* Add note */}
-            <section className="rounded-xl border border-slate-200 bg-white p-4">
-              <h3 className="text-sm font-semibold text-slate-800">Add follow-up note</h3>
+            <section className="rounded-xl border border-border bg-surfaceElevated p-4">
+              <h3 className="text-sm font-semibold text-textPrimary">Add follow-up note</h3>
               <textarea className={`${inputClass} mt-2 text-sm`} rows={2} value={note} onChange={(e) => setNote(e.target.value)} placeholder="Called parent, shared brochure…" />
               <button type="button" className={`${btnSecondary} mt-2`} onClick={addNote} disabled={busy || !note.trim()}>
                 Add note
@@ -232,16 +232,16 @@ export default function LeadDrawer({
             </section>
 
             {/* Timeline */}
-            <section className="rounded-xl border border-slate-200 bg-white p-4">
-              <h3 className="text-sm font-semibold text-slate-800">Activity</h3>
+            <section className="rounded-xl border border-border bg-surfaceElevated p-4">
+              <h3 className="text-sm font-semibold text-textPrimary">Activity</h3>
               <ol className="mt-3 space-y-3">
                 {lead.events.map((e) => (
                   <li key={e.id} className="border-l-2 border-brand/30 pl-3">
                     <div className="flex items-center justify-between gap-2">
-                      <p className="text-sm font-medium text-slate-800">
+                      <p className="text-sm font-medium text-textPrimary">
                         {EVENT_LABEL[e.type] ?? e.type}
                         {e.type === 'STATUS_CHANGE' && e.toStatus ? (
-                          <span className="ml-1 text-slate-500">
+                          <span className="ml-1 text-textSecondary">
                             {e.fromStatus ? `${STATUS_LABEL[e.fromStatus]} → ` : ''}
                             {STATUS_LABEL[e.toStatus]}
                           </span>
@@ -249,7 +249,7 @@ export default function LeadDrawer({
                       </p>
                       <span className="shrink-0 text-[11px] text-slate-400">{fmt(e.createdAt)}</span>
                     </div>
-                    {e.note ? <p className="mt-0.5 text-sm text-slate-600">{e.note}</p> : null}
+                    {e.note ? <p className="mt-0.5 text-sm text-textSecondary">{e.note}</p> : null}
                     {e.adminName ? <p className="text-[11px] text-slate-400">by {e.adminName}</p> : null}
                   </li>
                 ))}
@@ -265,8 +265,8 @@ export default function LeadDrawer({
 function Row({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <dt className="text-xs text-slate-500">{label}</dt>
-      <dd className="font-medium text-slate-800">{value}</dd>
+      <dt className="text-xs text-textSecondary">{label}</dt>
+      <dd className="font-medium text-textPrimary">{value}</dd>
     </div>
   );
 }

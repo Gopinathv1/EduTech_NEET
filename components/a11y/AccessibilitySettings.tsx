@@ -51,7 +51,7 @@ export default function AccessibilitySettings({
   }
 
   return (
-    <div className="divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white">
+    <div className="divide-y divide-slate-200 rounded-2xl border border-border bg-surfaceElevated">
       <Row
         label={t('largeFont')}
         hint={t('largeFontHint')}
@@ -72,8 +72,8 @@ export default function AccessibilitySettings({
       />
       <div className="flex flex-col gap-3 p-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="text-base font-medium text-slate-900">{t('language')}</p>
-          <p className="text-sm text-slate-500">{t('languageHint')}</p>
+          <p className="text-base font-medium text-textPrimary">{t('language')}</p>
+          <p className="text-sm text-textSecondary">{t('languageHint')}</p>
         </div>
         <LanguageSwitcher />
       </div>
@@ -101,8 +101,8 @@ function Row({
   return (
     <div className="flex items-center justify-between gap-4 p-4">
       <div>
-        <p className="text-base font-medium text-slate-900">{label}</p>
-        <p className="text-sm text-slate-500">{hint}</p>
+        <p className="text-base font-medium text-textPrimary">{label}</p>
+        <p className="text-sm text-textSecondary">{hint}</p>
       </div>
       <button
         type="button"
@@ -113,7 +113,7 @@ function Row({
         onClick={onToggle}
         className="flex flex-shrink-0 items-center gap-2 disabled:opacity-60"
       >
-        <span className="text-sm font-medium text-slate-600">{on ? onText : offText}</span>
+        <span className="text-sm font-medium text-textSecondary">{on ? onText : offText}</span>
         <span
           aria-hidden="true"
           className={`inline-flex h-7 w-12 items-center rounded-full transition-colors ${
@@ -121,7 +121,7 @@ function Row({
           }`}
         >
           <span
-            className={`inline-block h-6 w-6 transform rounded-full bg-white shadow transition-transform ${
+            className={`inline-block h-6 w-6 transform rounded-full bg-surfaceElevated shadow transition-transform ${
               on ? 'translate-x-5' : 'translate-x-1'
             }`}
           />

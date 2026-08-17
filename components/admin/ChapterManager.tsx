@@ -127,11 +127,11 @@ export default function ChapterManager({
   }
 
   return (
-    <div className="rounded-xl border border-slate-200 bg-white shadow-sm">
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 px-5 py-4">
-        <h2 className="text-lg font-semibold text-slate-900">{subjectName}</h2>
+    <div className="rounded-xl border border-border bg-surfaceElevated shadow-sm">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-5 py-4">
+        <h2 className="text-lg font-semibold text-textPrimary">{subjectName}</h2>
         <div className="flex items-center gap-2">
-          <span className="text-sm text-slate-500">Total weightage</span>
+          <span className="text-sm text-textSecondary">Total weightage</span>
           <Badge color={balanced ? 'green' : 'amber'}>
             {balanced ? <CheckIcon className="h-3.5 w-3.5" /> : <AlertIcon className="h-3.5 w-3.5" />}
             {rounded}%
@@ -140,7 +140,7 @@ export default function ChapterManager({
       </div>
 
       {!balanced ? (
-        <div className="flex items-start gap-2 border-b border-amber-200 bg-amber-50 px-5 py-2.5 text-sm text-amber-800">
+        <div className="flex items-start gap-2 border-b border-amber-500/40 bg-amber-950/30 px-5 py-2.5 text-sm text-amber-100">
           <AlertIcon className="mt-0.5 h-4 w-4 shrink-0" />
           <span>
             Chapter weightages sum to <strong>{rounded}%</strong>, not 100%. The random generator
@@ -150,13 +150,13 @@ export default function ChapterManager({
       ) : null}
 
       {error ? (
-        <div className="border-b border-red-200 bg-red-50 px-5 py-2.5 text-sm text-red-700">{error}</div>
+        <div className="border-b border-red-200 bg-red-950/30 px-5 py-2.5 text-sm text-red-200">{error}</div>
       ) : null}
 
       <div className="overflow-x-auto">
         <table className="w-full min-w-[640px] text-sm">
           <thead>
-            <tr className="border-b border-slate-200 text-left text-xs uppercase tracking-wide text-slate-500">
+            <tr className="border-b border-border text-left text-xs uppercase tracking-wide text-textSecondary">
               <th className="px-5 py-2 font-medium">Chapter (EN / TA)</th>
               <th className="px-3 py-2 font-medium">Class</th>
               <th className="px-3 py-2 font-medium">Weightage</th>
@@ -166,14 +166,14 @@ export default function ChapterManager({
           <tbody>
             {chapters.length === 0 ? (
               <tr>
-                <td colSpan={4} className="px-5 py-6 text-center text-slate-500">
+                <td colSpan={4} className="px-5 py-6 text-center text-textSecondary">
                   No chapters yet. Add one below.
                 </td>
               </tr>
             ) : (
               chapters.map((c) =>
                 editId === c.id ? (
-                  <tr key={c.id} className="border-b border-slate-100 bg-slate-50 align-top">
+                  <tr key={c.id} className="border-b border-border bg-surface align-top">
                     <td className="px-5 py-2">
                       <input
                         className={inputClass}
@@ -225,24 +225,24 @@ export default function ChapterManager({
                     </td>
                   </tr>
                 ) : (
-                  <tr key={c.id} className="border-b border-slate-100">
+                  <tr key={c.id} className="border-b border-border">
                     <td className="px-5 py-3">
-                      <p className="font-medium text-slate-900">{c.nameEn}</p>
-                      {c.nameTa ? <p className="text-slate-500">{c.nameTa}</p> : null}
+                      <p className="font-medium text-textPrimary">{c.nameEn}</p>
+                      {c.nameTa ? <p className="text-textSecondary">{c.nameTa}</p> : null}
                     </td>
-                    <td className="px-3 py-3 text-slate-700">{c.class}</td>
-                    <td className="px-3 py-3 text-slate-700">{c.weightage}%</td>
+                    <td className="px-3 py-3 text-textSecondary">{c.class}</td>
+                    <td className="px-3 py-3 text-textSecondary">{c.weightage}%</td>
                     <td className="px-5 py-3">
                       <div className="flex justify-end gap-1">
                         <button
-                          className="rounded-lg p-2 text-slate-500 hover:bg-slate-100 hover:text-brand"
+                          className="rounded-lg p-2 text-textSecondary hover:bg-surfaceElevated hover:text-brand"
                           onClick={() => startEdit(c)}
                           aria-label="Edit chapter"
                         >
                           <EditIcon className="h-4 w-4" />
                         </button>
                         <button
-                          className="rounded-lg p-2 text-slate-500 hover:bg-red-50 hover:text-red-600"
+                          className="rounded-lg p-2 text-textSecondary hover:bg-red-950/30 hover:text-red-600"
                           onClick={() => remove(c.id)}
                           aria-label="Delete chapter"
                         >
@@ -259,7 +259,7 @@ export default function ChapterManager({
       </div>
 
       {/* Add row */}
-      <div className="grid grid-cols-1 gap-2 border-t border-slate-200 bg-slate-50 px-5 py-3 sm:grid-cols-[2fr,1fr,1fr,auto] sm:items-center">
+      <div className="grid grid-cols-1 gap-2 border-t border-border bg-surface px-5 py-3 sm:grid-cols-[2fr,1fr,1fr,auto] sm:items-center">
         <div className="space-y-1">
           <input
             className={inputClass}

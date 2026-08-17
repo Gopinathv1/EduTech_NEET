@@ -18,11 +18,11 @@ export default async function SettingsPage() {
   const prefs = await getA11yPrefs();
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-surface">
       <StudentHeader />
       <main id="main-content" className="mx-auto max-w-2xl px-4 py-8 sm:px-6">
-        <h1 className="text-2xl font-bold text-slate-900">{t('settingsTitle')}</h1>
-        <p className="mt-1 text-sm text-slate-600">{t('settingsSubtitle')}</p>
+        <h1 className="text-2xl font-bold text-textPrimary">{t('settingsTitle')}</h1>
+        <p className="mt-1 text-sm text-textSecondary">{t('settingsSubtitle')}</p>
         <div className="mt-6">
           <AccessibilitySettings fontScale={prefs.fontScale} contrast={prefs.contrast} />
         </div>

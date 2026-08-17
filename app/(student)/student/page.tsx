@@ -68,21 +68,21 @@ export default async function StudentHomePage() {
   const topRec = perf.recommendations.slice(0, 1);
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-surface">
       <StudentHeader />
       <main id="main-content" className="mx-auto max-w-5xl px-4 py-8 sm:px-6">
-        <h1 className="text-2xl font-bold text-slate-900">{t('welcome', { name: session.name })}</h1>
-        <p className="mt-1 text-sm text-slate-600">{t('subtitle')}</p>
+        <h1 className="text-2xl font-bold text-textPrimary">{t('welcome', { name: session.name })}</h1>
+        <p className="mt-1 text-sm text-textSecondary">{t('subtitle')}</p>
 
         {/* Continue-test banner */}
         {inProgress ? (
           <Link
             href={`/student/tests/${inProgress.testId}/attempt`}
-            className="mt-5 flex flex-col gap-2 rounded-2xl border border-amber-200 bg-amber-50 p-5 sm:flex-row sm:items-center sm:justify-between"
+            className="mt-5 flex flex-col gap-2 rounded-2xl border border-amber-500/40 bg-amber-950/30 p-5 sm:flex-row sm:items-center sm:justify-between"
           >
             <div>
               <h2 className="text-base font-semibold text-amber-900">{t('continueTitle')}</h2>
-              <p className="mt-0.5 text-sm text-amber-800">{t('continueBody')}</p>
+              <p className="mt-0.5 text-sm text-amber-100">{t('continueBody')}</p>
             </div>
             <span className="shrink-0 rounded-lg bg-amber-600 px-5 py-2.5 text-center text-sm font-semibold text-white">
               {t('resume')}
@@ -91,9 +91,9 @@ export default async function StudentHomePage() {
         ) : null}
 
         {isNew ? (
-          <section className="mt-6 rounded-2xl border border-slate-200 bg-white p-10 text-center">
-            <h2 className="text-lg font-semibold text-slate-900">{t('emptyTitle')}</h2>
-            <p className="mx-auto mt-2 max-w-md text-sm text-slate-500">{t('emptyBody')}</p>
+          <section className="mt-6 rounded-2xl border border-border bg-surfaceElevated p-10 text-center">
+            <h2 className="text-lg font-semibold text-textPrimary">{t('emptyTitle')}</h2>
+            <p className="mx-auto mt-2 max-w-md text-sm text-textSecondary">{t('emptyBody')}</p>
             <Link href="/student/tests" className="mt-5 inline-block rounded-lg bg-brand px-6 py-3 text-sm font-semibold text-white hover:bg-brand-dark">
               {t('browseCta')}
             </Link>
@@ -115,24 +115,24 @@ export default async function StudentHomePage() {
                 )}
               </section>
 
-              <Link href="/student/performance" className="flex flex-col justify-center rounded-2xl border border-slate-200 bg-white p-5 hover:border-brand">
+              <Link href="/student/performance" className="flex flex-col justify-center rounded-2xl border border-border bg-surfaceElevated p-5 hover:border-brand">
                 <span className="text-2xl">📈</span>
-                <span className="mt-1 text-sm font-semibold text-slate-900">{t('previousScores')}</span>
-                <span className="text-xs text-slate-500">{results.length}</span>
+                <span className="mt-1 text-sm font-semibold text-textPrimary">{t('previousScores')}</span>
+                <span className="text-xs text-textSecondary">{results.length}</span>
               </Link>
-              <Link href="/student/payments" className="flex flex-col justify-center rounded-2xl border border-slate-200 bg-white p-5 hover:border-brand">
+              <Link href="/student/payments" className="flex flex-col justify-center rounded-2xl border border-border bg-surfaceElevated p-5 hover:border-brand">
                 <span className="text-2xl">🧾</span>
-                <span className="mt-1 text-sm font-semibold text-slate-900">{t('paymentHistory')}</span>
+                <span className="mt-1 text-sm font-semibold text-textPrimary">{t('paymentHistory')}</span>
                 <span className="text-xs font-medium text-brand">{t('viewAll')} →</span>
               </Link>
             </div>
 
             {/* Purchased + upcoming */}
             <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-2">
-              <section className="rounded-2xl border border-slate-200 bg-white p-5">
-                <h2 className="text-lg font-semibold text-slate-900">{t('purchased')}</h2>
+              <section className="rounded-2xl border border-border bg-surfaceElevated p-5">
+                <h2 className="text-lg font-semibold text-textPrimary">{t('purchased')}</h2>
                 {entitlements.length === 0 ? (
-                  <p className="mt-2 text-sm text-slate-500">{t('noPurchased')}</p>
+                  <p className="mt-2 text-sm text-textSecondary">{t('noPurchased')}</p>
                 ) : (
                   <ul className="mt-3 space-y-2">
                     {entitlements.map((e) => {
@@ -152,7 +152,7 @@ export default async function StudentHomePage() {
                       }
                       return (
                         <li key={e.id} className="flex items-center justify-between gap-3">
-                          <span className="min-w-0 truncate text-sm text-slate-800">{title}</span>
+                          <span className="min-w-0 truncate text-sm text-textPrimary">{title}</span>
                           <Link href={href} className="shrink-0 rounded-lg bg-brand px-3 py-1.5 text-xs font-semibold text-white hover:bg-brand-dark">
                             {label}
                           </Link>
@@ -163,15 +163,15 @@ export default async function StudentHomePage() {
                 )}
               </section>
 
-              <section className="rounded-2xl border border-slate-200 bg-white p-5">
-                <h2 className="text-lg font-semibold text-slate-900">{t('upcoming')}</h2>
+              <section className="rounded-2xl border border-border bg-surfaceElevated p-5">
+                <h2 className="text-lg font-semibold text-textPrimary">{t('upcoming')}</h2>
                 {upcoming.length === 0 ? (
-                  <p className="mt-2 text-sm text-slate-500">{t('noUpcoming')}</p>
+                  <p className="mt-2 text-sm text-textSecondary">{t('noUpcoming')}</p>
                 ) : (
                   <ul className="mt-3 space-y-2">
                     {upcoming.map((test) => (
                       <li key={test.id} className="flex items-center justify-between gap-3">
-                        <Link href={`/student/tests/${test.id}`} className="min-w-0 truncate text-sm text-slate-800 hover:text-brand">
+                        <Link href={`/student/tests/${test.id}`} className="min-w-0 truncate text-sm text-textPrimary hover:text-brand">
                           {localizedName(test.title, locale) || localizedName(test.title, 'en')}
                         </Link>
                         <Link href={`/student/tests/${test.id}/checkout`} className="shrink-0 rounded-lg border border-brand px-3 py-1.5 text-xs font-semibold text-brand hover:bg-brand-soft">
@@ -185,17 +185,17 @@ export default async function StudentHomePage() {
             </div>
 
             {/* Previous scores */}
-            <section className="mt-6 rounded-2xl border border-slate-200 bg-white p-5">
-              <h2 className="text-lg font-semibold text-slate-900">{t('previousScores')}</h2>
+            <section className="mt-6 rounded-2xl border border-border bg-surfaceElevated p-5">
+              <h2 className="text-lg font-semibold text-textPrimary">{t('previousScores')}</h2>
               {results.length === 0 ? (
-                <p className="mt-2 text-sm text-slate-500">{t('noScores')}</p>
+                <p className="mt-2 text-sm text-textSecondary">{t('noScores')}</p>
               ) : (
                 <ul className="mt-3 divide-y divide-slate-100">
                   {results.map((r) => (
                     <li key={r.id}>
                       <Link href={`/student/results/${r.attempt.id}`} className="flex items-center justify-between gap-3 py-2.5 hover:text-brand">
                         <span className="min-w-0">
-                          <span className="block truncate text-sm font-medium text-slate-800">
+                          <span className="block truncate text-sm font-medium text-textPrimary">
                             {localizedName(r.attempt.test.title, locale) || localizedName(r.attempt.test.title, 'en')}
                           </span>
                           <span className="text-xs text-slate-400">
@@ -215,8 +215,8 @@ export default async function StudentHomePage() {
 
             {/* Top recommendation */}
             {topRec.length > 0 ? (
-              <section className="mt-6 rounded-2xl border border-slate-200 bg-white p-5">
-                <h2 className="text-lg font-semibold text-slate-900">{tr('heading')}</h2>
+              <section className="mt-6 rounded-2xl border border-border bg-surfaceElevated p-5">
+                <h2 className="text-lg font-semibold text-textPrimary">{tr('heading')}</h2>
                 <RecommendationList recs={topRec} locale={locale} />
               </section>
             ) : null}
@@ -236,8 +236,8 @@ export default async function StudentHomePage() {
               <GlobeIcon className="h-6 w-6" />
             </span>
             <div>
-              <h2 className="text-base font-semibold text-slate-900">{tc('dashboardCard.title')}</h2>
-              <p className="mt-1 text-sm text-slate-600">{tc('dashboardCard.body')}</p>
+              <h2 className="text-base font-semibold text-textPrimary">{tc('dashboardCard.title')}</h2>
+              <p className="mt-1 text-sm text-textSecondary">{tc('dashboardCard.body')}</p>
             </div>
           </div>
           <Link href="/student/admission-guidance" className="shrink-0 rounded-lg bg-brand px-5 py-2.5 text-center text-sm font-semibold text-white hover:bg-brand-dark">
@@ -268,16 +268,16 @@ function ChapterCard({
 }) {
   const accent = tone === 'weak' ? 'text-red-600' : 'text-green-600';
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white p-5">
-      <h2 className="text-lg font-semibold text-slate-900">{heading}</h2>
+    <section className="rounded-2xl border border-border bg-surfaceElevated p-5">
+      <h2 className="text-lg font-semibold text-textPrimary">{heading}</h2>
       {rows.length === 0 ? (
-        <p className="mt-2 text-sm text-slate-500">{empty}</p>
+        <p className="mt-2 text-sm text-textSecondary">{empty}</p>
       ) : (
         <>
           <ul className="mt-3 space-y-2">
             {rows.map((c) => (
               <li key={c.chapterId} className="flex items-center justify-between gap-3 text-sm">
-                <span className="min-w-0 truncate text-slate-700">
+                <span className="min-w-0 truncate text-textSecondary">
                   {L(c.name, locale)}
                   <span className="ml-1.5 text-[11px] uppercase tracking-wide text-slate-400">{c.subjectCode}</span>
                 </span>
@@ -285,7 +285,7 @@ function ChapterCard({
               </li>
             ))}
           </ul>
-          <Link href="/student/tests" className="mt-3 inline-block text-sm font-medium text-brand hover:text-brand-dark">
+          <Link href="/student/tests" className="mt-3 inline-block text-sm font-medium text-brand hover:text-red-200">
             {cta} →
           </Link>
         </>

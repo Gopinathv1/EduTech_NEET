@@ -27,7 +27,7 @@ export default function PublicHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
+    <header className="sticky top-0 z-50 border-b border-border bg-black/95 backdrop-blur supports-[backdrop-filter]:bg-black/85">
       <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between gap-2 px-4 py-3 sm:px-6">
         <Logo />
 
@@ -40,8 +40,8 @@ export default function PublicHeader() {
               href={link.href}
               className={`whitespace-nowrap rounded-md px-2 py-2 text-[13px] font-medium transition-colors ${
                 isActive(pathname, link.href)
-                  ? 'text-brand'
-                  : 'text-slate-600 hover:text-brand'
+                  ? 'bg-brand-soft text-red-200'
+                  : 'text-textSecondary hover:text-white'
               }`}
               aria-current={isActive(pathname, link.href) ? 'page' : undefined}
             >
@@ -51,9 +51,9 @@ export default function PublicHeader() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-2">
-          <div className="hidden items-center rounded-lg border border-slate-200 bg-white px-2 py-1.5 text-sm font-semibold text-slate-700 lg:flex">
-            <span>{t('examNeet')}</span>
-            <span className="ml-2 rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-500">
+          <div className="hidden items-center rounded-lg border border-brand/30 bg-surface px-2 py-1.5 text-sm font-semibold text-textPrimary lg:flex">
+            <span className="text-red-200">{t('examNeet')}</span>
+            <span className="ml-2 rounded-full border border-border bg-surfaceElevated px-2 py-0.5 text-xs text-textSecondary">
               {t('examJeeSoon')}
             </span>
           </div>
@@ -61,7 +61,7 @@ export default function PublicHeader() {
           <LanguageSwitcher />
           <Link
             href="/login"
-            className="hidden rounded-lg px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 sm:inline-flex"
+            className="hidden rounded-lg px-3 py-1.5 text-sm font-medium text-textSecondary hover:bg-surfaceElevated hover:text-white sm:inline-flex"
           >
             {tNav('login')}
           </Link>
@@ -74,7 +74,7 @@ export default function PublicHeader() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex items-center justify-center rounded-lg p-2 text-slate-700 hover:bg-slate-100 min-[1440px]:hidden"
+            className="inline-flex items-center justify-center rounded-lg p-2 text-textPrimary hover:bg-surfaceElevated min-[1440px]:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={tA11y('openMenu')}
@@ -89,7 +89,7 @@ export default function PublicHeader() {
         <nav
           id="mobile-nav"
           aria-label={tA11y('primaryNav')}
-          className="border-t border-slate-200 bg-white px-4 py-3 min-[1440px]:hidden"
+          className="border-t border-border bg-black px-4 py-3 min-[1440px]:hidden"
         >
           <ul className="flex flex-col">
             {NAV_LINKS.map((link) => (
@@ -99,8 +99,8 @@ export default function PublicHeader() {
                   onClick={() => setOpen(false)}
                   className={`block rounded-md px-3 py-2.5 text-base font-medium ${
                     isActive(pathname, link.href)
-                      ? 'bg-brand-soft text-brand'
-                      : 'text-slate-700 hover:bg-slate-50'
+                      ? 'bg-brand-soft text-red-200'
+                      : 'text-textSecondary hover:bg-surfaceElevated hover:text-white'
                   }`}
                   aria-current={isActive(pathname, link.href) ? 'page' : undefined}
                 >
@@ -109,11 +109,11 @@ export default function PublicHeader() {
               </li>
             ))}
           </ul>
-          <div className="mt-3 grid grid-cols-2 gap-2 border-t border-slate-100 pt-3">
+          <div className="mt-3 grid grid-cols-2 gap-2 border-t border-border pt-3">
             <Link
               href="/login"
               onClick={() => setOpen(false)}
-              className="rounded-lg border border-slate-300 px-3 py-2.5 text-center text-sm font-medium text-slate-700"
+              className="rounded-lg border border-brand/60 px-3 py-2.5 text-center text-sm font-medium text-white"
             >
               {tNav('login')}
             </Link>

@@ -39,8 +39,8 @@ export default function ServicesPage() {
                   <Icon className="h-6 w-6" />
                 </IconBadge>
                 <div>
-                  <h3 className="text-lg font-semibold text-slate-900">{s.title}</h3>
-                  <p className="mt-1 text-sm text-slate-600">{s.body}</p>
+                  <h3 className="text-lg font-semibold text-textPrimary">{s.title}</h3>
+                  <p className="mt-1 text-sm text-textSecondary">{s.body}</p>
                 </div>
               </Card>
             );

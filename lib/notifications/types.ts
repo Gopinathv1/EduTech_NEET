@@ -25,7 +25,7 @@ export type NotificationStyle = {
 
 export const NOTIFICATION_STYLES: Record<NotificationType, NotificationStyle> = {
   NEW_MOCK_TEST: { icon: '📝', chip: 'bg-brand-soft text-brand', accent: 'border-l-brand' },
-  RESULT: { icon: '📊', chip: 'bg-green-100 text-green-700', accent: 'border-l-green-500' },
+  RESULT: { icon: '📊', chip: 'bg-green-950/40 text-green-200', accent: 'border-l-green-500' },
   OFFER: { icon: '🎁', chip: 'bg-amber-100 text-amber-700', accent: 'border-l-amber-500' },
   COUNSELLING: { icon: '🎓', chip: 'bg-indigo-100 text-indigo-700', accent: 'border-l-indigo-500' },
   ADMISSION_ALERT: { icon: '📣', chip: 'bg-rose-100 text-rose-700', accent: 'border-l-rose-500' },

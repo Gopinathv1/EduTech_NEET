@@ -71,8 +71,8 @@ export default function QuestionPicker({
   return (
     <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
       {/* Search */}
-      <div className="rounded-lg border border-slate-200 p-3">
-        <p className="mb-2 text-sm font-semibold text-slate-900">Find questions</p>
+      <div className="rounded-lg border border-border p-3">
+        <p className="mb-2 text-sm font-semibold text-textPrimary">Find questions</p>
         <div className="grid grid-cols-2 gap-2">
           <select
             className={cls}
@@ -121,10 +121,10 @@ export default function QuestionPicker({
             <li className="py-4 text-center text-sm text-slate-400">No results yet — search above.</li>
           ) : (
             results.map((r) => (
-              <li key={r.id} className="flex items-start gap-2 rounded-lg border border-slate-100 p-2 text-sm">
+              <li key={r.id} className="flex items-start gap-2 rounded-lg border border-border p-2 text-sm">
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-slate-800">{r.preview || '(no text)'}</p>
-                  <p className="text-xs text-slate-500">
+                  <p className="truncate text-textPrimary">{r.preview || '(no text)'}</p>
+                  <p className="text-xs text-textSecondary">
                     {r.subjectName} · {r.chapterName} · {r.difficulty.toLowerCase()}
                   </p>
                 </div>
@@ -144,9 +144,9 @@ export default function QuestionPicker({
       </div>
 
       {/* Selected */}
-      <div className="rounded-lg border border-slate-200 p-3">
+      <div className="rounded-lg border border-border p-3">
         <div className="mb-2 flex items-center justify-between">
-          <p className="text-sm font-semibold text-slate-900">Selected</p>
+          <p className="text-sm font-semibold text-textPrimary">Selected</p>
           <Badge color="blue">{value.length} question{value.length === 1 ? '' : 's'}</Badge>
         </div>
         {value.length === 0 ? (
@@ -154,23 +154,23 @@ export default function QuestionPicker({
         ) : (
           <ol className="max-h-80 space-y-2 overflow-y-auto">
             {value.map((v, i) => (
-              <li key={v.id} className="flex items-start gap-2 rounded-lg border border-slate-100 p-2 text-sm">
+              <li key={v.id} className="flex items-start gap-2 rounded-lg border border-border p-2 text-sm">
                 <span className="mt-0.5 w-5 shrink-0 text-xs font-semibold text-slate-400">{i + 1}</span>
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-slate-800">{v.preview || '(no text)'}</p>
-                  <p className="text-xs text-slate-500">
+                  <p className="truncate text-textPrimary">{v.preview || '(no text)'}</p>
+                  <p className="text-xs text-textSecondary">
                     {v.meta}
                     {!v.hasTa ? ' · no reviewed TA' : ''}
                   </p>
                 </div>
                 <div className="flex shrink-0 items-center gap-0.5">
-                  <button type="button" onClick={() => move(i, -1)} className="rounded p-1 text-slate-400 hover:bg-slate-100" aria-label="Move up">
+                  <button type="button" onClick={() => move(i, -1)} className="rounded p-1 text-slate-400 hover:bg-surfaceElevated" aria-label="Move up">
                     ↑
                   </button>
-                  <button type="button" onClick={() => move(i, 1)} className="rounded p-1 text-slate-400 hover:bg-slate-100" aria-label="Move down">
+                  <button type="button" onClick={() => move(i, 1)} className="rounded p-1 text-slate-400 hover:bg-surfaceElevated" aria-label="Move down">
                     ↓
                   </button>
-                  <button type="button" onClick={() => remove(v.id)} className="rounded p-1 text-red-500 hover:bg-red-50" aria-label="Remove">
+                  <button type="button" onClick={() => remove(v.id)} className="rounded p-1 text-red-500 hover:bg-red-950/30" aria-label="Remove">
                     <TrashIcon className="h-4 w-4" />
                   </button>
                 </div>

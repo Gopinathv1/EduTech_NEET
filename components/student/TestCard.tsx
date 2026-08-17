@@ -17,27 +17,27 @@ export type CatalogueCard = {
 export default function TestCard({ test }: { test: CatalogueCard }) {
   const t = useTranslations('catalogue');
   return (
-    <div className="flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-shadow hover:shadow-md">
+    <div className="flex flex-col rounded-2xl border border-border bg-surfaceElevated p-5 shadow-sm transition-shadow hover:shadow-md">
       <div className="flex items-start justify-between gap-2">
         <span className="inline-block rounded-full bg-brand-soft px-2.5 py-0.5 text-xs font-semibold text-brand">
           {t(`types.${test.testType}`)}
         </span>
         <div className="flex gap-1">
           {test.languages.map((l) => (
-            <span key={l} className="rounded border border-slate-200 px-1.5 py-0.5 text-[10px] font-semibold uppercase text-slate-500">
+            <span key={l} className="rounded border border-border px-1.5 py-0.5 text-[10px] font-semibold uppercase text-textSecondary">
               {l}
             </span>
           ))}
         </div>
       </div>
 
-      <h3 className="mt-3 text-base font-semibold text-slate-900">
+      <h3 className="mt-3 text-base font-semibold text-textPrimary">
         <Link href={`/student/tests/${test.id}`} className="hover:text-brand">
           {test.title}
         </Link>
       </h3>
 
-      <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-600">
+      <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm text-textSecondary">
         <span className="inline-flex items-center gap-1">
           <BookIcon className="h-4 w-4 text-slate-400" />
           {t('questions', { count: test.totalQuestions })}
@@ -51,11 +51,11 @@ export default function TestCard({ test }: { test: CatalogueCard }) {
         ) : null}
       </div>
 
-      <div className="mt-4 flex items-center justify-between border-t border-slate-100 pt-4">
+      <div className="mt-4 flex items-center justify-between border-t border-border pt-4">
         {test.purchased ? (
-          <span className="text-sm font-semibold text-green-700">{t('owned')}</span>
+          <span className="text-sm font-semibold text-green-200">{t('owned')}</span>
         ) : (
-          <span className="text-lg font-extrabold text-slate-900">₹{test.price}</span>
+          <span className="text-lg font-extrabold text-textPrimary">₹{test.price}</span>
         )}
         {test.purchased ? (
           <Link

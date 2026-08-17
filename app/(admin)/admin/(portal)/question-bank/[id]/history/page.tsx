@@ -37,16 +37,16 @@ export default async function QuestionHistoryPage({ params }: { params: Promise<
     <div className="mx-auto max-w-3xl">
       <div className="mb-4 flex items-center justify-between">
         <div>
-          <h1 className="text-xl font-bold text-slate-900">Version history</h1>
-          <p className="text-sm text-slate-500">Every change to this question, most recent first.</p>
+          <h1 className="text-xl font-bold text-textPrimary">Version history</h1>
+          <p className="text-sm text-textSecondary">Every change to this question, most recent first.</p>
         </div>
-        <Link href={`/admin/question-bank/${id}`} className="text-sm font-medium text-brand hover:text-brand-dark">
+        <Link href={`/admin/question-bank/${id}`} className="text-sm font-medium text-brand hover:text-red-200">
           ← Back to edit
         </Link>
       </div>
 
       {question.versions.length === 0 ? (
-        <p className="rounded-xl border border-slate-200 bg-white p-6 text-sm text-slate-500">
+        <p className="rounded-xl border border-border bg-surfaceElevated p-6 text-sm text-textSecondary">
           No history yet. Versions are recorded from the next edit onward.
         </p>
       ) : (
@@ -55,17 +55,17 @@ export default async function QuestionHistoryPage({ params }: { params: Promise<
             const snap = v.snapshot as Snapshot;
             const en = snap.translations?.find((t) => t.language === 'en');
             return (
-              <li key={v.id} className="rounded-xl border border-slate-200 bg-white p-4">
+              <li key={v.id} className="rounded-xl border border-border bg-surfaceElevated p-4">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
                     <span className="inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-brand-soft px-2 text-xs font-bold text-brand">
                       v{v.version}
                     </span>
-                    <span className="text-sm font-semibold text-slate-800">
+                    <span className="text-sm font-semibold text-textPrimary">
                       {ACTION_LABEL[v.action] ?? v.action}
                     </span>
                     {snap.status ? (
-                      <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-600">
+                      <span className="rounded-full bg-surfaceElevated px-2 py-0.5 text-[11px] font-medium text-textSecondary">
                         {snap.status}
                       </span>
                     ) : null}
@@ -75,7 +75,7 @@ export default async function QuestionHistoryPage({ params }: { params: Promise<
                   </span>
                 </div>
                 {en ? (
-                  <p className="mt-2 line-clamp-2 text-sm text-slate-600">{en.questionText}</p>
+                  <p className="mt-2 line-clamp-2 text-sm text-textSecondary">{en.questionText}</p>
                 ) : null}
                 <p className="mt-1 text-xs text-slate-400">
                   {[snap.difficulty, snap.questionType, snap.topic, en ? `Answer: ${en.correctOption}` : null]

@@ -11,9 +11,9 @@ import RecommendationList from '@/components/student/RecommendationList';
 import { L } from '@/components/student/results/localize';
 
 const STRENGTH_TEXT: Record<Strength, string> = {
-  strong: 'text-green-700',
-  average: 'text-amber-700',
-  weak: 'text-red-700',
+  strong: 'text-green-200',
+  average: 'text-amber-200',
+  weak: 'text-red-200',
 };
 
 /** Cross-attempt performance analytics: trends, subject accuracy, strong/weak
@@ -27,16 +27,16 @@ export default async function PerformancePage() {
   const perf = await buildPerformance(session.sub);
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-surface">
       <StudentHeader />
       <main id="main-content" className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
-        <h1 className="text-2xl font-bold text-slate-900">{t('title')}</h1>
-        <p className="mt-1 text-sm text-slate-600">{t('subtitle')}</p>
+        <h1 className="text-2xl font-bold text-textPrimary">{t('title')}</h1>
+        <p className="mt-1 text-sm text-textSecondary">{t('subtitle')}</p>
 
         {perf.attemptsCount === 0 ? (
-          <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-10 text-center">
-            <h2 className="text-lg font-semibold text-slate-900">{t('noData')}</h2>
-            <p className="mx-auto mt-2 max-w-md text-sm text-slate-500">{t('noDataHint')}</p>
+          <div className="mt-8 rounded-2xl border border-border bg-surfaceElevated p-10 text-center">
+            <h2 className="text-lg font-semibold text-textPrimary">{t('noData')}</h2>
+            <p className="mx-auto mt-2 max-w-md text-sm text-textSecondary">{t('noDataHint')}</p>
             <Link
               href="/student/tests"
               className="mt-5 inline-block rounded-lg bg-brand px-6 py-3 text-sm font-semibold text-white hover:bg-brand-dark"
@@ -55,7 +55,7 @@ export default async function PerformancePage() {
 
             {/* Recommendations */}
             <section>
-              <h2 className="text-lg font-semibold text-slate-900">
+              <h2 className="text-lg font-semibold text-textPrimary">
                 {(await getTranslations('recommendations'))('heading')}
               </h2>
               <RecommendationList recs={perf.recommendations} locale={locale} />
@@ -70,11 +70,11 @@ export default async function PerformancePage() {
 
             {/* Attempt history */}
             <section>
-              <h2 className="text-lg font-semibold text-slate-900">{t('history.heading')}</h2>
-              <div className="mt-3 overflow-x-auto rounded-2xl border border-slate-200 bg-white">
+              <h2 className="text-lg font-semibold text-textPrimary">{t('history.heading')}</h2>
+              <div className="mt-3 overflow-x-auto rounded-2xl border border-border bg-surfaceElevated">
                 <table className="w-full min-w-[560px] text-sm">
                   <thead>
-                    <tr className="border-b border-slate-200 text-left text-xs uppercase tracking-wide text-slate-500">
+                    <tr className="border-b border-border text-left text-xs uppercase tracking-wide text-textSecondary">
                       <th className="px-4 py-3">{t('history.test')}</th>
                       <th className="px-4 py-3">{t('history.date')}</th>
                       <th className="px-4 py-3 text-right">{t('history.score')}</th>
@@ -85,16 +85,16 @@ export default async function PerformancePage() {
                   </thead>
                   <tbody>
                     {perf.history.map((a) => (
-                      <tr key={a.attemptId} className="border-b border-slate-100 last:border-0">
-                        <td className="px-4 py-3 font-medium text-slate-800">
+                      <tr key={a.attemptId} className="border-b border-border last:border-0">
+                        <td className="px-4 py-3 font-medium text-textPrimary">
                           {L(a.testTitle, locale)}
                           {a.status === 'AUTO_SUBMITTED' ? (
-                            <span className="ml-2 rounded bg-slate-100 px-1.5 py-0.5 text-[10px] font-semibold text-slate-500">
+                            <span className="ml-2 rounded bg-surfaceElevated px-1.5 py-0.5 text-[10px] font-semibold text-textSecondary">
                               {t('history.auto')}
                             </span>
                           ) : null}
                         </td>
-                        <td className="px-4 py-3 text-slate-500">
+                        <td className="px-4 py-3 text-textSecondary">
                           {a.submittedAt
                             ? new Date(a.submittedAt).toLocaleDateString(locale === 'ta' ? 'ta-IN' : 'en-GB', {
                                 day: '2-digit',
@@ -102,11 +102,11 @@ export default async function PerformancePage() {
                               })
                             : '—'}
                         </td>
-                        <td className="px-4 py-3 text-right font-semibold tabular-nums text-slate-800">{a.score}</td>
-                        <td className="px-4 py-3 text-right tabular-nums text-slate-600">{round1(a.accuracy)}%</td>
-                        <td className="px-4 py-3 text-right tabular-nums text-slate-500">{round1(a.avgSecondsPerQuestion)}s</td>
+                        <td className="px-4 py-3 text-right font-semibold tabular-nums text-textPrimary">{a.score}</td>
+                        <td className="px-4 py-3 text-right tabular-nums text-textSecondary">{round1(a.accuracy)}%</td>
+                        <td className="px-4 py-3 text-right tabular-nums text-textSecondary">{round1(a.avgSecondsPerQuestion)}s</td>
                         <td className="px-4 py-3 text-right">
-                          <Link href={`/student/results/${a.attemptId}`} className="font-semibold text-brand hover:text-brand-dark">
+                          <Link href={`/student/results/${a.attemptId}`} className="font-semibold text-brand hover:text-red-200">
                             {t('history.view')}
                           </Link>
                         </td>
@@ -135,15 +135,15 @@ function ChapterColumn({
   locale: ExamLanguage;
 }) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-4">
-      <h3 className="text-sm font-semibold text-slate-800">{heading}</h3>
+    <div className="rounded-2xl border border-border bg-surfaceElevated p-4">
+      <h3 className="text-sm font-semibold text-textPrimary">{heading}</h3>
       {rows.length === 0 ? (
-        <p className="mt-2 text-sm text-slate-500">{empty}</p>
+        <p className="mt-2 text-sm text-textSecondary">{empty}</p>
       ) : (
         <ul className="mt-3 space-y-2">
           {rows.map((c) => (
             <li key={c.chapterId} className="flex items-center justify-between gap-3 text-sm">
-              <span className="text-slate-700">
+              <span className="text-textSecondary">
                 {L(c.name, locale)}
                 <span className="ml-1.5 text-[11px] uppercase tracking-wide text-slate-400">{c.subjectCode}</span>
               </span>

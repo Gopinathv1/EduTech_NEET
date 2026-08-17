@@ -53,7 +53,7 @@ export default function NotificationsClient({ initialItems }: { initialItems: Se
           <button
             type="button"
             onClick={markAll}
-            className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100"
+            className="rounded-lg border border-border px-3 py-1.5 text-sm font-medium text-textSecondary hover:bg-surfaceElevated"
           >
             {t('markAllRead')}
           </button>
@@ -61,7 +61,7 @@ export default function NotificationsClient({ initialItems }: { initialItems: Se
       </div>
 
       {filtered.length === 0 ? (
-        <p className="mt-8 rounded-2xl border border-slate-200 bg-white p-10 text-center text-sm text-slate-500">
+        <p className="mt-8 rounded-2xl border border-border bg-surfaceElevated p-10 text-center text-sm text-textSecondary">
           {t('empty')}
         </p>
       ) : (
@@ -73,8 +73,8 @@ export default function NotificationsClient({ initialItems }: { initialItems: Se
               <li key={n.id}>
                 <Wrapper
                   {...(n.linkUrl ? { type: 'button' as const, onClick: () => openItem(n) } : {})}
-                  className={`flex w-full gap-3 rounded-2xl border border-slate-200 border-l-4 bg-white p-4 text-left ${st.accent} ${
-                    n.linkUrl ? 'hover:bg-slate-50' : ''
+                  className={`flex w-full gap-3 rounded-2xl border border-border border-l-4 bg-surfaceElevated p-4 text-left ${st.accent} ${
+                    n.linkUrl ? 'hover:bg-surface' : ''
                   } ${n.read ? '' : 'ring-1 ring-brand/10'}`}
                 >
                   <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-lg ${st.chip}`}>
@@ -82,7 +82,7 @@ export default function NotificationsClient({ initialItems }: { initialItems: Se
                   </span>
                   <span className="min-w-0 flex-1">
                     <span className="flex items-center gap-2">
-                      <span className={`text-sm ${n.read ? 'font-medium text-slate-800' : 'font-bold text-slate-900'}`}>
+                      <span className={`text-sm ${n.read ? 'font-medium text-textPrimary' : 'font-bold text-textPrimary'}`}>
                         {n.title}
                       </span>
                       {!n.read ? (
@@ -91,7 +91,7 @@ export default function NotificationsClient({ initialItems }: { initialItems: Se
                         </span>
                       ) : null}
                     </span>
-                    <span className="mt-0.5 block text-sm text-slate-600">{n.message}</span>
+                    <span className="mt-0.5 block text-sm text-textSecondary">{n.message}</span>
                     <span className="mt-1 block text-[11px] text-slate-400">{timeAgo(n.createdAt, locale)}</span>
                   </span>
                 </Wrapper>
@@ -111,7 +111,7 @@ function FilterChip({ active, label, onClick }: { active: boolean; label: string
       onClick={onClick}
       aria-pressed={active}
       className={`rounded-full px-3 py-1.5 text-sm font-semibold transition-colors ${
-        active ? 'bg-brand text-white' : 'border border-slate-300 bg-white text-slate-700 hover:bg-slate-100'
+        active ? 'bg-brand text-white' : 'border border-border bg-surfaceElevated text-textSecondary hover:bg-surfaceElevated'
       }`}
     >
       {label}

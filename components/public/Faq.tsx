@@ -10,14 +10,14 @@ export type FaqItem = { q: string; a: string };
 
 export default function Faq({ items }: { items: FaqItem[] }) {
   return (
-    <div className="divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white">
+    <div className="divide-y divide-slate-200 rounded-2xl border border-border bg-surfaceElevated">
       {items.map((item, i) => (
         <details key={i} className="group px-5">
-          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 text-base font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 text-base font-semibold text-textPrimary [&::-webkit-details-marker]:hidden">
             {item.q}
             <ChevronDownIcon className="h-5 w-5 shrink-0 text-slate-400 transition-transform duration-200 group-open:rotate-180" />
           </summary>
-          <p className="pb-4 text-sm leading-relaxed text-slate-600">{item.a}</p>
+          <p className="pb-4 text-sm leading-relaxed text-textSecondary">{item.a}</p>
         </details>
       ))}
     </div>

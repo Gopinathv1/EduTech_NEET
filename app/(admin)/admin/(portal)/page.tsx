@@ -76,9 +76,9 @@ export default async function AdminDashboardPage() {
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-3">
         {kpis.map((k) => (
           <AdminCard key={k.label}>
-            <p className="text-sm text-slate-500">{k.label}</p>
-            <p className="mt-1 text-3xl font-extrabold text-slate-900">{k.value}</p>
-            {k.sub ? <p className="mt-1 text-xs text-slate-500">{k.sub}</p> : null}
+            <p className="text-sm text-textSecondary">{k.label}</p>
+            <p className="mt-1 text-3xl font-extrabold text-textPrimary">{k.value}</p>
+            {k.sub ? <p className="mt-1 text-xs text-textSecondary">{k.sub}</p> : null}
           </AdminCard>
         ))}
       </div>
@@ -86,27 +86,27 @@ export default async function AdminDashboardPage() {
       {/* Charts */}
       <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-2">
         <AdminCard>
-          <h2 className="text-sm font-semibold text-slate-800">Registrations (30 days)</h2>
+          <h2 className="text-sm font-semibold text-textPrimary">Registrations (30 days)</h2>
           <div className="mt-3">
             <AdminLineChart data={regSeries} />
           </div>
         </AdminCard>
         <AdminCard>
-          <h2 className="text-sm font-semibold text-slate-800">Revenue ₹ (30 days)</h2>
+          <h2 className="text-sm font-semibold text-textPrimary">Revenue ₹ (30 days)</h2>
           <div className="mt-3">
             <AdminLineChart data={revSeries} color="#16a34a" />
           </div>
         </AdminCard>
         <AdminCard>
-          <h2 className="text-sm font-semibold text-slate-800">Tests attempted (30 days)</h2>
+          <h2 className="text-sm font-semibold text-textPrimary">Tests attempted (30 days)</h2>
           <div className="mt-3">
             <AdminLineChart data={attemptSeries} color="#0891b2" />
           </div>
         </AdminCard>
         <AdminCard>
           <div className="flex items-center justify-between">
-            <h2 className="text-sm font-semibold text-slate-800">Country preferences</h2>
-            <Link href="/admin/reports/country-leads" className="text-xs font-medium text-brand hover:text-brand-dark">
+            <h2 className="text-sm font-semibold text-textPrimary">Country preferences</h2>
+            <Link href="/admin/reports/country-leads" className="text-xs font-medium text-brand hover:text-red-200">
               Report →
             </Link>
           </div>
@@ -118,15 +118,15 @@ export default async function AdminDashboardPage() {
 
       {/* Recent activity */}
       <AdminCard className="mt-6">
-        <h2 className="text-base font-semibold text-slate-900">Recent activity</h2>
+        <h2 className="text-base font-semibold text-textPrimary">Recent activity</h2>
         {recent.length === 0 ? (
-          <p className="mt-2 text-sm text-slate-500">No activity yet.</p>
+          <p className="mt-2 text-sm text-textSecondary">No activity yet.</p>
         ) : (
           <ul className="mt-3 space-y-2">
             {recent.map((log) => (
               <li key={log.id} className="flex items-baseline justify-between gap-3 text-sm">
-                <span className="text-slate-700">
-                  <span className="font-medium">{log.adminName}</span> <span className="text-slate-500">{log.action}</span>
+                <span className="text-textSecondary">
+                  <span className="font-medium">{log.adminName}</span> <span className="text-textSecondary">{log.action}</span>
                 </span>
                 <time className="shrink-0 text-xs text-slate-400" dateTime={log.createdAt.toISOString()}>
                   {log.createdAt.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' })}

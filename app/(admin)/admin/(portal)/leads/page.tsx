@@ -73,20 +73,20 @@ export default async function AdminLeadsPage({ searchParams }: { searchParams: P
       {/* Summary */}
       <div className="mb-4 grid grid-cols-2 gap-4 lg:grid-cols-4">
         <AdminCard>
-          <p className="text-sm text-slate-500">Total leads</p>
-          <p className="mt-1 text-2xl font-extrabold text-slate-900">{total}</p>
+          <p className="text-sm text-textSecondary">Total leads</p>
+          <p className="mt-1 text-2xl font-extrabold text-textPrimary">{total}</p>
         </AdminCard>
         <AdminCard>
-          <p className="text-sm text-slate-500">New</p>
+          <p className="text-sm text-textSecondary">New</p>
           <p className="mt-1 text-2xl font-extrabold text-brand">{newCount}</p>
         </AdminCard>
         <AdminCard>
-          <p className="text-sm text-slate-500">In progress</p>
+          <p className="text-sm text-textSecondary">In progress</p>
           <p className="mt-1 text-2xl font-extrabold text-amber-600">{activeCount}</p>
         </AdminCard>
         <AdminCard>
-          <p className="text-sm text-slate-500">Converted</p>
-          <p className="mt-1 text-2xl font-extrabold text-green-700">
+          <p className="text-sm text-textSecondary">Converted</p>
+          <p className="mt-1 text-2xl font-extrabold text-green-200">
             {converted} <span className="text-base font-semibold text-slate-400">· {conversionRate}%</span>
           </p>
         </AdminCard>
@@ -96,9 +96,9 @@ export default async function AdminLeadsPage({ searchParams }: { searchParams: P
       {countryRows.length > 0 ? (
         <div className="mb-6 flex flex-wrap gap-2">
           {countryRows.map((c) => (
-            <span key={c.name} className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-sm text-slate-700">
+            <span key={c.name} className="inline-flex items-center gap-2 rounded-full border border-border bg-surfaceElevated px-3 py-1 text-sm text-textSecondary">
               {c.name}
-              <span className="rounded-full bg-slate-100 px-2 text-xs font-semibold text-slate-600">{c.count}</span>
+              <span className="rounded-full bg-surfaceElevated px-2 text-xs font-semibold text-textSecondary">{c.count}</span>
             </span>
           ))}
         </div>

@@ -109,22 +109,22 @@ export default function CheckoutClient({
 
   return (
     <div className="mx-auto max-w-lg">
-      <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
-        <h1 className="text-xl font-bold text-slate-900">{t('title')}</h1>
-        <p className="mt-1 text-sm text-slate-600">{t('subtitle')}</p>
+      <div className="rounded-2xl border border-border bg-surfaceElevated p-6 sm:p-8">
+        <h1 className="text-xl font-bold text-textPrimary">{t('title')}</h1>
+        <p className="mt-1 text-sm text-textSecondary">{t('subtitle')}</p>
 
-        <div className="mt-5 flex items-center justify-between rounded-xl bg-slate-50 p-4">
-          <span className="font-medium text-slate-800">{title}</span>
-          <span className="text-2xl font-extrabold text-slate-900">₹{price}</span>
+        <div className="mt-5 flex items-center justify-between rounded-xl bg-surface p-4">
+          <span className="font-medium text-textPrimary">{title}</span>
+          <span className="text-2xl font-extrabold text-textPrimary">₹{price}</span>
         </div>
 
         {state === 'cancelled' ? (
-          <p className="mt-4 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-800">
+          <p className="mt-4 rounded-lg border border-amber-500/40 bg-amber-950/30 px-3 py-2 text-sm text-amber-100">
             {t('cancelled')}
           </p>
         ) : null}
         {state === 'failed' ? (
-          <p className="mt-4 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
+          <p className="mt-4 rounded-lg border border-red-200 bg-red-950/30 px-3 py-2 text-sm text-red-200">
             {t('failed')}
           </p>
         ) : null}
@@ -134,7 +134,7 @@ export default function CheckoutClient({
           </p>
         ) : null}
         {state === 'notConfigured' ? (
-          <p className="mt-4 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-600">
+          <p className="mt-4 rounded-lg border border-border bg-surface px-3 py-2 text-sm text-textSecondary">
             {t('notConfigured')}
           </p>
         ) : null}
@@ -152,11 +152,11 @@ export default function CheckoutClient({
               : t('payButton', { price })}
         </button>
 
-        <p className="mt-3 text-center text-xs text-slate-500">{t('methods')}</p>
+        <p className="mt-3 text-center text-xs text-textSecondary">{t('methods')}</p>
       </div>
 
       <p className="mt-4 text-center text-sm">
-        <Link href={`/student/tests/${testId}`} className="font-medium text-brand hover:text-brand-dark">
+        <Link href={`/student/tests/${testId}`} className="font-medium text-brand hover:text-red-200">
           ← {t('back')}
         </Link>
       </p>

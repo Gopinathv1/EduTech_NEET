@@ -26,7 +26,7 @@ export default function ReportScaffold({
 }) {
   return (
     <div>
-      <Link href="/admin/reports" className="text-sm font-medium text-brand hover:text-brand-dark">
+      <Link href="/admin/reports" className="text-sm font-medium text-brand hover:text-red-200">
         ← All reports
       </Link>
       <div className="mt-2">
@@ -51,10 +51,10 @@ export function ReportTable({
   empty?: string;
 }) {
   return (
-    <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+    <div className="overflow-x-auto rounded-xl border border-border bg-surfaceElevated shadow-sm">
       <table className="w-full min-w-[520px] text-sm">
         <thead>
-          <tr className="border-b border-slate-200 text-left text-xs uppercase tracking-wide text-slate-500">
+          <tr className="border-b border-border text-left text-xs uppercase tracking-wide text-textSecondary">
             {columns.map((c, i) => (
               <th key={i} className={`px-4 py-3 font-medium ${c.align === 'right' ? 'text-right' : ''} ${c.className ?? ''}`}>
                 {c.label}
@@ -65,13 +65,13 @@ export function ReportTable({
         <tbody>
           {rows.length === 0 ? (
             <tr>
-              <td colSpan={columns.length} className="px-4 py-10 text-center text-slate-500">
+              <td colSpan={columns.length} className="px-4 py-10 text-center text-textSecondary">
                 {empty}
               </td>
             </tr>
           ) : (
             rows.map((row, ri) => (
-              <tr key={ri} className="border-b border-slate-100 last:border-0">
+              <tr key={ri} className="border-b border-border last:border-0">
                 {row.map((cell, ci) => (
                   <td key={ci} className={`px-4 py-3 ${columns[ci]?.align === 'right' ? 'text-right tabular-nums' : ''}`}>
                     {cell}
@@ -88,8 +88,8 @@ export function ReportTable({
 
 export function ChartCard({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <div className="mb-6 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-      <h2 className="text-sm font-semibold text-slate-800">{title}</h2>
+    <div className="mb-6 rounded-xl border border-border bg-surfaceElevated p-4 shadow-sm">
+      <h2 className="text-sm font-semibold text-textPrimary">{title}</h2>
       <div className="mt-3">{children}</div>
     </div>
   );

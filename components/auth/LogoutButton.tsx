@@ -20,7 +20,7 @@ export default function LogoutButton() {
       type="button"
       onClick={logout}
       disabled={busy}
-      className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-100 disabled:opacity-60"
+      className="rounded-lg border border-border px-3 py-1.5 text-sm font-medium text-textPrimary transition-colors hover:bg-surfaceElevated disabled:opacity-60"
     >
       {t('logout')}
     </button>

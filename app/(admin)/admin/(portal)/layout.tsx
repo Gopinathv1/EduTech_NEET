@@ -12,7 +12,7 @@ export default async function AdminPortalLayout({ children }: { children: React.
   const newLeadsCount = await prisma.admissionLead.count({ where: { status: 'NEW' } });
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-surface">
       <AdminNav name={session.name} role={session.role} newLeadsCount={newLeadsCount} />
       <div className="lg:pl-64">
         <main id="main-content" className="mx-auto max-w-6xl p-4 sm:p-6 lg:p-8">{children}</main>

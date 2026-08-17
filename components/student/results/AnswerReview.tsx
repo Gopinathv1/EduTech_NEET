@@ -11,9 +11,9 @@ const OPTIONS: ScoredOption[] = ['A', 'B', 'C', 'D'];
 type Filter = 'all' | 'wrong' | 'skipped' | 'marked';
 
 const STATUS_BADGE: Record<ReviewStatus, string> = {
-  correct: 'bg-green-100 text-green-700',
-  wrong: 'bg-red-100 text-red-700',
-  skipped: 'bg-slate-100 text-slate-500',
+  correct: 'bg-green-950/40 text-green-200',
+  wrong: 'bg-red-950/40 text-red-200',
+  skipped: 'bg-surfaceElevated text-textSecondary',
 };
 
 /**
@@ -49,7 +49,7 @@ export default function AnswerReview({ items, locale }: { items: ReviewItem[]; l
   return (
     <div>
       {/* Filters */}
-      <div className="sticky top-16 z-10 -mx-1 flex flex-wrap gap-2 bg-slate-50/90 px-1 py-2 backdrop-blur">
+      <div className="sticky top-16 z-10 -mx-1 flex flex-wrap gap-2 bg-surface/90 px-1 py-2 backdrop-blur">
         {filters.map((f) => {
           const active = filter === f.key;
           return (
@@ -59,7 +59,7 @@ export default function AnswerReview({ items, locale }: { items: ReviewItem[]; l
               onClick={() => setFilter(f.key)}
               aria-pressed={active}
               className={`rounded-full px-3 py-1.5 text-sm font-semibold transition-colors ${
-                active ? 'bg-brand text-white' : 'border border-slate-300 bg-white text-slate-700 hover:bg-slate-100'
+                active ? 'bg-brand text-white' : 'border border-border bg-surfaceElevated text-textSecondary hover:bg-surfaceElevated'
               }`}
             >
               {f.label} <span className={active ? 'opacity-80' : 'text-slate-400'}>({counts[f.key]})</span>
@@ -69,7 +69,7 @@ export default function AnswerReview({ items, locale }: { items: ReviewItem[]; l
       </div>
 
       {filtered.length === 0 ? (
-        <p className="mt-6 rounded-xl border border-slate-200 bg-white p-6 text-center text-sm text-slate-500">
+        <p className="mt-6 rounded-xl border border-border bg-surfaceElevated p-6 text-center text-sm text-textSecondary">
           {t('empty')}
         </p>
       ) : (
@@ -78,16 +78,16 @@ export default function AnswerReview({ items, locale }: { items: ReviewItem[]; l
             const content = locale === 'ta' && item.ta ? item.ta : item.en;
             const taNotice = locale === 'ta' && !item.ta;
             return (
-              <li key={item.questionId} className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5">
+              <li key={item.questionId} className="rounded-2xl border border-border bg-surfaceElevated p-4 sm:p-5">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="inline-flex h-6 min-w-[2rem] items-center justify-center rounded-md bg-slate-100 px-1.5 text-xs font-bold text-slate-600">
+                  <span className="inline-flex h-6 min-w-[2rem] items-center justify-center rounded-md bg-surfaceElevated px-1.5 text-xs font-bold text-textSecondary">
                     {item.number}
                   </span>
                   <span className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ${STATUS_BADGE[item.status]}`}>
                     {t(`badge${item.status[0].toUpperCase()}${item.status.slice(1)}` as 'badgeCorrect' | 'badgeWrong' | 'badgeSkipped')}
                   </span>
                   {item.marked ? (
-                    <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[11px] font-semibold text-amber-700">
+                    <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[11px] font-semibold text-amber-200">
                       {t('badgeMarked')}
                     </span>
                   ) : null}
@@ -97,16 +97,16 @@ export default function AnswerReview({ items, locale }: { items: ReviewItem[]; l
                 </div>
 
                 {taNotice ? (
-                  <p className="mt-3 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-800">
+                  <p className="mt-3 rounded-lg border border-amber-500/40 bg-amber-950/30 px-3 py-2 text-xs text-amber-100">
                     {t('taNotice')}
                   </p>
                 ) : null}
 
-                <p className="mt-3 whitespace-pre-line text-sm font-medium text-slate-900">{content.questionText}</p>
+                <p className="mt-3 whitespace-pre-line text-sm font-medium text-textPrimary">{content.questionText}</p>
 
                 {item.imageUrl ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={item.imageUrl} alt="" className="mt-3 max-h-56 w-auto rounded-lg border border-slate-200" />
+                  <img src={item.imageUrl} alt="" className="mt-3 max-h-56 w-auto rounded-lg border border-border" />
                 ) : null}
 
                 <ul className="mt-3 space-y-2">
@@ -115,32 +115,32 @@ export default function AnswerReview({ items, locale }: { items: ReviewItem[]; l
                     const isChosen = opt === item.selectedOption;
                     const isWrongChoice = isChosen && !isCorrect;
                     const style = isCorrect
-                      ? 'border-green-300 bg-green-50'
+                      ? 'border-green-500/50 bg-green-950/30'
                       : isWrongChoice
-                        ? 'border-red-300 bg-red-50'
-                        : 'border-slate-200 bg-white';
+                        ? 'border-red-500/50 bg-red-950/30'
+                        : 'border-border bg-surfaceElevated';
                     return (
                       <li key={opt} className={`flex items-start gap-3 rounded-lg border p-2.5 ${style}`}>
                         <span
                           className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs font-bold ${
                             isCorrect
-                              ? 'border-green-500 bg-green-500 text-white'
+                              ? 'border-green-500 bg-green-950/300 text-white'
                               : isWrongChoice
-                                ? 'border-red-500 bg-red-500 text-white'
-                                : 'border-slate-300 text-slate-500'
+                                ? 'border-red-500 bg-red-950/300 text-white'
+                                : 'border-border text-textSecondary'
                           }`}
                         >
                           {opt}
                         </span>
-                        <span className="pt-0.5 text-sm text-slate-800">{content.options[opt]}</span>
+                        <span className="pt-0.5 text-sm text-textPrimary">{content.options[opt]}</span>
                         <span className="ml-auto flex shrink-0 gap-1.5 pt-0.5">
                           {isChosen ? (
-                            <span className="rounded bg-slate-200 px-1.5 py-0.5 text-[10px] font-semibold text-slate-600">
+                            <span className="rounded bg-surface px-1.5 py-0.5 text-[10px] font-semibold text-textSecondary">
                               {t('yourAnswer')}
                             </span>
                           ) : null}
                           {isCorrect ? (
-                            <span className="rounded bg-green-200 px-1.5 py-0.5 text-[10px] font-semibold text-green-800">
+                            <span className="rounded bg-green-900/60 px-1.5 py-0.5 text-[10px] font-semibold text-green-100">
                               {t('correctAnswer')}
                             </span>
                           ) : null}
@@ -154,9 +154,9 @@ export default function AnswerReview({ items, locale }: { items: ReviewItem[]; l
                   <p className="mt-2 text-xs italic text-slate-400">{t('notAnswered')}</p>
                 ) : null}
 
-                <div className="mt-3 rounded-lg bg-slate-50 p-3">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{t('explanation')}</p>
-                  <p className="mt-1 whitespace-pre-line text-sm text-slate-700">
+                <div className="mt-3 rounded-lg bg-surface p-3">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-textSecondary">{t('explanation')}</p>
+                  <p className="mt-1 whitespace-pre-line text-sm text-textSecondary">
                     {content.explanation || t('noExplanation')}
                   </p>
                 </div>

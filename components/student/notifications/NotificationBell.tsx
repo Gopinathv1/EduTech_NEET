@@ -75,7 +75,7 @@ export default function NotificationBell({
         onClick={() => setOpen((o) => !o)}
         aria-label={t('bell')}
         aria-expanded={open}
-        className="relative flex h-9 w-9 items-center justify-center rounded-full text-slate-600 hover:bg-slate-100"
+        className="relative flex h-9 w-9 items-center justify-center rounded-full text-textSecondary hover:bg-surfaceElevated"
       >
         <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5" aria-hidden="true">
           <path
@@ -87,25 +87,25 @@ export default function NotificationBell({
           />
         </svg>
         {unread > 0 ? (
-          <span className="absolute -right-0.5 -top-0.5 inline-flex min-w-[1.1rem] items-center justify-center rounded-full bg-red-500 px-1 text-[10px] font-bold text-white">
+          <span className="absolute -right-0.5 -top-0.5 inline-flex min-w-[1.1rem] items-center justify-center rounded-full bg-red-950/300 px-1 text-[10px] font-bold text-white">
             {unread > 99 ? '99+' : unread}
           </span>
         ) : null}
       </button>
 
       {open ? (
-        <div className="absolute right-0 z-50 mt-2 w-80 max-w-[calc(100vw-2rem)] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl">
-          <div className="flex items-center justify-between border-b border-slate-100 px-4 py-2.5">
-            <span className="text-sm font-semibold text-slate-900">{t('title')}</span>
+        <div className="absolute right-0 z-50 mt-2 w-80 max-w-[calc(100vw-2rem)] overflow-hidden rounded-2xl border border-border bg-surfaceElevated shadow-xl">
+          <div className="flex items-center justify-between border-b border-border px-4 py-2.5">
+            <span className="text-sm font-semibold text-textPrimary">{t('title')}</span>
             {unread > 0 ? (
-              <button type="button" onClick={markAll} className="text-xs font-medium text-brand hover:text-brand-dark">
+              <button type="button" onClick={markAll} className="text-xs font-medium text-brand hover:text-red-200">
                 {t('markAllRead')}
               </button>
             ) : null}
           </div>
 
           {items.length === 0 ? (
-            <p className="px-4 py-8 text-center text-sm text-slate-500">{t('dropdownEmpty')}</p>
+            <p className="px-4 py-8 text-center text-sm text-textSecondary">{t('dropdownEmpty')}</p>
           ) : (
             <ul className="max-h-96 divide-y divide-slate-100 overflow-y-auto">
               {items.slice(0, 8).map((n) => {
@@ -115,19 +115,19 @@ export default function NotificationBell({
                     <button
                       type="button"
                       onClick={() => openItem(n)}
-                      className={`flex w-full gap-3 px-4 py-3 text-left hover:bg-slate-50 ${n.read ? '' : 'bg-brand-soft/30'}`}
+                      className={`flex w-full gap-3 px-4 py-3 text-left hover:bg-surface ${n.read ? '' : 'bg-brand-soft/30'}`}
                     >
                       <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-base ${st.chip}`}>
                         {st.icon}
                       </span>
                       <span className="min-w-0 flex-1">
                         <span className="flex items-center gap-2">
-                          <span className={`truncate text-sm ${n.read ? 'font-medium text-slate-700' : 'font-semibold text-slate-900'}`}>
+                          <span className={`truncate text-sm ${n.read ? 'font-medium text-textSecondary' : 'font-semibold text-textPrimary'}`}>
                             {n.title}
                           </span>
                           {!n.read ? <span className="h-2 w-2 shrink-0 rounded-full bg-brand" /> : null}
                         </span>
-                        <span className="mt-0.5 line-clamp-2 block text-xs text-slate-500">{n.message}</span>
+                        <span className="mt-0.5 line-clamp-2 block text-xs text-textSecondary">{n.message}</span>
                         <span className="mt-0.5 block text-[11px] text-slate-400">{timeAgo(n.createdAt, locale)}</span>
                       </span>
                     </button>
@@ -140,7 +140,7 @@ export default function NotificationBell({
           <Link
             href="/student/notifications"
             onClick={() => setOpen(false)}
-            className="block border-t border-slate-100 px-4 py-2.5 text-center text-sm font-medium text-brand hover:bg-slate-50"
+            className="block border-t border-border px-4 py-2.5 text-center text-sm font-medium text-brand hover:bg-surface"
           >
             {t('seeAll')}
           </Link>

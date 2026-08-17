@@ -165,14 +165,14 @@ export default function QuestionForm({
   return (
     <div>
       {/* Tabs */}
-      <div className="mb-5 flex gap-1 border-b border-slate-200">
+      <div className="mb-5 flex gap-1 border-b border-border">
         {(['details', 'translations'] as const).map((key) => (
           <button
             key={key}
             type="button"
             onClick={() => setTab(key)}
             className={`-mb-px border-b-2 px-4 py-2 text-sm font-medium ${
-              tab === key ? 'border-brand text-brand' : 'border-transparent text-slate-500 hover:text-slate-800'
+              tab === key ? 'border-brand text-brand' : 'border-transparent text-textSecondary hover:text-textPrimary'
             }`}
           >
             {key === 'details' ? 'Details' : 'Translations (EN / TA)'}
@@ -193,7 +193,7 @@ export default function QuestionForm({
       ) : null}
 
       {tab === 'details' ? (
-        <div className="space-y-5 rounded-xl border border-slate-200 bg-white p-5">
+        <div className="space-y-5 rounded-xl border border-border bg-surfaceElevated p-5">
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <Field label="Subject" htmlFor="qSubject">
               <select
@@ -271,7 +271,7 @@ export default function QuestionForm({
           </Field>
 
           <div>
-            <p className="block text-sm font-medium text-slate-700">Correct option</p>
+            <p className="block text-sm font-medium text-textSecondary">Correct option</p>
             <div className="mt-1 flex gap-2">
               {OPTIONS.map((o) => (
                 <button
@@ -281,7 +281,7 @@ export default function QuestionForm({
                   className={`h-10 w-10 rounded-lg border text-sm font-semibold ${
                     correctOption === o
                       ? 'border-brand bg-brand text-white'
-                      : 'border-slate-300 text-slate-700 hover:bg-slate-100'
+                      : 'border-border text-textSecondary hover:bg-surfaceElevated'
                   }`}
                   aria-pressed={correctOption === o}
                 >
@@ -293,7 +293,7 @@ export default function QuestionForm({
 
           {/* Image upload */}
           <div>
-            <p className="block text-sm font-medium text-slate-700">
+            <p className="block text-sm font-medium text-textSecondary">
               Image {questionType === 'IMAGE_BASED' ? '(required)' : '(optional)'}
             </p>
             <div className="mt-1 flex flex-wrap items-center gap-3">
@@ -305,7 +305,7 @@ export default function QuestionForm({
               {imageUrl ? (
                 <>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={imageUrl} alt="Question" className="h-16 w-16 rounded-lg border border-slate-200 object-cover" />
+                  <img src={imageUrl} alt="Question" className="h-16 w-16 rounded-lg border border-border object-cover" />
                   <button type="button" className="text-sm text-red-600 hover:underline" onClick={() => setImageUrl('')}>
                     Remove
                   </button>
@@ -331,18 +331,18 @@ export default function QuestionForm({
           </Field>
         </div>
       ) : (
-        <div className="rounded-xl border border-slate-200 bg-white p-5">
+        <div className="rounded-xl border border-border bg-surfaceElevated p-5">
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
             <TranslationColumn title="English (required)" content={en} onChange={setEn} />
             <div>
               <TranslationColumn title="Tamil (optional)" content={ta} onChange={setTa} />
-              <label className="mt-4 flex items-center gap-2 text-sm text-slate-700">
+              <label className="mt-4 flex items-center gap-2 text-sm text-textSecondary">
                 <input
                   type="checkbox"
                   checked={taReviewed}
                   onChange={(e) => setTaReviewed(e.target.checked)}
                   disabled={!taAll}
-                  className="h-4 w-4 rounded border-slate-300 text-brand disabled:opacity-50"
+                  className="h-4 w-4 rounded border-border text-brand disabled:opacity-50"
                 />
                 Translation reviewed
                 <span className="text-xs text-slate-400">(only reviewed Tamil is shown to students)</span>
@@ -376,7 +376,7 @@ function TranslationColumn({
   const set = (k: keyof Content, val: string) => onChange({ ...content, [k]: val });
   return (
     <div className="space-y-3">
-      <h3 className="text-sm font-semibold text-slate-900">{title}</h3>
+      <h3 className="text-sm font-semibold text-textPrimary">{title}</h3>
       <Field label="Question text" htmlFor={`${title}-q`}>
         <textarea
           id={`${title}-q`}

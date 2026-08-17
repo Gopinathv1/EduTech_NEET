@@ -47,7 +47,7 @@ export default async function RootLayout({
     >
       <body
         suppressHydrationWarning
-        className="min-h-screen bg-white font-sans text-slate-900 antialiased"
+        className="min-h-screen bg-background font-sans text-textPrimary antialiased"
       >
         <NextIntlClientProvider messages={messages}>
           <SentryInit />

@@ -33,7 +33,7 @@ export default function AdmissionGuidancePage() {
       <Section>
         <div className="max-w-3xl space-y-4">
           {intro.map((para, i) => (
-            <p key={i} className="text-slate-700">
+            <p key={i} className="text-textSecondary">
               {para}
             </p>
           ))}
@@ -49,8 +49,8 @@ export default function AdmissionGuidancePage() {
               <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-brand text-sm font-bold text-white">
                 {i + 1}
               </span>
-              <h3 className="mt-3 text-base font-semibold text-slate-900">{step.title}</h3>
-              <p className="mt-2 text-sm text-slate-600">{step.body}</p>
+              <h3 className="mt-3 text-base font-semibold text-textPrimary">{step.title}</h3>
+              <p className="mt-2 text-sm text-textSecondary">{step.body}</p>
             </Card>
           ))}
         </ol>
@@ -64,7 +64,7 @@ export default function AdmissionGuidancePage() {
             <Link
               key={code}
               href={`/countries#${code}`}
-              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:border-brand hover:text-brand"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-surfaceElevated px-4 py-2 text-sm font-medium text-textSecondary hover:border-brand hover:text-brand"
             >
               <span aria-hidden="true">{COUNTRY_FLAG[code]}</span>
               {tc(`items.${code}.name`)}
@@ -84,8 +84,8 @@ export default function AdmissionGuidancePage() {
               <ShieldIcon className="h-6 w-6" />
             </span>
             <div>
-              <h2 className="text-lg font-semibold text-slate-900">{t('disclosureTitle')}</h2>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">{t('disclosure')}</p>
+              <h2 className="text-lg font-semibold text-textPrimary">{t('disclosureTitle')}</h2>
+              <p className="mt-2 text-sm leading-relaxed text-textSecondary">{t('disclosure')}</p>
             </div>
           </div>
         </Card>

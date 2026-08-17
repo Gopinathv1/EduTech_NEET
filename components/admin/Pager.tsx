@@ -25,12 +25,12 @@ export default function Pager({
     params.set('page', String(p));
     return `${basePath}?${params.toString()}`;
   };
-  const cls = 'rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100';
-  const disabled = 'pointer-events-none rounded-lg border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-300';
+  const cls = 'rounded-lg border border-border px-3 py-1.5 text-sm font-medium text-textSecondary hover:bg-surfaceElevated';
+  const disabled = 'pointer-events-none rounded-lg border border-border px-3 py-1.5 text-sm font-medium text-slate-300';
 
   return (
     <div className="mt-4 flex items-center justify-between gap-3">
-      <p className="text-xs text-slate-500">
+      <p className="text-xs text-textSecondary">
         Page {page} of {totalPages} · {total} result{total === 1 ? '' : 's'}
       </p>
       <div className="flex gap-2">

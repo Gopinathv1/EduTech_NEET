@@ -35,8 +35,8 @@ const axisTick = { fontSize: 11, fill: AXIS };
 
 function ChartCard({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-4">
-      <h3 className="text-sm font-semibold text-slate-800">{title}</h3>
+    <div className="rounded-2xl border border-border bg-surfaceElevated p-4">
+      <h3 className="text-sm font-semibold text-textPrimary">{title}</h3>
       <div className="mt-3 h-56 w-full">{children}</div>
     </div>
   );

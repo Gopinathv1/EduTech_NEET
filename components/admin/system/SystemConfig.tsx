@@ -50,9 +50,9 @@ export default function SystemConfig({ initial }: { initial: AppSettings }) {
 
   return (
     <div className="max-w-2xl space-y-5">
-      <div className="rounded-xl border border-slate-200 bg-white p-5">
+      <div className="rounded-xl border border-border bg-surfaceElevated p-5">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <label className="text-sm font-medium text-slate-700">
+          <label className="text-sm font-medium text-textSecondary">
             Default test price (₹)
             <input
               type="number"
@@ -63,7 +63,7 @@ export default function SystemConfig({ initial }: { initial: AppSettings }) {
             />
             <span className="mt-1 block text-xs text-slate-400">Pre-filled when creating a new test.</span>
           </label>
-          <label className="text-sm font-medium text-slate-700">
+          <label className="text-sm font-medium text-textSecondary">
             Consultancy score cutoff
             <input
               type="number"
@@ -75,19 +75,19 @@ export default function SystemConfig({ initial }: { initial: AppSettings }) {
             />
             <span className="mt-1 block text-xs text-slate-400">Full-test score below which the study-abroad banner shows.</span>
           </label>
-          <label className="text-sm font-medium text-slate-700">
+          <label className="text-sm font-medium text-textSecondary">
             OTP provider
             <select className={`${selectClass} !mt-1 text-sm`} value={v.otpProvider} onChange={(e) => setV({ ...v, otpProvider: e.target.value as AppSettings['otpProvider'] })}>
               <option value="console">Console (dev)</option>
               <option value="msg91">MSG91 (production)</option>
             </select>
           </label>
-          <div className="text-sm font-medium text-slate-700">
+          <div className="text-sm font-medium text-textSecondary">
             Supported languages
             <div className="mt-2 flex gap-4">
               {LANG_OPTIONS.map((l) => (
-                <label key={l.code} className="flex items-center gap-2 text-sm font-normal text-slate-700">
-                  <input type="checkbox" className="h-4 w-4 rounded border-slate-300 text-brand" checked={v.supportedLanguages.includes(l.code)} onChange={() => toggleLang(l.code)} />
+                <label key={l.code} className="flex items-center gap-2 text-sm font-normal text-textSecondary">
+                  <input type="checkbox" className="h-4 w-4 rounded border-border text-brand" checked={v.supportedLanguages.includes(l.code)} onChange={() => toggleLang(l.code)} />
                   {l.label}
                 </label>
               ))}
@@ -95,16 +95,16 @@ export default function SystemConfig({ initial }: { initial: AppSettings }) {
           </div>
         </div>
 
-        <label className="mt-4 flex items-start gap-3 rounded-lg border border-slate-200 bg-slate-50 p-3">
-          <input type="checkbox" className="mt-0.5 h-5 w-5 rounded border-slate-300 text-brand" checked={v.maintenanceMode} onChange={(e) => setV({ ...v, maintenanceMode: e.target.checked })} />
+        <label className="mt-4 flex items-start gap-3 rounded-lg border border-border bg-surface p-3">
+          <input type="checkbox" className="mt-0.5 h-5 w-5 rounded border-border text-brand" checked={v.maintenanceMode} onChange={(e) => setV({ ...v, maintenanceMode: e.target.checked })} />
           <span>
-            <span className="block text-sm font-medium text-slate-800">Maintenance mode</span>
-            <span className="block text-xs text-slate-500">When on, students see a maintenance screen. Admins are unaffected.</span>
+            <span className="block text-sm font-medium text-textPrimary">Maintenance mode</span>
+            <span className="block text-xs text-textSecondary">When on, students see a maintenance screen. Admins are unaffected.</span>
           </span>
         </label>
 
         {msg ? (
-          <p className={`mt-4 rounded-lg px-3 py-2 text-sm ${msg.kind === 'ok' ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}`}>{msg.text}</p>
+          <p className={`mt-4 rounded-lg px-3 py-2 text-sm ${msg.kind === 'ok' ? 'bg-green-950/30 text-green-200' : 'bg-red-950/30 text-red-200'}`}>{msg.text}</p>
         ) : null}
 
         <button type="button" className={`${btnPrimary} mt-4`} onClick={save} disabled={busy}>

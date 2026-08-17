@@ -51,10 +51,10 @@ export default async function TestDetailPage({ params }: { params: Promise<{ id:
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-surface">
       <StudentHeader />
       <main id="main-content" className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
-        <Link href="/student/tests" className="text-sm font-medium text-brand hover:text-brand-dark">
+        <Link href="/student/tests" className="text-sm font-medium text-brand hover:text-red-200">
           ← {t('detail.back')}
         </Link>
 
@@ -63,41 +63,41 @@ export default async function TestDetailPage({ params }: { params: Promise<{ id:
             {t(`types.${test.testType}`)}
           </span>
           {owned ? (
-            <span className="rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-semibold text-green-700">
+            <span className="rounded-full bg-green-950/40 px-2.5 py-0.5 text-xs font-semibold text-green-200">
               {t('owned')}
             </span>
           ) : null}
         </div>
 
-        <h1 className="mt-2 text-2xl font-bold text-slate-900 sm:text-3xl">
+        <h1 className="mt-2 text-2xl font-bold text-textPrimary sm:text-3xl">
           {localizedName(test.title, locale) || localizedName(test.title, 'en')}
         </h1>
         {localizedName(test.description, locale) ? (
-          <p className="mt-3 text-slate-600">{localizedName(test.description, locale)}</p>
+          <p className="mt-3 text-textSecondary">{localizedName(test.description, locale)}</p>
         ) : null}
 
         {/* Rules */}
-        <div className="mt-6 grid grid-cols-2 gap-4 rounded-2xl border border-slate-200 bg-white p-5 sm:grid-cols-3">
+        <div className="mt-6 grid grid-cols-2 gap-4 rounded-2xl border border-border bg-surfaceElevated p-5 sm:grid-cols-3">
           {rows.map((r) => (
             <div key={r.label} className="flex items-start gap-2">
               <r.Icon className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
               <div>
-                <p className="text-xs font-medium text-slate-500">{r.label}</p>
-                <p className="text-sm font-semibold text-slate-800">{r.value}</p>
+                <p className="text-xs font-medium text-textSecondary">{r.label}</p>
+                <p className="text-sm font-semibold text-textPrimary">{r.value}</p>
               </div>
             </div>
           ))}
         </div>
-        <p className="mt-2 text-xs text-slate-500">
+        <p className="mt-2 text-xs text-textSecondary">
           {test.isRandom ? t('detail.randomNote') : t('detail.fixedNote')}
         </p>
 
         {/* Syllabus coverage */}
         <section className="mt-6">
-          <h2 className="text-lg font-semibold text-slate-900">{t('detail.coverage')}</h2>
+          <h2 className="text-lg font-semibold text-textPrimary">{t('detail.coverage')}</h2>
           <div className="mt-3 flex flex-wrap gap-2">
             {coveredSubjects.map((name) => (
-              <span key={name} className="rounded-full border border-slate-200 bg-white px-3 py-1 text-sm text-slate-700">
+              <span key={name} className="rounded-full border border-border bg-surfaceElevated px-3 py-1 text-sm text-textSecondary">
                 {name}
               </span>
             ))}
@@ -105,7 +105,7 @@ export default async function TestDetailPage({ params }: { params: Promise<{ id:
           {coveredChapters.length > 0 ? (
             <ul className="mt-3 flex flex-wrap gap-2">
               {coveredChapters.map((name) => (
-                <li key={name} className="rounded-lg bg-slate-100 px-2.5 py-1 text-xs text-slate-600">
+                <li key={name} className="rounded-lg bg-surfaceElevated px-2.5 py-1 text-xs text-textSecondary">
                   {name}
                 </li>
               ))}
@@ -114,10 +114,10 @@ export default async function TestDetailPage({ params }: { params: Promise<{ id:
         </section>
 
         {/* CTA */}
-        <div className="mt-8 flex items-center justify-between rounded-2xl border border-slate-200 bg-white p-5">
+        <div className="mt-8 flex items-center justify-between rounded-2xl border border-border bg-surfaceElevated p-5">
           {owned ? (
             <>
-              <span className="text-sm font-semibold text-green-700">{t('detail.ownedNote')}</span>
+              <span className="text-sm font-semibold text-green-200">{t('detail.ownedNote')}</span>
               <Link
                 href={`/student/tests/${test.id}/start`}
                 className="rounded-lg bg-brand px-6 py-3 text-sm font-semibold text-white hover:bg-brand-dark"
@@ -127,7 +127,7 @@ export default async function TestDetailPage({ params }: { params: Promise<{ id:
             </>
           ) : (
             <>
-              <span className="text-2xl font-extrabold text-slate-900">₹{test.price}</span>
+              <span className="text-2xl font-extrabold text-textPrimary">₹{test.price}</span>
               <Link
                 href={`/student/tests/${test.id}/checkout`}
                 className="rounded-lg bg-brand px-6 py-3 text-sm font-semibold text-white hover:bg-brand-dark"

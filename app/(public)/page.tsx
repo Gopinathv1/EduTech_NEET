@@ -53,14 +53,14 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="border-b border-slate-100 bg-white">
+      <section className="border-b border-border bg-black">
         <Container className="grid gap-10 py-12 sm:py-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
-            <p className="text-sm font-bold uppercase tracking-wide text-brand">{t('brand')}</p>
-            <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-tight text-slate-950 sm:text-5xl">
+            <p className="text-sm font-bold uppercase tracking-wide text-red-300">{t('brand')}</p>
+            <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-tight text-textPrimary sm:text-5xl">
               {t('title')}
             </h1>
-            <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
+            <p className="mt-5 max-w-2xl text-base leading-8 text-textSecondary sm:text-lg">
               {t('subtitle')}
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -73,8 +73,8 @@ export default function HomePage() {
                   key={exam.label}
                   className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm font-semibold ${
                     exam.available
-                      ? 'border-emerald-200 bg-emerald-50 text-emerald-700'
-                      : 'border-slate-200 bg-slate-50 text-slate-500'
+                      ? 'border-brand/50 bg-brand-soft text-red-100'
+                      : 'border-border bg-surface text-textSecondary'
                   }`}
                 >
                   {exam.label}
@@ -84,34 +84,34 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
-            <label htmlFor="home-search" className="text-sm font-semibold text-slate-900">
+          <div className="rounded-2xl border border-border bg-surface p-5 shadow-sm shadow-black/30">
+            <label htmlFor="home-search" className="text-sm font-semibold text-textPrimary">
               {t('search.label')}
             </label>
-            <div className="mt-3 flex rounded-xl border border-slate-200 bg-white p-2">
+            <div className="mt-3 flex rounded-xl border border-border bg-surfaceElevated p-2">
               <input
                 id="home-search"
                 type="search"
                 placeholder={t('search.placeholder')}
-                className="min-w-0 flex-1 bg-transparent px-3 py-2 text-sm text-slate-900 outline-none placeholder:text-slate-400"
+                className="min-w-0 flex-1 bg-transparent px-3 py-2 text-sm text-textPrimary outline-none placeholder:text-textSecondary"
                 aria-describedby="home-search-note"
               />
               <button
                 type="button"
-                className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white disabled:opacity-80"
+                className="rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white disabled:opacity-80"
                 disabled
               >
                 {t('search.button')}
               </button>
             </div>
-            <p id="home-search-note" className="mt-2 text-xs leading-5 text-slate-500">
+            <p id="home-search-note" className="mt-2 text-xs leading-5 text-textSecondary">
               {t('search.note')}
             </p>
             <div className="mt-6 grid grid-cols-2 gap-3">
               {(t.raw('heroStats') as string[]).map((item) => (
                 <div
                   key={item}
-                  className="rounded-xl border border-slate-200 bg-white p-4 text-sm font-semibold text-slate-700"
+                  className="rounded-xl border border-border bg-surfaceElevated p-4 text-sm font-semibold text-textPrimary"
                 >
                   {item}
                 </div>
@@ -135,8 +135,8 @@ export default function HomePage() {
                 <IconBadge>
                   <Icon className="h-6 w-6" />
                 </IconBadge>
-                <h3 className="mt-4 text-lg font-bold text-slate-950">{action.title}</h3>
-                <p className="mt-2 flex-1 text-sm leading-6 text-slate-600">{action.body}</p>
+                <h3 className="mt-4 text-lg font-bold text-textPrimary">{action.title}</h3>
+                <p className="mt-2 flex-1 text-sm leading-6 text-textSecondary">{action.body}</p>
                 <div className="mt-5">
                   <ArrowLink href={action.href}>{action.cta}</ArrowLink>
                 </div>
@@ -161,8 +161,8 @@ export default function HomePage() {
                   <IconBadge>
                     <Icon className="h-6 w-6" />
                   </IconBadge>
-                  <h3 className="mt-4 text-lg font-bold text-slate-950">{subject.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{subject.body}</p>
+                  <h3 className="mt-4 text-lg font-bold text-textPrimary">{subject.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-textSecondary">{subject.body}</p>
                   <div className="mt-5">
                     <ArrowLink href={subject.href}>{t('neet.subjectCta')}</ArrowLink>
                   </div>
@@ -183,13 +183,13 @@ export default function HomePage() {
             />
             <div className="mt-6 flex flex-wrap gap-2">
               {filters.map((filter) => (
-                <div key={filter.label} className="rounded-xl border border-slate-200 bg-white p-3">
-                  <p className="text-xs font-bold uppercase text-slate-500">{filter.label}</p>
+                <div key={filter.label} className="rounded-xl border border-border bg-surfaceElevated p-3">
+                  <p className="text-xs font-bold uppercase text-slate-400">{filter.label}</p>
                   <div className="mt-2 flex flex-wrap gap-2">
                     {filter.values.map((value) => (
                       <span
                         key={value}
-                        className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700"
+                        className="rounded-full border border-border bg-surface px-2.5 py-1 text-xs font-medium text-textSecondary"
                       >
                         {value}
                       </span>
@@ -199,13 +199,13 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-          <Card className="bg-slate-950 text-white">
+          <Card className="border-brand/30 bg-black text-white">
             <h3 className="text-xl font-bold">{t('pyq.title')}</h3>
             <p className="mt-3 text-sm leading-7 text-slate-300">{t('pyq.body')}</p>
             <div className="mt-6">
               <Link
                 href="/mock-tests"
-                className="inline-flex rounded-lg bg-white px-4 py-2 text-sm font-semibold text-slate-950"
+                className="inline-flex rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark"
               >
                 {t('pyq.cta')}
               </Link>
@@ -225,11 +225,11 @@ export default function HomePage() {
           {benefits.map((benefit, index) => {
             const Icon = BENEFIT_ICONS[index] ?? CheckIcon;
             return (
-              <div key={benefit.title} className="flex gap-3 rounded-xl bg-white p-5">
-                <Icon className="mt-1 h-5 w-5 shrink-0 text-brand" />
+              <div key={benefit.title} className="flex gap-3 rounded-xl border border-border bg-surfaceElevated p-5">
+                <Icon className="mt-1 h-5 w-5 shrink-0 text-red-300" />
                 <div>
-                  <h3 className="font-bold text-slate-950">{benefit.title}</h3>
-                  <p className="mt-1 text-sm leading-6 text-slate-600">{benefit.body}</p>
+                  <h3 className="font-bold text-textPrimary">{benefit.title}</h3>
+                  <p className="mt-1 text-sm leading-6 text-textSecondary">{benefit.body}</p>
                 </div>
               </div>
             );
@@ -238,7 +238,7 @@ export default function HomePage() {
       </Section>
 
       <Section>
-        <div className="rounded-2xl bg-slate-950 p-8 text-white sm:p-10">
+        <div className="rounded-2xl border border-brand/30 bg-black p-8 text-white sm:p-10">
           <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
               <h2 className="text-2xl font-extrabold sm:text-3xl">{t('finalCta.title')}</h2>
@@ -249,7 +249,7 @@ export default function HomePage() {
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
               <Link
                 href="/register"
-                className="rounded-lg bg-white px-5 py-3 text-center text-sm font-bold text-slate-950"
+                className="rounded-lg bg-brand px-5 py-3 text-center text-sm font-bold text-white hover:bg-brand-dark"
               >
                 {t('finalCta.primary')}
               </Link>

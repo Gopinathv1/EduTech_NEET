@@ -40,10 +40,10 @@ export default async function AccessLogsPage({ searchParams }: { searchParams: P
       <AdminPageHeader title="Access Logs" description="Every back-office action, including logins." />
       <AccessLogFilters initial={filters} admins={admins} />
 
-      <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+      <div className="overflow-x-auto rounded-xl border border-border bg-surfaceElevated shadow-sm">
         <table className="w-full min-w-[760px] text-sm">
           <thead>
-            <tr className="border-b border-slate-200 text-left text-xs uppercase tracking-wide text-slate-500">
+            <tr className="border-b border-border text-left text-xs uppercase tracking-wide text-textSecondary">
               <th className="px-4 py-3 font-medium">When</th>
               <th className="px-3 py-3 font-medium">Admin</th>
               <th className="px-3 py-3 font-medium">Action</th>
@@ -54,25 +54,25 @@ export default async function AccessLogsPage({ searchParams }: { searchParams: P
           <tbody>
             {logs.length === 0 ? (
               <tr>
-                <td colSpan={5} className="px-4 py-10 text-center text-slate-500">
+                <td colSpan={5} className="px-4 py-10 text-center text-textSecondary">
                   No log entries match these filters.
                 </td>
               </tr>
             ) : (
               logs.map((log) => (
-                <tr key={log.id} className="border-b border-slate-100 align-top">
-                  <td className="whitespace-nowrap px-4 py-3 text-slate-600">
+                <tr key={log.id} className="border-b border-border align-top">
+                  <td className="whitespace-nowrap px-4 py-3 text-textSecondary">
                     {log.createdAt.toLocaleString('en-GB', { day: '2-digit', month: 'short', year: '2-digit', hour: '2-digit', minute: '2-digit' })}
                   </td>
-                  <td className="px-3 py-3 text-slate-700">{log.adminName}</td>
+                  <td className="px-3 py-3 text-textSecondary">{log.adminName}</td>
                   <td className="px-3 py-3">
-                    <code className="rounded bg-slate-100 px-1.5 py-0.5 text-xs text-slate-700">{log.action}</code>
+                    <code className="rounded bg-surfaceElevated px-1.5 py-0.5 text-xs text-textSecondary">{log.action}</code>
                   </td>
-                  <td className="px-3 py-3 text-slate-500">
+                  <td className="px-3 py-3 text-textSecondary">
                     {log.entityType}
                     {log.entityId ? <span className="block text-xs text-slate-400">{log.entityId.slice(0, 12)}…</span> : null}
                   </td>
-                  <td className="px-4 py-3 text-xs text-slate-500">
+                  <td className="px-4 py-3 text-xs text-textSecondary">
                     {log.details ? (
                       <span className="line-clamp-2 max-w-xs break-words">{JSON.stringify(log.details)}</span>
                     ) : (

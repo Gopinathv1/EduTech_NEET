@@ -42,7 +42,7 @@ export default function AccessLogFilters({
   const dateCls = `${inputClass} !mt-0 py-1.5 text-sm`;
 
   return (
-    <form onSubmit={onSubmit} className="mb-6 flex flex-wrap items-end gap-3 rounded-xl border border-slate-200 bg-white p-4">
+    <form onSubmit={onSubmit} className="mb-6 flex flex-wrap items-end gap-3 rounded-xl border border-border bg-surfaceElevated p-4">
       <select className={cls} value={v.adminId} onChange={(e) => set('adminId', e.target.value)} aria-label="Admin">
         <option value="">All admins</option>
         {admins.map((a) => (
@@ -58,11 +58,11 @@ export default function AccessLogFilters({
         placeholder="Action contains… (e.g. login)"
         aria-label="Action"
       />
-      <label className="text-xs text-slate-500">
+      <label className="text-xs text-textSecondary">
         From
         <input type="date" className={dateCls} value={v.from} onChange={(e) => set('from', e.target.value)} />
       </label>
-      <label className="text-xs text-slate-500">
+      <label className="text-xs text-textSecondary">
         To
         <input type="date" className={dateCls} value={v.to} onChange={(e) => set('to', e.target.value)} />
       </label>

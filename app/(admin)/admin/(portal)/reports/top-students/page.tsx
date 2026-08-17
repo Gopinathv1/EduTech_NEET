@@ -33,11 +33,11 @@ export default async function TopStudentsReport({ searchParams }: { searchParams
         ]}
         rows={data.map((r, i) => [
           i + 1,
-          <Link key="n" href={`/admin/students/${r.studentId}`} className="font-medium text-brand hover:text-brand-dark">
+          <Link key="n" href={`/admin/students/${r.studentId}`} className="font-medium text-brand hover:text-red-200">
             {r.name}
           </Link>,
           r.district ?? '—',
-          <span key="b" className="font-bold text-slate-900">
+          <span key="b" className="font-bold text-textPrimary">
             {r.best}
           </span>,
           r.fullTests,

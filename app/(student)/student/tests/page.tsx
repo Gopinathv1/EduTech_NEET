@@ -88,20 +88,20 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
     .map((c) => ({ id: c.id, name: localizedName(c.name, locale) }));
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-surface">
       <StudentHeader />
       <main id="main-content" className="mx-auto max-w-5xl px-4 py-8 sm:px-6">
-        <h1 className="text-2xl font-bold text-slate-900">{t('title')}</h1>
-        <p className="mt-1 text-slate-600">{t('subtitle')}</p>
+        <h1 className="text-2xl font-bold text-textPrimary">{t('title')}</h1>
+        <p className="mt-1 text-textSecondary">{t('subtitle')}</p>
 
         <div className="mt-6">
           <CatalogueFilters years={years} chapters={chapterOptions} initial={filters} />
         </div>
 
-        <p className="mb-4 text-sm text-slate-500">{t('resultsCount', { count: filtered.length })}</p>
+        <p className="mb-4 text-sm text-textSecondary">{t('resultsCount', { count: filtered.length })}</p>
 
         {filtered.length === 0 ? (
-          <div className="rounded-xl border border-slate-200 bg-white p-10 text-center text-slate-500">
+          <div className="rounded-xl border border-border bg-surfaceElevated p-10 text-center text-textSecondary">
             {t('empty')}
           </div>
         ) : (

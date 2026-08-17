@@ -91,12 +91,12 @@ export default function AdmissionLeadForm({
 
   if (done) {
     return (
-      <div className="rounded-2xl border border-green-200 bg-green-50 p-6 text-center">
-        <span className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-full bg-green-100 text-green-700">
+      <div className="rounded-2xl border border-green-200 bg-green-950/30 p-6 text-center">
+        <span className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-full bg-green-950/40 text-green-200">
           <CheckIcon className="h-6 w-6" />
         </span>
-        <h3 className="mt-3 text-lg font-semibold text-slate-900">{t('success.title')}</h3>
-        <p className="mt-1 text-sm text-slate-600">{t('success.body')}</p>
+        <h3 className="mt-3 text-lg font-semibold text-textPrimary">{t('success.title')}</h3>
+        <p className="mt-1 text-sm text-textSecondary">{t('success.body')}</p>
         <Link
           href="/student/admission-guidance"
           className="mt-4 inline-block rounded-lg bg-brand px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-dark"
@@ -110,8 +110,8 @@ export default function AdmissionLeadForm({
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
       <div>
-        <h2 className="text-lg font-semibold text-slate-900">{t('form.heading')}</h2>
-        <p className="mt-1 text-sm text-slate-600">{t('form.subtitle')}</p>
+        <h2 className="text-lg font-semibold text-textPrimary">{t('form.heading')}</h2>
+        <p className="mt-1 text-sm text-textSecondary">{t('form.subtitle')}</p>
       </div>
 
       {banner ? <Banner kind="error">{banner}</Banner> : null}
@@ -159,8 +159,8 @@ export default function AdmissionLeadForm({
 
       {/* Interested countries (multi-select) */}
       <div>
-        <p className="block text-sm font-medium text-slate-700">{t('form.countries')}</p>
-        <p className="text-xs text-slate-500">{t('form.countriesHint')}</p>
+        <p className="block text-sm font-medium text-textSecondary">{t('form.countries')}</p>
+        <p className="text-xs text-textSecondary">{t('form.countriesHint')}</p>
         <div className="mt-2 flex flex-wrap gap-2">
           {countries.map((c) => {
             const active = selected.includes(c.id);
@@ -171,7 +171,7 @@ export default function AdmissionLeadForm({
                 onClick={() => toggleCountry(c.id)}
                 aria-pressed={active}
                 className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm font-medium transition-colors ${
-                  active ? 'border-brand bg-brand text-white' : 'border-slate-300 bg-white text-slate-700 hover:border-brand'
+                  active ? 'border-brand bg-brand text-white' : 'border-border bg-surfaceElevated text-textSecondary hover:border-brand'
                 }`}
               >
                 <span aria-hidden="true">{c.flag}</span>
@@ -194,9 +194,9 @@ export default function AdmissionLeadForm({
 
       {/* Consent */}
       <div>
-        <label className="flex items-start gap-3 rounded-xl border border-slate-200 bg-slate-50 p-3">
-          <input type="checkbox" className="mt-0.5 h-5 w-5 rounded border-slate-300 text-brand focus:ring-brand" {...register('consent')} />
-          <span className="text-sm text-slate-700">{t('form.consent')}</span>
+        <label className="flex items-start gap-3 rounded-xl border border-border bg-surface p-3">
+          <input type="checkbox" className="mt-0.5 h-5 w-5 rounded border-border text-brand focus:ring-brand" {...register('consent')} />
+          <span className="text-sm text-textSecondary">{t('form.consent')}</span>
         </label>
         {errors.consent?.message ? (
           <p className="mt-1 text-xs font-medium text-red-600" role="alert">

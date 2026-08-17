@@ -37,10 +37,10 @@ export default function LeadsTable({ leads, admins }: { leads: LeadRow[]; admins
 
   return (
     <>
-      <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+      <div className="overflow-x-auto rounded-xl border border-border bg-surfaceElevated shadow-sm">
         <table className="w-full min-w-[840px] text-sm">
           <thead>
-            <tr className="border-b border-slate-200 text-left text-xs uppercase tracking-wide text-slate-500">
+            <tr className="border-b border-border text-left text-xs uppercase tracking-wide text-textSecondary">
               <th className="px-4 py-3 font-medium">Student</th>
               <th className="px-3 py-3 font-medium">Country</th>
               <th className="px-3 py-3 font-medium">Score</th>
@@ -53,7 +53,7 @@ export default function LeadsTable({ leads, admins }: { leads: LeadRow[]; admins
           <tbody>
             {leads.length === 0 ? (
               <tr>
-                <td colSpan={7} className="px-4 py-10 text-center text-slate-500">
+                <td colSpan={7} className="px-4 py-10 text-center text-textSecondary">
                   No leads match these filters.
                 </td>
               </tr>
@@ -62,20 +62,20 @@ export default function LeadsTable({ leads, admins }: { leads: LeadRow[]; admins
                 <tr
                   key={l.id}
                   onClick={() => setOpenId(l.id)}
-                  className="cursor-pointer border-b border-slate-100 hover:bg-slate-50"
+                  className="cursor-pointer border-b border-border hover:bg-surface"
                 >
                   <td className="px-4 py-3">
-                    <p className="font-medium text-slate-900">{l.studentName}</p>
-                    <p className="text-xs text-slate-500">+91 {l.mobile}</p>
+                    <p className="font-medium text-textPrimary">{l.studentName}</p>
+                    <p className="text-xs text-textSecondary">+91 {l.mobile}</p>
                   </td>
-                  <td className="px-3 py-3 text-slate-700">{l.country || '—'}</td>
-                  <td className="px-3 py-3 text-slate-700">{l.neetScore ?? '—'}</td>
-                  <td className="px-3 py-3 text-slate-700">{budgetLabelEn(l.budget)}</td>
+                  <td className="px-3 py-3 text-textSecondary">{l.country || '—'}</td>
+                  <td className="px-3 py-3 text-textSecondary">{l.neetScore ?? '—'}</td>
+                  <td className="px-3 py-3 text-textSecondary">{budgetLabelEn(l.budget)}</td>
                   <td className="px-3 py-3">
                     <Badge color={STATUS_BADGE[l.status] ?? 'slate'}>{STATUS_LABEL[l.status] ?? l.status}</Badge>
                   </td>
-                  <td className="px-3 py-3 text-slate-600">{l.assignedTo ?? <span className="text-slate-400">—</span>}</td>
-                  <td className="px-4 py-3 text-slate-600">
+                  <td className="px-3 py-3 text-textSecondary">{l.assignedTo ?? <span className="text-slate-400">—</span>}</td>
+                  <td className="px-4 py-3 text-textSecondary">
                     {new Date(l.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
                   </td>
                 </tr>

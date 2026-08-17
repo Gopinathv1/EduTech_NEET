@@ -13,13 +13,13 @@ export default function CtaBand() {
         <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Link
             href="/register"
-            className="w-full rounded-lg bg-white px-6 py-3 text-center text-sm font-semibold text-brand transition-colors hover:bg-blue-50 sm:w-auto"
+            className="w-full rounded-lg bg-surfaceElevated px-6 py-3 text-center text-sm font-semibold text-brand transition-colors hover:bg-blue-50 sm:w-auto"
           >
             {t('register')}
           </Link>
           <Link
             href="/contact"
-            className="w-full rounded-lg border border-white/70 px-6 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-white/10 sm:w-auto"
+            className="w-full rounded-lg border border-white/70 px-6 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-surfaceElevated/10 sm:w-auto"
           >
             {t('contact')}
           </Link>

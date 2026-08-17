@@ -11,7 +11,7 @@ import dynamic from 'next/dynamic';
  */
 
 function ChartBox({ height = 240 }: { height?: number }) {
-  return <div style={{ height }} className="w-full animate-pulse rounded-lg bg-slate-100" aria-hidden="true" />;
+  return <div style={{ height }} className="w-full animate-pulse rounded-lg bg-surfaceElevated" aria-hidden="true" />;
 }
 
 export const AdminLineChart = dynamic(

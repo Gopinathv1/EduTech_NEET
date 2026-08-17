@@ -34,14 +34,14 @@ export default async function StudentReport({ searchParams }: { searchParams: Pr
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <div>
-          <h2 className="mb-2 text-sm font-semibold text-slate-800">By district</h2>
+          <h2 className="mb-2 text-sm font-semibold text-textPrimary">By district</h2>
           <ReportTable
             columns={[{ label: 'District' }, { label: 'Registrations', align: 'right' }]}
             rows={byDistrict.map((r) => [r.label, r.count])}
           />
         </div>
         <div>
-          <h2 className="mb-2 text-sm font-semibold text-slate-800">By board</h2>
+          <h2 className="mb-2 text-sm font-semibold text-textPrimary">By board</h2>
           <ReportTable
             columns={[{ label: 'Board' }, { label: 'Registrations', align: 'right' }]}
             rows={byBoard.map((r) => [r.label, r.count])}

@@ -45,12 +45,12 @@ export default function ContactForm() {
 
   if (done) {
     return (
-      <div className="rounded-2xl border border-green-200 bg-green-50 p-6 text-center">
-        <span className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-full bg-green-100 text-green-700">
+      <div className="rounded-2xl border border-green-200 bg-green-950/30 p-6 text-center">
+        <span className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-full bg-green-950/40 text-green-200">
           <CheckIcon className="h-6 w-6" />
         </span>
-        <h3 className="mt-3 text-lg font-semibold text-slate-900">{t('successTitle')}</h3>
-        <p className="mt-1 text-sm text-slate-600">{t('success')}</p>
+        <h3 className="mt-3 text-lg font-semibold text-textPrimary">{t('successTitle')}</h3>
+        <p className="mt-1 text-sm text-textSecondary">{t('success')}</p>
       </div>
     );
   }

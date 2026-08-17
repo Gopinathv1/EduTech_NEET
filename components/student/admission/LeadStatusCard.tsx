@@ -32,22 +32,22 @@ export default async function LeadStatusCard({ lead, locale }: { lead: StudentLe
   ];
 
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white p-6">
+    <section className="rounded-2xl border border-border bg-surfaceElevated p-6">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <h2 className="text-lg font-semibold text-slate-900">{t('status.heading')}</h2>
+        <h2 className="text-lg font-semibold text-textPrimary">{t('status.heading')}</h2>
         <span
           className={`rounded-full px-3 py-1 text-xs font-semibold ${
             lead.status === 'CONVERTED'
-              ? 'bg-green-100 text-green-700'
+              ? 'bg-green-950/40 text-green-200'
               : closed
-                ? 'bg-slate-100 text-slate-500'
+                ? 'bg-surfaceElevated text-textSecondary'
                 : 'bg-brand-soft text-brand'
           }`}
         >
           {t(`status.statusLabel.${lead.status}`)}
         </span>
       </div>
-      <p className="mt-1 text-sm text-slate-500">{t('status.submittedOn', { date: dateStr })}</p>
+      <p className="mt-1 text-sm text-textSecondary">{t('status.submittedOn', { date: dateStr })}</p>
 
       {/* 3-step tracker */}
       <ol className="mt-5 flex items-center">
@@ -59,7 +59,7 @@ export default async function LeadStatusCard({ lead, locale }: { lead: StudentLe
               <div className="flex flex-col items-center">
                 <span
                   className={`flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold ${
-                    reached ? 'bg-brand text-white' : 'border border-slate-300 bg-white text-slate-400'
+                    reached ? 'bg-brand text-white' : 'border border-border bg-surfaceElevated text-slate-400'
                   }`}
                 >
                   {i + 1}
@@ -68,7 +68,7 @@ export default async function LeadStatusCard({ lead, locale }: { lead: StudentLe
                   {t(`status.steps.${step}`)}
                 </span>
               </div>
-              {!isLast ? <span className={`mx-2 h-0.5 flex-1 ${i < currentStep && !closed ? 'bg-brand' : 'bg-slate-200'}`} /> : null}
+              {!isLast ? <span className={`mx-2 h-0.5 flex-1 ${i < currentStep && !closed ? 'bg-brand' : 'bg-surface'}`} /> : null}
             </li>
           );
         })}
@@ -76,12 +76,12 @@ export default async function LeadStatusCard({ lead, locale }: { lead: StudentLe
 
       {/* Submitted details */}
       <div className="mt-6">
-        <h3 className="text-sm font-semibold text-slate-700">{t('status.detailsHeading')}</h3>
+        <h3 className="text-sm font-semibold text-textSecondary">{t('status.detailsHeading')}</h3>
         <dl className="mt-3 grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2">
           {details.map((d) => (
-            <div key={d.label} className="flex justify-between gap-3 border-b border-slate-100 pb-2">
-              <dt className="text-sm text-slate-500">{d.label}</dt>
-              <dd className="text-sm font-medium text-slate-800">{d.value}</dd>
+            <div key={d.label} className="flex justify-between gap-3 border-b border-border pb-2">
+              <dt className="text-sm text-textSecondary">{d.label}</dt>
+              <dd className="text-sm font-medium text-textPrimary">{d.value}</dd>
             </div>
           ))}
         </dl>

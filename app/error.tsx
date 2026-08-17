@@ -12,12 +12,12 @@ import { useTranslations } from 'next-intl';
 export default function Error({ reset }: { error: Error & { digest?: string }; reset: () => void }) {
   const t = useTranslations('errors.generic');
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-slate-50 px-4 text-center">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-surface px-4 text-center">
       <span className="text-5xl" aria-hidden="true">
         ⚠️
       </span>
-      <h1 className="mt-4 text-2xl font-bold text-slate-900">{t('title')}</h1>
-      <p className="mt-2 max-w-md text-sm text-slate-600">{t('message')}</p>
+      <h1 className="mt-4 text-2xl font-bold text-textPrimary">{t('title')}</h1>
+      <p className="mt-2 max-w-md text-sm text-textSecondary">{t('message')}</p>
       <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
         <button
           type="button"
@@ -28,7 +28,7 @@ export default function Error({ reset }: { error: Error & { digest?: string }; r
         </button>
         <Link
           href="/"
-          className="rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100"
+          className="rounded-lg border border-border px-5 py-2.5 text-sm font-medium text-textSecondary hover:bg-surfaceElevated"
         >
           {t('home')}
         </Link>

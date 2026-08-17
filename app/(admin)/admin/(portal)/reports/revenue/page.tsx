@@ -28,7 +28,7 @@ export default async function RevenueReport({ searchParams }: { searchParams: Pr
         <AdminLineChart data={series} color="#16a34a" />
       </ChartCard>
 
-      <h2 className="mb-2 text-sm font-semibold text-slate-800">By test</h2>
+      <h2 className="mb-2 text-sm font-semibold text-textPrimary">By test</h2>
       <ReportTable
         columns={[{ label: 'Test' }, { label: 'Payments', align: 'right' }, { label: 'Revenue (₹)', align: 'right' }]}
         rows={byTest.map((r) => [r.title, r.count, r.revenue])}

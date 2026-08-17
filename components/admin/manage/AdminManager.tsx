@@ -57,8 +57,8 @@ export default function AdminManager({ admins, currentAdminId }: { admins: Admin
   return (
     <div>
       {/* Create */}
-      <div className="rounded-xl border border-slate-200 bg-white p-5">
-        <h2 className="text-base font-semibold text-slate-900">Add an admin</h2>
+      <div className="rounded-xl border border-border bg-surfaceElevated p-5">
+        <h2 className="text-base font-semibold text-textPrimary">Add an admin</h2>
         <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
           <input className={`${inputClass} !mt-0 text-sm`} placeholder="Name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
           <input className={`${inputClass} !mt-0 text-sm`} type="email" placeholder="Email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
@@ -69,7 +69,7 @@ export default function AdminManager({ admins, currentAdminId }: { admins: Admin
           </select>
         </div>
         {msg ? (
-          <p className={`mt-3 rounded-lg px-3 py-2 text-sm ${msg.kind === 'ok' ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}`}>{msg.text}</p>
+          <p className={`mt-3 rounded-lg px-3 py-2 text-sm ${msg.kind === 'ok' ? 'bg-green-950/30 text-green-200' : 'bg-red-950/30 text-red-200'}`}>{msg.text}</p>
         ) : null}
         <button type="button" className={`${btnPrimary} mt-4`} onClick={create} disabled={busy || !canSubmit}>
           {busy ? 'Creating…' : 'Create admin'}
@@ -77,10 +77,10 @@ export default function AdminManager({ admins, currentAdminId }: { admins: Admin
       </div>
 
       {/* List */}
-      <div className="mt-6 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+      <div className="mt-6 overflow-x-auto rounded-xl border border-border bg-surfaceElevated shadow-sm">
         <table className="w-full min-w-[720px] text-sm">
           <thead>
-            <tr className="border-b border-slate-200 text-left text-xs uppercase tracking-wide text-slate-500">
+            <tr className="border-b border-border text-left text-xs uppercase tracking-wide text-textSecondary">
               <th className="px-4 py-3 font-medium">Admin</th>
               <th className="px-3 py-3 font-medium">Role</th>
               <th className="px-3 py-3 font-medium">Status</th>
@@ -92,13 +92,13 @@ export default function AdminManager({ admins, currentAdminId }: { admins: Admin
             {admins.map((a) => {
               const isSelf = a.id === currentAdminId;
               return (
-                <tr key={a.id} className="border-b border-slate-100">
+                <tr key={a.id} className="border-b border-border">
                   <td className="px-4 py-3">
-                    <p className="font-medium text-slate-900">
+                    <p className="font-medium text-textPrimary">
                       {a.name}
                       {isSelf ? <span className="ml-2 text-xs text-slate-400">(you)</span> : null}
                     </p>
-                    <p className="text-xs text-slate-500">{a.email}</p>
+                    <p className="text-xs text-textSecondary">{a.email}</p>
                   </td>
                   <td className="px-3 py-3">
                     <select
@@ -115,7 +115,7 @@ export default function AdminManager({ admins, currentAdminId }: { admins: Admin
                   <td className="px-3 py-3">
                     {a.isActive ? <Badge color="green">Active</Badge> : <Badge color="red">Inactive</Badge>}
                   </td>
-                  <td className="px-3 py-3 text-slate-600">
+                  <td className="px-3 py-3 text-textSecondary">
                     {a.lastLoginAt ? new Date(a.lastLoginAt).toLocaleString('en-GB', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' }) : '—'}
                   </td>
                   <td className="px-4 py-3">
@@ -126,7 +126,7 @@ export default function AdminManager({ admins, currentAdminId }: { admins: Admin
                       {a.isActive ? (
                         <button
                           type="button"
-                          className="rounded-lg border border-red-300 px-2 py-1 text-xs font-semibold text-red-700 hover:bg-red-50 disabled:opacity-40"
+                          className="rounded-lg border border-red-500/50 px-2 py-1 text-xs font-semibold text-red-200 hover:bg-red-950/30 disabled:opacity-40"
                           onClick={() => setActive(a.id, false)}
                           disabled={isSelf}
                         >
@@ -135,7 +135,7 @@ export default function AdminManager({ admins, currentAdminId }: { admins: Admin
                       ) : (
                         <button
                           type="button"
-                          className="rounded-lg border border-green-300 px-2 py-1 text-xs font-semibold text-green-700 hover:bg-green-50"
+                          className="rounded-lg border border-green-500/50 px-2 py-1 text-xs font-semibold text-green-200 hover:bg-green-950/30"
                           onClick={() => setActive(a.id, true)}
                         >
                           Activate

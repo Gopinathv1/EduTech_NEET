@@ -15,8 +15,8 @@ export function AdminPageHeader({
   return (
     <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
       <div>
-        <h1 className="text-2xl font-bold text-slate-900">{title}</h1>
-        {description ? <p className="mt-1 text-sm text-slate-600">{description}</p> : null}
+        <h1 className="text-2xl font-bold text-textPrimary">{title}</h1>
+        {description ? <p className="mt-1 text-sm text-textSecondary">{description}</p> : null}
       </div>
       {actions ? <div className="flex flex-wrap gap-2">{actions}</div> : null}
     </div>
@@ -25,18 +25,18 @@ export function AdminPageHeader({
 
 export function AdminCard({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
-    <div className={`rounded-xl border border-slate-200 bg-white p-5 shadow-sm ${className}`}>
+    <div className={`rounded-xl border border-border bg-surfaceElevated p-5 shadow-sm ${className}`}>
       {children}
     </div>
   );
 }
 
 const badgeColors: Record<string, string> = {
-  slate: 'bg-slate-100 text-slate-700',
-  green: 'bg-green-100 text-green-700',
-  amber: 'bg-amber-100 text-amber-800',
+  slate: 'bg-surfaceElevated text-textSecondary',
+  green: 'bg-green-950/40 text-green-200',
+  amber: 'bg-amber-100 text-amber-100',
   blue: 'bg-brand-soft text-brand',
-  red: 'bg-red-100 text-red-700',
+  red: 'bg-red-950/40 text-red-200',
 };
 
 export function Badge({ color = 'slate', children }: { color?: keyof typeof badgeColors | string; children: ReactNode }) {
@@ -51,8 +51,8 @@ const btnBase =
   'inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-colors disabled:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand';
 
 export const btnPrimary = `${btnBase} bg-brand text-white hover:bg-brand-dark`;
-export const btnSecondary = `${btnBase} border border-slate-300 text-slate-700 hover:bg-slate-100`;
-export const btnDanger = `${btnBase} border border-red-300 text-red-700 hover:bg-red-50`;
+export const btnSecondary = `${btnBase} border border-border text-textSecondary hover:bg-surfaceElevated`;
+export const btnDanger = `${btnBase} border border-red-500/50 text-red-200 hover:bg-red-950/30`;
 
 export function PrimaryButtonLink({ href, children }: { href: string; children: ReactNode }) {
   return (
@@ -76,8 +76,8 @@ export function ComingSoon({ title, description }: { title: string; description:
     <div>
       <AdminPageHeader title={title} />
       <AdminCard className="text-center">
-        <p className="mx-auto max-w-md text-slate-600">{description}</p>
-        <span className="mt-4 inline-block rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-500">
+        <p className="mx-auto max-w-md text-textSecondary">{description}</p>
+        <span className="mt-4 inline-block rounded-full bg-surfaceElevated px-3 py-1 text-xs font-semibold uppercase tracking-wide text-textSecondary">
           Coming soon
         </span>
       </AdminCard>

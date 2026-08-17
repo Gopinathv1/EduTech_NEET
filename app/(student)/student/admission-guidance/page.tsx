@@ -45,30 +45,30 @@ export default async function AdmissionGuidancePage() {
   }));
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-surface">
       <StudentHeader />
       <main id="main-content" className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
-        <h1 className="text-2xl font-bold text-slate-900">{t('title')}</h1>
-        <p className="mt-1 text-slate-600">{t('subtitle')}</p>
-        <p className="mt-4 text-sm leading-relaxed text-slate-700">{t('intro')}</p>
+        <h1 className="text-2xl font-bold text-textPrimary">{t('title')}</h1>
+        <p className="mt-1 text-textSecondary">{t('subtitle')}</p>
+        <p className="mt-4 text-sm leading-relaxed text-textSecondary">{t('intro')}</p>
 
         {/* Country cards */}
         <section className="mt-8">
-          <h2 className="text-lg font-semibold text-slate-900">{t('countriesHeading')}</h2>
-          <p className="mt-1 text-sm text-slate-500">{t('countriesSubtitle')}</p>
+          <h2 className="text-lg font-semibold text-textPrimary">{t('countriesHeading')}</h2>
+          <p className="mt-1 text-sm text-textSecondary">{t('countriesSubtitle')}</p>
           <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {countries.map((c) => (
-              <div key={c.id} className="rounded-2xl border border-slate-200 bg-white p-5">
+              <div key={c.id} className="rounded-2xl border border-border bg-surfaceElevated p-5">
                 <div className="flex items-center gap-3">
                   <span className="text-3xl" aria-hidden="true">
                     {flagFor(c.code)}
                   </span>
-                  <h3 className="text-base font-semibold text-slate-900">
+                  <h3 className="text-base font-semibold text-textPrimary">
                     {localizedName(c.name, locale) || localizedName(c.name, 'en')}
                   </h3>
                 </div>
                 {localizedName(c.description, locale) || localizedName(c.description, 'en') ? (
-                  <p className="mt-2 text-sm text-slate-600">
+                  <p className="mt-2 text-sm text-textSecondary">
                     {localizedName(c.description, locale) || localizedName(c.description, 'en')}
                   </p>
                 ) : null}
@@ -78,14 +78,14 @@ export default async function AdmissionGuidancePage() {
         </section>
 
         {/* Eligibility & regulations disclosure (compliance) */}
-        <section className="mt-6 rounded-2xl border border-brand/20 bg-white p-5">
+        <section className="mt-6 rounded-2xl border border-brand/20 bg-surfaceElevated p-5">
           <div className="flex gap-4">
             <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-soft text-brand">
               <ShieldIcon className="h-6 w-6" />
             </span>
             <div>
-              <h2 className="text-base font-semibold text-slate-900">{t('disclosure.title')}</h2>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">{t('disclosure.body')}</p>
+              <h2 className="text-base font-semibold text-textPrimary">{t('disclosure.title')}</h2>
+              <p className="mt-2 text-sm leading-relaxed text-textSecondary">{t('disclosure.body')}</p>
             </div>
           </div>
         </section>
@@ -95,7 +95,7 @@ export default async function AdmissionGuidancePage() {
           {lead ? (
             <LeadStatusCard lead={lead} locale={locale} />
           ) : (
-            <div className="rounded-2xl border border-slate-200 bg-white p-6">
+            <div className="rounded-2xl border border-border bg-surfaceElevated p-6">
               <AdmissionLeadForm countries={formCountries} defaults={{ neetScore: prefillScore }} />
             </div>
           )}

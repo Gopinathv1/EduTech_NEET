@@ -3,14 +3,20 @@
 @tailwind utilities;
 
 /*
- * Base document styles. Mobile-first: keep the default paint light for
- * low-bandwidth rural connections. Accessibility helpers (large-font mode,
- * high-contrast mode) will be layered on top of these variables in a later
- * phase via a class on <html>.
+ * Base document styles. VV Overseas uses a dark, mobile-first interface with
+ * red as the primary brand accent.
  */
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a;
+  --background: #080808;
+  --foreground: #f8fafc;
+  --surface: #111111;
+  --surface-elevated: #181818;
+  --text-secondary: #cbd5e1;
+  --primary-red: #ef4444;
+  --primary-red-hover: #dc2626;
+  --accent-blue: #38bdf8;
+  --border: #2a2a2a;
+  color-scheme: dark;
 }
 
 html {
@@ -68,11 +74,11 @@ html[data-contrast='high'] body {
 }
 /* Muted greys → slate-800 (#1f2937), which is ≥12:1 on white. */
 html[data-contrast='high'] .text-slate-400,
-html[data-contrast='high'] .text-slate-500,
-html[data-contrast='high'] .text-slate-600 {
+html[data-contrast='high'] .text-textSecondary,
+html[data-contrast='high'] .text-textSecondary {
   color: #1f2937 !important;
 }
-html[data-contrast='high'] .text-slate-700 {
+html[data-contrast='high'] .text-textSecondary {
   color: #0f172a !important;
 }
 /* Brand-tinted text darkened for stronger contrast on white. */
@@ -80,13 +86,13 @@ html[data-contrast='high'] .text-brand {
   color: #991b1b !important;
 }
 /* Hairline borders → visible slate-700 so cards/inputs have clear edges. */
-html[data-contrast='high'] .border-slate-100,
-html[data-contrast='high'] .border-slate-200,
-html[data-contrast='high'] .border-slate-300 {
+html[data-contrast='high'] .border-border,
+html[data-contrast='high'] .border-border,
+html[data-contrast='high'] .border-border {
   border-color: #334155 !important;
 }
 /* Faint tint backgrounds → white so text keeps maximum contrast. */
-html[data-contrast='high'] .bg-slate-50,
+html[data-contrast='high'] .bg-surface,
 html[data-contrast='high'] .bg-brand-soft {
   background-color: #ffffff !important;
 }

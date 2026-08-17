@@ -44,10 +44,10 @@ export default async function AdminStudentsPage({ searchParams }: { searchParams
       <AdminPageHeader title="Students" description={`${total} registered student${total === 1 ? '' : 's'}.`} />
       <StudentFilters initial={filters} />
 
-      <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+      <div className="overflow-x-auto rounded-xl border border-border bg-surfaceElevated shadow-sm">
         <table className="w-full min-w-[760px] text-sm">
           <thead>
-            <tr className="border-b border-slate-200 text-left text-xs uppercase tracking-wide text-slate-500">
+            <tr className="border-b border-border text-left text-xs uppercase tracking-wide text-textSecondary">
               <th className="px-4 py-3 font-medium">Student</th>
               <th className="px-3 py-3 font-medium">District</th>
               <th className="px-3 py-3 font-medium">Board</th>
@@ -60,28 +60,28 @@ export default async function AdminStudentsPage({ searchParams }: { searchParams
           <tbody>
             {students.length === 0 ? (
               <tr>
-                <td colSpan={7} className="px-4 py-10 text-center text-slate-500">
+                <td colSpan={7} className="px-4 py-10 text-center text-textSecondary">
                   No students match these filters.
                 </td>
               </tr>
             ) : (
               students.map((s) => (
-                <tr key={s.id} className="border-b border-slate-100">
+                <tr key={s.id} className="border-b border-border">
                   <td className="px-4 py-3">
-                    <p className="font-medium text-slate-900">{s.name}</p>
-                    <p className="text-xs text-slate-500">+91 {s.mobile}</p>
+                    <p className="font-medium text-textPrimary">{s.name}</p>
+                    <p className="text-xs text-textSecondary">+91 {s.mobile}</p>
                   </td>
-                  <td className="px-3 py-3 text-slate-700">{s.district ?? '—'}</td>
-                  <td className="px-3 py-3 text-slate-700">{s.board ?? '—'}</td>
-                  <td className="px-3 py-3 text-slate-700">{s.class ?? '—'}</td>
+                  <td className="px-3 py-3 text-textSecondary">{s.district ?? '—'}</td>
+                  <td className="px-3 py-3 text-textSecondary">{s.board ?? '—'}</td>
+                  <td className="px-3 py-3 text-textSecondary">{s.class ?? '—'}</td>
                   <td className="px-3 py-3">
                     {s.isMobileVerified ? <Badge color="green">Verified</Badge> : <Badge color="slate">Pending</Badge>}
                   </td>
-                  <td className="px-3 py-3 text-slate-600">
+                  <td className="px-3 py-3 text-textSecondary">
                     {s.createdAt.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
                   </td>
                   <td className="px-4 py-3">
-                    <Link href={`/admin/students/${s.id}`} className="font-semibold text-brand hover:text-brand-dark">
+                    <Link href={`/admin/students/${s.id}`} className="font-semibold text-brand hover:text-red-200">
                       View
                     </Link>
                   </td>

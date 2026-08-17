@@ -10,10 +10,10 @@ import AccessibilityMenu from '@/components/a11y/AccessibilityMenu';
 export default function AuthShell({ children }: { children: React.ReactNode }) {
   const t = useTranslations('nav');
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50">
-      <header className="flex items-center justify-between px-4 py-4 sm:px-8">
-        <Link href="/" className="text-lg font-bold text-brand">
-          {t('brand')}
+    <div className="flex min-h-screen flex-col bg-background">
+      <header className="flex items-center justify-between border-b border-border bg-black px-4 py-4 sm:px-8">
+        <Link href="/" className="text-lg font-bold text-textPrimary" aria-label={t('brand')}>
+          <span className="text-brand">VV</span> Overseas
         </Link>
         <div className="flex items-center gap-2">
           <AccessibilityMenu />
@@ -21,7 +21,7 @@ export default function AuthShell({ children }: { children: React.ReactNode }) {
         </div>
       </header>
       <main id="main-content" className="flex flex-1 items-start justify-center px-4 py-6 sm:items-center">
-        <div className="w-full max-w-md rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+        <div className="w-full max-w-md rounded-2xl border border-border bg-surface p-6 shadow-sm shadow-black/30 sm:p-8">
           {children}
         </div>
       </main>

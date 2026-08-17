@@ -31,10 +31,10 @@ export default function TestimonialsPage() {
           {items.map((item) => (
             <Card key={item.name}>
               <QuoteIcon className="h-7 w-7 text-brand/30" />
-              <p className="mt-3 text-sm leading-relaxed text-slate-700">{item.quote}</p>
+              <p className="mt-3 text-sm leading-relaxed text-textSecondary">{item.quote}</p>
               <div className="mt-4">
-                <p className="text-sm font-semibold text-slate-900">{item.name}</p>
-                <p className="text-xs text-slate-500">{item.role}</p>
+                <p className="text-sm font-semibold text-textPrimary">{item.name}</p>
+                <p className="text-xs text-textSecondary">{item.role}</p>
               </div>
             </Card>
           ))}

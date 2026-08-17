@@ -43,12 +43,12 @@ export default function DateRangeBar({
   const cls = `${inputClass} !mt-0 py-1.5 text-sm`;
 
   return (
-    <form onSubmit={onSubmit} className="mb-5 flex flex-wrap items-end gap-3 rounded-xl border border-slate-200 bg-white p-4">
-      <label className="text-xs font-medium text-slate-500">
+    <form onSubmit={onSubmit} className="mb-5 flex flex-wrap items-end gap-3 rounded-xl border border-border bg-surfaceElevated p-4">
+      <label className="text-xs font-medium text-textSecondary">
         From
         <input type="date" className={cls} value={from} onChange={(e) => setFrom(e.target.value)} />
       </label>
-      <label className="text-xs font-medium text-slate-500">
+      <label className="text-xs font-medium text-textSecondary">
         To
         <input type="date" className={cls} value={to} onChange={(e) => setTo(e.target.value)} />
       </label>

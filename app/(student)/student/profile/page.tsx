@@ -29,14 +29,14 @@ export default async function ProfilePage() {
     <AuthShell>
       <div className="space-y-4">
         <div>
-          <h1 className="text-xl font-bold text-slate-900">{t('title')}</h1>
-          <p className="mt-1 text-sm text-slate-600">{t('subtitle')}</p>
+          <h1 className="text-xl font-bold text-textPrimary">{t('title')}</h1>
+          <p className="mt-1 text-sm text-textSecondary">{t('subtitle')}</p>
         </div>
         <ProfileForm initial={initial} />
         <p className="text-center text-sm">
           <Link
             href="/student/settings"
-            className="font-medium text-brand hover:text-brand-dark"
+            className="font-medium text-brand hover:text-red-200"
           >
             {ta11y('settingsTitle')}
           </Link>
@@ -44,7 +44,7 @@ export default async function ProfilePage() {
         <p className="text-center text-sm">
           <Link
             href="/student"
-            className="font-medium text-slate-500 hover:text-slate-700"
+            className="font-medium text-textSecondary hover:text-textSecondary"
           >
             {t('backToDashboard')}
           </Link>

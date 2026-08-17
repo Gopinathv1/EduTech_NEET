@@ -27,11 +27,11 @@ export default function AboutPage() {
         <div className="grid gap-5 lg:grid-cols-2">
           <Card>
             <h2 className="text-lg font-semibold text-brand">{t('missionTitle')}</h2>
-            <p className="mt-2 text-slate-600">{t('mission')}</p>
+            <p className="mt-2 text-textSecondary">{t('mission')}</p>
           </Card>
           <Card>
             <h2 className="text-lg font-semibold text-brand">{t('visionTitle')}</h2>
-            <p className="mt-2 text-slate-600">{t('vision')}</p>
+            <p className="mt-2 text-textSecondary">{t('vision')}</p>
           </Card>
         </div>
       </Section>
@@ -40,7 +40,7 @@ export default function AboutPage() {
         <SectionHeading title={t('storyTitle')} />
         <div className="mt-6 max-w-3xl space-y-4">
           {story.map((para, i) => (
-            <p key={i} className="text-slate-700">
+            <p key={i} className="text-textSecondary">
               {para}
             </p>
           ))}
@@ -57,8 +57,8 @@ export default function AboutPage() {
                 <IconBadge>
                   <Icon className="h-6 w-6" />
                 </IconBadge>
-                <h3 className="mt-4 text-base font-semibold text-slate-900">{v.title}</h3>
-                <p className="mt-2 text-sm text-slate-600">{v.body}</p>
+                <h3 className="mt-4 text-base font-semibold text-textPrimary">{v.title}</h3>
+                <p className="mt-2 text-sm text-textSecondary">{v.body}</p>
               </Card>
             );
           })}

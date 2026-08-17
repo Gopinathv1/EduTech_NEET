@@ -35,8 +35,8 @@ export default function MockTestsPage() {
                 <IconBadge>
                   <Icon className="h-6 w-6" />
                 </IconBadge>
-                <h3 className="mt-4 text-lg font-semibold text-slate-900">{ty.title}</h3>
-                <p className="mt-2 text-sm text-slate-600">{ty.body}</p>
+                <h3 className="mt-4 text-lg font-semibold text-textPrimary">{ty.title}</h3>
+                <p className="mt-2 text-sm text-textSecondary">{ty.body}</p>
               </Card>
             );
           })}
@@ -52,7 +52,7 @@ export default function MockTestsPage() {
               {features.map((f) => (
                 <li key={f} className="flex items-start gap-3">
                   <CheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
-                  <span className="text-slate-700">{f}</span>
+                  <span className="text-textSecondary">{f}</span>
                 </li>
               ))}
             </ul>
@@ -63,12 +63,12 @@ export default function MockTestsPage() {
               {t('pricing.title')}
             </p>
             <p className="mt-2 flex items-baseline gap-2">
-              <span className="text-4xl font-extrabold text-slate-900">{t('pricing.price')}</span>
-              <span className="text-slate-500">{t('pricing.per')}</span>
+              <span className="text-4xl font-extrabold text-textPrimary">{t('pricing.price')}</span>
+              <span className="text-textSecondary">{t('pricing.per')}</span>
             </p>
             <ul className="mt-5 space-y-2">
               {pricingPoints.map((p) => (
-                <li key={p} className="flex items-start gap-2 text-sm text-slate-700">
+                <li key={p} className="flex items-start gap-2 text-sm text-textSecondary">
                   <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
                   {p}
                 </li>
@@ -79,7 +79,7 @@ export default function MockTestsPage() {
                 {t('pricing.cta')}
               </PrimaryLink>
             </div>
-            <p className="mt-3 text-center text-xs text-slate-500">{t('pricing.note')}</p>
+            <p className="mt-3 text-center text-xs text-textSecondary">{t('pricing.note')}</p>
           </Card>
         </div>
       </Section>

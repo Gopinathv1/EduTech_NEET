@@ -94,7 +94,7 @@ export default function AccessibilityMenu({
         aria-haspopup="true"
         aria-expanded={open}
         aria-label={t('menuLabel')}
-        className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-600 hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+        className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-surface text-textSecondary hover:bg-surfaceElevated hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
       >
         {/* Universal-access glyph (decorative; button is labelled). */}
         <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor">
@@ -106,9 +106,9 @@ export default function AccessibilityMenu({
         <div
           role="menu"
           aria-label={t('menuLabel')}
-          className="absolute right-0 z-50 mt-2 w-64 rounded-xl border border-slate-200 bg-white p-3 shadow-lg"
+          className="absolute right-0 z-50 mt-2 w-64 rounded-xl border border-border bg-surfaceElevated p-3 shadow-lg shadow-black/40"
         >
-          <p className="px-1 pb-2 text-xs font-semibold uppercase tracking-wide text-slate-500">
+          <p className="px-1 pb-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
             {t('menuLabel')}
           </p>
           <ToggleRow
@@ -151,20 +151,20 @@ function ToggleRow({
       aria-checked={on}
       disabled={disabled}
       onClick={onToggle}
-      className="flex w-full items-start justify-between gap-3 rounded-lg px-1 py-2 text-left hover:bg-slate-50 disabled:opacity-60"
+      className="flex w-full items-start justify-between gap-3 rounded-lg px-1 py-2 text-left hover:bg-surface disabled:opacity-60"
     >
       <span>
-        <span className="block text-sm font-medium text-slate-900">{label}</span>
-        <span className="block text-xs text-slate-500">{hint}</span>
+        <span className="block text-sm font-medium text-textPrimary">{label}</span>
+        <span className="block text-xs text-textSecondary">{hint}</span>
       </span>
       <span
         aria-hidden="true"
         className={`mt-0.5 inline-flex h-6 w-11 flex-shrink-0 items-center rounded-full transition-colors ${
-          on ? 'bg-brand' : 'bg-slate-300'
+          on ? 'bg-brand' : 'bg-slate-600'
         }`}
       >
         <span
-          className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition-transform ${
+          className={`inline-block h-5 w-5 transform rounded-full bg-surfaceElevated shadow transition-transform ${
             on ? 'translate-x-5' : 'translate-x-1'
           }`}
         />

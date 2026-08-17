@@ -49,11 +49,11 @@ export default async function AdminNotificationsPage() {
       <NotificationComposer />
 
       <section className="mt-8">
-        <h2 className="text-base font-semibold text-slate-900">Sent history</h2>
-        <div className="mt-3 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+        <h2 className="text-base font-semibold text-textPrimary">Sent history</h2>
+        <div className="mt-3 overflow-x-auto rounded-xl border border-border bg-surfaceElevated shadow-sm">
           <table className="w-full min-w-[760px] text-sm">
             <thead>
-              <tr className="border-b border-slate-200 text-left text-xs uppercase tracking-wide text-slate-500">
+              <tr className="border-b border-border text-left text-xs uppercase tracking-wide text-textSecondary">
                 <th className="px-4 py-3 font-medium">Notification</th>
                 <th className="px-3 py-3 font-medium">Type</th>
                 <th className="px-3 py-3 font-medium">Audience</th>
@@ -66,7 +66,7 @@ export default async function AdminNotificationsPage() {
             <tbody>
               {history.length === 0 ? (
                 <tr>
-                  <td colSpan={7} className="px-4 py-10 text-center text-slate-500">
+                  <td colSpan={7} className="px-4 py-10 text-center text-textSecondary">
                     No notifications sent yet.
                   </td>
                 </tr>
@@ -76,23 +76,23 @@ export default async function AdminNotificationsPage() {
                   const read = n._count.reads;
                   const pct = delivered > 0 ? Math.round((read / delivered) * 100) : 0;
                   return (
-                    <tr key={n.id} className="border-b border-slate-100">
+                    <tr key={n.id} className="border-b border-border">
                       <td className="px-4 py-3">
                         <span className="flex items-center gap-2">
                           <span aria-hidden="true">{notificationStyle(n.type).icon}</span>
-                          <span className="font-medium text-slate-900">{localizedName(n.title, 'en')}</span>
+                          <span className="font-medium text-textPrimary">{localizedName(n.title, 'en')}</span>
                         </span>
                       </td>
                       <td className="px-3 py-3">
                         <Badge color="slate">{TYPE_LABEL[n.type] ?? n.type}</Badge>
                       </td>
-                      <td className="px-3 py-3 text-slate-700">{audienceLabel(n)}</td>
-                      <td className="px-3 py-3 text-slate-700">{delivered}</td>
-                      <td className="px-3 py-3 text-slate-700">
+                      <td className="px-3 py-3 text-textSecondary">{audienceLabel(n)}</td>
+                      <td className="px-3 py-3 text-textSecondary">{delivered}</td>
+                      <td className="px-3 py-3 text-textSecondary">
                         {read} <span className="text-xs text-slate-400">· {pct}%</span>
                       </td>
-                      <td className="px-3 py-3 text-slate-600">{n.createdByName ?? <span className="text-slate-400">System</span>}</td>
-                      <td className="px-4 py-3 text-slate-600">
+                      <td className="px-3 py-3 text-textSecondary">{n.createdByName ?? <span className="text-slate-400">System</span>}</td>
+                      <td className="px-4 py-3 text-textSecondary">
                         {n.createdAt.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
                       </td>
                     </tr>

@@ -63,8 +63,8 @@ export default function OtpStep({
   return (
     <form onSubmit={verify} className="space-y-4" noValidate>
       <div>
-        <h1 className="text-xl font-bold text-slate-900">{t('title')}</h1>
-        <p className="mt-1 text-sm text-slate-600">{t('subtitle', { mobile: `+91 ${mobile}` })}</p>
+        <h1 className="text-xl font-bold text-textPrimary">{t('title')}</h1>
+        <p className="mt-1 text-sm text-textSecondary">{t('subtitle', { mobile: `+91 ${mobile}` })}</p>
       </div>
 
       {devOtp ? <Banner kind="success">{t('devHint', { otp: devOtp })}</Banner> : null}
@@ -92,7 +92,7 @@ export default function OtpStep({
         <button
           type="button"
           onClick={onBack}
-          className="font-medium text-slate-500 hover:text-slate-700"
+          className="font-medium text-textSecondary hover:text-textPrimary"
         >
           {t('changeNumber')}
         </button>
@@ -100,7 +100,7 @@ export default function OtpStep({
           type="button"
           onClick={resend}
           disabled={seconds > 0}
-          className="font-medium text-brand hover:text-brand-dark disabled:opacity-50"
+          className="font-medium text-brand hover:text-red-200 disabled:opacity-50"
         >
           {seconds > 0 ? t('resendIn', { seconds }) : t('resend')}
         </button>

@@ -29,7 +29,7 @@ export default function ContactPage() {
         <div className="grid gap-8 lg:grid-cols-[1fr,1.3fr]">
           {/* Info */}
           <div>
-            <h2 className="text-lg font-semibold text-slate-900">{t('infoTitle')}</h2>
+            <h2 className="text-lg font-semibold text-textPrimary">{t('infoTitle')}</h2>
             <ul className="mt-5 space-y-4">
               {rows.map((r) => (
                 <li key={r.label} className="flex items-start gap-3">
@@ -37,8 +37,8 @@ export default function ContactPage() {
                     <r.Icon className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="text-sm font-medium text-slate-500">{r.label}</p>
-                    <p className="text-slate-800">{r.value}</p>
+                    <p className="text-sm font-medium text-textSecondary">{r.label}</p>
+                    <p className="text-textPrimary">{r.value}</p>
                   </div>
                 </li>
               ))}
@@ -47,8 +47,8 @@ export default function ContactPage() {
 
           {/* Form */}
           <Card>
-            <h2 className="text-lg font-semibold text-slate-900">{t('formTitle')}</h2>
-            <p className="mt-1 text-sm text-slate-600">{t('formSubtitle')}</p>
+            <h2 className="text-lg font-semibold text-textPrimary">{t('formTitle')}</h2>
+            <p className="mt-1 text-sm text-textSecondary">{t('formSubtitle')}</p>
             <div className="mt-5">
               <ContactForm />
             </div>

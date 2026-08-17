@@ -247,16 +247,16 @@ export default function ExamClient({
   const lowTime = remaining <= 60;
 
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50">
+    <div className="flex min-h-screen flex-col bg-surface">
       {/* Header */}
-      <header className="sticky top-0 z-30 border-b border-slate-200 bg-white">
+      <header className="sticky top-0 z-30 border-b border-border bg-surfaceElevated">
         <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-2.5 sm:px-6">
-          <h1 className="max-w-[45%] truncate text-sm font-bold text-slate-900 sm:text-base">{testTitle}</h1>
+          <h1 className="max-w-[45%] truncate text-sm font-bold text-textPrimary sm:text-base">{testTitle}</h1>
 
           <div className="flex items-center gap-3">
             <div
               className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-bold tabular-nums ${
-                lowTime ? 'bg-red-100 text-red-700' : 'bg-brand-soft text-brand'
+                lowTime ? 'bg-red-950/40 text-red-200' : 'bg-brand-soft text-brand'
               }`}
               role="timer"
               aria-live="off"
@@ -266,7 +266,7 @@ export default function ExamClient({
             </div>
 
             {availableLanguages.length > 1 ? (
-              <div className="inline-flex items-center gap-1 rounded-full border border-slate-200 p-1">
+              <div className="inline-flex items-center gap-1 rounded-full border border-border p-1">
                 {availableLanguages.map((code) => {
                   const lang = code as ExamLanguage;
                   const active = lang === state.lang;
@@ -277,7 +277,7 @@ export default function ExamClient({
                       onClick={() => switchLanguage(lang)}
                       aria-pressed={active}
                       className={`rounded-full px-2.5 py-1 text-xs font-semibold transition-colors ${
-                        active ? 'bg-brand text-white' : 'text-slate-600 hover:bg-slate-100'
+                        active ? 'bg-brand text-white' : 'text-textSecondary hover:bg-surfaceElevated'
                       }`}
                     >
                       {code.toUpperCase()}
@@ -287,7 +287,7 @@ export default function ExamClient({
               </div>
             ) : null}
 
-            <span className="hidden text-sm text-slate-600 sm:inline">{studentName}</span>
+            <span className="hidden text-sm text-textSecondary sm:inline">{studentName}</span>
           </div>
         </div>
       </header>
@@ -295,7 +295,7 @@ export default function ExamClient({
       <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-6 px-4 py-6 sm:px-6 lg:flex-row">
         {/* Question area */}
         <main id="main-content" className="flex-1">
-          <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
+          <div className="rounded-2xl border border-border bg-surfaceElevated p-5 sm:p-6">
             <div className="flex items-center justify-between">
               <span className="text-sm font-semibold text-brand">
                 {t('questionOf', { current: state.currentIndex + 1, total: questions.length })}
@@ -312,12 +312,12 @@ export default function ExamClient({
             </div>
 
             {showTaNotice ? (
-              <p className="mt-3 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-800">
+              <p className="mt-3 rounded-lg border border-amber-500/40 bg-amber-950/30 px-3 py-2 text-xs text-amber-100">
                 {t('taFallbackNotice')}
               </p>
             ) : null}
 
-            <p className="mt-3 whitespace-pre-line text-base leading-relaxed text-slate-900">
+            <p className="mt-3 whitespace-pre-line text-base leading-relaxed text-textPrimary">
               {content.questionText}
             </p>
 
@@ -326,7 +326,7 @@ export default function ExamClient({
               <img
                 src={current.imageUrl}
                 alt=""
-                className="mt-4 max-h-72 w-auto rounded-lg border border-slate-200"
+                className="mt-4 max-h-72 w-auto rounded-lg border border-border"
               />
             ) : null}
 
@@ -338,7 +338,7 @@ export default function ExamClient({
                   <label
                     key={opt}
                     className={`flex cursor-pointer items-start gap-3 rounded-xl border p-4 transition-colors ${
-                      selected ? 'border-brand bg-brand-soft' : 'border-slate-200 bg-white hover:border-slate-300'
+                      selected ? 'border-brand bg-brand-soft' : 'border-border bg-surfaceElevated hover:border-border'
                     }`}
                   >
                     <input
@@ -350,12 +350,12 @@ export default function ExamClient({
                     />
                     <span
                       className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border text-sm font-bold ${
-                        selected ? 'border-brand bg-brand text-white' : 'border-slate-300 text-slate-600'
+                        selected ? 'border-brand bg-brand text-white' : 'border-border text-textSecondary'
                       }`}
                     >
                       {opt}
                     </span>
-                    <span className="pt-0.5 text-sm text-slate-800">{label}</span>
+                    <span className="pt-0.5 text-sm text-textPrimary">{label}</span>
                   </label>
                 );
               })}
@@ -368,7 +368,7 @@ export default function ExamClient({
               type="button"
               onClick={() => goTo(state.currentIndex - 1)}
               disabled={state.currentIndex === 0}
-              className="rounded-lg border border-slate-300 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-40"
+              className="rounded-lg border border-border px-4 py-2.5 text-sm font-semibold text-textSecondary hover:bg-surface disabled:opacity-40"
             >
               ← {t('previous')}
             </button>
@@ -377,8 +377,8 @@ export default function ExamClient({
               onClick={toggleMark}
               className={`rounded-lg border px-4 py-2.5 text-sm font-semibold transition-colors ${
                 currentAnswer?.markedForReview
-                  ? 'border-amber-400 bg-amber-50 text-amber-800'
-                  : 'border-slate-300 text-slate-700 hover:bg-slate-50'
+                  ? 'border-amber-400 bg-amber-950/30 text-amber-100'
+                  : 'border-border text-textSecondary hover:bg-surface'
               }`}
             >
               {currentAnswer?.markedForReview ? t('marked') : t('markReview')}
@@ -387,7 +387,7 @@ export default function ExamClient({
               type="button"
               onClick={clearResponse}
               disabled={!currentAnswer?.selectedOption}
-              className="rounded-lg border border-slate-300 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-40"
+              className="rounded-lg border border-border px-4 py-2.5 text-sm font-semibold text-textSecondary hover:bg-surface disabled:opacity-40"
             >
               {t('clear')}
             </button>
@@ -395,7 +395,7 @@ export default function ExamClient({
               type="button"
               onClick={() => goTo(state.currentIndex + 1)}
               disabled={state.currentIndex === questions.length - 1}
-              className="rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-700 disabled:opacity-40"
+              className="rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-dark disabled:opacity-40"
             >
               {t('next')} →
             </button>
@@ -404,7 +404,7 @@ export default function ExamClient({
 
         {/* Palette + submit */}
         <aside className="lg:w-72 lg:shrink-0">
-          <div className="rounded-2xl border border-slate-200 bg-white p-5">
+          <div className="rounded-2xl border border-border bg-surfaceElevated p-5">
             <QuestionPalette
               questionIds={questionIds}
               answers={state.answers}

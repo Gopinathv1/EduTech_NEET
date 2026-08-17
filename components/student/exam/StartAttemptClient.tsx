@@ -46,8 +46,8 @@ export default function StartAttemptClient({
     <div>
       {!resume && languages.length > 1 ? (
         <fieldset className="mt-2">
-          <legend className="text-sm font-semibold text-slate-900">{t('languageChoice')}</legend>
-          <p className="mt-1 text-xs text-slate-500">{t('languageNote')}</p>
+          <legend className="text-sm font-semibold text-textPrimary">{t('languageChoice')}</legend>
+          <p className="mt-1 text-xs text-textSecondary">{t('languageNote')}</p>
           <div className="mt-3 flex gap-3">
             {languages.map((lang) => {
               const active = lang === language;
@@ -58,7 +58,7 @@ export default function StartAttemptClient({
                   onClick={() => setLanguage(lang)}
                   aria-pressed={active}
                   className={`rounded-lg border px-5 py-2.5 text-sm font-semibold transition-colors ${
-                    active ? 'border-brand bg-brand text-white' : 'border-slate-300 text-slate-700 hover:bg-slate-50'
+                    active ? 'border-brand bg-brand text-white' : 'border-border text-textSecondary hover:bg-surface'
                   }`}
                 >
                   {lang === 'ta' ? 'தமிழ்' : 'English'}
@@ -70,7 +70,7 @@ export default function StartAttemptClient({
       ) : null}
 
       {error ? (
-        <p className="mt-4 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
+        <p className="mt-4 rounded-lg border border-red-200 bg-red-950/30 px-3 py-2 text-sm text-red-200">
           {t('startError')}
         </p>
       ) : null}

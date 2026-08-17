@@ -14,14 +14,14 @@ export default function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <section className="border-b border-slate-100 bg-brand-soft">
+    <section className="border-b border-border bg-brand-soft">
       <Container className="py-12 sm:py-16">
         {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
-        <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+        <h1 className="text-3xl font-extrabold tracking-tight text-textPrimary sm:text-4xl">
           {title}
         </h1>
         {subtitle ? (
-          <p className="mt-3 max-w-2xl text-base text-slate-600 sm:text-lg">{subtitle}</p>
+          <p className="mt-3 max-w-2xl text-base text-textSecondary sm:text-lg">{subtitle}</p>
         ) : null}
         {children ? <div className="mt-6">{children}</div> : null}
       </Container>

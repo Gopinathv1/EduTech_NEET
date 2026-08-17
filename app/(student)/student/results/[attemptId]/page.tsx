@@ -50,16 +50,16 @@ export default async function ResultPage({ params }: { params: Promise<{ attempt
     : '';
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-surface">
       <StudentHeader />
       <main id="main-content" className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
-            <Link href="/student" className="text-sm font-medium text-brand hover:text-brand-dark">
+            <Link href="/student" className="text-sm font-medium text-brand hover:text-red-200">
               ← {t('backToDashboard')}
             </Link>
-            <h1 className="mt-2 text-2xl font-bold text-slate-900">{L(report.testTitle, locale)}</h1>
-            <p className="mt-1 text-sm text-slate-500">
+            <h1 className="mt-2 text-2xl font-bold text-textPrimary">{L(report.testTitle, locale)}</h1>
+            <p className="mt-1 text-sm text-textSecondary">
               {t('submittedOn', { date: dateStr })}
               {report.status === 'AUTO_SUBMITTED' ? ` · ${t('autoSubmitted')}` : ''}
             </p>

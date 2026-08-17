@@ -22,23 +22,23 @@ export default function CountriesPage() {
 
       {/* Overview grid */}
       <Section>
-        <p className="max-w-3xl text-slate-700">{t('intro')}</p>
+        <p className="max-w-3xl text-textSecondary">{t('intro')}</p>
         <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {COUNTRY_CODES.map((code) => (
             <Link
               key={code}
               href={`#${code}`}
-              className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-colors hover:border-brand"
+              className="group rounded-2xl border border-border bg-surfaceElevated p-6 shadow-sm transition-colors hover:border-brand"
             >
               <div className="flex items-center gap-3">
                 <span className="text-3xl" aria-hidden="true">
                   {COUNTRY_FLAG[code]}
                 </span>
-                <h2 className="text-lg font-semibold text-slate-900 group-hover:text-brand">
+                <h2 className="text-lg font-semibold text-textPrimary group-hover:text-brand">
                   {t(`items.${code}.name`)}
                 </h2>
               </div>
-              <p className="mt-2 text-sm text-slate-600">{t(`items.${code}.tagline`)}</p>
+              <p className="mt-2 text-sm text-textSecondary">{t(`items.${code}.tagline`)}</p>
             </Link>
           ))}
         </div>
@@ -57,8 +57,8 @@ export default function CountriesPage() {
                       {COUNTRY_FLAG[code]}
                     </span>
                     <div>
-                      <h2 className="text-xl font-bold text-slate-900">{t(`items.${code}.name`)}</h2>
-                      <p className="text-sm text-slate-500">{t(`items.${code}.tagline`)}</p>
+                      <h2 className="text-xl font-bold text-textPrimary">{t(`items.${code}.name`)}</h2>
+                      <p className="text-sm text-textSecondary">{t(`items.${code}.tagline`)}</p>
                     </div>
                   </div>
 
@@ -69,7 +69,7 @@ export default function CountriesPage() {
                       </h3>
                       <ul className="mt-3 space-y-2">
                         {why.map((point) => (
-                          <li key={point} className="flex items-start gap-2 text-sm text-slate-700">
+                          <li key={point} className="flex items-start gap-2 text-sm text-textSecondary">
                             <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
                             {point}
                           </li>
@@ -83,16 +83,16 @@ export default function CountriesPage() {
                           <p className="text-xs font-semibold uppercase tracking-wide text-brand">
                             {t('costLabel')}
                           </p>
-                          <p className="mt-1 text-sm text-slate-700">{t(`items.${code}.cost`)}</p>
+                          <p className="mt-1 text-sm text-textSecondary">{t(`items.${code}.cost`)}</p>
                         </div>
                       </div>
-                      <div className="flex items-start gap-3 rounded-xl border border-slate-200 p-4">
-                        <ShieldIcon className="mt-0.5 h-5 w-5 shrink-0 text-slate-500" />
+                      <div className="flex items-start gap-3 rounded-xl border border-border p-4">
+                        <ShieldIcon className="mt-0.5 h-5 w-5 shrink-0 text-textSecondary" />
                         <div>
-                          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                          <p className="text-xs font-semibold uppercase tracking-wide text-textSecondary">
                             {t('eligibilityLabel')}
                           </p>
-                          <p className="mt-1 text-sm text-slate-700">
+                          <p className="mt-1 text-sm text-textSecondary">
                             {t(`items.${code}.eligibility`)}
                           </p>
                         </div>
@@ -108,7 +108,7 @@ export default function CountriesPage() {
 
       {/* Regulations disclosure */}
       <Section lazy>
-        <p className="rounded-xl bg-slate-50 p-5 text-sm leading-relaxed text-slate-600">
+        <p className="rounded-xl bg-surface p-5 text-sm leading-relaxed text-textSecondary">
           {t('disclosure')}
         </p>
       </Section>

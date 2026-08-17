@@ -76,8 +76,8 @@ export default async function PaymentReport({ searchParams }: { searchParams: Pr
         rows={payments.map((p) => [
           p.createdAt.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }),
           <span key="s">
-            <span className="block font-medium text-slate-900">{p.student.name}</span>
-            <span className="block text-xs text-slate-500">+91 {p.student.mobile}</span>
+            <span className="block font-medium text-textPrimary">{p.student.name}</span>
+            <span className="block text-xs text-textSecondary">+91 {p.student.mobile}</span>
           </span>,
           localizedName(p.test.title, 'en'),
           `₹${p.amount}`,

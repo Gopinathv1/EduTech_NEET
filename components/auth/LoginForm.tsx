@@ -48,8 +48,8 @@ export default function LoginForm() {
     return (
       <div className="space-y-5">
         <div>
-          <h1 className="text-xl font-bold text-slate-900">{t('title')}</h1>
-          <p className="mt-1 text-sm text-slate-600">{t('subtitle')}</p>
+          <h1 className="text-xl font-bold text-textPrimary">{t('title')}</h1>
+          <p className="mt-1 text-sm text-textSecondary">{t('subtitle')}</p>
         </div>
         <OtpStep
           mobile={verify.mobile}
@@ -64,8 +64,8 @@ export default function LoginForm() {
   return (
     <div className="space-y-5">
       <div>
-        <h1 className="text-xl font-bold text-slate-900">{t('title')}</h1>
-        <p className="mt-1 text-sm text-slate-600">{t('subtitle')}</p>
+        <h1 className="text-xl font-bold text-textPrimary">{t('title')}</h1>
+        <p className="mt-1 text-sm text-textSecondary">{t('subtitle')}</p>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
@@ -85,15 +85,15 @@ export default function LoginForm() {
         </SubmitButton>
       </form>
 
-      <div className="space-y-2 border-t border-slate-100 pt-4 text-center text-sm">
-        <p className="text-slate-600">
+      <div className="space-y-2 border-t border-border pt-4 text-center text-sm">
+        <p className="text-textSecondary">
           {t('noAccount')}{' '}
-          <Link href="/register" className="font-semibold text-brand hover:text-brand-dark">
+          <Link href="/register" className="font-semibold text-brand hover:text-red-200">
             {t('register')}
           </Link>
         </p>
         <div className="flex items-center justify-center gap-4">
-          <Link href="/admin/login" className="font-medium text-slate-500 hover:text-slate-700">
+          <Link href="/admin/login" className="font-medium text-textSecondary hover:text-textPrimary">
             {t('adminLogin')}
           </Link>
         </div>

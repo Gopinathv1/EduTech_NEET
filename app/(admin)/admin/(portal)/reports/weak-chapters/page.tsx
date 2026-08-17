@@ -38,7 +38,7 @@ export default async function WeakChaptersReport({ searchParams }: { searchParam
           { label: 'Answered', align: 'right' },
           { label: 'Accuracy', align: 'right' },
         ]}
-        rows={data.map((r) => [r.name, r.subjectCode, r.answered, <span key="a" className="font-semibold text-red-700">{r.accuracy}%</span>])}
+        rows={data.map((r) => [r.name, r.subjectCode, r.answered, <span key="a" className="font-semibold text-red-200">{r.accuracy}%</span>])}
         empty={`No chapters have ${MIN_ANSWERS}+ answers in this range yet.`}
       />
     </ReportScaffold>

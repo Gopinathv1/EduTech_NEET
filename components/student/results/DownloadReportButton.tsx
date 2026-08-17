@@ -21,7 +21,7 @@ export default function DownloadReportButton({ attemptId }: { attemptId: string 
       type="button"
       onClick={download}
       disabled={busy}
-      className="inline-flex items-center gap-2 rounded-lg border border-brand bg-white px-4 py-2 text-sm font-semibold text-brand hover:bg-brand-soft disabled:opacity-60"
+      className="inline-flex items-center gap-2 rounded-lg border border-brand bg-surfaceElevated px-4 py-2 text-sm font-semibold text-brand hover:bg-brand-soft disabled:opacity-60"
     >
       <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4" aria-hidden="true">
         <path d="M10 3v9m0 0 3-3m-3 3-3-3M4 15v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-1" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />

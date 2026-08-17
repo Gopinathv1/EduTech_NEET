@@ -42,7 +42,7 @@ export default async function QuestionDifficultyReport({ searchParams }: { searc
           return [
             <span key="q" className="block max-w-md truncate">
               {r.text}
-              {flagged ? <span className="ml-2 rounded bg-red-100 px-1.5 py-0.5 text-[10px] font-bold text-red-700">FLAG</span> : null}
+              {flagged ? <span className="ml-2 rounded bg-red-950/40 px-1.5 py-0.5 text-[10px] font-bold text-red-200">FLAG</span> : null}
             </span>,
             r.subjectCode,
             <Badge key="l" color="slate">
@@ -51,7 +51,7 @@ export default async function QuestionDifficultyReport({ searchParams }: { searc
             r.answered,
             r.answered > 0 ? `${r.correctPct}%` : '—',
             r.answered > 0 ? (
-              <span className={flagged ? 'font-bold text-red-700' : 'text-slate-600'}>{realDifficultyFromAccuracy(r.correctPct)}</span>
+              <span className={flagged ? 'font-bold text-red-200' : 'text-textSecondary'}>{realDifficultyFromAccuracy(r.correctPct)}</span>
             ) : (
               '—'
             ),

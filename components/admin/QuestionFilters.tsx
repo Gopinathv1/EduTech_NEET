@@ -63,7 +63,7 @@ export default function QuestionFilters({
   const cls = `${selectClass} !mt-0 py-2 text-sm`;
 
   return (
-    <form onSubmit={onSubmit} className="mb-4 rounded-xl border border-slate-200 bg-white p-4">
+    <form onSubmit={onSubmit} className="mb-4 rounded-xl border border-border bg-surfaceElevated p-4">
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
         <select className={cls} value={v.subject} onChange={(e) => set('subject', e.target.value)} aria-label="Subject">
           <option value="">All subjects</option>

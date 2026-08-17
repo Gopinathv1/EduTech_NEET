@@ -70,7 +70,7 @@ export default function LeadFilters({
   const exportHref = `/api/admin/leads/export${toQuery(v) ? `?${toQuery(v)}` : ''}`;
 
   return (
-    <form onSubmit={onSubmit} className="mb-6 rounded-xl border border-slate-200 bg-white p-4">
+    <form onSubmit={onSubmit} className="mb-6 rounded-xl border border-border bg-surfaceElevated p-4">
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <select className={cls} value={v.status} onChange={(e) => set('status', e.target.value)} aria-label="Status">
           <option value="">All statuses</option>
@@ -109,19 +109,19 @@ export default function LeadFilters({
       </div>
 
       <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        <label className="flex items-center gap-2 text-xs text-slate-500">
+        <label className="flex items-center gap-2 text-xs text-textSecondary">
           Score ≥
           <input type="number" min={0} max={720} className={num} value={v.scoreMin} onChange={(e) => setV((p) => ({ ...p, scoreMin: e.target.value }))} />
         </label>
-        <label className="flex items-center gap-2 text-xs text-slate-500">
+        <label className="flex items-center gap-2 text-xs text-textSecondary">
           Score ≤
           <input type="number" min={0} max={720} className={num} value={v.scoreMax} onChange={(e) => setV((p) => ({ ...p, scoreMax: e.target.value }))} />
         </label>
-        <label className="flex items-center gap-2 text-xs text-slate-500">
+        <label className="flex items-center gap-2 text-xs text-textSecondary">
           From
           <input type="date" className={num} value={v.from} onChange={(e) => set('from', e.target.value)} />
         </label>
-        <label className="flex items-center gap-2 text-xs text-slate-500">
+        <label className="flex items-center gap-2 text-xs text-textSecondary">
           To
           <input type="date" className={num} value={v.to} onChange={(e) => set('to', e.target.value)} />
         </label>

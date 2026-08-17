@@ -10,14 +10,14 @@ import { GlobeIcon } from '@/components/public/icons';
 export default async function AdmissionBanner() {
   const t = await getTranslations('consultancy.banner');
   return (
-    <div className="mt-6 flex flex-col gap-3 rounded-2xl border border-amber-200 bg-amber-50 p-5 sm:flex-row sm:items-center sm:justify-between">
+    <div className="mt-6 flex flex-col gap-3 rounded-2xl border border-amber-500/40 bg-amber-950/30 p-5 sm:flex-row sm:items-center sm:justify-between">
       <div className="flex items-start gap-3">
-        <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-100 text-amber-700">
+        <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-100 text-amber-200">
           <GlobeIcon className="h-5 w-5" />
         </span>
         <div>
-          <h2 className="text-base font-semibold text-slate-900">{t('title')}</h2>
-          <p className="mt-1 text-sm text-slate-600">{t('body')}</p>
+          <h2 className="text-base font-semibold text-textPrimary">{t('title')}</h2>
+          <p className="mt-1 text-sm text-textSecondary">{t('body')}</p>
         </div>
       </div>
       <Link

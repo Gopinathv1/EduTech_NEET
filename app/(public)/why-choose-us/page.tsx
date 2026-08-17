@@ -38,8 +38,8 @@ export default function WhyChooseUsPage() {
                 <IconBadge>
                   <Icon className="h-6 w-6" />
                 </IconBadge>
-                <h3 className="mt-4 text-lg font-semibold text-slate-900">{p.title}</h3>
-                <p className="mt-2 text-sm text-slate-600">{p.body}</p>
+                <h3 className="mt-4 text-lg font-semibold text-textPrimary">{p.title}</h3>
+                <p className="mt-2 text-sm text-textSecondary">{p.body}</p>
               </Card>
             );
           })}

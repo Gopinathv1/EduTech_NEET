@@ -39,29 +39,29 @@ export default async function StudentHeader() {
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200 bg-white">
+    <header className="sticky top-0 z-40 border-b border-border bg-surfaceElevated">
       <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6">
         <div className="flex items-center gap-4">
           <Link href="/student" className="text-lg font-bold text-brand">
             {t('brand')}
           </Link>
           <nav className="flex items-center gap-3 text-sm">
-            <Link href="/student" className="font-medium text-slate-600 hover:text-brand">
+            <Link href="/student" className="font-medium text-textSecondary hover:text-brand">
               {t('dashboard')}
             </Link>
-            <Link href="/student/tests" className="font-medium text-slate-600 hover:text-brand">
+            <Link href="/student/tests" className="font-medium text-textSecondary hover:text-brand">
               {t('tests')}
             </Link>
-            <Link href="/student/performance" className="font-medium text-slate-600 hover:text-brand">
+            <Link href="/student/performance" className="font-medium text-textSecondary hover:text-brand">
               {t('performance')}
             </Link>
-            <Link href="/student/admission-guidance" className="font-medium text-slate-600 hover:text-brand">
+            <Link href="/student/admission-guidance" className="font-medium text-textSecondary hover:text-brand">
               {t('admission')}
             </Link>
-            <Link href="/student/payments" className="font-medium text-slate-600 hover:text-brand">
+            <Link href="/student/payments" className="font-medium text-textSecondary hover:text-brand">
               {t('payments')}
             </Link>
-            <Link href="/help" className="font-medium text-slate-600 hover:text-brand">
+            <Link href="/help" className="font-medium text-textSecondary hover:text-brand">
               {t('help')}
             </Link>
           </nav>

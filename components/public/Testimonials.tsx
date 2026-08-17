@@ -41,10 +41,10 @@ export default function Testimonials({ items }: { items: Testimonial[] }) {
       onBlur={() => setPaused(false)}
       aria-roledescription="carousel"
     >
-      <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+      <div className="rounded-2xl border border-border bg-surfaceElevated p-6 shadow-sm sm:p-8">
         <QuoteIcon className="h-8 w-8 text-brand/30" />
         <p
-          className="mt-3 text-lg leading-relaxed text-slate-800"
+          className="mt-3 text-lg leading-relaxed text-textPrimary"
           aria-live="polite"
         >
           {current.quote}
@@ -55,8 +55,8 @@ export default function Testimonials({ items }: { items: Testimonial[] }) {
           ))}
         </div>
         <div className="mt-3">
-          <p className="font-semibold text-slate-900">{current.name}</p>
-          <p className="text-sm text-slate-500">{current.role}</p>
+          <p className="font-semibold text-textPrimary">{current.name}</p>
+          <p className="text-sm text-textSecondary">{current.role}</p>
         </div>
       </div>
 
@@ -64,7 +64,7 @@ export default function Testimonials({ items }: { items: Testimonial[] }) {
         <button
           type="button"
           onClick={() => go(index - 1)}
-          className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-slate-600 hover:bg-slate-100"
+          className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-textSecondary hover:bg-surfaceElevated"
           aria-label={t('previous')}
         >
           <ArrowRightIcon className="h-4 w-4 rotate-180" />
@@ -88,7 +88,7 @@ export default function Testimonials({ items }: { items: Testimonial[] }) {
         <button
           type="button"
           onClick={() => go(index + 1)}
-          className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-slate-600 hover:bg-slate-100"
+          className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-textSecondary hover:bg-surfaceElevated"
           aria-label={t('next')}
         >
           <ArrowRightIcon className="h-4 w-4" />

@@ -44,8 +44,8 @@ export default function AdminLoginForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
       <div>
-        <h1 className="text-xl font-bold text-slate-900">{t('title')}</h1>
-        <p className="mt-1 text-sm text-slate-600">{t('subtitle')}</p>
+        <h1 className="text-xl font-bold text-textPrimary">{t('title')}</h1>
+        <p className="mt-1 text-sm text-textSecondary">{t('subtitle')}</p>
       </div>
 
       {banner ? <Banner kind="error">{banner}</Banner> : null}
@@ -74,7 +74,7 @@ export default function AdminLoginForm() {
       </SubmitButton>
 
       <p className="text-center text-sm">
-        <Link href="/login" className="font-medium text-slate-500 hover:text-slate-700">
+        <Link href="/login" className="font-medium text-textSecondary hover:text-textPrimary">
           {t('studentLogin')}
         </Link>
       </p>

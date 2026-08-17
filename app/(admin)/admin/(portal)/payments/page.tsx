@@ -51,29 +51,29 @@ export default async function AdminPaymentsPage({ searchParams }: { searchParams
       {/* Summary */}
       <div className="mb-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
         <AdminCard>
-          <p className="text-sm text-slate-500">Revenue (filtered)</p>
-          <p className="mt-1 text-2xl font-extrabold text-slate-900">₹{revenue}</p>
+          <p className="text-sm text-textSecondary">Revenue (filtered)</p>
+          <p className="mt-1 text-2xl font-extrabold text-textPrimary">₹{revenue}</p>
         </AdminCard>
         <AdminCard>
-          <p className="text-sm text-slate-500">Paid</p>
-          <p className="mt-1 text-2xl font-extrabold text-green-700">{paidCount}</p>
+          <p className="text-sm text-textSecondary">Paid</p>
+          <p className="mt-1 text-2xl font-extrabold text-green-200">{paidCount}</p>
         </AdminCard>
         <AdminCard>
-          <p className="text-sm text-slate-500">Failed</p>
+          <p className="text-sm text-textSecondary">Failed</p>
           <p className="mt-1 text-2xl font-extrabold text-red-600">{failedCount}</p>
         </AdminCard>
         <AdminCard>
-          <p className="text-sm text-slate-500">Pending</p>
-          <p className="mt-1 text-2xl font-extrabold text-slate-600">{pendingCount}</p>
+          <p className="text-sm text-textSecondary">Pending</p>
+          <p className="mt-1 text-2xl font-extrabold text-textSecondary">{pendingCount}</p>
         </AdminCard>
       </div>
 
       <PaymentFilters initial={filters} />
 
-      <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+      <div className="overflow-x-auto rounded-xl border border-border bg-surfaceElevated shadow-sm">
         <table className="w-full min-w-[820px] text-sm">
           <thead>
-            <tr className="border-b border-slate-200 text-left text-xs uppercase tracking-wide text-slate-500">
+            <tr className="border-b border-border text-left text-xs uppercase tracking-wide text-textSecondary">
               <th className="px-4 py-3 font-medium">Student</th>
               <th className="px-3 py-3 font-medium">Test</th>
               <th className="px-3 py-3 font-medium">Amount</th>
@@ -85,26 +85,26 @@ export default async function AdminPaymentsPage({ searchParams }: { searchParams
           <tbody>
             {payments.length === 0 ? (
               <tr>
-                <td colSpan={6} className="px-4 py-10 text-center text-slate-500">
+                <td colSpan={6} className="px-4 py-10 text-center text-textSecondary">
                   No payments match these filters.
                 </td>
               </tr>
             ) : (
               payments.map((p) => (
-                <tr key={p.id} className="border-b border-slate-100">
+                <tr key={p.id} className="border-b border-border">
                   <td className="px-4 py-3">
-                    <p className="font-medium text-slate-900">{p.student.name}</p>
-                    <p className="text-xs text-slate-500">+91 {p.student.mobile}</p>
+                    <p className="font-medium text-textPrimary">{p.student.name}</p>
+                    <p className="text-xs text-textSecondary">+91 {p.student.mobile}</p>
                   </td>
-                  <td className="px-3 py-3 text-slate-700">{localizedName(p.test.title, 'en')}</td>
-                  <td className="px-3 py-3 text-slate-700">₹{p.amount}</td>
+                  <td className="px-3 py-3 text-textSecondary">{localizedName(p.test.title, 'en')}</td>
+                  <td className="px-3 py-3 text-textSecondary">₹{p.amount}</td>
                   <td className="px-3 py-3">
                     <Badge color={STATUS_BADGE[p.status] ?? 'slate'}>{STATUS_LABEL[p.status] ?? p.status}</Badge>
                   </td>
-                  <td className="px-3 py-3 text-slate-600">
+                  <td className="px-3 py-3 text-textSecondary">
                     {p.createdAt.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
                   </td>
-                  <td className="px-4 py-3 text-slate-600">{p.invoiceNumber ?? '—'}</td>
+                  <td className="px-4 py-3 text-textSecondary">{p.invoiceNumber ?? '—'}</td>
                 </tr>
               ))
             )}

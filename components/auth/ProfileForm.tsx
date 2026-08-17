@@ -99,7 +99,7 @@ export default function ProfileForm({ initial }: { initial: ProfileValues }) {
         </select>
       </Field>
 
-      <p className="text-xs text-slate-500">{t('readonlyNote')}</p>
+      <p className="text-xs text-textSecondary">{t('readonlyNote')}</p>
 
       <SubmitButton busy={isSubmitting} busyLabel={tc('saving')}>
         {t('save')}

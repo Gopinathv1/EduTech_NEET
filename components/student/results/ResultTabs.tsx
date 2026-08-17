@@ -20,7 +20,7 @@ export default function ResultTabs({ analysis, review }: { analysis: ReactNode; 
 
   return (
     <div>
-      <div role="tablist" className="mt-4 flex gap-1 rounded-xl border border-slate-200 bg-white p-1">
+      <div role="tablist" className="mt-4 flex gap-1 rounded-xl border border-border bg-surfaceElevated p-1">
         {tabs.map((tb) => {
           const active = tab === tb.key;
           return (
@@ -31,7 +31,7 @@ export default function ResultTabs({ analysis, review }: { analysis: ReactNode; 
               aria-selected={active}
               onClick={() => setTab(tb.key)}
               className={`flex-1 rounded-lg px-4 py-2 text-sm font-semibold transition-colors ${
-                active ? 'bg-brand text-white' : 'text-slate-600 hover:bg-slate-100'
+                active ? 'bg-brand text-white' : 'text-textSecondary hover:bg-surfaceElevated'
               }`}
             >
               {tb.label}

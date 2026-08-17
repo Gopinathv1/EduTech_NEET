@@ -26,7 +26,7 @@ export default async function CheckoutPage({ params }: { params: Promise<{ id: s
   }
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-surface">
       <StudentHeader />
       <main id="main-content" className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
         <CheckoutClient

@@ -30,7 +30,7 @@ export default function QuestionActiveToggle({ id, initial }: { id: string; init
       }`}
     >
       <span
-        className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition-transform ${
+        className={`inline-block h-5 w-5 transform rounded-full bg-surfaceElevated shadow transition-transform ${
           on ? 'translate-x-5' : 'translate-x-1'
         }`}
       />

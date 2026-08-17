@@ -10,9 +10,9 @@ import { paletteStatus, type AnswerState, type PaletteStatus } from '@/lib/attem
 
 const STATUS_CLASS: Record<PaletteStatus, string> = {
   answered: 'bg-green-600 text-white border-green-600',
-  marked: 'bg-amber-500 text-white border-amber-500',
-  unanswered: 'bg-white text-slate-700 border-slate-300',
-  not_visited: 'bg-slate-100 text-slate-400 border-slate-200',
+  marked: 'bg-amber-950/300 text-white border-amber-500',
+  unanswered: 'bg-surfaceElevated text-textSecondary border-border',
+  not_visited: 'bg-surfaceElevated text-slate-400 border-border',
 };
 
 export default function QuestionPalette({
@@ -37,7 +37,7 @@ export default function QuestionPalette({
 
   return (
     <div>
-      <h2 className="text-sm font-semibold text-slate-900">{t('palette')}</h2>
+      <h2 className="text-sm font-semibold text-textPrimary">{t('palette')}</h2>
       <ul className="mt-3 grid grid-cols-6 gap-2 sm:grid-cols-5">
         {questionIds.map((id, index) => {
           const status = paletteStatus(answers[id]);
@@ -61,7 +61,7 @@ export default function QuestionPalette({
 
       <ul className="mt-4 space-y-1.5">
         {legend.map((l) => (
-          <li key={l.status} className="flex items-center gap-2 text-xs text-slate-600">
+          <li key={l.status} className="flex items-center gap-2 text-xs text-textSecondary">
             <span className={`inline-block h-4 w-4 rounded border ${STATUS_CLASS[l.status]}`} />
             {l.label}
           </li>

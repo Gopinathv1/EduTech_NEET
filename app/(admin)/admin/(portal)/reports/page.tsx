@@ -24,10 +24,10 @@ export default async function ReportsHubPage() {
           <Link
             key={r.slug}
             href={`/admin/reports/${r.slug}`}
-            className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-colors hover:border-brand"
+            className="rounded-xl border border-border bg-surfaceElevated p-5 shadow-sm transition-colors hover:border-brand"
           >
-            <h2 className="text-base font-semibold text-slate-900">{r.title}</h2>
-            <p className="mt-1 text-sm text-slate-600">{r.desc}</p>
+            <h2 className="text-base font-semibold text-textPrimary">{r.title}</h2>
+            <p className="mt-1 text-sm text-textSecondary">{r.desc}</p>
             <span className="mt-3 inline-block text-sm font-medium text-brand">Open report →</span>
           </Link>
         ))}

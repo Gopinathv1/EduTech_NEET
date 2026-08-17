@@ -37,7 +37,7 @@ export default function PaymentFilters({ initial }: { initial: PaymentFilterValu
   const exportHref = `/api/admin/payments/export${toQuery(v) ? `?${toQuery(v)}` : ''}`;
 
   return (
-    <form onSubmit={onSubmit} className="mb-6 rounded-xl border border-slate-200 bg-white p-4">
+    <form onSubmit={onSubmit} className="mb-6 rounded-xl border border-border bg-surfaceElevated p-4">
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
         <select className={cls} value={v.status} onChange={(e) => set('status', e.target.value)} aria-label="Status">
           <option value="">All statuses</option>
@@ -46,11 +46,11 @@ export default function PaymentFilters({ initial }: { initial: PaymentFilterValu
           <option value="FAILED">Failed</option>
           <option value="REFUNDED">Refunded</option>
         </select>
-        <label className="flex items-center gap-2 text-xs text-slate-500">
+        <label className="flex items-center gap-2 text-xs text-textSecondary">
           From
           <input type="date" className={`${inputClass} !mt-0 py-1.5 text-sm`} value={v.from} onChange={(e) => set('from', e.target.value)} />
         </label>
-        <label className="flex items-center gap-2 text-xs text-slate-500">
+        <label className="flex items-center gap-2 text-xs text-textSecondary">
           To
           <input type="date" className={`${inputClass} !mt-0 py-1.5 text-sm`} value={v.to} onChange={(e) => set('to', e.target.value)} />
         </label>

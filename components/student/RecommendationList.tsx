@@ -24,7 +24,7 @@ export default async function RecommendationList({
 }) {
   const t = await getTranslations('recommendations');
   if (recs.length === 0) {
-    return <p className="mt-2 text-sm text-slate-500">{t('empty')}</p>;
+    return <p className="mt-2 text-sm text-textSecondary">{t('empty')}</p>;
   }
 
   return (
@@ -38,12 +38,12 @@ export default async function RecommendationList({
         return (
           <li
             key={rec.chapterId}
-            className={`rounded-xl border border-slate-200 border-l-4 bg-white p-4 ${KIND_ACCENT[rec.kind] ?? 'border-l-brand'}`}
+            className={`rounded-xl border border-border border-l-4 bg-surfaceElevated p-4 ${KIND_ACCENT[rec.kind] ?? 'border-l-brand'}`}
           >
             <div className="flex items-start justify-between gap-3">
               <div>
-                <p className="text-sm font-semibold text-slate-900">{L(rec.name, locale)}</p>
-                <p className="mt-1 text-sm text-slate-600">{reason}</p>
+                <p className="text-sm font-semibold text-textPrimary">{L(rec.name, locale)}</p>
+                <p className="mt-1 text-sm text-textSecondary">{reason}</p>
               </div>
               {rec.test ? (
                 <Link
@@ -53,7 +53,7 @@ export default async function RecommendationList({
                   {t('practise')}
                 </Link>
               ) : (
-                <span className="shrink-0 rounded-lg bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-400">
+                <span className="shrink-0 rounded-lg bg-surfaceElevated px-3 py-1.5 text-xs font-medium text-slate-400">
                   {t('noTest')}
                 </span>
               )}

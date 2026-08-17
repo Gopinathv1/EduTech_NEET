@@ -6,7 +6,7 @@
  */
 
 export function SkeletonBar({ className = '' }: { className?: string }) {
-  return <div className={`animate-pulse rounded bg-slate-200 ${className}`} />;
+  return <div className={`animate-pulse rounded bg-surface ${className}`} />;
 }
 
 /** A header bar + a stack of content blocks — the shape shared by student pages. */
@@ -18,9 +18,9 @@ export function StudentPageSkeleton({
   maxWidth?: string;
 }) {
   return (
-    <div className="min-h-screen bg-slate-50" aria-hidden="true">
+    <div className="min-h-screen bg-surface" aria-hidden="true">
       {/* Header placeholder */}
-      <div className="border-b border-slate-200 bg-white">
+      <div className="border-b border-border bg-surfaceElevated">
         <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-3 sm:px-6">
           <SkeletonBar className="h-5 w-28" />
           <div className="flex gap-2">

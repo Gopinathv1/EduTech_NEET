@@ -68,11 +68,11 @@ export default function NotificationComposer() {
   return (
     <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
       {/* Compose */}
-      <div className="rounded-xl border border-slate-200 bg-white p-5">
-        <h2 className="text-base font-semibold text-slate-900">Compose</h2>
+      <div className="rounded-xl border border-border bg-surfaceElevated p-5">
+        <h2 className="text-base font-semibold text-textPrimary">Compose</h2>
 
         <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
-          <label className="text-xs font-medium text-slate-600">
+          <label className="text-xs font-medium text-textSecondary">
             Type
             <select className={`${selectClass} !mt-1 text-sm`} value={v.type} onChange={(e) => set('type', e.target.value)}>
               {NOTIFICATION_TYPES.map((tp) => (
@@ -82,7 +82,7 @@ export default function NotificationComposer() {
               ))}
             </select>
           </label>
-          <label className="text-xs font-medium text-slate-600">
+          <label className="text-xs font-medium text-textSecondary">
             Audience
             <select
               className={`${selectClass} !mt-1 text-sm`}
@@ -99,7 +99,7 @@ export default function NotificationComposer() {
         </div>
 
         {needsValue ? (
-          <label className="mt-3 block text-xs font-medium text-slate-600">
+          <label className="mt-3 block text-xs font-medium text-textSecondary">
             {v.audienceMode === 'CLASS' ? 'Class' : v.audienceMode === 'BOARD' ? 'Board' : 'District'}
             <select className={`${selectClass} !mt-1 text-sm`} value={v.audienceValue} onChange={(e) => set('audienceValue', e.target.value)}>
               <option value="">Select…</option>
@@ -113,31 +113,31 @@ export default function NotificationComposer() {
         ) : null}
 
         <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
-          <label className="text-xs font-medium text-slate-600">
+          <label className="text-xs font-medium text-textSecondary">
             Title (English)
             <input className={fieldCls} value={v.titleEn} onChange={(e) => set('titleEn', e.target.value)} maxLength={120} />
           </label>
-          <label className="text-xs font-medium text-slate-600">
+          <label className="text-xs font-medium text-textSecondary">
             Title (Tamil)
             <input className={fieldCls} value={v.titleTa} onChange={(e) => set('titleTa', e.target.value)} maxLength={120} />
           </label>
-          <label className="text-xs font-medium text-slate-600">
+          <label className="text-xs font-medium text-textSecondary">
             Message (English)
             <textarea className={fieldCls} rows={3} value={v.messageEn} onChange={(e) => set('messageEn', e.target.value)} maxLength={1000} />
           </label>
-          <label className="text-xs font-medium text-slate-600">
+          <label className="text-xs font-medium text-textSecondary">
             Message (Tamil)
             <textarea className={fieldCls} rows={3} value={v.messageTa} onChange={(e) => set('messageTa', e.target.value)} maxLength={1000} />
           </label>
         </div>
 
-        <label className="mt-3 block text-xs font-medium text-slate-600">
+        <label className="mt-3 block text-xs font-medium text-textSecondary">
           Link URL (optional)
           <input className={fieldCls} value={v.linkUrl} onChange={(e) => set('linkUrl', e.target.value)} placeholder="/student/tests" />
         </label>
 
         {msg ? (
-          <p className={`mt-3 rounded-lg px-3 py-2 text-sm ${msg.kind === 'ok' ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}`}>
+          <p className={`mt-3 rounded-lg px-3 py-2 text-sm ${msg.kind === 'ok' ? 'bg-green-950/30 text-green-200' : 'bg-red-950/30 text-red-200'}`}>
             {msg.text}
           </p>
         ) : null}
@@ -148,9 +148,9 @@ export default function NotificationComposer() {
       </div>
 
       {/* Bilingual preview */}
-      <div className="rounded-xl border border-slate-200 bg-white p-5">
-        <h2 className="text-base font-semibold text-slate-900">Preview</h2>
-        <p className="mt-1 text-xs text-slate-500">How students see it in each language.</p>
+      <div className="rounded-xl border border-border bg-surfaceElevated p-5">
+        <h2 className="text-base font-semibold text-textPrimary">Preview</h2>
+        <p className="mt-1 text-xs text-textSecondary">How students see it in each language.</p>
         <div className="mt-4 space-y-3">
           {(['English', 'Tamil'] as const).map((lang) => {
             const title = lang === 'English' ? v.titleEn : v.titleTa;
@@ -158,13 +158,13 @@ export default function NotificationComposer() {
             return (
               <div key={lang}>
                 <p className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-slate-400">{lang}</p>
-                <div className={`flex gap-3 rounded-xl border border-slate-200 border-l-4 bg-slate-50 p-3 ${style.accent}`}>
+                <div className={`flex gap-3 rounded-xl border border-border border-l-4 bg-surface p-3 ${style.accent}`}>
                   <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-base ${style.chip}`}>
                     {style.icon}
                   </span>
                   <div className="min-w-0">
-                    <p className="text-sm font-semibold text-slate-900">{title || <span className="text-slate-400">Title…</span>}</p>
-                    <p className="mt-0.5 text-sm text-slate-600">{message || <span className="text-slate-400">Message…</span>}</p>
+                    <p className="text-sm font-semibold text-textPrimary">{title || <span className="text-slate-400">Title…</span>}</p>
+                    <p className="mt-0.5 text-sm text-textSecondary">{message || <span className="text-slate-400">Message…</span>}</p>
                   </div>
                 </div>
               </div>
