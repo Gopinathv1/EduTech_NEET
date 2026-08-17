@@ -15,7 +15,7 @@ export const NAV_GROUPS: NavGroup[] = [
     key: 'studyAbroadMenu',
     links: [
       { href: '/countries', key: 'mbbsAbroad' },
-      { href: '/#study-europe', key: 'studyEurope' },
+      { href: '/#destinations', key: 'studyEurope' },
       { href: '/countries', key: 'internationalEducation' },
       { href: '/admission-guidance', key: 'applicationGuidance' },
     ],
@@ -23,8 +23,8 @@ export const NAV_GROUPS: NavGroup[] = [
   {
     key: 'examPrepMenu',
     links: [
-      { href: '/#question-bank', key: 'neet' },
-      { href: '/#question-bank', key: 'questionBank' },
+      { href: '/#neet-preparation', key: 'neet' },
+      { href: '/mock-tests', key: 'questionBank' },
       { href: '/#previous-year-papers', key: 'previousYear' },
       { href: '/mock-tests', key: 'mockTests' },
     ],
@@ -50,7 +50,7 @@ export const NAV_GROUPS: NavGroup[] = [
 export const FOOTER_EXPLORE: NavLink[] = [
   { href: '/admission-guidance', key: 'admission' },
   { href: '/countries', key: 'countries' },
-  { href: '/#question-bank', key: 'questionBank' },
+  { href: '/mock-tests', key: 'questionBank' },
   { href: '/#previous-year-papers', key: 'previousYear' },
   { href: '/mock-tests', key: 'mockTests' },
 ];

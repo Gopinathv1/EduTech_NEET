@@ -59,10 +59,10 @@
     "examJeeSoon": "JEE - விரைவில்",
     "getStarted": "Free Counselling பெறுங்கள்",
     "admissionsMenu": "Admissions",
-    "studyAbroadMenu": "Admissions",
-    "examPrepMenu": "Exam Preparation",
-    "counsellingMenu": "Counselling",
-    "coursesMenu": "Courses",
+    "studyAbroadMenu": "சேர்க்கைகள்",
+    "examPrepMenu": "தேர்வு தயாரிப்பு",
+    "counsellingMenu": "கவுன்சிலிங்",
+    "coursesMenu": "பாடநெறிகள்",
     "mbbsIndia": "MBBS Counselling in India",
     "mbbsCounsellingIndia": "MBBS Counselling in India",
     "mbbsAbroad": "MBBS Abroad",
@@ -85,7 +85,7 @@
       "contact": "எங்களிடம் பேசுங்கள்"
     },
     "footer": {
-      "blurb": "VV Overseas supports students with international education guidance, career and academic counselling, learning programs and competitive exam preparation.",
+      "blurb": "சர்வதேச கல்வி வழிகாட்டுதல், தொழில் மற்றும் கல்வி கவுன்சிலிங், கற்றல் திட்டங்கள் மற்றும் போட்டித் தேர்வு தயாரிப்பில் VV Overseas மாணவர்களுக்கு ஆதரவளிக்கிறது.",
       "explore": "ஆராயுங்கள்",
       "company": "நிறுவனம்",
       "getStarted": "தொடங்குங்கள்",
@@ -106,7 +106,7 @@
   "home": {
     "brand": "VV Overseas",
     "title": "?????? ?????????? ?????? ????? ????? ????????????",
-    "subtitle": "உலகளாவிய கல்வி வாய்ப்புகளை ஆராயுங்கள், முக்கிய கல்வி முடிவுகளுக்கான personalised counselling பெறுங்கள், மற்றும் VV Overseas உடன் competitive exams க்காக smart ஆக தயாராகுங்கள்.",
+    "subtitle": "உலகளாவிய கல்வி வாய்ப்புகளை ஆராயுங்கள், முக்கிய கல்வி முடிவுகளுக்கான தனிப்பட்ட வழிகாட்டுதலைப் பெறுங்கள், போட்டித் தேர்வுகளுக்குத் திறமையாக தயாராகுங்கள்.",
     "ctaPrimary": "Free Counselling பெறுங்கள்",
     "ctaSecondary": "Study Abroad ஆராயுங்கள்",
     "examSelectorLabel": "Current services",
@@ -144,7 +144,7 @@
       "title": "Guidance, preparation and learning programs",
       "titleLine1": "How VV Overseas",
       "titleLine2": "Helps Students Move Forward",
-      "subtitle": "Study abroad, exam preparation, career counselling மற்றும் learning opportunities முழுவதும் VV Overseas மாணவர்களுக்கு ஆதரவு தருகிறது.",
+      "subtitle": "வெளிநாட்டு கல்வி, தேர்வு தயாரிப்பு, தொழில் ஆலோசனை மற்றும் கற்றல் வாய்ப்புகளில் VV Overseas மாணவர்களுக்கு ஆதரவளிக்கிறது.",
       "items": [
         {
           "title": "Admissions & Study Abroad",
@@ -297,9 +297,9 @@
       ]
     },
     "finalCta": {
-      "eyebrow": "உங்கள் next step திட்டமிட தயாரா?",
-      "title": "Ready to plan your next step?",
-      "subtitle": "Overseas education, MBBS counselling அல்லது NEET preparation எதுவாக இருந்தாலும், ஒரு உரையாடலுடன் தொடங்குங்கள்.",
+      "eyebrow": "தொடங்கத் தயாரா?",
+      "title": "உங்கள் அடுத்த படியை திட்டமிடுங்கள்.",
+      "subtitle": "வெளிநாட்டு கல்வி, MBBS கவுன்சிலிங் அல்லது NEET தயாரிப்பு எதுவாக இருந்தாலும், ஒரு உரையாடலுடன் தொடங்குங்கள்.",
       "primary": "Get Free Counselling",
       "secondary": "Start NEET Preparation"
     },
@@ -314,7 +314,7 @@
         "title": "Exam Preparation",
         "body": "NEET previous-year questions, chapter-wise practice, mock tests, answers ??????? explanations.",
         "cta": "NEET Preparation ???????",
-        "href": "#question-bank"
+        "href": "#neet-preparation"
       }
     ],
     "admissions": {
@@ -333,7 +333,7 @@
         {
           "title": "Study in Europe",
           "body": "Explore higher-education opportunities across European countries with guidance for choosing the right country, university, course and application pathway.",
-          "href": "/#study-europe"
+          "href": "/#destinations"
         },
         {
           "title": "International Higher Education",
@@ -385,32 +385,26 @@
       ]
     },
     "destinations": {
-      "eyebrow": "Explore Study Destinations",
-      "title": "Find the right destination path without the noise.",
-      "subtitle": "Use the homepage to choose a broad direction. Detailed country information belongs on destination pages where it can stay accurate and verified.",
+      "eyebrow": "வெளிநாட்டு கல்வி & உலகளாவிய கல்வி",
+      "title": "எல்லைகளைத் தாண்டி கல்வியை ஆராயுங்கள்.",
+      "subtitle": "முகப்புப் பக்கத்தில் ஒரு பரந்த திசையைத் தேர்வு செய்து, தயாரானபோது சரிபார்க்கப்பட்ட இலக்கு வழிகாட்டுதலுக்கு செல்லுங்கள்.",
       "items": [
         {
           "title": "MBBS Abroad",
-          "body": "Explore overseas medical education pathways with country and university guidance.",
-          "cta": "Explore",
+          "body": "நாடு, பாடநெறி மற்றும் பல்கலைக்கழக வழிகாட்டுதலுடன் வெளிநாட்டு மருத்துவக் கல்வி பாதைகளை ஆராயுங்கள்.",
+          "cta": "ஆராயுங்கள்",
           "href": "/countries"
         },
         {
           "title": "Study in Europe",
-          "body": "Understand European higher-education options and application pathways.",
-          "cta": "Explore",
+          "body": "ஐரோப்பிய உயர்கல்வி வாய்ப்புகள் மற்றும் விண்ணப்ப பாதைகளைப் புரிந்துகொள்ளுங்கள்.",
+          "cta": "ஆராயுங்கள்",
           "href": "/countries"
         },
         {
           "title": "International Destinations",
-          "body": "Compare broader global education options as verified information is added.",
-          "cta": "Explore",
-          "href": "/countries"
-        },
-        {
-          "title": "Explore All Destinations",
-          "body": "Move to the destinations page for country-specific guidance and disclosures.",
-          "cta": "View All",
+          "body": "சரிபார்க்கப்பட்ட இலக்கு தகவல்கள் சேர்க்கப்படும் போது உலகளாவிய கல்வி வாய்ப்புகளை ஆராயுங்கள்.",
+          "cta": "ஆராயுங்கள்",
           "href": "/countries"
         }
       ]
@@ -487,6 +481,15 @@
           "title": "Plan Your Next Steps",
           "body": "Move forward with clearer actions for applications, counselling or preparation."
         }
+      ]
+    },
+    "intro": {
+      "statement": "சரியான கல்வி முடிவுகளை எடுக்க மாணவர்களுக்கும் குடும்பங்களுக்கும் VV Overseas தெளிவான வழிகாட்டுதலை வழங்குகிறது.",
+      "items": [
+        "பொருத்தமான கல்வி பாதைகளை ஆராயுங்கள்",
+        "கவுன்சிலிங் மற்றும் விண்ணப்ப படிகளை புரிந்துகொள்ளுங்கள்",
+        "இலக்குகளின் அடிப்படையில் வழிகாட்டுதல் பெறுங்கள்",
+        "கட்டமைக்கப்பட்ட NEET பயிற்சியுடன் தயாராகுங்கள்"
       ]
     }
   },

@@ -59,10 +59,10 @@
     "examJeeSoon": "JEE - जल्द आ रहा है",
     "getStarted": "Get Free Counselling",
     "admissionsMenu": "Admissions",
-    "studyAbroadMenu": "Admissions",
-    "examPrepMenu": "Exam Preparation",
-    "counsellingMenu": "Counselling",
-    "coursesMenu": "Courses",
+    "studyAbroadMenu": "एडमिशन",
+    "examPrepMenu": "परीक्षा तैयारी",
+    "counsellingMenu": "काउंसलिंग",
+    "coursesMenu": "कोर्स",
     "mbbsIndia": "MBBS Counselling in India",
     "mbbsCounsellingIndia": "MBBS Counselling in India",
     "mbbsAbroad": "MBBS Abroad",
@@ -85,7 +85,7 @@
       "contact": "हमसे बात करें"
     },
     "footer": {
-      "blurb": "VV Overseas supports students with international education guidance, career and academic counselling, learning programs and competitive exam preparation.",
+      "blurb": "VV Overseas छात्रों को अंतरराष्ट्रीय शिक्षा मार्गदर्शन, करियर और शैक्षणिक काउंसलिंग, सीखने के कार्यक्रम और प्रतियोगी परीक्षा तैयारी में समर्थन देता है.",
       "explore": "एक्सप्लोर",
       "company": "कंपनी",
       "getStarted": "शुरू करें",
@@ -106,7 +106,7 @@
   "home": {
     "brand": "VV Overseas",
     "title": "??? ?????? ?? ???? ?????? ???? ???? ???? ??",
-    "subtitle": "Global education opportunities explore करें, important academic decisions के लिए personalised counselling पाएं, और VV Overseas के साथ competitive exams के लिए smarter prepare करें.",
+    "subtitle": "वैश्विक शिक्षा अवसरों को खोजें, महत्वपूर्ण शैक्षणिक निर्णयों के लिए व्यक्तिगत मार्गदर्शन पाएं और प्रतियोगी परीक्षाओं के लिए बेहतर तैयारी करें.",
     "ctaPrimary": "Get Free Counselling",
     "ctaSecondary": "Explore Study Abroad",
     "examSelectorLabel": "Current services",
@@ -144,7 +144,7 @@
       "title": "Guidance, preparation and learning programs",
       "titleLine1": "How VV Overseas",
       "titleLine2": "Helps Students Move Forward",
-      "subtitle": "VV Overseas supports students across study abroad, exam preparation, career counselling and learning opportunities.",
+      "subtitle": "VV Overseas विदेश में पढ़ाई, परीक्षा तैयारी, करियर काउंसलिंग और सीखने के अवसरों में छात्रों का समर्थन करता है.",
       "items": [
         {
           "title": "Admissions & Study Abroad",
@@ -297,9 +297,9 @@
       ]
     },
     "finalCta": {
-      "eyebrow": "Ready to plan your next step?",
-      "title": "Ready to plan your next step?",
-      "subtitle": "Whether you're exploring overseas education, navigating MBBS counselling or preparing for NEET, start with a conversation.",
+      "eyebrow": "शुरू करने के लिए तैयार?",
+      "title": "अपना अगला कदम प्लान करें.",
+      "subtitle": "चाहे आप विदेश में शिक्षा, MBBS काउंसलिंग या NEET तैयारी देख रहे हों, शुरुआत बातचीत से करें.",
       "primary": "Get Free Counselling",
       "secondary": "Start NEET Preparation"
     },
@@ -314,7 +314,7 @@
         "title": "Exam Preparation",
         "body": "NEET previous-year questions, chapter-wise practice, mock tests, answers ?? explanations.",
         "cta": "Start NEET Preparation",
-        "href": "#question-bank"
+        "href": "#neet-preparation"
       }
     ],
     "admissions": {
@@ -333,7 +333,7 @@
         {
           "title": "Study in Europe",
           "body": "Explore higher-education opportunities across European countries with guidance for choosing the right country, university, course and application pathway.",
-          "href": "/#study-europe"
+          "href": "/#destinations"
         },
         {
           "title": "International Higher Education",
@@ -385,32 +385,26 @@
       ]
     },
     "destinations": {
-      "eyebrow": "Explore Study Destinations",
-      "title": "Find the right destination path without the noise.",
-      "subtitle": "Use the homepage to choose a broad direction. Detailed country information belongs on destination pages where it can stay accurate and verified.",
+      "eyebrow": "विदेश में पढ़ाई और वैश्विक शिक्षा",
+      "title": "सीमाओं के पार शिक्षा खोजें.",
+      "subtitle": "होमपेज पर व्यापक दिशा चुनें, फिर तैयार होने पर सत्यापित डेस्टिनेशन मार्गदर्शन देखें.",
       "items": [
         {
           "title": "MBBS Abroad",
-          "body": "Explore overseas medical education pathways with country and university guidance.",
+          "body": "देश, कोर्स और विश्वविद्यालय मार्गदर्शन के साथ विदेश में मेडिकल शिक्षा के मार्ग खोजें.",
           "cta": "Explore",
           "href": "/countries"
         },
         {
           "title": "Study in Europe",
-          "body": "Understand European higher-education options and application pathways.",
+          "body": "यूरोपीय उच्च शिक्षा विकल्प और आवेदन मार्ग समझें.",
           "cta": "Explore",
           "href": "/countries"
         },
         {
           "title": "International Destinations",
-          "body": "Compare broader global education options as verified information is added.",
+          "body": "सत्यापित डेस्टिनेशन जानकारी जुड़ने पर वैश्विक शिक्षा विकल्प खोजें.",
           "cta": "Explore",
-          "href": "/countries"
-        },
-        {
-          "title": "Explore All Destinations",
-          "body": "Move to the destinations page for country-specific guidance and disclosures.",
-          "cta": "View All",
           "href": "/countries"
         }
       ]
@@ -487,6 +481,15 @@
           "title": "Plan Your Next Steps",
           "body": "Move forward with clearer actions for applications, counselling or preparation."
         }
+      ]
+    },
+    "intro": {
+      "statement": "VV Overseas छात्रों और परिवारों को अंतरराष्ट्रीय शिक्षा, काउंसलिंग और परीक्षा तैयारी में स्पष्ट निर्णय लेने में मदद करता है.",
+      "items": [
+        "उपयुक्त शिक्षा मार्ग खोजें",
+        "काउंसलिंग और आवेदन चरण समझें",
+        "लक्ष्य और पसंद के आधार पर मार्गदर्शन पाएं",
+        "संरचित NEET अभ्यास से तैयारी करें"
       ]
     }
   },

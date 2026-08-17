@@ -106,7 +106,7 @@
   "home": {
     "brand": "VV Overseas",
     "title": "Your Journey to the Right Education Starts Here",
-    "subtitle": "Explore global education opportunities, get personalised counselling for important academic decisions, and prepare smarter for competitive exams with VV Overseas.",
+    "subtitle": "Explore global education opportunities, get personalised guidance for important academic decisions, and prepare smarter for competitive exams.",
     "ctaPrimary": "Get Free Counselling",
     "ctaSecondary": "Explore Study Abroad",
     "ctaTertiary": "Start NEET Preparation",
@@ -145,7 +145,7 @@
       "title": "Guidance, preparation and learning programs",
       "titleLine1": "How VV Overseas",
       "titleLine2": "Helps Students Move Forward",
-      "subtitle": "VV Overseas supports students across study abroad, exam preparation, career counselling and learning opportunities.",
+      "subtitle": "VV Overseas helps students move forward across study abroad, exam preparation, career counselling and learning programs.",
       "items": [
         {
           "title": "Admissions & Study Abroad",
@@ -184,13 +184,13 @@
       ]
     },
     "destinations": {
-      "eyebrow": "Explore Study Destinations",
-      "title": "Find the right destination path without the noise.",
-      "subtitle": "Use the homepage to choose a broad direction. Detailed country information belongs on destination pages where it can stay accurate and verified.",
+      "eyebrow": "Study Abroad & Global Education",
+      "title": "Explore education across borders.",
+      "subtitle": "Choose a broad direction on the homepage, then move into verified destination guidance when you are ready.",
       "items": [
         {
           "title": "MBBS Abroad",
-          "body": "Explore overseas medical education pathways with country and university guidance.",
+          "body": "Explore overseas medical education pathways with country, course and university guidance.",
           "cta": "Explore",
           "href": "/countries"
         },
@@ -202,14 +202,8 @@
         },
         {
           "title": "International Destinations",
-          "body": "Compare broader global education options as verified information is added.",
+          "body": "Explore global education options as verified destination information is added.",
           "cta": "Explore",
-          "href": "/countries"
-        },
-        {
-          "title": "Explore All Destinations",
-          "body": "Move to the destinations page for country-specific guidance and disclosures.",
-          "cta": "View All",
           "href": "/countries"
         }
       ]
@@ -413,9 +407,9 @@
       ]
     },
     "finalCta": {
-      "eyebrow": "Ready to plan your next step?",
-      "title": "Ready to plan your next step?",
-      "subtitle": "Whether you're exploring overseas education, navigating MBBS counselling or preparing for NEET, start with a conversation.",
+      "eyebrow": "Ready to get started?",
+      "title": "Plan your next step.",
+      "subtitle": "Whether you are exploring overseas education, navigating MBBS counselling or preparing for NEET, start with a conversation.",
       "primary": "Get Free Counselling",
       "secondary": "Start NEET Preparation"
     },
@@ -430,7 +424,7 @@
         "title": "Exam Preparation",
         "body": "NEET-focused previous-year questions, chapter-wise practice, mock tests, answers and explanations.",
         "cta": "Start NEET Preparation",
-        "href": "#question-bank"
+        "href": "#neet-preparation"
       }
     ],
     "admissions": {
@@ -449,7 +443,7 @@
         {
           "title": "Study in Europe",
           "body": "Explore higher-education opportunities across European countries with guidance for choosing the right country, university, course and application pathway.",
-          "href": "/#study-europe"
+          "href": "/#destinations"
         },
         {
           "title": "International Higher Education",
@@ -487,6 +481,15 @@
         "Lithuania",
         "Latvia",
         "Malta"
+      ]
+    },
+    "intro": {
+      "statement": "VV Overseas helps students and families make clearer education decisions - from international study opportunities and counselling to structured exam preparation.",
+      "items": [
+        "Explore suitable education pathways",
+        "Understand counselling and application steps",
+        "Get guidance based on goals and preferences",
+        "Prepare through structured NEET practice"
       ]
     }
   },

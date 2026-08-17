@@ -27,14 +27,13 @@ type Subject = { title: string; body: string; href: string };
 type AdmissionCard = { title: string; body: string; href: string };
 
 const MARQUEE = [
+  'STUDY ABROAD',
   'MBBS ABROAD',
   'STUDY IN EUROPE',
   'NEET PREPARATION',
-  'GLOBAL EDUCATION',
-  'PREVIOUS YEAR PAPERS',
   'CAREER GUIDANCE',
   'QUESTION BANK',
-  'COUNSELLING',
+  'GLOBAL EDUCATION',
 ];
 
 const PREP_ACTIONS = [
@@ -48,10 +47,10 @@ const FUTURE_EXAMS = ['JEE Main', 'JEE Advanced'];
 
 export default function HomePage() {
   const t = useTranslations('home');
+  const introItems = t.raw('intro.items') as string[];
   const quickActions = t.raw('quickActions.items') as Action[];
   const admissionCards = t.raw('admissions.cards') as AdmissionCard[];
   const destinationCards = t.raw('destinations.items') as Action[];
-  const whoHelp = t.raw('whoHelp.items') as string[];
   const whyItems = t.raw('why.items') as { title: string; body: string }[];
   const howItems = t.raw('how.items') as { title: string; body: string }[];
   const subjects = t.raw('neet.subjects') as Subject[];
@@ -92,6 +91,21 @@ export default function HomePage() {
         </Container>
       </section>
 
+      <Section className="py-14 sm:py-20 lg:py-20">
+        <div className="grid gap-8 border-y border-white/10 py-8 lg:grid-cols-[1.05fr_1fr] lg:items-start">
+          <p className="max-w-3xl text-2xl font-black uppercase leading-tight text-white sm:text-3xl lg:text-4xl">
+            {t('intro.statement')}
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {introItems.map((item) => (
+              <p key={item} className="border-t border-brand/35 pt-4 text-sm font-bold uppercase leading-6 tracking-[0.08em] text-textSecondary">
+                {item}
+              </p>
+            ))}
+          </div>
+        </div>
+      </Section>
+
       <section className="relative h-20 max-w-full overflow-hidden border-y border-brand/40 bg-[#020608] shadow-[inset_0_1px_0_rgba(0,140,145,0.2),inset_0_-1px_0_rgba(210,166,60,0.18)] [contain:layout_paint] sm:h-24">
         <div className="absolute left-0 top-1/2 flex w-max max-w-none -translate-y-1/2 items-center gap-0 whitespace-nowrap will-change-transform vv-marquee-track">
           {[...MARQUEE, ...MARQUEE].map((item, index) => (
@@ -123,7 +137,7 @@ export default function HomePage() {
         </div>
         <div className="mt-14 grid min-w-0 gap-px overflow-hidden border-y border-white/10 bg-white/10 md:grid-cols-2 xl:grid-cols-4">
           {quickActions.map((item, index) => (
-            <div key={item.title} className="group min-w-0 bg-background p-6 transition hover:bg-surface sm:p-8">
+            <div key={item.title} className="group min-w-0 bg-background p-6 transition hover:bg-[#061014] sm:p-8">
               <p className="text-7xl font-black leading-none text-brand/75 sm:text-8xl">0{index + 1}</p>
               <h3 className="mt-10 text-xl font-black uppercase leading-tight text-white xl:text-lg 2xl:text-xl">{item.title}</h3>
               <p className="mt-5 text-sm leading-7 text-textSecondary">{item.body}</p>
@@ -132,24 +146,6 @@ export default function HomePage() {
               </div>
             </div>
           ))}
-        </div>
-      </Section>
-
-      <Section id="who-we-help" tinted lazy>
-        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-          <div>
-            <p className="text-xs font-black uppercase tracking-[0.32em] text-accent">{t('whoHelp.eyebrow')}</p>
-            <h2 className="mt-5 text-[clamp(2.75rem,6vw,6rem)] font-black uppercase leading-[0.9] text-white">
-              {t('whoHelp.title')}
-            </h2>
-          </div>
-          <div className="grid gap-px overflow-hidden border-y border-white/10 bg-white/10 sm:grid-cols-2">
-            {whoHelp.map((item) => (
-              <div key={item} className="bg-background p-5 text-lg font-black uppercase leading-tight text-white">
-                {item}
-              </div>
-            ))}
-          </div>
         </div>
       </Section>
 
@@ -188,7 +184,7 @@ export default function HomePage() {
             </h2>
             <p className="mt-6 max-w-2xl text-base leading-8 text-textSecondary">{t('destinations.subtitle')}</p>
           </div>
-          <div className="grid gap-px overflow-hidden border-y border-white/10 bg-white/10 sm:grid-cols-2">
+          <div className="grid gap-px overflow-hidden border-y border-white/10 bg-white/10 sm:grid-cols-3">
             {destinationCards.map((card) => (
               <Link key={card.title} href={card.href} className="group bg-background p-6 transition hover:bg-surfaceElevated">
                 <h3 className="text-xl font-black uppercase leading-tight text-white">{card.title}</h3>

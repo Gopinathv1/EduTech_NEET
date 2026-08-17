@@ -85,16 +85,6 @@ export default function PublicHeader() {
         </nav>
 
         <div className="flex shrink-0 items-center justify-end gap-1.5 sm:gap-2">
-          <details className="group relative hidden lg:block">
-            <summary className="flex cursor-pointer list-none items-center gap-1 rounded-lg border border-brand/30 bg-brand-soft/70 px-3 py-1.5 text-xs font-semibold text-accent marker:hidden">
-              {t('examNeet')}
-              <span className="text-textSecondary transition group-open:rotate-180">v</span>
-            </summary>
-            <div className="absolute right-0 top-full z-50 mt-2 min-w-44 rounded-xl border border-white/10 bg-surfaceElevated p-2 shadow-2xl shadow-black/40">
-              <div className="rounded-lg px-3 py-2 text-sm font-semibold text-textPrimary">{t('examNeet')} - Available</div>
-              <div className="rounded-lg px-3 py-2 text-sm text-textSecondary">JEE - Coming Soon</div>
-            </div>
-          </details>
           <AccessibilityMenu />
           <div className="hidden md:block">
             <LanguageSwitcher variant="select" />
