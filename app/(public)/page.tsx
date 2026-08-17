@@ -91,8 +91,8 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="max-w-full overflow-hidden border-y border-brand/40 bg-[#020608] py-5 shadow-[inset_0_1px_0_rgba(0,140,145,0.2),inset_0_-1px_0_rgba(210,166,60,0.18)] sm:py-6">
-        <div className="flex w-max max-w-none items-center gap-0 whitespace-nowrap will-change-transform vv-marquee-track">
+      <section className="relative h-20 max-w-full overflow-hidden border-y border-brand/40 bg-[#020608] shadow-[inset_0_1px_0_rgba(0,140,145,0.2),inset_0_-1px_0_rgba(210,166,60,0.18)] [contain:layout_paint] sm:h-24">
+        <div className="absolute left-0 top-1/2 flex w-max max-w-none -translate-y-1/2 items-center gap-0 whitespace-nowrap will-change-transform vv-marquee-track">
           {[...MARQUEE, ...MARQUEE].map((item, index) => (
             <span key={`${item}-${index}`} className="flex items-center">
               <span
