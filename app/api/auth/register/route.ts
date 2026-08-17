@@ -22,6 +22,11 @@ export async function POST(req: Request) {
     return fail('mobileTaken', 409);
   }
 
+  const existingByEmail = await prisma.student.findUnique({ where: { email: d.email } });
+  if (existingByEmail && existingByEmail.mobile !== d.mobile) {
+    return fail('emailTaken', 409);
+  }
+
   const data = {
     name: d.name,
     email: d.email,

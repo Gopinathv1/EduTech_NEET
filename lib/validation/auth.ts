@@ -36,23 +36,43 @@ export const localeSchema = z
   .enum(ALL_LOCALES, { message: 'required' })
   .refine((v) => (locales as readonly string[]).includes(v), { message: 'required' });
 
-export const registerSchema = z.object({
-  name: z.string().trim().min(2, 'nameTooShort').max(80, 'nameTooLong'),
-  email: emailSchema,
-  mobile: mobileSchema,
-  password: passwordSchema,
-  state: z.string().trim().min(1, 'required'),
-  district: z.string().trim().min(1, 'required'),
-  schoolName: z.string().trim().min(2, 'schoolTooShort').max(120, 'schoolTooLong'),
-  class: z.enum(CLASS_OPTIONS, { message: 'required' }),
-  board: z.enum(BOARD_OPTIONS, { message: 'required' }),
-  preferredLanguage: localeSchema,
-});
+export const registerSchema = z
+  .object({
+    name: z.string().trim().min(2, 'nameTooShort').max(80, 'nameTooLong'),
+    email: emailSchema,
+    mobile: mobileSchema,
+    password: passwordSchema,
+    confirmPassword: z.string().min(1, 'required'),
+    state: z.string().trim().min(1, 'required'),
+    district: z.string().trim().min(1, 'required'),
+    schoolName: z.string().trim().min(2, 'schoolTooShort').max(120, 'schoolTooLong'),
+    class: z.enum(CLASS_OPTIONS, { message: 'required' }),
+    board: z.enum(BOARD_OPTIONS, { message: 'required' }),
+    preferredLanguage: localeSchema,
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: 'passwordMismatch',
+    path: ['confirmPassword'],
+  });
 export type RegisterInput = z.infer<typeof registerSchema>;
 
 // Password login accepts either a mobile number or an email as the identifier.
+const loginIdentifierSchema = z
+  .string()
+  .trim()
+  .min(1, 'required')
+  .refine(
+    (value) => emailSchema.safeParse(value).success || mobileSchema.safeParse(value).success,
+    'identifierInvalid',
+  )
+  .transform((value) => {
+    const email = emailSchema.safeParse(value);
+    if (email.success) return email.data;
+    return mobileSchema.parse(value);
+  });
+
 export const passwordLoginSchema = z.object({
-  identifier: z.string().trim().min(1, 'required'),
+  identifier: loginIdentifierSchema,
   password: z.string().min(1, 'required'),
 });
 export type PasswordLoginInput = z.infer<typeof passwordLoginSchema>;

@@ -16,14 +16,14 @@ export async function POST(req: Request) {
 
   // Throttle brute force: cap attempts per IP and per identifier (10 / 10 min).
   const ip = clientIp(req);
-  for (const key of [`login:ip:${ip}`, `login:id:${identifier.toLowerCase()}`]) {
+  for (const key of [`login:ip:${ip}`, `login:id:${identifier}`]) {
     const retryAfter = await enforceRateLimit(key, { max: 10, windowSeconds: 600 });
     if (retryAfter !== null) return fail('rateLimited', 429, { retryAfterSeconds: retryAfter });
   }
 
   const student = identifier.includes('@')
-    ? await prisma.student.findUnique({ where: { email: identifier.trim().toLowerCase() } })
-    : await prisma.student.findUnique({ where: { mobile: identifier.replace(/\D/g, '').slice(-10) } });
+    ? await prisma.student.findUnique({ where: { email: identifier } })
+    : await prisma.student.findUnique({ where: { mobile: identifier } });
 
   // Same generic error whether the account is missing or the password is wrong.
   if (!student || !(await verifyPassword(password, student.passwordHash))) {

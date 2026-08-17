@@ -18,6 +18,7 @@ const validBody = {
   email: 'new@example.com',
   mobile: '9876543210',
   password: 'secret12',
+  confirmPassword: 'secret12',
   state: 'Tamil Nadu',
   district: 'Chennai',
   schoolName: 'Govt Higher Secondary School',
@@ -67,6 +68,21 @@ describe('POST /api/auth/register', () => {
     expect(otp.requestOtp).not.toHaveBeenCalled();
   });
 
+  it('blocks an email that already belongs to a different account', async () => {
+    p.student.findUnique.mockImplementation(({ where }: { where: { mobile?: string; email?: string } }) => {
+      if (where.mobile) return null;
+      if (where.email) return { id: 's2', mobile: '9123456789' };
+      return null;
+    });
+
+    const res = await POST(req(validBody));
+
+    expect(res.status).toBe(409);
+    expect((await res.json()).error).toBe('emailTaken');
+    expect(p.student.create).not.toHaveBeenCalled();
+    expect(otp.requestOtp).not.toHaveBeenCalled();
+  });
+
   it('maps a P2002 email conflict to emailTaken', async () => {
     p.student.findUnique.mockResolvedValue(null);
     p.student.create.mockRejectedValue(
@@ -95,5 +111,15 @@ describe('POST /api/auth/register', () => {
     const res = await POST(req({ ...validBody, mobile: '123' }));
     expect(res.status).toBe(400);
     expect((await res.json()).error).toBe('validation');
+  });
+
+  it('rejects mismatched password confirmation with 400', async () => {
+    const res = await POST(req({ ...validBody, confirmPassword: 'different12' }));
+    const json = await res.json();
+
+    expect(res.status).toBe(400);
+    expect(json.error).toBe('validation');
+    expect(json.fields.confirmPassword).toContain('passwordMismatch');
+    expect(p.student.create).not.toHaveBeenCalled();
   });
 });

@@ -41,9 +41,10 @@ describe('POST /api/auth/login', () => {
       email: 'ravi@example.com',
       passwordHash,
       isMobileVerified: true,
+      preferredLanguage: 'ta',
     });
 
-    const res = await POST(req({ identifier: '9876543210', password: 'secret12' }));
+    const res = await POST(req({ identifier: '+91 98765-43210', password: 'secret12' }));
     const json = await res.json();
 
     expect(res.status).toBe(200);
@@ -52,6 +53,28 @@ describe('POST /api/auth/login', () => {
     expect(createSession).toHaveBeenCalledWith(
       expect.objectContaining({ sub: 's1', kind: 'student', role: 'STUDENT', name: 'Ravi' }),
     );
+    expect(p.student.findUnique).toHaveBeenCalledWith({ where: { mobile: '9876543210' } });
+  });
+
+  it('signs in a verified student using email case-insensitively', async () => {
+    const passwordHash = await hashPassword('secret12');
+    p.student.findUnique.mockResolvedValue({
+      id: 's1',
+      name: 'Ravi',
+      mobile: '9876543210',
+      email: 'ravi@example.com',
+      passwordHash,
+      isMobileVerified: true,
+      preferredLanguage: 'en',
+    });
+
+    const res = await POST(req({ identifier: ' Ravi@Example.COM ', password: 'secret12' }));
+    const json = await res.json();
+
+    expect(res.status).toBe(200);
+    expect(json.redirect).toBe('/student');
+    expect(p.student.findUnique).toHaveBeenCalledWith({ where: { email: 'ravi@example.com' } });
+    expect(createSession).toHaveBeenCalled();
   });
 
   it('rejects a wrong password with a generic error', async () => {
@@ -62,6 +85,7 @@ describe('POST /api/auth/login', () => {
       email: 'ravi@example.com',
       passwordHash,
       isMobileVerified: true,
+      preferredLanguage: 'en',
     });
 
     const res = await POST(req({ identifier: 'ravi@example.com', password: 'wrongpass' }));
@@ -80,6 +104,7 @@ describe('POST /api/auth/login', () => {
       mobile: '9876543210',
       passwordHash,
       isMobileVerified: false,
+      preferredLanguage: 'en',
     });
 
     const res = await POST(req({ identifier: '9876543210', password: 'secret12' }));
@@ -93,5 +118,12 @@ describe('POST /api/auth/login', () => {
     const res = await POST(req({ identifier: '', password: '' }));
     expect(res.status).toBe(400);
     expect((await res.json()).error).toBe('validation');
+  });
+
+  it('returns a validation error for an invalid identifier', async () => {
+    const res = await POST(req({ identifier: 'not-a-mobile-or-email', password: 'secret12' }));
+    expect(res.status).toBe(400);
+    expect((await res.json()).error).toBe('validation');
+    expect(p.student.findUnique).not.toHaveBeenCalled();
   });
 });

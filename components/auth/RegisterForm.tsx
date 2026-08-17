@@ -24,6 +24,7 @@ type FormValues = {
   email: string;
   mobile: string;
   password: string;
+  confirmPassword: string;
   state: string;
   district: string;
   schoolName: string;
@@ -55,6 +56,7 @@ export default function RegisterForm() {
       email: '',
       mobile: '',
       password: '',
+      confirmPassword: '',
       state: DEFAULT_STATE,
       district: '',
       schoolName: '',
@@ -150,6 +152,20 @@ export default function RegisterForm() {
           autoComplete="new-password"
           className={inputClass}
           {...register('password')}
+        />
+      </Field>
+
+      <Field
+        label={t('confirmPassword')}
+        htmlFor="confirmPassword"
+        error={errors.confirmPassword?.message}
+      >
+        <input
+          id="confirmPassword"
+          type="password"
+          autoComplete="new-password"
+          className={inputClass}
+          {...register('confirmPassword')}
         />
       </Field>
 

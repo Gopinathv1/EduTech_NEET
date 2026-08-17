@@ -3,6 +3,7 @@ import Papa from 'papaparse';
 import { prisma } from '@/lib/prisma';
 import { getAdminSession } from '@/lib/auth/admin';
 import { validateRows, normalizeText, questionTextHash, BULK_COLUMNS } from '@/lib/admin/bulk';
+import { writeQuestionVersion } from '@/lib/admin/question-version';
 import { logAudit } from '@/lib/audit';
 import { ok, fail, readJson } from '@/lib/http';
 
@@ -76,7 +77,7 @@ export async function POST(req: Request) {
     await prisma.$transaction(async (tx) => {
       for (const r of validRows) {
         const d = r.data!;
-        await tx.question.create({
+        const created = await tx.question.create({
           data: {
             subjectId: d.subjectId,
             chapterId: d.chapterId,
@@ -118,6 +119,7 @@ export async function POST(req: Request) {
             },
           },
         });
+        await writeQuestionVersion(tx, created.id, 'bulk-created', admin);
         committed += 1;
       }
     });
