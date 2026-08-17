@@ -8,7 +8,7 @@ import { ArrowRightIcon } from './icons';
  */
 
 export function Container({ children, className = '' }: { children: ReactNode; className?: string }) {
-  return <div className={`mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 ${className}`}>{children}</div>;
+  return <div className={`mx-auto w-full max-w-[1600px] px-[clamp(1rem,3vw,3rem)] ${className}`}>{children}</div>;
 }
 
 export function Section({
@@ -27,7 +27,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={`py-16 sm:py-24 ${tinted ? 'bg-surface' : 'bg-background'} ${lazy ? 'cv-auto' : ''} ${className}`}
+      className={`border-t border-white/[0.07] py-20 sm:py-28 lg:py-32 ${tinted ? 'bg-surface' : 'bg-background'} ${lazy ? 'cv-auto' : ''} ${className}`}
     >
       <Container>{children}</Container>
     </section>
@@ -36,7 +36,7 @@ export function Section({
 
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-brand">{children}</p>
+    <p className="mb-4 text-xs font-black uppercase tracking-[0.32em] text-accent">{children}</p>
   );
 }
 
@@ -52,17 +52,17 @@ export function SectionHeading({
   center?: boolean;
 }) {
   return (
-    <div className={`${center ? 'mx-auto text-center' : ''} max-w-2xl`}>
+    <div className={`${center ? 'mx-auto text-center' : ''} max-w-3xl`}>
       {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
-      <h2 className="text-3xl font-extrabold tracking-tight text-textPrimary sm:text-5xl">{title}</h2>
-      {subtitle ? <p className="mt-3 text-base leading-7 text-textSecondary">{subtitle}</p> : null}
+      <h2 className="text-4xl font-black uppercase leading-[0.95] tracking-tight text-textPrimary sm:text-6xl lg:text-7xl">{title}</h2>
+      {subtitle ? <p className="mt-5 max-w-2xl text-base leading-8 text-textSecondary sm:text-lg">{subtitle}</p> : null}
     </div>
   );
 }
 
 export function Card({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
-    <div className={`group rounded-[1.5rem] border border-white/10 bg-surfaceElevated/90 p-6 shadow-2xl shadow-black/20 transition duration-300 hover:-translate-y-1 hover:border-brand/40 hover:bg-[#181818] ${className}`}>
+    <div className={`group rounded-xl border border-white/[0.09] bg-surfaceElevated/72 shadow-2xl shadow-black/20 transition duration-300 hover:-translate-y-1 hover:border-brand/45 hover:bg-surfaceElevated ${className}`}>
       {children}
     </div>
   );
@@ -78,7 +78,7 @@ export function IconBadge({ children }: { children: ReactNode }) {
 }
 
 const linkBase =
-  'inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand';
+  'group inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-black uppercase tracking-[0.08em] transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand';
 
 export function PrimaryLink({
   href,
@@ -90,8 +90,9 @@ export function PrimaryLink({
   className?: string;
 }) {
   return (
-    <Link href={href} className={`${linkBase} bg-brand text-white shadow-lg shadow-brand/20 hover:-translate-y-0.5 hover:bg-brand-dark ${className}`}>
+    <Link href={href} className={`${linkBase} bg-brand text-white shadow-lg shadow-brand/20 hover:-translate-y-0.5 hover:bg-accentBlue ${className}`}>
       {children}
+      <span className="transition group-hover:translate-x-1">-&gt;</span>
     </Link>
   );
 }
@@ -108,9 +109,10 @@ export function SecondaryLink({
   return (
     <Link
       href={href}
-      className={`${linkBase} border border-white/20 bg-white/5 text-white hover:-translate-y-0.5 hover:border-brand/70 hover:bg-brand-soft hover:text-white ${className}`}
+      className={`${linkBase} border border-accent/45 bg-transparent text-white hover:-translate-y-0.5 hover:border-brand-light hover:bg-white/[0.04] hover:text-white ${className}`}
     >
       {children}
+      <span className="transition group-hover:translate-x-1">-&gt;</span>
     </Link>
   );
 }
@@ -120,10 +122,10 @@ export function ArrowLink({ href, children }: { href: string; children: ReactNod
   return (
     <Link
       href={href}
-      className="inline-flex items-center gap-1 text-sm font-semibold text-brand-light transition hover:gap-2 hover:text-accent"
+      className="group inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.12em] text-brand-light transition hover:text-accent"
     >
       {children}
-      <ArrowRightIcon className="h-4 w-4" />
+      <ArrowRightIcon className="h-4 w-4 transition group-hover:translate-x-1" />
     </Link>
   );
 }

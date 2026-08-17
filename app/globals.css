@@ -7,17 +7,17 @@
  * palette: deep navy surfaces, teal-blue primary accents, and warm gold detail.
  */
 :root {
-  --bg-primary: #050b12;
-  --bg-secondary: #07121a;
-  --surface: #07121a;
-  --surface-elevated: #0b1722;
-  --peacock-blue: #0b5fa5;
+  --bg-primary: #03080d;
+  --bg-secondary: #050b12;
+  --surface: #0a121a;
+  --surface-elevated: #0d1720;
+  --peacock-blue: #087da8;
   --peacock-teal: #007c91;
-  --peacock-green: #0f8f7d;
-  --peacock-gold: #d4a53a;
-  --text-primary: #f8fafc;
-  --text-secondary: #c8d3de;
-  --border: #183040;
+  --peacock-green: #008c86;
+  --peacock-gold: #d2a63c;
+  --text-primary: #f5f7f8;
+  --text-secondary: #aebbc6;
+  --border: #142937;
   --focus: #22b8b0;
   --background: var(--bg-primary);
   --foreground: #f8fafc;
@@ -35,6 +35,11 @@ html {
 
 body {
   overflow-x: clip;
+}
+
+::selection {
+  background: rgba(0, 124, 145, 0.55);
+  color: #ffffff;
 }
 
 /*
@@ -104,8 +109,12 @@ body {
   animation: vv-fade-up 700ms ease-out both;
 }
 
+.vv-reveal-delayed {
+  animation: vv-fade-up 820ms ease-out 120ms both;
+}
+
 .vv-marquee-track {
-  animation: vv-marquee 34s linear infinite;
+  animation: vv-marquee 38s linear infinite;
 }
 
 .vv-pulse-line {
