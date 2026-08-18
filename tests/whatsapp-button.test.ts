@@ -1,0 +1,42 @@
+import { describe, expect, it } from 'vitest';
+import {
+  buildGeneralWhatsAppMessage,
+  buildPartnerWhatsAppMessage,
+  buildStudentWhatsAppMessage,
+  isWhatsAppButtonHiddenPath,
+} from '@/lib/contact/whatsapp-enquiry';
+
+describe('floating WhatsApp enquiry helpers', () => {
+  it('hides on admin, partner and active mock-test attempt pages', () => {
+    expect(isWhatsAppButtonHiddenPath('/admin')).toBe(true);
+    expect(isWhatsAppButtonHiddenPath('/admin/students')).toBe(true);
+    expect(isWhatsAppButtonHiddenPath('/partner')).toBe(true);
+    expect(isWhatsAppButtonHiddenPath('/partner/profile')).toBe(true);
+    expect(isWhatsAppButtonHiddenPath('/student/tests/test-1/attempt')).toBe(true);
+  });
+
+  it('shows on public and non-exam student pages', () => {
+    expect(isWhatsAppButtonHiddenPath('/')).toBe(false);
+    expect(isWhatsAppButtonHiddenPath('/partners')).toBe(false);
+    expect(isWhatsAppButtonHiddenPath('/student')).toBe(false);
+    expect(isWhatsAppButtonHiddenPath('/student/tests/test-1')).toBe(false);
+  });
+
+  it('builds a student/parent message without sensitive data', () => {
+    const message = buildStudentWhatsAppMessage('NEET Preparation', '/mock-tests');
+    expect(message).toContain('NEET Preparation');
+    expect(message).toContain('Current page: /mock-tests');
+    expect(message).not.toMatch(/password|otp|jwt|database|payment id/i);
+  });
+
+  it('builds a B2B partner message with placeholders', () => {
+    const message = buildPartnerWhatsAppMessage('School', '/partners');
+    expect(message).toContain('VV Overseas Partner Team');
+    expect(message).toContain('Organisation type: School.');
+    expect(message).toContain('Organisation: ____.');
+  });
+
+  it('builds a general enquiry message', () => {
+    expect(buildGeneralWhatsAppMessage('/contact')).toContain('general enquiry');
+  });
+});
