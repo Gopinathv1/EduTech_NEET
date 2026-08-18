@@ -20,10 +20,14 @@ export default function WhatsAppButton() {
         href={result.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="group flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl shadow-black/40 transition hover:-translate-y-0.5 hover:bg-[#1ebe5d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-        aria-label="Contact VV Overseas on WhatsApp"
+        className="group relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl shadow-black/45 ring-1 ring-white/20 transition hover:-translate-y-0.5 hover:bg-[#1ebe5d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        aria-label="Chat on WhatsApp"
+        title="Chat on WhatsApp"
       >
         <WhatsAppIcon className="h-7 w-7" />
+        <span className="pointer-events-none absolute left-16 top-1/2 hidden -translate-y-1/2 whitespace-nowrap rounded-full border border-white/10 bg-[#111111] px-3 py-1.5 text-xs font-bold text-white opacity-0 shadow-xl shadow-black/30 transition group-hover:opacity-100 group-focus-visible:opacity-100 sm:block">
+          Chat on WhatsApp
+        </span>
       </a>
     </div>
   );

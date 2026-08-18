@@ -64,7 +64,7 @@ export default function HomePage() {
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#050505]/8 to-transparent" />
         <div className="absolute -left-28 top-36 h-72 w-72 rounded-full bg-[#f6a623]/16 blur-3xl" />
         <div className="absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-[#FF2B32]/12 blur-3xl" />
-        <PeacockQuillArtwork className="vv-peacock-rise right-[-280px] top-[20%] z-0 h-[420px] w-[610px] opacity-35 sm:right-[-190px] sm:h-[540px] sm:w-[780px] lg:right-[-50px] lg:top-[12%] lg:h-[650px] lg:w-[930px] lg:opacity-45" />
+        <PeacockQuillArtwork className="vv-peacock-rise right-[-300px] top-[24%] z-0 h-[390px] w-[560px] opacity-55 sm:right-[-210px] sm:top-[18%] sm:h-[520px] sm:w-[760px] lg:right-[-36px] lg:top-[10%] lg:h-[690px] lg:w-[940px] lg:opacity-80" />
 
         <Container className="relative z-10 grid min-h-[calc(100vh-73px)] gap-12 py-20 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:py-28">
           <div className="vv-reveal max-w-4xl">

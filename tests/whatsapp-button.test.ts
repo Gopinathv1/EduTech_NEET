@@ -43,7 +43,7 @@ describe('floating WhatsApp enquiry helpers', () => {
 
   it('builds the default direct WhatsApp message requested by the client', () => {
     const message = buildDefaultWhatsAppMessage('/contact');
-    expect(message).toContain('education/admission services');
+    expect(message).toContain('education and admission services');
     expect(message).toContain('Current page: /contact');
   });
 });
