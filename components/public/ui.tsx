@@ -27,7 +27,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={`border-t border-white/[0.07] py-20 sm:py-28 lg:py-32 ${tinted ? 'bg-surface' : 'bg-background'} ${lazy ? 'cv-auto' : ''} ${className}`}
+      className={`border-t border-[#eadcc7] py-20 sm:py-28 lg:py-32 ${tinted ? 'bg-[#fff3e4]' : 'bg-background'} ${lazy ? 'cv-auto' : ''} ${className}`}
     >
       <Container>{children}</Container>
     </section>
@@ -36,7 +36,7 @@ export function Section({
 
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <p className="mb-4 text-xs font-black uppercase tracking-[0.32em] text-accent">{children}</p>
+    <p className="mb-4 text-xs font-black uppercase tracking-[0.32em] text-brand">{children}</p>
   );
 }
 
@@ -62,7 +62,7 @@ export function SectionHeading({
 
 export function Card({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
-    <div className={`group rounded-xl border border-white/[0.09] bg-surfaceElevated/72 shadow-2xl shadow-black/20 transition duration-300 hover:-translate-y-1 hover:border-brand/45 hover:bg-surfaceElevated ${className}`}>
+    <div className={`group rounded-2xl border border-[#eadcc7] bg-white shadow-xl shadow-[#0b1736]/5 transition duration-300 hover:-translate-y-1 hover:border-brand/35 hover:shadow-2xl hover:shadow-[#0b1736]/10 ${className}`}>
       {children}
     </div>
   );
@@ -71,7 +71,7 @@ export function Card({ children, className = '' }: { children: ReactNode; classN
 /** Circular tinted badge that holds an icon. */
 export function IconBadge({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-brand/30 bg-brand-soft text-accent shadow-lg shadow-brand/10">
+    <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-brand/20 bg-brand-soft text-brand shadow-lg shadow-brand/10">
       {children}
     </span>
   );
@@ -90,7 +90,7 @@ export function PrimaryLink({
   className?: string;
 }) {
   return (
-    <Link href={href} className={`${linkBase} bg-brand text-white shadow-lg shadow-brand/20 hover:-translate-y-0.5 hover:bg-accentBlue ${className}`}>
+    <Link href={href} className={`${linkBase} bg-gradient-to-r from-brand to-brand-light text-white shadow-lg shadow-brand/25 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand/30 ${className}`}>
       {children}
       <span className="transition group-hover:translate-x-1">-&gt;</span>
     </Link>
@@ -109,7 +109,7 @@ export function SecondaryLink({
   return (
     <Link
       href={href}
-      className={`${linkBase} border border-accent/45 bg-transparent text-white hover:-translate-y-0.5 hover:border-brand-light hover:bg-white/[0.04] hover:text-white ${className}`}
+      className={`${linkBase} border border-[#d9c6a8] bg-white/70 text-textPrimary hover:-translate-y-0.5 hover:border-brand/45 hover:bg-white ${className}`}
     >
       {children}
       <span className="transition group-hover:translate-x-1">-&gt;</span>
@@ -122,7 +122,7 @@ export function ArrowLink({ href, children }: { href: string; children: ReactNod
   return (
     <Link
       href={href}
-      className="group inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.12em] text-brand-light transition hover:text-accent"
+      className="group inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.12em] text-brand transition hover:text-brand-dark"
     >
       {children}
       <ArrowRightIcon className="h-4 w-4 transition group-hover:translate-x-1" />

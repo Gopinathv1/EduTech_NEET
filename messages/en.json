@@ -107,7 +107,7 @@
   "home": {
     "brand": "VV Overseas",
     "title": "Your Journey to the Right Education Starts Here",
-    "subtitle": "Explore global education opportunities, get personalised guidance for important academic decisions, and prepare smarter for competitive exams.",
+    "subtitle": "Prepare smarter for NEET, make confident academic decisions, and explore medical and higher-education opportunities in India and abroad.",
     "ctaPrimary": "Get Free Counselling",
     "ctaSecondary": "Explore Study Abroad",
     "ctaTertiary": "Start NEET Preparation",
@@ -492,7 +492,11 @@
         "Get guidance based on goals and preferences",
         "Prepare through structured NEET practice"
       ]
-    }
+    },
+    "heroTitlePrefix": "Rise Beyond",
+    "heroTitleAccent": "Boundaries.",
+    "heroCtaPrimary": "Start NEET Preparation",
+    "heroCtaSecondary": "Explore Global Admissions"
   },
   "footer": {
     "rights": "All rights reserved."

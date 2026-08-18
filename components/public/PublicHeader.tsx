@@ -32,16 +32,16 @@ export default function PublicHeader() {
   const navLinkClass = (href: string) =>
     `whitespace-nowrap rounded-full px-2.5 py-2 text-[13px] font-medium transition-colors min-[1440px]:px-3 min-[1440px]:text-sm ${
       isActive(pathname, href)
-        ? 'bg-brand-soft text-accent'
-        : 'text-textSecondary hover:bg-white/5 hover:text-white'
+        ? 'bg-brand-soft text-brand'
+        : 'text-slate-600 hover:bg-brand-soft hover:text-textPrimary'
     }`;
 
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'border-b border-white/10 bg-background/92 shadow-2xl shadow-black/30 backdrop-blur-xl'
-          : 'border-b border-white/[0.06] bg-background/70 backdrop-blur-lg'
+          ? 'border-b border-[#eadcc7] bg-[#fff9f2]/94 shadow-xl shadow-[#0b1736]/8 backdrop-blur-xl'
+          : 'border-b border-[#eadcc7]/70 bg-[#fff9f2]/82 backdrop-blur-lg'
       }`}
     >
       <div className="mx-auto flex w-full max-w-[1600px] items-center gap-3 px-[clamp(1rem,3vw,3rem)] py-3">
@@ -54,16 +54,16 @@ export default function PublicHeader() {
             <div key={group.key} className="group relative">
               <button
                 type="button"
-                className="whitespace-nowrap rounded-full px-2.5 py-2 text-[13px] font-medium text-textSecondary transition-colors hover:bg-white/5 hover:text-white min-[1440px]:px-3 min-[1440px]:text-sm"
+                className="whitespace-nowrap rounded-full px-2.5 py-2 text-[13px] font-medium text-slate-600 transition-colors hover:bg-brand-soft hover:text-textPrimary min-[1440px]:px-3 min-[1440px]:text-sm"
               >
                 {t(group.key)}
               </button>
-              <div className="invisible absolute left-0 top-full z-50 min-w-64 translate-y-2 rounded-xl border border-white/10 bg-surfaceElevated/95 p-2 opacity-0 shadow-2xl shadow-black/50 backdrop-blur-xl transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+              <div className="invisible absolute left-0 top-full z-50 min-w-64 translate-y-2 rounded-2xl border border-[#eadcc7] bg-white/95 p-2 opacity-0 shadow-2xl shadow-[#0b1736]/12 backdrop-blur-xl transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                 {group.links.map((link) => (
                   <Link
                     key={`${group.key}-${link.href}-${link.key}`}
                     href={link.href}
-                    className="block rounded-lg px-3 py-2.5 text-sm font-medium text-textSecondary hover:bg-white/5 hover:text-white"
+                    className="block rounded-xl px-3 py-2.5 text-sm font-medium text-slate-600 hover:bg-brand-soft hover:text-textPrimary"
                   >
                     {t(link.key)}
                   </Link>
@@ -91,20 +91,20 @@ export default function PublicHeader() {
           </div>
           <Link
             href="/login"
-            className="hidden rounded-full px-3 py-2 text-sm font-medium text-textSecondary hover:bg-white/5 hover:text-white sm:inline-flex"
+            className="hidden rounded-full px-3 py-2 text-sm font-medium text-slate-600 hover:bg-brand-soft hover:text-textPrimary sm:inline-flex"
           >
             {tNav('login')}
           </Link>
           <Link
             href="/#callback"
-            className="hidden rounded-lg bg-brand px-4 py-2 text-sm font-black uppercase tracking-[0.06em] text-white shadow-lg shadow-brand/20 hover:bg-accentBlue sm:inline-flex"
+            className="hidden rounded-full bg-gradient-to-r from-brand to-brand-light px-4 py-2 text-sm font-black uppercase tracking-[0.06em] text-white shadow-lg shadow-brand/25 hover:shadow-xl hover:shadow-brand/30 sm:inline-flex"
           >
             {t('getStarted')}
           </Link>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/5 p-2 text-textPrimary hover:bg-surfaceElevated min-[1360px]:hidden"
+            className="inline-flex items-center justify-center rounded-xl border border-[#eadcc7] bg-white p-2 text-textPrimary hover:bg-brand-soft min-[1360px]:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={tA11y('openMenu')}
@@ -118,12 +118,12 @@ export default function PublicHeader() {
         <nav
           id="mobile-nav"
           aria-label={tA11y('primaryNav')}
-          className="border-t border-white/10 bg-background/96 px-4 py-4 shadow-2xl shadow-black/40 backdrop-blur-xl min-[1360px]:hidden"
+          className="border-t border-[#eadcc7] bg-[#fff9f2]/96 px-4 py-4 shadow-2xl shadow-[#0b1736]/15 backdrop-blur-xl min-[1360px]:hidden"
         >
           <ul className="flex flex-col">
             {NAV_GROUPS.map((group) => (
               <li key={group.key} className="py-1">
-                <p className="px-3 pb-1 pt-3 text-xs font-bold uppercase tracking-wide text-accent">
+                <p className="px-3 pb-1 pt-3 text-xs font-bold uppercase tracking-wide text-brand">
                   {t(group.key)}
                 </p>
                 <div className="space-y-1">
@@ -132,7 +132,7 @@ export default function PublicHeader() {
                       key={`${group.key}-${link.href}-${link.key}`}
                       href={link.href}
                       onClick={() => setOpen(false)}
-                      className="block rounded-lg px-3 py-2.5 text-sm font-medium text-textSecondary hover:bg-white/5 hover:text-white"
+                      className="block rounded-xl px-3 py-2.5 text-sm font-medium text-slate-600 hover:bg-brand-soft hover:text-textPrimary"
                     >
                       {t(link.key)}
                     </Link>
@@ -148,8 +148,8 @@ export default function PublicHeader() {
                   onClick={() => setOpen(false)}
                   className={`block rounded-lg px-3 py-3 text-base font-medium ${
                     isActive(pathname, link.href)
-                      ? 'bg-brand-soft text-accent'
-                      : 'text-textSecondary hover:bg-white/5 hover:text-white'
+                      ? 'bg-brand-soft text-brand'
+                      : 'text-slate-600 hover:bg-brand-soft hover:text-textPrimary'
                   }`}
                   aria-current={isActive(pathname, link.href) ? 'page' : undefined}
                 >
@@ -159,7 +159,7 @@ export default function PublicHeader() {
             ))}
           </ul>
 
-          <div className="mt-4 border-t border-white/10 pt-4">
+          <div className="mt-4 border-t border-[#eadcc7] pt-4">
             <LanguageSwitcher />
           </div>
 
@@ -167,14 +167,14 @@ export default function PublicHeader() {
             <Link
               href="/login"
               onClick={() => setOpen(false)}
-              className="rounded-lg border border-brand/60 px-3 py-2.5 text-center text-sm font-medium text-white"
+              className="rounded-xl border border-brand/35 bg-white px-3 py-2.5 text-center text-sm font-medium text-textPrimary"
             >
               {tNav('login')}
             </Link>
             <Link
               href="/#callback"
               onClick={() => setOpen(false)}
-              className="rounded-lg bg-brand px-3 py-2.5 text-center text-sm font-semibold text-white"
+              className="rounded-xl bg-gradient-to-r from-brand to-brand-light px-3 py-2.5 text-center text-sm font-semibold text-white"
             >
               {t('getStarted')}
             </Link>

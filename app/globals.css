@@ -3,28 +3,30 @@
 @tailwind utilities;
 
 /*
- * Base document styles. VV Overseas uses a restrained peacock-inspired dark
- * palette: deep navy surfaces, teal-blue primary accents, and warm gold detail.
+ * Base document styles. VV Overseas uses a professional peacock education
+ * palette: midnight navy, warm ivory, peacock green/teal/blue and amber.
  */
 :root {
-  --bg-primary: #020608;
-  --bg-secondary: #04090d;
-  --surface: #081117;
-  --surface-elevated: #0b141b;
-  --peacock-blue: #087da8;
-  --peacock-teal: #007c91;
-  --peacock-green: #008c86;
-  --peacock-gold: #d2a63c;
-  --text-primary: #f5f7f8;
-  --text-secondary: #aab3ba;
-  --border: #142937;
-  --focus: #22b8b0;
+  --bg-primary: #fff9f2;
+  --bg-secondary: #ffffff;
+  --surface: #ffffff;
+  --surface-elevated: #fff9f2;
+  --midnight-navy: #0b1736;
+  --deep-navy: #14244a;
+  --peacock-green: #087f5b;
+  --peacock-teal: #0f9d9a;
+  --peacock-blue: #1261a0;
+  --warm-amber: #f6a623;
+  --text-primary: #172033;
+  --text-secondary: #64748b;
+  --border: #e8dccb;
+  --focus: #0f9d9a;
   --background: var(--bg-primary);
-  --foreground: #f8fafc;
+  --foreground: #0b1736;
   --primary-red: #ef4444;
   --primary-red-hover: #dc2626;
   --accent-blue: var(--peacock-blue);
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html {
@@ -38,7 +40,7 @@ body {
 }
 
 ::selection {
-  background: rgba(0, 124, 145, 0.55);
+  background: rgba(15, 157, 154, 0.24);
   color: #ffffff;
 }
 
@@ -70,6 +72,10 @@ body {
   .vv-marquee-track {
     animation: none !important;
     transform: none !important;
+  }
+
+  .vv-peacock-rise {
+    animation: none !important;
   }
 }
 
@@ -105,6 +111,16 @@ body {
   }
 }
 
+@keyframes vv-peacock-rise {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
 .vv-reveal {
   animation: vv-fade-up 700ms ease-out both;
 }
@@ -119,6 +135,10 @@ body {
 
 .vv-pulse-line {
   animation: vv-pulse-line 4s ease-in-out infinite;
+}
+
+.vv-peacock-rise {
+  animation: vv-peacock-rise 8s ease-in-out infinite;
 }
 
 /*

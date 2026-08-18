@@ -107,7 +107,7 @@
   "home": {
     "brand": "VV Overseas",
     "title": "??? ?????? ?? ???? ?????? ???? ???? ???? ??",
-    "subtitle": "वैश्विक शिक्षा अवसरों को खोजें, महत्वपूर्ण शैक्षणिक निर्णयों के लिए व्यक्तिगत मार्गदर्शन पाएं और प्रतियोगी परीक्षाओं के लिए बेहतर तैयारी करें.",
+    "subtitle": "NEET के लिए बेहतर तैयारी करें, आत्मविश्वास से शैक्षणिक निर्णय लें, और भारत व विदेश में medical और higher-education opportunities खोजें.",
     "ctaPrimary": "Get Free Counselling",
     "ctaSecondary": "Explore Study Abroad",
     "examSelectorLabel": "Current services",
@@ -492,7 +492,11 @@
         "लक्ष्य और पसंद के आधार पर मार्गदर्शन पाएं",
         "संरचित NEET अभ्यास से तैयारी करें"
       ]
-    }
+    },
+    "heroTitlePrefix": "सीमाओं से आगे",
+    "heroTitleAccent": "उठें.",
+    "heroCtaPrimary": "NEET तैयारी शुरू करें",
+    "heroCtaSecondary": "Global admissions देखें"
   },
   "footer": {
     "rights": "All rights reserved."
