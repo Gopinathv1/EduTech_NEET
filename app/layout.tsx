@@ -5,6 +5,7 @@ import { SITE_NAME, SITE_URL } from '@/lib/public/site';
 import { getA11yPrefs } from '@/lib/a11y';
 import SkipLink from '@/components/a11y/SkipLink';
 import SentryInit from '@/components/observability/SentryInit';
+import WhatsAppFloatingButton from '@/components/contact/WhatsAppFloatingButton';
 import './globals.css';
 
 // Root metadata is localised from the active locale's message file.
@@ -53,6 +54,7 @@ export default async function RootLayout({
           <SentryInit />
           <SkipLink />
           {children}
+          <WhatsAppFloatingButton />
         </NextIntlClientProvider>
       </body>
     </html>

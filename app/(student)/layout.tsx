@@ -1,7 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import { getSession } from '@/lib/auth/session';
 import { getSettings } from '@/lib/settings/service';
-import WhatsAppButton from '@/components/contact/WhatsAppButton';
 import AIChatButton from '@/components/ai/AIChatButton';
 
 /**
@@ -33,7 +32,6 @@ export default async function StudentAreaLayout({ children }: { children: React.
   return (
     <>
       {children}
-      <WhatsAppButton />
       <AIChatButton />
     </>
   );

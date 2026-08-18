@@ -24,6 +24,7 @@ type AdmissionCard = { title: string; body: string; href: string };
 const MARQUEE = ['PREPARE', 'ASSESS', 'COUNSELLING', 'APPLY', 'PROGRESS', 'NEET', 'GLOBAL ADMISSIONS'];
 const JOURNEY = ['Prepare', 'Assess', 'Counselling', 'Apply', 'Progress'];
 const FUTURE_EXAMS = ['JEE Main', 'JEE Advanced'];
+const SCHOOL_BOARDS = ['State Board', 'CBSE', 'ICSE', 'IGCSE', 'IB'];
 
 const PREP_FEATURES = [
   { title: '₹30 per mock test', icon: RupeeIcon },
@@ -197,6 +198,20 @@ export default function HomePage() {
                   <p className="mt-2 text-sm leading-6 text-[#D1D1D1]">{subject.body}</p>
                 </Link>
               ))}
+            </div>
+            <div className="mt-6 rounded-2xl border border-[#2B2B2B] bg-[#050505] p-5">
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">Competitive Exam Guidance</p>
+              <h3 className="mt-3 text-xl font-black uppercase leading-tight text-white">We Support Students Across Major School Boards</h3>
+              <p className="mt-3 text-sm leading-7 text-[#D1D1D1]">
+                We guide students across major school boards with academic support, competitive exam preparation and education counselling.
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {SCHOOL_BOARDS.map((board) => (
+                  <span key={board} className="rounded-full border border-[#2B2B2B] bg-[#111111] px-3 py-1.5 text-xs font-black text-white">
+                    {board}
+                  </span>
+                ))}
+              </div>
             </div>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
               {PREP_ACTIONS.map((action) => (

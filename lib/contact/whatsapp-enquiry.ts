@@ -32,7 +32,7 @@ export const isWhatsAppButtonHiddenPath = isFloatingContactHiddenPath;
 
 export function buildDefaultWhatsAppMessage(pathname: string) {
   return [
-    'Hello VV Overseas, I would like to know more about your education and admission services.',
+    'Hello VV Overseas, I would like to know more about your education, competitive exam preparation and admission guidance services.',
     pathname ? `Current page: ${pathname}` : undefined,
   ]
     .filter(Boolean)

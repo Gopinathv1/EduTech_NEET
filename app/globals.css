@@ -72,6 +72,7 @@ body {
 
   .vv-peacock-rise {
     animation: none !important;
+    transform: none !important;
   }
 }
 
@@ -107,13 +108,12 @@ body {
   }
 }
 
-@keyframes vv-peacock-rise {
-  0%,
-  100% {
-    transform: translateY(0) rotate(-1deg);
+@keyframes peacockSlowRotate {
+  from {
+    transform: rotate(-2deg) scale(1.02);
   }
-  50% {
-    transform: translateY(-10px) rotate(1deg);
+  to {
+    transform: rotate(2deg) scale(1.04);
   }
 }
 
@@ -134,7 +134,8 @@ body {
 }
 
 .vv-peacock-rise {
-  animation: vv-peacock-rise 8s ease-in-out infinite;
+  transform-origin: 58% 48%;
+  animation: peacockSlowRotate 16s ease-in-out infinite alternate;
 }
 
 /*

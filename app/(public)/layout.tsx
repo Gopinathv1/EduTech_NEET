@@ -1,6 +1,5 @@
 import PublicHeader from '@/components/public/PublicHeader';
 import PublicFooter from '@/components/public/PublicFooter';
-import WhatsAppButton from '@/components/contact/WhatsAppButton';
 import AIChatButton from '@/components/ai/AIChatButton';
 
 /**
@@ -14,7 +13,6 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
     <div className="flex min-h-screen flex-col">
       <PublicHeader />
       <main id="main-content" className="flex-1">{children}</main>
-      <WhatsAppButton />
       <AIChatButton />
       <PublicFooter />
     </div>
