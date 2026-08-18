@@ -32,7 +32,7 @@ test('student can register, buy, take a test, see the result, and request guidan
   await page.getByLabel('Full name').fill('E2E Student');
   await page.getByLabel('Email').fill(email);
   await page.getByLabel('Mobile number').fill(mobile);
-  await page.getByLabel('Password').fill('Secret@123');
+  await expect(page.getByLabel('Password')).toHaveCount(0);
   // State/District/Class/Board are <select> dropdowns (District depends on State).
   await page.getByLabel('State').selectOption({ label: 'Tamil Nadu' });
   await page.getByLabel('District').selectOption({ index: 1 });
