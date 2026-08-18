@@ -3,30 +3,26 @@
 @tailwind utilities;
 
 /*
- * Base document styles. VV Overseas uses a professional peacock education
- * palette: midnight navy, warm ivory, peacock green/teal/blue and amber.
+ * Base document styles. VV Overseas uses a professional black, red and white
+ * education palette requested by the client.
  */
 :root {
-  --bg-primary: #fff9f2;
-  --bg-secondary: #ffffff;
-  --surface: #ffffff;
-  --surface-elevated: #fff9f2;
+  --bg-primary: #050505;
+  --bg-secondary: #0b0b0b;
+  --surface: #0b0b0b;
+  --surface-elevated: #111111;
   --midnight-navy: #0b1736;
   --deep-navy: #14244a;
-  --peacock-green: #087f5b;
-  --peacock-teal: #0f9d9a;
-  --peacock-blue: #1261a0;
-  --warm-amber: #f6a623;
-  --text-primary: #172033;
-  --text-secondary: #64748b;
-  --border: #e8dccb;
-  --focus: #0f9d9a;
+  --primary-red: #d71920;
+  --primary-red-hover: #ff2b32;
+  --text-primary: #ffffff;
+  --text-secondary: #d1d1d1;
+  --border: #2b2b2b;
+  --focus: #ff2b32;
   --background: var(--bg-primary);
-  --foreground: #0b1736;
-  --primary-red: #ef4444;
-  --primary-red-hover: #dc2626;
-  --accent-blue: var(--peacock-blue);
-  color-scheme: light;
+  --foreground: #ffffff;
+  --accent-blue: var(--primary-red);
+  color-scheme: dark;
 }
 
 html {
@@ -40,7 +36,7 @@ body {
 }
 
 ::selection {
-  background: rgba(15, 157, 154, 0.24);
+  background: rgba(215, 25, 32, 0.42);
   color: #ffffff;
 }
 

@@ -33,15 +33,15 @@ export default function PublicHeader() {
     `whitespace-nowrap rounded-full px-2.5 py-2 text-[13px] font-medium transition-colors min-[1440px]:px-3 min-[1440px]:text-sm ${
       isActive(pathname, href)
         ? 'bg-brand-soft text-brand'
-        : 'text-slate-600 hover:bg-brand-soft hover:text-textPrimary'
+        : 'text-[#D1D1D1] hover:bg-brand-soft hover:text-textPrimary'
     }`;
 
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'border-b border-[#eadcc7] bg-[#fff9f2]/94 shadow-xl shadow-[#0b1736]/8 backdrop-blur-xl'
-          : 'border-b border-[#eadcc7]/70 bg-[#fff9f2]/82 backdrop-blur-lg'
+          ? 'border-b border-[#2B2B2B] bg-[#050505]/94 shadow-xl shadow-black/8 backdrop-blur-xl'
+          : 'border-b border-[#2B2B2B]/70 bg-[#050505]/82 backdrop-blur-lg'
       }`}
     >
       <div className="mx-auto flex w-full max-w-[1600px] items-center gap-3 px-[clamp(1rem,3vw,3rem)] py-3">
@@ -54,16 +54,16 @@ export default function PublicHeader() {
             <div key={group.key} className="group relative">
               <button
                 type="button"
-                className="whitespace-nowrap rounded-full px-2.5 py-2 text-[13px] font-medium text-slate-600 transition-colors hover:bg-brand-soft hover:text-textPrimary min-[1440px]:px-3 min-[1440px]:text-sm"
+                className="whitespace-nowrap rounded-full px-2.5 py-2 text-[13px] font-medium text-[#D1D1D1] transition-colors hover:bg-brand-soft hover:text-textPrimary min-[1440px]:px-3 min-[1440px]:text-sm"
               >
                 {t(group.key)}
               </button>
-              <div className="invisible absolute left-0 top-full z-50 min-w-64 translate-y-2 rounded-2xl border border-[#eadcc7] bg-white/95 p-2 opacity-0 shadow-2xl shadow-[#0b1736]/12 backdrop-blur-xl transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+              <div className="invisible absolute left-0 top-full z-50 min-w-64 translate-y-2 rounded-2xl border border-[#2B2B2B] bg-[#111111]/95 p-2 opacity-0 shadow-2xl shadow-black/12 backdrop-blur-xl transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                 {group.links.map((link) => (
                   <Link
                     key={`${group.key}-${link.href}-${link.key}`}
                     href={link.href}
-                    className="block rounded-xl px-3 py-2.5 text-sm font-medium text-slate-600 hover:bg-brand-soft hover:text-textPrimary"
+                    className="block rounded-xl px-3 py-2.5 text-sm font-medium text-[#D1D1D1] hover:bg-brand-soft hover:text-textPrimary"
                   >
                     {t(link.key)}
                   </Link>
@@ -91,7 +91,7 @@ export default function PublicHeader() {
           </div>
           <Link
             href="/login"
-            className="hidden rounded-full px-3 py-2 text-sm font-medium text-slate-600 hover:bg-brand-soft hover:text-textPrimary sm:inline-flex"
+            className="hidden rounded-full px-3 py-2 text-sm font-medium text-[#D1D1D1] hover:bg-brand-soft hover:text-textPrimary sm:inline-flex"
           >
             {tNav('login')}
           </Link>
@@ -104,7 +104,7 @@ export default function PublicHeader() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex items-center justify-center rounded-xl border border-[#eadcc7] bg-white p-2 text-textPrimary hover:bg-brand-soft min-[1360px]:hidden"
+            className="inline-flex items-center justify-center rounded-xl border border-[#2B2B2B] bg-[#111111] p-2 text-textPrimary hover:bg-brand-soft min-[1360px]:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={tA11y('openMenu')}
@@ -118,7 +118,7 @@ export default function PublicHeader() {
         <nav
           id="mobile-nav"
           aria-label={tA11y('primaryNav')}
-          className="border-t border-[#eadcc7] bg-[#fff9f2]/96 px-4 py-4 shadow-2xl shadow-[#0b1736]/15 backdrop-blur-xl min-[1360px]:hidden"
+          className="border-t border-[#2B2B2B] bg-[#050505]/96 px-4 py-4 shadow-2xl shadow-black/15 backdrop-blur-xl min-[1360px]:hidden"
         >
           <ul className="flex flex-col">
             {NAV_GROUPS.map((group) => (
@@ -132,7 +132,7 @@ export default function PublicHeader() {
                       key={`${group.key}-${link.href}-${link.key}`}
                       href={link.href}
                       onClick={() => setOpen(false)}
-                      className="block rounded-xl px-3 py-2.5 text-sm font-medium text-slate-600 hover:bg-brand-soft hover:text-textPrimary"
+                      className="block rounded-xl px-3 py-2.5 text-sm font-medium text-[#D1D1D1] hover:bg-brand-soft hover:text-textPrimary"
                     >
                       {t(link.key)}
                     </Link>
@@ -149,7 +149,7 @@ export default function PublicHeader() {
                   className={`block rounded-lg px-3 py-3 text-base font-medium ${
                     isActive(pathname, link.href)
                       ? 'bg-brand-soft text-brand'
-                      : 'text-slate-600 hover:bg-brand-soft hover:text-textPrimary'
+                      : 'text-[#D1D1D1] hover:bg-brand-soft hover:text-textPrimary'
                   }`}
                   aria-current={isActive(pathname, link.href) ? 'page' : undefined}
                 >
@@ -159,7 +159,7 @@ export default function PublicHeader() {
             ))}
           </ul>
 
-          <div className="mt-4 border-t border-[#eadcc7] pt-4">
+          <div className="mt-4 border-t border-[#2B2B2B] pt-4">
             <LanguageSwitcher />
           </div>
 
@@ -167,7 +167,7 @@ export default function PublicHeader() {
             <Link
               href="/login"
               onClick={() => setOpen(false)}
-              className="rounded-xl border border-brand/35 bg-white px-3 py-2.5 text-center text-sm font-medium text-textPrimary"
+              className="rounded-xl border border-brand/35 bg-[#111111] px-3 py-2.5 text-center text-sm font-medium text-textPrimary"
             >
               {tNav('login')}
             </Link>

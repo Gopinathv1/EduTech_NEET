@@ -19,13 +19,24 @@ export const PARTNER_WHATSAPP_TYPES = [
   'Other Institution',
 ];
 
-export function isWhatsAppButtonHiddenPath(pathname: string) {
+export function isFloatingContactHiddenPath(pathname: string) {
   return (
     pathname.startsWith('/admin') ||
     pathname === '/partner' ||
     pathname.startsWith('/partner/') ||
     /\/student\/tests\/[^/]+\/attempt/.test(pathname)
   );
+}
+
+export const isWhatsAppButtonHiddenPath = isFloatingContactHiddenPath;
+
+export function buildDefaultWhatsAppMessage(pathname: string) {
+  return [
+    'Hello VV Overseas, I would like to know more about your education/admission services.',
+    pathname ? `Current page: ${pathname}` : undefined,
+  ]
+    .filter(Boolean)
+    .join('\n');
 }
 
 export function buildStudentWhatsAppMessage(category: string, pathname: string) {

@@ -27,7 +27,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={`border-t border-[#eadcc7] py-20 sm:py-28 lg:py-32 ${tinted ? 'bg-[#fff3e4]' : 'bg-background'} ${lazy ? 'cv-auto' : ''} ${className}`}
+      className={`border-t border-[#2B2B2B] py-20 sm:py-28 lg:py-32 ${tinted ? 'bg-[#111111]' : 'bg-background'} ${lazy ? 'cv-auto' : ''} ${className}`}
     >
       <Container>{children}</Container>
     </section>
@@ -62,7 +62,7 @@ export function SectionHeading({
 
 export function Card({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
-    <div className={`group rounded-2xl border border-[#eadcc7] bg-white shadow-xl shadow-[#0b1736]/5 transition duration-300 hover:-translate-y-1 hover:border-brand/35 hover:shadow-2xl hover:shadow-[#0b1736]/10 ${className}`}>
+    <div className={`group rounded-2xl border border-[#2B2B2B] bg-[#111111] shadow-xl shadow-black/5 transition duration-300 hover:-translate-y-1 hover:border-brand/35 hover:shadow-2xl hover:shadow-black/10 ${className}`}>
       {children}
     </div>
   );
@@ -109,7 +109,7 @@ export function SecondaryLink({
   return (
     <Link
       href={href}
-      className={`${linkBase} border border-[#d9c6a8] bg-white/70 text-textPrimary hover:-translate-y-0.5 hover:border-brand/45 hover:bg-white ${className}`}
+      className={`${linkBase} border border-[#2B2B2B] bg-white/80 text-textPrimary hover:-translate-y-0.5 hover:border-brand/45 hover:bg-[#111111] ${className}`}
     >
       {children}
       <span className="transition group-hover:translate-x-1">-&gt;</span>

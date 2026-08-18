@@ -14,21 +14,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: '#FFF9F2',
-        surface: '#FFFFFF',
-        surfaceElevated: '#FFF9F2',
-        textPrimary: '#172033',
-        textSecondary: '#64748B',
+        background: '#050505',
+        surface: '#0B0B0B',
+        surfaceElevated: '#111111',
+        textPrimary: '#FFFFFF',
+        textSecondary: '#D1D1D1',
         primaryRed: {
-          DEFAULT: '#ef4444',
-          hover: '#dc2626',
-          dark: '#991b1b',
-          soft: '#2a0d0d',
+          DEFAULT: '#D71920',
+          hover: '#FF2B32',
+          dark: '#991B1B',
+          soft: '#2A0D0D',
         },
         accentBlue: {
-          DEFAULT: '#1261A0',
-          hover: '#0B1736',
-          soft: '#EAF3FA',
+          DEFAULT: '#D71920',
+          hover: '#FF2B32',
+          soft: '#2A0D0D',
         },
         peacock: {
           blue: '#1261A0',
@@ -37,15 +37,15 @@ const config: Config = {
           gold: '#F6A623',
           navy: '#0B1736',
         },
-        border: '#E8DCCB',
+        border: '#2B2B2B',
         brand: {
-          DEFAULT: '#087F5B',
-          dark: '#075F45',
-          light: '#0F9D9A',
-          soft: '#E8F7F3',
+          DEFAULT: '#D71920',
+          dark: '#991B1B',
+          light: '#FF2B32',
+          soft: '#2A0D0D',
         },
         accent: {
-          DEFAULT: '#F6A623',
+          DEFAULT: '#FF2B32',
         },
       },
       fontFamily: {

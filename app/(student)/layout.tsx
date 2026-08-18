@@ -2,6 +2,7 @@ import { getTranslations } from 'next-intl/server';
 import { getSession } from '@/lib/auth/session';
 import { getSettings } from '@/lib/settings/service';
 import WhatsAppButton from '@/components/contact/WhatsAppButton';
+import AIChatButton from '@/components/ai/AIChatButton';
 
 /**
  * Wraps the whole student area. When maintenance mode is on (a super-admin
@@ -33,6 +34,7 @@ export default async function StudentAreaLayout({ children }: { children: React.
     <>
       {children}
       <WhatsAppButton />
+      <AIChatButton />
     </>
   );
 }
