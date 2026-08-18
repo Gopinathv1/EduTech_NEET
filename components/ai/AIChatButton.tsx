@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useLocale } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
@@ -166,12 +167,12 @@ function HumanHandoff({ whatsappUrl }: { whatsappUrl: string | null }) {
             WhatsApp Us
           </a>
         ) : null}
-        <a href="/#callback" className="rounded-full bg-[#D71920] px-3 py-1.5 text-xs font-black text-white">
+        <Link href="/#callback" className="rounded-full bg-[#D71920] px-3 py-1.5 text-xs font-black text-white">
           Request Counselling
-        </a>
-        <a href="/contact" className="rounded-full border border-white/15 px-3 py-1.5 text-xs font-black text-white">
+        </Link>
+        <Link href="/contact" className="rounded-full border border-white/15 px-3 py-1.5 text-xs font-black text-white">
           Contact Us
-        </a>
+        </Link>
       </div>
     </div>
   );
