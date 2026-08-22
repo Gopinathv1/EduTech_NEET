@@ -13,12 +13,26 @@ export async function POST(req: Request) {
   const parsed = otpVerifySchema.safeParse(await readJson(req));
   if (!parsed.success) return fail('validation', 400);
   const { mobile, otp, purpose } = parsed.data;
+  const maskedMobile = `xxxxxx${mobile.slice(-4)}`;
+
+  console.log('[otp] verification attempted', { mobile: maskedMobile, purpose });
 
   const student = await prisma.student.findUnique({ where: { mobile } });
-  if (!student) return fail('accountNotFound', 404);
+  if (!student) {
+    console.warn('[otp] verification account not found', { mobile: maskedMobile, purpose });
+    return fail('accountNotFound', 404);
+  }
 
   const result = await verifyOtp(mobile, otp, purpose);
   if (result !== 'ok') {
+    const logPayload = { mobile: maskedMobile, purpose, result };
+    if (result === 'expired' || result === 'not_found') {
+      console.warn('[otp] verification expired or missing', logPayload);
+    } else if (result === 'invalid') {
+      console.warn('[otp] invalid OTP submitted', logPayload);
+    } else {
+      console.warn('[otp] verification rejected', logPayload);
+    }
     return fail(otpErrorCode(result), result === 'too_many_attempts' ? 429 : 400);
   }
 
@@ -33,5 +47,6 @@ export async function POST(req: Request) {
   // On both registration completion and OTP login, adopt the student's saved
   // language so the UI switches to it immediately (and persists for next time).
   await syncLocaleFromProfile(student.preferredLanguage);
+  console.log('[otp] verification succeeded', { mobile: maskedMobile, purpose, studentId: student.id });
   return ok({ redirect: '/student' });
 }

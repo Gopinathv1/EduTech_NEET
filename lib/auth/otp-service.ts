@@ -19,8 +19,23 @@ export async function requestOtp(
   purpose: OtpPurpose,
   opts: { email?: string; language?: string | null } = {},
 ): Promise<RequestOtpResult> {
+  console.log('[otp] request received', {
+    mobile: `xxxxxx${mobile.slice(-4)}`,
+    purpose,
+    channel: 'SMS',
+    hasEmail: Boolean(opts.email),
+    language: opts.language ?? null,
+  });
+
   const created = await createOtp(mobile, purpose, { email: opts.email, channel: 'SMS' });
-  if (!created.ok) return created;
+  if (!created.ok) {
+    console.warn('[otp] request rate limited', {
+      mobile: `xxxxxx${mobile.slice(-4)}`,
+      purpose,
+      retryAfterSeconds: created.retryAfterSeconds,
+    });
+    return created;
+  }
 
   // Send the OTP SMS in the recipient's preferred language (falls back to the
   // default when unset/unsupported), independent of the browser cookie.
@@ -34,10 +49,20 @@ export async function requestOtp(
     await getOtpProvider().sendSms(mobile, created.otp, message);
   } catch (err) {
     if (err instanceof OtpDeliveryError) {
+      console.error('[otp] provider rejected request', {
+        mobile: `xxxxxx${mobile.slice(-4)}`,
+        purpose,
+      });
       return { ok: false, reason: 'delivery_failed' };
     }
     throw err;
   }
+
+  console.log('[otp] request completed', {
+    mobile: `xxxxxx${mobile.slice(-4)}`,
+    purpose,
+    expiresAt: created.expiresAt.toISOString(),
+  });
 
   return {
     ok: true,

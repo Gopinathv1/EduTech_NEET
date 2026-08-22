@@ -28,6 +28,10 @@ function maskMobile(mobile: string): string {
   return `xxxxxx${mobile.slice(-4)}`;
 }
 
+function isProduction() {
+  return process.env.NODE_ENV === 'production';
+}
+
 function toMsg91Mobile(mobile: string): string {
   const digits = mobile.replace(/\D/g, '');
   const normalized = digits.length === 12 && digits.startsWith('91') ? digits.slice(2) : digits;
@@ -40,10 +44,18 @@ function toMsg91Mobile(mobile: string): string {
 /** Dev/test provider: logs to the console. Never used in production. */
 export class ConsoleOtpProvider implements OtpProvider {
   async sendSms(mobile: string, otp: string, message: string): Promise<void> {
+    if (isProduction()) {
+      console.log('[otp] console SMS provider invoked', { mobile: maskMobile(mobile) });
+      return;
+    }
     console.log(`\n📱  [OTP:SMS] to +91${mobile}: ${otp}\n    "${message}"\n`);
   }
 
   async sendEmail(email: string, otp: string, subject: string, message: string): Promise<void> {
+    if (isProduction()) {
+      console.log('[otp] console email provider invoked', { emailMasked: email.replace(/^(.).+(@.+)$/, '$1***$2') });
+      return;
+    }
     console.log(`\n✉️   [OTP:EMAIL] to ${email} (${subject}): ${otp}\n    "${message}"\n`);
   }
 }
@@ -59,6 +71,15 @@ export class Msg91OtpProvider implements OtpProvider {
     private readonly otpVariableName = 'OTP',
   ) {}
 
+  private templateVariables(otp: string) {
+    const body: Record<string, string> = {
+      OTP: otp,
+      otp,
+    };
+    body[this.otpVariableName] = otp;
+    return body;
+  }
+
   async sendSms(mobile: string, otp: string, message: string): Promise<void> {
     if (!/^\d{6}$/.test(otp)) {
       throw new OtpDeliveryError('Invalid OTP format for delivery');
@@ -72,6 +93,14 @@ export class Msg91OtpProvider implements OtpProvider {
     // The app generates/stores/verifies the OTP; MSG91 is used for delivery.
     url.searchParams.set('otp', otp);
     url.searchParams.set('otp_expiry', '5');
+    url.searchParams.set('response', 'json');
+
+    console.log('[otp] MSG91 send requested', {
+      mobile: maskMobile(mobile),
+      templateIdConfigured: Boolean(this.templateId),
+      variableNames: Object.keys(this.templateVariables('******')),
+      messageLength: message.length,
+    });
 
     try {
       const res = await fetch(url, {
@@ -80,20 +109,26 @@ export class Msg91OtpProvider implements OtpProvider {
           accept: 'application/json',
           'content-type': 'application/json',
         },
-        body: JSON.stringify({ [this.otpVariableName]: otp }),
+        body: JSON.stringify(this.templateVariables(otp)),
       });
-      const payload = (await res.json().catch(() => null)) as { type?: string } | null;
+      const payload = (await res.json().catch(() => null)) as { type?: string; message?: string } | null;
 
       if (!res.ok || payload?.type === 'error') {
         console.error('[otp] MSG91 send failed', {
           mobile: maskMobile(mobile),
           status: res.status,
           providerType: payload?.type ?? 'unknown',
+          providerMessage: payload?.message ? String(payload.message).slice(0, 160) : undefined,
         });
         throw new OtpDeliveryError();
       }
 
-      console.log('[otp] MSG91 send accepted', { mobile: maskMobile(mobile), status: res.status });
+      console.log('[otp] MSG91 send accepted', {
+        mobile: maskMobile(mobile),
+        status: res.status,
+        providerType: payload?.type ?? 'unknown',
+        requestIdPresent: Boolean(payload?.message),
+      });
     } catch (err) {
       if (err instanceof OtpDeliveryError) throw err;
       console.error('[otp] MSG91 send errored', {
@@ -118,7 +153,7 @@ let cached: OtpProvider | null = null;
  * before onboarding actual students.
  */
 export function isOtpDevMode(): boolean {
-  return process.env.OTP_DEV_MODE === 'true' || process.env.NODE_ENV !== 'production';
+  return process.env.NODE_ENV !== 'production' && process.env.OTP_DEV_MODE !== 'false';
 }
 
 /** Returns the configured provider. Console in dev/test, gateway in production. */
