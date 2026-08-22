@@ -16,7 +16,17 @@ describe('WhatsApp click-to-chat helper', () => {
     expect(result.available).toBe(true);
     if (!result.available) throw new Error('Expected WhatsApp URL to be available');
     expect(result.url).toBe(
-      'https://wa.me/919876543210?text=Hello+SIVORA UP↑RISING%2C%0AI+need+partner+support.',
+      'https://wa.me/919876543210?text=Hello+SIVORA+UP%E2%86%91RISING%2C%0AI+need+partner+support.',
+    );
+  });
+
+  it('encodes punctuation and special characters consistently', () => {
+    const result = getWhatsAppUrl('Course - NEET / MBBS & admissions?', '+91 98765 43210');
+
+    expect(result.available).toBe(true);
+    if (!result.available) throw new Error('Expected WhatsApp URL to be available');
+    expect(result.url).toBe(
+      'https://wa.me/919876543210?text=Course+-+NEET+%2F+MBBS+%26+admissions%3F',
     );
   });
 
