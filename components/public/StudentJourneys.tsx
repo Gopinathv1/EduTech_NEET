@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { studentJourneys, studentJourneySteps } from '@/data/student-journeys';
+import { admissionGuidancePoints, studentJourneys, studentJourneySteps } from '@/data/student-journeys';
 import WhatsAppLink from '@/components/whatsapp/WhatsAppLink';
 import { Section } from './ui';
 
@@ -73,6 +73,42 @@ export default function StudentJourneys() {
           ))}
         </div>
 
+        <div className="mt-10 grid gap-6 rounded-[1.75rem] border border-[#2B2B2B] bg-[#111111]/88 p-6 shadow-2xl shadow-black/12 backdrop-blur-sm sm:p-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.24em] text-brand-light">
+              University & Course Matching
+            </p>
+            <h3 className="mt-4 text-3xl font-black uppercase leading-tight text-white sm:text-5xl">
+              How We Help Students Build Their Future Abroad
+            </h3>
+            <div className="mt-5 space-y-4 text-sm leading-7 text-[#D1D1D1] sm:text-base sm:leading-8">
+              <p>
+                Our admission process starts by understanding each student&apos;s goals, academic profile, interests,
+                skills, preferred course, country preference and financial situation.
+              </p>
+              <p>
+                Based on this, we guide students toward suitable universities and courses that align with their academic
+                background, career interests and budget.
+              </p>
+              <p>
+                Our support continues through application, documentation, admission, visa guidance, pre-departure
+                preparation and transition support.
+              </p>
+            </div>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {admissionGuidancePoints.map((point) => (
+              <div key={point} className="rounded-2xl border border-[#2B2B2B] bg-[#050505]/76 p-4">
+                <p className="text-sm font-bold leading-6 text-white">{point}</p>
+              </div>
+            ))}
+          </div>
+          <p className="border-l border-[#f6a623]/40 bg-[#050505]/64 p-4 text-xs leading-6 text-[#D1D1D1] lg:col-span-2">
+            Admission is subject to university eligibility requirements, applicable regulations, documentation and
+            availability.
+          </p>
+        </div>
+
         <div className="mt-8 overflow-hidden rounded-[1.5rem] border border-[#2B2B2B] bg-[#050505]/76 p-4 backdrop-blur-sm sm:p-5">
           <div className="flex flex-col gap-3 text-center sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:text-left">
             {studentJourneySteps.map((step, index) => (
@@ -91,11 +127,11 @@ export default function StudentJourneys() {
         <div className="mt-10 rounded-[1.75rem] border border-[#2B2B2B] bg-[#111111]/90 p-6 shadow-2xl shadow-black/12 backdrop-blur-sm sm:p-8 lg:flex lg:items-end lg:justify-between lg:gap-8">
           <div>
             <h3 className="text-3xl font-black uppercase leading-tight text-white sm:text-5xl">
-              Your Medical Journey Could Be Next.
+              Your Global Education Journey Could Be Next.
             </h3>
             <p className="mt-4 max-w-3xl text-base leading-8 text-[#D1D1D1]">
-              Talk to our counselling team about MBBS opportunities, eligibility, universities, admission procedures and
-              your next steps.
+              Talk to our counselling team to understand suitable countries, universities, courses, eligibility and
+              expected costs based on your profile and goals.
             </p>
           </div>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:mt-0 lg:shrink-0">

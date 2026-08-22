@@ -41,13 +41,39 @@ export const studentJourneys: StudentJourney[] = [
     tag: 'STUDENT JOURNEYS',
     alt: 'Students standing outside Andijan State Medical Institute in Uzbekistan',
   },
+  {
+    image: '/admissions/student-success-02.jpg',
+    title: 'Guidance Beyond Admission',
+    description:
+      'At SIVORA UP↑RISING, we support students and families beyond the application stage — from counselling and university selection to documentation, admission, travel preparation and ongoing guidance after students begin their education abroad.',
+    country: 'Overseas Admissions',
+    category: 'Continuous Guidance',
+    tag: 'COUNSELLING -> ADMISSION -> SUPPORT',
+    alt: 'Students and family members with admission guidance counsellors during an overseas education support meeting',
+  },
 ];
 
 export const studentJourneySteps = [
   'COUNSELLING',
-  'UNIVERSITY SELECTION',
+  'PROFILE & INTEREST ASSESSMENT',
+  'UNIVERSITY & COURSE SELECTION',
   'APPLICATION',
   'DOCUMENTATION',
-  'PRE-DEPARTURE SUPPORT',
-  'ARRIVAL',
+  'ADMISSION SUPPORT',
+  'PRE-DEPARTURE GUIDANCE',
+  'ARRIVAL & CONTINUOUS SUPPORT',
+];
+
+export const admissionGuidancePoints = [
+  'Understand the student academic profile and career interests',
+  'Identify suitable countries, universities and courses',
+  'Consider the student skills, goals and preferred field of study',
+  'Guide families based on realistic budget and financial situation',
+  'Explain tuition fees, living costs and other expected expenses',
+  'Support application and documentation',
+  'Assist with admission procedures',
+  'Guide on visa and document requirements where applicable',
+  'Provide pre-departure guidance',
+  'Support students and families during the transition abroad',
+  'Continue guidance after admission where appropriate',
 ];
