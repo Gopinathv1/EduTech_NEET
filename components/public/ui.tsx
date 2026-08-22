@@ -27,7 +27,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={`border-t border-[#2B2B2B] py-20 sm:py-28 lg:py-32 ${tinted ? 'bg-[#111111]' : 'bg-background'} ${lazy ? 'cv-auto' : ''} ${className}`}
+      className={`border-t border-[#2B2B2B] py-20 sm:py-28 lg:py-32 ${tinted ? 'bg-[#111111]/86' : 'bg-background/74'} ${lazy ? 'cv-auto' : ''} ${className}`}
     >
       <Container>{children}</Container>
     </section>

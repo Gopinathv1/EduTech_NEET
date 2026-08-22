@@ -14,7 +14,7 @@ export default function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <section className="border-b border-border bg-brand-soft">
+    <section className="border-b border-border bg-brand-soft/82">
       <Container className="py-12 sm:py-16">
         {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
         <h1 className="text-3xl font-extrabold tracking-tight text-textPrimary sm:text-4xl">

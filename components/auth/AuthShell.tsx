@@ -10,8 +10,8 @@ import BrandLogo from '@/components/brand/Logo';
 export default function AuthShell({ children }: { children: React.ReactNode }) {
   const t = useTranslations('nav');
   return (
-    <div className="flex min-h-screen flex-col bg-background">
-      <header className="flex items-center justify-between border-b border-border bg-background px-4 py-4 sm:px-8">
+    <div className="flex min-h-screen flex-col bg-background/76">
+      <header className="flex items-center justify-between border-b border-border bg-background/88 px-4 py-4 backdrop-blur-xl sm:px-8">
         <BrandLogo label={t('brand')} />
         <div className="flex items-center gap-2">
           <AccessibilityMenu />

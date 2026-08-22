@@ -6,6 +6,7 @@ import { getA11yPrefs } from '@/lib/a11y';
 import SkipLink from '@/components/a11y/SkipLink';
 import SentryInit from '@/components/observability/SentryInit';
 import WhatsAppFloatingButton from '@/components/contact/WhatsAppFloatingButton';
+import PeacockBackground from '@/components/brand/PeacockBackground';
 import './globals.css';
 
 // Root metadata is localised from the active locale's message file.
@@ -53,7 +54,8 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <SentryInit />
           <SkipLink />
-          {children}
+          <PeacockBackground />
+          <div className="relative z-10">{children}</div>
           <WhatsAppFloatingButton />
         </NextIntlClientProvider>
       </body>

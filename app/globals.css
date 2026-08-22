@@ -157,6 +157,31 @@ body {
   animation: sivoraPeacockDrift 18s ease-in-out infinite alternate;
 }
 
+.sivora-global-peacock__image {
+  transform-origin: 72% 48%;
+  animation: sivoraPeacockDrift 24s ease-in-out infinite alternate;
+}
+
+.sivora-peacock-active .bg-background {
+  background-color: rgba(5, 5, 5, 0.78) !important;
+}
+
+.sivora-peacock-active .bg-surface {
+  background-color: rgba(11, 11, 11, 0.82) !important;
+}
+
+.sivora-peacock-active .bg-surfaceElevated {
+  background-color: rgba(17, 17, 17, 0.9) !important;
+}
+
+.sivora-peacock-active .bg-brand-soft {
+  background-color: rgba(215, 25, 32, 0.16) !important;
+}
+
+html[data-contrast='high'] .sivora-global-peacock {
+  display: none;
+}
+
 /*
  * ---------------------------------------------------------------------------
  * Accessibility modes (stamped on <html> by the root layout from cookies).
