@@ -41,7 +41,7 @@ export default function PartnerRegisterForm() {
     if (res.ok) {
       setBanner({
         kind: 'success',
-        text: `Application submitted. Partner ID: ${String(res.partnerCode ?? '')}. VV Overseas will review and activate login after approval.`,
+        text: `Application submitted. Partner ID: ${String(res.partnerCode ?? '')}. SIVORA will review and activate login after approval.`,
       });
       return;
     }
@@ -51,7 +51,7 @@ export default function PartnerRegisterForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
       <div>
-        <h1 className="text-xl font-bold text-textPrimary">Become a VV Overseas Partner</h1>
+        <h1 className="text-xl font-bold text-textPrimary">Become a SIVORA Partner</h1>
         <p className="mt-1 text-sm text-textSecondary">Submit your agency details for admin review.</p>
       </div>
 

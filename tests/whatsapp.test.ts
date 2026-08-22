@@ -11,12 +11,12 @@ describe('WhatsApp click-to-chat helper', () => {
   });
 
   it('builds an encoded wa.me URL for multiline messages', () => {
-    const result = getWhatsAppUrl('Hello VV Overseas,\nI need partner support.', '91 98765 43210');
+    const result = getWhatsAppUrl('Hello SIVORA,\nI need partner support.', '91 98765 43210');
 
     expect(result.available).toBe(true);
     if (!result.available) throw new Error('Expected WhatsApp URL to be available');
     expect(result.url).toBe(
-      'https://wa.me/919876543210?text=Hello+VV+Overseas%2C%0AI+need+partner+support.',
+      'https://wa.me/919876543210?text=Hello+SIVORA%2C%0AI+need+partner+support.',
     );
   });
 

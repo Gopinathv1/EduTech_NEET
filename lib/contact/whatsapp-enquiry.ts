@@ -20,19 +20,14 @@ export const PARTNER_WHATSAPP_TYPES = [
 ];
 
 export function isFloatingContactHiddenPath(pathname: string) {
-  return (
-    pathname.startsWith('/admin') ||
-    pathname === '/partner' ||
-    pathname.startsWith('/partner/') ||
-    /\/student\/tests\/[^/]+\/attempt/.test(pathname)
-  );
+  return /\/student\/tests\/[^/]+\/attempt/.test(pathname);
 }
 
 export const isWhatsAppButtonHiddenPath = isFloatingContactHiddenPath;
 
 export function buildDefaultWhatsAppMessage(pathname: string) {
   return [
-    'Hello VV Overseas, I would like to know more about your education, competitive exam preparation and admission guidance services.',
+    'Hello SIVORA, I would like to know more about your education, competitive exam preparation and admission guidance services.',
     pathname ? `Current page: ${pathname}` : undefined,
   ]
     .filter(Boolean)
@@ -41,7 +36,7 @@ export function buildDefaultWhatsAppMessage(pathname: string) {
 
 export function buildStudentWhatsAppMessage(category: string, pathname: string) {
   return [
-    `Hello VV Overseas, I would like information about ${category}. Please guide me.`,
+    `Hello SIVORA, I would like information about ${category}. Please guide me.`,
     pathname ? `Current page: ${pathname}` : undefined,
   ]
     .filter(Boolean)
@@ -50,7 +45,7 @@ export function buildStudentWhatsAppMessage(category: string, pathname: string) 
 
 export function buildPartnerWhatsAppMessage(type: string, pathname: string) {
   return [
-    'Hello VV Overseas Partner Team, I am interested in discussing a B2B partnership.',
+    'Hello SIVORA Partner Team, I am interested in discussing a B2B partnership.',
     `Organisation type: ${type}.`,
     'Organisation: ____.',
     'Partnership interest: ____.',
@@ -63,7 +58,7 @@ export function buildPartnerWhatsAppMessage(type: string, pathname: string) {
 
 export function buildGeneralWhatsAppMessage(pathname: string) {
   return [
-    'Hello VV Overseas, I have a general enquiry. Please guide me.',
+    'Hello SIVORA, I have a general enquiry. Please guide me.',
     pathname ? `Current page: ${pathname}` : undefined,
   ]
     .filter(Boolean)

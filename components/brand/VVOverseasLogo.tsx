@@ -8,7 +8,7 @@ export default function VVOverseasLogo({ className = '', label }: { className?: 
         <PeacockFeather className="h-11 w-7 drop-shadow-[0_0_10px_rgba(215,25,32,0.28)]" />
       </span>
       <span className="whitespace-nowrap text-base font-black leading-tight text-current sm:text-lg">
-        <span className="text-brand">VV</span> Overseas
+        SIVORA
       </span>
     </Link>
   );

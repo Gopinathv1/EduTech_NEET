@@ -77,7 +77,7 @@ export default function PublicFooter() {
           <p>
             © {year} {t('rights')}
           </p>
-          <p>VV Overseas</p>
+          <p>SIVORA</p>
         </div>
       </div>
     </footer>

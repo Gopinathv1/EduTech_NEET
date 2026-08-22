@@ -8,16 +8,16 @@ import {
 } from '@/lib/contact/whatsapp-enquiry';
 
 describe('floating WhatsApp enquiry helpers', () => {
-  it('hides on admin, partner and active mock-test attempt pages', () => {
-    expect(isWhatsAppButtonHiddenPath('/admin')).toBe(true);
-    expect(isWhatsAppButtonHiddenPath('/admin/students')).toBe(true);
-    expect(isWhatsAppButtonHiddenPath('/partner')).toBe(true);
-    expect(isWhatsAppButtonHiddenPath('/partner/profile')).toBe(true);
+  it('hides only on active mock-test attempt pages', () => {
     expect(isWhatsAppButtonHiddenPath('/student/tests/test-1/attempt')).toBe(true);
   });
 
   it('shows on public and non-exam student pages', () => {
     expect(isWhatsAppButtonHiddenPath('/')).toBe(false);
+    expect(isWhatsAppButtonHiddenPath('/admin')).toBe(false);
+    expect(isWhatsAppButtonHiddenPath('/admin/students')).toBe(false);
+    expect(isWhatsAppButtonHiddenPath('/partner')).toBe(false);
+    expect(isWhatsAppButtonHiddenPath('/partner/profile')).toBe(false);
     expect(isWhatsAppButtonHiddenPath('/partners')).toBe(false);
     expect(isWhatsAppButtonHiddenPath('/student')).toBe(false);
     expect(isWhatsAppButtonHiddenPath('/student/tests/test-1')).toBe(false);
@@ -32,7 +32,7 @@ describe('floating WhatsApp enquiry helpers', () => {
 
   it('builds a B2B partner message with placeholders', () => {
     const message = buildPartnerWhatsAppMessage('School', '/partners');
-    expect(message).toContain('VV Overseas Partner Team');
+    expect(message).toContain('SIVORA Partner Team');
     expect(message).toContain('Organisation type: School.');
     expect(message).toContain('Organisation: ____.');
   });

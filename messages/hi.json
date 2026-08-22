@@ -1,10 +1,10 @@
 {
   "meta": {
-    "title": "VV Overseas - प्रतियोगी परीक्षा तैयारी",
+    "title": "SIVORA - प्रतियोगी परीक्षा तैयारी",
     "description": "पिछले वर्षों के प्रश्न, अध्याय-वार प्रश्न बैंक, मॉक टेस्ट और विस्तृत समाधान के साथ तैयारी करें - शुरुआत NEET से."
   },
   "nav": {
-    "brand": "VV Overseas",
+    "brand": "SIVORA",
     "language": "भाषा",
     "login": "लॉगिन",
     "register": "रजिस्टर",
@@ -86,7 +86,7 @@
       "contact": "हमसे बात करें"
     },
     "footer": {
-      "blurb": "VV Overseas छात्रों को अंतरराष्ट्रीय शिक्षा मार्गदर्शन, करियर और शैक्षणिक काउंसलिंग, सीखने के कार्यक्रम और प्रतियोगी परीक्षा तैयारी में समर्थन देता है.",
+      "blurb": "SIVORA छात्रों को अंतरराष्ट्रीय शिक्षा मार्गदर्शन, करियर और शैक्षणिक काउंसलिंग, सीखने के कार्यक्रम और प्रतियोगी परीक्षा तैयारी में समर्थन देता है.",
       "explore": "एक्सप्लोर",
       "company": "कंपनी",
       "getStarted": "शुरू करें",
@@ -94,7 +94,7 @@
       "loginLink": "लॉगिन",
       "contactLink": "संपर्क",
       "disclaimer": "अस्वीकरण: एडमिशन मार्गदर्शन एक सलाहकारी सेवा है. हर देश और विश्वविद्यालय के नियम, पात्रता और निर्णय संबंधित संस्थाओं पर निर्भर करते हैं. हम एडमिशन की गारंटी नहीं देते.",
-      "rights": "VV Overseas. सर्वाधिकार सुरक्षित.",
+      "rights": "SIVORA. सर्वाधिकार सुरक्षित.",
       "exams": "परीक्षाएं",
       "neet": "NEET",
       "jeeSoon": "JEE - जल्द आ रहा है",
@@ -105,7 +105,7 @@
     }
   },
   "home": {
-    "brand": "VV Overseas",
+    "brand": "SIVORA",
     "title": "??? ?????? ?? ???? ?????? ???? ???? ???? ??",
     "subtitle": "NEET के लिए बेहतर तैयारी करें, आत्मविश्वास से शैक्षणिक निर्णय लें, और भारत व विदेश में medical और higher-education opportunities खोजें.",
     "ctaPrimary": "Get Free Counselling",
@@ -143,9 +143,9 @@
     "quickActions": {
       "eyebrow": "Four service areas",
       "title": "Guidance, preparation and learning programs",
-      "titleLine1": "How VV Overseas",
+      "titleLine1": "How SIVORA",
       "titleLine2": "Helps Students Move Forward",
-      "subtitle": "VV Overseas विदेश में पढ़ाई, परीक्षा तैयारी, करियर काउंसलिंग और सीखने के अवसरों में छात्रों का समर्थन करता है.",
+      "subtitle": "SIVORA विदेश में पढ़ाई, परीक्षा तैयारी, करियर काउंसलिंग और सीखने के अवसरों में छात्रों का समर्थन करता है.",
       "items": [
         {
           "title": "Admissions & Study Abroad",
@@ -174,7 +174,7 @@
       ]
     },
     "neet": {
-      "eyebrow": "Prepare With VV Overseas",
+      "eyebrow": "Prepare With SIVORA",
       "title": "NEET Available Now",
       "subtitle": "Keep NEET preparation focused with question bank access, previous-year practice, mock tests and chapter-wise practice.",
       "subjectCta": "Start practice",
@@ -269,7 +269,7 @@
     "benefits": {
       "eyebrow": "Platform scope",
       "title": "Higher-education decisions ?? ??? platform",
-      "subtitle": "VV Overseas is positioned for study abroad, counselling guidance, courses and exam preparation now, with room for engineering and other higher-education programs later.",
+      "subtitle": "SIVORA is positioned for study abroad, counselling guidance, courses and exam preparation now, with room for engineering and other higher-education programs later.",
       "items": [
         {
           "title": "पिछले वर्षों के परीक्षा प्रश्न",
@@ -413,7 +413,7 @@
     "leadForm": {
       "eyebrow": "Request Callback",
       "title": "आप क्या ढूंढ रहे हैं, हमें बताएं.",
-      "subtitle": "Counselling, study abroad, NEET preparation या learning programs के बारे में VV Overseas team आपसे contact कर सके, इसके लिए कुछ details share करें.",
+      "subtitle": "Counselling, study abroad, NEET preparation या learning programs के बारे में SIVORA team आपसे contact कर सके, इसके लिए कुछ details share करें.",
       "name": "Full Name",
       "mobile": "Mobile Number",
       "email": "Email",
@@ -421,10 +421,10 @@
       "destination": "Preferred Destination",
       "submit": "Request a Callback",
       "sending": "Sending...",
-      "consent": "Submit करके आप agree करते हैं कि VV Overseas आपकी enquiry के बारे में आपसे contact कर सकता है.",
+      "consent": "Submit करके आप agree करते हैं कि SIVORA आपकी enquiry के बारे में आपसे contact कर सकता है.",
       "privacy": "Privacy Policy",
       "successTitle": "Enquiry received",
-      "success": "Thank you. The VV Overseas team will contact you soon.",
+      "success": "Thank you. The SIVORA team will contact you soon.",
       "interests": [
         "MBBS Abroad",
         "Study in Europe",
@@ -437,7 +437,7 @@
       ]
     },
     "why": {
-      "eyebrow": "Why VV Overseas",
+      "eyebrow": "Why SIVORA",
       "title": "Clear guidance. Practical next steps.",
       "items": [
         {
@@ -485,7 +485,7 @@
       ]
     },
     "intro": {
-      "statement": "VV Overseas छात्रों और परिवारों को अंतरराष्ट्रीय शिक्षा, काउंसलिंग और परीक्षा तैयारी में स्पष्ट निर्णय लेने में मदद करता है.",
+      "statement": "SIVORA छात्रों और परिवारों को अंतरराष्ट्रीय शिक्षा, काउंसलिंग और परीक्षा तैयारी में स्पष्ट निर्णय लेने में मदद करता है.",
       "items": [
         "उपयुक्त शिक्षा मार्ग खोजें",
         "काउंसलिंग और आवेदन चरण समझें",
@@ -650,7 +650,7 @@
     "vision": "ऐसा भविष्य जहां student का district, board या family income doctor बनने की संभावना तय न करे.",
     "storyTitle": "हमारी कहानी",
     "story": [
-      "VV Overseas एक simple observation से शुरू हुआ: कई capable students को realistic practice नहीं मिलती क्योंकि coaching और test series महंगी और mostly English में होती हैं.",
+      "SIVORA एक simple observation से शुरू हुआ: कई capable students को realistic practice नहीं मिलती क्योंकि coaching और test series महंगी और mostly English में होती हैं.",
       "हमने affordable, mobile-first, bilingual platform बनाया जहां mock tests clear chapter-level feedback के साथ मिलते हैं.",
       "जो students मेहनत के बावजूद India में seat miss करते हैं, उनके लिए हमारी admission guidance team विदेश में recognised universities के regulated रास्ते समझाती है."
     ],
@@ -677,7 +677,7 @@
   "whyChoose": {
     "eyebrow": "हमें क्यों चुनें",
     "heroTitle": "Real NEET aspirants के लिए बना, सिर्फ toppers के लिए नहीं",
-    "heroSubtitle": "Tamil Nadu के students और parents VV Overseas पर क्यों भरोसा करते हैं.",
+    "heroSubtitle": "Tamil Nadu के students और parents SIVORA पर क्यों भरोसा करते हैं.",
     "points": [
       {
         "title": "वास्तव में किफायती",
@@ -992,12 +992,12 @@
   },
   "seo": {
     "home": {
-      "title": "VV Overseas - प्रतियोगी परीक्षा तैयारी",
+      "title": "SIVORA - प्रतियोगी परीक्षा तैयारी",
       "description": "पिछले वर्षों के प्रश्न, अध्याय-वार प्रश्न बैंक, मॉक टेस्ट और विस्तृत समाधान के साथ तैयारी करें - शुरुआत NEET से."
     },
     "about": {
       "title": "हमारे बारे में",
-      "description": "VV Overseas कैसे quality bilingual NEET preparation को affordable बनाता है."
+      "description": "SIVORA कैसे quality bilingual NEET preparation को affordable बनाता है."
     },
     "whyChoose": {
       "title": "हमें क्यों चुनें",
@@ -1021,7 +1021,7 @@
     },
     "testimonials": {
       "title": "Testimonials",
-      "description": "VV Overseas के साथ practice करने वाले aspirants और parents की बातें."
+      "description": "SIVORA के साथ practice करने वाले aspirants और parents की बातें."
     },
     "faq": {
       "title": "FAQ",
@@ -1029,7 +1029,7 @@
     },
     "contact": {
       "title": "संपर्क",
-      "description": "Mock tests या admission guidance के सवालों के लिए VV Overseas से संपर्क करें."
+      "description": "Mock tests या admission guidance के सवालों के लिए SIVORA से संपर्क करें."
     },
     "help": {
       "title": "मदद और सहायता",
@@ -1037,15 +1037,15 @@
     },
     "terms": {
       "title": "नियम और शर्तें",
-      "description": "VV Overseas के competitive-exam preparation, mock tests और student accounts के नियम."
+      "description": "SIVORA के competitive-exam preparation, mock tests और student accounts के नियम."
     },
     "privacy": {
       "title": "गोपनीयता नीति",
-      "description": "VV Overseas student account, OTP, test और progress information कैसे संभालता है."
+      "description": "SIVORA student account, OTP, test और progress information कैसे संभालता है."
     },
     "partners": {
       "title": "Partner With Us",
-      "description": "VV Overseas के साथ partner बनकर student applications manage करें, international education opportunities explore करें और admission progress track करें."
+      "description": "SIVORA के साथ partner बनकर student applications manage करें, international education opportunities explore करें और admission progress track करें."
     }
   },
   "catalogue": {
@@ -1489,11 +1489,11 @@
     }
   },
   "sms": {
-    "otp": "Your VV Overseas OTP is {otp}. Valid for {minutes} minutes. Do not share it with anyone."
+    "otp": "Your SIVORA OTP is {otp}. Valid for {minutes} minutes. Do not share it with anyone."
   },
   "help": {
     "eyebrow": "मदद और सहायता",
-    "heroTitle": "VV Overseas कैसे इस्तेमाल करें",
+    "heroTitle": "SIVORA कैसे इस्तेमाल करें",
     "heroSubtitle": "Register, test खरीदना, test देना, results पढ़ना और admission team तक पहुंचना - simple step-by-step guides.",
     "screenshotLabel": "Screenshot",
     "stepLabel": "Step",
@@ -1570,11 +1570,11 @@
     "moreCta": "संपर्क करें"
   },
   "partners": {
-    "eyebrow": "VV Overseas के साथ पार्टनरशिप",
-    "heroTitle": "VV Overseas के साथ आगे बढ़ें.",
-    "heroSubtitle": "VV Overseas के साथ पार्टनर बनकर छात्र आवेदन प्रबंधित करें, अंतरराष्ट्रीय शिक्षा अवसर खोजें और admission progress को एक streamlined platform में track करें.",
+    "eyebrow": "SIVORA के साथ पार्टनरशिप",
+    "heroTitle": "SIVORA के साथ आगे बढ़ें.",
+    "heroSubtitle": "SIVORA के साथ पार्टनर बनकर छात्र आवेदन प्रबंधित करें, अंतरराष्ट्रीय शिक्षा अवसर खोजें और admission progress को एक streamlined platform में track करें.",
     "benefits": {
-      "eyebrow": "VV Overseas के साथ पार्टनर क्यों बनें",
+      "eyebrow": "SIVORA के साथ पार्टनर क्यों बनें",
       "title": "छात्रों को support करने का स्पष्ट तरीका.",
       "subtitle": "अपनी agency को student applications के लिए structured workflow दें, बिना unsupported claims या hidden steps के.",
       "items": [
@@ -1584,7 +1584,7 @@
         },
         {
           "title": "Available Universities And Programs",
-          "body": "Verified information जुड़ने पर VV Overseas द्वारा उपलब्ध destination और program options देखें."
+          "body": "Verified information जुड़ने पर SIVORA द्वारा उपलब्ध destination और program options देखें."
         },
         {
           "title": "Application Status Tracking",
@@ -1592,7 +1592,7 @@
         },
         {
           "title": "Document Coordination",
-          "body": "Partner portal expand होने पर VV Overseas support के साथ required documents coordinate करें."
+          "body": "Partner portal expand होने पर SIVORA support के साथ required documents coordinate करें."
         },
         {
           "title": "Dedicated Support",
@@ -1607,11 +1607,11 @@
     "cta": {
       "eyebrow": "Collaborate करने के लिए तैयार?",
       "title": "Partner बनें.",
-      "subtitle": "International education और admission guidance में students को support करने के बारे में VV Overseas से बातचीत शुरू करें.",
+      "subtitle": "International education और admission guidance में students को support करने के बारे में SIVORA से बातचीत शुरू करें.",
       "becomePartner": "Become A Partner",
       "partnerLogin": "Partner Login",
       "whatsapp": "WhatsApp पर Partner Team से बात करें",
-      "whatsappMessage": "Hello VV Overseas,\nI am interested in becoming a B2B education partner."
+      "whatsappMessage": "Hello SIVORA,\nI am interested in becoming a B2B education partner."
     }
   }
 }

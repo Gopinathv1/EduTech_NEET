@@ -4,7 +4,6 @@ import { getTranslations } from 'next-intl/server';
 import { pageMetadata } from '@/lib/seo';
 import { Section, PrimaryLink, SecondaryLink, ArrowLink, Container } from '@/components/public/ui';
 import { BookIcon, ChartIcon, CheckIcon, ClockIcon, GlobeIcon, RupeeIcon, ShieldIcon } from '@/components/public/icons';
-import PeacockQuillArtwork from '@/components/brand/PeacockQuillArtwork';
 import HomeLeadForm from '@/components/public/HomeLeadForm';
 
 export async function generateMetadata() {
@@ -62,10 +61,12 @@ export default function HomePage() {
     <>
       <section className="relative -mt-[73px] overflow-hidden bg-[#050505] pt-[73px]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(215,25,32,0.18),transparent_28%),radial-gradient(circle_at_82%_20%,rgba(215,25,32,0.14),transparent_28%),linear-gradient(135deg,#050505_0%,#111111_48%,#111111_100%)]" />
+        <div className="sivora-peacock-bg absolute inset-0 bg-[url('/peacock-background.png')] bg-cover bg-[center_right] opacity-80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/75 to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black" />
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#050505]/8 to-transparent" />
         <div className="absolute -left-28 top-36 h-72 w-72 rounded-full bg-[#f6a623]/16 blur-3xl" />
         <div className="absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-[#FF2B32]/12 blur-3xl" />
-        <PeacockQuillArtwork className="vv-peacock-rise inset-0 z-0 h-full w-full opacity-45 sm:opacity-55 lg:opacity-70" />
 
         <Container className="relative z-10 grid min-h-[calc(100vh-73px)] gap-12 py-20 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:py-28">
           <div className="vv-reveal max-w-4xl">

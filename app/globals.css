@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /*
- * Base document styles. VV Overseas uses a professional black, red and white
+ * Base document styles. SIVORA uses a professional black, red and white
  * education palette requested by the client.
  */
 :root {
@@ -74,6 +74,11 @@ body {
     animation: none !important;
     transform: none !important;
   }
+
+  .sivora-peacock-bg {
+    animation: none !important;
+    transform: none !important;
+  }
 }
 
 @keyframes vv-fade-up {
@@ -117,6 +122,15 @@ body {
   }
 }
 
+@keyframes sivoraPeacockDrift {
+  from {
+    transform: rotate(-0.6deg) scale(1.02);
+  }
+  to {
+    transform: rotate(0.6deg) scale(1.05);
+  }
+}
+
 .vv-reveal {
   animation: vv-fade-up 700ms ease-out both;
 }
@@ -136,6 +150,11 @@ body {
 .vv-peacock-rise {
   transform-origin: 58% 48%;
   animation: peacockSlowRotate 16s ease-in-out infinite alternate;
+}
+
+.sivora-peacock-bg {
+  transform-origin: 72% 48%;
+  animation: sivoraPeacockDrift 18s ease-in-out infinite alternate;
 }
 
 /*
