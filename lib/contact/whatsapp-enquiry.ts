@@ -25,13 +25,8 @@ export function isFloatingContactHiddenPath(pathname: string) {
 
 export const isWhatsAppButtonHiddenPath = isFloatingContactHiddenPath;
 
-export function buildDefaultWhatsAppMessage(pathname: string) {
-  return [
-    'Hello SIVORA UP↑RISING, I would like to know more about your education, competitive exam preparation and admission guidance services.',
-    pathname ? `Current page: ${pathname}` : undefined,
-  ]
-    .filter(Boolean)
-    .join('\n');
+export function buildDefaultWhatsAppMessage(_pathname: string) {
+  return 'Hello SIVORA UP↑RISING, I would like to know more about your education, competitive exam preparation and admission guidance services.';
 }
 
 export function buildStudentWhatsAppMessage(category: string, pathname: string) {

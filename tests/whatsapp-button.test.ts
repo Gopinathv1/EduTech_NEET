@@ -43,7 +43,8 @@ describe('floating WhatsApp enquiry helpers', () => {
 
   it('builds the default direct WhatsApp message requested by the client', () => {
     const message = buildDefaultWhatsAppMessage('/contact');
-    expect(message).toContain('education, competitive exam preparation and admission guidance services');
-    expect(message).toContain('Current page: /contact');
+    expect(message).toBe(
+      'Hello SIVORA UP↑RISING, I would like to know more about your education, competitive exam preparation and admission guidance services.',
+    );
   });
 });
