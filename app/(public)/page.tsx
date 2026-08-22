@@ -5,6 +5,7 @@ import { pageMetadata } from '@/lib/seo';
 import { Section, PrimaryLink, SecondaryLink, ArrowLink, Container } from '@/components/public/ui';
 import { BookIcon, ChartIcon, CheckIcon, ClockIcon, GlobeIcon, RupeeIcon, ShieldIcon } from '@/components/public/icons';
 import HomeLeadForm from '@/components/public/HomeLeadForm';
+import StudentJourneys from '@/components/public/StudentJourneys';
 
 export async function generateMetadata() {
   const t = await getTranslations('seo.home');
@@ -263,6 +264,8 @@ export default function HomePage() {
           </div>
         </div>
       </Section>
+
+      <StudentJourneys />
 
       <Section id="student-journey" lazy>
         <div className="rounded-[2rem] bg-[#050505] p-6 text-white shadow-2xl shadow-black/16 sm:p-10 lg:p-12">
