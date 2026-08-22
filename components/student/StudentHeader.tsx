@@ -8,6 +8,7 @@ import LanguageSwitcher from '@/components/LanguageSwitcher';
 import AccessibilityMenu from '@/components/a11y/AccessibilityMenu';
 import LogoutButton from '@/components/auth/LogoutButton';
 import NotificationBell, { type SerializedNotification } from '@/components/student/notifications/NotificationBell';
+import BrandLogo from '@/components/brand/Logo';
 
 /** Shared header for student pages: brand, nav, notification bell, language, logout. */
 export default async function StudentHeader() {
@@ -42,9 +43,7 @@ export default async function StudentHeader() {
     <header className="sticky top-0 z-40 border-b border-border bg-surfaceElevated">
       <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6">
         <div className="flex items-center gap-4">
-          <Link href="/student" className="text-lg font-bold text-brand">
-            {t('brand')}
-          </Link>
+          <BrandLogo className="text-white" href="/student" label={t('brand')} size="compact" />
           <nav className="flex items-center gap-3 text-sm">
             <Link href="/student" className="font-medium text-textSecondary hover:text-brand">
               {t('dashboard')}

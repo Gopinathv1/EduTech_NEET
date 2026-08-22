@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import AccessibilityMenu from '@/components/a11y/AccessibilityMenu';
-import VVOverseasLogo from '@/components/brand/VVOverseasLogo';
+import BrandLogo from '@/components/brand/Logo';
 
 /**
  * Shared layout for the auth screens: brand header, language switcher, and a
@@ -12,7 +12,7 @@ export default function AuthShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <header className="flex items-center justify-between border-b border-border bg-background px-4 py-4 sm:px-8">
-        <VVOverseasLogo label={t('brand')} />
+        <BrandLogo label={t('brand')} />
         <div className="flex items-center gap-2">
           <AccessibilityMenu />
           <LanguageSwitcher />
