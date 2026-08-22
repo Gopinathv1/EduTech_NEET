@@ -61,9 +61,9 @@ export default function HomePage() {
     <>
       <section className="relative -mt-[73px] overflow-hidden bg-[#050505] pt-[73px]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(215,25,32,0.18),transparent_28%),radial-gradient(circle_at_82%_20%,rgba(215,25,32,0.14),transparent_28%),linear-gradient(135deg,#050505_0%,#111111_48%,#111111_100%)]" />
-        <div className="sivora-peacock-bg absolute inset-0 bg-[url('/peacock-background.png')] bg-cover bg-[center_right] opacity-80" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/75 to-black/30" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black" />
+        <div className="sivora-peacock-bg absolute inset-0 bg-[url('/peacock-background.png')] bg-cover bg-[center_right] opacity-100" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/52 to-black/5" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/24 via-transparent to-black/60" />
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#050505]/8 to-transparent" />
         <div className="absolute -left-28 top-36 h-72 w-72 rounded-full bg-[#f6a623]/16 blur-3xl" />
         <div className="absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-[#FF2B32]/12 blur-3xl" />
@@ -95,21 +95,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="relative min-h-[420px] lg:min-h-[620px]" aria-hidden="true">
-            <div className="absolute bottom-8 left-0 right-0 mx-auto max-w-md rounded-[2rem] border border-[#2B2B2B] bg-[#111111]/92 p-5 shadow-2xl shadow-black/12 backdrop-blur">
-              <p className="text-xs font-black uppercase tracking-[0.22em] text-brand">Student Journey</p>
-              <div className="mt-4 space-y-3">
-                {JOURNEY.map((step, index) => (
-                  <div key={step} className="flex items-center gap-3 rounded-2xl bg-[#050505] p-3">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#050505] text-xs font-black text-white">
-                      {index + 1}
-                    </span>
-                    <span className="font-black uppercase tracking-[0.08em] text-[#D1D1D1]">{step}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <div className="relative min-h-[420px] lg:min-h-[620px]" aria-hidden="true" />
         </Container>
       </section>
 

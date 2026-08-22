@@ -77,7 +77,7 @@ export default function PublicFooter() {
           <p>
             © {year} {t('rights')}
           </p>
-          <p>SIVORA UPRISING</p>
+          <p>SIVORA UP↑RISING</p>
         </div>
       </div>
     </footer>

@@ -11,11 +11,11 @@ export default function TermsPage() {
   return (
     <Container className="py-14 sm:py-20">
       <div className="max-w-3xl">
-        <p className="text-sm font-bold uppercase tracking-wide text-brand">SIVORA UPRISING</p>
+        <p className="text-sm font-bold uppercase tracking-wide text-brand">SIVORA UP↑RISING</p>
         <h1 className="mt-3 text-3xl font-extrabold text-textPrimary">Terms & Conditions</h1>
         <div className="mt-6 space-y-4 text-sm leading-7 text-textSecondary">
           <p>
-            SIVORA UPRISING provides competitive-exam preparation tools including question practice, mock tests,
+            SIVORA UP↑RISING provides competitive-exam preparation tools including question practice, mock tests,
             explanations and progress review. NEET is the currently active exam category.
           </p>
           <p>
@@ -24,7 +24,7 @@ export default function TermsPage() {
             shown at the time of use.
           </p>
           <p>
-            Educational content is provided for practice and revision. SIVORA UPRISING does not guarantee exam
+            Educational content is provided for practice and revision. SIVORA UP↑RISING does not guarantee exam
             ranks, admissions, selections or outcomes.
           </p>
         </div>

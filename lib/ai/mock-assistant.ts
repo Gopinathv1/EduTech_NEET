@@ -35,9 +35,9 @@ const KNOWLEDGE_BASE: KnowledgeEntry[] = [
     href: '/mock-tests',
     label: { en: 'Start NEET Preparation', ta: 'NEET தயாரிப்பை தொடங்குங்கள்', hi: 'NEET तैयारी शुरू करें' },
     answer: {
-      en: 'SIVORA UPRISING supports NEET preparation through Question Bank practice, chapter-wise practice, previous-year practice, full-length mock tests, answers, explanations and performance analytics. NEET is the active exam focus today.',
-      ta: 'SIVORA UPRISING NEET தயாரிப்புக்கு Question Bank, chapter-wise practice, previous-year practice, முழு நீள mock tests, பதில்கள், விளக்கங்கள் மற்றும் performance analytics வழங்குகிறது. இப்போது செயலில் உள்ள தேர்வு NEET.',
-      hi: 'SIVORA UPRISING NEET तैयारी के लिए Question Bank practice, chapter-wise practice, previous-year practice, full-length mock tests, answers, explanations और performance analytics देता है. अभी सक्रिय परीक्षा NEET है.',
+      en: 'SIVORA UP↑RISING supports NEET preparation through Question Bank practice, chapter-wise practice, previous-year practice, full-length mock tests, answers, explanations and performance analytics. NEET is the active exam focus today.',
+      ta: 'SIVORA UP↑RISING NEET தயாரிப்புக்கு Question Bank, chapter-wise practice, previous-year practice, முழு நீள mock tests, பதில்கள், விளக்கங்கள் மற்றும் performance analytics வழங்குகிறது. இப்போது செயலில் உள்ள தேர்வு NEET.',
+      hi: 'SIVORA UP↑RISING NEET तैयारी के लिए Question Bank practice, chapter-wise practice, previous-year practice, full-length mock tests, answers, explanations और performance analytics देता है. अभी सक्रिय परीक्षा NEET है.',
     },
   },
   {
@@ -57,9 +57,9 @@ const KNOWLEDGE_BASE: KnowledgeEntry[] = [
     href: '/admission-guidance',
     label: { en: 'Request Counselling', ta: 'Counselling கேட்க', hi: 'Counselling Request करें' },
     answer: {
-      en: 'SIVORA UPRISING provides education and admission guidance for medical education, MBBS Abroad, country and university selection, course selection, application guidance and counselling. For India, the site positions the service as MBBS counselling and guidance only, so final choices should be verified with the counselling team.',
-      ta: 'SIVORA UPRISING medical education, MBBS Abroad, country and university selection, course selection, application guidance மற்றும் counselling-க்கு வழிகாட்டுகிறது. India-க்கு இது MBBS counselling and guidance ஆக மட்டுமே குறிப்பிடப்படுகிறது; இறுதி முடிவுகளை counselling team உடன் verify செய்ய வேண்டும்.',
-      hi: 'SIVORA UPRISING medical education, MBBS Abroad, country and university selection, course selection, application guidance और counselling में मार्गदर्शन देता है. India के लिए service केवल MBBS counselling and guidance है, इसलिए final options counselling team से verify करने चाहिए.',
+      en: 'SIVORA UP↑RISING provides education and admission guidance for medical education, MBBS Abroad, country and university selection, course selection, application guidance and counselling. For India, the site positions the service as MBBS counselling and guidance only, so final choices should be verified with the counselling team.',
+      ta: 'SIVORA UP↑RISING medical education, MBBS Abroad, country and university selection, course selection, application guidance மற்றும் counselling-க்கு வழிகாட்டுகிறது. India-க்கு இது MBBS counselling and guidance ஆக மட்டுமே குறிப்பிடப்படுகிறது; இறுதி முடிவுகளை counselling team உடன் verify செய்ய வேண்டும்.',
+      hi: 'SIVORA UP↑RISING medical education, MBBS Abroad, country and university selection, course selection, application guidance और counselling में मार्गदर्शन देता है. India के लिए service केवल MBBS counselling and guidance है, इसलिए final options counselling team से verify करने चाहिए.',
     },
   },
   {
@@ -68,9 +68,9 @@ const KNOWLEDGE_BASE: KnowledgeEntry[] = [
     href: '/partners',
     label: { en: 'Partner With Us', ta: 'Partner With Us', hi: 'Partner With Us' },
     answer: {
-      en: 'SIVORA UPRISING has a Partner With Us pathway for schools, colleges, coaching centres, education consultants and overseas admission partners. Use the partner page or WhatsApp to speak with the partner team.',
-      ta: 'SIVORA UPRISING schools, colleges, coaching centres, education consultants மற்றும் overseas admission partners-க்கு Partner With Us வழி வைத்துள்ளது. Partner page அல்லது WhatsApp மூலம் partner team-ஐ தொடர்பு கொள்ளலாம்.',
-      hi: 'SIVORA UPRISING schools, colleges, coaching centres, education consultants और overseas admission partners के लिए Partner With Us pathway देता है. Partner page या WhatsApp से partner team से बात कर सकते हैं.',
+      en: 'SIVORA UP↑RISING has a Partner With Us pathway for schools, colleges, coaching centres, education consultants and overseas admission partners. Use the partner page or WhatsApp to speak with the partner team.',
+      ta: 'SIVORA UP↑RISING schools, colleges, coaching centres, education consultants மற்றும் overseas admission partners-க்கு Partner With Us வழி வைத்துள்ளது. Partner page அல்லது WhatsApp மூலம் partner team-ஐ தொடர்பு கொள்ளலாம்.',
+      hi: 'SIVORA UP↑RISING schools, colleges, coaching centres, education consultants और overseas admission partners के लिए Partner With Us pathway देता है. Partner page या WhatsApp से partner team से बात कर सकते हैं.',
     },
   },
   {
@@ -98,15 +98,15 @@ const KNOWLEDGE_BASE: KnowledgeEntry[] = [
 ];
 
 const WELCOME: Record<SupportedLocale, string> = {
-  en: "Hi! I'm Ask SIVORA UPRISING AI. I can help you with NEET preparation, admissions, mock tests, counselling and SIVORA UPRISING services. What would you like to know?",
-  ta: 'வணக்கம்! நான் Ask SIVORA UPRISING AI. NEET தயாரிப்பு, சேர்க்கை வழிகாட்டுதல், Mock Tests, Counselling மற்றும் SIVORA UPRISING சேவைகள் குறித்து உங்களுக்கு உதவ முடியும். என்ன தெரிந்து கொள்ள விரும்புகிறீர்கள்?',
-  hi: 'नमस्ते! मैं Ask SIVORA UPRISING AI हूं. मैं NEET तैयारी, एडमिशन, मॉक टेस्ट, काउंसलिंग और SIVORA UPRISING सेवाओं के बारे में आपकी मदद कर सकता हूं. आप क्या जानना चाहते हैं?',
+  en: "Hi! I'm Ask SIVORA UP↑RISING AI. I can help you with NEET preparation, admissions, mock tests, counselling and SIVORA UP↑RISING services. What would you like to know?",
+  ta: 'வணக்கம்! நான் Ask SIVORA UP↑RISING AI. NEET தயாரிப்பு, சேர்க்கை வழிகாட்டுதல், Mock Tests, Counselling மற்றும் SIVORA UP↑RISING சேவைகள் குறித்து உங்களுக்கு உதவ முடியும். என்ன தெரிந்து கொள்ள விரும்புகிறீர்கள்?',
+  hi: 'नमस्ते! मैं Ask SIVORA UP↑RISING AI हूं. मैं NEET तैयारी, एडमिशन, मॉक टेस्ट, काउंसलिंग और SIVORA UP↑RISING सेवाओं के बारे में आपकी मदद कर सकता हूं. आप क्या जानना चाहते हैं?',
 };
 
 const FALLBACK: Record<SupportedLocale, string> = {
-  en: 'I do not have enough verified SIVORA UPRISING information to answer that confidently. Please talk to our team for current, confirmed guidance.',
-  ta: 'அதற்கு நம்பிக்கையுடன் பதில் அளிக்க போதுமான verified SIVORA UPRISING தகவல் இல்லை. தற்போதைய உறுதியான வழிகாட்டலுக்கு எங்கள் team-ஐ தொடர்பு கொள்ளுங்கள்.',
-  hi: 'इसका भरोसेमंद जवाब देने के लिए मेरे पास पर्याप्त verified SIVORA UPRISING जानकारी नहीं है. Current और confirmed guidance के लिए हमारी team से बात करें.',
+  en: 'I do not have enough verified SIVORA UP↑RISING information to answer that confidently. Please talk to our team for current, confirmed guidance.',
+  ta: 'அதற்கு நம்பிக்கையுடன் பதில் அளிக்க போதுமான verified SIVORA UP↑RISING தகவல் இல்லை. தற்போதைய உறுதியான வழிகாட்டலுக்கு எங்கள் team-ஐ தொடர்பு கொள்ளுங்கள்.',
+  hi: 'इसका भरोसेमंद जवाब देने के लिए मेरे पास पर्याप्त verified SIVORA UP↑RISING जानकारी नहीं है. Current और confirmed guidance के लिए हमारी team से बात करें.',
 };
 
 const CLEAR_MESSAGE: Record<SupportedLocale, string> = {

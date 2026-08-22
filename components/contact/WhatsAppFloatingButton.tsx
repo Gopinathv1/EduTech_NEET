@@ -1,5 +1,6 @@
 'use client';
 
+import type { MouseEvent } from 'react';
 import { useEffect, useMemo } from 'react';
 import { usePathname } from 'next/navigation';
 import {
@@ -15,18 +16,25 @@ export default function WhatsAppFloatingButton() {
 
   useEffect(() => {
     if (!hidden && !result.available && process.env.NODE_ENV !== 'production') {
-      console.warn('NEXT_PUBLIC_WHATSAPP_NUMBER is not configured. Floating WhatsApp button is hidden.');
+      console.warn('NEXT_PUBLIC_WHATSAPP_NUMBER is not configured. Floating WhatsApp button is visible but cannot open WhatsApp until the number is set.');
     }
   }, [hidden, result.available]);
 
-  if (hidden || !result.available) return null;
+  if (hidden) return null;
+
+  function handleUnavailableClick(event: MouseEvent<HTMLAnchorElement>) {
+    if (result.available) return;
+    event.preventDefault();
+    console.warn('NEXT_PUBLIC_WHATSAPP_NUMBER is not configured. Add it to enable WhatsApp click-to-chat.');
+  }
 
   return (
     <a
-      href={result.url}
-      target="_blank"
+      href={result.available ? result.url : '#whatsapp-not-configured'}
+      target={result.available ? '_blank' : undefined}
       rel="noopener noreferrer"
-      className="group fixed bottom-4 left-4 z-[9999] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_0_28px_rgba(37,211,102,0.32),0_18px_38px_rgba(0,0,0,0.42)] ring-1 ring-white/20 transition hover:-translate-y-0.5 hover:bg-[#1ebe5d] hover:shadow-[0_0_34px_rgba(37,211,102,0.46),0_20px_42px_rgba(0,0,0,0.5)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:bottom-6 sm:left-6"
+      onClick={handleUnavailableClick}
+      className="group fixed bottom-6 left-6 z-[99999] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_0_28px_rgba(37,211,102,0.32),0_18px_38px_rgba(0,0,0,0.42)] ring-1 ring-white/20 transition hover:-translate-y-0.5 hover:bg-[#1ebe5d] hover:shadow-[0_0_34px_rgba(37,211,102,0.46),0_20px_42px_rgba(0,0,0,0.5)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
       aria-label="Chat on WhatsApp"
       title="Chat on WhatsApp"
     >

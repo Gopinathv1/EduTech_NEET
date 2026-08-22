@@ -18,7 +18,7 @@ export default async function PartnerProfilePage() {
       </section>
       <section className="rounded-2xl border border-white/10 bg-[#0b1b1e] p-6">
         <h2 className="text-xl font-black text-white">Editable contact details</h2>
-        <p className="mt-1 text-sm text-slate-400">Partner code and approval status are controlled by SIVORA UPRISING admin.</p>
+        <p className="mt-1 text-sm text-slate-400">Partner code and approval status are controlled by SIVORA UP↑RISING admin.</p>
         <div className="mt-5">
           <PartnerProfileForm
             defaultValues={{

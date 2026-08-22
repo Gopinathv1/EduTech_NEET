@@ -64,7 +64,7 @@ export default function AIChatButton() {
         <div className="flex h-[min(38rem,calc(100vh-7rem))] w-[min(calc(100vw-2rem),25rem)] flex-col overflow-hidden rounded-3xl border border-[#2b2b2b] bg-[#111111] shadow-2xl shadow-black/55">
           <div className="flex items-start justify-between gap-3 border-b border-[#2b2b2b] bg-[#050505] p-4">
             <div>
-              <p className="text-sm font-black text-white">Ask SIVORA UPRISING - AI Assistant</p>
+              <p className="text-sm font-black text-white">Ask SIVORA UP↑RISING - AI Assistant</p>
               <p className="mt-1 text-xs leading-5 text-[#d1d1d1]">Get instant answers in your language.</p>
             </div>
             <button
@@ -100,7 +100,7 @@ export default function AIChatButton() {
                 onChange={(event) => setInput(event.target.value)}
                 className="min-w-0 flex-1 rounded-2xl border border-[#2b2b2b] bg-[#050505] px-3 py-2 text-sm text-white outline-none placeholder:text-[#d1d1d1]/55 focus:border-[#D71920]"
                 placeholder="Ask about NEET, admissions, tests..."
-                aria-label="Ask SIVORA UPRISING AI a question"
+                aria-label="Ask SIVORA UP↑RISING AI a question"
               />
               <button
                 type="submit"
@@ -143,14 +143,14 @@ export default function AIChatButton() {
         type="button"
         onClick={() => setOpen((value) => !value)}
         className="group relative flex h-14 w-14 items-center justify-center rounded-full border border-[#FF2B32]/80 bg-[#050505] text-white shadow-[0_0_0_1px_rgba(255,43,50,0.25),0_0_34px_rgba(215,25,32,0.45)] transition hover:-translate-y-0.5 hover:border-[#FF2B32] hover:bg-[#130708] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-        aria-label={open ? 'Close Ask SIVORA UPRISING AI assistant' : 'Open Ask SIVORA UPRISING AI assistant'}
+        aria-label={open ? 'Close Ask SIVORA UP↑RISING AI assistant' : 'Open Ask SIVORA UP↑RISING AI assistant'}
         aria-expanded={open}
-        title="Ask SIVORA UPRISING AI"
+        title="Ask SIVORA UP↑RISING AI"
       >
         <span className="absolute inset-0 rounded-full bg-[#D71920]/18 motion-safe:animate-ping" aria-hidden="true" />
         <RobotIcon className="relative h-7 w-7" />
         <span className="pointer-events-none absolute right-16 top-1/2 hidden -translate-y-1/2 whitespace-nowrap rounded-full border border-white/10 bg-[#111111] px-3 py-1.5 text-xs font-bold text-white opacity-0 shadow-xl shadow-black/30 transition group-hover:opacity-100 group-focus-visible:opacity-100 sm:block">
-          Ask SIVORA UPRISING AI
+          Ask SIVORA UP↑RISING AI
         </span>
       </button>
     </div>

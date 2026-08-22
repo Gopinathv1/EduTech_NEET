@@ -1,10 +1,10 @@
 {
   "meta": {
-    "title": "SIVORA UPRISING - போட்டித் தேர்வு தயாரிப்பு",
+    "title": "SIVORA UP↑RISING - போட்டித் தேர்வு தயாரிப்பு",
     "description": "முந்தைய ஆண்டு கேள்விகள், அத்தியாய வாரியான கேள்வி வங்கி, மாதிரி தேர்வுகள் மற்றும் விரிவான தீர்வுகள் - NEET-இல் தொடங்கி."
   },
   "nav": {
-    "brand": "SIVORA UPRISING",
+    "brand": "SIVORA UP↑RISING",
     "language": "மொழி",
     "login": "உள்நுழைவு",
     "register": "பதிவு",
@@ -86,7 +86,7 @@
       "contact": "எங்களிடம் பேசுங்கள்"
     },
     "footer": {
-      "blurb": "சர்வதேச கல்வி வழிகாட்டுதல், தொழில் மற்றும் கல்வி கவுன்சிலிங், கற்றல் திட்டங்கள் மற்றும் போட்டித் தேர்வு தயாரிப்பில் SIVORA UPRISING மாணவர்களுக்கு ஆதரவளிக்கிறது.",
+      "blurb": "சர்வதேச கல்வி வழிகாட்டுதல், தொழில் மற்றும் கல்வி கவுன்சிலிங், கற்றல் திட்டங்கள் மற்றும் போட்டித் தேர்வு தயாரிப்பில் SIVORA UP↑RISING மாணவர்களுக்கு ஆதரவளிக்கிறது.",
       "explore": "ஆராயுங்கள்",
       "company": "நிறுவனம்",
       "getStarted": "தொடங்குங்கள்",
@@ -94,7 +94,7 @@
       "loginLink": "உள்நுழைவு",
       "contactLink": "தொடர்பு",
       "disclaimer": "பொறுப்புத்துறப்பு: சேர்க்கை வழிகாட்டுதல் என்பது ஆலோசனைச் சேவை மட்டுமே. ஒவ்வொரு நாட்டிற்குமான தகுதித் தேவைகளையும் நாடு சார்ந்த விதிமுறைகளையும் நாங்கள் தெளிவாக வெளிப்படுத்துகிறோம்; முடிவுகள் ஒவ்வொரு பல்கலைக்கழகத்தின் சேர்க்கை விதிகள் மற்றும் தொடர்புடைய அதிகாரிகளின் விதிமுறைகளைப் பொறுத்தது. சேர்க்கைக்கு நாங்கள் உத்தரவாதம் அளிக்கவில்லை.",
-      "rights": "SIVORA UPRISING. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
+      "rights": "SIVORA UP↑RISING. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
       "exams": "தேர்வுகள்",
       "neet": "NEET",
       "jeeSoon": "JEE - விரைவில்",
@@ -105,7 +105,7 @@
     }
   },
   "home": {
-    "brand": "SIVORA UPRISING",
+    "brand": "SIVORA UP↑RISING",
     "title": "?????? ?????????? ?????? ????? ????? ????????????",
     "subtitle": "NEET-க்கு சிறப்பாகத் தயாராகுங்கள், கல்வி முடிவுகளை நம்பிக்கையுடன் எடுங்கள், இந்தியாவிலும் வெளிநாடுகளிலும் மருத்துவ மற்றும் உயர்கல்வி வாய்ப்புகளை ஆராயுங்கள்.",
     "ctaPrimary": "Free Counselling பெறுங்கள்",
@@ -143,9 +143,9 @@
     "quickActions": {
       "eyebrow": "Four service areas",
       "title": "Guidance, preparation and learning programs",
-      "titleLine1": "How SIVORA UPRISING",
+      "titleLine1": "How SIVORA UP↑RISING",
       "titleLine2": "Helps Students Move Forward",
-      "subtitle": "வெளிநாட்டு கல்வி, தேர்வு தயாரிப்பு, தொழில் ஆலோசனை மற்றும் கற்றல் வாய்ப்புகளில் SIVORA UPRISING மாணவர்களுக்கு ஆதரவளிக்கிறது.",
+      "subtitle": "வெளிநாட்டு கல்வி, தேர்வு தயாரிப்பு, தொழில் ஆலோசனை மற்றும் கற்றல் வாய்ப்புகளில் SIVORA UP↑RISING மாணவர்களுக்கு ஆதரவளிக்கிறது.",
       "items": [
         {
           "title": "Admissions & Study Abroad",
@@ -174,7 +174,7 @@
       ]
     },
     "neet": {
-      "eyebrow": "SIVORA UPRISING உடன் தயாராகுங்கள்",
+      "eyebrow": "SIVORA UP↑RISING உடன் தயாராகுங்கள்",
       "title": "NEET Available Now",
       "subtitle": "Keep NEET preparation focused with question bank access, previous-year practice, mock tests and chapter-wise practice.",
       "subjectCta": "Start practice",
@@ -269,7 +269,7 @@
     "benefits": {
       "eyebrow": "Platform scope",
       "title": "Higher-education decisions-????? platform",
-      "subtitle": "SIVORA UPRISING is positioned for study abroad, counselling guidance, courses and exam preparation now, with room for engineering and other higher-education programs later.",
+      "subtitle": "SIVORA UP↑RISING is positioned for study abroad, counselling guidance, courses and exam preparation now, with room for engineering and other higher-education programs later.",
       "items": [
         {
           "title": "முந்தைய ஆண்டு தேர்வு கேள்விகள்",
@@ -413,7 +413,7 @@
     "leadForm": {
       "eyebrow": "Callback Request",
       "title": "நீங்கள் தேடுவது என்ன என்பதை சொல்லுங்கள்.",
-      "subtitle": "Counselling, study abroad, NEET preparation அல்லது learning programs பற்றி SIVORA UPRISING team உங்களை தொடர்பு கொள்ள சில விவரங்களை பகிருங்கள்.",
+      "subtitle": "Counselling, study abroad, NEET preparation அல்லது learning programs பற்றி SIVORA UP↑RISING team உங்களை தொடர்பு கொள்ள சில விவரங்களை பகிருங்கள்.",
       "name": "முழு பெயர்",
       "mobile": "மொபைல் எண்",
       "email": "Email",
@@ -421,10 +421,10 @@
       "destination": "Preferred Destination",
       "submit": "Request a Callback",
       "sending": "அனுப்புகிறது...",
-      "consent": "Submit செய்தால், உங்கள் enquiry குறித்து SIVORA UPRISING உங்களை தொடர்பு கொள்ளலாம் என்பதை ஏற்கிறீர்கள்.",
+      "consent": "Submit செய்தால், உங்கள் enquiry குறித்து SIVORA UP↑RISING உங்களை தொடர்பு கொள்ளலாம் என்பதை ஏற்கிறீர்கள்.",
       "privacy": "Privacy Policy",
       "successTitle": "Enquiry பெறப்பட்டது",
-      "success": "நன்றி. SIVORA UPRISING team விரைவில் உங்களை தொடர்பு கொள்ளும்.",
+      "success": "நன்றி. SIVORA UP↑RISING team விரைவில் உங்களை தொடர்பு கொள்ளும்.",
       "interests": [
         "MBBS Abroad",
         "Study in Europe",
@@ -437,7 +437,7 @@
       ]
     },
     "why": {
-      "eyebrow": "Why SIVORA UPRISING",
+      "eyebrow": "Why SIVORA UP↑RISING",
       "title": "Clear guidance. Practical next steps.",
       "items": [
         {
@@ -485,7 +485,7 @@
       ]
     },
     "intro": {
-      "statement": "சரியான கல்வி முடிவுகளை எடுக்க மாணவர்களுக்கும் குடும்பங்களுக்கும் SIVORA UPRISING தெளிவான வழிகாட்டுதலை வழங்குகிறது.",
+      "statement": "சரியான கல்வி முடிவுகளை எடுக்க மாணவர்களுக்கும் குடும்பங்களுக்கும் SIVORA UP↑RISING தெளிவான வழிகாட்டுதலை வழங்குகிறது.",
       "items": [
         "பொருத்தமான கல்வி பாதைகளை ஆராயுங்கள்",
         "கவுன்சிலிங் மற்றும் விண்ணப்ப படிகளை புரிந்துகொள்ளுங்கள்",
@@ -992,7 +992,7 @@
   },
   "seo": {
     "home": {
-      "title": "SIVORA UPRISING - போட்டித் தேர்வு தயாரிப்பு",
+      "title": "SIVORA UP↑RISING - போட்டித் தேர்வு தயாரிப்பு",
       "description": "முந்தைய ஆண்டு கேள்விகள், அத்தியாய வாரியான கேள்வி வங்கி, மாதிரி தேர்வுகள் மற்றும் விரிவான தீர்வுகள் - NEET-இல் தொடங்கி."
     },
     "about": {
@@ -1037,15 +1037,15 @@
     },
     "terms": {
       "title": "விதிமுறைகள்",
-      "description": "SIVORA UPRISING போட்டித் தேர்வு தயாரிப்பு, மாதிரி தேர்வுகள் மற்றும் மாணவர் கணக்குகளுக்கான விதிமுறைகள்."
+      "description": "SIVORA UP↑RISING போட்டித் தேர்வு தயாரிப்பு, மாதிரி தேர்வுகள் மற்றும் மாணவர் கணக்குகளுக்கான விதிமுறைகள்."
     },
     "privacy": {
       "title": "தனியுரிமைக் கொள்கை",
-      "description": "மாணவர் கணக்கு, OTP, தேர்வு மற்றும் முன்னேற்றத் தகவல்களை SIVORA UPRISING எவ்வாறு கையாளுகிறது."
+      "description": "மாணவர் கணக்கு, OTP, தேர்வு மற்றும் முன்னேற்றத் தகவல்களை SIVORA UP↑RISING எவ்வாறு கையாளுகிறது."
     },
     "partners": {
       "title": "பார்ட்னராக சேருங்கள்",
-      "description": "மாணவர் விண்ணப்பங்களை நிர்வகிக்கவும், சர்வதேச கல்வி வாய்ப்புகளை ஆராயவும், சேர்க்கை முன்னேற்றத்தை கண்காணிக்கவும் SIVORA UPRISING உடன் கூட்டாண்மை அமைக்குங்கள்."
+      "description": "மாணவர் விண்ணப்பங்களை நிர்வகிக்கவும், சர்வதேச கல்வி வாய்ப்புகளை ஆராயவும், சேர்க்கை முன்னேற்றத்தை கண்காணிக்கவும் SIVORA UP↑RISING உடன் கூட்டாண்மை அமைக்குங்கள்."
     }
   },
   "catalogue": {
@@ -1489,11 +1489,11 @@
     }
   },
   "sms": {
-    "otp": "உங்கள் SIVORA UPRISING OTP: {otp}. {minutes} நிமிடங்களுக்கு செல்லுபடியாகும். இதை யாருடனும் பகிர வேண்டாம்."
+    "otp": "உங்கள் SIVORA UP↑RISING OTP: {otp}. {minutes} நிமிடங்களுக்கு செல்லுபடியாகும். இதை யாருடனும் பகிர வேண்டாம்."
   },
   "help": {
     "eyebrow": "உதவி & ஆதரவு",
-    "heroTitle": "SIVORA UPRISING-ஐ எப்படி பயன்படுத்துவது",
+    "heroTitle": "SIVORA UP↑RISING-ஐ எப்படி பயன்படுத்துவது",
     "heroSubtitle": "பதிவு செய்ய, தேர்வு வாங்க, தேர்வு எழுத, முடிவுகளைப் படிக்க, எங்கள் சேர்க்கை குழுவைத் தொடர்பு கொள்ள எளிய படிப்படியான வழிகாட்டிகள்.",
     "screenshotLabel": "திரைப்படம்",
     "stepLabel": "படி",
@@ -1570,11 +1570,11 @@
     "moreCta": "எங்களைத் தொடர்பு கொள்ளுங்கள்"
   },
   "partners": {
-    "eyebrow": "SIVORA UPRISING உடன் கூட்டாண்மை",
-    "heroTitle": "SIVORA UPRISING உடன் வளருங்கள்.",
-    "heroSubtitle": "மாணவர் விண்ணப்பங்களை நிர்வகிக்க, சர்வதேச கல்வி வாய்ப்புகளை ஆராய, சேர்க்கை முன்னேற்றத்தை ஒரே தளத்தில் கண்காணிக்க SIVORA UPRISING உடன் கூட்டாண்மை அமைக்குங்கள்.",
+    "eyebrow": "SIVORA UP↑RISING உடன் கூட்டாண்மை",
+    "heroTitle": "SIVORA UP↑RISING உடன் வளருங்கள்.",
+    "heroSubtitle": "மாணவர் விண்ணப்பங்களை நிர்வகிக்க, சர்வதேச கல்வி வாய்ப்புகளை ஆராய, சேர்க்கை முன்னேற்றத்தை ஒரே தளத்தில் கண்காணிக்க SIVORA UP↑RISING உடன் கூட்டாண்மை அமைக்குங்கள்.",
     "benefits": {
-      "eyebrow": "ஏன் SIVORA UPRISING உடன் கூட்டாண்மை?",
+      "eyebrow": "ஏன் SIVORA UP↑RISING உடன் கூட்டாண்மை?",
       "title": "மாணவர்களுக்கு ஆதரவளிக்க தெளிவான வழி.",
       "subtitle": "உங்கள் ஏஜென்சிக்கு மாணவர் விண்ணப்பங்களுக்கு கட்டமைக்கப்பட்ட செயல்முறையை வழங்குங்கள்.",
       "items": [
@@ -1584,7 +1584,7 @@
         },
         {
           "title": "கிடைக்கும் பல்கலைக்கழகங்கள் மற்றும் திட்டங்கள்",
-          "body": "சரிபார்க்கப்பட்ட தகவல்கள் சேர்க்கப்படும் போது SIVORA UPRISING வழங்கும் இலக்கு மற்றும் program வாய்ப்புகளை ஆராயுங்கள்."
+          "body": "சரிபார்க்கப்பட்ட தகவல்கள் சேர்க்கப்படும் போது SIVORA UP↑RISING வழங்கும் இலக்கு மற்றும் program வாய்ப்புகளை ஆராயுங்கள்."
         },
         {
           "title": "விண்ணப்ப நிலை கண்காணிப்பு",
@@ -1592,7 +1592,7 @@
         },
         {
           "title": "ஆவண ஒருங்கிணைப்பு",
-          "body": "Partner portal விரிவடையும் போது SIVORA UPRISING ஆதரவுடன் தேவையான ஆவணங்களை ஒருங்கிணைக்கலாம்."
+          "body": "Partner portal விரிவடையும் போது SIVORA UP↑RISING ஆதரவுடன் தேவையான ஆவணங்களை ஒருங்கிணைக்கலாம்."
         },
         {
           "title": "தனிப்பட்ட ஆதரவு",
@@ -1607,11 +1607,11 @@
     "cta": {
       "eyebrow": "கூட்டாண்மைக்கு தயாரா?",
       "title": "பார்ட்னராக சேருங்கள்.",
-      "subtitle": "சர்வதேச கல்வி மற்றும் சேர்க்கை வழிகாட்டுதலில் மாணவர்களுக்கு ஆதரவளிப்பது குறித்து SIVORA UPRISING உடன் உரையாடலைத் தொடங்குங்கள்.",
+      "subtitle": "சர்வதேச கல்வி மற்றும் சேர்க்கை வழிகாட்டுதலில் மாணவர்களுக்கு ஆதரவளிப்பது குறித்து SIVORA UP↑RISING உடன் உரையாடலைத் தொடங்குங்கள்.",
       "becomePartner": "பார்ட்னராக சேருங்கள்",
       "partnerLogin": "Partner Login",
       "whatsapp": "WhatsApp-ல் Partner Team-ஐ தொடர்புகொள்ளுங்கள்",
-      "whatsappMessage": "Hello SIVORA UPRISING,\nI am interested in becoming a B2B education partner."
+      "whatsappMessage": "Hello SIVORA UP↑RISING,\nI am interested in becoming a B2B education partner."
     }
   }
 }

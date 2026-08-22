@@ -27,7 +27,7 @@ export const isWhatsAppButtonHiddenPath = isFloatingContactHiddenPath;
 
 export function buildDefaultWhatsAppMessage(pathname: string) {
   return [
-    'Hello SIVORA UPRISING, I would like to know more about your education, competitive exam preparation and admission guidance services.',
+    'Hello SIVORA UP↑RISING, I would like to know more about your education, competitive exam preparation and admission guidance services.',
     pathname ? `Current page: ${pathname}` : undefined,
   ]
     .filter(Boolean)
@@ -36,7 +36,7 @@ export function buildDefaultWhatsAppMessage(pathname: string) {
 
 export function buildStudentWhatsAppMessage(category: string, pathname: string) {
   return [
-    `Hello SIVORA UPRISING, I would like information about ${category}. Please guide me.`,
+    `Hello SIVORA UP↑RISING, I would like information about ${category}. Please guide me.`,
     pathname ? `Current page: ${pathname}` : undefined,
   ]
     .filter(Boolean)
@@ -45,7 +45,7 @@ export function buildStudentWhatsAppMessage(category: string, pathname: string) 
 
 export function buildPartnerWhatsAppMessage(type: string, pathname: string) {
   return [
-    'Hello SIVORA UPRISING Partner Team, I am interested in discussing a B2B partnership.',
+    'Hello SIVORA UP↑RISING Partner Team, I am interested in discussing a B2B partnership.',
     `Organisation type: ${type}.`,
     'Organisation: ____.',
     'Partnership interest: ____.',
@@ -58,7 +58,7 @@ export function buildPartnerWhatsAppMessage(type: string, pathname: string) {
 
 export function buildGeneralWhatsAppMessage(pathname: string) {
   return [
-    'Hello SIVORA UPRISING, I have a general enquiry. Please guide me.',
+    'Hello SIVORA UP↑RISING, I have a general enquiry. Please guide me.',
     pathname ? `Current page: ${pathname}` : undefined,
   ]
     .filter(Boolean)

@@ -24,7 +24,7 @@ function isActive(pathname: string, href: string) {
 export default function PartnerNav({ userName, agencyName }: { userName: string; agencyName: string }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const supportMessage = `Hello SIVORA UPRISING,\nI am contacting you from ${agencyName} and need partner support.`;
+  const supportMessage = `Hello SIVORA UP↑RISING,\nI am contacting you from ${agencyName} and need partner support.`;
 
   async function logout() {
     await apiPost('/api/auth/logout');
@@ -77,14 +77,14 @@ export default function PartnerNav({ userName, agencyName }: { userName: string;
   return (
     <>
       <div className="sticky top-0 z-40 flex items-center justify-between border-b border-white/10 bg-[#061114] px-4 py-3 lg:hidden">
-        <span className="text-sm font-black uppercase tracking-[0.12em] text-white">SIVORA UPRISING Partner</span>
+        <span className="text-sm font-black uppercase tracking-[0.12em] text-white">SIVORA UP↑RISING Partner</span>
         <button type="button" onClick={() => setOpen(true)} className="rounded-lg border border-white/10 px-3 py-2 text-sm text-white">
           Menu
         </button>
       </div>
       <aside className="fixed inset-y-0 left-0 z-40 hidden w-72 flex-col border-r border-white/10 bg-[#061114] lg:flex">
         <div className="border-b border-white/10 px-5 py-5">
-          <p className="text-xs font-black uppercase tracking-[0.22em] text-[#2dd4bf]">SIVORA UPRISING</p>
+          <p className="text-xs font-black uppercase tracking-[0.22em] text-[#2dd4bf]">SIVORA UP↑RISING</p>
           <p className="mt-1 text-lg font-black text-white">Partner Portal</p>
         </div>
         {links}
