@@ -11,11 +11,11 @@ export default function PrivacyPage() {
   return (
     <Container className="py-14 sm:py-20">
       <div className="max-w-3xl">
-        <p className="text-sm font-bold uppercase tracking-wide text-brand">SIVORA</p>
+        <p className="text-sm font-bold uppercase tracking-wide text-brand">SIVORA UPRISING</p>
         <h1 className="mt-3 text-3xl font-extrabold text-textPrimary">Privacy Policy</h1>
         <div className="mt-6 space-y-4 text-sm leading-7 text-textSecondary">
           <p>
-            SIVORA collects account details such as name, email, mobile number, school information,
+            SIVORA UPRISING collects account details such as name, email, mobile number, school information,
             preferred language and test activity to provide registration, OTP login, practice, results
             and support workflows.
           </p>

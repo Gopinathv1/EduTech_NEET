@@ -85,7 +85,7 @@ export default function CheckoutClient({
       order_id: String(order.orderId),
       amount: Number(order.amount),
       currency: String(order.currency),
-      name: 'SIVORA',
+      name: 'SIVORA UPRISING',
       description: title,
       theme: { color: '#dc2626' },
       handler: async (resp) => {

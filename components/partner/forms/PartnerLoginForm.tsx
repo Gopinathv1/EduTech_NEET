@@ -41,7 +41,7 @@ export default function PartnerLoginForm() {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
       <div>
         <h1 className="text-xl font-bold text-textPrimary">Partner Login</h1>
-        <p className="mt-1 text-sm text-textSecondary">Approved SIVORA agency partners only.</p>
+        <p className="mt-1 text-sm text-textSecondary">Approved SIVORA UPRISING agency partners only.</p>
       </div>
 
       {banner ? <Banner kind="error">{banner}</Banner> : null}
@@ -72,7 +72,7 @@ function partnerErrorText(code?: string) {
     required: 'This field is required.',
     emailInvalid: 'Enter a valid email address.',
     invalidCredentials: 'Incorrect partner login details.',
-    accountInactive: 'This partner account is inactive. Contact SIVORA.',
+    accountInactive: 'This partner account is inactive. Contact SIVORA UPRISING.',
     rateLimited: 'Too many login attempts. Please wait a few minutes.',
     network: 'Network error. Please check your connection.',
   };

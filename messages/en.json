@@ -1,10 +1,10 @@
 {
   "meta": {
-    "title": "SIVORA - Competitive Exam Preparation",
+    "title": "SIVORA UPRISING - Competitive Exam Preparation",
     "description": "Practice previous-year questions, chapter-wise question banks, mock tests and detailed solutions - starting with NEET."
   },
   "nav": {
-    "brand": "SIVORA",
+    "brand": "SIVORA UPRISING",
     "language": "Language",
     "login": "Login",
     "register": "Register",
@@ -86,7 +86,7 @@
       "contact": "Talk to us"
     },
     "footer": {
-      "blurb": "SIVORA supports students with international education guidance, career and academic counselling, learning programs and competitive exam preparation.",
+      "blurb": "SIVORA UPRISING supports students with international education guidance, career and academic counselling, learning programs and competitive exam preparation.",
       "explore": "Explore",
       "company": "Company",
       "getStarted": "Get started",
@@ -94,7 +94,7 @@
       "loginLink": "Login",
       "contactLink": "Contact",
       "disclaimer": "Disclaimer: Admission guidance is an advisory service. We clearly disclose the eligibility requirements and country-specific regulations for every destination, and outcomes depend on each university's admission criteria and the applicable authorities' rules. We do not guarantee admission.",
-      "rights": "SIVORA. All rights reserved.",
+      "rights": "SIVORA UPRISING. All rights reserved.",
       "exams": "Exams",
       "neet": "NEET",
       "jeeSoon": "JEE - Coming Soon",
@@ -105,7 +105,7 @@
     }
   },
   "home": {
-    "brand": "SIVORA",
+    "brand": "SIVORA UPRISING",
     "title": "Your Journey to the Right Education Starts Here",
     "subtitle": "Prepare smarter for NEET, make confident academic decisions, and explore medical and higher-education opportunities in India and abroad.",
     "ctaPrimary": "Get Free Counselling",
@@ -144,9 +144,9 @@
     "quickActions": {
       "eyebrow": "Four service areas",
       "title": "Guidance, preparation and learning programs",
-      "titleLine1": "How SIVORA",
+      "titleLine1": "How SIVORA UPRISING",
       "titleLine2": "Helps Students Move Forward",
-      "subtitle": "SIVORA helps students move forward across study abroad, exam preparation, career counselling and learning programs.",
+      "subtitle": "SIVORA UPRISING helps students move forward across study abroad, exam preparation, career counselling and learning programs.",
       "items": [
         {
           "title": "Admissions & Study Abroad",
@@ -212,7 +212,7 @@
     "leadForm": {
       "eyebrow": "Request Callback",
       "title": "Tell us what you're looking for.",
-      "subtitle": "Share a few details and the SIVORA team can contact you about counselling, study abroad, NEET preparation or learning programs.",
+      "subtitle": "Share a few details and the SIVORA UPRISING team can contact you about counselling, study abroad, NEET preparation or learning programs.",
       "name": "Full Name",
       "mobile": "Mobile Number",
       "email": "Email",
@@ -220,10 +220,10 @@
       "destination": "Preferred Destination",
       "submit": "Request a Callback",
       "sending": "Sending...",
-      "consent": "By submitting, you agree that SIVORA may contact you regarding your enquiry.",
+      "consent": "By submitting, you agree that SIVORA UPRISING may contact you regarding your enquiry.",
       "privacy": "Privacy Policy",
       "successTitle": "Enquiry received",
-      "success": "Thank you. The SIVORA team will contact you soon.",
+      "success": "Thank you. The SIVORA UPRISING team will contact you soon.",
       "interests": [
         "MBBS Abroad",
         "Study in Europe",
@@ -236,7 +236,7 @@
       ]
     },
     "why": {
-      "eyebrow": "Why SIVORA",
+      "eyebrow": "Why SIVORA UPRISING",
       "title": "Clear guidance. Practical next steps.",
       "items": [
         {
@@ -284,7 +284,7 @@
       ]
     },
     "neet": {
-      "eyebrow": "Prepare With SIVORA",
+      "eyebrow": "Prepare With SIVORA UPRISING",
       "title": "NEET Available Now",
       "subtitle": "Keep NEET preparation focused with question bank access, previous-year practice, mock tests and chapter-wise practice.",
       "subjectCta": "Start practice",
@@ -379,7 +379,7 @@
     "benefits": {
       "eyebrow": "Platform scope",
       "title": "Built for higher-education decisions",
-      "subtitle": "SIVORA is positioned for study abroad, counselling guidance, courses and exam preparation now, with room for engineering and other higher-education programs later.",
+      "subtitle": "SIVORA UPRISING is positioned for study abroad, counselling guidance, courses and exam preparation now, with room for engineering and other higher-education programs later.",
       "items": [
         {
           "title": "Previous-year exam questions",
@@ -485,7 +485,7 @@
       ]
     },
     "intro": {
-      "statement": "SIVORA helps students and families make clearer education decisions - from international study opportunities and counselling to structured exam preparation.",
+      "statement": "SIVORA UPRISING helps students and families make clearer education decisions - from international study opportunities and counselling to structured exam preparation.",
       "items": [
         "Explore suitable education pathways",
         "Understand counselling and application steps",
@@ -650,7 +650,7 @@
     "vision": "A future where a student's district, board or family income never decides whether they can become a doctor.",
     "storyTitle": "Our story",
     "story": [
-      "SIVORA began with a simple observation: thousands of capable students, especially from government and state-board schools, never get enough realistic practice because coaching and test series are expensive and mostly in English.",
+      "SIVORA UPRISING began with a simple observation: thousands of capable students, especially from government and state-board schools, never get enough realistic practice because coaching and test series are expensive and mostly in English.",
       "We built an affordable, mobile-first, bilingual platform where a full mock test costs just ₹30 — with clear, chapter-level feedback after every attempt.",
       "For students who work hard but still miss a seat in India, our admission guidance team explains the honest, regulated pathways to study medicine at recognised universities abroad."
     ],
@@ -677,7 +677,7 @@
   "whyChoose": {
     "eyebrow": "Why Choose Us",
     "heroTitle": "Built for real NEET aspirants, not just toppers",
-    "heroSubtitle": "Six reasons students and parents across Tamil Nadu trust SIVORA.",
+    "heroSubtitle": "Six reasons students and parents across Tamil Nadu trust SIVORA UPRISING.",
     "points": [
       {
         "title": "Genuinely affordable",
@@ -992,16 +992,16 @@
   },
   "seo": {
     "home": {
-      "title": "SIVORA - Competitive Exam Preparation",
+      "title": "SIVORA UPRISING - Competitive Exam Preparation",
       "description": "Prepare smarter for competitive exams with previous-year questions, chapter-wise question banks, mock tests and detailed solutions - starting with NEET."
     },
     "about": {
       "title": "About Us",
-      "description": "Learn how SIVORA makes quality, bilingual NEET preparation affordable for government-school, state-board and rural students across Tamil Nadu."
+      "description": "Learn how SIVORA UPRISING makes quality, bilingual NEET preparation affordable for government-school, state-board and rural students across Tamil Nadu."
     },
     "whyChoose": {
       "title": "Why Choose Us",
-      "description": "Affordable ₹30 tests, English & Tamil support, real exam pattern, detailed analytics and honest admission guidance — why aspirants trust SIVORA."
+      "description": "Affordable ₹30 tests, English & Tamil support, real exam pattern, detailed analytics and honest admission guidance — why aspirants trust SIVORA UPRISING."
     },
     "services": {
       "title": "Services",
@@ -1029,7 +1029,7 @@
     },
     "contact": {
       "title": "Contact Us",
-      "description": "Get in touch with SIVORA for questions about mock tests or admission guidance."
+      "description": "Get in touch with SIVORA UPRISING for questions about mock tests or admission guidance."
     },
     "help": {
       "title": "Help & Support",
@@ -1037,15 +1037,15 @@
     },
     "terms": {
       "title": "Terms & Conditions",
-      "description": "SIVORA terms for competitive-exam preparation, mock tests and student accounts."
+      "description": "SIVORA UPRISING terms for competitive-exam preparation, mock tests and student accounts."
     },
     "privacy": {
       "title": "Privacy Policy",
-      "description": "How SIVORA handles student account, OTP, test and progress information."
+      "description": "How SIVORA UPRISING handles student account, OTP, test and progress information."
     },
     "partners": {
       "title": "Partner With Us",
-      "description": "Partner with SIVORA to manage student applications, explore international education opportunities and track admission progress."
+      "description": "Partner with SIVORA UPRISING to manage student applications, explore international education opportunities and track admission progress."
     }
   },
   "catalogue": {
@@ -1489,11 +1489,11 @@
     }
   },
   "sms": {
-    "otp": "Your SIVORA OTP is {otp}. Valid for {minutes} minutes. Do not share it with anyone."
+    "otp": "Your SIVORA UPRISING OTP is {otp}. Valid for {minutes} minutes. Do not share it with anyone."
   },
   "help": {
     "eyebrow": "Help & Support",
-    "heroTitle": "How to use SIVORA",
+    "heroTitle": "How to use SIVORA UPRISING",
     "heroSubtitle": "Simple, step-by-step guides to register, buy a test, take a test, read your results, and reach our admission team.",
     "screenshotLabel": "Screenshot",
     "stepLabel": "Step",
@@ -1570,11 +1570,11 @@
     "moreCta": "Contact us"
   },
   "partners": {
-    "eyebrow": "Partner With SIVORA",
-    "heroTitle": "Grow With SIVORA.",
-    "heroSubtitle": "Partner with SIVORA to manage student applications, explore international education opportunities and track admission progress through one streamlined platform.",
+    "eyebrow": "Partner With SIVORA UPRISING",
+    "heroTitle": "Grow With SIVORA UPRISING.",
+    "heroSubtitle": "Partner with SIVORA UPRISING to manage student applications, explore international education opportunities and track admission progress through one streamlined platform.",
     "benefits": {
-      "eyebrow": "Why Partner With SIVORA",
+      "eyebrow": "Why Partner With SIVORA UPRISING",
       "title": "A clearer way to support students.",
       "subtitle": "Give your agency a structured workflow for student applications without unsupported claims or hidden steps.",
       "items": [
@@ -1584,7 +1584,7 @@
         },
         {
           "title": "Available Universities And Programs",
-          "body": "Explore destination and program options made available by SIVORA as verified information is added."
+          "body": "Explore destination and program options made available by SIVORA UPRISING as verified information is added."
         },
         {
           "title": "Application Status Tracking",
@@ -1592,7 +1592,7 @@
         },
         {
           "title": "Document Coordination",
-          "body": "Coordinate required documents with SIVORA support as the partner portal expands."
+          "body": "Coordinate required documents with SIVORA UPRISING support as the partner portal expands."
         },
         {
           "title": "Dedicated Support",
@@ -1607,11 +1607,11 @@
     "cta": {
       "eyebrow": "Ready To Collaborate?",
       "title": "Become A Partner.",
-      "subtitle": "Start a conversation with SIVORA about supporting students through international education and admission guidance.",
+      "subtitle": "Start a conversation with SIVORA UPRISING about supporting students through international education and admission guidance.",
       "becomePartner": "Become A Partner",
       "partnerLogin": "Partner Login",
       "whatsapp": "Talk To Partner Team On WhatsApp",
-      "whatsappMessage": "Hello SIVORA,\nI am interested in becoming a B2B education partner."
+      "whatsappMessage": "Hello SIVORA UPRISING,\nI am interested in becoming a B2B education partner."
     }
   }
 }

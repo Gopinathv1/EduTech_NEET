@@ -1,5 +1,5 @@
 /**
- * Database seed for the SIVORA competitive-exam preparation platform.
+ * Database seed for the SIVORA UPRISING competitive-exam preparation platform.
  *
  * Seeds: 4 NEET subjects, 5 chapters each (with weightage), 20 bilingual sample
  * questions (en + ta), the 6 admission countries, a super admin + an admin, and
@@ -319,7 +319,7 @@ async function main() {
   // 7. One welcome notification (demonstrates the model; no reads yet).
   await prisma.notification.create({
     data: {
-      title: { en: 'Welcome to SIVORA!', ta: 'SIVORA-க்கு வரவேற்கிறோம்!' },
+      title: { en: 'Welcome to SIVORA UPRISING!', ta: 'SIVORA UPRISING-க்கு வரவேற்கிறோம்!' },
       message: {
         en: 'New mock tests are now available for just ₹30. Start practising today.',
         ta: 'புதிய மாதிரித் தேர்வுகள் இப்போது ₹30க்கு கிடைக்கின்றன. இன்றே பயிற்சியைத் தொடங்குங்கள்.',

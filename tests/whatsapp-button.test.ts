@@ -32,7 +32,7 @@ describe('floating WhatsApp enquiry helpers', () => {
 
   it('builds a B2B partner message with placeholders', () => {
     const message = buildPartnerWhatsAppMessage('School', '/partners');
-    expect(message).toContain('SIVORA Partner Team');
+    expect(message).toContain('SIVORA UPRISING Partner Team');
     expect(message).toContain('Organisation type: School.');
     expect(message).toContain('Organisation: ____.');
   });
