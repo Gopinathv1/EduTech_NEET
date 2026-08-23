@@ -1,6 +1,7 @@
 import type { Prisma, PaymentStatus } from '@prisma/client';
 import { prisma } from '@/lib/prisma';
 import { localizedName } from '@/lib/admin/format';
+import { log } from '@/lib/observability/logger';
 
 /**
  * Core payment state machine — the single, idempotent place where a payment
@@ -105,6 +106,7 @@ export async function finalizeSuccess(
       create: { studentId: payment.studentId, testId: payment.testId, paymentId: payment.id, source: 'PURCHASE' },
       update: {},
     });
+    log.info('payment.entitlementGranted', { paymentId: payment.id, testId: payment.testId });
 
     await tx.notification.create({
       data: {

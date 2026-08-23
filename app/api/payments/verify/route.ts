@@ -3,6 +3,7 @@ import { getSession } from '@/lib/auth/session';
 import { verifyPaymentSchema } from '@/lib/validation/payment';
 import { verifyCheckoutSignature } from '@/lib/payments/razorpay';
 import { finalizeSuccess } from '@/lib/payments/service';
+import { log } from '@/lib/observability/logger';
 import { ok, fail, readJson } from '@/lib/http';
 
 export const runtime = 'nodejs';
@@ -18,6 +19,7 @@ export async function POST(req: Request) {
   const parsed = verifyPaymentSchema.safeParse(await readJson(req));
   if (!parsed.success) return fail('validation', 400);
   const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = parsed.data;
+  log.info('payment.verificationAttempted', { orderId: razorpay_order_id });
 
   const payment = await prisma.payment.findUnique({
     where: { razorpayOrderId: razorpay_order_id },
@@ -35,11 +37,17 @@ export async function POST(req: Request) {
     await prisma.paymentEvent.create({
       data: { paymentId: payment.id, toStatus: 'CREATED', source: 'verify', detail: { invalidSignature: true } },
     });
+    log.warn('payment.verificationFailed', { paymentId: payment.id, orderId: razorpay_order_id, reason: 'invalidSignature' });
     return fail('invalidSignature', 400);
   }
 
   const result = await finalizeSuccess(payment.id, { razorpayPaymentId: razorpay_payment_id, source: 'verify' });
   if (!result.ok) return fail('finalizeFailed', 500);
+  log.info('payment.verificationSuccess', {
+    paymentId: payment.id,
+    orderId: razorpay_order_id,
+    alreadyProcessed: result.alreadyProcessed,
+  });
 
   return ok({ redirect: `/student/tests/${payment.testId}/start`, alreadyProcessed: result.alreadyProcessed });
 }

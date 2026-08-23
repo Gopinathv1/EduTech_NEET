@@ -4,6 +4,14 @@ import crypto from 'node:crypto';
 // ---- signature verification (pure) ---------------------------------------
 
 import { verifyCheckoutSignature, verifyWebhookSignature } from '@/lib/payments/razorpay';
+import { getMockTestPriceInr, inrToPaise } from '@/lib/payments/pricing';
+
+describe('payment pricing', () => {
+  it('uses one server-side pilot price and converts ₹30 to 3000 paise', () => {
+    expect(getMockTestPriceInr()).toBe(30);
+    expect(inrToPaise(getMockTestPriceInr())).toBe(3000);
+  });
+});
 
 describe('verifyCheckoutSignature', () => {
   const secret = 'test_secret_key';

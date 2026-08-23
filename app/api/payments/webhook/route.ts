@@ -1,6 +1,7 @@
 import { prisma } from '@/lib/prisma';
 import { verifyWebhookSignature } from '@/lib/payments/razorpay';
 import { finalizeSuccess, markFailed } from '@/lib/payments/service';
+import { log } from '@/lib/observability/logger';
 import { ok, fail } from '@/lib/http';
 
 export const runtime = 'nodejs';
@@ -15,9 +16,12 @@ export const runtime = 'nodejs';
 export async function POST(req: Request) {
   const raw = await req.text();
   const signature = req.headers.get('x-razorpay-signature') ?? '';
+  log.info('payment.webhookReceived');
   if (!verifyWebhookSignature(raw, signature)) {
+    log.warn('payment.webhookSignatureInvalid');
     return fail('invalidSignature', 400);
   }
+  log.info('payment.webhookSignatureValid');
 
   let body: unknown;
   try {
@@ -48,8 +52,10 @@ export async function POST(req: Request) {
 
   if (event === 'payment.captured' || event === 'order.paid') {
     await finalizeSuccess(payment.id, { razorpayPaymentId: razorpayPaymentId ?? 'webhook', source: 'webhook' });
+    log.info('payment.webhookSuccessProcessed', { paymentId: payment.id, orderId, event });
   } else if (event === 'payment.failed') {
     await markFailed(payment.id, { source: 'webhook', reason: paymentEntity?.error_description ?? 'payment.failed' });
+    log.warn('payment.webhookFailureProcessed', { paymentId: payment.id, orderId, event });
   }
 
   return ok({ processed: event ?? 'unknown' });

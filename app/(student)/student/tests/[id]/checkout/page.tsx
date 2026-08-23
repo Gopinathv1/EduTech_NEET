@@ -3,6 +3,7 @@ import { getLocale } from 'next-intl/server';
 import { getSession } from '@/lib/auth/session';
 import { prisma } from '@/lib/prisma';
 import { localizedName } from '@/lib/admin/format';
+import { getMockTestPriceInr } from '@/lib/payments/pricing';
 import StudentHeader from '@/components/student/StudentHeader';
 import CheckoutClient from '@/components/student/CheckoutClient';
 
@@ -15,10 +16,9 @@ export default async function CheckoutPage({ params }: { params: Promise<{ id: s
 
   const test = await prisma.test.findUnique({
     where: { id },
-    select: { id: true, price: true, isPublished: true, title: true },
+    select: { id: true, isPublished: true, title: true },
   });
   if (!test || !test.isPublished) notFound();
-  if (test.price === 0) redirect(`/student/tests/${id}/start`);
 
   if (session) {
     const owned = await prisma.testEntitlement.count({ where: { studentId: session.sub, testId: id } });
@@ -31,7 +31,7 @@ export default async function CheckoutPage({ params }: { params: Promise<{ id: s
       <main id="main-content" className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
         <CheckoutClient
           testId={id}
-          price={test.price}
+          price={getMockTestPriceInr()}
           title={localizedName(test.title, locale) || localizedName(test.title, 'en')}
         />
       </main>

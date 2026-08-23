@@ -3,6 +3,7 @@ import { getSession } from '@/lib/auth/session';
 import { createOrderSchema } from '@/lib/validation/payment';
 import { createOrder, getKeys } from '@/lib/payments/razorpay';
 import { logOrderCreated } from '@/lib/payments/service';
+import { PAYMENT_CURRENCY, getMockTestPriceInr, inrToPaise } from '@/lib/payments/pricing';
 import { log } from '@/lib/observability/logger';
 import { ok, fail, readJson } from '@/lib/http';
 
@@ -20,7 +21,7 @@ export async function POST(req: Request) {
 
   const test = await prisma.test.findUnique({
     where: { id: testId },
-    select: { id: true, price: true, isPublished: true, title: true },
+    select: { id: true, isPublished: true, title: true },
   });
   if (!test || !test.isPublished) return fail('testNotFound', 404);
 
@@ -28,17 +29,8 @@ export async function POST(req: Request) {
   const owned = await prisma.testEntitlement.count({ where: { studentId: session.sub, testId } });
   if (owned > 0) return fail('alreadyOwned', 409);
 
-  const amountInr = test.price; // trusted, server-side
-  if (amountInr === 0) {
-    await prisma.testEntitlement.upsert({
-      where: { studentId_testId: { studentId: session.sub, testId } },
-      create: { studentId: session.sub, testId, source: 'FREE' },
-      update: {},
-    });
-    return fail('alreadyOwned', 409);
-  }
-
-  const currency = 'INR';
+  const amountInr = getMockTestPriceInr();
+  const currency = PAYMENT_CURRENCY;
 
   // Create the Payment row first so we have a stable id for the order receipt.
   const payment = await prisma.payment.create({
@@ -48,7 +40,7 @@ export async function POST(req: Request) {
   let order;
   try {
     order = await createOrder({
-      amountPaise: amountInr * 100,
+      amountPaise: inrToPaise(amountInr),
       currency,
       receipt: payment.id,
       notes: { paymentId: payment.id, studentId: session.sub, testId },
@@ -61,6 +53,14 @@ export async function POST(req: Request) {
 
   await prisma.payment.update({ where: { id: payment.id }, data: { razorpayOrderId: order.id } });
   await logOrderCreated(payment.id, order.id);
+  log.info('payment.orderCreated', {
+    paymentId: payment.id,
+    testId,
+    orderId: order.id,
+    amountPaise: order.amount,
+    currency,
+    mock: order.mock,
+  });
 
   return ok({
     paymentId: payment.id,

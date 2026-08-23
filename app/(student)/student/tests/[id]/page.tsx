@@ -4,6 +4,7 @@ import { getLocale, getTranslations } from 'next-intl/server';
 import { getSession } from '@/lib/auth/session';
 import { prisma } from '@/lib/prisma';
 import { localizedName } from '@/lib/admin/format';
+import { getMockTestPriceInr } from '@/lib/payments/pricing';
 import { computeCoverage } from '@/lib/student/catalogue';
 import StudentHeader from '@/components/student/StudentHeader';
 import { ClockIcon, BookIcon, GlobeIcon, ChartIcon } from '@/components/public/icons';
@@ -24,9 +25,10 @@ export default async function TestDetailPage({ params }: { params: Promise<{ id:
   ]);
   if (!test || !test.isPublished) notFound();
 
-  const owned = test.price === 0 || (session
+  const price = getMockTestPriceInr();
+  const owned = session
     ? (await prisma.testEntitlement.count({ where: { studentId: session.sub, testId: id } })) > 0
-    : false);
+    : false;
 
   const subjectsById = new Map(subjects.map((s) => [s.id, { id: s.id, code: s.code }]));
   const chaptersById = new Map(chapters.map((c) => [c.id, { id: c.id, subjectId: c.subjectId }]));
@@ -127,12 +129,12 @@ export default async function TestDetailPage({ params }: { params: Promise<{ id:
             </>
           ) : (
             <>
-              <span className="text-2xl font-extrabold text-textPrimary">₹{test.price}</span>
+              <span className="text-2xl font-extrabold text-textPrimary">₹{price}</span>
               <Link
                 href={`/student/tests/${test.id}/checkout`}
                 className="rounded-lg bg-brand px-6 py-3 text-sm font-semibold text-white hover:bg-brand-dark"
               >
-                {t('detail.buyCta', { price: test.price })}
+                {t('detail.buyCta', { price })}
               </Link>
             </>
           )}

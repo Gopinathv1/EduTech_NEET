@@ -2,6 +2,7 @@ import { getLocale, getTranslations } from 'next-intl/server';
 import { getSession } from '@/lib/auth/session';
 import { prisma } from '@/lib/prisma';
 import { localizedName } from '@/lib/admin/format';
+import { getMockTestPriceInr } from '@/lib/payments/pricing';
 import { computeCoverage, subjectFilterCodes } from '@/lib/student/catalogue';
 import StudentHeader from '@/components/student/StudentHeader';
 import CatalogueFilters, { type CatalogueFilterValues } from '@/components/student/CatalogueFilters';
@@ -66,7 +67,7 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
     if (cov.subjectCodes.has('BOTANY') || cov.subjectCodes.has('ZOOLOGY')) {
       searchParts.push('Biology', 'உயிரியல்');
     }
-    return { test, cov, searchText: searchParts.join(' ').toLowerCase(), owned: test.price === 0 || purchased.has(test.id) };
+    return { test, cov, searchText: searchParts.join(' ').toLowerCase(), owned: purchased.has(test.id) };
   });
 
   // Apply combined filters.
@@ -115,7 +116,7 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
                   testType: test.testType,
                   totalQuestions: test.totalQuestions,
                   durationMinutes: test.durationMinutes,
-                  price: test.price,
+                  price: getMockTestPriceInr(),
                   difficulty: test.difficulty,
                   languages: test.availableLanguages,
                   purchased: owned,
