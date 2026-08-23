@@ -18,6 +18,7 @@ type RazorpayOptions = {
   name: string;
   description: string;
   theme: { color: string };
+  prefill?: { name?: string; email?: string; contact?: string };
   handler: (r: RazorpayResponse) => void;
   modal: { ondismiss: () => void };
 };
@@ -46,10 +47,16 @@ export default function CheckoutClient({
   testId,
   price,
   title,
+  student,
 }: {
   testId: string;
   price: number;
   title: string;
+  student?: {
+    name: string;
+    email: string | null;
+    mobile: string;
+  };
 }) {
   const t = useTranslations('payments.checkout');
   const [state, setState] = useState<State>('idle');
@@ -88,6 +95,13 @@ export default function CheckoutClient({
       name: 'SIVORA UP↑RISING',
       description: title,
       theme: { color: '#dc2626' },
+      prefill: student
+        ? {
+            name: student.name,
+            email: student.email ?? undefined,
+            contact: student.mobile ? `91${student.mobile}` : undefined,
+          }
+        : undefined,
       handler: async (resp) => {
         setState('verifying');
         const v = await apiPost('/api/payments/verify', {

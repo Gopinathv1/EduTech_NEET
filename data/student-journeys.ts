@@ -17,19 +17,21 @@ export const studentJourneys: StudentJourney[] = [
       'Celebrating an important milestone as students and their families begin their international medical education journey.',
     country: 'International Medical Education',
     category: 'Student Departure',
-    tag: 'ADMISSION -> DEPARTURE -> UNIVERSITY',
+    tag: 'ADMISSION → DEPARTURE → UNIVERSITY',
     alt: 'Students and families with luggage at an airport before beginning an international medical education journey',
   },
+
   {
     image: '/admissions/student-departure-02.jpg',
-    title: 'Students Begin Their MBBS Journey Abroad',
+    title: 'Preparing for Their International Education Journey',
     description:
-      'Celebrating an important milestone as students and their families begin their international medical education journey.',
+      'Supporting students and families with guidance before departure as they prepare to begin their education abroad.',
     country: 'International Medical Education',
     category: 'Pre-Departure Support',
-    tag: 'ADMISSION -> DEPARTURE -> UNIVERSITY',
-    alt: 'A group of students and families at an airport with luggage before departure for medical studies abroad',
+    tag: 'GUIDANCE → PRE-DEPARTURE → ARRIVAL',
+    alt: 'Students and families at an airport with luggage before leaving for international studies',
   },
+
   {
     image: '/admissions/andijan-students-01.jpg',
     title: 'Beginning Their Medical Journey in Uzbekistan',
@@ -38,39 +40,41 @@ export const studentJourneys: StudentJourney[] = [
     country: 'Uzbekistan',
     university: 'Andijan State Medical Institute',
     category: 'Student Destination',
-    tag: 'STUDENT JOURNEYS',
+    tag: 'ADMISSION → UNIVERSITY → STUDENT JOURNEY',
     alt: 'Students standing outside Andijan State Medical Institute in Uzbekistan',
   },
+
   {
     image: '/admissions/student-success-02.jpg',
     title: 'Guidance Beyond Admission',
     description:
-      'At SIVORA UP↑RISING, we support students and families beyond the application stage — from counselling and university selection to documentation, admission, travel preparation and ongoing guidance after students begin their education abroad.',
+      'At SIVORA UP↑RISING, we support students and families beyond the application stage — from counselling and university selection to documentation, admission, travel preparation and ongoing guidance.',
     country: 'Overseas Admissions',
     category: 'Continuous Guidance',
-    tag: 'COUNSELLING -> ADMISSION -> SUPPORT',
-    alt: 'Students and family members with admission guidance counsellors during an overseas education support meeting',
-  },
-  {
-    image: '/admissions/Georgia.jpg',
-    title: 'Experiencing Medical Education Abroad',
-    description:
-      'Supporting students beyond admission as they begin experiencing their medical education environment, campus facilities and academic journey abroad.',
-    country: 'International Medical Education',
-    category: 'Campus Experience',
-    tag: 'ADMISSION -> CAMPUS -> STUDENT SUPPORT',
-    alt: 'Visit to a medical education facility during an international student academic journey',
+    tag: 'COUNSELLING → ADMISSION → SUPPORT',
+    alt: 'Students and family members receiving overseas education guidance and admission support',
   },
 
   {
-    image: '/admissions/Russia.jpg',
-    title: 'Another Student Journey Takes Flight',
+    image: '/admissions/georgia.jpg',
+    title: 'Exploring Medical Education in Georgia',
     description:
-      'From counselling and university selection to documentation, admission and departure, SIVORA UP↑RISING supports students as they begin their international education journey.',
-    country: 'International Medical Education',
+      'Supporting students as they explore medical education opportunities, university environments and academic pathways in Georgia.',
+    country: 'Georgia',
+    category: 'Campus Experience',
+    tag: 'ADMISSION → CAMPUS → STUDENT SUPPORT',
+    alt: 'Students visiting a medical education campus in Georgia',
+  },
+
+  {
+    image: '/admissions/russia.jpg',
+    title: 'Beginning an International Journey to Russia',
+    description:
+      'From counselling and university selection to documentation, admission and departure, SIVORA UP↑RISING supports students throughout their international education journey.',
+    country: 'Russia',
     category: 'Student Departure',
-    tag: 'COUNSELLING -> ADMISSION -> DEPARTURE',
-    alt: 'Student with luggage at an airport before departing for international studies',
+    tag: 'COUNSELLING → ADMISSION → DEPARTURE',
+    alt: 'Student with luggage preparing to travel to Russia for international studies',
   },
 ];
 

@@ -7,8 +7,8 @@ import { getMockTestPriceInr } from '@/lib/payments/pricing';
 import StudentHeader from '@/components/student/StudentHeader';
 import CheckoutClient from '@/components/student/CheckoutClient';
 
-// Buy flow. Amount is read from the server-side test record; the client never
-// sets the price.
+// Buy flow. Amount comes from the server-side mock-test pricing helper; the
+// client never sets the price.
 export default async function CheckoutPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const locale = (await getLocale()) as 'en' | 'ta';
@@ -19,6 +19,13 @@ export default async function CheckoutPage({ params }: { params: Promise<{ id: s
     select: { id: true, isPublished: true, title: true },
   });
   if (!test || !test.isPublished) notFound();
+
+  const student = session
+    ? await prisma.student.findUnique({
+        where: { id: session.sub },
+        select: { name: true, email: true, mobile: true },
+      })
+    : null;
 
   if (session) {
     const owned = await prisma.testEntitlement.count({ where: { studentId: session.sub, testId: id } });
@@ -33,6 +40,7 @@ export default async function CheckoutPage({ params }: { params: Promise<{ id: s
           testId={id}
           price={getMockTestPriceInr()}
           title={localizedName(test.title, locale) || localizedName(test.title, 'en')}
+          student={student ?? undefined}
         />
       </main>
     </div>
