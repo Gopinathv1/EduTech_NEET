@@ -44,7 +44,7 @@ export default function PublicHeader() {
           : 'border-b border-[#2B2B2B]/70 bg-[#050505]/82 backdrop-blur-lg'
       }`}
     >
-      <div className="mx-auto flex w-full max-w-[1600px] items-center gap-3 px-[clamp(1rem,3vw,3rem)] py-3">
+      <div className="mx-auto flex w-full max-w-[1600px] items-center gap-3 px-[clamp(1rem,3vw,3rem)] py-1">
         <div className="flex min-w-0 flex-1 items-center min-[1360px]:flex-none">
           <Logo />
         </div>

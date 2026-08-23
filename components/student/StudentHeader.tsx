@@ -43,7 +43,7 @@ export default async function StudentHeader() {
     <header className="sticky top-0 z-40 border-b border-border bg-surfaceElevated">
       <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6">
         <div className="flex items-center gap-4">
-          <BrandLogo className="text-white" href="/student" label={t('brand')} size="compact" />
+          <BrandLogo className="text-white" label={t('brand')} size="compact" />
           <nav className="flex items-center gap-3 text-sm">
             <Link href="/student" className="font-medium text-textSecondary hover:text-brand">
               {t('dashboard')}
