@@ -6,6 +6,7 @@ import { Section, PrimaryLink, SecondaryLink, ArrowLink, Container } from '@/com
 import { BookIcon, ChartIcon, CheckIcon, ClockIcon, GlobeIcon, RupeeIcon, ShieldIcon } from '@/components/public/icons';
 import HomeLeadForm from '@/components/public/HomeLeadForm';
 import StudentJourneys from '@/components/public/StudentJourneys';
+import { COURSE_SERVICES, EXAM_PREPARATION_SERVICES, STUDY_ABROAD_SERVICES, type PublicService } from '@/data/services';
 
 export async function generateMetadata() {
   const t = await getTranslations('seo.home');
@@ -19,11 +20,9 @@ export async function generateMetadata() {
 
 type Action = { title: string; body: string; cta: string; href: string };
 type Subject = { title: string; body: string; href: string };
-type AdmissionCard = { title: string; body: string; href: string };
 
 const MARQUEE = ['PREPARE', 'ASSESS', 'COUNSELLING', 'APPLY', 'PROGRESS', 'NEET', 'GLOBAL ADMISSIONS'];
 const JOURNEY = ['Prepare', 'Assess', 'Counselling', 'Apply', 'Progress'];
-const FUTURE_EXAMS = ['JEE Main', 'JEE Advanced'];
 const SCHOOL_BOARDS = ['State Board', 'CBSE', 'ICSE', 'IGCSE', 'IB'];
 
 const PREP_FEATURES = [
@@ -53,7 +52,6 @@ export default function HomePage() {
   const t = useTranslations('home');
   const introItems = t.raw('intro.items') as string[];
   const quickActions = t.raw('quickActions.items') as Action[];
-  const admissionCards = t.raw('admissions.cards') as AdmissionCard[];
   const destinationCards = t.raw('destinations.items') as Action[];
   const whyItems = t.raw('why.items') as { title: string; body: string }[];
   const subjects = t.raw('neet.subjects') as Subject[];
@@ -84,8 +82,8 @@ export default function HomePage() {
               {t('subtitle')}
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <PrimaryLink href="#neet-preparation">{t('heroCtaPrimary')}</PrimaryLink>
-              <SecondaryLink href="#admissions">{t('heroCtaSecondary')}</SecondaryLink>
+              <PrimaryLink href="/exam-preparation">{t('heroCtaPrimary')}</PrimaryLink>
+              <SecondaryLink href="/study-abroad">{t('heroCtaSecondary')}</SecondaryLink>
             </div>
             <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:max-w-3xl">
               {introItems.slice(0, 4).map((item) => (
@@ -153,10 +151,9 @@ export default function HomePage() {
             </h2>
             <p className="mt-6 max-w-2xl text-base leading-8 text-[#D1D1D1]">{t('neet.subtitle')}</p>
             <div className="mt-7 flex flex-wrap gap-2">
-              <span className="rounded-full bg-[#050505] px-4 py-2 text-sm font-black uppercase tracking-wide text-white">NEET - Available Now</span>
-              {FUTURE_EXAMS.map((exam) => (
-                <span key={exam} className="rounded-full border border-[#2B2B2B] bg-[#111111] px-4 py-2 text-sm font-semibold text-[#D1D1D1]">
-                  {exam} - Coming Soon
+              {EXAM_PREPARATION_SERVICES.map((service) => (
+                <span key={service.title} className="rounded-full border border-[#2B2B2B] bg-[#111111] px-4 py-2 text-sm font-black uppercase tracking-wide text-white">
+                  {service.title}
                 </span>
               ))}
             </div>
@@ -209,6 +206,11 @@ export default function HomePage() {
                 </Link>
               ))}
             </div>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              {EXAM_PREPARATION_SERVICES.map((service) => (
+                <ServiceCard key={service.title} service={service} compact />
+              ))}
+            </div>
           </div>
         </div>
       </Section>
@@ -220,18 +222,16 @@ export default function HomePage() {
             <h2 className="mt-5 text-[clamp(2.5rem,5vw,5.8rem)] font-black uppercase leading-[0.92] text-white">
               {t('admissions.title')}
             </h2>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-[#D1D1D1]">{t('admissions.subtitle')}</p>
+            <p className="mt-6 max-w-2xl text-base leading-8 text-[#D1D1D1]">
+              Explore medical, engineering, technology and higher-education opportunities across selected international destinations. We guide students through course selection, university shortlisting, application pathways, budgeting, documentation and student-life preparation.
+            </p>
             <div className="mt-8">
               <PrimaryLink href="#callback">{t('ctaPrimary')}</PrimaryLink>
             </div>
           </div>
           <div className="grid gap-5 sm:grid-cols-2">
-            {admissionCards.map((card, index) => (
-              <Link key={card.title} href={card.href} className="rounded-[1.5rem] border border-[#2B2B2B] bg-[#111111] p-6 shadow-xl shadow-black/5 transition hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/10">
-                <p className="text-sm font-black text-brand">0{index + 1}</p>
-                <h3 className="mt-5 text-2xl font-black uppercase leading-tight text-white">{card.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-[#D1D1D1]">{card.body}</p>
-              </Link>
+            {STUDY_ABROAD_SERVICES.map((service, index) => (
+              <ServiceCard key={service.title} service={service} index={index} />
             ))}
           </div>
         </div>
@@ -261,6 +261,29 @@ export default function HomePage() {
                 </Link>
               );
             })}
+          </div>
+        </div>
+      </Section>
+
+      <Section id="live-courses" lazy>
+        <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">Live & Skill-Based Courses</p>
+            <h2 className="mt-5 text-[clamp(2.5rem,5vw,5.6rem)] font-black uppercase leading-[0.92] text-white">
+              Courses for Exams and Future Skills.
+            </h2>
+            <p className="mt-6 max-w-2xl text-base leading-8 text-[#D1D1D1]">
+              Learn through guided programs in competitive exam preparation and emerging technology skills. More programs can be added as they are verified and scheduled.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <PrimaryLink href="/courses">VIEW COURSES</PrimaryLink>
+              <SecondaryLink href="#callback">TALK TO COUNSELLOR</SecondaryLink>
+            </div>
+          </div>
+          <div className="grid gap-5 sm:grid-cols-2">
+            {COURSE_SERVICES.map((service, index) => (
+              <ServiceCard key={service.title} service={service} index={index} />
+            ))}
           </div>
         </div>
       </Section>
@@ -351,5 +374,33 @@ export default function HomePage() {
         </div>
       </Section>
     </>
+  );
+}
+
+function ServiceCard({ service, index, compact = false }: { service: PublicService; index?: number; compact?: boolean }) {
+  return (
+    <Link
+      href={service.href}
+      className={`rounded-[1.5rem] border border-[#2B2B2B] bg-[#111111] shadow-xl shadow-black/5 transition hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/10 ${
+        compact ? 'p-5' : 'p-6'
+      }`}
+    >
+      {typeof index === 'number' ? <p className="text-sm font-black text-brand">0{index + 1}</p> : null}
+      <h3 className={`${typeof index === 'number' ? 'mt-5' : ''} text-xl font-black uppercase leading-tight text-white ${compact ? '' : 'sm:text-2xl'}`}>
+        {service.title}
+      </h3>
+      <p className="mt-3 text-sm leading-7 text-[#D1D1D1]">{service.body}</p>
+      {service.chips?.length ? (
+        <div className="mt-4 flex flex-wrap gap-2">
+          {service.chips.slice(0, compact ? 7 : 12).map((chip) => (
+            <span key={chip} className="rounded-full border border-[#2B2B2B] bg-[#050505] px-3 py-1.5 text-xs font-bold text-white">
+              {chip}
+            </span>
+          ))}
+        </div>
+      ) : null}
+      {service.note ? <p className="mt-4 text-xs leading-6 text-[#D1D1D1]/80">{service.note}</p> : null}
+      {service.cta ? <span className="mt-6 inline-flex text-xs font-black uppercase tracking-[0.12em] text-brand">{service.cta} -&gt;</span> : null}
+    </Link>
   );
 }

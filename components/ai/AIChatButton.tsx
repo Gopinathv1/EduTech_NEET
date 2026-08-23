@@ -99,7 +99,7 @@ export default function AIChatButton() {
                 value={input}
                 onChange={(event) => setInput(event.target.value)}
                 className="min-w-0 flex-1 rounded-2xl border border-[#2b2b2b] bg-[#050505] px-3 py-2 text-sm text-white outline-none placeholder:text-[#d1d1d1]/55 focus:border-[#D71920]"
-                placeholder="Ask about NEET, admissions, tests..."
+                placeholder="Ask about NEET, JEE, admissions, courses..."
                 aria-label="Ask SIVORA UP↑RISING AI a question"
               />
               <button

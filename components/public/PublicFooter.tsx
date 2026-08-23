@@ -22,26 +22,26 @@ function FooterColumn({ title, links }: { title: string; links: NavLink[] }) {
 }
 
 const ADMISSIONS: NavLink[] = [
-  { href: '/countries', key: 'mbbsAbroad' },
-  { href: '/#admissions', key: 'studyEurope' },
-  { href: '/countries', key: 'internationalEducation' },
+  { href: '/study-abroad', key: 'mbbsAbroad' },
+  { href: '/study-abroad', key: 'studyEurope' },
+  { href: '/study-abroad', key: 'internationalEducation' },
 ];
 
 const COUNSELLING: NavLink[] = [
-  { href: '/admission-guidance', key: 'mbbsCounsellingIndia' },
-  { href: '/admission-guidance', key: 'collegeGuidance' },
-  { href: '/contact', key: 'careerGuidance' },
+  { href: '/counselling', key: 'mbbsCounsellingIndia' },
+  { href: '/counselling', key: 'collegeGuidance' },
+  { href: '/counselling', key: 'careerGuidance' },
 ];
 
 const EXAM_PREP: NavLink[] = [
-  { href: '/#neet-preparation', key: 'neet' },
+  { href: '/exam-preparation', key: 'examPrepMenu' },
+  { href: '/exam-preparation/neet', key: 'neet' },
+  { href: '/exam-preparation/jee', key: 'jee' },
   { href: '/mock-tests', key: 'questionBank' },
-  { href: '/#previous-year-papers', key: 'previousYear' },
-  { href: '/mock-tests', key: 'mockTests' },
 ];
 
 const LEARNING: NavLink[] = [
-  { href: '/contact', key: 'coursesLearning' },
+  { href: '/courses', key: 'coursesLearning' },
 ];
 
 export default function PublicFooter() {

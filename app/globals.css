@@ -79,6 +79,20 @@ body {
     animation: none !important;
     transform: none !important;
   }
+
+  .sivora-journey-marquee {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .sivora-student-photo-marquee {
+    overflow-x: auto !important;
+  }
+
+  .sivora-student-photo-marquee__track {
+    animation: none !important;
+    transform: none !important;
+  }
 }
 
 @keyframes vv-fade-up {
@@ -131,6 +145,24 @@ body {
   }
 }
 
+@keyframes sivoraJourneyMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes studentJourneyMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 .vv-reveal {
   animation: vv-fade-up 700ms ease-out both;
 }
@@ -155,6 +187,23 @@ body {
 .sivora-peacock-bg {
   transform-origin: 72% 48%;
   animation: sivoraPeacockDrift 18s ease-in-out infinite alternate;
+}
+
+.sivora-journey-marquee {
+  animation: sivoraJourneyMarquee 46s linear infinite;
+}
+
+.group:hover > .sivora-journey-marquee {
+  animation-play-state: paused;
+}
+
+.sivora-student-photo-marquee__track {
+  animation: studentJourneyMarquee 34s linear infinite;
+  will-change: transform;
+}
+
+.sivora-student-photo-marquee:hover .sivora-student-photo-marquee__track {
+  animation-play-state: paused;
 }
 
 .sivora-global-peacock__image {

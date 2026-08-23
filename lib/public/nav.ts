@@ -15,44 +15,44 @@ export const NAV_GROUPS: NavGroup[] = [
   {
     key: 'studyAbroadMenu',
     links: [
-      { href: '/countries', key: 'mbbsAbroad' },
-      { href: '/#destinations', key: 'studyEurope' },
-      { href: '/countries', key: 'internationalEducation' },
-      { href: '/admission-guidance', key: 'applicationGuidance' },
+      { href: '/study-abroad', key: 'mbbsAbroad' },
+      { href: '/study-abroad', key: 'studyEurope' },
+      { href: '/study-abroad', key: 'internationalEducation' },
+      { href: '/study-abroad', key: 'applicationGuidance' },
     ],
   },
   {
     key: 'examPrepMenu',
     links: [
-      { href: '/#neet-preparation', key: 'neet' },
+      { href: '/exam-preparation', key: 'examPrepMenu' },
+      { href: '/exam-preparation/neet', key: 'neet' },
+      { href: '/exam-preparation/jee', key: 'jee' },
       { href: '/mock-tests', key: 'questionBank' },
-      { href: '/#previous-year-papers', key: 'previousYear' },
-      { href: '/mock-tests', key: 'mockTests' },
     ],
   },
   {
     key: 'counsellingMenu',
     links: [
-      { href: '/admission-guidance', key: 'mbbsCounsellingIndia' },
-      { href: '/admission-guidance', key: 'collegeGuidance' },
-      { href: '/contact', key: 'careerGuidance' },
+      { href: '/counselling', key: 'mbbsCounsellingIndia' },
+      { href: '/counselling', key: 'collegeGuidance' },
+      { href: '/counselling', key: 'careerGuidance' },
     ],
   },
   {
     key: 'coursesMenu',
     links: [
-      { href: '/contact', key: 'coursesLearning' },
-      { href: '/contact', key: 'trainingPrograms' },
+      { href: '/courses', key: 'coursesLearning' },
+      { href: '/courses', key: 'trainingPrograms' },
     ],
   },
 ];
 
 // Footer column groupings.
 export const FOOTER_EXPLORE: NavLink[] = [
-  { href: '/admission-guidance', key: 'admission' },
-  { href: '/countries', key: 'countries' },
+  { href: '/study-abroad', key: 'admission' },
+  { href: '/study-abroad', key: 'countries' },
   { href: '/mock-tests', key: 'questionBank' },
-  { href: '/#previous-year-papers', key: 'previousYear' },
+  { href: '/exam-preparation/neet', key: 'previousYear' },
   { href: '/mock-tests', key: 'mockTests' },
 ];
 

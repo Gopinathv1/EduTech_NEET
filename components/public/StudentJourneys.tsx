@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { admissionGuidancePoints, studentJourneys, studentJourneySteps } from '@/data/student-journeys';
+import { admissionGuidancePoints, studentJourneys } from '@/data/student-journeys';
 import WhatsAppLink from '@/components/whatsapp/WhatsAppLink';
+import AdmissionJourneyMarquee from '@/components/public/AdmissionJourneyMarquee';
 import { Section } from './ui';
 
 const WHATSAPP_MESSAGE =
@@ -31,41 +32,19 @@ export default function StudentJourneys() {
           </div>
         </div>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2 xl:gap-6">
-          {studentJourneys.map((item, index) => (
-            <article
-              key={item.image}
-              className="group flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-[#f6a623]/20 bg-[#111111]/88 shadow-[0_0_0_1px_rgba(215,25,32,0.12),0_24px_70px_rgba(0,0,0,0.34)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-[#f6a623]/36"
-            >
-              <div className="relative aspect-[16/10] overflow-hidden bg-[#050505]">
-                <Image
-                  src={item.image}
-                  alt={item.alt}
-                  fill
-                  sizes="(min-width: 1280px) 600px, (min-width: 768px) 50vw, 100vw"
-                  className="object-cover object-center transition duration-700 group-hover:scale-[1.025]"
-                  loading="lazy"
-                />
-              </div>
-              <div className="flex flex-1 flex-col p-5 sm:p-6">
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="rounded-full border border-brand/35 bg-brand-soft px-3 py-1 text-[11px] font-black uppercase tracking-[0.12em] text-brand-light">
-                    {item.category}
-                  </span>
-                  <span className="rounded-full border border-[#f6a623]/25 bg-[#f6a623]/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.12em] text-[#f6d58a]">
-                    {item.country}
-                  </span>
-                </div>
-                <h3 className="mt-5 text-2xl font-black uppercase leading-tight text-white">{item.title}</h3>
-                {item.university ? (
-                  <p className="mt-2 text-sm font-bold text-[#f6d58a]">{item.university}</p>
-                ) : null}
-                <p className="mt-4 text-sm leading-7 text-[#D1D1D1]">{item.description}</p>
-                <p className="mt-auto pt-5 text-xs font-black uppercase tracking-[0.16em] text-brand-light">{item.tag}</p>
-              </div>
-            </article>
-          ))}
+        <div className="sivora-student-photo-marquee mt-12 overflow-x-auto overflow-y-hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="sivora-student-photo-marquee__track flex w-max gap-5 pr-5 xl:gap-6 xl:pr-6">
+            {[...studentJourneys, ...studentJourneys].map((item, index) => (
+              <StudentJourneyCard
+                key={`${item.image}-${index}`}
+                item={item}
+                duplicate={index >= studentJourneys.length}
+              />
+            ))}
+          </div>
         </div>
+
+        <AdmissionJourneyMarquee />
 
         <div className="mt-10 grid gap-6 rounded-[1.75rem] border border-[#2B2B2B] bg-[#111111]/88 p-6 shadow-2xl shadow-black/12 backdrop-blur-sm sm:p-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
           <div>
@@ -103,21 +82,6 @@ export default function StudentJourneys() {
           </p>
         </div>
 
-        <div className="mt-8 overflow-hidden rounded-[1.5rem] border border-[#2B2B2B] bg-[#050505]/76 p-4 backdrop-blur-sm sm:p-5">
-          <div className="flex flex-col gap-3 text-center sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:text-left">
-            {studentJourneySteps.map((step, index) => (
-              <div key={step} className="flex flex-col items-center gap-3 sm:flex-row">
-                <span className="text-xs font-black uppercase tracking-[0.16em] text-white">{step}</span>
-                {index < studentJourneySteps.length - 1 ? (
-                  <span className="hidden text-brand-light sm:inline" aria-hidden="true">
-                    -&gt;
-                  </span>
-                ) : null}
-              </div>
-            ))}
-          </div>
-        </div>
-
         <div className="mt-10 rounded-[1.75rem] border border-[#2B2B2B] bg-[#111111]/90 p-6 shadow-2xl shadow-black/12 backdrop-blur-sm sm:p-8 lg:flex lg:items-end lg:justify-between lg:gap-8">
           <div>
             <h3 className="text-3xl font-black uppercase leading-tight text-white sm:text-5xl">
@@ -146,5 +110,45 @@ export default function StudentJourneys() {
         </div>
       </div>
     </Section>
+  );
+}
+
+function StudentJourneyCard({
+  item,
+  duplicate = false,
+}: {
+  item: (typeof studentJourneys)[number];
+  duplicate?: boolean;
+}) {
+  return (
+    <article
+      aria-hidden={duplicate ? true : undefined}
+      className="group flex h-[39rem] w-[min(78vw,18.75rem)] shrink-0 flex-col overflow-hidden rounded-[1.5rem] border border-[#f6a623]/20 bg-[#111111]/88 shadow-[0_0_0_1px_rgba(215,25,32,0.12),0_24px_70px_rgba(0,0,0,0.34)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-[#f6a623]/36 hover:shadow-[0_0_0_1px_rgba(246,166,35,0.22),0_28px_80px_rgba(0,0,0,0.42)] sm:w-[19rem] md:w-[20rem] lg:w-[21.25rem] xl:w-[22.5rem]"
+    >
+      <div className="relative aspect-[16/10] shrink-0 overflow-hidden bg-[#050505]">
+        <Image
+          src={item.image}
+          alt={duplicate ? '' : item.alt}
+          fill
+          sizes="(min-width: 1280px) 360px, (min-width: 1024px) 340px, (min-width: 768px) 320px, 300px"
+          className="object-cover object-center transition duration-700 group-hover:scale-[1.025]"
+          loading="lazy"
+        />
+      </div>
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="rounded-full border border-brand/35 bg-brand-soft px-3 py-1 text-[11px] font-black uppercase tracking-[0.12em] text-brand-light">
+            {item.category}
+          </span>
+          <span className="rounded-full border border-[#f6a623]/25 bg-[#f6a623]/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.12em] text-[#f6d58a]">
+            {item.country}
+          </span>
+        </div>
+        <h3 className="mt-5 text-2xl font-black uppercase leading-tight text-white">{item.title}</h3>
+        {item.university ? <p className="mt-2 text-sm font-bold text-[#f6d58a]">{item.university}</p> : null}
+        <p className="mt-4 text-sm leading-7 text-[#D1D1D1]">{item.description}</p>
+        <p className="mt-auto pt-5 text-xs font-black uppercase tracking-[0.16em] text-brand-light">{item.tag}</p>
+      </div>
+    </article>
   );
 }

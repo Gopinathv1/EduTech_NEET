@@ -1,4 +1,6 @@
 import type { Locale } from '@/i18n/config';
+import { AI_COURSE_TOPICS, ENGINEERING_STUDY_AREAS, LIVE_COURSE_AREAS } from '@/data/courses';
+import { EUROPE_STUDY_DESTINATIONS } from '@/data/study-destinations';
 
 type SupportedLocale = Extract<Locale, 'en' | 'ta' | 'hi'>;
 
@@ -14,63 +16,162 @@ const DEFAULT_LOCALE: SupportedLocale = 'en';
 
 export const AI_SUGGESTIONS = [
   'NEET Preparation',
-  'Mock Tests',
+  'JEE Preparation',
   'MBBS Abroad',
+  'Engineering Abroad',
+  'Study in Europe',
+  'AI Courses',
+  'Live Courses',
+  'Student Life Abroad',
+  'Part-Time Work Rules',
   'Admission Guidance',
-  'Counselling',
-  'Partner With Us',
-  'Talk on WhatsApp',
+  'Talk to Counsellor',
 ];
 
 const LOCALIZED_SUGGESTIONS: Record<SupportedLocale, string[]> = {
   en: AI_SUGGESTIONS,
-  ta: ['NEET தயாரிப்பு', 'Mock Tests', 'MBBS Abroad', 'சேர்க்கை வழிகாட்டுதல்', 'Counselling', 'Partner With Us', 'WhatsApp-ல் பேசுங்கள்'],
-  hi: ['NEET तैयारी', 'Mock Tests', 'MBBS Abroad', 'एडमिशन गाइडेंस', 'काउंसलिंग', 'Partner With Us', 'WhatsApp पर बात करें'],
+  ta: [
+    'NEET தயாரிப்பு',
+    'JEE தயாரிப்பு',
+    'MBBS Abroad',
+    'Engineering Abroad',
+    'Study in Europe',
+    'AI Courses',
+    'Live Courses',
+    'Student Life Abroad',
+    'Part-Time Work Rules',
+    'சேர்க்கை வழிகாட்டுதல்',
+    'Counsellor-ஐ பேசுங்கள்',
+  ],
+  hi: [
+    'NEET तैयारी',
+    'JEE तैयारी',
+    'MBBS Abroad',
+    'Engineering Abroad',
+    'Study in Europe',
+    'AI Courses',
+    'Live Courses',
+    'Student Life Abroad',
+    'Part-Time Work Rules',
+    'एडमिशन गाइडेंस',
+    'Counsellor से बात करें',
+  ],
 };
+
+const europeDestinations = EUROPE_STUDY_DESTINATIONS.join(', ');
+const engineeringAreas = ENGINEERING_STUDY_AREAS.join(', ');
+const liveCourses = LIVE_COURSE_AREAS.join(', ');
+const aiTopics = AI_COURSE_TOPICS.join(', ');
 
 const KNOWLEDGE_BASE: KnowledgeEntry[] = [
   {
     id: 'neet',
     keywords: ['neet', 'prepare', 'preparation', 'physics', 'chemistry', 'biology', 'chapter', 'question bank', 'pyq', 'previous year', 'தயாரிப்பு', 'प्रैक्टिस', 'तैयारी'],
-    href: '/mock-tests',
+    href: '/exam-preparation/neet',
     label: { en: 'Start NEET Preparation', ta: 'NEET தயாரிப்பை தொடங்குங்கள்', hi: 'NEET तैयारी शुरू करें' },
     answer: {
-      en: 'SIVORA UP↑RISING supports NEET preparation through Question Bank practice, chapter-wise practice, previous-year practice, full-length mock tests, answers, explanations and performance analytics. NEET is the active exam focus today.',
-      ta: 'SIVORA UP↑RISING NEET தயாரிப்புக்கு Question Bank, chapter-wise practice, previous-year practice, முழு நீள mock tests, பதில்கள், விளக்கங்கள் மற்றும் performance analytics வழங்குகிறது. இப்போது செயலில் உள்ள தேர்வு NEET.',
-      hi: 'SIVORA UP↑RISING NEET तैयारी के लिए Question Bank practice, chapter-wise practice, previous-year practice, full-length mock tests, answers, explanations और performance analytics देता है. अभी सक्रिय परीक्षा NEET है.',
+      en: 'SIVORA UP↑RISING supports NEET preparation through Question Bank practice, chapter-wise practice, previous-pattern practice, full-length mock tests, answers, explanations, scoring and performance analytics with English/Tamil support where implemented.',
+      ta: 'SIVORA UP↑RISING NEET தயாரிப்புக்கு Question Bank, chapter-wise practice, previous-pattern practice, முழு நீள mock tests, பதில்கள், விளக்கங்கள், scoring மற்றும் performance analytics வழங்குகிறது. செயல்படுத்தப்பட்ட இடங்களில் English/Tamil support கிடைக்கும்.',
+      hi: 'SIVORA UP↑RISING NEET तैयारी के लिए Question Bank practice, chapter-wise practice, previous-pattern practice, full-length mock tests, answers, explanations, scoring और performance analytics देता है. जहां लागू है वहां English/Tamil support उपलब्ध है.',
+    },
+  },
+  {
+    id: 'jee',
+    keywords: ['jee preparation', 'jee', 'engineering entrance', 'mathematics', 'maths', 'iit', 'main', 'advanced', 'जेईई', 'கணிதம்'],
+    href: '/exam-preparation/jee',
+    label: { en: 'Ask About JEE Preparation', ta: 'JEE தயாரிப்பு பற்றி கேளுங்கள்', hi: 'JEE तैयारी के बारे में पूछें' },
+    answer: {
+      en: 'SIVORA UP↑RISING includes JEE Preparation as a service area: structured practice, concept reinforcement, chapter-wise tests and mock assessments for engineering entrance preparation across Physics, Chemistry and Mathematics. No official NTA affiliation is claimed.',
+      ta: 'SIVORA UP↑RISING JEE Preparation-ஐ ஒரு service area ஆக வழங்குகிறது: Physics, Chemistry, Mathematics-க்கு structured practice, concept reinforcement, chapter-wise tests மற்றும் mock assessments. Official NTA affiliation என்று எதையும் claim செய்யவில்லை.',
+      hi: 'SIVORA UP↑RISING JEE Preparation को service area के रूप में शामिल करता है: Physics, Chemistry और Mathematics के लिए structured practice, concept reinforcement, chapter-wise tests और mock assessments. Official NTA affiliation का दावा नहीं किया जाता.',
     },
   },
   {
     id: 'mock-tests',
     keywords: ['mock', 'test', 'price', '30', 'purchase', 'payment', 'result', 'score', 'analytics', 'exam', 'attempt', '₹', 'ரூ', 'மதிப்பெண்', 'टेस्ट', 'रिजल्ट'],
-    href: '/mock-tests',
+    href: '/exam-preparation',
     label: { en: 'View Mock Tests', ta: 'Mock Tests பார்க்க', hi: 'Mock Tests देखें' },
     answer: {
-      en: 'Mock tests are available as a digital learning product. The public site highlights Rs.30 per mock test, English + Tamil support, full-length tests, previous-year practice and performance analytics. After a test, students can review scores, answers and weak areas.',
-      ta: 'Mock tests ஒரு digital learning product ஆக கிடைக்கின்றன. Public site-ல் ஒரு mock test Rs.30, English + Tamil support, full-length tests, previous-year practice மற்றும் performance analytics குறிப்பிடப்பட்டுள்ளது. Test முடிந்த பின் score, answers, weak areas பார்க்கலாம்.',
-      hi: 'Mock tests digital learning product के रूप में उपलब्ध हैं. Public site में Rs.30 per mock test, English + Tamil support, full-length tests, previous-year practice और performance analytics बताया गया है. Test के बाद student score, answers और weak areas review कर सकता है.',
+      en: 'Mock tests are available as a digital learning product. The public site highlights Rs.30 per mock test, English + Tamil support, full-length tests, previous-pattern practice and performance analytics. After a test, students can review scores, answers and weak areas.',
+      ta: 'Mock tests ஒரு digital learning product ஆக கிடைக்கின்றன. Public site-ல் ஒரு mock test Rs.30, English + Tamil support, full-length tests, previous-pattern practice மற்றும் performance analytics குறிப்பிடப்பட்டுள்ளது. Test முடிந்த பின் score, answers, weak areas பார்க்கலாம்.',
+      hi: 'Mock tests digital learning product के रूप में उपलब्ध हैं. Public site में Rs.30 per mock test, English + Tamil support, full-length tests, previous-pattern practice और performance analytics बताया गया है. Test के बाद student score, answers और weak areas review कर सकता है.',
     },
   },
   {
     id: 'admissions',
-    keywords: ['admission', 'mbbs', 'abroad', 'india', 'country', 'countries', 'college', 'university', 'course', 'counselling', 'guidance', 'medical', 'சேர்க்கை', 'வெளிநாடு', 'काउंसलिंग', 'एडमिशन'],
-    href: '/admission-guidance',
+    keywords: ['admission', 'mbbs', 'abroad', 'india', 'country', 'countries', 'college', 'university', 'course', 'counselling', 'guidance', 'medical', 'visa', 'documentation', 'arrival', 'pre-departure', 'சேர்க்கை', 'வெளிநாடு', 'काउंसलिंग', 'एडमिशन'],
+    href: '/study-abroad',
     label: { en: 'Request Counselling', ta: 'Counselling கேட்க', hi: 'Counselling Request करें' },
     answer: {
-      en: 'SIVORA UP↑RISING provides education and admission guidance for medical education, MBBS Abroad, country and university selection, course selection, application guidance and counselling. For India, the site positions the service as MBBS counselling and guidance only, so final choices should be verified with the counselling team.',
-      ta: 'SIVORA UP↑RISING medical education, MBBS Abroad, country and university selection, course selection, application guidance மற்றும் counselling-க்கு வழிகாட்டுகிறது. India-க்கு இது MBBS counselling and guidance ஆக மட்டுமே குறிப்பிடப்படுகிறது; இறுதி முடிவுகளை counselling team உடன் verify செய்ய வேண்டும்.',
-      hi: 'SIVORA UP↑RISING medical education, MBBS Abroad, country and university selection, course selection, application guidance और counselling में मार्गदर्शन देता है. India के लिए service केवल MBBS counselling and guidance है, इसलिए final options counselling team से verify करने चाहिए.',
+      en: 'SIVORA UP↑RISING provides education and admission guidance for MBBS abroad, engineering abroad, higher education, country and university selection, course selection, application pathways, documentation, budgeting, visa guidance, pre-departure, arrival and continued support. Outcomes depend on eligibility, university criteria and applicable regulations.',
+      ta: 'SIVORA UP↑RISING MBBS abroad, engineering abroad, higher education, country/university selection, course selection, application pathways, documentation, budgeting, visa guidance, pre-departure, arrival மற்றும் continued support குறித்து வழிகாட்டுகிறது. முடிவுகள் eligibility, university criteria மற்றும் regulations அடிப்படையில் இருக்கும்.',
+      hi: 'SIVORA UP↑RISING MBBS abroad, engineering abroad, higher education, country/university selection, course selection, application pathways, documentation, budgeting, visa guidance, pre-departure, arrival और continued support में guidance देता है. Outcomes eligibility, university criteria और regulations पर निर्भर करते हैं.',
+    },
+  },
+  {
+    id: 'study-europe',
+    keywords: ['europe', 'germany', 'france', 'italy', 'poland', 'hungary', 'czech', 'lithuania', 'latvia', 'romania', 'bulgaria', 'ireland', 'eu', 'ஜெர்மனி', 'यूरोप'],
+    href: '/study-abroad',
+    label: { en: 'Explore Europe', ta: 'Europe options பார்க்க', hi: 'Europe options देखें' },
+    answer: {
+      en: `SIVORA UP↑RISING can guide students exploring selected European destinations such as ${europeDestinations}. Guidance depends on course availability, eligibility, language requirements, budget, student preference and university criteria. Admission is not guaranteed, and no official university partnership is claimed.`,
+      ta: `SIVORA UP↑RISING ${europeDestinations} போன்ற selected European destinations குறித்து guidance வழங்க முடியும். Course availability, eligibility, language requirements, budget, student preference மற்றும் university criteria அடிப்படையில் guidance இருக்கும். Admission guarantee இல்லை; official university partnership claim செய்யப்படவில்லை.`,
+      hi: `SIVORA UP↑RISING ${europeDestinations} जैसे selected European destinations पर guidance दे सकता है. Guidance course availability, eligibility, language requirements, budget, student preference और university criteria पर निर्भर करती है. Admission guarantee नहीं है, और official university partnership का दावा नहीं है.`,
+    },
+  },
+  {
+    id: 'engineering-abroad',
+    keywords: ['engineering abroad', 'technology abroad', 'computer science', 'artificial intelligence', 'data science', 'cybersecurity', 'mechanical', 'civil', 'electrical', 'electronics', 'robotics', 'biotechnology', 'information technology', 'engineering in germany', 'इंजीनियरिंग', 'பொறியியல்'],
+    href: '/study-abroad',
+    label: { en: 'Explore Engineering Abroad', ta: 'Engineering Abroad பார்க்க', hi: 'Engineering Abroad देखें' },
+    answer: {
+      en: `SIVORA UP↑RISING can guide students on international engineering and technology pathways including ${engineeringAreas}. University and course recommendations are based on interests, academic background, eligibility, destination options and budget. Admission is not guaranteed.`,
+      ta: `SIVORA UP↑RISING ${engineeringAreas} போன்ற international engineering and technology pathways குறித்து வழிகாட்ட முடியும். Recommendations interests, academic background, eligibility, destination options மற்றும் budget அடிப்படையில் இருக்கும். Admission guarantee இல்லை.`,
+      hi: `SIVORA UP↑RISING ${engineeringAreas} जैसे international engineering and technology pathways पर guidance दे सकता है. Recommendations interests, academic background, eligibility, destination options और budget पर आधारित होते हैं. Admission guarantee नहीं है.`,
+    },
+  },
+  {
+    id: 'courses',
+    keywords: ['live course', 'live courses', 'python', 'data science', 'machine learning', 'generative ai', 'coding', 'programming', 'future skills', 'skill', 'கோர்ஸ்', 'कोर्स'],
+    href: '/courses',
+    label: { en: 'View Courses', ta: 'Courses பார்க்க', hi: 'Courses देखें' },
+    answer: {
+      en: `SIVORA UP↑RISING can offer guided learning programs in competitive exam preparation and future skills such as ${liveCourses}. Schedules and prices should be confirmed with the team before enrolling.`,
+      ta: `SIVORA UP↑RISING competitive exam preparation மற்றும் future skills-ல் guided learning programs வழங்க முடியும்: ${liveCourses}. Schedule மற்றும் price-ஐ enrol செய்வதற்கு முன் team உடன் confirm செய்ய வேண்டும்.`,
+      hi: `SIVORA UP↑RISING competitive exam preparation और future skills में guided learning programs दे सकता है: ${liveCourses}. Schedule और price enrollment से पहले team से confirm करें.`,
+    },
+  },
+  {
+    id: 'ai-courses',
+    keywords: ['ai course', 'ai', 'artificial intelligence', 'prompt', 'rag', 'llm', 'python for ai', 'teach ai', 'do you teach ai', 'ஏஐ', 'एआई'],
+    href: '/courses',
+    label: { en: 'Explore AI Courses', ta: 'AI Courses பார்க்க', hi: 'AI Courses देखें' },
+    answer: {
+      en: `SIVORA UP↑RISING can guide learners through AI and future technology topics such as ${aiTopics}. Certification, placement or accreditation is not claimed unless verified.`,
+      ta: `SIVORA UP↑RISING ${aiTopics} போன்ற AI and future technology topics-ல் learners-க்கு guidance வழங்க முடியும். Verified அல்லாத certification, placement அல்லது accreditation claim செய்யப்படவில்லை.`,
+      hi: `SIVORA UP↑RISING ${aiTopics} जैसे AI and future technology topics में learners को guide कर सकता है. Verified न होने पर certification, placement या accreditation का दावा नहीं किया जाता.`,
+    },
+  },
+  {
+    id: 'student-life',
+    keywords: ['part-time', 'part time', 'job', 'work', 'salary', 'student life', 'working hours', 'abroad work', 'வேலை', 'नौकरी', 'काम'],
+    href: '/study-abroad',
+    label: { en: 'Ask About Student Life', ta: 'Student Life பற்றி கேளுங்கள்', hi: 'Student Life के बारे में पूछें' },
+    answer: {
+      en: "SIVORA UP↑RISING can guide students with practical information about student life abroad, local rules, permitted work options where applicable, budgeting and adapting to a new country. Part-time work eligibility and permitted working hours depend on the student's visa type, country-specific regulations and university policies. We do not promise jobs, salary or work hours.",
+      ta: 'SIVORA UP↑RISING student life abroad, local rules, permitted work options where applicable, budgeting மற்றும் புதிய நாட்டுக்கு adapt ஆகுவது குறித்து practical guidance வழங்க முடியும். Part-time work eligibility மற்றும் allowed hours visa type, country rules மற்றும் university policies அடிப்படையில் இருக்கும். Jobs, salary அல்லது work hours guarantee செய்யப்படவில்லை.',
+      hi: 'SIVORA UP↑RISING student life abroad, local rules, जहां लागू हो permitted work options, budgeting और नए देश में adjust होने पर practical guidance दे सकता है. Part-time work eligibility और permitted hours visa type, country rules और university policies पर निर्भर करते हैं. Jobs, salary या work hours promise नहीं किए जाते.',
     },
   },
   {
     id: 'partners',
-    keywords: ['partner', 'b2b', 'agency', 'school', 'consultant', 'institution', 'பார்ட்னர்', 'साझेदार', 'पार्टनर'],
+    keywords: ['partner', 'b2b', 'agency', 'school', 'consultant', 'institution', 'college', 'coaching centre', 'பார்ட்னர்', 'साझेदार', 'पार्टनर'],
     href: '/partners',
     label: { en: 'Partner With Us', ta: 'Partner With Us', hi: 'Partner With Us' },
     answer: {
-      en: 'SIVORA UP↑RISING has a Partner With Us pathway for schools, colleges, coaching centres, education consultants and overseas admission partners. Use the partner page or WhatsApp to speak with the partner team.',
-      ta: 'SIVORA UP↑RISING schools, colleges, coaching centres, education consultants மற்றும் overseas admission partners-க்கு Partner With Us வழி வைத்துள்ளது. Partner page அல்லது WhatsApp மூலம் partner team-ஐ தொடர்பு கொள்ளலாம்.',
-      hi: 'SIVORA UP↑RISING schools, colleges, coaching centres, education consultants और overseas admission partners के लिए Partner With Us pathway देता है. Partner page या WhatsApp से partner team से बात कर सकते हैं.',
+      en: 'SIVORA UP↑RISING has a B2B pathway for schools, colleges, coaching centres, education consultants and overseas admission partners. Use the partner page or WhatsApp to speak with the partner team.',
+      ta: 'SIVORA UP↑RISING schools, colleges, coaching centres, education consultants மற்றும் overseas admission partners-க்கு B2B pathway வைத்துள்ளது. Partner page அல்லது WhatsApp மூலம் partner team-ஐ தொடர்பு கொள்ளலாம்.',
+      hi: 'SIVORA UP↑RISING schools, colleges, coaching centres, education consultants और overseas admission partners के लिए B2B pathway देता है. Partner page या WhatsApp से partner team से बात कर सकते हैं.',
     },
   },
   {
@@ -86,27 +187,27 @@ const KNOWLEDGE_BASE: KnowledgeEntry[] = [
   },
   {
     id: 'support',
-    keywords: ['contact', 'support', 'help', 'faq', 'whatsapp', 'counsellor', 'team', 'தொடர்பு', 'உதவி', 'सपोर्ट', 'संपर्क'],
-    href: '/contact',
+    keywords: ['contact', 'support', 'help', 'faq', 'whatsapp', 'counsellor', 'team', 'talk to counsellor', 'தொடர்பு', 'உதவி', 'सपोर्ट', 'संपर्क'],
+    href: '/counselling',
     label: { en: 'Contact Us', ta: 'Contact Us', hi: 'Contact Us' },
     answer: {
-      en: 'For human help, use WhatsApp, the contact form or counselling request. The team can guide you on NEET preparation, mock tests, admissions and partner enquiries.',
-      ta: 'மனித உதவிக்கு WhatsApp, contact form அல்லது counselling request பயன்படுத்துங்கள். NEET preparation, mock tests, admissions மற்றும் partner enquiries-க்கு team வழிகாட்டும்.',
-      hi: 'Human help के लिए WhatsApp, contact form या counselling request इस्तेमाल करें. Team NEET preparation, mock tests, admissions और partner enquiries पर guide कर सकती है.',
+      en: 'For human help, use WhatsApp, the contact form or counselling request. The team can guide you on NEET, JEE, mock tests, MBBS abroad, engineering abroad, Study in Europe, courses, student life abroad and partner enquiries.',
+      ta: 'மனித உதவிக்கு WhatsApp, contact form அல்லது counselling request பயன்படுத்துங்கள். NEET, JEE, mock tests, MBBS abroad, engineering abroad, Study in Europe, courses, student life abroad மற்றும் partner enquiries-க்கு team வழிகாட்டும்.',
+      hi: 'Human help के लिए WhatsApp, contact form या counselling request इस्तेमाल करें. Team NEET, JEE, mock tests, MBBS abroad, engineering abroad, Study in Europe, courses, student life abroad और partner enquiries पर guide कर सकती है.',
     },
   },
 ];
 
 const WELCOME: Record<SupportedLocale, string> = {
-  en: "Hi! I'm Ask SIVORA UP↑RISING AI. I can help you with NEET preparation, admissions, mock tests, counselling and SIVORA UP↑RISING services. What would you like to know?",
-  ta: 'வணக்கம்! நான் Ask SIVORA UP↑RISING AI. NEET தயாரிப்பு, சேர்க்கை வழிகாட்டுதல், Mock Tests, Counselling மற்றும் SIVORA UP↑RISING சேவைகள் குறித்து உங்களுக்கு உதவ முடியும். என்ன தெரிந்து கொள்ள விரும்புகிறீர்கள்?',
-  hi: 'नमस्ते! मैं Ask SIVORA UP↑RISING AI हूं. मैं NEET तैयारी, एडमिशन, मॉक टेस्ट, काउंसलिंग और SIVORA UP↑RISING सेवाओं के बारे में आपकी मदद कर सकता हूं. आप क्या जानना चाहते हैं?',
+  en: "Hi! I'm Ask SIVORA UP↑RISING AI. I can help with NEET/JEE preparation, MBBS abroad, engineering abroad, Study in Europe, AI courses, live courses, student life abroad, admissions and B2B enquiries. What would you like to know?",
+  ta: 'வணக்கம்! நான் Ask SIVORA UP↑RISING AI. NEET/JEE தயாரிப்பு, MBBS abroad, engineering abroad, Study in Europe, AI courses, live courses, student life abroad, admissions மற்றும் B2B enquiries பற்றி உதவ முடியும். என்ன தெரிந்து கொள்ள விரும்புகிறீர்கள்?',
+  hi: 'नमस्ते! मैं Ask SIVORA UP↑RISING AI हूं. मैं NEET/JEE तैयारी, MBBS abroad, engineering abroad, Study in Europe, AI courses, live courses, student life abroad, admissions और B2B enquiries में मदद कर सकता हूं. आप क्या जानना चाहते हैं?',
 };
 
 const FALLBACK: Record<SupportedLocale, string> = {
-  en: 'I do not have enough verified SIVORA UP↑RISING information to answer that confidently. Please talk to our team for current, confirmed guidance.',
-  ta: 'அதற்கு நம்பிக்கையுடன் பதில் அளிக்க போதுமான verified SIVORA UP↑RISING தகவல் இல்லை. தற்போதைய உறுதியான வழிகாட்டலுக்கு எங்கள் team-ஐ தொடர்பு கொள்ளுங்கள்.',
-  hi: 'इसका भरोसेमंद जवाब देने के लिए मेरे पास पर्याप्त verified SIVORA UP↑RISING जानकारी नहीं है. Current और confirmed guidance के लिए हमारी team से बात करें.',
+  en: "I don't have enough verified information to answer that accurately. Would you like to speak with our counselling team?",
+  ta: 'அதற்கு துல்லியமாக பதில் அளிக்க போதுமான verified information இல்லை. எங்கள் counselling team உடன் பேச விரும்புகிறீர்களா?',
+  hi: 'इसका सटीक जवाब देने के लिए मेरे पास पर्याप्त verified information नहीं है. क्या आप हमारी counselling team से बात करना चाहेंगे?',
 };
 
 const CLEAR_MESSAGE: Record<SupportedLocale, string> = {
@@ -122,11 +223,20 @@ function normalizeLocale(locale: string | undefined): SupportedLocale {
 function retrieveKnowledge(query: string): KnowledgeEntry | null {
   const normalized = query.trim().toLowerCase();
   if (!normalized) return null;
-  return (
-    KNOWLEDGE_BASE.find((entry) =>
-      entry.keywords.some((keyword) => normalized.includes(keyword.toLowerCase())),
-    ) ?? null
-  );
+  let best: { entry: KnowledgeEntry; score: number } | null = null;
+
+  for (const entry of KNOWLEDGE_BASE) {
+    const score = entry.keywords.reduce((total, keyword) => {
+      const normalizedKeyword = keyword.toLowerCase();
+      if (!normalized.includes(normalizedKeyword)) return total;
+      return total + normalizedKeyword.length;
+    }, 0);
+    if (score > 0 && (!best || score > best.score)) {
+      best = { entry, score };
+    }
+  }
+
+  return best?.entry ?? null;
 }
 
 export function getAiWelcomeMessage(locale?: string): string {
