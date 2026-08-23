@@ -59,13 +59,13 @@ export default function CountriesPage() {
           </div>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {EUROPE_STUDY_DESTINATIONS.map((destination) => (
-              <a
+              <Link
                 key={destination}
                 href="/#callback"
                 className="rounded-2xl border border-border bg-surfaceElevated p-5 text-sm font-black uppercase tracking-[0.08em] text-textPrimary transition hover:border-brand hover:text-brand"
               >
                 {destination}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

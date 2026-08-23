@@ -15,46 +15,28 @@ type KnowledgeEntry = {
 const DEFAULT_LOCALE: SupportedLocale = 'en';
 
 export const AI_SUGGESTIONS = [
-  'NEET Preparation',
-  'JEE Preparation',
-  'MBBS Abroad',
-  'Engineering Abroad',
-  'Study in Europe',
-  'AI Courses',
-  'Live Courses',
-  'Student Life Abroad',
-  'Part-Time Work Rules',
-  'Admission Guidance',
-  'Talk to Counsellor',
+  'Exam Preparation',
+  'Study Abroad',
+  'Courses',
+  'Counselling',
+  'Admission Journey',
 ];
 
 const LOCALIZED_SUGGESTIONS: Record<SupportedLocale, string[]> = {
   en: AI_SUGGESTIONS,
   ta: [
-    'NEET தயாரிப்பு',
-    'JEE தயாரிப்பு',
-    'MBBS Abroad',
-    'Engineering Abroad',
-    'Study in Europe',
-    'AI Courses',
-    'Live Courses',
-    'Student Life Abroad',
-    'Part-Time Work Rules',
-    'சேர்க்கை வழிகாட்டுதல்',
-    'Counsellor-ஐ பேசுங்கள்',
+    'Exam Preparation',
+    'Study Abroad',
+    'Courses',
+    'Counselling',
+    'Admission Journey',
   ],
   hi: [
-    'NEET तैयारी',
-    'JEE तैयारी',
-    'MBBS Abroad',
-    'Engineering Abroad',
-    'Study in Europe',
-    'AI Courses',
-    'Live Courses',
-    'Student Life Abroad',
-    'Part-Time Work Rules',
-    'एडमिशन गाइडेंस',
-    'Counsellor से बात करें',
+    'Exam Preparation',
+    'Study Abroad',
+    'Courses',
+    'Counselling',
+    'Admission Journey',
   ],
 };
 
@@ -73,6 +55,17 @@ const KNOWLEDGE_BASE: KnowledgeEntry[] = [
       en: 'SIVORA UP↑RISING supports NEET preparation through Question Bank practice, chapter-wise practice, previous-pattern practice, full-length mock tests, answers, explanations, scoring and performance analytics with English/Tamil support where implemented.',
       ta: 'SIVORA UP↑RISING NEET தயாரிப்புக்கு Question Bank, chapter-wise practice, previous-pattern practice, முழு நீள mock tests, பதில்கள், விளக்கங்கள், scoring மற்றும் performance analytics வழங்குகிறது. செயல்படுத்தப்பட்ட இடங்களில் English/Tamil support கிடைக்கும்.',
       hi: 'SIVORA UP↑RISING NEET तैयारी के लिए Question Bank practice, chapter-wise practice, previous-pattern practice, full-length mock tests, answers, explanations, scoring और performance analytics देता है. जहां लागू है वहां English/Tamil support उपलब्ध है.',
+    },
+  },
+  {
+    id: 'exam-preparation',
+    keywords: ['exam preparation', 'competitive exam', 'prepare for exam'],
+    href: '/exam-preparation',
+    label: { en: 'Explore Exam Preparation', ta: 'Exam Preparation பார்க்க', hi: 'Exam Preparation देखें' },
+    answer: {
+      en: 'SIVORA UP↑RISING organizes exam preparation as a hub. You can choose NEET, JEE or future exam categories, then continue to structured practice, question banks, mock tests and performance insights.',
+      ta: 'SIVORA UP↑RISING exam preparation-ஐ ஒரு hub ஆக அமைத்துள்ளது. NEET, JEE அல்லது future exam categories தேர்வு செய்து structured practice, question banks, mock tests மற்றும் performance insights பார்க்கலாம்.',
+      hi: 'SIVORA UP↑RISING exam preparation को hub के रूप में रखता है. आप NEET, JEE या future exam categories चुनकर structured practice, question banks, mock tests और performance insights देख सकते हैं.',
     },
   },
   {
@@ -99,13 +92,24 @@ const KNOWLEDGE_BASE: KnowledgeEntry[] = [
   },
   {
     id: 'admissions',
-    keywords: ['admission', 'mbbs', 'abroad', 'india', 'country', 'countries', 'college', 'university', 'course', 'counselling', 'guidance', 'medical', 'visa', 'documentation', 'arrival', 'pre-departure', 'சேர்க்கை', 'வெளிநாடு', 'काउंसलिंग', 'एडमिशन'],
+    keywords: ['study abroad', 'admission', 'mbbs', 'abroad', 'india', 'country', 'countries', 'college', 'university', 'course', 'counselling', 'guidance', 'medical', 'visa', 'documentation', 'arrival', 'pre-departure', 'சேர்க்கை', 'வெளிநாடு', 'काउंसलिंग', 'एडमिशन'],
     href: '/study-abroad',
     label: { en: 'Request Counselling', ta: 'Counselling கேட்க', hi: 'Counselling Request करें' },
     answer: {
       en: 'SIVORA UP↑RISING provides education and admission guidance for MBBS abroad, engineering abroad, higher education, country and university selection, course selection, application pathways, documentation, budgeting, visa guidance, pre-departure, arrival and continued support. Outcomes depend on eligibility, university criteria and applicable regulations.',
       ta: 'SIVORA UP↑RISING MBBS abroad, engineering abroad, higher education, country/university selection, course selection, application pathways, documentation, budgeting, visa guidance, pre-departure, arrival மற்றும் continued support குறித்து வழிகாட்டுகிறது. முடிவுகள் eligibility, university criteria மற்றும் regulations அடிப்படையில் இருக்கும்.',
       hi: 'SIVORA UP↑RISING MBBS abroad, engineering abroad, higher education, country/university selection, course selection, application pathways, documentation, budgeting, visa guidance, pre-departure, arrival और continued support में guidance देता है. Outcomes eligibility, university criteria और regulations पर निर्भर करते हैं.',
+    },
+  },
+  {
+    id: 'admission-journey',
+    keywords: ['admission journey', 'student journey', 'real students', 'arrival support'],
+    href: '/admission-journey',
+    label: { en: 'View Admission Journey', ta: 'Admission Journey பார்க்க', hi: 'Admission Journey देखें' },
+    answer: {
+      en: 'The admission journey page explains how SIVORA UP↑RISING guides students from counselling and profile assessment to course selection, applications, documentation, visa guidance, departure, arrival and continued support.',
+      ta: 'Admission journey page counselling, profile assessment, course selection, applications, documentation, visa guidance, departure, arrival மற்றும் continued support வரை SIVORA UP↑RISING எப்படி வழிகாட்டுகிறது என்பதை விளக்குகிறது.',
+      hi: 'Admission journey page बताता है कि SIVORA UP↑RISING counselling और profile assessment से course selection, applications, documentation, visa guidance, departure, arrival और continued support तक कैसे guide करता है.',
     },
   },
   {

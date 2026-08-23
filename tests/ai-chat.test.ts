@@ -10,17 +10,11 @@ import {
 describe('mock AI assistant layer', () => {
   it('exposes the requested initial suggestions', () => {
     expect(AI_SUGGESTIONS).toEqual([
-      'NEET Preparation',
-      'JEE Preparation',
-      'MBBS Abroad',
-      'Engineering Abroad',
-      'Study in Europe',
-      'AI Courses',
-      'Live Courses',
-      'Student Life Abroad',
-      'Part-Time Work Rules',
-      'Admission Guidance',
-      'Talk to Counsellor',
+      'Exam Preparation',
+      'Study Abroad',
+      'Courses',
+      'Counselling',
+      'Admission Journey',
     ]);
   });
 
@@ -39,7 +33,7 @@ describe('mock AI assistant layer', () => {
 
   it('returns localized welcome/suggestions and grounded fallback behavior', () => {
     expect(getAiWelcomeMessage('ta')).toContain('வணக்கம்');
-    expect(getLocalizedAiSuggestions('hi')).toContain('NEET तैयारी');
+    expect(getLocalizedAiSuggestions('hi')).toContain('Exam Preparation');
     expect(hasGroundedAiAnswer('scholarship deadline')).toBe(false);
     expect(getMockAiResponse('scholarship deadline')).toContain("don't have enough verified");
     expect(getMockAiResponse('JEE Preparation', 'hi')).toContain('JEE Preparation');

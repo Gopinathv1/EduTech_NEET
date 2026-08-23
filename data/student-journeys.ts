@@ -51,6 +51,27 @@ export const studentJourneys: StudentJourney[] = [
     tag: 'COUNSELLING -> ADMISSION -> SUPPORT',
     alt: 'Students and family members with admission guidance counsellors during an overseas education support meeting',
   },
+  {
+    image: '/admissions/Georgia.jpg',
+    title: 'Experiencing Medical Education Abroad',
+    description:
+      'Supporting students beyond admission as they begin experiencing their medical education environment, campus facilities and academic journey abroad.',
+    country: 'International Medical Education',
+    category: 'Campus Experience',
+    tag: 'ADMISSION -> CAMPUS -> STUDENT SUPPORT',
+    alt: 'Visit to a medical education facility during an international student academic journey',
+  },
+
+  {
+    image: '/admissions/Russia.jpg',
+    title: 'Another Student Journey Takes Flight',
+    description:
+      'From counselling and university selection to documentation, admission and departure, SIVORA UP↑RISING supports students as they begin their international education journey.',
+    country: 'International Medical Education',
+    category: 'Student Departure',
+    tag: 'COUNSELLING -> ADMISSION -> DEPARTURE',
+    alt: 'Student with luggage at an airport before departing for international studies',
+  },
 ];
 
 export const studentJourneySteps = [

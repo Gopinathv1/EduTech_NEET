@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 type BrandLogoProps = {
@@ -18,9 +19,11 @@ export default function BrandLogo({
 
   return (
     <Link href={href} className={`flex shrink-0 items-center gap-2 text-textPrimary ${className}`} aria-label={label}>
-      <img
+      <Image
         src="/sivora-logo.png"
         alt="SIVORA UP↑RISING Trishul logo"
+        width={192}
+        height={64}
         className={`${imageClass} w-auto object-contain object-left`}
       />
       <span className={`inline-flex items-center gap-0.5 font-black uppercase tracking-[0.14em] text-white ${textClass}`}>

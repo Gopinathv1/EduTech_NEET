@@ -1,12 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { admissionGuidancePoints, studentJourneys } from '@/data/student-journeys';
-import WhatsAppLink from '@/components/whatsapp/WhatsAppLink';
+import { studentJourneys } from '@/data/student-journeys';
 import AdmissionJourneyMarquee from '@/components/public/AdmissionJourneyMarquee';
 import { Section } from './ui';
-
-const WHATSAPP_MESSAGE =
-  'Hello SIVORA UP↑RISING, I would like to know more about MBBS opportunities, eligibility, universities, admission procedures and my next steps.';
 
 export default function StudentJourneys() {
   return (
@@ -46,66 +42,28 @@ export default function StudentJourneys() {
 
         <AdmissionJourneyMarquee />
 
-        <div className="mt-10 grid gap-6 rounded-[1.75rem] border border-[#2B2B2B] bg-[#111111]/88 p-6 shadow-2xl shadow-black/12 backdrop-blur-sm sm:p-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
-          <div>
-            <p className="text-xs font-black uppercase tracking-[0.24em] text-brand-light">
-              University & Course Matching
-            </p>
-            <h3 className="mt-4 text-3xl font-black uppercase leading-tight text-white sm:text-5xl">
-              How We Help Students Build Their Future Abroad
-            </h3>
-            <div className="mt-5 space-y-4 text-sm leading-7 text-[#D1D1D1] sm:text-base sm:leading-8">
-              <p>
-                Our admission process starts by understanding each student&apos;s goals, academic profile, interests,
-                skills, preferred course, country preference and financial situation.
-              </p>
-              <p>
-                Based on this, we guide students toward suitable universities and courses that align with their academic
-                background, career interests and budget.
-              </p>
-              <p>
-                Our support continues through application, documentation, admission, visa guidance, pre-departure
-                preparation and transition support.
-              </p>
-            </div>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {admissionGuidancePoints.map((point) => (
-              <div key={point} className="rounded-2xl border border-[#2B2B2B] bg-[#050505]/76 p-4">
-                <p className="text-sm font-bold leading-6 text-white">{point}</p>
-              </div>
-            ))}
-          </div>
-          <p className="border-l border-[#f6a623]/40 bg-[#050505]/64 p-4 text-xs leading-6 text-[#D1D1D1] lg:col-span-2">
-            Admission is subject to university eligibility requirements, applicable regulations, documentation and
-            availability.
-          </p>
-        </div>
-
         <div className="mt-10 rounded-[1.75rem] border border-[#2B2B2B] bg-[#111111]/90 p-6 shadow-2xl shadow-black/12 backdrop-blur-sm sm:p-8 lg:flex lg:items-end lg:justify-between lg:gap-8">
           <div>
             <h3 className="text-3xl font-black uppercase leading-tight text-white sm:text-5xl">
-              Your Global Education Journey Could Be Next.
+              Your Journey Could Be Next.
             </h3>
             <p className="mt-4 max-w-3xl text-base leading-8 text-[#D1D1D1]">
-              Talk to our counselling team to understand suitable countries, universities, courses, eligibility and
-              expected costs based on your profile and goals.
+              See the full admission journey or speak with our counselling team to plan your next step.
             </p>
           </div>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:mt-0 lg:shrink-0">
             <Link
-              href="#callback"
+              href="/admission-journey"
               className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-brand to-brand-light px-5 py-3 text-sm font-black uppercase tracking-[0.08em] text-white shadow-lg shadow-brand/25 transition hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
             >
-              GET FREE COUNSELLING
+              VIEW STUDENT JOURNEYS
             </Link>
-            <WhatsAppLink
-              label="Chat with SIVORA UP↑RISING on WhatsApp"
-              message={WHATSAPP_MESSAGE}
-              className="inline-flex items-center justify-center rounded-lg border border-[#25D366]/45 bg-[#25D366]/14 px-5 py-3 text-sm font-black uppercase tracking-[0.08em] text-white transition hover:-translate-y-0.5 hover:bg-[#25D366]/24 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            <Link
+              href="/counselling"
+              className="inline-flex items-center justify-center rounded-lg border border-[#2B2B2B] bg-white/80 px-5 py-3 text-sm font-black uppercase tracking-[0.08em] text-textPrimary transition hover:-translate-y-0.5 hover:border-brand/45 hover:bg-[#111111] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
             >
-              CHAT ON WHATSAPP
-            </WhatsAppLink>
+              START YOUR JOURNEY
+            </Link>
           </div>
         </div>
       </div>
