@@ -4,6 +4,8 @@ import { pageMetadata } from '@/lib/seo';
 import { Container, PrimaryLink, SecondaryLink, Section } from '@/components/public/ui';
 import { BookIcon, ChartIcon, GlobeIcon, ShieldIcon } from '@/components/public/icons';
 import StudentJourneys from '@/components/public/StudentJourneys';
+import BrandMarquee from '@/components/public/BrandMarquee';
+import FounderStory from '@/components/public/FounderStory';
 
 export async function generateMetadata() {
   const t = await getTranslations('seo.home');
@@ -25,25 +27,25 @@ const QUICK_LINKS = [
 const SERVICE_CARDS = [
   {
     title: 'Exam Preparation',
-    body: 'Prepare for competitive exams through structured practice, mock tests, question banks and performance insights.',
+    body: 'Structured practice, mock tests, question banks and performance insights.',
     href: '/exam-preparation',
     icon: BookIcon,
   },
   {
     title: 'Study Abroad',
-    body: 'Explore international education opportunities with guidance on countries, universities, courses, applications and student life.',
+    body: 'Guided country, university, course and application planning.',
     href: '/study-abroad',
     icon: GlobeIcon,
   },
   {
     title: 'Courses & Future Skills',
-    body: 'Explore live learning programs in NEET, JEE, AI, Python, Data Science, Machine Learning and emerging technologies.',
+    body: 'Learning programs for exams, technology and emerging skills.',
     href: '/courses',
     icon: ChartIcon,
   },
   {
     title: 'Counselling & Admission Guidance',
-    body: 'Get personalized support for academic decisions, admissions, course selection and your next education pathway.',
+    body: 'Clear support for academic choices, admissions and next steps.',
     href: '/counselling',
     icon: ShieldIcon,
   },
@@ -100,6 +102,8 @@ export default function HomePage() {
         </Container>
       </section>
 
+      <BrandMarquee />
+
       <Section id="what-we-do">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
@@ -121,7 +125,7 @@ export default function HomePage() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="group rounded-[1.75rem] border border-[#2B2B2B] bg-[#111111] p-6 shadow-xl shadow-black/5 transition hover:-translate-y-1 hover:border-brand/35 hover:shadow-2xl hover:shadow-black/10 sm:p-7"
+                className="group flex min-h-[18rem] flex-col rounded-[1.75rem] border border-[#2B2B2B] bg-[#111111] p-6 shadow-xl shadow-black/5 transition hover:-translate-y-1 hover:border-brand/35 hover:shadow-2xl hover:shadow-black/10 sm:p-7"
               >
                 <div className="flex items-center justify-between gap-3">
                   <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-soft text-brand">
@@ -132,8 +136,8 @@ export default function HomePage() {
                 <h3 className="mt-8 text-xl font-black uppercase leading-tight text-white xl:text-lg 2xl:text-xl">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-sm leading-7 text-[#D1D1D1]">{item.body}</p>
-                <span className="mt-7 inline-flex text-xs font-black uppercase tracking-[0.12em] text-brand transition group-hover:translate-x-1">
+                <p className="mt-4 text-sm leading-6 text-[#D1D1D1]">{item.body}</p>
+                <span className="mt-auto inline-flex pt-7 text-xs font-black uppercase tracking-[0.12em] text-brand transition group-hover:translate-x-1">
                   Explore -&gt;
                 </span>
               </Link>
@@ -141,6 +145,8 @@ export default function HomePage() {
           })}
         </div>
       </Section>
+
+      <FounderStory />
 
       <StudentJourneys />
     </>

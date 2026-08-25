@@ -93,6 +93,11 @@ body {
     animation: none !important;
     transform: none !important;
   }
+
+  .sivora-brand-marquee {
+    animation: none !important;
+    transform: none !important;
+  }
 }
 
 @keyframes vv-fade-up {
@@ -163,6 +168,15 @@ body {
   }
 }
 
+@keyframes sivoraBrandMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
 .vv-reveal {
   animation: vv-fade-up 700ms ease-out both;
 }
@@ -203,6 +217,15 @@ body {
 }
 
 .sivora-student-photo-marquee:hover .sivora-student-photo-marquee__track {
+  animation-play-state: paused;
+}
+
+.sivora-brand-marquee {
+  animation: sivoraBrandMarquee 34s linear infinite;
+  will-change: transform;
+}
+
+.group:hover > .sivora-brand-marquee {
   animation-play-state: paused;
 }
 

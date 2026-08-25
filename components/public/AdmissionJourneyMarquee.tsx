@@ -1,14 +1,13 @@
 import Link from 'next/link';
 import { admissionJourneySteps } from '@/data/admission-journey';
 
-function JourneyTrack({ duplicate = false }: { duplicate?: boolean }) {
+function JourneyTrack() {
   return (
     <div className="flex w-max items-center whitespace-nowrap">
       {admissionJourneySteps.map((step, index) => (
         <div key={step.id} className="flex shrink-0 items-center">
           <Link
             href={step.href}
-            tabIndex={duplicate ? -1 : undefined}
             className="rounded-full px-3 py-2 text-xs font-black uppercase tracking-[0.16em] text-white transition hover:bg-brand-soft hover:text-brand-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
           >
             {step.shortTitle}
@@ -37,20 +36,7 @@ export default function AdmissionJourneyMarquee() {
         </p>
       </div>
       <div className="overflow-x-auto rounded-[1.5rem] border border-[#2B2B2B] bg-[#050505]/76 p-3 backdrop-blur-sm [scrollbar-width:thin]">
-        <div className="group flex w-max min-w-full overflow-hidden">
-          <div className="sivora-journey-marquee flex w-max shrink-0 items-center">
-            <JourneyTrack />
-            <span className="mx-2 text-sm font-black text-[#f6d58a]" aria-hidden="true">
-              -&gt;
-            </span>
-          </div>
-          <div className="sivora-journey-marquee flex w-max shrink-0 items-center" aria-hidden="true">
-            <JourneyTrack duplicate />
-            <span className="mx-2 text-sm font-black text-[#f6d58a]" aria-hidden="true">
-              -&gt;
-            </span>
-          </div>
-        </div>
+        <JourneyTrack />
       </div>
     </div>
   );
