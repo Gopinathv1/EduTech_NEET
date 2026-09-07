@@ -57,7 +57,7 @@ export async function logOrderCreated(paymentId: string, orderId: string): Promi
  */
 export async function finalizeSuccess(
   paymentId: string,
-  opts: { razorpayPaymentId: string; source: 'verify' | 'webhook' },
+  opts: { razorpayPaymentId?: string; source: 'verify' | 'webhook' },
 ): Promise<FinalizeResult> {
   return prisma.$transaction(async (tx) => {
     const payment = await tx.payment.findUnique({
@@ -70,7 +70,11 @@ export async function finalizeSuccess(
     // Claim the payment — only the first caller flips it to SUCCESS.
     const claim = await tx.payment.updateMany({
       where: { id: paymentId, status: { not: 'SUCCESS' } },
-      data: { status: 'SUCCESS', paidAt: new Date(), razorpayPaymentId: opts.razorpayPaymentId },
+      data: {
+        status: 'SUCCESS',
+        paidAt: new Date(),
+        ...(opts.razorpayPaymentId ? { razorpayPaymentId: opts.razorpayPaymentId } : {}),
+      },
     });
     if (claim.count === 0) return { ok: true, alreadyProcessed: true };
 
@@ -129,7 +133,7 @@ export async function finalizeSuccess(
         fromStatus: payment.status,
         toStatus: 'SUCCESS',
         source: opts.source,
-        detail: { razorpayPaymentId: opts.razorpayPaymentId },
+        detail: opts.razorpayPaymentId ? { razorpayPaymentId: opts.razorpayPaymentId } : undefined,
       },
     });
 

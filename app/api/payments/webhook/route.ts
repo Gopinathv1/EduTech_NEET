@@ -51,7 +51,7 @@ export async function POST(req: Request) {
   if (!payment) return ok({ ignored: 'unknown_order' });
 
   if (event === 'payment.captured' || event === 'order.paid') {
-    await finalizeSuccess(payment.id, { razorpayPaymentId: razorpayPaymentId ?? 'webhook', source: 'webhook' });
+    await finalizeSuccess(payment.id, { razorpayPaymentId, source: 'webhook' });
     log.info('payment.webhookSuccessProcessed', { paymentId: payment.id, orderId, event });
   } else if (event === 'payment.failed') {
     await markFailed(payment.id, { source: 'webhook', reason: paymentEntity?.error_description ?? 'payment.failed' });

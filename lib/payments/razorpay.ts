@@ -73,6 +73,7 @@ export function verifyCheckoutSignature(
   input: { orderId: string; paymentId: string; signature: string },
   keySecret: string = getKeys().keySecret,
 ): boolean {
+  if (!keySecret) return false;
   const expected = crypto.createHmac('sha256', keySecret).update(`${input.orderId}|${input.paymentId}`).digest('hex');
   return safeEqualHex(expected, input.signature);
 }

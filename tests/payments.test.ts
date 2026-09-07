@@ -33,6 +33,9 @@ describe('verifyCheckoutSignature', () => {
     expect(verifyCheckoutSignature({ orderId, paymentId, signature: 'nope' }, secret)).toBe(false);
     expect(verifyCheckoutSignature({ orderId, paymentId, signature: '' }, secret)).toBe(false);
   });
+  it('rejects when the key secret is empty', () => {
+    expect(verifyCheckoutSignature({ orderId, paymentId, signature: valid }, '')).toBe(false);
+  });
 });
 
 describe('verifyWebhookSignature', () => {

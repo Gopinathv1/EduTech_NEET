@@ -178,4 +178,27 @@ describe('POST /api/payments/webhook', () => {
       source: 'webhook',
     });
   });
+
+  it('processes order.paid webhooks without inventing a payment id', async () => {
+    mocks.verifyWebhookSignature.mockReturnValue(true);
+    mocks.paymentFindUnique.mockResolvedValue({ id: 'payment_1' });
+    mocks.finalizeSuccess.mockResolvedValue({ ok: true, alreadyProcessed: false });
+
+    const res = await webhookPost(jsonReq(
+      'http://localhost/api/payments/webhook',
+      {
+        event: 'order.paid',
+        payload: { order: { entity: { id: 'order_1' } } },
+      },
+      { 'x-razorpay-signature': 'valid' },
+    ));
+    const json = await res.json();
+
+    expect(res.status).toBe(200);
+    expect(json.processed).toBe('order.paid');
+    expect(mocks.finalizeSuccess).toHaveBeenCalledWith('payment_1', {
+      razorpayPaymentId: undefined,
+      source: 'webhook',
+    });
+  });
 });
