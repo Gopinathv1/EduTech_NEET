@@ -7,7 +7,7 @@ import { Section, SectionHeading, Card } from '@/components/public/ui';
 import CtaBand from '@/components/public/CtaBand';
 import { CheckIcon, RupeeIcon, ShieldIcon } from '@/components/public/icons';
 import { COUNTRY_CODES, COUNTRY_FLAG } from '@/lib/public/countries';
-import { EUROPE_DESTINATION_COPY, EUROPE_STUDY_DESTINATIONS } from '@/data/study-destinations';
+import { EUROPE_STUDY_DESTINATIONS } from '@/data/study-destinations';
 
 export async function generateMetadata() {
   const t = await getTranslations('seo.countries');
@@ -48,13 +48,13 @@ export default function CountriesPage() {
       <Section id="study-in-europe" tinted lazy>
         <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">Study in Europe</p>
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('europe.eyebrow')}</p>
             <h2 className="mt-5 text-[clamp(2.4rem,5vw,5rem)] font-black uppercase leading-[0.92] text-white">
-              Explore European Study Destinations.
+              {t('europe.title')}
             </h2>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-textSecondary">{EUROPE_DESTINATION_COPY}</p>
+            <p className="mt-6 max-w-2xl text-base leading-8 text-textSecondary">{t('europe.body')}</p>
             <p className="mt-4 text-sm leading-7 text-textSecondary">
-              SIVORA UP↑RISING can support enquiries for these selected destinations where a student&apos;s profile, course choice, language needs, budget and university criteria are suitable. No official university partnerships are claimed here.
+              {t('europe.disclaimer')}
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

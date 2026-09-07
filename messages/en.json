@@ -102,7 +102,11 @@
       "languages": "Languages",
       "english": "English",
       "tamil": "தமிழ்",
-      "hindi": "हिन्दी"
+      "hindi": "हिन्दी",
+      "admissionsStudyAbroad": "Admissions & Study Abroad",
+      "examPreparation": "Exam Preparation",
+      "counselling": "Counselling",
+      "learning": "Learning"
     }
   },
   "home": {
@@ -497,7 +501,39 @@
     "heroTitlePrefix": "Rise Beyond",
     "heroTitleAccent": "Boundaries.",
     "heroCtaPrimary": "Start NEET Preparation",
-    "heroCtaSecondary": "Explore Global Admissions"
+    "heroCtaSecondary": "Explore Global Admissions",
+    "heroEyebrow": "Education • Preparation • Global Opportunity",
+    "heroSubtitle": "Prepare smarter. Choose confidently. Build your future in India and across the world.",
+    "heroExplore": "Explore SIVORA",
+    "quickLinks": {
+      "examPreparation": "Exam Preparation",
+      "studyAbroad": "Study Abroad",
+      "courses": "Courses",
+      "counselling": "Counselling"
+    },
+    "whatWeDo": {
+      "eyebrow": "What We Do",
+      "subtitle": "Choose the path you need today, then continue into the focused child page for details."
+    },
+    "serviceCards": {
+      "explore": "Explore ->",
+      "examPreparation": {
+        "title": "Exam Preparation",
+        "body": "Structured practice, mock tests, question banks and performance insights."
+      },
+      "studyAbroad": {
+        "title": "Study Abroad",
+        "body": "Guided country, university, course and application planning."
+      },
+      "courses": {
+        "title": "Courses & Future Skills",
+        "body": "Learning programs for exams, technology and emerging skills."
+      },
+      "counselling": {
+        "title": "Counselling & Admission Guidance",
+        "body": "Clear support for academic choices, admissions and next steps."
+      }
+    }
   },
   "footer": {
     "rights": "All rights reserved."
@@ -889,6 +925,12 @@
         "cost": "₹28–45 lakh for the full course",
         "eligibility": "NEET qualification required; note the BS + MD structure and recognition."
       }
+    },
+    "europe": {
+      "eyebrow": "Study in Europe",
+      "title": "Explore European Study Destinations.",
+      "body": "Explore higher-education opportunities across European countries with guidance for choosing the right country, university, course and application pathway.",
+      "disclaimer": "SIVORA UP↑RISING can support enquiries for these selected destinations where a student's profile, course choice, language needs, budget and university criteria are suitable. No official university partnerships are claimed here."
     }
   },
   "testimonials": {
@@ -1047,6 +1089,34 @@
     "partners": {
       "title": "Partner With Us",
       "description": "Partner with SIVORA UP↑RISING to manage student applications, explore international education opportunities and track admission progress."
+    },
+    "counselling": {
+      "title": "Counselling",
+      "description": "Request counselling from SIVORA UP↑RISING for exams, study abroad, courses and education planning."
+    },
+    "courses": {
+      "title": "Courses",
+      "description": "Competitive exam courses and AI technology courses from SIVORA UP↑RISING."
+    },
+    "studyAbroad": {
+      "title": "Study Abroad",
+      "description": "Study abroad and education guidance for MBBS, engineering, higher education, destinations, applications and student-life preparation."
+    },
+    "examPreparation": {
+      "title": "Exam Preparation",
+      "description": "Choose your exam and access structured preparation, practice, mock tests, question banks and performance insights."
+    },
+    "neetPreparation": {
+      "title": "NEET Preparation",
+      "description": "NEET preparation with Physics, Chemistry, Biology, question banks, mock tests and performance analytics."
+    },
+    "jeePreparation": {
+      "title": "JEE Preparation",
+      "description": "JEE preparation with Physics, Chemistry, Mathematics, question banks, mock tests and performance analytics."
+    },
+    "admissionJourney": {
+      "title": "Admission Journey",
+      "description": "Understand the SIVORA UP↑RISING student admission journey from counselling and university selection to admission, departure and continued support abroad."
     }
   },
   "catalogue": {
@@ -1613,6 +1683,380 @@
       "partnerLogin": "Partner Login",
       "whatsapp": "Talk To Partner Team On WhatsApp",
       "whatsappMessage": "Hello SIVORA UP↑RISING,\nI am interested in becoming a B2B education partner."
+    }
+  },
+  "brandMarquee": {
+    "items": [
+      "Exam Preparation",
+      "NEET",
+      "JEE",
+      "Study Abroad",
+      "MBBS",
+      "Engineering",
+      "Europe",
+      "AI Courses",
+      "Counselling",
+      "Student Success"
+    ]
+  },
+  "founderStory": {
+    "eyebrow": "Founder's Message",
+    "title": "Guidance Built From Real Experience.",
+    "body": [
+      "At SIVORA UP↑RISING, our focus is simple - understand the student's goals, help families make informed decisions, and guide each learner toward the right academic and international education pathway.",
+      "Our team supports students across competitive exam preparation, course selection, overseas admissions, documentation, pre-departure planning and continued guidance.",
+      "We believe every student's journey should be built around their interests, academic profile, skills, future goals and financial situation."
+    ],
+    "quote": "Education should open possibilities, not create confusion.",
+    "tagline": "Your journey deserves clarity, confidence and the right guidance.",
+    "teamCta": "Meet Our Team",
+    "counsellingCta": "Get Free Counselling",
+    "whatsappCta": "Chat on WhatsApp",
+    "whatsappLabel": "Chat with SIVORA UP↑RISING on WhatsApp",
+    "whatsappMessage": "Hello SIVORA UP↑RISING, I would like free counselling to plan my next education step.",
+    "imageAlt": "SIVORA UP↑RISING founder in an educational setting"
+  },
+  "studentJourneys": {
+    "eyebrow": "SIVORA UP↑RISING • STUDENT SUCCESS",
+    "title": "Real Students. Real Journeys.",
+    "subtitleTitle": "From Admission to Arrival.",
+    "subtitle": "Helping aspiring medical students move from counselling and university selection to admission and the beginning of their international education journey.",
+    "imageUnavailable": "Student journey image unavailable",
+    "cta": {
+      "title": "Your Journey Could Be Next.",
+      "body": "See the full admission journey or speak with our counselling team to plan your next step.",
+      "primary": "VIEW STUDENT JOURNEYS",
+      "secondary": "START YOUR JOURNEY"
+    },
+    "items": {
+      "departureOne": {
+        "title": "Students Begin Their MBBS Journey Abroad",
+        "description": "Celebrating an important milestone as students and their families begin their international medical education journey.",
+        "country": "International Medical Education",
+        "category": "Student Departure",
+        "tag": "ADMISSION -> DEPARTURE -> UNIVERSITY",
+        "alt": "Students and families with luggage at an airport before beginning an international medical education journey"
+      },
+      "departureTwo": {
+        "title": "Preparing for Their International Education Journey",
+        "description": "Supporting students and families with guidance before departure as they prepare to begin their education abroad.",
+        "country": "International Medical Education",
+        "category": "Pre-Departure Support",
+        "tag": "GUIDANCE -> PRE-DEPARTURE -> ARRIVAL",
+        "alt": "Students and families at an airport with luggage before leaving for international studies"
+      },
+      "andijan": {
+        "title": "Beginning Their Medical Journey in Uzbekistan",
+        "description": "A glimpse of students beginning their international medical education journey at Andijan State Medical Institute.",
+        "country": "Uzbekistan",
+        "university": "Andijan State Medical Institute",
+        "category": "Student Destination",
+        "tag": "ADMISSION -> UNIVERSITY -> STUDENT JOURNEY",
+        "alt": "Students standing outside Andijan State Medical Institute in Uzbekistan"
+      },
+      "guidance": {
+        "title": "Guidance Beyond Admission",
+        "description": "At SIVORA UP↑RISING, we support students and families beyond the application stage - from counselling and university selection to documentation, admission, travel preparation and ongoing guidance.",
+        "country": "Overseas Admissions",
+        "category": "Continuous Guidance",
+        "tag": "COUNSELLING -> ADMISSION -> SUPPORT",
+        "alt": "Students and family members receiving overseas education guidance and admission support"
+      },
+      "georgia": {
+        "title": "Exploring Medical Education in Georgia",
+        "description": "Supporting students as they explore medical education opportunities, university environments and academic pathways in Georgia.",
+        "country": "Georgia",
+        "category": "Campus Experience",
+        "tag": "ADMISSION -> CAMPUS -> STUDENT SUPPORT",
+        "alt": "Students visiting a medical education campus in Georgia"
+      },
+      "russia": {
+        "title": "Beginning an International Journey to Russia",
+        "description": "From counselling and university selection to documentation, admission and departure, SIVORA UP↑RISING supports students throughout their international education journey.",
+        "country": "Russia",
+        "category": "Student Departure",
+        "tag": "COUNSELLING -> ADMISSION -> DEPARTURE",
+        "alt": "Student with luggage preparing to travel to Russia for international studies"
+      }
+    }
+  },
+  "admissionJourney": {
+    "eyebrow": "Your Admission Journey With SIVORA UP↑RISING",
+    "heroTitle": "From Dream to Destination.",
+    "intro": [
+      "Every student's journey is different. We begin by understanding the student's academic profile, interests, career goals, preferred course, destination preferences and financial considerations.",
+      "From there, we help students and families understand suitable education pathways and support them through the admission journey."
+    ],
+    "visaDisclosure": "SIVORA UP↑RISING provides guidance on visa and document requirements. Visa approval is subject to the applicable authorities and regulations.",
+    "marquee": {
+      "title": "Your Admission Journey",
+      "subtitle": "See how we guide students from the first counselling session to university admission, departure and continued support abroad."
+    },
+    "cta": {
+      "eyebrow": "Next Steps",
+      "title": "Ready to Start Your Journey?",
+      "body": "Tell us about your academic goals, preferred course and budget. Our counselling team can help you understand the next suitable steps.",
+      "disclaimer": "Admission is subject to university eligibility requirements, applicable regulations, documentation and availability.",
+      "primary": "START FREE COUNSELLING",
+      "whatsapp": "CHAT ON WHATSAPP",
+      "whatsappLabel": "Chat with SIVORA UP↑RISING on WhatsApp",
+      "whatsappMessage": "Hello SIVORA UP↑RISING, I would like to start my admission journey and understand suitable countries, universities, courses, eligibility and expected costs."
+    },
+    "steps": {
+      "counselling": {
+        "title": "Counselling",
+        "shortTitle": "COUNSELLING",
+        "description": "Understand the student's goals, preferred career path, academic expectations and family requirements."
+      },
+      "profile-assessment": {
+        "title": "Profile Assessment",
+        "shortTitle": "PROFILE ASSESSMENT",
+        "description": "Review relevant academic background, eligibility, interests, skills and other admission considerations."
+      },
+      "course-selection": {
+        "title": "Course Selection",
+        "shortTitle": "COURSE SELECTION",
+        "description": "Help students explore courses aligned with their interests, academic background and career goals."
+      },
+      "university-shortlisting": {
+        "title": "University Shortlisting",
+        "shortTitle": "UNIVERSITY SHORTLISTING",
+        "description": "Identify suitable university options by considering factors such as eligibility, course availability, destination, expected costs and the student's preferences."
+      },
+      "application": {
+        "title": "Application",
+        "shortTitle": "APPLICATION",
+        "description": "Guide students through the university application process and required information."
+      },
+      "documentation": {
+        "title": "Documentation",
+        "shortTitle": "DOCUMENTATION",
+        "description": "Help students understand and organize the documents required for the relevant admission process."
+      },
+      "admission-confirmation": {
+        "title": "Admission Confirmation",
+        "shortTitle": "ADMISSION CONFIRMATION",
+        "description": "Support students through the applicable admission/offer process and explain the next steps after receiving university communication."
+      },
+      "visa-guidance": {
+        "title": "Visa Guidance",
+        "shortTitle": "VISA GUIDANCE",
+        "description": "Guide students and families through applicable visa/document requirements for their chosen study destination."
+      },
+      "pre-departure": {
+        "title": "Pre-Departure",
+        "shortTitle": "PRE-DEPARTURE",
+        "description": "Help students prepare for travel, university onboarding, important documents and their transition to studying abroad.",
+        "alt": "Students and families with luggage at an airport before beginning an international medical education journey"
+      },
+      "travel-arrival": {
+        "title": "Travel & Arrival",
+        "shortTitle": "TRAVEL & ARRIVAL",
+        "description": "Provide appropriate guidance around the student's transition from India to their study destination.",
+        "alt": "A group of students and families at an airport with luggage before departure for medical studies abroad"
+      },
+      "university-onboarding": {
+        "title": "University Onboarding",
+        "shortTitle": "UNIVERSITY ONBOARDING",
+        "description": "Help students understand the next steps for beginning their academic journey at their university.",
+        "alt": "Students standing outside Andijan State Medical Institute in Uzbekistan"
+      },
+      "continued-support": {
+        "title": "Continued Support",
+        "shortTitle": "CONTINUED SUPPORT",
+        "description": "Where applicable, continue supporting students and families after the student has started their education abroad.",
+        "alt": "Students and family members with admission guidance counsellors during an overseas education support meeting"
+      }
+    }
+  },
+  "counselling": {
+    "eyebrow": "Counselling",
+    "heroTitle": "Plan your next education step.",
+    "heroSubtitle": "Share your goal and our team can guide you on exam preparation, study abroad, courses and counselling pathways.",
+    "callbackEyebrow": "Request Callback",
+    "callbackTitle": "Tell us what you're looking for.",
+    "callbackSubtitle": "Use one form for counselling, study abroad, exam preparation or learning programs.",
+    "helpCards": [
+      "Personalized Guidance",
+      "India & Global Education",
+      "Career & Counselling",
+      "Exam Preparation"
+    ],
+    "ctaEyebrow": "Ready to plan your next step?",
+    "ctaTitle": "Speak with SIVORA UP↑RISING.",
+    "primaryCta": "Get Free Counselling",
+    "whatsappCta": "Chat On WhatsApp",
+    "whatsappLabel": "Chat with SIVORA UP↑RISING on WhatsApp",
+    "whatsappMessage": "Hello SIVORA UP↑RISING, I would like free counselling to plan my next education step."
+  },
+  "courses": {
+    "eyebrow": "Courses",
+    "heroTitle": "Courses for exams and future skills.",
+    "heroSubtitle": "Explore guided programs for competitive exam preparation and technology learning.",
+    "examEyebrow": "Competitive Exam Courses",
+    "examTitle": "NEET and JEE.",
+    "examCardBody": "Structured preparation, practice and mock assessment support.",
+    "aiEyebrow": "AI & Technology Courses",
+    "aiTitle": "Future skills in one place.",
+    "aiTopics": [
+      "AI Foundations",
+      "Python for AI",
+      "Machine Learning",
+      "Data Science",
+      "Generative AI",
+      "Prompt Engineering",
+      "RAG / LLM Foundations",
+      "AI for Students",
+      "Coding Foundations"
+    ],
+    "talkCta": "Talk To Counsellor",
+    "examCta": "View Exam Preparation"
+  },
+  "studyAbroad": {
+    "eyebrow": "Study Abroad & Education Guidance",
+    "heroTitle": "Explore your study abroad options.",
+    "heroSubtitle": "Clear guidance for medical, engineering, technology and higher-education pathways across selected international destinations.",
+    "studyEyebrow": "What Do You Want To Study?",
+    "studyTitle": "Start with your course direction.",
+    "studyOptions": [
+      {
+        "title": "MBBS Abroad",
+        "body": "Explore overseas medical education pathways with country, university, course, application and documentation guidance."
+      },
+      {
+        "title": "Engineering & Technology",
+        "body": "Explore international engineering and technology programs based on interests, eligibility, destination options and budget."
+      },
+      {
+        "title": "International Higher Education",
+        "body": "Review broader higher-education pathways across selected international destinations."
+      }
+    ],
+    "destinationEyebrow": "Where Do You Want To Study?",
+    "destinationTitle": "Destinations in one place.",
+    "destinations": [
+      "Europe",
+      "Uzbekistan",
+      "Kyrgyzstan",
+      "Kazakhstan",
+      "Georgia",
+      "Russia",
+      "Other verified destinations"
+    ],
+    "europeLabel": "Europe",
+    "europeCopy": "Explore higher-education opportunities across European countries with guidance for choosing the right country, university, course and application pathway.",
+    "destinationNote": "Destination guidance depends on course availability, eligibility, budget, language requirements and student preferences.",
+    "supportEyebrow": "How We Support You",
+    "supportTitle": "One clear admission journey.",
+    "supportSteps": [
+      "Counselling",
+      "University & Course Selection",
+      "Application",
+      "Documentation",
+      "Visa Guidance",
+      "Pre-Departure",
+      "Arrival Support"
+    ],
+    "lifeEyebrow": "Student Life Abroad",
+    "lifeTitle": "Prepare for life after admission.",
+    "lifeBody": "We guide students with practical information about budgeting, accommodation, adapting to a new country, local rules and permitted part-time work options where legally applicable. Part-time work eligibility and hours depend on visa type, country-specific regulations and university policies.",
+    "ctaEyebrow": "Explore Your Study Abroad Options",
+    "ctaTitle": "Talk to our counselling team.",
+    "primaryCta": "Get Free Counselling",
+    "whatsappCta": "Chat On WhatsApp",
+    "whatsappLabel": "Chat with SIVORA UP↑RISING on WhatsApp",
+    "whatsappMessage": "Hello SIVORA UP↑RISING, I would like to explore suitable study abroad options, destinations, courses, eligibility and expected costs."
+  },
+  "examPreparation": {
+    "eyebrow": "Exam Preparation",
+    "heroTitle": "Prepare for the exam that matters to you.",
+    "heroSubtitle": "Choose your exam and access structured preparation, practice, mock tests, question banks and performance insights.",
+    "exams": {
+      "neet": {
+        "description": "Medical entrance preparation",
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Biology"
+        ]
+      },
+      "jee": {
+        "description": "Engineering entrance preparation",
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Mathematics"
+        ]
+      },
+      "future-exams": {
+        "description": "Reserved for additional competitive exams later",
+        "subjects": [
+          "Scalable exam categories"
+        ]
+      }
+    },
+    "featuresEyebrow": "What You Get",
+    "featuresTitle": "One preparation system.",
+    "hubFeatures": [
+      "Question Bank",
+      "Mock Tests",
+      "Chapter Practice",
+      "Performance Analytics",
+      "Previous-pattern Practice",
+      "Multilingual Support"
+    ],
+    "ctaEyebrow": "Start Your Preparation",
+    "ctaTitle": "Choose your exam and begin.",
+    "primaryCta": "Start Your Preparation",
+    "neetDetail": {
+      "eyebrow": "Exam Preparation",
+      "title": "NEET Preparation",
+      "subtitle": "Focused medical entrance preparation with structured practice, mock tests, question banks and performance insights.",
+      "subjectBody": "Build accuracy through chapter-wise practice and mock assessment.",
+      "features": [
+        "Question Bank",
+        "Chapter-wise Practice",
+        "Mock Tests",
+        "Previous-pattern Practice",
+        "Performance Analytics",
+        "English/Tamil Support"
+      ],
+      "primaryCta": "Start NEET Preparation",
+      "secondaryCta": "View Mock Tests"
+    },
+    "jeeDetail": {
+      "eyebrow": "Exam Preparation",
+      "title": "JEE Preparation",
+      "subtitle": "Structured practice, concept reinforcement, chapter-wise tests and mock assessments for engineering entrance preparation.",
+      "subjectBody": "Practise concepts, chapters and previous-pattern assessment formats.",
+      "features": [
+        "Question Bank",
+        "Chapter-wise Practice",
+        "Mock Tests",
+        "Previous-pattern Practice",
+        "Performance Analytics"
+      ],
+      "disclaimer": "SIVORA UP↑RISING does not claim official NTA affiliation.",
+      "primaryCta": "Ask About JEE",
+      "secondaryCta": "Talk To Counsellor"
+    }
+  },
+  "aiChat": {
+    "title": "Ask SIVORA UP↑RISING - AI Assistant",
+    "subtitle": "Get instant answers in your language.",
+    "close": "Close AI assistant",
+    "placeholder": "Ask about NEET, JEE, admissions, courses...",
+    "inputLabel": "Ask SIVORA UP↑RISING AI a question",
+    "ask": "Ask",
+    "clear": "Clear Chat",
+    "closeFloating": "Close Ask SIVORA UP↑RISING AI assistant",
+    "openFloating": "Open Ask SIVORA UP↑RISING AI assistant",
+    "tooltip": "Ask SIVORA UP↑RISING AI",
+    "handoff": {
+      "title": "Talk to our team",
+      "whatsapp": "WhatsApp Us",
+      "counselling": "Request Counselling",
+      "contact": "Contact Us"
     }
   }
 }

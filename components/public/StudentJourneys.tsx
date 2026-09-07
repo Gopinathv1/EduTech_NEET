@@ -2,31 +2,33 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { studentJourneys } from '@/data/student-journeys';
 import AdmissionJourneyMarquee from '@/components/public/AdmissionJourneyMarquee';
 import { Section } from './ui';
 
 export default function StudentJourneys() {
+  const t = useTranslations('studentJourneys');
+
   return (
     <Section id="student-success" tinted lazy className="relative overflow-hidden">
       <div className="relative mx-auto max-w-[1280px]">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.4fr] lg:items-end lg:gap-12 xl:gap-14">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">
-              SIVORA UP↑RISING • STUDENT SUCCESS
+              {t('eyebrow')}
             </p>
             <h2 className="mt-5 text-[clamp(2.7rem,5vw,5.8rem)] font-black uppercase leading-[0.9] text-white">
-              Real Students. Real Journeys.
+              {t('title')}
             </h2>
           </div>
           <div className="max-w-3xl">
             <h3 className="text-3xl font-black uppercase leading-tight text-white sm:text-5xl">
-              From Admission to Arrival.
+              {t('subtitleTitle')}
             </h3>
             <p className="mt-5 text-base leading-8 text-[#D1D1D1] sm:text-lg">
-              Helping aspiring medical students move from counselling and university selection to admission and the
-              beginning of their international education journey.
+              {t('subtitle')}
             </p>
           </div>
         </div>
@@ -38,6 +40,7 @@ export default function StudentJourneys() {
                 key={`${item.image}-${index}`}
                 item={item}
                 duplicate={index >= studentJourneys.length}
+                t={t}
               />
             ))}
           </div>
@@ -48,10 +51,10 @@ export default function StudentJourneys() {
         <div className="mt-10 rounded-[1.75rem] border border-[#2B2B2B] bg-[#111111]/90 p-6 shadow-2xl shadow-black/12 backdrop-blur-sm sm:p-8 lg:flex lg:items-end lg:justify-between lg:gap-8">
           <div>
             <h3 className="text-3xl font-black uppercase leading-tight text-white sm:text-5xl">
-              Your Journey Could Be Next.
+              {t('cta.title')}
             </h3>
             <p className="mt-4 max-w-3xl text-base leading-8 text-[#D1D1D1]">
-              See the full admission journey or speak with our counselling team to plan your next step.
+              {t('cta.body')}
             </p>
           </div>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:mt-0 lg:shrink-0">
@@ -59,13 +62,13 @@ export default function StudentJourneys() {
               href="/admission-journey"
               className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-brand to-brand-light px-5 py-3 text-sm font-black uppercase tracking-[0.08em] text-white shadow-lg shadow-brand/25 transition hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
             >
-              VIEW STUDENT JOURNEYS
+              {t('cta.primary')}
             </Link>
             <Link
               href="/counselling"
               className="inline-flex items-center justify-center rounded-lg border border-[#2B2B2B] bg-white/80 px-5 py-3 text-sm font-black uppercase tracking-[0.08em] text-textPrimary transition hover:-translate-y-0.5 hover:border-brand/45 hover:bg-[#111111] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
             >
-              START YOUR JOURNEY
+              {t('cta.secondary')}
             </Link>
           </div>
         </div>
@@ -77,9 +80,11 @@ export default function StudentJourneys() {
 function StudentJourneyCard({
   item,
   duplicate = false,
+  t,
 }: {
   item: (typeof studentJourneys)[number];
   duplicate?: boolean;
+  t: ReturnType<typeof useTranslations>;
 }) {
   const [imageFailed, setImageFailed] = useState(false);
 
@@ -91,12 +96,12 @@ function StudentJourneyCard({
       <div className="relative aspect-[16/10] shrink-0 overflow-hidden bg-[#050505]">
         {imageFailed ? (
           <div className="flex h-full w-full items-center justify-center bg-[#050505] px-5 text-center text-xs font-black uppercase tracking-[0.16em] text-[#f6d58a]">
-            Student journey image unavailable
+            {t('imageUnavailable')}
           </div>
         ) : (
           <Image
             src={item.image}
-            alt={duplicate ? '' : item.alt}
+            alt={duplicate ? '' : t(`items.${item.key}.alt`)}
             fill
             sizes="(min-width: 1280px) 360px, (min-width: 1024px) 340px, (min-width: 768px) 320px, 300px"
             className="object-cover transition duration-700 group-hover:scale-[1.025]"
@@ -114,16 +119,22 @@ function StudentJourneyCard({
       <div className="flex flex-1 flex-col p-5 sm:p-6">
         <div className="flex flex-wrap items-center gap-2">
           <span className="rounded-full border border-brand/35 bg-brand-soft px-3 py-1 text-[11px] font-black uppercase tracking-[0.12em] text-brand-light">
-            {item.category}
+            {t(`items.${item.key}.category`)}
           </span>
           <span className="rounded-full border border-[#f6a623]/25 bg-[#f6a623]/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.12em] text-[#f6d58a]">
-            {item.country}
+            {t(`items.${item.key}.country`)}
           </span>
         </div>
-        <h3 className="mt-5 text-2xl font-black uppercase leading-tight text-white">{item.title}</h3>
-        {item.university ? <p className="mt-2 text-sm font-bold text-[#f6d58a]">{item.university}</p> : null}
-        <p className="mt-4 text-sm leading-7 text-[#D1D1D1]">{item.description}</p>
-        <p className="mt-auto pt-5 text-xs font-black uppercase tracking-[0.16em] text-brand-light">{item.tag}</p>
+        <h3 className="mt-5 text-2xl font-black uppercase leading-tight text-white">
+          {t(`items.${item.key}.title`)}
+        </h3>
+        {t.has(`items.${item.key}.university`) ? (
+          <p className="mt-2 text-sm font-bold text-[#f6d58a]">{t(`items.${item.key}.university`)}</p>
+        ) : null}
+        <p className="mt-4 text-sm leading-7 text-[#D1D1D1]">{t(`items.${item.key}.description`)}</p>
+        <p className="mt-auto pt-5 text-xs font-black uppercase tracking-[0.16em] text-brand-light">
+          {t(`items.${item.key}.tag`)}
+        </p>
       </div>
     </article>
   );

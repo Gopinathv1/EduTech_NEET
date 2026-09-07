@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { pageMetadata } from '@/lib/seo';
 import { Container, PrimaryLink, SecondaryLink, Section } from '@/components/public/ui';
@@ -18,40 +19,38 @@ export async function generateMetadata() {
 }
 
 const QUICK_LINKS = [
-  { title: 'Exam Preparation', href: '/exam-preparation' },
-  { title: 'Study Abroad', href: '/study-abroad' },
-  { title: 'Courses', href: '/courses' },
-  { title: 'Counselling', href: '/counselling' },
+  { key: 'examPreparation', href: '/exam-preparation' },
+  { key: 'studyAbroad', href: '/study-abroad' },
+  { key: 'courses', href: '/courses' },
+  { key: 'counselling', href: '/counselling' },
 ] as const;
 
 const SERVICE_CARDS = [
   {
-    title: 'Exam Preparation',
-    body: 'Structured practice, mock tests, question banks and performance insights.',
+    key: 'examPreparation',
     href: '/exam-preparation',
     icon: BookIcon,
   },
   {
-    title: 'Study Abroad',
-    body: 'Guided country, university, course and application planning.',
+    key: 'studyAbroad',
     href: '/study-abroad',
     icon: GlobeIcon,
   },
   {
-    title: 'Courses & Future Skills',
-    body: 'Learning programs for exams, technology and emerging skills.',
+    key: 'courses',
     href: '/courses',
     icon: ChartIcon,
   },
   {
-    title: 'Counselling & Admission Guidance',
-    body: 'Clear support for academic choices, admissions and next steps.',
+    key: 'counselling',
     href: '/counselling',
     icon: ShieldIcon,
   },
 ] as const;
 
 export default function HomePage() {
+  const t = useTranslations('home');
+
   return (
     <>
       <section className="relative -mt-[73px] overflow-hidden bg-[#050505] pt-[73px]">
@@ -68,31 +67,31 @@ export default function HomePage() {
             <div className="inline-flex max-w-full items-center gap-3 rounded-full border border-[#2B2B2B] bg-[#111111]/90 px-4 py-2 shadow-lg shadow-black/5">
               <span className="h-2 w-2 rounded-full bg-brand" />
               <p className="text-xs font-black uppercase tracking-[0.26em] text-[#D1D1D1] sm:text-sm">
-                Education • Preparation • Global Opportunity
+                {t('heroEyebrow')}
               </p>
             </div>
             <h1 className="mt-7 max-w-5xl text-[clamp(3.6rem,8vw,8.8rem)] font-black uppercase leading-[0.88] text-white">
-              Rise Beyond
+              {t('heroTitlePrefix')}
               <br />
               <span className="bg-gradient-to-r from-brand via-brand-light to-accentBlue bg-clip-text text-transparent">
-                Boundaries.
+                {t('heroTitleAccent')}
               </span>
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-[#D1D1D1] sm:text-xl">
-              Prepare smarter. Choose confidently. Build your future in India and across the world.
+              {t('heroSubtitle')}
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <PrimaryLink href="#what-we-do">Explore SIVORA</PrimaryLink>
-              <SecondaryLink href="/counselling">Get Free Counselling</SecondaryLink>
+              <PrimaryLink href="#what-we-do">{t('heroExplore')}</PrimaryLink>
+              <SecondaryLink href="/counselling">{t('ctaPrimary')}</SecondaryLink>
             </div>
             <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:max-w-3xl">
               {QUICK_LINKS.map((item) => (
                 <Link
-                  key={item.href}
+                  key={item.key}
                   href={item.href}
                   className="rounded-2xl border border-[#2B2B2B] bg-[#111111]/90 p-4 text-sm font-black uppercase tracking-[0.1em] text-white shadow-lg shadow-black/5 transition hover:-translate-y-0.5 hover:border-brand/35"
                 >
-                  {item.title}
+                  {t(`quickLinks.${item.key}`)}
                 </Link>
               ))}
             </div>
@@ -107,15 +106,15 @@ export default function HomePage() {
       <Section id="what-we-do">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">What We Do</p>
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('whatWeDo.eyebrow')}</p>
             <h2 className="mt-5 max-w-3xl text-[clamp(2.5rem,5vw,5.6rem)] font-black uppercase leading-[0.92] text-white">
-              How SIVORA UP↑RISING
+              {t('quickActions.titleLine1')}
               <br />
-              Helps Students Move Forward
+              {t('quickActions.titleLine2')}
             </h2>
           </div>
           <p className="max-w-2xl text-base leading-8 text-[#D1D1D1]">
-            Choose the path you need today, then continue into the focused child page for details.
+            {t('whatWeDo.subtitle')}
           </p>
         </div>
         <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
@@ -123,7 +122,7 @@ export default function HomePage() {
             const Icon = item.icon;
             return (
               <Link
-                key={item.href}
+                key={item.key}
                 href={item.href}
                 className="group flex min-h-[18rem] flex-col rounded-[1.75rem] border border-[#2B2B2B] bg-[#111111] p-6 shadow-xl shadow-black/5 transition hover:-translate-y-1 hover:border-brand/35 hover:shadow-2xl hover:shadow-black/10 sm:p-7"
               >
@@ -134,11 +133,11 @@ export default function HomePage() {
                   <p className="text-4xl font-black leading-none text-[#f6a623]/35">0{index + 1}</p>
                 </div>
                 <h3 className="mt-8 text-xl font-black uppercase leading-tight text-white xl:text-lg 2xl:text-xl">
-                  {item.title}
+                  {t(`serviceCards.${item.key}.title`)}
                 </h3>
-                <p className="mt-4 text-sm leading-6 text-[#D1D1D1]">{item.body}</p>
+                <p className="mt-4 text-sm leading-6 text-[#D1D1D1]">{t(`serviceCards.${item.key}.body`)}</p>
                 <span className="mt-auto inline-flex pt-7 text-xs font-black uppercase tracking-[0.12em] text-brand transition group-hover:translate-x-1">
-                  Explore -&gt;
+                  {t('serviceCards.explore')}
                 </span>
               </Link>
             );

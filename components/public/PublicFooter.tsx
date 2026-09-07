@@ -3,11 +3,12 @@ import { useTranslations } from 'next-intl';
 import Logo from './Logo';
 import { FOOTER_COMPANY, type NavLink } from '@/lib/public/nav';
 
-function FooterColumn({ title, links }: { title: string; links: NavLink[] }) {
+function FooterColumn({ titleKey, links }: { titleKey: string; links: NavLink[] }) {
   const t = useTranslations('publicNav');
+  const tf = useTranslations('site.footer');
   return (
     <div>
-      <h3 className="text-xs font-black uppercase tracking-[0.22em] text-accent">{title}</h3>
+      <h3 className="text-xs font-black uppercase tracking-[0.22em] text-accent">{tf(titleKey)}</h3>
       <ul className="mt-5 space-y-3">
         {links.map((link) => (
           <li key={`${link.href}-${link.key}`}>
@@ -62,11 +63,11 @@ export default function PublicFooter() {
             </div>
           </div>
 
-          <FooterColumn title="Admissions & Study Abroad" links={ADMISSIONS} />
-          <FooterColumn title="Exam Preparation" links={EXAM_PREP} />
-          <FooterColumn title="Counselling" links={COUNSELLING} />
-          <FooterColumn title="Learning" links={LEARNING} />
-          <FooterColumn title={t('company')} links={FOOTER_COMPANY} />
+          <FooterColumn titleKey="admissionsStudyAbroad" links={ADMISSIONS} />
+          <FooterColumn titleKey="examPreparation" links={EXAM_PREP} />
+          <FooterColumn titleKey="counselling" links={COUNSELLING} />
+          <FooterColumn titleKey="learning" links={LEARNING} />
+          <FooterColumn titleKey="company" links={FOOTER_COMPANY} />
         </div>
 
         <p className="mt-8 border-l border-accent/40 bg-white/[0.04] p-4 text-xs leading-relaxed text-[#D1D1D1]">

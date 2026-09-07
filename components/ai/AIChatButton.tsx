@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { buildDefaultWhatsAppMessage } from '@/lib/contact/whatsapp-enquiry';
@@ -24,6 +24,7 @@ type ChatMessage = {
 export default function AIChatButton() {
   const pathname = usePathname();
   const locale = useLocale();
+  const t = useTranslations('aiChat');
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<ChatMessage[]>([
@@ -64,14 +65,14 @@ export default function AIChatButton() {
         <div className="flex h-[min(38rem,calc(100vh-7rem))] w-[min(calc(100vw-2rem),25rem)] flex-col overflow-hidden rounded-3xl border border-[#2b2b2b] bg-[#111111] shadow-2xl shadow-black/55">
           <div className="flex items-start justify-between gap-3 border-b border-[#2b2b2b] bg-[#050505] p-4">
             <div>
-              <p className="text-sm font-black text-white">Ask SIVORA UP↑RISING - AI Assistant</p>
-              <p className="mt-1 text-xs leading-5 text-[#d1d1d1]">Get instant answers in your language.</p>
+              <p className="text-sm font-black text-white">{t('title')}</p>
+              <p className="mt-1 text-xs leading-5 text-[#d1d1d1]">{t('subtitle')}</p>
             </div>
             <button
               type="button"
               onClick={() => setOpen(false)}
               className="rounded-full px-2 py-1 text-sm font-bold text-[#d1d1d1] hover:bg-white/10"
-              aria-label="Close AI assistant"
+              aria-label={t('close')}
             >
               X
             </button>
@@ -99,14 +100,14 @@ export default function AIChatButton() {
                 value={input}
                 onChange={(event) => setInput(event.target.value)}
                 className="min-w-0 flex-1 rounded-2xl border border-[#2b2b2b] bg-[#050505] px-3 py-2 text-sm text-white outline-none placeholder:text-[#d1d1d1]/55 focus:border-[#D71920]"
-                placeholder="Ask about NEET, JEE, admissions, courses..."
-                aria-label="Ask SIVORA UP↑RISING AI a question"
+                placeholder={t('placeholder')}
+                aria-label={t('inputLabel')}
               />
               <button
                 type="submit"
                 className="rounded-2xl bg-[#D71920] px-4 py-2 text-xs font-black text-white transition hover:bg-[#FF2B32]"
               >
-                Ask
+                {t('ask')}
               </button>
             </form>
             <div className="grid grid-cols-2 gap-2">
@@ -133,7 +134,7 @@ export default function AIChatButton() {
               }
               className="mt-3 w-full rounded-2xl px-3 py-2 text-xs font-bold text-[#d1d1d1] hover:bg-white/5"
             >
-              Clear Chat
+              {t('clear')}
             </button>
           </div>
         </div>
@@ -143,14 +144,14 @@ export default function AIChatButton() {
         type="button"
         onClick={() => setOpen((value) => !value)}
         className="group relative flex h-14 w-14 items-center justify-center rounded-full border border-[#FF2B32]/80 bg-[#050505] text-white shadow-[0_0_0_1px_rgba(255,43,50,0.25),0_0_34px_rgba(215,25,32,0.45)] transition hover:-translate-y-0.5 hover:border-[#FF2B32] hover:bg-[#130708] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-        aria-label={open ? 'Close Ask SIVORA UP↑RISING AI assistant' : 'Open Ask SIVORA UP↑RISING AI assistant'}
+        aria-label={open ? t('closeFloating') : t('openFloating')}
         aria-expanded={open}
-        title="Ask SIVORA UP↑RISING AI"
+        title={t('tooltip')}
       >
         <span className="absolute inset-0 rounded-full bg-[#D71920]/18 motion-safe:animate-ping" aria-hidden="true" />
         <RobotIcon className="relative h-7 w-7" />
         <span className="pointer-events-none absolute right-16 top-1/2 hidden -translate-y-1/2 whitespace-nowrap rounded-full border border-white/10 bg-[#111111] px-3 py-1.5 text-xs font-bold text-white opacity-0 shadow-xl shadow-black/30 transition group-hover:opacity-100 group-focus-visible:opacity-100 sm:block">
-          Ask SIVORA UP↑RISING AI
+          {t('tooltip')}
         </span>
       </button>
     </div>
@@ -158,20 +159,22 @@ export default function AIChatButton() {
 }
 
 function HumanHandoff({ whatsappUrl }: { whatsappUrl: string | null }) {
+  const t = useTranslations('aiChat.handoff');
+
   return (
     <div className="mt-3 rounded-2xl border border-white/10 bg-black/20 p-3">
-      <p className="text-xs font-black uppercase tracking-[0.12em] text-white">Talk to our team</p>
+      <p className="text-xs font-black uppercase tracking-[0.12em] text-white">{t('title')}</p>
       <div className="mt-2 flex flex-wrap gap-2">
         {whatsappUrl ? (
           <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="rounded-full bg-[#25D366] px-3 py-1.5 text-xs font-black text-white">
-            WhatsApp Us
+            {t('whatsapp')}
           </a>
         ) : null}
         <Link href="/#callback" className="rounded-full bg-[#D71920] px-3 py-1.5 text-xs font-black text-white">
-          Request Counselling
+          {t('counselling')}
         </Link>
         <Link href="/contact" className="rounded-full border border-white/15 px-3 py-1.5 text-xs font-black text-white">
-          Contact Us
+          {t('contact')}
         </Link>
       </div>
     </div>
