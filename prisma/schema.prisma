@@ -138,6 +138,54 @@ enum ContactStatus {
   CLOSED
 }
 
+enum MarketplaceSellerStatus {
+  REGISTERED
+  UNDER_REVIEW
+  APPROVED
+  REJECTED
+  SUSPENDED
+}
+
+enum MarketplaceCondition {
+  NEW
+  LIKE_NEW
+  GOOD
+  FAIR
+}
+
+enum MarketplaceListingType {
+  NEW
+  USED
+}
+
+enum MarketplaceListingStatus {
+  DRAFT
+  PENDING_REVIEW
+  PUBLISHED
+  PAUSED
+  REJECTED
+  SOLD_OUT
+  REMOVED
+}
+
+enum MarketplaceOrderStatus {
+  PENDING_PAYMENT
+  PAID
+  CONFIRMED
+  PACKED
+  SHIPPED
+  DELIVERED
+  CANCELLED
+  REFUNDED
+}
+
+enum MarketplacePaymentStatus {
+  CREATED
+  SUCCESS
+  FAILED
+  REFUNDED
+}
+
 // ---------------------------------------------------------------------------
 // People
 // ---------------------------------------------------------------------------
@@ -165,6 +213,8 @@ model Student {
   notificationReads NotificationRead[]
   entitlements      TestEntitlement[]
   notifications     Notification[]
+  sellerProfile     MarketplaceSellerProfile?
+  marketplaceOrders MarketplaceOrder[]         @relation("MarketplaceBuyerOrders")
 
   @@index([state, district])
   // Admin reporting: registrations-over-time and district/board/class filters.
@@ -210,6 +260,7 @@ model Agency {
   updatedAt          DateTime             @updatedAt
 
   users AgencyUser[]
+  marketplaceSellerProfile MarketplaceSellerProfile?
 
   @@index([approvalStatus])
   @@index([isActive])
@@ -688,6 +739,198 @@ model ContactEnquiry {
 
   @@index([status])
   @@index([createdAt])
+}
+
+// ---------------------------------------------------------------------------
+// Marketplace
+// ---------------------------------------------------------------------------
+
+model MarketplaceSellerProfile {
+  id          String                  @id @default(cuid())
+  studentId   String?                 @unique
+  agencyId    String?                 @unique
+  displayName String
+  contactName String
+  email       String?
+  mobile      String
+  city        String
+  state       String
+  status      MarketplaceSellerStatus @default(REGISTERED)
+  reviewNote  String?
+  approvedAt  DateTime?
+  createdAt   DateTime                @default(now())
+  updatedAt   DateTime                @updatedAt
+
+  student  Student?             @relation(fields: [studentId], references: [id], onDelete: SetNull)
+  agency   Agency?              @relation(fields: [agencyId], references: [id], onDelete: SetNull)
+  listings MarketplaceListing[]
+  orders   MarketplaceOrderItem[]
+
+  @@index([status])
+  @@index([createdAt])
+}
+
+model MarketplaceCategory {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  name        Json
+  parentId    String?
+  description Json?
+  isActive    Boolean  @default(true)
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  parent   MarketplaceCategory?  @relation("MarketplaceCategoryTree", fields: [parentId], references: [id], onDelete: SetNull)
+  children MarketplaceCategory[] @relation("MarketplaceCategoryTree")
+  listings MarketplaceListing[]
+
+  @@index([parentId])
+  @@index([isActive, order])
+}
+
+model MarketplaceListing {
+  id                String                   @id @default(cuid())
+  sellerProfileId   String
+  categoryId        String
+  title             String
+  slug              String                   @unique
+  author            String?
+  publisher         String?
+  edition           String?
+  condition         MarketplaceCondition
+  listingType       MarketplaceListingType
+  description       String
+  price             Int
+  originalPrice     Int?
+  currency          String                   @default("INR")
+  quantityAvailable Int                      @default(1)
+  locationCity      String
+  locationState     String
+  deliveryAvailable Boolean                  @default(false)
+  status            MarketplaceListingStatus @default(DRAFT)
+  moderationNote    String?
+  publishedAt       DateTime?
+  createdAt         DateTime                 @default(now())
+  updatedAt         DateTime                 @updatedAt
+
+  sellerProfile MarketplaceSellerProfile @relation(fields: [sellerProfileId], references: [id], onDelete: Restrict)
+  category      MarketplaceCategory      @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  images        MarketplaceImage[]
+  orderItems    MarketplaceOrderItem[]
+
+  @@index([sellerProfileId])
+  @@index([categoryId])
+  @@index([status])
+  @@index([listingType, condition])
+  @@index([price])
+  @@index([locationState, locationCity])
+}
+
+model MarketplaceImage {
+  id        String   @id @default(cuid())
+  listingId String
+  url       String
+  alt       String?
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+
+  listing MarketplaceListing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+
+  @@index([listingId, order])
+}
+
+model MarketplaceAddress {
+  id          String   @id @default(cuid())
+  studentId   String?
+  name        String
+  mobile      String
+  line1       String
+  line2       String?
+  city        String
+  state       String
+  postalCode  String
+  country     String   @default("India")
+  createdAt   DateTime @default(now())
+
+  orders MarketplaceOrder[]
+}
+
+model MarketplaceOrder {
+  id                String                 @id @default(cuid())
+  buyerStudentId    String
+  shippingAddressId String
+  status            MarketplaceOrderStatus @default(PENDING_PAYMENT)
+  itemSubtotal      Int
+  deliveryFee       Int                    @default(0)
+  discount          Int                    @default(0)
+  total             Int
+  currency          String                 @default("INR")
+  createdAt         DateTime               @default(now())
+  updatedAt         DateTime               @updatedAt
+
+  buyer           Student                 @relation("MarketplaceBuyerOrders", fields: [buyerStudentId], references: [id], onDelete: Restrict)
+  shippingAddress MarketplaceAddress      @relation(fields: [shippingAddressId], references: [id], onDelete: Restrict)
+  items           MarketplaceOrderItem[]
+  payments        MarketplacePayment[]
+
+  @@index([buyerStudentId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model MarketplaceOrderItem {
+  id              String @id @default(cuid())
+  orderId         String
+  listingId       String
+  sellerProfileId String
+  titleSnapshot   String
+  quantity        Int
+  unitPrice       Int
+  total           Int
+
+  order         MarketplaceOrder         @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  listing       MarketplaceListing       @relation(fields: [listingId], references: [id], onDelete: Restrict)
+  sellerProfile MarketplaceSellerProfile @relation(fields: [sellerProfileId], references: [id], onDelete: Restrict)
+
+  @@index([orderId])
+  @@index([sellerProfileId])
+  @@index([listingId])
+}
+
+model MarketplacePayment {
+  id                String                   @id @default(cuid())
+  orderId           String
+  amount            Int
+  currency          String                   @default("INR")
+  razorpayOrderId   String?                  @unique
+  razorpayPaymentId String?                  @unique
+  status            MarketplacePaymentStatus @default(CREATED)
+  failureReason     String?
+  paidAt            DateTime?
+  createdAt         DateTime                 @default(now())
+  updatedAt         DateTime                 @updatedAt
+
+  order MarketplaceOrder @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  events MarketplacePaymentEvent[]
+
+  @@index([orderId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model MarketplacePaymentEvent {
+  id         String                    @id @default(cuid())
+  paymentId  String
+  fromStatus MarketplacePaymentStatus?
+  toStatus   MarketplacePaymentStatus
+  source     String
+  detail     Json?
+  createdAt  DateTime                  @default(now())
+
+  payment MarketplacePayment @relation(fields: [paymentId], references: [id], onDelete: Cascade)
+
+  @@index([paymentId])
 }
 
 // ---------------------------------------------------------------------------

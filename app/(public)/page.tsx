@@ -66,6 +66,21 @@ export default function HomePage() {
       <FounderStory />
 
       <Section lazy>
+        <div className="rounded-2xl border border-[#2B2B2B] bg-[#111111]/90 p-6 shadow-xl shadow-black/10 sm:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.24em] text-brand">{t('marketplace.eyebrow')}</p>
+            <h2 className="mt-3 text-3xl font-black uppercase leading-tight text-white sm:text-4xl">
+              {t('marketplace.title')}
+            </h2>
+            <p className="mt-3 max-w-2xl text-sm leading-7 text-[#D1D1D1]">{t('marketplace.subtitle')}</p>
+          </div>
+          <div className="mt-6 lg:mt-0 lg:shrink-0">
+            <PrimaryLink href="/marketplace">{t('marketplace.cta')}</PrimaryLink>
+          </div>
+        </div>
+      </Section>
+
+      <Section lazy>
         <div className="rounded-[2rem] border border-[#2B2B2B] bg-[#111111]/90 p-8 shadow-2xl shadow-black/12 backdrop-blur-sm lg:flex lg:items-end lg:justify-between lg:gap-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.24em] text-brand">

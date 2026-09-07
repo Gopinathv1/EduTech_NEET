@@ -7,7 +7,8 @@ import { PrimaryLink, Section } from '@/components/public/ui';
 import WhatsAppLink from '@/components/whatsapp/WhatsAppLink';
 import StudentJourneys from '@/components/public/StudentJourneys';
 import ExploreSivora from '@/components/public/ExploreSivora';
-import { ADMISSION_COUNTRIES } from '@/data/admissions';
+import CompareTray from '@/components/admissions/CompareTray';
+import { ADMISSION_COUNTRY_PROFILES } from '@/lib/data/admissions/countries';
 
 export async function generateMetadata() {
   const t = await getTranslations('seo.admissions');
@@ -31,21 +32,38 @@ export default function AdmissionsPage() {
             </h2>
             <p className="mt-6 max-w-2xl text-base leading-8 text-[#D1D1D1]">{t('destinations.subtitle')}</p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {ADMISSION_COUNTRIES.map((country) => (
+          <div>
+            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            {ADMISSION_COUNTRY_PROFILES.map((country) => (
               <Link
                 key={country.slug}
                 href={`/admissions/${country.slug}`}
                 className="group flex min-h-48 flex-col rounded-[1.5rem] border border-[#2B2B2B] bg-[#111111] p-5 shadow-xl shadow-black/5 transition hover:-translate-y-1 hover:border-brand/35"
               >
                 <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">{t('destinations.cardLabel')}</p>
-                <h3 className="mt-4 text-2xl font-black uppercase text-white">{country.name}</h3>
+                <div className="mt-4 flex items-center gap-3">
+                  <span className="text-3xl">{country.flag}</span>
+                  <h3 className="text-2xl font-black uppercase text-white">{country.name}</h3>
+                </div>
                 <p className="mt-3 text-sm leading-6 text-[#D1D1D1]">{t(`countries.${country.slug}.short`)}</p>
+                <p className="mt-4 text-xs font-bold uppercase tracking-[0.1em] text-[#D1D1D1]">
+                  {country.capital.value} · {country.currencyCode} · {country.timezone.labelCity}
+                </p>
                 <span className="mt-auto inline-flex pt-6 text-xs font-black uppercase tracking-[0.12em] text-brand transition group-hover:translate-x-1">
                   {t('destinations.cta')}
                 </span>
               </Link>
             ))}
+            </div>
+            <CompareTray
+              countries={ADMISSION_COUNTRY_PROFILES}
+              labels={{
+                add: t('compare.add'),
+                remove: t('compare.remove'),
+                compare: t('compare.cta'),
+                helper: t('compare.helper'),
+              }}
+            />
           </div>
         </div>
       </Section>

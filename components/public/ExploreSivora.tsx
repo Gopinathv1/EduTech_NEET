@@ -1,13 +1,14 @@
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
-type ProductKey = 'admissions' | 'counselling' | 'examPreparation' | 'courses';
+type ProductKey = 'admissions' | 'counselling' | 'examPreparation' | 'courses' | 'marketplace';
 
 const PRODUCTS: { key: ProductKey; href: string }[] = [
   { key: 'admissions', href: '/admissions' },
   { key: 'counselling', href: '/counselling' },
   { key: 'examPreparation', href: '/exam-preparation' },
   { key: 'courses', href: '/courses' },
+  { key: 'marketplace', href: '/marketplace' },
 ];
 
 export default function ExploreSivora({ exclude = [] }: { exclude?: ProductKey[] }) {
@@ -31,7 +32,7 @@ export default function ExploreSivora({ exclude = [] }: { exclude?: ProductKey[]
               {t('subtitle')}
             </p>
           </div>
-          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
             {visibleProducts.map((product) => (
               <Link
                 key={product.key}

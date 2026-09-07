@@ -45,6 +45,14 @@ export const NAV_GROUPS: NavGroup[] = [
       { href: '/courses#ai-future-skills', key: 'aiFutureSkills' },
     ],
   },
+  {
+    key: 'marketplaceMenu',
+    links: [
+      { href: '/marketplace', key: 'marketplace' },
+      { href: '/marketplace#listings', key: 'marketplaceListings' },
+      { href: '/marketplace/sell', key: 'sellBooks' },
+    ],
+  },
 ];
 
 // Footer column groupings.
@@ -52,6 +60,7 @@ export const FOOTER_EXPLORE: NavLink[] = [
   { href: '/admissions', key: 'admissionsMenu' },
   { href: '/admissions', key: 'countries' },
   { href: '/mock-tests', key: 'questionBank' },
+  { href: '/marketplace', key: 'marketplace' },
   { href: '/exam-preparation/neet', key: 'previousYear' },
   { href: '/mock-tests', key: 'mockTests' },
 ];
