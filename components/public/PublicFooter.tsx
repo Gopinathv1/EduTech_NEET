@@ -53,7 +53,7 @@ export default function PublicFooter() {
       <div className="mx-auto w-full max-w-[1600px] px-[clamp(1rem,3vw,3rem)] py-16 sm:py-20">
         <div className="grid gap-10 border-b border-white/10 pb-12 lg:grid-cols-[1.25fr_0.8fr_0.8fr_0.8fr_0.8fr_0.8fr]">
           <div>
-            <Logo className="text-white" />
+            <Logo className="text-white" size="footer" showTagline />
             <p className="mt-5 max-w-sm text-sm leading-7 text-[#D1D1D1]">{t('blurb')}</p>
             <div className="mt-7 flex flex-wrap gap-2 text-xs text-[#D1D1D1]">
               <span className="rounded-lg border border-white/10 px-3 py-1.5">{t('english')}</span>
