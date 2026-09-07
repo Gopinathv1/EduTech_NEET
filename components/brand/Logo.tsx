@@ -50,7 +50,7 @@ export default function BrandLogo({
       <span className="flex min-w-0 flex-col justify-center leading-none">
         <span className={`${nameClass} font-black uppercase tracking-[0.12em] text-[#fff8e7]`}>SIVORA</span>
         <span className={`${uprisingClass} mt-1 font-black uppercase tracking-[0.28em] text-[#f6a623]`}>
-          UP↑RISING
+          UP<span className="text-brand">↑</span>RISING
         </span>
         {showTagline ? (
           <span className="mt-2 text-[0.62rem] font-black uppercase tracking-[0.22em] text-[#D1D1D1]">
