@@ -57,7 +57,7 @@ export const studentJourneys: StudentJourney[] = [
   },
 
   {
-    image: '/admissions/georgia.jpeg',
+    image: '/admissions/georgia.jpg',
     title: 'Exploring Medical Education in Georgia',
     description:
       'Supporting students as they explore medical education opportunities, university environments and academic pathways in Georgia.',
@@ -68,7 +68,7 @@ export const studentJourneys: StudentJourney[] = [
   },
 
   {
-    image: '/admissions/russia.jpeg',
+    image: '/admissions/russia.jpg',
     title: 'Beginning an International Journey to Russia',
     description:
       'From counselling and university selection to documentation, admission and departure, SIVORA UP↑RISING supports students throughout their international education journey.',
