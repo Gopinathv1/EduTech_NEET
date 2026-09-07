@@ -1184,6 +1184,10 @@
       "title": "Courses & Future Skills",
       "description": "Explore academic learning, AI, technology and future-skills pathways from SIVORA UP↑RISING."
     },
+    "coursesAstrology": {
+      "title": "Astrology & Traditional Knowledge Courses",
+      "description": "Explore structured astrology and traditional knowledge learning areas from SIVORA UP↑RISING."
+    },
     "studyAbroad": {
       "title": "Admissions",
       "description": "Admissions guidance for India and overseas higher education, MBBS abroad, engineering, applications and student transition planning."
@@ -2144,6 +2148,9 @@
       "eyebrow": "Traditional Knowledge • Structured Learning",
       "title": "Explore the language of astrology.",
       "subtitle": "Learn the foundations, concepts and traditional frameworks of astrology through structured educational programs - from birth-chart fundamentals to advanced chart interpretation.",
+      "streamTitle": "Astrology & Traditional Knowledge",
+      "streamSubtitle": "Explore structured learning in astrology, traditional chart systems, zodiac concepts, nakshatras, planetary frameworks and related knowledge.",
+      "learningArea": "Learning Area",
       "positioningTitle": "Educational framing",
       "positioningBody": "Astrology is presented here as a traditional, cultural and historical knowledge system for structured study. It is kept separate from SIVORA's evidence-based counselling and is not presented as scientifically proven.",
       "marketplaceCta": "Explore Astrology Books",
@@ -2160,21 +2167,29 @@
           "title": "Indian / Vedic Astrology",
           "body": "An educational introduction to Indian astrology traditions and concepts."
         },
+        "zodiacPlanets": {
+          "title": "Zodiac & Planets",
+          "body": "Signs, planets and traditional symbolic frameworks."
+        },
+        "houses": {
+          "title": "Houses",
+          "body": "The twelve houses and how they are used in traditional chart study."
+        },
         "birthChartFundamentals": {
           "title": "Birth Chart Fundamentals",
           "body": "Chart structure, Lagna, signs, houses and planetary placements."
-        },
-        "planetsHouses": {
-          "title": "Planets & Houses",
-          "body": "Traditional meanings associated with planets and the twelve houses."
         },
         "nakshatras": {
           "title": "Nakshatras",
           "body": "The 27 Nakshatras, classifications and planetary associations."
         },
-        "dashaTransits": {
-          "title": "Dasha & Transits",
-          "body": "Traditional planetary-period and transit interpretation frameworks."
+        "dashaSystems": {
+          "title": "Dasha Systems",
+          "body": "Traditional planetary-period frameworks used in some astrology systems."
+        },
+        "transits": {
+          "title": "Transits",
+          "body": "How transit concepts are studied in traditional chart interpretation."
         },
         "chartInterpretation": {
           "title": "Chart Interpretation",
@@ -2183,6 +2198,10 @@
         "numerology": {
           "title": "Numerology",
           "body": "A related traditional learning area for personal interest study."
+        },
+        "panchangaFundamentals": {
+          "title": "Panchanga Fundamentals",
+          "body": "Calendar, tithi, nakshatra and traditional timekeeping references."
         },
         "advancedAstrology": {
           "title": "Advanced Astrology",
@@ -2491,7 +2510,8 @@
       "helper": "Select at least two countries. Up to three can be compared in this interface.",
       "helpEyebrow": "Need Help Choosing?",
       "helpTitle": "Get free counselling.",
-      "minimumNote": "Comparison needs at least two destinations, so one additional country has been added for context."
+      "minimumNote": "Comparison needs at least two destinations, so one additional country has been added for context.",
+      "changeTitle": "Compare with another destination."
     },
     "notVerified": "Not currently verified",
     "contactForCurrentDetails": "Contact counselling for current details",
@@ -2532,6 +2552,7 @@
       "currency": "Currency",
       "languages": "Languages",
       "timezone": "Time zone",
+      "mainAirport": "Main airport",
       "travelDistance": "Travel distance from India",
       "travelDuration": "Typical travel duration",
       "climate": "Climate",
@@ -2553,6 +2574,9 @@
       "field": "Field",
       "capital": "Capital",
       "currency": "Currency",
+      "mainAirport": "Main international airport",
+      "airportCity": "Airport city",
+      "flightType": "Direct / connecting status",
       "fx": "Current INR exchange indication",
       "timeDifference": "Time zone",
       "travelDistance": "Approximate travel distance",
@@ -2569,6 +2593,67 @@
       "intake": "Typical intake",
       "medium": "Language / medium",
       "disclaimer": "Indicative estimates. Actual costs vary by university, city, exchange rate and lifestyle."
+    },
+    "travel": {
+      "eyebrow": "Travel & Arrival",
+      "title": "Plan your arrival from India.",
+      "note": "Delhi is used as a standard comparison baseline. Actual routes, fares, layovers and schedules vary by airline, departure city and travel date.",
+      "mainAirport": "Main International Airport",
+      "airportCode": "Airport Code",
+      "arrivalCity": "Arrival City",
+      "cityDistance": "Airport To City",
+      "role": "Student Arrival Role",
+      "fromDelhi": "Approximate Travel Time From Delhi",
+      "connectionPattern": "Common Connection Pattern",
+      "airportToCity": "Airport To City",
+      "universityCityAirport": "University-City Airport",
+      "source": "Source",
+      "beforeFly": {
+        "title": "Before You Fly",
+        "items": [
+          "Passport",
+          "Visa or entry documents where applicable",
+          "Admission documents",
+          "University letter",
+          "Accommodation confirmation",
+          "Insurance where applicable",
+          "Local currency / payment access",
+          "Emergency contact details"
+        ]
+      },
+      "afterArrival": {
+        "title": "After Arrival",
+        "items": [
+          "Immigration",
+          "Baggage",
+          "SIM / connectivity",
+          "Currency / payment access",
+          "Transport to city or accommodation",
+          "University reporting",
+          "Accommodation check-in"
+        ]
+      }
+    },
+    "cities": {
+      "eyebrow": "Major Student Cities",
+      "title": "Cities connected to the current university list.",
+      "universityCount": "{count, plural, =0 {No listed university in current SIVORA dataset} =1 {1 listed university in current SIVORA dataset} other {# listed universities in current SIVORA dataset}}"
+    },
+    "budget": {
+      "eyebrow": "Estimated Cost Of Study",
+      "title": "Current costs need counselling verification.",
+      "noteLabel": "Budget note",
+      "note": "Tuition, hostel, insurance and other university charges are not shown unless reliably verified from current official sources."
+    },
+    "programStructure": {
+      "eyebrow": "Program / Course Structure",
+      "title": "Verify program details university by university.",
+      "verification": "Verification",
+      "note": "Duration, intake, clinical or internship structure and medium are shown only when current official university data has been verified."
+    },
+    "whyCountry": {
+      "eyebrow": "Why Students Consider This Destination",
+      "title": "Practical factors for {country}."
     },
     "overview": {
       "eyebrow": "Destination Overview",

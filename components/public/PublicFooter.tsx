@@ -44,6 +44,8 @@ const EXAM_PREP: NavLink[] = [
 const LEARNING: NavLink[] = [
   { href: '/courses', key: 'coursesLearning' },
   { href: '/courses#ai-future-skills', key: 'aiFutureSkills' },
+  { href: '/courses/astrology', key: 'astrologyLearning' },
+  { href: '/marketplace?category=astrology', key: 'astrologyBooks' },
 ];
 
 export default function PublicFooter() {

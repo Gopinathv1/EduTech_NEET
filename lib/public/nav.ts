@@ -43,6 +43,7 @@ export const NAV_GROUPS: NavGroup[] = [
     links: [
       { href: '/courses', key: 'coursesLearning' },
       { href: '/courses#ai-future-skills', key: 'aiFutureSkills' },
+      { href: '/courses/astrology', key: 'astrologyLearning' },
     ],
   },
   {
@@ -50,6 +51,7 @@ export const NAV_GROUPS: NavGroup[] = [
     links: [
       { href: '/marketplace', key: 'marketplace' },
       { href: '/marketplace#listings', key: 'marketplaceListings' },
+      { href: '/marketplace?category=astrology', key: 'astrologyBooks' },
       { href: '/marketplace/sell', key: 'sellBooks' },
     ],
   },

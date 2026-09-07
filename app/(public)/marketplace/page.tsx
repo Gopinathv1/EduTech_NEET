@@ -17,10 +17,10 @@ export async function generateMetadata() {
 export default async function MarketplacePage({ searchParams }: Props) {
   const t = await getTranslations('marketplace');
   const params = await searchParams;
-  const requestedCategory = params?.category;
+  const requestedCategory = params?.category === 'astrology' ? 'astrology-traditional-learning' : params?.category;
   const initialCategory = requestedCategory && getMarketplaceCategory(requestedCategory) ? requestedCategory : 'ALL';
   const featuredCategories = MARKETPLACE_CATEGORIES.filter((category) =>
-    ['books', 'exam-preparation-books', 'study-materials', 'reference-books', 'medical-books', 'engineering-books'].includes(category.slug),
+    ['books', 'exam-preparation-books', 'study-materials', 'reference-books', 'medical-books', 'engineering-books', 'astrology-traditional-learning'].includes(category.slug),
   );
 
   return (
@@ -90,6 +90,16 @@ export default async function MarketplacePage({ searchParams }: Props) {
       </Section>
 
       <Section tinted lazy>
+        <div className="mb-6 rounded-2xl border border-[#2B2B2B] bg-[#111111] p-6 lg:flex lg:items-center lg:justify-between lg:gap-8">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">{t('astrologyLink.eyebrow')}</p>
+            <h2 className="mt-3 text-2xl font-black uppercase text-white">{t('astrologyLink.title')}</h2>
+            <p className="mt-3 max-w-3xl text-sm leading-7 text-[#D1D1D1]">{t('astrologyLink.body')}</p>
+          </div>
+          <div className="mt-5 shrink-0 lg:mt-0">
+            <PrimaryLink href="/courses/astrology">{t('astrologyLink.cta')}</PrimaryLink>
+          </div>
+        </div>
         <div className="grid gap-4 lg:grid-cols-3">
           <div className="rounded-2xl border border-[#2B2B2B] bg-[#111111] p-6">
             <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">{t('usedNew.eyebrow')}</p>

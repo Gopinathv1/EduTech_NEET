@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import type { ReactNode } from 'react';
 import { notFound } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
@@ -52,6 +53,14 @@ function Fact({ label, value }: { label: string; value: string }) {
       <p className="text-xs font-black uppercase tracking-[0.16em] text-brand">{label}</p>
       <p className="mt-2 text-sm font-bold leading-6 text-white">{value}</p>
     </div>
+  );
+}
+
+function SourceLink({ href, children }: { href: string; children: ReactNode }) {
+  return (
+    <a href={href} target="_blank" rel="noreferrer" className="font-bold text-brand underline-offset-4 hover:underline">
+      {children}
+    </a>
   );
 }
 
@@ -125,12 +134,101 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
             <Fact label={t('glance.currency')} value={`${country.currency.value} (${country.currencyCode})`} />
             <Fact label={t('glance.languages')} value={country.languages.value.join(', ')} />
             <Fact label={t('glance.timezone')} value={`${country.timezone.labelCity}: ${country.timezone.iana}`} />
+            <Fact label={t('glance.mainAirport')} value={`${country.travel.mainAirport.name} (${country.travel.mainAirport.code})`} />
             <Fact label={t('glance.travelDistance')} value={country.travel.distanceFromIndia} />
             <Fact label={t('glance.travelDuration')} value={country.travel.typicalDuration} />
             <Fact label={t('glance.climate')} value={country.climate.value} />
             <Fact label={t('glance.studentCities')} value={country.majorStudentCities.join(', ')} />
             <Fact label={t('glance.programDuration')} value={country.program.duration?.value ?? t('notVerified')} />
             <Fact label={t('glance.intake')} value={country.program.intake?.value ?? t('notVerified')} />
+          </div>
+        </div>
+      </Section>
+
+      <Section lazy>
+        <div className="grid gap-8 lg:grid-cols-[0.74fr_1.26fr] lg:items-start">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('travel.eyebrow')}</p>
+            <h2 className="mt-5 text-[clamp(2.4rem,5vw,5rem)] font-black uppercase leading-[0.92] text-white">
+              {t('travel.title')}
+            </h2>
+            <p className="mt-5 text-sm leading-7 text-[#D1D1D1]">{t('travel.note')}</p>
+          </div>
+          <div className="space-y-4">
+            <div className="grid gap-4 xl:grid-cols-3">
+              <div className="rounded-2xl border border-[#2B2B2B] bg-[#111111] p-5 xl:col-span-2">
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">{t('travel.mainAirport')}</p>
+                <h3 className="mt-3 text-2xl font-black uppercase text-white">{country.travel.mainAirport.name}</h3>
+                <dl className="mt-5 grid gap-2 text-sm text-[#D1D1D1] sm:grid-cols-2">
+                  <div className="border-t border-[#2B2B2B] pt-2">
+                    <dt className="font-black uppercase tracking-[0.08em] text-brand">{t('travel.airportCode')}</dt>
+                    <dd className="mt-1 text-white">{country.travel.mainAirport.code}</dd>
+                  </div>
+                  <div className="border-t border-[#2B2B2B] pt-2">
+                    <dt className="font-black uppercase tracking-[0.08em] text-brand">{t('travel.arrivalCity')}</dt>
+                    <dd className="mt-1 text-white">{country.travel.mainAirport.city}, {country.travel.mainAirport.country}</dd>
+                  </div>
+                  <div className="border-t border-[#2B2B2B] pt-2">
+                    <dt className="font-black uppercase tracking-[0.08em] text-brand">{t('travel.cityDistance')}</dt>
+                    <dd className="mt-1 text-white">{country.travel.mainAirport.distanceToCityCenter}</dd>
+                  </div>
+                  <div className="border-t border-[#2B2B2B] pt-2">
+                    <dt className="font-black uppercase tracking-[0.08em] text-brand">{t('travel.role')}</dt>
+                    <dd className="mt-1 text-white">{country.travel.mainAirport.role}</dd>
+                  </div>
+                </dl>
+                <p className="mt-4 text-xs leading-5 text-[#A9A9A9]">
+                  {t('travel.source')}: <SourceLink href={country.travel.mainAirport.source.sourceUrl}>{country.travel.mainAirport.source.sourceName}</SourceLink>
+                </p>
+              </div>
+              <div className="rounded-2xl border border-[#2B2B2B] bg-[#111111] p-5">
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">{t('travel.fromDelhi')}</p>
+                <h3 className="mt-3 text-xl font-black uppercase text-white">{country.travel.typicalDuration}</h3>
+                <p className="mt-4 text-sm leading-6 text-[#D1D1D1]">{country.travel.distanceFromIndia}</p>
+                <p className="mt-4 rounded-xl border border-brand/25 bg-brand-soft px-4 py-3 text-xs font-black uppercase tracking-[0.08em] text-white">
+                  {country.travel.flightType}
+                </p>
+              </div>
+            </div>
+
+            <div className="grid gap-4 lg:grid-cols-2">
+              <div className="rounded-2xl border border-[#2B2B2B] bg-[#050505]/72 p-5">
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">{t('travel.connectionPattern')}</p>
+                <p className="mt-3 text-sm leading-7 text-[#D1D1D1]">{country.travel.connectionPattern}</p>
+                <p className="mt-4 text-xs leading-5 text-[#A9A9A9]">
+                  {t('travel.source')}: <SourceLink href={country.travel.source.sourceUrl}>{country.travel.source.sourceName}</SourceLink>
+                </p>
+              </div>
+              <div className="rounded-2xl border border-[#2B2B2B] bg-[#050505]/72 p-5">
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">{t('travel.airportToCity')}</p>
+                <p className="mt-3 text-sm leading-7 text-[#D1D1D1]">{country.travel.mainAirport.transfer}</p>
+              </div>
+            </div>
+
+            {country.travel.alternateAirports?.length ? (
+              <div className="grid gap-3 md:grid-cols-2">
+                {country.travel.alternateAirports.map((airport) => (
+                  <div key={airport.code} className="rounded-2xl border border-[#2B2B2B] bg-[#111111] p-4">
+                    <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">{t('travel.universityCityAirport')}</p>
+                    <h3 className="mt-2 text-lg font-black uppercase text-white">{airport.name} ({airport.code})</h3>
+                    <p className="mt-2 text-sm leading-6 text-[#D1D1D1]">{airport.city} · {airport.role}</p>
+                  </div>
+                ))}
+              </div>
+            ) : null}
+
+            <div className="grid gap-4 md:grid-cols-2">
+              {(['beforeFly', 'afterArrival'] as const).map((key) => (
+                <div key={key} className="rounded-2xl border border-[#2B2B2B] bg-[#111111] p-5">
+                  <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">{t(`travel.${key}.title`)}</p>
+                  <ul className="mt-4 space-y-2 text-sm leading-6 text-[#D1D1D1]">
+                    {(t.raw(`travel.${key}.items`) as string[]).map((item) => (
+                      <li key={item} className="border-t border-[#2B2B2B] pt-2">{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </Section>
@@ -205,6 +303,93 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </Section>
+
+      <Section tinted lazy>
+        <div className="grid gap-8 lg:grid-cols-[0.74fr_1.26fr] lg:items-start">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('cities.eyebrow')}</p>
+            <h2 className="mt-5 text-[clamp(2.4rem,5vw,5rem)] font-black uppercase leading-[0.92] text-white">
+              {t('cities.title')}
+            </h2>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+            {country.studentCityDetails.map((city) => (
+              <div key={city.name} className="rounded-2xl border border-[#2B2B2B] bg-[#050505]/72 p-4">
+                <h3 className="text-lg font-black uppercase text-white">{city.name}</h3>
+                <p className="mt-2 text-sm leading-6 text-[#D1D1D1]">
+                  {t('cities.universityCount', { count: city.universityCount })}
+                </p>
+                {city.timezone ? <p className="mt-2 text-xs font-bold uppercase tracking-[0.1em] text-brand">{city.timezone}</p> : null}
+                {city.nearestAirport ? <p className="mt-2 text-xs leading-5 text-[#D1D1D1]">{city.nearestAirport}</p> : null}
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      <Section lazy>
+        <div className="grid gap-8 lg:grid-cols-[0.74fr_1.26fr] lg:items-start">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('budget.eyebrow')}</p>
+            <h2 className="mt-5 text-[clamp(2.4rem,5vw,5rem)] font-black uppercase leading-[0.92] text-white">
+              {t('budget.title')}
+            </h2>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <Fact label={t('comparison.tuition')} value={country.budget.tuitionRange?.value ?? t('contactForCurrentDetails')} />
+            <Fact label={t('comparison.livingCost')} value={country.budget.livingCost?.value ?? t('contactForCurrentDetails')} />
+            <Fact label={t('comparison.overallBudget')} value={country.budget.overall?.value ?? t('contactForCurrentDetails')} />
+            <Fact label={t('budget.noteLabel')} value={t('budget.note')} />
+          </div>
+        </div>
+      </Section>
+
+      <Section tinted lazy>
+        <div className="grid gap-8 lg:grid-cols-[0.74fr_1.26fr] lg:items-start">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('programStructure.eyebrow')}</p>
+            <h2 className="mt-5 text-[clamp(2.4rem,5vw,5rem)] font-black uppercase leading-[0.92] text-white">
+              {t('programStructure.title')}
+            </h2>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <Fact label={t('comparison.programDuration')} value={country.program.duration?.value ?? t('contactForCurrentDetails')} />
+            <Fact label={t('comparison.medium')} value={country.program.medium?.value ?? t('contactForCurrentDetails')} />
+            <Fact label={t('comparison.intake')} value={country.program.intake?.value ?? t('contactForCurrentDetails')} />
+            <Fact label={t('programStructure.verification')} value={t('programStructure.note')} />
+          </div>
+        </div>
+      </Section>
+
+      <Section lazy>
+        <div className="grid gap-8 lg:grid-cols-[0.74fr_1.26fr] lg:items-start">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('whyCountry.eyebrow')}</p>
+            <h2 className="mt-5 text-[clamp(2.4rem,5vw,5rem)] font-black uppercase leading-[0.92] text-white">
+              {t('whyCountry.title', { country: country.name })}
+            </h2>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {country.whyStudentsConsider.map((item) => (
+              <div key={item} className="rounded-2xl border border-[#2B2B2B] bg-[#111111] p-4 text-sm font-bold leading-6 text-[#D1D1D1]">
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      <Section tinted lazy>
+        <div className="rounded-2xl border border-[#2B2B2B] bg-[#111111] p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.24em] text-brand">{t('compare.eyebrow')}</p>
+            <h2 className="mt-4 text-3xl font-black uppercase text-white sm:text-5xl">{t('compare.changeTitle')}</h2>
+          </div>
+          <div className="mt-6 lg:mt-0">
+            <PrimaryLink href={`/admissions/compare?countries=${country.slug}`}>{t('countryHero.compareCta')}</PrimaryLink>
           </div>
         </div>
       </Section>

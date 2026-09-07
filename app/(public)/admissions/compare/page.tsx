@@ -45,6 +45,15 @@ export default async function AdmissionsComparePage({ searchParams }: Props) {
       const country = countries.find((item) => item.slug === slug);
       return country ? `${country.currency.value} (${country.currencyCode})` : undefined;
     } },
+    { label: t('comparison.mainAirport'), render: (slug: string) => {
+      const country = countries.find((item) => item.slug === slug);
+      return country ? `${country.travel.mainAirport.name} (${country.travel.mainAirport.code})` : undefined;
+    } },
+    { label: t('comparison.airportCity'), render: (slug: string) => {
+      const country = countries.find((item) => item.slug === slug);
+      return country ? `${country.travel.mainAirport.city}, ${country.travel.mainAirport.country}` : undefined;
+    } },
+    { label: t('comparison.flightType'), render: (slug: string) => countries.find((country) => country.slug === slug)?.travel.flightType },
     { label: t('comparison.fx'), render: (slug: string) => {
       const country = countries.find((item) => item.slug === slug);
       return country ? formatFx(fxRates[country.currencyCode]).oneUnitInr : undefined;
@@ -82,7 +91,7 @@ export default async function AdmissionsComparePage({ searchParams }: Props) {
             {ADMISSION_COUNTRY_PROFILES.map((country) => (
               <Link
                 key={country.slug}
-                href={`/admissions/compare?countries=${country.slug}`}
+                href={`/admissions/compare?countries=${countries.map((item) => item.slug).filter((item) => item !== country.slug).concat(country.slug).slice(-3).join(',')}`}
                 className="rounded-full border border-[#2B2B2B] bg-[#111111] px-4 py-2 text-xs font-black uppercase tracking-[0.08em] text-[#D1D1D1] hover:border-brand/45"
               >
                 {country.flag} {country.name}

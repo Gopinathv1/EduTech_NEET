@@ -5,6 +5,7 @@ import Link from 'next/link';
 import PageHero from '@/components/public/PageHero';
 import { PrimaryLink, SecondaryLink, Section } from '@/components/public/ui';
 import ExploreSivora from '@/components/public/ExploreSivora';
+import AstrologyLearningSection from '@/components/public/AstrologyLearningSection';
 import {
   ACADEMIC_COURSE_STREAMS,
   AI_FUTURE_SKILL_CATEGORIES,
@@ -99,6 +100,8 @@ export default function CoursesPage() {
           </div>
         </div>
       </Section>
+
+      <AstrologyLearningSection />
 
       <Section lazy>
         <div className="flex flex-col gap-3 sm:flex-row">

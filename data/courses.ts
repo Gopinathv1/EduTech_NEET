@@ -71,12 +71,15 @@ export const AI_LEARNING_PATH = [
 export const ASTROLOGY_LEARNING_AREAS = [
   { key: 'astrologyFoundations', level: 'BEGINNER', status: 'COMING_SOON', href: '/courses#astrology' },
   { key: 'vedicAstrology', level: 'BEGINNER', status: 'COMING_SOON', href: '/courses#astrology' },
-  { key: 'birthChartFundamentals', level: 'INTERMEDIATE', status: 'COMING_SOON', href: '/courses#astrology' },
-  { key: 'planetsHouses', level: 'BEGINNER', status: 'COMING_SOON', href: '/courses#astrology' },
+  { key: 'zodiacPlanets', level: 'BEGINNER', status: 'COMING_SOON', href: '/courses#astrology' },
+  { key: 'houses', level: 'BEGINNER', status: 'COMING_SOON', href: '/courses#astrology' },
   { key: 'nakshatras', level: 'INTERMEDIATE', status: 'COMING_SOON', href: '/courses#astrology' },
-  { key: 'dashaTransits', level: 'INTERMEDIATE', status: 'COMING_SOON', href: '/courses#astrology' },
+  { key: 'birthChartFundamentals', level: 'INTERMEDIATE', status: 'COMING_SOON', href: '/courses#astrology' },
+  { key: 'dashaSystems', level: 'INTERMEDIATE', status: 'COMING_SOON', href: '/courses#astrology' },
+  { key: 'transits', level: 'INTERMEDIATE', status: 'COMING_SOON', href: '/courses#astrology' },
   { key: 'chartInterpretation', level: 'ADVANCED', status: 'COMING_SOON', href: '/courses#astrology' },
   { key: 'numerology', level: 'BEGINNER', status: 'COMING_SOON', href: '/courses#astrology' },
+  { key: 'panchangaFundamentals', level: 'BEGINNER', status: 'COMING_SOON', href: '/courses#astrology' },
   { key: 'advancedAstrology', level: 'ADVANCED', status: 'COMING_SOON', href: '/courses#astrology' },
 ] as const;
 

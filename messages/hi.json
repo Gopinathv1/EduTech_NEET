@@ -1184,6 +1184,10 @@
       "title": "कोर्स और फ्यूचर स्किल्स",
       "description": "SIVORA UP↑RISING से academic learning, AI, technology और future-skills pathways explore करें."
     },
+    "coursesAstrology": {
+      "title": "Astrology & Traditional Knowledge Courses",
+      "description": "SIVORA UP↑RISING से structured astrology और traditional knowledge learning areas explore करें."
+    },
     "studyAbroad": {
       "title": "एडमिशन",
       "description": "भारत और विदेश में उच्च शिक्षा, MBBS abroad, engineering, आवेदन और छात्र transition planning के लिए एडमिशन मार्गदर्शन."
@@ -2144,6 +2148,9 @@
       "eyebrow": "Traditional Knowledge • Structured Learning",
       "title": "Astrology की भाषा explore करें.",
       "subtitle": "Structured educational programs के माध्यम से astrology की foundations, concepts और traditional frameworks सीखें - birth-chart fundamentals से advanced chart interpretation तक.",
+      "streamTitle": "Astrology & Traditional Knowledge",
+      "streamSubtitle": "Astrology, traditional chart systems, zodiac concepts, nakshatras, planetary frameworks और related knowledge में structured learning explore करें.",
+      "learningArea": "Learning Area",
       "positioningTitle": "Educational framing",
       "positioningBody": "Astrology को यहां traditional, cultural और historical knowledge system के structured study के रूप में दिखाया गया है. इसे SIVORA की evidence-based counselling से अलग रखा गया है और scientifically proven के रूप में present नहीं किया गया है.",
       "marketplaceCta": "Astrology Books देखें",
@@ -2160,21 +2167,29 @@
           "title": "Indian / Vedic Astrology",
           "body": "Indian astrology traditions और concepts का educational introduction."
         },
+        "zodiacPlanets": {
+          "title": "Zodiac & Planets",
+          "body": "Signs, planets और traditional symbolic frameworks."
+        },
+        "houses": {
+          "title": "Houses",
+          "body": "Twelve houses और traditional chart study में उनका उपयोग."
+        },
         "birthChartFundamentals": {
           "title": "Birth Chart Fundamentals",
           "body": "Chart structure, Lagna, signs, houses और planetary placements."
-        },
-        "planetsHouses": {
-          "title": "Planets & Houses",
-          "body": "Planets और twelve houses से जुड़े traditional meanings."
         },
         "nakshatras": {
           "title": "Nakshatras",
           "body": "27 Nakshatras, classifications और planetary associations."
         },
-        "dashaTransits": {
-          "title": "Dasha & Transits",
-          "body": "Traditional planetary-period और transit interpretation frameworks."
+        "dashaSystems": {
+          "title": "Dasha Systems",
+          "body": "कुछ astrology systems में use होने वाले traditional planetary-period frameworks."
+        },
+        "transits": {
+          "title": "Transits",
+          "body": "Traditional chart interpretation में transit concepts कैसे study किए जाते हैं."
         },
         "chartInterpretation": {
           "title": "Chart Interpretation",
@@ -2183,6 +2198,10 @@
         "numerology": {
           "title": "Numerology",
           "body": "Personal interest study के लिए related traditional learning area."
+        },
+        "panchangaFundamentals": {
+          "title": "Panchanga Fundamentals",
+          "body": "Calendar, tithi, nakshatra और traditional timekeeping references."
         },
         "advancedAstrology": {
           "title": "Advanced Astrology",
