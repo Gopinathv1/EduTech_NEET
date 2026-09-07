@@ -75,6 +75,10 @@
     "careerGuidance": "करियर मार्गदर्शन",
     "coursesLearning": "कोर्स और लर्निंग प्रोग्राम",
     "trainingPrograms": "ट्रेनिंग प्रोग्राम",
+    "marketplaceMenu": "मार्केटप्लेस",
+    "marketplace": "मार्केटप्लेस",
+    "marketplaceListings": "लिस्टिंग्स",
+    "sellBooks": "किताबें बेचें",
     "neet": "NEET",
     "jee": "JEE",
     "partnerWithUs": "पार्टनर बनें",
@@ -312,6 +316,12 @@
       "secondary": "WhatsApp पर बात करें",
       "whatsappLabel": "WhatsApp पर SIVORA UP↑RISING से चैट करें",
       "whatsappMessage": "Hello SIVORA UP↑RISING, मैं एडमिशन, काउंसलिंग, परीक्षा तैयारी और कोर्स के बारे में अधिक जानना चाहता/चाहती हूं."
+    },
+    "marketplace": {
+      "eyebrow": "SIVORA Marketplace",
+      "title": "किताबों को दूसरा सफर दें.",
+      "subtitle": "Books, exam resources और learning materials को focused education marketplace में buy और sell करें.",
+      "cta": "Marketplace Explore करें"
     },
     "heroServices": [
       {
@@ -552,6 +562,10 @@
       "courses": {
         "title": "कोर्स",
         "body": "टेक्नोलॉजी और उभरते करियर क्षेत्रों में अकादमिक और फ्यूचर-स्किल प्रोग्राम."
+      },
+      "marketplace": {
+        "title": "Marketplace",
+        "body": "Education books, exam resources और learning materials buy, sell और reuse करें."
       }
     }
   },
@@ -872,8 +886,8 @@
   "countries": {
     "eyebrow": "देश",
     "heroTitle": "Current MBBS abroad destinations",
-    "heroSubtitle": "Eight current destination options for MBBS-abroad admission guidance.",
-    "intro": "SIVORA UP↑RISING currently presents MBBS-abroad guidance for Russia, Georgia, Vietnam, Armenia, Uzbekistan, Kyrgyzstan, Tajikistan and Kazakhstan.",
+    "heroSubtitle": "MBBS-abroad admission guidance के लिए destination options explore करें.",
+    "intro": "SIVORA UP↑RISING selected destinations के लिए verified country और university information के साथ MBBS-abroad guidance देता है.",
     "whyLabel": "यहां क्यों पढ़ें",
     "costLabel": "Approximate cost",
     "eligibilityLabel": "Eligibility note",
@@ -1167,6 +1181,22 @@
     "admissionCountry": {
       "title": "{country} में MBBS",
       "description": "{country} के लिए SIVORA UP↑RISING admission guidance और featured medical universities देखें."
+    },
+    "admissionsCompare": {
+      "title": "Destinations Compare करें",
+      "description": "Verified country facts और indicative estimates के साथ study-abroad destinations compare करें."
+    },
+    "marketplace": {
+      "title": "SIVORA Marketplace",
+      "description": "Student books, exam preparation resources और learning materials buy, sell और reuse करें."
+    },
+    "marketplaceDetail": {
+      "title": "{title}",
+      "description": "SIVORA Marketplace education listing देखें."
+    },
+    "marketplaceSell": {
+      "title": "SIVORA Marketplace पर बेचें",
+      "description": "Approved seller या partner बनने के लिए interest register करें."
     }
   },
   "catalogue": {
@@ -2186,17 +2216,118 @@
       "contact": "Contact करें"
     }
   },
+  "marketplace": {
+    "eyebrow": "SIVORA Marketplace",
+    "heroTitle": "Buy. Sell. Reuse. Learn.",
+    "heroSubtitle": "Students, educators और education partners के लिए useful learning resources discover, buy और sell करने का focused marketplace.",
+    "browseCta": "Listings देखें",
+    "sellCta": "किताबें बेचें",
+    "categoriesTitle": "Marketplace categories",
+    "categoryLabel": "Category",
+    "listingsEyebrow": "Featured / Recent Listings",
+    "listingsTitle": "Students के लिए learning resources.",
+    "listingsNote": "यह initial marketplace education-focused है. Checkout, seller approval और moderation live commerce से पहले server-controlled रहेंगे.",
+    "search": "Search",
+    "searchPlaceholder": "Books, resources या location search करें",
+    "condition": "Condition",
+    "all": "All",
+    "buy": "Buy",
+    "soldBy": "Sold by",
+    "delivery": "Delivery available",
+    "pickup": "Pickup / seller contact",
+    "noResults": "आपके filters से कोई listing match नहीं हुई.",
+    "listingType": "Listing type",
+    "location": "Location",
+    "stock": "Stock",
+    "author": "Author",
+    "publisher": "Publisher",
+    "notApplicable": "Not applicable",
+    "detailEyebrow": "Product Listing",
+    "checkoutPending": "Cart और payment अभी live नहीं हैं. Marketplace orders launch से पहले अपनी server-side pricing, Razorpay order creation और signature verification इस्तेमाल करेंगे.",
+    "backToMarketplace": "Marketplace पर वापस",
+    "askSeller": "Listing के बारे में पूछें",
+    "usedNew": {
+      "eyebrow": "Buy Used / Buy New",
+      "title": "Useful books, clearer condition.",
+      "body": "Listings new/used resource, item condition, seller identity, location और delivery availability स्पष्ट दिखाती हैं."
+    },
+    "seller": {
+      "eyebrow": "Seller / Partner",
+      "title": "Controlled seller onboarding.",
+      "body": "Students और partners interest register कर सकते हैं. Products live होने से पहले approval और moderation जरूरी है.",
+      "cta": "Interest Register करें"
+    },
+    "safety": {
+      "eyebrow": "Quality & Safety",
+      "title": "Education-first commerce.",
+      "body": "Marketplace legitimate educational resources के लिए scoped है, admin moderation और clear seller attribution के साथ."
+    },
+    "sellerFlow": {
+      "eyebrow": "Seller Registration",
+      "title": "Listing से पहले register करें.",
+      "subtitle": "Anonymous public selling enabled नहीं है. Seller profiles listings publish होने से पहले admin review से गुजरते हैं.",
+      "steps": [
+        "Register",
+        "Seller profile",
+        "Admin review",
+        "List product",
+        "Moderation",
+        "Published"
+      ]
+    },
+    "postForm": {
+      "eyebrow": "Post A Product",
+      "title": "Listing form scaffold.",
+      "note": "Fields books और education resources के लिए shaped हैं. Seller approval, upload storage और moderation APIs जुड़ने तक submit disabled है.",
+      "productTitle": "Product title",
+      "category": "Category",
+      "edition": "Edition",
+      "price": "Price",
+      "quantity": "Quantity",
+      "description": "Description",
+      "disabledNotice": "इस phase में submission disabled है. Approved seller APIs और image upload storage pending हैं."
+    },
+    "categories": {
+      "books": "Books",
+      "usedBooks": "Used Books",
+      "newBooks": "New Books",
+      "examPreparationBooks": "Exam Preparation Books",
+      "neetBooks": "NEET Books",
+      "jeeBooks": "JEE Books",
+      "questionBanks": "Question Banks",
+      "previousYearPaperCollections": "Previous-Year Paper Collections",
+      "studyMaterials": "Study Materials",
+      "referenceBooks": "Reference Books",
+      "collegeBooks": "College Books",
+      "medicalBooks": "Medical Books",
+      "engineeringBooks": "Engineering Books",
+      "educationalAccessories": "Educational Accessories"
+    }
+  },
   "admissions": {
     "eyebrow": "एडमिशन",
     "heroTitle": "अपनी admission journey plan करें.",
     "heroSubtitle": "Selected destinations के लिए MBBS abroad और international higher-education guidance, university shortlisting, applications, documentation और transition planning.",
     "destinations": {
-      "eyebrow": "हमारे MBBS Destinations",
-      "title": "आठ current destination options.",
-      "subtitle": "SIVORA UP↑RISING अभी केवल इन आठ देशों के लिए MBBS-abroad guidance दिखाता है.",
+      "eyebrow": "Destinations Explore करें",
+      "title": "Medical education abroad explore करें.",
+      "subtitle": "Structured country facts, featured universities और counselling support के साथ selected destination options compare करें.",
       "cta": "Destination देखें",
       "cardLabel": "MBBS Abroad"
     },
+    "compare": {
+      "eyebrow": "Compare Destinations",
+      "title": "Decision से पहले destinations compare करें.",
+      "subtitle": "Static country facts और indicative dynamic estimates को अलग-अलग review करें. Unsupported best/cheapest claims नहीं.",
+      "add": "Add",
+      "remove": "Added",
+      "cta": "Compare Countries",
+      "helper": "कम से कम दो countries select करें. इस interface में तीन तक compare हो सकती हैं.",
+      "helpEyebrow": "Choosing में मदद चाहिए?",
+      "helpTitle": "Free counselling लें."
+    },
+    "notVerified": "Not currently verified",
+    "contactForCurrentDetails": "Current details के लिए counselling contact करें",
     "support": {
       "eyebrow": "SIVORA आपकी admission journey में कैसे support करता है",
       "title": "Counselling से arrival तक clear steps.",
@@ -2211,7 +2342,63 @@
     },
     "countryHero": {
       "eyebrow": "MBBS Abroad",
-      "title": "{country} में MBBS"
+      "title": "{country} में MBBS",
+      "universitiesCta": "Featured Universities",
+      "compareCta": "Destination Compare करें",
+      "landmarkPending": "Approved Landmark Asset Pending"
+    },
+    "landmarks": {
+      "russia": "Russia admissions guidance के लिए Moscow landmark view",
+      "georgia": "Georgia admissions guidance के लिए Tbilisi landmark view",
+      "vietnam": "Vietnam admissions guidance के लिए landmark placeholder",
+      "armenia": "Armenia admissions guidance के लिए landmark placeholder",
+      "uzbekistan": "Uzbekistan admissions guidance के लिए landmark view",
+      "kyrgyzstan": "Kyrgyzstan admissions guidance के लिए landmark placeholder",
+      "tajikistan": "Tajikistan admissions guidance के लिए landmark placeholder",
+      "kazakhstan": "Kazakhstan admissions guidance के लिए landmark placeholder"
+    },
+    "glance": {
+      "eyebrow": "Country At A Glance",
+      "title": "Country at a glance",
+      "sourceNote": "Static country facts last verified {date}. Dynamic estimates application से पहले confirm करें.",
+      "capital": "Capital",
+      "currency": "Currency",
+      "languages": "Languages",
+      "timezone": "Time zone",
+      "travelDistance": "India से travel distance",
+      "travelDuration": "Typical travel duration",
+      "climate": "Climate",
+      "studentCities": "Major student cities",
+      "programDuration": "Program duration",
+      "intake": "Typical intake"
+    },
+    "timeCurrency": {
+      "eyebrow": "Time & Currency",
+      "title": "Timing और currency plan करें.",
+      "fxLabel": "Indicative exchange rate",
+      "fxDisclaimer": "Indicative exchange rate only. Actual bank/card rates और fees vary करते हैं. Source:",
+      "lastUpdated": "Last updated"
+    },
+    "comparison": {
+      "field": "Field",
+      "capital": "Capital",
+      "currency": "Currency",
+      "fx": "Current INR exchange indication",
+      "timeDifference": "Time zone",
+      "travelDistance": "Approximate travel distance",
+      "travelTime": "Typical travel time",
+      "climate": "Climate",
+      "studentCities": "Major student cities",
+      "programDuration": "Program duration",
+      "tuition": "Indicative tuition range",
+      "livingCost": "Indicative living cost",
+      "overallBudget": "Estimated overall budget",
+      "universities": "Featured universities",
+      "programs": "Available programs",
+      "medicalPrograms": "Medical programs where verified by counselling",
+      "intake": "Typical intake",
+      "medium": "Language / medium",
+      "disclaimer": "Indicative estimates. Actual costs university, city, exchange rate और lifestyle पर vary करते हैं."
     },
     "overview": {
       "eyebrow": "Destination Overview",

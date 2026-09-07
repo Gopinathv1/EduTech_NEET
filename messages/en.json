@@ -75,6 +75,10 @@
     "careerGuidance": "Career Guidance",
     "coursesLearning": "Courses & Learning Programs",
     "trainingPrograms": "Training Programs",
+    "marketplaceMenu": "Marketplace",
+    "marketplace": "Marketplace",
+    "marketplaceListings": "Listings",
+    "sellBooks": "Sell Books",
     "neet": "NEET",
     "jee": "JEE",
     "partnerWithUs": "Partner With Us",
@@ -423,6 +427,12 @@
       "whatsappLabel": "Chat with SIVORA UP↑RISING on WhatsApp",
       "whatsappMessage": "Hello SIVORA UP↑RISING, I would like to know more about admissions, counselling, exam preparation and courses."
     },
+    "marketplace": {
+      "eyebrow": "SIVORA Marketplace",
+      "title": "Give books a second journey.",
+      "subtitle": "Buy and sell books, exam resources and useful learning materials through a focused education marketplace.",
+      "cta": "Explore Marketplace"
+    },
     "heroServices": [
       {
         "title": "Admissions & Study Abroad",
@@ -552,6 +562,10 @@
       "courses": {
         "title": "Courses",
         "body": "Academic learning and future-skill programs in technology and emerging career areas."
+      },
+      "marketplace": {
+        "title": "Marketplace",
+        "body": "Buy, sell and reuse education books, exam resources and learning materials."
       }
     }
   },
@@ -872,8 +886,8 @@
   "countries": {
     "eyebrow": "Countries",
     "heroTitle": "Current MBBS abroad destinations",
-    "heroSubtitle": "Eight current destination options for MBBS-abroad admission guidance.",
-    "intro": "SIVORA UP↑RISING currently presents MBBS-abroad guidance for Russia, Georgia, Vietnam, Armenia, Uzbekistan, Kyrgyzstan, Tajikistan and Kazakhstan.",
+    "heroSubtitle": "Explore destination options for MBBS-abroad admission guidance.",
+    "intro": "SIVORA UP↑RISING presents MBBS-abroad guidance for selected destinations with verified country and university information.",
     "whyLabel": "Why study here",
     "costLabel": "Approximate cost",
     "eligibilityLabel": "Eligibility note",
@@ -1167,6 +1181,22 @@
     "admissionCountry": {
       "title": "MBBS in {country}",
       "description": "Explore SIVORA UP↑RISING admission guidance and featured medical universities for {country}."
+    },
+    "admissionsCompare": {
+      "title": "Compare Destinations",
+      "description": "Compare SIVORA UP↑RISING study-abroad destinations using verified country facts and indicative dynamic estimates."
+    },
+    "marketplace": {
+      "title": "SIVORA Marketplace",
+      "description": "Buy, sell and reuse student books, exam preparation resources and learning materials."
+    },
+    "marketplaceDetail": {
+      "title": "{title}",
+      "description": "View a SIVORA Marketplace education listing."
+    },
+    "marketplaceSell": {
+      "title": "Sell on SIVORA Marketplace",
+      "description": "Register interest to become an approved SIVORA Marketplace seller or partner."
     }
   },
   "catalogue": {
@@ -2186,17 +2216,118 @@
       "contact": "Contact Us"
     }
   },
+  "marketplace": {
+    "eyebrow": "SIVORA Marketplace",
+    "heroTitle": "Buy. Sell. Reuse. Learn.",
+    "heroSubtitle": "A focused marketplace for students, educators and education partners to discover, buy and sell useful learning resources.",
+    "browseCta": "Browse Listings",
+    "sellCta": "Sell Your Books",
+    "categoriesTitle": "Marketplace categories",
+    "categoryLabel": "Category",
+    "listingsEyebrow": "Featured / Recent Listings",
+    "listingsTitle": "Learning resources for students.",
+    "listingsNote": "This initial marketplace surface is education-focused. Checkout, seller approval and moderation remain server-controlled before live commerce.",
+    "search": "Search",
+    "searchPlaceholder": "Search books, resources or location",
+    "condition": "Condition",
+    "all": "All",
+    "buy": "Buy",
+    "soldBy": "Sold by",
+    "delivery": "Delivery available",
+    "pickup": "Pickup / contact seller",
+    "noResults": "No listings match your filters.",
+    "listingType": "Listing type",
+    "location": "Location",
+    "stock": "Stock",
+    "author": "Author",
+    "publisher": "Publisher",
+    "notApplicable": "Not applicable",
+    "detailEyebrow": "Product Listing",
+    "checkoutPending": "Cart and payment are not live yet. Marketplace orders will use their own server-side pricing, Razorpay order creation and signature verification before launch.",
+    "backToMarketplace": "Back To Marketplace",
+    "askSeller": "Ask About Listing",
+    "usedNew": {
+      "eyebrow": "Buy Used / Buy New",
+      "title": "Useful books, clearer condition.",
+      "body": "Listings distinguish new and used resources, item condition, seller identity, location and delivery availability."
+    },
+    "seller": {
+      "eyebrow": "Seller / Partner",
+      "title": "Controlled seller onboarding.",
+      "body": "Students and partners can register interest. Publishing requires approval and moderation before products go live.",
+      "cta": "Register Interest"
+    },
+    "safety": {
+      "eyebrow": "Quality & Safety",
+      "title": "Education-first commerce.",
+      "body": "The marketplace is scoped for legitimate educational resources, with admin moderation and clear seller attribution."
+    },
+    "sellerFlow": {
+      "eyebrow": "Seller Registration",
+      "title": "Register before listing.",
+      "subtitle": "Anonymous public selling is not enabled. Seller profiles go through admin review before listings can be published.",
+      "steps": [
+        "Register",
+        "Seller profile",
+        "Admin review",
+        "List product",
+        "Moderation",
+        "Published"
+      ]
+    },
+    "postForm": {
+      "eyebrow": "Post A Product",
+      "title": "Listing form scaffold.",
+      "note": "Fields are shaped for books and education resources. Submitting is disabled until seller approval, upload storage and moderation APIs are connected.",
+      "productTitle": "Product title",
+      "category": "Category",
+      "edition": "Edition",
+      "price": "Price",
+      "quantity": "Quantity",
+      "description": "Description",
+      "disabledNotice": "Submission is disabled in this phase. Approved seller APIs and image upload storage are pending."
+    },
+    "categories": {
+      "books": "Books",
+      "usedBooks": "Used Books",
+      "newBooks": "New Books",
+      "examPreparationBooks": "Exam Preparation Books",
+      "neetBooks": "NEET Books",
+      "jeeBooks": "JEE Books",
+      "questionBanks": "Question Banks",
+      "previousYearPaperCollections": "Previous-Year Paper Collections",
+      "studyMaterials": "Study Materials",
+      "referenceBooks": "Reference Books",
+      "collegeBooks": "College Books",
+      "medicalBooks": "Medical Books",
+      "engineeringBooks": "Engineering Books",
+      "educationalAccessories": "Educational Accessories"
+    }
+  },
   "admissions": {
     "eyebrow": "Admissions",
     "heroTitle": "Plan your admission journey.",
     "heroSubtitle": "MBBS abroad and international higher-education guidance for selected destinations, university shortlisting, applications, documentation and transition planning.",
     "destinations": {
-      "eyebrow": "Our MBBS Destinations",
-      "title": "Eight current destination options.",
-      "subtitle": "SIVORA UP↑RISING currently presents MBBS-abroad guidance for these eight countries only.",
+      "eyebrow": "Explore Destinations",
+      "title": "Explore medical education abroad.",
+      "subtitle": "Compare selected destination options with structured country facts, featured universities and counselling support.",
       "cta": "View Destination",
       "cardLabel": "MBBS Abroad"
     },
+    "compare": {
+      "eyebrow": "Compare Destinations",
+      "title": "Compare destinations before you decide.",
+      "subtitle": "Review static country facts separately from indicative dynamic estimates. Students and families can compare options without unsupported best/cheapest claims.",
+      "add": "Add",
+      "remove": "Added",
+      "cta": "Compare Countries",
+      "helper": "Select at least two countries. Up to three can be compared in this interface.",
+      "helpEyebrow": "Need Help Choosing?",
+      "helpTitle": "Get free counselling."
+    },
+    "notVerified": "Not currently verified",
+    "contactForCurrentDetails": "Contact counselling for current details",
     "support": {
       "eyebrow": "How SIVORA Supports Your Admission Journey",
       "title": "Clear steps from counselling to arrival.",
@@ -2211,7 +2342,63 @@
     },
     "countryHero": {
       "eyebrow": "MBBS Abroad",
-      "title": "MBBS in {country}"
+      "title": "MBBS in {country}",
+      "universitiesCta": "Featured Universities",
+      "compareCta": "Compare Destination",
+      "landmarkPending": "Approved Landmark Asset Pending"
+    },
+    "landmarks": {
+      "russia": "Moscow landmark view for Russia admissions guidance",
+      "georgia": "Tbilisi landmark view for Georgia admissions guidance",
+      "vietnam": "Vietnam landmark placeholder for admissions guidance",
+      "armenia": "Armenia landmark placeholder for admissions guidance",
+      "uzbekistan": "Uzbekistan landmark view for admissions guidance",
+      "kyrgyzstan": "Kyrgyzstan landmark placeholder for admissions guidance",
+      "tajikistan": "Tajikistan landmark placeholder for admissions guidance",
+      "kazakhstan": "Kazakhstan landmark placeholder for admissions guidance"
+    },
+    "glance": {
+      "eyebrow": "Country At A Glance",
+      "title": "Country at a glance",
+      "sourceNote": "Static country facts last verified {date}. Dynamic estimates must be confirmed before application.",
+      "capital": "Capital",
+      "currency": "Currency",
+      "languages": "Languages",
+      "timezone": "Time zone",
+      "travelDistance": "Travel distance from India",
+      "travelDuration": "Typical travel duration",
+      "climate": "Climate",
+      "studentCities": "Major student cities",
+      "programDuration": "Program duration",
+      "intake": "Typical intake"
+    },
+    "timeCurrency": {
+      "eyebrow": "Time & Currency",
+      "title": "Plan timing and currency.",
+      "fxLabel": "Indicative exchange rate",
+      "fxDisclaimer": "Indicative exchange rate only. Actual bank/card rates and fees vary. Source:",
+      "lastUpdated": "Last updated"
+    },
+    "comparison": {
+      "field": "Field",
+      "capital": "Capital",
+      "currency": "Currency",
+      "fx": "Current INR exchange indication",
+      "timeDifference": "Time zone",
+      "travelDistance": "Approximate travel distance",
+      "travelTime": "Typical travel time",
+      "climate": "Climate",
+      "studentCities": "Major student cities",
+      "programDuration": "Program duration",
+      "tuition": "Indicative tuition range",
+      "livingCost": "Indicative living cost",
+      "overallBudget": "Estimated overall budget",
+      "universities": "Featured universities",
+      "programs": "Available programs",
+      "medicalPrograms": "Medical programs where verified by counselling",
+      "intake": "Typical intake",
+      "medium": "Language / medium",
+      "disclaimer": "Indicative estimates. Actual costs vary by university, city, exchange rate and lifestyle."
     },
     "overview": {
       "eyebrow": "Destination Overview",

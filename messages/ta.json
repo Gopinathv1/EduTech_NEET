@@ -75,6 +75,10 @@
     "careerGuidance": "Career வழிகாட்டல்",
     "coursesLearning": "கோர்ஸ்கள் & கற்றல் திட்டங்கள்",
     "trainingPrograms": "பயிற்சி திட்டங்கள்",
+    "marketplaceMenu": "மார்க்கெட்ப்ளேஸ்",
+    "marketplace": "மார்க்கெட்ப்ளேஸ்",
+    "marketplaceListings": "லிஸ்டிங்குகள்",
+    "sellBooks": "புத்தகங்கள் விற்க",
     "neet": "NEET",
     "jee": "JEE",
     "partnerWithUs": "பார்ட்னராக சேருங்கள்",
@@ -312,6 +316,12 @@
       "secondary": "WhatsApp-ல் பேசுங்கள்",
       "whatsappLabel": "WhatsApp-ல் SIVORA UP↑RISING உடன் பேசுங்கள்",
       "whatsappMessage": "Hello SIVORA UP↑RISING, சேர்க்கை, கவுன்செல்லிங், தேர்வு தயாரிப்பு மற்றும் கோர்ஸ்கள் பற்றி மேலும் அறிய விரும்புகிறேன்."
+    },
+    "marketplace": {
+      "eyebrow": "SIVORA Marketplace",
+      "title": "புத்தகங்களுக்கு இரண்டாம் பயணம்.",
+      "subtitle": "Books, exam resources மற்றும் learning materials-ஐ focused education marketplace-ல் buy மற்றும் sell செய்யுங்கள்.",
+      "cta": "Marketplace பார்க்கவும்"
     },
     "heroServices": [
       {
@@ -552,6 +562,10 @@
       "courses": {
         "title": "கோர்ஸ்கள்",
         "body": "தொழில்நுட்பம் மற்றும் வளர்ந்து வரும் career பகுதிகளில் கல்வி மற்றும் எதிர்கால திறன் திட்டங்கள்."
+      },
+      "marketplace": {
+        "title": "Marketplace",
+        "body": "Education books, exam resources மற்றும் learning materials buy, sell, reuse செய்யுங்கள்."
       }
     }
   },
@@ -872,8 +886,8 @@
   "countries": {
     "eyebrow": "நாடுகள்",
     "heroTitle": "Current MBBS abroad destinations",
-    "heroSubtitle": "Eight current destination options for MBBS-abroad admission guidance.",
-    "intro": "SIVORA UP↑RISING currently presents MBBS-abroad guidance for Russia, Georgia, Vietnam, Armenia, Uzbekistan, Kyrgyzstan, Tajikistan and Kazakhstan.",
+    "heroSubtitle": "MBBS-abroad admission guidance க்கான destination options பார்க்கவும்.",
+    "intro": "SIVORA UP↑RISING selected destinations க்கு verified country மற்றும் university information உடன் MBBS-abroad guidance தருகிறது.",
     "whyLabel": "ஏன் இங்கே படிக்க வேண்டும்",
     "costLabel": "தோராயமான செலவு",
     "eligibilityLabel": "தகுதிக் குறிப்பு",
@@ -1167,6 +1181,22 @@
     "admissionCountry": {
       "title": "{country} MBBS",
       "description": "{country} க்கான SIVORA UP↑RISING admission guidance மற்றும் featured medical universities."
+    },
+    "admissionsCompare": {
+      "title": "Destinations Compare",
+      "description": "Verified country facts மற்றும் indicative estimates உடன் study-abroad destinations compare செய்யுங்கள்."
+    },
+    "marketplace": {
+      "title": "SIVORA Marketplace",
+      "description": "Student books, exam preparation resources மற்றும் learning materials buy, sell, reuse செய்யுங்கள்."
+    },
+    "marketplaceDetail": {
+      "title": "{title}",
+      "description": "SIVORA Marketplace education listing பார்க்கவும்."
+    },
+    "marketplaceSell": {
+      "title": "SIVORA Marketplace-ல் விற்க",
+      "description": "Approved seller அல்லது partner ஆக interest register செய்யுங்கள்."
     }
   },
   "catalogue": {
@@ -2186,17 +2216,118 @@
       "contact": "தொடர்பு கொள்ளுங்கள்"
     }
   },
+  "marketplace": {
+    "eyebrow": "SIVORA Marketplace",
+    "heroTitle": "Buy. Sell. Reuse. Learn.",
+    "heroSubtitle": "Students, educators மற்றும் education partners பயனுள்ள learning resources discover, buy, sell செய்யும் focused marketplace.",
+    "browseCta": "Listings பார்க்கவும்",
+    "sellCta": "புத்தகங்கள் விற்க",
+    "categoriesTitle": "Marketplace categories",
+    "categoryLabel": "Category",
+    "listingsEyebrow": "Featured / Recent Listings",
+    "listingsTitle": "Students க்கான learning resources.",
+    "listingsNote": "இந்த initial marketplace education-focused. Checkout, seller approval மற்றும் moderation live commerce க்கு முன் server-controlled ஆக இருக்கும்.",
+    "search": "Search",
+    "searchPlaceholder": "Books, resources அல்லது location search செய்யுங்கள்",
+    "condition": "Condition",
+    "all": "All",
+    "buy": "Buy",
+    "soldBy": "Sold by",
+    "delivery": "Delivery available",
+    "pickup": "Pickup / seller contact",
+    "noResults": "உங்கள் filters க்கு listing இல்லை.",
+    "listingType": "Listing type",
+    "location": "Location",
+    "stock": "Stock",
+    "author": "Author",
+    "publisher": "Publisher",
+    "notApplicable": "Not applicable",
+    "detailEyebrow": "Product Listing",
+    "checkoutPending": "Cart மற்றும் payment இன்னும் live இல்லை. Marketplace orders launch க்கு முன் தனி server-side pricing, Razorpay order creation மற்றும் signature verification பயன்படுத்தும்.",
+    "backToMarketplace": "Marketplace க்கு திரும்பு",
+    "askSeller": "Listing பற்றி கேளுங்கள்",
+    "usedNew": {
+      "eyebrow": "Buy Used / Buy New",
+      "title": "Useful books, clearer condition.",
+      "body": "Listings new/used resource, item condition, seller identity, location மற்றும் delivery availability தெளிவாக காட்டும்."
+    },
+    "seller": {
+      "eyebrow": "Seller / Partner",
+      "title": "Controlled seller onboarding.",
+      "body": "Students மற்றும் partners interest register செய்யலாம். Products live ஆகும் முன் approval மற்றும் moderation தேவை.",
+      "cta": "Interest Register"
+    },
+    "safety": {
+      "eyebrow": "Quality & Safety",
+      "title": "Education-first commerce.",
+      "body": "Marketplace legitimate educational resources க்காக scoped, admin moderation மற்றும் seller attribution உடன்."
+    },
+    "sellerFlow": {
+      "eyebrow": "Seller Registration",
+      "title": "Listing க்கு முன் register செய்யுங்கள்.",
+      "subtitle": "Anonymous public selling enabled இல்லை. Seller profiles publish ஆகும் முன் admin review தேவை.",
+      "steps": [
+        "Register",
+        "Seller profile",
+        "Admin review",
+        "List product",
+        "Moderation",
+        "Published"
+      ]
+    },
+    "postForm": {
+      "eyebrow": "Post A Product",
+      "title": "Listing form scaffold.",
+      "note": "Fields books மற்றும் education resources க்கு shaped. Seller approval, upload storage, moderation APIs connect ஆகும் வரை submit disabled.",
+      "productTitle": "Product title",
+      "category": "Category",
+      "edition": "Edition",
+      "price": "Price",
+      "quantity": "Quantity",
+      "description": "Description",
+      "disabledNotice": "இந்த phase இல் submission disabled. Approved seller APIs மற்றும் image upload storage pending."
+    },
+    "categories": {
+      "books": "Books",
+      "usedBooks": "Used Books",
+      "newBooks": "New Books",
+      "examPreparationBooks": "Exam Preparation Books",
+      "neetBooks": "NEET Books",
+      "jeeBooks": "JEE Books",
+      "questionBanks": "Question Banks",
+      "previousYearPaperCollections": "Previous-Year Paper Collections",
+      "studyMaterials": "Study Materials",
+      "referenceBooks": "Reference Books",
+      "collegeBooks": "College Books",
+      "medicalBooks": "Medical Books",
+      "engineeringBooks": "Engineering Books",
+      "educationalAccessories": "Educational Accessories"
+    }
+  },
   "admissions": {
     "eyebrow": "சேர்க்கைகள்",
     "heroTitle": "உங்கள் admission journey-ஐ திட்டமிடுங்கள்.",
     "heroSubtitle": "Selected destinations க்கான MBBS abroad மற்றும் international higher-education guidance, university shortlisting, applications, documentation மற்றும் transition planning.",
     "destinations": {
-      "eyebrow": "எங்கள் MBBS Destinations",
-      "title": "எட்டு current destination options.",
-      "subtitle": "SIVORA UP↑RISING தற்போது இந்த எட்டு நாடுகளுக்கான MBBS-abroad guidance மட்டும் காட்டுகிறது.",
+      "eyebrow": "Destinations Explore",
+      "title": "Medical education abroad explore செய்யுங்கள்.",
+      "subtitle": "Structured country facts, featured universities மற்றும் counselling support உடன் selected destination options compare செய்யுங்கள்.",
       "cta": "Destination பார்க்கவும்",
       "cardLabel": "MBBS Abroad"
     },
+    "compare": {
+      "eyebrow": "Compare Destinations",
+      "title": "Decision க்கு முன் destinations compare செய்யுங்கள்.",
+      "subtitle": "Static country facts மற்றும் indicative dynamic estimates தனித்தனியாக review செய்யுங்கள். Unsupported best/cheapest claims இல்லை.",
+      "add": "Add",
+      "remove": "Added",
+      "cta": "Compare Countries",
+      "helper": "குறைந்தது இரண்டு countries select செய்யுங்கள். இந்த interface இல் மூன்றுவரை compare செய்யலாம்.",
+      "helpEyebrow": "Choosing க்கு உதவி வேண்டுமா?",
+      "helpTitle": "Free counselling பெறுங்கள்."
+    },
+    "notVerified": "Not currently verified",
+    "contactForCurrentDetails": "Current details க்கு counselling contact செய்யுங்கள்",
     "support": {
       "eyebrow": "SIVORA உங்கள் admission journey-ஐ எப்படி ஆதரிக்கிறது",
       "title": "Counselling முதல் arrival வரை clear steps.",
@@ -2211,7 +2342,63 @@
     },
     "countryHero": {
       "eyebrow": "MBBS Abroad",
-      "title": "{country} MBBS"
+      "title": "{country} MBBS",
+      "universitiesCta": "Featured Universities",
+      "compareCta": "Destination Compare",
+      "landmarkPending": "Approved Landmark Asset Pending"
+    },
+    "landmarks": {
+      "russia": "Russia admissions guidance க்கான Moscow landmark view",
+      "georgia": "Georgia admissions guidance க்கான Tbilisi landmark view",
+      "vietnam": "Vietnam admissions guidance க்கான landmark placeholder",
+      "armenia": "Armenia admissions guidance க்கான landmark placeholder",
+      "uzbekistan": "Uzbekistan admissions guidance க்கான landmark view",
+      "kyrgyzstan": "Kyrgyzstan admissions guidance க்கான landmark placeholder",
+      "tajikistan": "Tajikistan admissions guidance க்கான landmark placeholder",
+      "kazakhstan": "Kazakhstan admissions guidance க்கான landmark placeholder"
+    },
+    "glance": {
+      "eyebrow": "Country At A Glance",
+      "title": "Country at a glance",
+      "sourceNote": "Static country facts last verified {date}. Dynamic estimates application க்கு முன் confirm செய்யுங்கள்.",
+      "capital": "Capital",
+      "currency": "Currency",
+      "languages": "Languages",
+      "timezone": "Time zone",
+      "travelDistance": "India இலிருந்து travel distance",
+      "travelDuration": "Typical travel duration",
+      "climate": "Climate",
+      "studentCities": "Major student cities",
+      "programDuration": "Program duration",
+      "intake": "Typical intake"
+    },
+    "timeCurrency": {
+      "eyebrow": "Time & Currency",
+      "title": "Timing மற்றும் currency plan செய்யுங்கள்.",
+      "fxLabel": "Indicative exchange rate",
+      "fxDisclaimer": "Indicative exchange rate only. Actual bank/card rates மற்றும் fees vary ஆகும். Source:",
+      "lastUpdated": "Last updated"
+    },
+    "comparison": {
+      "field": "Field",
+      "capital": "Capital",
+      "currency": "Currency",
+      "fx": "Current INR exchange indication",
+      "timeDifference": "Time zone",
+      "travelDistance": "Approximate travel distance",
+      "travelTime": "Typical travel time",
+      "climate": "Climate",
+      "studentCities": "Major student cities",
+      "programDuration": "Program duration",
+      "tuition": "Indicative tuition range",
+      "livingCost": "Indicative living cost",
+      "overallBudget": "Estimated overall budget",
+      "universities": "Featured universities",
+      "programs": "Available programs",
+      "medicalPrograms": "Medical programs where verified by counselling",
+      "intake": "Typical intake",
+      "medium": "Language / medium",
+      "disclaimer": "Indicative estimates. Actual costs university, city, exchange rate மற்றும் lifestyle அடிப்படையில் vary ஆகும்."
     },
     "overview": {
       "eyebrow": "Destination Overview",

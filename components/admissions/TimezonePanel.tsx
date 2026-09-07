@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function getTimeParts(timeZone: string) {
   const date = new Date();
@@ -68,16 +68,16 @@ export default function TimezonePanel({
   labelCity: string;
   note?: string;
 }) {
-  const [tick, setTick] = useState(0);
+  const [, setTick] = useState(0);
 
   useEffect(() => {
     const id = window.setInterval(() => setTick((value) => value + 1), 60_000);
     return () => window.clearInterval(id);
   }, []);
 
-  const india = useMemo(() => getTimeParts('Asia/Kolkata'), [tick]);
-  const destination = useMemo(() => getTimeParts(destinationTimeZone), [destinationTimeZone, tick]);
-  const diff = useMemo(() => differenceText(destinationName, destinationTimeZone), [destinationName, destinationTimeZone, tick]);
+  const india = getTimeParts('Asia/Kolkata');
+  const destination = getTimeParts(destinationTimeZone);
+  const diff = differenceText(destinationName, destinationTimeZone);
 
   return (
     <div className="rounded-2xl border border-[#2B2B2B] bg-[#050505]/72 p-5">
