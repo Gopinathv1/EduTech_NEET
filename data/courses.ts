@@ -67,3 +67,36 @@ export const AI_LEARNING_PATH = [
   'llmRag',
   'aiAgents',
 ] as const;
+
+export const ASTROLOGY_LEARNING_AREAS = [
+  { key: 'astrologyFoundations', level: 'BEGINNER', status: 'COMING_SOON', href: '/courses#astrology' },
+  { key: 'vedicAstrology', level: 'BEGINNER', status: 'COMING_SOON', href: '/courses#astrology' },
+  { key: 'birthChartFundamentals', level: 'INTERMEDIATE', status: 'COMING_SOON', href: '/courses#astrology' },
+  { key: 'planetsHouses', level: 'BEGINNER', status: 'COMING_SOON', href: '/courses#astrology' },
+  { key: 'nakshatras', level: 'INTERMEDIATE', status: 'COMING_SOON', href: '/courses#astrology' },
+  { key: 'dashaTransits', level: 'INTERMEDIATE', status: 'COMING_SOON', href: '/courses#astrology' },
+  { key: 'chartInterpretation', level: 'ADVANCED', status: 'COMING_SOON', href: '/courses#astrology' },
+  { key: 'numerology', level: 'BEGINNER', status: 'COMING_SOON', href: '/courses#astrology' },
+  { key: 'advancedAstrology', level: 'ADVANCED', status: 'COMING_SOON', href: '/courses#astrology' },
+] as const;
+
+export const ASTROLOGY_LEARNING_PATH = [
+  'foundations',
+  'zodiacPlanets',
+  'houses',
+  'nakshatras',
+  'birthCharts',
+  'dashaTransits',
+  'chartInterpretation',
+  'advancedStudy',
+] as const;
+
+export const ASTROLOGY_RELATED_AREAS = [
+  'numerology',
+  'astronomyForAstrologyStudents',
+  'calendarPanchanga',
+  'indianCalendarSystems',
+  'mythologySymbolism',
+  'historyOfAstrology',
+  'basicSanskritTerminology',
+] as const;
