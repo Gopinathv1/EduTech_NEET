@@ -2,13 +2,53 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { admissionJourneySteps } from '@/data/admission-journey';
 
-function JourneyTrack() {
+type JourneyItemsProps = {
+  copyIndex: number;
+  inert?: boolean;
+};
+
+function JourneyItems({ copyIndex, inert = false }: JourneyItemsProps) {
   const t = useTranslations('admissionJourney.steps');
 
   return (
-    <div className="flex w-max items-center whitespace-nowrap">
+    <div
+      className="flex shrink-0 items-center whitespace-nowrap pr-4"
+      aria-hidden={inert ? 'true' : undefined}
+    >
       {admissionJourneySteps.map((step, index) => (
-        <div key={step.id} className="flex shrink-0 items-center">
+        <div key={`${step.id}-${copyIndex}-${index}`} className="flex shrink-0 items-center">
+          <Link
+            href={step.href}
+            tabIndex={inert ? -1 : undefined}
+            className="rounded-full px-3 py-2 text-xs font-black uppercase tracking-[0.16em] text-white transition hover:bg-brand-soft hover:text-brand-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+          >
+            {t(`${step.id}.shortTitle`)}
+          </Link>
+          <span className="mx-2 text-sm font-black text-[#f6d58a]" aria-hidden="true">
+            -&gt;
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function JourneyTrack() {
+  return (
+    <div className="sivora-journey-marquee flex w-max items-center">
+      <JourneyItems copyIndex={0} />
+      <JourneyItems copyIndex={1} inert />
+    </div>
+  );
+}
+
+function JourneyStaticList() {
+  const t = useTranslations('admissionJourney.steps');
+
+  return (
+    <div className="sivora-journey-marquee-static hidden flex-wrap items-center gap-y-2">
+      {admissionJourneySteps.map((step, index) => (
+        <div key={`${step.id}-static-${index}`} className="flex min-w-0 items-center">
           <Link
             href={step.href}
             className="rounded-full px-3 py-2 text-xs font-black uppercase tracking-[0.16em] text-white transition hover:bg-brand-soft hover:text-brand-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
@@ -39,8 +79,9 @@ export default function AdmissionJourneyMarquee() {
           {t('subtitle')}
         </p>
       </div>
-      <div className="overflow-x-auto rounded-[1.5rem] border border-[#2B2B2B] bg-[#050505]/76 p-3 backdrop-blur-sm [scrollbar-width:thin]">
+      <div className="sivora-journey-marquee-shell overflow-hidden rounded-[1.5rem] border border-[#2B2B2B] bg-[#050505]/76 p-3 backdrop-blur-sm">
         <JourneyTrack />
+        <JourneyStaticList />
       </div>
     </div>
   );
