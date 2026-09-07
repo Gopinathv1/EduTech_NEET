@@ -4,6 +4,7 @@ import { getTranslations } from 'next-intl/server';
 import { pageMetadata } from '@/lib/seo';
 import PageHero from '@/components/public/PageHero';
 import { Section, PrimaryLink } from '@/components/public/ui';
+import ExploreSivora from '@/components/public/ExploreSivora';
 import { EXAMS } from '@/data/exams';
 
 export async function generateMetadata() {
@@ -78,6 +79,8 @@ export default function ExamPreparationPage() {
           </div>
         </div>
       </Section>
+
+      <ExploreSivora exclude={['examPreparation']} />
     </>
   );
 }

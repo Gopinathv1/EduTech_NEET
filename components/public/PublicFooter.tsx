@@ -23,9 +23,9 @@ function FooterColumn({ titleKey, links }: { titleKey: string; links: NavLink[] 
 }
 
 const ADMISSIONS: NavLink[] = [
-  { href: '/study-abroad', key: 'mbbsAbroad' },
-  { href: '/study-abroad', key: 'studyEurope' },
-  { href: '/study-abroad', key: 'internationalEducation' },
+  { href: '/admissions', key: 'mbbsAbroad' },
+  { href: '/admissions', key: 'internationalEducation' },
+  { href: '/admissions', key: 'applicationGuidance' },
 ];
 
 const COUNSELLING: NavLink[] = [
@@ -43,6 +43,7 @@ const EXAM_PREP: NavLink[] = [
 
 const LEARNING: NavLink[] = [
   { href: '/courses', key: 'coursesLearning' },
+  { href: '/courses#ai-future-skills', key: 'aiFutureSkills' },
 ];
 
 export default function PublicFooter() {

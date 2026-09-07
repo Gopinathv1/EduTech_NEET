@@ -170,7 +170,7 @@ function HumanHandoff({ whatsappUrl }: { whatsappUrl: string | null }) {
             {t('whatsapp')}
           </a>
         ) : null}
-        <Link href="/#callback" className="rounded-full bg-[#D71920] px-3 py-1.5 text-xs font-black text-white">
+        <Link href="/counselling" className="rounded-full bg-[#D71920] px-3 py-1.5 text-xs font-black text-white">
           {t('counselling')}
         </Link>
         <Link href="/contact" className="rounded-full border border-white/15 px-3 py-1.5 text-xs font-black text-white">

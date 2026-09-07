@@ -1,7 +1,7 @@
 /**
  * Reference data shared by the full dev seed (`seed.ts`) and the production
  * reference-only seed (`seed-reference.ts`): the 4 NEET subjects, their chapters
- * (with weightage — drives the generator), and the 6 admission countries.
+ * (with weightage — drives the generator), and the 8 admission countries.
  *
  * This file has NO side effects (no Prisma client, no writes), so it is safe to
  * import from either seed script.
@@ -51,10 +51,12 @@ export const SUBJECTS: { code: string; name: Lang; order: number }[] = [
 ];
 
 export const COUNTRIES: { code: string; name: Lang; description: Lang; order: number }[] = [
-  { code: 'RU', name: { en: 'Russia', ta: 'ரஷ்யா' }, description: { en: 'Long-established MBBS destination with NMC-recognised universities.', ta: 'NMC அங்கீகரிக்கப்பட்ட பல்கலைக்கழகங்களைக் கொண்ட நீண்டகால MBBS இடம்.' }, order: 1 },
-  { code: 'GE', name: { en: 'Georgia', ta: 'ஜார்ஜியா' }, description: { en: 'European-standard medical education at affordable fees.', ta: 'மலிவு கட்டணத்தில் ஐரோப்பிய தரமான மருத்துவக் கல்வி.' }, order: 2 },
-  { code: 'KZ', name: { en: 'Kazakhstan', ta: 'கஜகஸ்தான்' }, description: { en: 'Low cost of living and English-medium MBBS programmes.', ta: 'குறைந்த வாழ்க்கைச் செலவு மற்றும் ஆங்கில வழி MBBS படிப்புகள்.' }, order: 3 },
-  { code: 'KG', name: { en: 'Kyrgyzstan', ta: 'கிர்கிஸ்தான்' }, description: { en: 'Budget-friendly medical universities recognised internationally.', ta: 'சர்வதேச அளவில் அங்கீகரிக்கப்பட்ட மலிவான மருத்துவப் பல்கலைக்கழகங்கள்.' }, order: 4 },
-  { code: 'UZ', name: { en: 'Uzbekistan', ta: 'உஸ்பெகிஸ்தான்' }, description: { en: 'Emerging destination with modern campuses and low fees.', ta: 'நவீன வளாகங்கள் மற்றும் குறைந்த கட்டணத்துடன் வளர்ந்து வரும் இடம்.' }, order: 5 },
-  { code: 'PH', name: { en: 'Philippines', ta: 'பிலிப்பைன்ஸ்' }, description: { en: 'US-pattern curriculum taught fully in English.', ta: 'முழுவதும் ஆங்கிலத்தில் கற்பிக்கப்படும் அமெரிக்க முறை பாடத்திட்டம்.' }, order: 6 },
+  { code: 'RU', name: { en: 'Russia', ta: 'ரஷ்யா' }, description: { en: 'Current MBBS-abroad destination option for admission counselling.', ta: 'சேர்க்கை கவுன்செல்லிங்கிற்கான தற்போதைய MBBS-abroad destination option.' }, order: 1 },
+  { code: 'GE', name: { en: 'Georgia', ta: 'ஜார்ஜியா' }, description: { en: 'Current MBBS-abroad destination option for admission counselling.', ta: 'சேர்க்கை கவுன்செல்லிங்கிற்கான தற்போதைய MBBS-abroad destination option.' }, order: 2 },
+  { code: 'VN', name: { en: 'Vietnam', ta: 'வியட்நாம்' }, description: { en: 'Current MBBS-abroad destination option for admission counselling.', ta: 'சேர்க்கை கவுன்செல்லிங்கிற்கான தற்போதைய MBBS-abroad destination option.' }, order: 3 },
+  { code: 'AM', name: { en: 'Armenia', ta: 'ஆர்மேனியா' }, description: { en: 'Current MBBS-abroad destination option for admission counselling.', ta: 'சேர்க்கை கவுன்செல்லிங்கிற்கான தற்போதைய MBBS-abroad destination option.' }, order: 4 },
+  { code: 'UZ', name: { en: 'Uzbekistan', ta: 'உஸ்பெகிஸ்தான்' }, description: { en: 'Current MBBS-abroad destination option for admission counselling.', ta: 'சேர்க்கை கவுன்செல்லிங்கிற்கான தற்போதைய MBBS-abroad destination option.' }, order: 5 },
+  { code: 'KG', name: { en: 'Kyrgyzstan', ta: 'கிர்கிஸ்தான்' }, description: { en: 'Current MBBS-abroad destination option for admission counselling.', ta: 'சேர்க்கை கவுன்செல்லிங்கிற்கான தற்போதைய MBBS-abroad destination option.' }, order: 6 },
+  { code: 'TJ', name: { en: 'Tajikistan', ta: 'தஜிகிஸ்தான்' }, description: { en: 'Current MBBS-abroad destination option for admission counselling.', ta: 'சேர்க்கை கவுன்செல்லிங்கிற்கான தற்போதைய MBBS-abroad destination option.' }, order: 7 },
+  { code: 'KZ', name: { en: 'Kazakhstan', ta: 'கஜகஸ்தான்' }, description: { en: 'Current MBBS-abroad destination option for admission counselling.', ta: 'சேர்க்கை கவுன்செல்லிங்கிற்கான தற்போதைய MBBS-abroad destination option.' }, order: 8 },
 ];

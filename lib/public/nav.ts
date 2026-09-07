@@ -15,10 +15,10 @@ export const NAV_GROUPS: NavGroup[] = [
   {
     key: 'studyAbroadMenu',
     links: [
-      { href: '/study-abroad', key: 'mbbsAbroad' },
-      { href: '/study-abroad', key: 'studyEurope' },
-      { href: '/study-abroad', key: 'internationalEducation' },
-      { href: '/study-abroad', key: 'applicationGuidance' },
+      { href: '/admissions', key: 'mbbsAbroad' },
+      { href: '/admissions', key: 'internationalEducation' },
+      { href: '/admissions', key: 'applicationGuidance' },
+      { href: '/admission-journey', key: 'admissionJourney' },
     ],
   },
   {
@@ -42,15 +42,15 @@ export const NAV_GROUPS: NavGroup[] = [
     key: 'coursesMenu',
     links: [
       { href: '/courses', key: 'coursesLearning' },
-      { href: '/courses', key: 'trainingPrograms' },
+      { href: '/courses#ai-future-skills', key: 'aiFutureSkills' },
     ],
   },
 ];
 
 // Footer column groupings.
 export const FOOTER_EXPLORE: NavLink[] = [
-  { href: '/study-abroad', key: 'admission' },
-  { href: '/study-abroad', key: 'countries' },
+  { href: '/admissions', key: 'admissionsMenu' },
+  { href: '/admissions', key: 'countries' },
   { href: '/mock-tests', key: 'questionBank' },
   { href: '/exam-preparation/neet', key: 'previousYear' },
   { href: '/mock-tests', key: 'mockTests' },

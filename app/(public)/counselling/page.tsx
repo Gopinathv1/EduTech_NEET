@@ -5,6 +5,7 @@ import PageHero from '@/components/public/PageHero';
 import { Section, PrimaryLink } from '@/components/public/ui';
 import HomeLeadForm from '@/components/public/HomeLeadForm';
 import WhatsAppLink from '@/components/whatsapp/WhatsAppLink';
+import ExploreSivora from '@/components/public/ExploreSivora';
 
 export async function generateMetadata() {
   const t = await getTranslations('seo.counselling');
@@ -63,6 +64,8 @@ export default function CounsellingPage() {
           </div>
         </div>
       </Section>
+
+      <ExploreSivora exclude={['counselling']} />
     </>
   );
 }

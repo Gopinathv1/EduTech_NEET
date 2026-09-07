@@ -57,27 +57,29 @@
     "privacy": "தனியுரிமைக் கொள்கை",
     "examNeet": "NEET",
     "examJeeSoon": "JEE - விரைவில்",
-    "getStarted": "Free Counselling பெறுங்கள்",
-    "admissionsMenu": "Admissions",
+    "getStarted": "இலவச கவுன்செல்லிங் பெறுங்கள்",
+    "admissionsMenu": "சேர்க்கைகள்",
     "studyAbroadMenu": "சேர்க்கைகள்",
     "examPrepMenu": "தேர்வு தயாரிப்பு",
     "counsellingMenu": "கவுன்சிலிங்",
     "coursesMenu": "பாடநெறிகள்",
-    "mbbsIndia": "MBBS Counselling in India",
-    "mbbsCounsellingIndia": "MBBS Counselling in India",
-    "mbbsAbroad": "MBBS Abroad",
+    "mbbsIndia": "இந்தியாவில் MBBS கவுன்செல்லிங்",
+    "mbbsCounsellingIndia": "இந்தியாவில் MBBS கவுன்செல்லிங்",
+    "mbbsAbroad": "வெளிநாட்டில் MBBS",
     "studyEurope": "ஐரோப்பாவில் படிப்பு",
-    "medicalAdmissions": "Medical Admissions",
-    "otherPrograms": "Other Programs",
-    "internationalEducation": "International Education",
-    "applicationGuidance": "Application Guidance",
-    "collegeGuidance": "College Guidance",
-    "careerGuidance": "Career Guidance",
-    "coursesLearning": "Courses & Learning Programs",
-    "trainingPrograms": "Training Programs",
+    "medicalAdmissions": "மருத்துவ சேர்க்கைகள்",
+    "otherPrograms": "மற்ற திட்டங்கள்",
+    "internationalEducation": "சர்வதேச கல்வி",
+    "applicationGuidance": "விண்ணப்ப வழிகாட்டல்",
+    "collegeGuidance": "கல்லூரி வழிகாட்டல்",
+    "careerGuidance": "Career வழிகாட்டல்",
+    "coursesLearning": "கோர்ஸ்கள் & கற்றல் திட்டங்கள்",
+    "trainingPrograms": "பயிற்சி திட்டங்கள்",
     "neet": "NEET",
     "jee": "JEE",
-    "partnerWithUs": "பார்ட்னராக சேருங்கள்"
+    "partnerWithUs": "பார்ட்னராக சேருங்கள்",
+    "admissionJourney": "சேர்க்கை பயணம்",
+    "aiFutureSkills": "AI & Future Skills"
   },
   "site": {
     "cta": {
@@ -113,8 +115,8 @@
     "brand": "SIVORA UP↑RISING",
     "title": "?????? ?????????? ?????? ????? ????? ????????????",
     "subtitle": "NEET-க்கு சிறப்பாகத் தயாராகுங்கள், கல்வி முடிவுகளை நம்பிக்கையுடன் எடுங்கள், இந்தியாவிலும் வெளிநாடுகளிலும் மருத்துவ மற்றும் உயர்கல்வி வாய்ப்புகளை ஆராயுங்கள்.",
-    "ctaPrimary": "Free Counselling பெறுங்கள்",
-    "ctaSecondary": "Study Abroad ஆராயுங்கள்",
+    "ctaPrimary": "இலவச கவுன்செல்லிங் பெறுங்கள்",
+    "ctaSecondary": "வெளிநாட்டு கல்வியை அறியுங்கள்",
     "examSelectorLabel": "Current services",
     "examChips": [
       {
@@ -146,10 +148,10 @@
       "note": "தேடல் UI தயாராக உள்ளது. Backend search index செயல்படுத்தப்பட்டதும் global search இணைக்கலாம்."
     },
     "quickActions": {
-      "eyebrow": "Four service areas",
-      "title": "Guidance, preparation and learning programs",
-      "titleLine1": "How SIVORA UP↑RISING",
-      "titleLine2": "Helps Students Move Forward",
+      "eyebrow": "நான்கு சேவைப் பகுதிகள்",
+      "title": "வழிகாட்டல், தயாரிப்பு மற்றும் கற்றல் திட்டங்கள்",
+      "titleLine1": "SIVORA UP↑RISING எப்படி",
+      "titleLine2": "மாணவர்கள் முன்னேற உதவுகிறது",
       "subtitle": "வெளிநாட்டு கல்வி, தேர்வு தயாரிப்பு, தொழில் ஆலோசனை மற்றும் கற்றல் வாய்ப்புகளில் SIVORA UP↑RISING மாணவர்களுக்கு ஆதரவளிக்கிறது.",
       "items": [
         {
@@ -303,11 +305,13 @@
       ]
     },
     "finalCta": {
-      "eyebrow": "தொடங்கத் தயாரா?",
-      "title": "உங்கள் அடுத்த படியை திட்டமிடுங்கள்.",
-      "subtitle": "வெளிநாட்டு கல்வி, MBBS கவுன்சிலிங் அல்லது NEET தயாரிப்பு எதுவாக இருந்தாலும், ஒரு உரையாடலுடன் தொடங்குங்கள்.",
-      "primary": "Get Free Counselling",
-      "secondary": "Start NEET Preparation"
+      "eyebrow": "அடுத்த படியை திட்டமிட தயாரா?",
+      "title": "உங்கள் அடுத்த படியை திட்டமிட தயாரா?",
+      "subtitle": "கவுன்செல்லிங், சேர்க்கை, தேர்வு தயாரிப்பு அல்லது எதிர்கால திறன் கற்றல் ஆதரவுடன் தொடங்குங்கள்.",
+      "primary": "இலவச கவுன்செல்லிங் பெறுங்கள்",
+      "secondary": "WhatsApp-ல் பேசுங்கள்",
+      "whatsappLabel": "WhatsApp-ல் SIVORA UP↑RISING உடன் பேசுங்கள்",
+      "whatsappMessage": "Hello SIVORA UP↑RISING, சேர்க்கை, கவுன்செல்லிங், தேர்வு தயாரிப்பு மற்றும் கோர்ஸ்கள் பற்றி மேலும் அறிய விரும்புகிறேன்."
     },
     "heroServices": [
       {
@@ -364,22 +368,9 @@
       "europeCta": "ஐரோப்பிய destinations ஆராயுங்கள்",
       "europeNote": "Verified destination information கிடைக்கும் போது ஐரோப்பிய நாடு விருப்பங்கள் படிப்படியாக சேர்க்கப்படலாம்.",
       "europeCardLabel": "Explore option",
-      "europeExamples": [
-        "Germany",
-        "France",
-        "Italy",
-        "Ireland",
-        "Netherlands",
-        "Spain",
-        "Poland",
-        "Hungary",
-        "Czech Republic",
-        "Lithuania",
-        "Latvia",
-        "Malta"
-      ]
+      "europeExamples": []
     },
-    "ctaTertiary": "NEET Preparation தொடங்குங்கள்",
+    "ctaTertiary": "NEET தயாரிப்பைத் தொடங்குங்கள்",
     "whoHelp": {
       "eyebrow": "யாருக்கு உதவுகிறோம்",
       "title": "முக்கிய கல்வி முடிவுகளை எடுக்கும் மாணவர்கள் மற்றும் குடும்பங்களுக்கு.",
@@ -416,29 +407,29 @@
       ]
     },
     "leadForm": {
-      "eyebrow": "Callback Request",
+      "eyebrow": "Callback கோரிக்கை",
       "title": "நீங்கள் தேடுவது என்ன என்பதை சொல்லுங்கள்.",
       "subtitle": "Counselling, study abroad, NEET preparation அல்லது learning programs பற்றி SIVORA UP↑RISING team உங்களை தொடர்பு கொள்ள சில விவரங்களை பகிருங்கள்.",
       "name": "முழு பெயர்",
       "mobile": "மொபைல் எண்",
-      "email": "Email",
-      "interest": "Area of Interest",
-      "destination": "Preferred Destination",
-      "submit": "Request a Callback",
+      "email": "மின்னஞ்சல்",
+      "interest": "ஆர்வப் பகுதி",
+      "destination": "விருப்பமான இலக்கு",
+      "submit": "Callback கோரிக்கையை அனுப்புங்கள்",
       "sending": "அனுப்புகிறது...",
-      "consent": "Submit செய்தால், உங்கள் enquiry குறித்து SIVORA UP↑RISING உங்களை தொடர்பு கொள்ளலாம் என்பதை ஏற்கிறீர்கள்.",
-      "privacy": "Privacy Policy",
+      "consent": "சமர்ப்பிப்பதன் மூலம், உங்கள் enquiry குறித்து SIVORA UP↑RISING உங்களை தொடர்பு கொள்ளலாம் என்பதை ஏற்கிறீர்கள்.",
+      "privacy": "தனியுரிமைக் கொள்கை",
       "successTitle": "Enquiry பெறப்பட்டது",
       "success": "நன்றி. SIVORA UP↑RISING team விரைவில் உங்களை தொடர்பு கொள்ளும்.",
       "interests": [
-        "MBBS Abroad",
-        "Study in Europe",
-        "International Education",
-        "MBBS Counselling in India",
-        "Career & College Guidance",
+        "வெளிநாட்டில் MBBS",
+        "ஐரோப்பாவில் படிப்பு",
+        "சர்வதேச கல்வி",
+        "இந்தியாவில் MBBS கவுன்செல்லிங்",
+        "Career & கல்லூரி வழிகாட்டல்",
         "NEET தயாரிப்பு",
-        "Courses & Learning Programs",
-        "Other"
+        "கோர்ஸ்கள் & கற்றல் திட்டங்கள்",
+        "மற்றவை"
       ]
     },
     "why": {
@@ -500,15 +491,16 @@
     },
     "heroTitlePrefix": "எல்லைகளைத் தாண்டி",
     "heroTitleAccent": "உயருங்கள்.",
-    "heroCtaPrimary": "NEET தயாரிப்பை தொடங்குங்கள்",
-    "heroCtaSecondary": "உலகளாவிய சேர்க்கைகளை ஆராயுங்கள்",
+    "heroCtaPrimary": "NEET தயாரிப்பைத் தொடங்குங்கள்",
+    "heroCtaSecondary": "உலகளாவிய சேர்க்கைகளை அறியுங்கள்",
     "heroEyebrow": "கல்வி • தயாரிப்பு • உலகளாவிய வாய்ப்பு",
-    "heroSubtitle": "சிறப்பாக தயாராகுங்கள். நம்பிக்கையுடன் தேர்வு செய்யுங்கள். இந்தியாவிலும் உலகளாவிய அளவிலும் உங்கள் எதிர்காலத்தை உருவாக்குங்கள்.",
-    "heroExplore": "SIVORA-வை அறியுங்கள்",
+    "heroSubtitle": "சேர்க்கை, கவுன்செல்லிங், தேர்வு தயாரிப்பு மற்றும் AI-powered future skills க்கான ஒரே education platform.",
+    "heroExplore": "பிரோகிராம்களைப் பாருங்கள்",
     "quickLinks": {
+      "admissions": "சேர்க்கைகள்",
       "examPreparation": "தேர்வு தயாரிப்பு",
       "studyAbroad": "வெளிநாட்டு கல்வி",
-      "courses": "கோர்ஸ்கள்",
+      "courses": "கோர்ஸ்கள் & எதிர்கால திறன்கள்",
       "counselling": "கவுன்செல்லிங்"
     },
     "whatWeDo": {
@@ -516,22 +508,50 @@
       "subtitle": "இன்று உங்களுக்கு தேவையான பாதையைத் தேர்வு செய்து, விவரங்களுக்கு அந்த சேவைப் பக்கத்துக்குச் செல்லுங்கள்."
     },
     "serviceCards": {
-      "explore": "அறியுங்கள் ->",
+      "explore": "பாருங்கள் ->",
+      "admissions": {
+        "title": "சேர்க்கைகள்",
+        "body": "தேர்ந்தெடுக்கப்பட்ட destinations க்கான MBBS abroad மற்றும் international higher-education guidance."
+      },
       "examPreparation": {
         "title": "தேர்வு தயாரிப்பு",
-        "body": "ஒழுங்கமைக்கப்பட்ட பயிற்சி, மாக் டெஸ்ட், கேள்வி வங்கி மற்றும் செயல்திறன் பகுப்பாய்வு."
+        "body": "NEET, JEE மற்றும் future exams க்கு mock tests, question banks, analytics."
       },
       "studyAbroad": {
         "title": "வெளிநாட்டு கல்வி",
         "body": "நாடு, பல்கலைக்கழகம், கோர்ஸ் மற்றும் விண்ணப்பத் திட்டமிடலில் வழிகாட்டல்."
       },
       "courses": {
-        "title": "கோர்ஸ்கள் & எதிர்கால திறன்கள்",
-        "body": "தேர்வுகள், தொழில்நுட்பம் மற்றும் புதிய திறன்களுக்கான கற்றல் திட்டங்கள்."
+        "title": "Courses & Future Skills",
+        "body": "AI, technology மற்றும் future-ready career பகுதிகளில் practical skills உருவாக்குங்கள்."
       },
       "counselling": {
-        "title": "கவுன்செல்லிங் & சேர்க்கை வழிகாட்டல்",
-        "body": "கல்வித் தேர்வுகள், சேர்க்கைகள் மற்றும் அடுத்த படிகளுக்கான தெளிவான ஆதரவு."
+        "title": "கவுன்செல்லிங்",
+        "body": "Academic profile, interests, course direction, university selection மற்றும் next-step planning."
+      }
+    }
+  },
+  "exploreSivora": {
+    "eyebrow": "SIVORA-வை அறியுங்கள்",
+    "title": "சரியான ஆதரவுடன் தொடருங்கள்.",
+    "subtitle": "உங்கள் இடத்தை இழக்காமல் SIVORA UP↑RISING சேவைகளுக்குள் செல்லுங்கள்.",
+    "cta": "சேவையைப் பாருங்கள் ->",
+    "items": {
+      "admissions": {
+        "title": "சேர்க்கைகள்",
+        "body": "இந்தியா மற்றும் வெளிநாட்டு சேர்க்கை வழிகாட்டல், MBBS abroad மற்றும் உயர்கல்வி பாதைகள்."
+      },
+      "counselling": {
+        "title": "கவுன்செல்லிங்",
+        "body": "கல்வி நிலை, ஆர்வங்கள், கோர்ஸ் திசை, பல்கலைக்கழக தேர்வு மற்றும் நடைமுறை திட்டமிடல்."
+      },
+      "examPreparation": {
+        "title": "தேர்வு தயாரிப்பு",
+        "body": "NEET, JEE மற்றும் எதிர்கால தேர்வுகளுக்கு மாக் டெஸ்ட், கேள்வி வங்கி மற்றும் பகுப்பாய்வுடன் பயிற்சி."
+      },
+      "courses": {
+        "title": "கோர்ஸ்கள்",
+        "body": "தொழில்நுட்பம் மற்றும் வளர்ந்து வரும் career பகுதிகளில் கல்வி மற்றும் எதிர்கால திறன் திட்டங்கள்."
       }
     }
   },
@@ -851,86 +871,108 @@
   },
   "countries": {
     "eyebrow": "நாடுகள்",
-    "heroTitle": "வெளிநாட்டில் மருத்துவம் படிக்க அங்கீகரிக்கப்பட்ட நாடுகள்",
-    "heroSubtitle": "மாணவர்கள் ஏன் தேர்வு செய்கிறார்கள், தோராயமான செலவு மற்றும் முக்கிய தகுதிக் குறிப்புகளுடன் அங்கீகரிக்கப்பட்ட படிப்பு நாடுகளின் மேலோட்டம்.",
-    "intro": "தகுதியுள்ள மாணவர்களை நாங்கள் வழிநடத்தும் நாடுகள் இவை. செலவுகள் முழுப் படிப்புக்கான தோராயமான வரம்புகள்; பல்கலைக்கழகம் மற்றும் ஆண்டைப் பொறுத்து மாறுபடும் — கவுன்சிலிங்கின்போது தற்போதைய கணக்குகளை உறுதிசெய்யுங்கள்.",
+    "heroTitle": "Current MBBS abroad destinations",
+    "heroSubtitle": "Eight current destination options for MBBS-abroad admission guidance.",
+    "intro": "SIVORA UP↑RISING currently presents MBBS-abroad guidance for Russia, Georgia, Vietnam, Armenia, Uzbekistan, Kyrgyzstan, Tajikistan and Kazakhstan.",
     "whyLabel": "ஏன் இங்கே படிக்க வேண்டும்",
     "costLabel": "தோராயமான செலவு",
     "eligibilityLabel": "தகுதிக் குறிப்பு",
     "disclosure": "செலவு வரம்புகள் குறிப்பீட்டு அளவில் மட்டுமே; முழு மருத்துவப் படிப்பை உள்ளடக்கியது, வாழ்க்கைச் செலவுகளை உள்ளடக்கவில்லை, காலப்போக்கில் மாறும். தகுதியும் இந்தியாவில் பயிற்சி செய்யும் உரிமையும் நீட் தகுதி, தேசிய ஒழுங்குமுறை விதிகள் மற்றும் தேவையான தகுதி அல்லது உரிமத் தேர்வைப் பொறுத்தது. வழிகாட்டுதலின்போது நாடு சார்ந்த விதிமுறைகளைத் தெளிவாக வெளிப்படுத்துகிறோம்.",
     "items": {
       "ru": {
-        "name": "ரஷ்யா",
-        "tagline": "அங்கீகரிக்கப்பட்ட பல்கலைக்கழகங்களைக் கொண்ட நீண்டகால நாடு.",
+        "name": "Russia",
+        "tagline": "Current MBBS-abroad destination option.",
         "why": [
-          "சர்வதேச மருத்துவ மாணவர்களுக்குக் கற்பிப்பதில் பல தசாப்த அனுபவம்",
-          "இந்திய மற்றும் உலகளாவிய அதிகாரிகளால் அங்கீகரிக்கப்பட்ட பல பல்கலைக்கழகங்கள்",
-          "பல பல்கலைக்கழகங்களில் ஆங்கில வழிப் படிப்புகள்"
+          "Country and university selection guidance",
+          "Application and documentation support",
+          "Pre-departure and transition planning"
         ],
-        "cost": "முழுப் படிப்புக்கு ₹18–35 லட்சம்",
-        "eligibility": "நீட் தகுதி அவசியம்; பல்கலைக்கழகத்தின் தற்போதைய அங்கீகாரத்தைச் சரிபார்க்கவும்."
+        "cost": "Confirm current costs during counselling",
+        "eligibility": "Eligibility depends on university criteria and applicable regulations."
       },
       "ge": {
-        "name": "ஜார்ஜியா",
-        "tagline": "மிதமான செலவில் ஐரோப்பிய தரக் கல்வி.",
+        "name": "Georgia",
+        "tagline": "Current MBBS-abroad destination option.",
         "why": [
-          "ஐரோப்பிய கல்வித் தரங்கள் மற்றும் நவீன வளாகங்கள்",
-          "ஆங்கில வழிப் படிப்புகள்",
-          "இந்திய மாணவர்களிடையே வளர்ந்து வரும் தேர்வு"
+          "Country and university selection guidance",
+          "Application and documentation support",
+          "Pre-departure and transition planning"
         ],
-        "cost": "முழுப் படிப்புக்கு ₹25–40 லட்சம்",
-        "eligibility": "நீட் தகுதி அவசியம்; அங்கீகாரம் மற்றும் படிப்பு அமைப்பை உறுதிசெய்யவும்."
+        "cost": "Confirm current costs during counselling",
+        "eligibility": "Eligibility depends on university criteria and applicable regulations."
       },
-      "kz": {
-        "name": "கஜகஸ்தான்",
-        "tagline": "மலிவான கட்டணம் மற்றும் குறைந்த வாழ்க்கைச் செலவு.",
+      "vn": {
+        "name": "Vietnam",
+        "tagline": "Current MBBS-abroad destination option.",
         "why": [
-          "குறைந்த கட்டணம் மற்றும் வாழ்க்கைச் செலவு",
-          "ஆங்கில வழிப் படிப்புகள் கிடைக்கும்",
-          "இந்திய மாணவர்களுக்கு அங்கீகரிக்கப்பட்ட பல்கலைக்கழகங்கள்"
+          "Country and university selection guidance",
+          "Application and documentation support",
+          "Pre-departure and transition planning"
         ],
-        "cost": "முழுப் படிப்புக்கு ₹18–30 லட்சம்",
-        "eligibility": "நீட் தகுதி அவசியம்; பல்கலைக்கழகத்தின் தற்போதைய அங்கீகாரத்தைச் சரிபார்க்கவும்."
+        "cost": "Confirm current costs during counselling",
+        "eligibility": "Eligibility depends on university criteria and applicable regulations."
       },
-      "kg": {
-        "name": "கிர்கிஸ்தான்",
-        "tagline": "அங்கீகரிக்கப்பட்ட பல்கலைக்கழகங்களுடன் மலிவானது.",
+      "am": {
+        "name": "Armenia",
+        "tagline": "Current MBBS-abroad destination option.",
         "why": [
-          "மிகவும் மலிவான நாடுகளில் ஒன்று",
-          "ஆங்கில வழிக் கற்பித்தல்",
-          "எளிய, மாணவர் நட்பு சேர்க்கை செயல்முறை"
+          "Country and university selection guidance",
+          "Application and documentation support",
+          "Pre-departure and transition planning"
         ],
-        "cost": "முழுப் படிப்புக்கு ₹16–28 லட்சம்",
-        "eligibility": "நீட் தகுதி அவசியம்; விண்ணப்பிக்கும் முன் அங்கீகாரத்தைச் சரிபார்க்கவும்."
+        "cost": "Confirm current costs during counselling",
+        "eligibility": "Eligibility depends on university criteria and applicable regulations."
       },
       "uz": {
-        "name": "உஸ்பெகிஸ்தான்",
-        "tagline": "நவீன வசதிகளுடன் வளர்ந்து வரும் நாடு.",
+        "name": "Uzbekistan",
+        "tagline": "Current MBBS-abroad destination option.",
         "why": [
-          "புதிய வளாகங்கள் மற்றும் மேம்படும் உள்கட்டமைப்பு",
-          "போட்டித்தன்மையான, குறைந்த கட்டணம்",
-          "ஆங்கில வழி விருப்பங்கள்"
+          "Country and university selection guidance",
+          "Application and documentation support",
+          "Pre-departure and transition planning"
         ],
-        "cost": "முழுப் படிப்புக்கு ₹18–30 லட்சம்",
-        "eligibility": "நீட் தகுதி அவசியம்; படிப்பின் அங்கீகாரத்தை உறுதிசெய்யவும்."
+        "cost": "Confirm current costs during counselling",
+        "eligibility": "Eligibility depends on university criteria and applicable regulations."
       },
-      "ph": {
-        "name": "பிலிப்பைன்ஸ்",
-        "tagline": "ஆங்கிலத்தில் கற்பிக்கப்படும் அமெரிக்க முறை பாடத்திட்டம்.",
+      "kg": {
+        "name": "Kyrgyzstan",
+        "tagline": "Current MBBS-abroad destination option.",
         "why": [
-          "அமெரிக்க பாணி மருத்துவப் பாடத்திட்டம்",
-          "முழுவதும் ஆங்கிலத்தில் கற்பித்தல்",
-          "சர்வதேச மாணவர்களிடையே பிரபலம்"
+          "Country and university selection guidance",
+          "Application and documentation support",
+          "Pre-departure and transition planning"
         ],
-        "cost": "முழுப் படிப்புக்கு ₹28–45 லட்சம்",
-        "eligibility": "நீட் தகுதி அவசியம்; BS + MD அமைப்பு மற்றும் அங்கீகாரத்தைக் கவனிக்கவும்."
+        "cost": "Confirm current costs during counselling",
+        "eligibility": "Eligibility depends on university criteria and applicable regulations."
+      },
+      "tj": {
+        "name": "Tajikistan",
+        "tagline": "Current MBBS-abroad destination option.",
+        "why": [
+          "Country and university selection guidance",
+          "Application and documentation support",
+          "Pre-departure and transition planning"
+        ],
+        "cost": "Confirm current costs during counselling",
+        "eligibility": "Eligibility depends on university criteria and applicable regulations."
+      },
+      "kz": {
+        "name": "Kazakhstan",
+        "tagline": "Current MBBS-abroad destination option.",
+        "why": [
+          "Country and university selection guidance",
+          "Application and documentation support",
+          "Pre-departure and transition planning"
+        ],
+        "cost": "Confirm current costs during counselling",
+        "eligibility": "Eligibility depends on university criteria and applicable regulations."
       }
     },
     "europe": {
       "eyebrow": "Study in Europe",
       "title": "Explore European Study Destinations.",
-      "body": "Explore higher-education opportunities across European countries with guidance for choosing the right country, university, course and application pathway.",
-      "disclaimer": "SIVORA UP↑RISING can support enquiries for these selected destinations where a student's profile, course choice, language needs, budget and university criteria are suitable. No official university partnerships are claimed here."
+      "body": "International higher-education counselling is handled through the admissions and counselling pages as verified options are added.",
+      "disclaimer": "No unsupported country, university partnership or outcome guarantee is claimed."
     }
   },
   "testimonials": {
@@ -1035,8 +1077,8 @@
   },
   "seo": {
     "home": {
-      "title": "SIVORA UP↑RISING - போட்டித் தேர்வு தயாரிப்பு",
-      "description": "முந்தைய ஆண்டு கேள்விகள், அத்தியாய வாரியான கேள்வி வங்கி, மாதிரி தேர்வுகள் மற்றும் விரிவான தீர்வுகள் - NEET-இல் தொடங்கி."
+      "title": "SIVORA UP↑RISING - Education, Admissions, Exams & Future Skills",
+      "description": "SIVORA UP↑RISING admissions, counselling, exam preparation மற்றும் AI-powered future-skills learning இல் students க்கு support செய்கிறது."
     },
     "about": {
       "title": "எங்களைப் பற்றி",
@@ -1059,8 +1101,8 @@
       "description": "இந்தியாவில் மருத்துவ இடம் கிடைக்கவில்லையா? தெளிவான தகுதி மற்றும் நாடு சார்ந்த விதிமுறைகளுடன், வெளிநாட்டில் அங்கீகரிக்கப்பட்ட பல்கலைக்கழகங்கள் குறித்த நேர்மையான வழிகாட்டுதலைப் பெறுங்கள்."
     },
     "countries": {
-      "title": "வெளிநாட்டில் மருத்துவம் — நாடுகள்",
-      "description": "வெளிநாட்டில் மருத்துவம் படிக்க அங்கீகரிக்கப்பட்ட நாடுகளின் மேலோட்டம் — ரஷ்யா, ஜார்ஜியா, கஜகஸ்தான், கிர்கிஸ்தான், உஸ்பெகிஸ்தான் மற்றும் பிலிப்பைன்ஸ் — செலவு மற்றும் தகுதிக் குறிப்புகளுடன்."
+      "title": "சேர்க்கைகள்",
+      "description": "SIVORA UP↑RISING current MBBS abroad destination guidance."
     },
     "testimonials": {
       "title": "கருத்துகள்",
@@ -1092,19 +1134,19 @@
     },
     "counselling": {
       "title": "கவுன்செல்லிங்",
-      "description": "Request counselling from SIVORA UP↑RISING for exams, study abroad, courses and education planning."
+      "description": "கல்வி நிலை, கோர்ஸ் திசை, பல்கலைக்கழக தேர்வு மற்றும் கல்வி திட்டமிடலுக்காக SIVORA UP↑RISING-இன் கவுன்செல்லிங் பெறுங்கள்."
     },
     "courses": {
-      "title": "கோர்ஸ்கள்",
-      "description": "Competitive exam courses and AI technology courses from SIVORA UP↑RISING."
+      "title": "கோர்ஸ்கள் & எதிர்கால திறன்கள்",
+      "description": "SIVORA UP↑RISING வழங்கும் கல்வி கற்றல் மற்றும் எதிர்கால திறன் தொழில்நுட்ப கோர்ஸ்கள்."
     },
     "studyAbroad": {
-      "title": "வெளிநாட்டு கல்வி",
-      "description": "Study abroad and education guidance for MBBS, engineering, higher education, destinations, applications and student-life preparation."
+      "title": "சேர்க்கைகள்",
+      "description": "இந்தியா மற்றும் வெளிநாட்டு உயர்கல்வி, MBBS abroad, engineering, விண்ணப்பம் மற்றும் மாணவர் மாற்றத்திற்கான சேர்க்கை வழிகாட்டல்."
     },
     "examPreparation": {
       "title": "தேர்வு தயாரிப்பு",
-      "description": "Choose your exam and access structured preparation, practice, mock tests, question banks and performance insights."
+      "description": "தேர்வைத் தேர்வு செய்து structured preparation, practice, mock tests, question banks மற்றும் performance insights பெறுங்கள்."
     },
     "neetPreparation": {
       "title": "NEET தயாரிப்பு",
@@ -1117,6 +1159,14 @@
     "admissionJourney": {
       "title": "Admission Journey",
       "description": "Understand the SIVORA UP↑RISING student admission journey from counselling and university selection to admission, departure and continued support abroad."
+    },
+    "admissions": {
+      "title": "சேர்க்கைகள்",
+      "description": "Russia, Georgia, Vietnam, Armenia, Uzbekistan, Kyrgyzstan, Tajikistan, Kazakhstan க்கான MBBS abroad guidance."
+    },
+    "admissionCountry": {
+      "title": "{country} MBBS",
+      "description": "{country} க்கான SIVORA UP↑RISING admission guidance மற்றும் featured medical universities."
     }
   },
   "catalogue": {
@@ -1414,9 +1464,9 @@
   "consultancy": {
     "title": "வெளிநாட்டில் எம்பிபிஎஸ் படியுங்கள்",
     "subtitle": "வெளிநாட்டில் மருத்துவம் படிக்க விரும்பும் நீட் மாணவர்களுக்கு இலவச சேர்க்கை வழிகாட்டுதல்.",
-    "intro": "எங்கள் சேர்க்கை ஆலோசனை கூட்டாளர், ரஷ்யா, ஜார்ஜியா, கஜகஸ்தான், கிர்கிஸ்தான், உஸ்பெகிஸ்தான், பிலிப்பைன்ஸ் மற்றும் பிற அங்கீகரிக்கப்பட்ட நாடுகளில் உள்ள அங்கீகரிக்கப்பட்ட மருத்துவப் பல்கலைக்கழகங்களில் எம்பிபிஎஸ் இடங்களைப் பெற இந்திய மாணவர்களுக்கு உதவுகிறார் — தகுதி, ஆவணங்கள், விசா மற்றும் பயணம் குறித்த ஆதரவுடன்.",
-    "countriesHeading": "அங்கீகரிக்கப்பட்ட நாடுகள்",
-    "countriesSubtitle": "எங்கள் மாணவர்கள் தேர்வு செய்யும் பிரபலமான நாடுகள். மேலும் அறிய ஒரு நாட்டைத் தட்டவும்.",
+    "intro": "Russia, Georgia, Vietnam, Armenia, Uzbekistan, Kyrgyzstan, Tajikistan மற்றும் Kazakhstan இல் MBBS abroad options பார்க்கும் Indian students க்கு eligibility, university selection, documents, applications மற்றும் travel planning குறித்து SIVORA UP↑RISING guidance வழங்குகிறது.",
+    "countriesHeading": "Current destinations",
+    "countriesSubtitle": "Choose one or more current MBBS-abroad destinations for counselling.",
     "disclosure": {
       "title": "தகுதி & நாட்டு விதிமுறைகள்",
       "body": "சேர்க்கை ஒவ்வொரு பல்கலைக்கழகத்தின் தகுதி விதிகள் மற்றும் அந்த நாட்டின் மருத்துவக் கல்வி விதிமுறைகளுக்கு உட்பட்டது; இவை அவ்வப்போது மாறலாம். பட்டப்படிப்புக்குப் பிறகு இந்தியாவில் பயிற்சி செய்ய NMC/FMGE விதிகள் பொருந்தும். நீங்கள் முடிவெடுப்பதற்கு முன் பொருந்தும் தேவைகளை நாங்கள் தெரிவிக்கிறோம்; சேர்க்கைக்கு உத்தரவாதம் இல்லை."
@@ -1872,15 +1922,15 @@
   "counselling": {
     "eyebrow": "கவுன்செல்லிங்",
     "heroTitle": "உங்கள் அடுத்த கல்வி படியை திட்டமிடுங்கள்.",
-    "heroSubtitle": "உங்கள் இலக்கை பகிருங்கள்; தேர்வு தயாரிப்பு, வெளிநாட்டு கல்வி, கோர்ஸ்கள் மற்றும் கவுன்செல்லிங் பாதைகளில் எங்கள் குழு வழிகாட்டும்.",
+    "heroSubtitle": "உங்கள் கல்வி நிலை, ஆர்வங்கள், கோர்ஸ் இலக்குகள் மற்றும் budget அம்சங்களைப் பகிருங்கள்; நடைமுறை கல்வி பாதையை திட்டமிட எங்கள் குழு உதவும்.",
     "callbackEyebrow": "Callback கோரிக்கை",
     "callbackTitle": "நீங்கள் தேடுவது என்ன என்பதைச் சொல்லுங்கள்.",
     "callbackSubtitle": "கவுன்செல்லிங், வெளிநாட்டு கல்வி, தேர்வு தயாரிப்பு அல்லது கற்றல் திட்டங்களுக்கு ஒரே படிவத்தைப் பயன்படுத்துங்கள்.",
     "helpCards": [
-      "தனிப்பட்ட வழிகாட்டல்",
-      "இந்தியா & உலகளாவிய கல்வி",
-      "Career & கவுன்செல்லிங்",
-      "தேர்வு தயாரிப்பு"
+      "கல்வி நிலை புரிதல்",
+      "ஆர்வங்கள் & career direction",
+      "கோர்ஸ் & பல்கலைக்கழக தேர்வு",
+      "Budget-aware pathway planning"
     ],
     "ctaEyebrow": "அடுத்த படியை திட்டமிட தயாரா?",
     "ctaTitle": "SIVORA UP↑RISING உடன் பேசுங்கள்.",
@@ -1890,32 +1940,109 @@
     "whatsappMessage": "Hello SIVORA UP↑RISING, எனது அடுத்த கல்வி படியை திட்டமிட இலவச கவுன்செல்லிங் வேண்டும்."
   },
   "courses": {
-    "eyebrow": "கோர்ஸ்கள்",
-    "heroTitle": "தேர்வுகளுக்கும் எதிர்கால திறன்களுக்கும் கோர்ஸ்கள்.",
-    "heroSubtitle": "போட்டி தேர்வு தயாரிப்பு மற்றும் தொழில்நுட்பக் கற்றலுக்கான வழிகாட்டப்பட்ட திட்டங்களை அறியுங்கள்.",
-    "examEyebrow": "போட்டி தேர்வு கோர்ஸ்கள்",
-    "examTitle": "NEET மற்றும் JEE.",
-    "examCardBody": "Structured preparation, practice and mock assessment support.",
-    "aiEyebrow": "AI & தொழில்நுட்ப கோர்ஸ்கள்",
-    "aiTitle": "எதிர்கால திறன்கள் ஒரே இடத்தில்.",
-    "aiTopics": [
-      "AI Foundations",
-      "Python for AI",
-      "Machine Learning",
-      "Data Science",
-      "Generative AI",
-      "Prompt Engineering",
-      "RAG / LLM Foundations",
-      "AI for Students",
-      "Coding Foundations"
-    ],
-    "talkCta": "கவுன்செல்லருடன் பேசுங்கள்",
-    "examCta": "தேர்வு தயாரிப்பைப் பார்க்கவும்"
+    "eyebrow": "கோர்ஸ்கள் & எதிர்கால திறன்கள்",
+    "heroTitle": "என்ன கற்றல் மற்றும் எதிர்கால திறன் திட்டங்கள் உள்ளன?",
+    "heroSubtitle": "SIVORA UP↑RISING தற்போது வழங்கும் கல்வி கற்றல் ஆதரவு மற்றும் தொழில்நுட்ப future-skill திட்டங்களை அறியுங்கள்.",
+    "comingSoon": "விரைவில்",
+    "talkCta": "Counsellor உடன் பேசுங்கள்",
+    "examCta": "Exam Preparation பார்க்கவும்",
+    "academic": {
+      "eyebrow": "Academic / Learning Programs",
+      "title": "Exam-linked learning streams.",
+      "subtitle": "Current academic learning paths, existing platform functionality உள்ள structured exam preparation-க்கு students-ஐ இணைக்கின்றன.",
+      "label": "Learning Program",
+      "viewCta": "View Course",
+      "items": {
+        "neet": {
+          "title": "NEET Preparation",
+          "body": "Mock tests, question banks மற்றும் performance insights உடன் medical entrance preparation."
+        },
+        "jee": {
+          "title": "JEE Preparation",
+          "body": "Practice tools மற்றும் counselling க்காக expandable engineering entrance preparation structure."
+        }
+      }
+    },
+    "ai": {
+      "eyebrow": "AI & Future Skills",
+      "title": "AI-powered future க்கான skills உருவாக்குங்கள்.",
+      "subtitle": "Modern intelligent systems-ஐ புரிந்து, உருவாக்கி, பயன்படுத்த உதவும் practical AI மற்றும் technology skills கற்றுக்கொள்ளுங்கள்.",
+      "categories": {
+        "aiFoundations": {
+          "title": "Artificial Intelligence Foundations",
+          "body": "Core ideas behind modern intelligent systems."
+        },
+        "pythonForAi": {
+          "title": "Python for AI",
+          "body": "Programming foundations for AI learning."
+        },
+        "machineLearning": {
+          "title": "Machine Learning",
+          "body": "Models, patterns and practical ML concepts."
+        },
+        "deepLearning": {
+          "title": "Deep Learning",
+          "body": "Neural-network concepts and applied workflows."
+        },
+        "generativeAi": {
+          "title": "Generative AI",
+          "body": "Modern tools for text, image and content generation."
+        },
+        "largeLanguageModels": {
+          "title": "Large Language Models",
+          "body": "How LLMs work and where they fit."
+        },
+        "promptEngineering": {
+          "title": "Prompt Engineering",
+          "body": "Clear instructions for better AI outputs."
+        },
+        "rag": {
+          "title": "RAG",
+          "body": "Retrieval-based AI systems and knowledge workflows."
+        },
+        "aiAgents": {
+          "title": "AI Agents",
+          "body": "Task-oriented AI workflows and automation patterns."
+        },
+        "dataAnalytics": {
+          "title": "Data Analytics",
+          "body": "Turning data into useful decisions and insight."
+        },
+        "computerVision": {
+          "title": "Computer Vision",
+          "body": "Image understanding and visual AI basics."
+        },
+        "nlp": {
+          "title": "NLP",
+          "body": "Language understanding and text-processing foundations."
+        },
+        "aiToolsAutomation": {
+          "title": "AI Tools & Automation",
+          "body": "Practical AI tools for study and productivity."
+        },
+        "futureTechnologySkills": {
+          "title": "Future Technology Skills",
+          "body": "Emerging technology areas for career readiness."
+        }
+      }
+    },
+    "path": {
+      "eyebrow": "Featured AI Learning Path",
+      "steps": {
+        "aiFoundations": "AI Foundations",
+        "python": "Python",
+        "machineLearning": "Machine Learning",
+        "deepLearning": "Deep Learning",
+        "generativeAi": "Generative AI",
+        "llmRag": "LLM / RAG",
+        "aiAgents": "AI Agents"
+      }
+    }
   },
   "studyAbroad": {
-    "eyebrow": "வெளிநாட்டு கல்வி & கல்வி வழிகாட்டல்",
-    "heroTitle": "உங்கள் வெளிநாட்டு கல்வி வாய்ப்புகளை அறியுங்கள்.",
-    "heroSubtitle": "Clear guidance for medical, engineering, technology and higher-education pathways across selected international destinations.",
+    "eyebrow": "சேர்க்கைகள்",
+    "heroTitle": "என் சேர்க்கைப் பயணத்தில் SIVORA எப்படி ஆதரிக்கிறது?",
+    "heroSubtitle": "இந்தியா மற்றும் வெளிநாட்டு உயர்கல்வி, MBBS abroad, engineering, technology மற்றும் தேர்ந்தெடுக்கப்பட்ட international pathways-க்கு தெளிவான வழிகாட்டல்.",
     "studyEyebrow": "நீங்கள் என்ன படிக்க விரும்புகிறீர்கள்?",
     "studyTitle": "உங்கள் கோர்ஸ் திசையிலிருந்து தொடங்குங்கள்.",
     "studyOptions": [
@@ -1959,18 +2086,18 @@
     ],
     "lifeEyebrow": "வெளிநாட்டில் மாணவர் வாழ்க்கை",
     "lifeTitle": "சேர்க்கைக்குப் பிறகான வாழ்க்கைக்கு தயாராகுங்கள்.",
-    "lifeBody": "We guide students with practical information about budgeting, accommodation, adapting to a new country, local rules and permitted part-time work options where legally applicable. Part-time work eligibility and hours depend on visa type, country-specific regulations and university policies.",
-    "ctaEyebrow": "உங்கள் வெளிநாட்டு கல்வி வாய்ப்புகளை அறியுங்கள்",
+    "lifeBody": "Budgeting, accommodation, புதிய நாட்டிற்கு adapting, local rules மற்றும் சட்டப்படி அனுமதிக்கப்பட்ட part-time work options பற்றிய நடைமுறை தகவல்களுடன் மாணவர்களுக்கு வழிகாட்டுகிறோம். Part-time work தகுதி மற்றும் நேரம் visa type, country regulations மற்றும் university policies-ஐப் பொறுத்தது.",
+    "ctaEyebrow": "உங்கள் சேர்க்கைப் பாதையை திட்டமிடுங்கள்",
     "ctaTitle": "எங்கள் கவுன்செல்லிங் குழுவுடன் பேசுங்கள்.",
-    "primaryCta": "Get Free Counselling",
-    "whatsappCta": "Chat On WhatsApp",
-    "whatsappLabel": "Chat with SIVORA UP↑RISING on WhatsApp",
-    "whatsappMessage": "Hello SIVORA UP↑RISING, I would like to explore suitable study abroad options, destinations, courses, eligibility and expected costs."
+    "primaryCta": "இலவச கவுன்செல்லிங் பெறுங்கள்",
+    "whatsappCta": "WhatsApp-ல் பேசுங்கள்",
+    "whatsappLabel": "WhatsApp-ல் SIVORA UP↑RISING உடன் பேசுங்கள்",
+    "whatsappMessage": "Hello SIVORA UP↑RISING, பொருத்தமான study abroad options, destinations, courses, eligibility மற்றும் expected costs பற்றி அறிய விரும்புகிறேன்."
   },
   "examPreparation": {
     "eyebrow": "தேர்வு தயாரிப்பு",
-    "heroTitle": "உங்களுக்கு முக்கியமான தேர்வுக்குத் தயாராகுங்கள்.",
-    "heroSubtitle": "Choose your exam and access structured preparation, practice, mock tests, question banks and performance insights.",
+    "heroTitle": "எந்த தேர்வுகள் மற்றும் practice tools-ஐ பயன்படுத்தலாம்?",
+    "heroSubtitle": "தற்போது ஆதரிக்கப்படும் தேர்வுகளைத் தேர்வு செய்து structured preparation, practice, mock tests, question banks மற்றும் performance insights பெறுங்கள்.",
     "exams": {
       "neet": {
         "description": "Medical entrance preparation",
@@ -2042,21 +2169,122 @@
     }
   },
   "aiChat": {
-    "title": "Ask SIVORA UP↑RISING - AI Assistant",
-    "subtitle": "Get instant answers in your language.",
-    "close": "Close AI assistant",
-    "placeholder": "Ask about NEET, JEE, admissions, courses...",
-    "inputLabel": "Ask SIVORA UP↑RISING AI a question",
-    "ask": "Ask",
-    "clear": "Clear Chat",
-    "closeFloating": "Close Ask SIVORA UP↑RISING AI assistant",
-    "openFloating": "Open Ask SIVORA UP↑RISING AI assistant",
-    "tooltip": "Ask SIVORA UP↑RISING AI",
+    "title": "SIVORA UP↑RISING - AI Assistant-ஐ கேளுங்கள்",
+    "subtitle": "உங்கள் மொழியில் உடனடி பதில்கள் பெறுங்கள்.",
+    "close": "AI assistant-ஐ மூடுங்கள்",
+    "placeholder": "NEET, JEE, admissions, courses பற்றி கேளுங்கள்...",
+    "inputLabel": "SIVORA UP↑RISING AI-க்கு கேள்வி கேளுங்கள்",
+    "ask": "கேள்",
+    "clear": "Chat-ஐ அழிக்கவும்",
+    "closeFloating": "SIVORA UP↑RISING AI assistant-ஐ மூடுங்கள்",
+    "openFloating": "SIVORA UP↑RISING AI assistant-ஐத் திறக்கவும்",
+    "tooltip": "SIVORA UP↑RISING AI-ஐ கேளுங்கள்",
     "handoff": {
-      "title": "Talk to our team",
-      "whatsapp": "WhatsApp Us",
-      "counselling": "Request Counselling",
-      "contact": "Contact Us"
+      "title": "எங்கள் குழுவுடன் பேசுங்கள்",
+      "whatsapp": "WhatsApp செய்யுங்கள்",
+      "counselling": "கவுன்செல்லிங் கோருங்கள்",
+      "contact": "தொடர்பு கொள்ளுங்கள்"
+    }
+  },
+  "admissions": {
+    "eyebrow": "சேர்க்கைகள்",
+    "heroTitle": "உங்கள் admission journey-ஐ திட்டமிடுங்கள்.",
+    "heroSubtitle": "Selected destinations க்கான MBBS abroad மற்றும் international higher-education guidance, university shortlisting, applications, documentation மற்றும் transition planning.",
+    "destinations": {
+      "eyebrow": "எங்கள் MBBS Destinations",
+      "title": "எட்டு current destination options.",
+      "subtitle": "SIVORA UP↑RISING தற்போது இந்த எட்டு நாடுகளுக்கான MBBS-abroad guidance மட்டும் காட்டுகிறது.",
+      "cta": "Destination பார்க்கவும்",
+      "cardLabel": "MBBS Abroad"
+    },
+    "support": {
+      "eyebrow": "SIVORA உங்கள் admission journey-ஐ எப்படி ஆதரிக்கிறது",
+      "title": "Counselling முதல் arrival வரை clear steps.",
+      "items": [
+        "Country selection",
+        "University selection",
+        "Application guidance",
+        "Documentation support",
+        "Pre-departure guidance",
+        "Arrival and transition guidance"
+      ]
+    },
+    "countryHero": {
+      "eyebrow": "MBBS Abroad",
+      "title": "{country} MBBS"
+    },
+    "overview": {
+      "eyebrow": "Destination Overview",
+      "title": "{country} இல் medicine படிக்கவும்."
+    },
+    "universities": {
+      "eyebrow": "Featured Medical Universities",
+      "title": "Featured medical universities",
+      "note": "{country} க்கான {count} source-supported featured university options காட்டப்படுகின்றன. இது ranking அல்ல.",
+      "askCta": "இந்த University பற்றி கேளுங்கள்"
+    },
+    "countrySupport": {
+      "eyebrow": "SIVORA எப்படி உதவுகிறது",
+      "title": "Unsupported claims இல்லாத admission support.",
+      "items": [
+        "Profile discussion",
+        "Country and university shortlisting",
+        "Application guidance",
+        "Documentation guidance",
+        "Pre-departure planning",
+        "Arrival and transition guidance"
+      ]
+    },
+    "cta": {
+      "eyebrow": "Free Counselling",
+      "title": "உங்கள் admission plan பற்றி பேசலாமா?",
+      "primary": "இலவச கவுன்செல்லிங் பெறுங்கள்",
+      "whatsapp": "WhatsApp-ல் பேசுங்கள்",
+      "whatsappLabel": "WhatsApp-ல் SIVORA UP↑RISING உடன் பேசுங்கள்",
+      "whatsappMessage": "Hello SIVORA UP↑RISING, MBBS abroad admissions க்கு free counselling வேண்டும்."
+    },
+    "disclaimer": "Admission guidance advisory. Admission, visa மற்றும் future practice outcomes university criteria, documents, regulations மற்றும் authorities மீது depend செய்கின்றன; SIVORA UP↑RISING outcomes guarantee செய்யாது.",
+    "countries": {
+      "russia": {
+        "short": "Medical education destination with established public university options.",
+        "description": "Explore MBBS admission guidance for Russia with country selection, university shortlisting, applications, documentation, pre-departure and transition support.",
+        "overview": "Russia is presented as one of SIVORA UP↑RISING's current MBBS-abroad destination options. Our guidance focuses on understanding eligibility, comparing suitable universities, preparing documents and planning the student journey without admission or visa guarantees."
+      },
+      "georgia": {
+        "short": "Compact destination options for international medical education.",
+        "description": "Explore MBBS admission guidance for Georgia with university selection, application support and practical student planning.",
+        "overview": "Georgia is part of the current destination scope for MBBS-abroad guidance. SIVORA UP↑RISING helps students understand available university options, application requirements and next steps based on their profile and family priorities."
+      },
+      "vietnam": {
+        "short": "Emerging medical education options for international students.",
+        "description": "Explore MBBS admission guidance for Vietnam with concise destination and university support.",
+        "overview": "Vietnam is included in the current MBBS-abroad destination scope. The counselling process helps students review available options, documentation needs and transition planning before making decisions."
+      },
+      "armenia": {
+        "short": "Selected medical university options for MBBS abroad planning.",
+        "description": "Explore MBBS admission guidance for Armenia with university shortlisting and application support.",
+        "overview": "Armenia is a current SIVORA destination for MBBS-abroad guidance. Students can discuss academic fit, available universities, documents and practical next steps with the counselling team."
+      },
+      "uzbekistan": {
+        "short": "Central Asian MBBS destination with featured medical universities.",
+        "description": "Explore MBBS admission guidance for Uzbekistan with featured university options and student journey support.",
+        "overview": "Uzbekistan is part of the current MBBS-abroad destination scope. SIVORA UP↑RISING supports students with counselling, university selection, application guidance, documentation and pre-departure planning."
+      },
+      "kyrgyzstan": {
+        "short": "MBBS-abroad destination with multiple featured medical options.",
+        "description": "Explore MBBS admission guidance for Kyrgyzstan with compact university information and counselling support.",
+        "overview": "Kyrgyzstan is included as a current MBBS-abroad destination. Guidance stays focused on suitable university options, eligibility discussion, application steps and realistic planning."
+      },
+      "tajikistan": {
+        "short": "Three source-supported featured medical university options.",
+        "description": "Explore MBBS admission guidance for Tajikistan with the three currently source-supported institutions.",
+        "overview": "Tajikistan is shown with only the three source-supported featured institutions currently available. SIVORA UP↑RISING can help students understand whether this destination fits their academic profile and planning needs."
+      },
+      "kazakhstan": {
+        "short": "Two source-supported featured medical university options.",
+        "description": "Explore MBBS admission guidance for Kazakhstan with the two currently source-supported institutions.",
+        "overview": "Kazakhstan is shown with only the two source-supported featured institutions currently available. Counselling focuses on suitability, documentation, application steps and practical next planning."
+      }
     }
   }
 }

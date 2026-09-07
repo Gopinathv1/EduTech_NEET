@@ -6,6 +6,7 @@ import { admissionJourneySteps } from '@/data/admission-journey';
 import { pageMetadata } from '@/lib/seo';
 import WhatsAppLink from '@/components/whatsapp/WhatsAppLink';
 import { Container, Section } from '@/components/public/ui';
+import ExploreSivora from '@/components/public/ExploreSivora';
 
 export async function generateMetadata() {
   const t = await getTranslations('seo.admissionJourney');
@@ -93,7 +94,7 @@ export default function AdmissionJourneyPage() {
           </div>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:mt-0 lg:shrink-0">
             <Link
-              href="/#callback"
+              href="/counselling"
               className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-brand to-brand-light px-5 py-3 text-sm font-black uppercase tracking-[0.08em] text-white shadow-lg shadow-brand/25 transition hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
             >
               {t('cta.primary')}
@@ -108,6 +109,8 @@ export default function AdmissionJourneyPage() {
           </div>
         </div>
       </Section>
+
+      <ExploreSivora exclude={['admissions']} />
     </>
   );
 }

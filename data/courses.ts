@@ -35,3 +35,35 @@ export const AI_COURSE_TOPICS = [
   'AI for Students',
   'Coding Foundations',
 ] as const;
+
+export const ACADEMIC_COURSE_STREAMS = [
+  { key: 'neet', href: '/exam-preparation/neet' },
+  { key: 'jee', href: '/exam-preparation/jee' },
+] as const;
+
+export const AI_FUTURE_SKILL_CATEGORIES = [
+  'aiFoundations',
+  'pythonForAi',
+  'machineLearning',
+  'deepLearning',
+  'generativeAi',
+  'largeLanguageModels',
+  'promptEngineering',
+  'rag',
+  'aiAgents',
+  'dataAnalytics',
+  'computerVision',
+  'nlp',
+  'aiToolsAutomation',
+  'futureTechnologySkills',
+] as const;
+
+export const AI_LEARNING_PATH = [
+  'aiFoundations',
+  'python',
+  'machineLearning',
+  'deepLearning',
+  'generativeAi',
+  'llmRag',
+  'aiAgents',
+] as const;

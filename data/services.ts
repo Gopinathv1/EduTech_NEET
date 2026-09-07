@@ -14,13 +14,13 @@ export const STUDY_ABROAD_SERVICES: PublicService[] = [
   {
     title: 'MBBS Abroad',
     body: 'Explore overseas medical education pathways with guidance for country, university, course, application and documentation steps.',
-    href: '/study-abroad',
+    href: '/admissions',
     cta: 'EXPLORE MBBS',
   },
   {
     title: 'Study in Europe',
     body: EUROPE_DESTINATION_COPY,
-    href: '/study-abroad',
+    href: '/admissions',
     cta: 'EXPLORE EUROPE',
     chips: EUROPE_STUDY_DESTINATIONS,
     note: 'Destination suggestions depend on course availability, eligibility, budget and student preferences.',
@@ -28,19 +28,19 @@ export const STUDY_ABROAD_SERVICES: PublicService[] = [
   {
     title: 'International Higher Education',
     body: 'Explore medical, engineering, technology and higher-education opportunities across selected international destinations.',
-    href: '/study-abroad',
+    href: '/admissions',
     cta: 'GET GUIDANCE',
   },
   {
     title: 'Application & University Guidance',
     body: 'Get support with course selection, university shortlisting, application pathways, budgeting, documentation and student-life preparation.',
-    href: '/study-abroad',
+    href: '/admissions',
     cta: 'VIEW JOURNEY',
   },
   {
     title: 'Engineering & Technology Abroad',
     body: 'Explore international engineering and technology programs with guidance on suitable courses, universities, destination options, application requirements and expected costs.',
-    href: '/study-abroad',
+    href: '/admissions',
     cta: 'EXPLORE OPTIONS',
     chips: ENGINEERING_STUDY_AREAS,
     note: 'University and course recommendations are based on student interests, academic background, eligibility and budget.',
@@ -48,7 +48,7 @@ export const STUDY_ABROAD_SERVICES: PublicService[] = [
   {
     title: 'Student Life & Part-Time Work Guidance',
     body: 'We guide students with practical information about student life abroad, local rules, permitted work options where applicable, budgeting and adapting to a new country.',
-    href: '/study-abroad',
+    href: '/admissions',
     cta: 'ASK ABOUT STUDENT LIFE',
     note: "Part-time work eligibility and permitted working hours depend on the student's visa type, country-specific regulations and university policies.",
   },

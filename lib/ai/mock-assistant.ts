@@ -1,6 +1,5 @@
 import type { Locale } from '@/i18n/config';
 import { AI_COURSE_TOPICS, ENGINEERING_STUDY_AREAS, LIVE_COURSE_AREAS } from '@/data/courses';
-import { EUROPE_STUDY_DESTINATIONS } from '@/data/study-destinations';
 
 type SupportedLocale = Extract<Locale, 'en' | 'ta' | 'hi'>;
 
@@ -40,7 +39,6 @@ const LOCALIZED_SUGGESTIONS: Record<SupportedLocale, string[]> = {
   ],
 };
 
-const europeDestinations = EUROPE_STUDY_DESTINATIONS.join(', ');
 const engineeringAreas = ENGINEERING_STUDY_AREAS.join(', ');
 const liveCourses = LIVE_COURSE_AREAS.join(', ');
 const aiTopics = AI_COURSE_TOPICS.join(', ');
@@ -93,7 +91,7 @@ const KNOWLEDGE_BASE: KnowledgeEntry[] = [
   {
     id: 'admissions',
     keywords: ['study abroad', 'admission', 'mbbs', 'abroad', 'india', 'country', 'countries', 'college', 'university', 'course', 'counselling', 'guidance', 'medical', 'visa', 'documentation', 'arrival', 'pre-departure', 'சேர்க்கை', 'வெளிநாடு', 'काउंसलिंग', 'एडमिशन'],
-    href: '/study-abroad',
+    href: '/admissions',
     label: { en: 'Request Counselling', ta: 'Counselling கேட்க', hi: 'Counselling Request करें' },
     answer: {
       en: 'SIVORA UP↑RISING provides education and admission guidance for MBBS abroad, engineering abroad, higher education, country and university selection, course selection, application pathways, documentation, budgeting, visa guidance, pre-departure, arrival and continued support. Outcomes depend on eligibility, university criteria and applicable regulations.',
@@ -115,18 +113,18 @@ const KNOWLEDGE_BASE: KnowledgeEntry[] = [
   {
     id: 'study-europe',
     keywords: ['europe', 'germany', 'france', 'italy', 'poland', 'hungary', 'czech', 'lithuania', 'latvia', 'romania', 'bulgaria', 'ireland', 'eu', 'ஜெர்மனி', 'यूरोप'],
-    href: '/study-abroad',
+    href: '/admissions',
     label: { en: 'Explore Europe', ta: 'Europe options பார்க்க', hi: 'Europe options देखें' },
     answer: {
-      en: `SIVORA UP↑RISING can guide students exploring selected European destinations such as ${europeDestinations}. Guidance depends on course availability, eligibility, language requirements, budget, student preference and university criteria. Admission is not guaranteed, and no official university partnership is claimed.`,
-      ta: `SIVORA UP↑RISING ${europeDestinations} போன்ற selected European destinations குறித்து guidance வழங்க முடியும். Course availability, eligibility, language requirements, budget, student preference மற்றும் university criteria அடிப்படையில் guidance இருக்கும். Admission guarantee இல்லை; official university partnership claim செய்யப்படவில்லை.`,
-      hi: `SIVORA UP↑RISING ${europeDestinations} जैसे selected European destinations पर guidance दे सकता है. Guidance course availability, eligibility, language requirements, budget, student preference और university criteria पर निर्भर करती है. Admission guarantee नहीं है, और official university partnership का दावा नहीं है.`,
+      en: 'SIVORA UP↑RISING can guide students exploring international higher-education pathways through counselling. Guidance depends on course availability, eligibility, language requirements, budget, student preference and university criteria. Admission is not guaranteed, and no official university partnership is claimed.',
+      ta: 'SIVORA UP↑RISING counselling மூலம் international higher-education pathways பற்றி students-க்கு guidance வழங்க முடியும். Course availability, eligibility, language requirements, budget, student preference மற்றும் university criteria அடிப்படையில் guidance இருக்கும். Admission guarantee இல்லை; official university partnership claim செய்யப்படவில்லை.',
+      hi: 'SIVORA UP↑RISING counselling के माध्यम से international higher-education pathways पर students को guidance दे सकता है. Guidance course availability, eligibility, language requirements, budget, student preference और university criteria पर निर्भर करती है. Admission guarantee नहीं है, और official university partnership का दावा नहीं है.',
     },
   },
   {
     id: 'engineering-abroad',
     keywords: ['engineering abroad', 'technology abroad', 'computer science', 'artificial intelligence', 'data science', 'cybersecurity', 'mechanical', 'civil', 'electrical', 'electronics', 'robotics', 'biotechnology', 'information technology', 'engineering in germany', 'इंजीनियरिंग', 'பொறியியல்'],
-    href: '/study-abroad',
+    href: '/admissions',
     label: { en: 'Explore Engineering Abroad', ta: 'Engineering Abroad பார்க்க', hi: 'Engineering Abroad देखें' },
     answer: {
       en: `SIVORA UP↑RISING can guide students on international engineering and technology pathways including ${engineeringAreas}. University and course recommendations are based on interests, academic background, eligibility, destination options and budget. Admission is not guaranteed.`,
@@ -159,7 +157,7 @@ const KNOWLEDGE_BASE: KnowledgeEntry[] = [
   {
     id: 'student-life',
     keywords: ['part-time', 'part time', 'job', 'work', 'salary', 'student life', 'working hours', 'abroad work', 'வேலை', 'नौकरी', 'काम'],
-    href: '/study-abroad',
+    href: '/admissions',
     label: { en: 'Ask About Student Life', ta: 'Student Life பற்றி கேளுங்கள்', hi: 'Student Life के बारे में पूछें' },
     answer: {
       en: "SIVORA UP↑RISING can guide students with practical information about student life abroad, local rules, permitted work options where applicable, budgeting and adapting to a new country. Part-time work eligibility and permitted working hours depend on the student's visa type, country-specific regulations and university policies. We do not promise jobs, salary or work hours.",

@@ -4,7 +4,7 @@
  * the locale files under `countries.items.<code>`. This keeps the marketing
  * text fully bilingual while the code list / flag / accent stay in one place.
  */
-export const COUNTRY_CODES = ['ru', 'ge', 'kz', 'kg', 'uz', 'ph'] as const;
+export const COUNTRY_CODES = ['ru', 'ge', 'vn', 'am', 'uz', 'kg', 'tj', 'kz'] as const;
 
 export type CountryCode = (typeof COUNTRY_CODES)[number];
 
@@ -12,8 +12,10 @@ export type CountryCode = (typeof COUNTRY_CODES)[number];
 export const COUNTRY_FLAG: Record<CountryCode, string> = {
   ru: '🇷🇺',
   ge: '🇬🇪',
-  kz: '🇰🇿',
-  kg: '🇰🇬',
+  vn: '🇻🇳',
+  am: '🇦🇲',
   uz: '🇺🇿',
-  ph: '🇵🇭',
+  kg: '🇰🇬',
+  tj: '🇹🇯',
+  kz: '🇰🇿',
 };

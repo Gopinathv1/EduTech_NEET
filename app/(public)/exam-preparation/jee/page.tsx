@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import { pageMetadata } from '@/lib/seo';
 import PageHero from '@/components/public/PageHero';
 import { Section, PrimaryLink, SecondaryLink } from '@/components/public/ui';
+import ExploreSivora from '@/components/public/ExploreSivora';
 import { EXAMS } from '@/data/exams';
 
 const jee = EXAMS.find((exam) => exam.slug === 'jee')!;
@@ -51,6 +52,7 @@ export default function JeePreparationPage() {
           <SecondaryLink href="/counselling">{t('secondaryCta')}</SecondaryLink>
         </div>
       </Section>
+      <ExploreSivora exclude={['examPreparation']} />
     </>
   );
 }

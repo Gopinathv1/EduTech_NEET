@@ -96,7 +96,7 @@ export default function PublicHeader() {
             {tNav('login')}
           </Link>
           <Link
-            href="/#callback"
+            href="/counselling"
             className="hidden rounded-full bg-gradient-to-r from-brand to-brand-light px-4 py-2 text-sm font-black uppercase tracking-[0.06em] text-white shadow-lg shadow-brand/25 hover:shadow-xl hover:shadow-brand/30 sm:inline-flex"
           >
             {t('getStarted')}
@@ -172,7 +172,7 @@ export default function PublicHeader() {
               {tNav('login')}
             </Link>
             <Link
-              href="/#callback"
+              href="/counselling"
               onClick={() => setOpen(false)}
               className="rounded-xl bg-gradient-to-r from-brand to-brand-light px-3 py-2.5 text-center text-sm font-semibold text-white"
             >

@@ -7,6 +7,7 @@ import { BookIcon, ChartIcon, GlobeIcon, ShieldIcon } from '@/components/public/
 import StudentJourneys from '@/components/public/StudentJourneys';
 import BrandMarquee from '@/components/public/BrandMarquee';
 import FounderStory from '@/components/public/FounderStory';
+import WhatsAppLink from '@/components/whatsapp/WhatsAppLink';
 
 export async function generateMetadata() {
   const t = await getTranslations('seo.home');
@@ -19,32 +20,32 @@ export async function generateMetadata() {
 }
 
 const QUICK_LINKS = [
-  { key: 'examPreparation', href: '/exam-preparation' },
-  { key: 'studyAbroad', href: '/study-abroad' },
-  { key: 'courses', href: '/courses' },
+  { key: 'admissions', href: '/admissions' },
   { key: 'counselling', href: '/counselling' },
+  { key: 'examPreparation', href: '/exam-preparation' },
+  { key: 'courses', href: '/courses' },
 ] as const;
 
 const SERVICE_CARDS = [
+  {
+    key: 'admissions',
+    href: '/admissions',
+    icon: GlobeIcon,
+  },
+  {
+    key: 'counselling',
+    href: '/counselling',
+    icon: ShieldIcon,
+  },
   {
     key: 'examPreparation',
     href: '/exam-preparation',
     icon: BookIcon,
   },
   {
-    key: 'studyAbroad',
-    href: '/study-abroad',
-    icon: GlobeIcon,
-  },
-  {
     key: 'courses',
     href: '/courses',
     icon: ChartIcon,
-  },
-  {
-    key: 'counselling',
-    href: '/counselling',
-    icon: ShieldIcon,
   },
 ] as const;
 
@@ -81,8 +82,8 @@ export default function HomePage() {
               {t('heroSubtitle')}
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <PrimaryLink href="#what-we-do">{t('heroExplore')}</PrimaryLink>
-              <SecondaryLink href="/counselling">{t('ctaPrimary')}</SecondaryLink>
+              <PrimaryLink href="/counselling">{t('ctaPrimary')}</PrimaryLink>
+              <SecondaryLink href="#what-we-do">{t('heroExplore')}</SecondaryLink>
             </div>
             <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:max-w-3xl">
               {QUICK_LINKS.map((item) => (
@@ -145,9 +146,35 @@ export default function HomePage() {
         </div>
       </Section>
 
+      <StudentJourneys />
+
       <FounderStory />
 
-      <StudentJourneys />
+      <Section lazy>
+        <div className="rounded-[2rem] border border-[#2B2B2B] bg-[#111111]/90 p-8 shadow-2xl shadow-black/12 backdrop-blur-sm lg:flex lg:items-end lg:justify-between lg:gap-8">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.24em] text-brand">
+              {t('finalCta.eyebrow')}
+            </p>
+            <h2 className="mt-4 text-3xl font-black uppercase leading-tight text-white sm:text-5xl">
+              {t('finalCta.title')}
+            </h2>
+            <p className="mt-4 max-w-3xl text-base leading-8 text-[#D1D1D1]">
+              {t('finalCta.subtitle')}
+            </p>
+          </div>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:mt-0 lg:shrink-0">
+            <PrimaryLink href="/counselling">{t('finalCta.primary')}</PrimaryLink>
+            <WhatsAppLink
+              label={t('finalCta.whatsappLabel')}
+              message={t('finalCta.whatsappMessage')}
+              className="inline-flex items-center justify-center rounded-lg border border-[#25D366]/45 bg-[#25D366]/14 px-5 py-3 text-sm font-black uppercase tracking-[0.08em] text-white transition hover:-translate-y-0.5 hover:bg-[#25D366]/24 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              {t('finalCta.secondary')}
+            </WhatsAppLink>
+          </div>
+        </div>
+      </Section>
     </>
   );
 }
