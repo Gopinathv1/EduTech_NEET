@@ -1,5 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 import { studentJourneys } from '@/data/student-journeys';
 import AdmissionJourneyMarquee from '@/components/public/AdmissionJourneyMarquee';
 import { Section } from './ui';
@@ -78,20 +81,35 @@ function StudentJourneyCard({
   item: (typeof studentJourneys)[number];
   duplicate?: boolean;
 }) {
+  const [imageFailed, setImageFailed] = useState(false);
+
   return (
     <article
       aria-hidden={duplicate ? true : undefined}
       className="group flex h-[39rem] w-[min(78vw,18.75rem)] shrink-0 flex-col overflow-hidden rounded-[1.5rem] border border-[#f6a623]/20 bg-[#111111]/88 shadow-[0_0_0_1px_rgba(215,25,32,0.12),0_24px_70px_rgba(0,0,0,0.34)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-[#f6a623]/36 hover:shadow-[0_0_0_1px_rgba(246,166,35,0.22),0_28px_80px_rgba(0,0,0,0.42)] sm:w-[19rem] md:w-[20rem] lg:w-[21.25rem] xl:w-[22.5rem]"
     >
       <div className="relative aspect-[16/10] shrink-0 overflow-hidden bg-[#050505]">
-        <Image
-          src={item.image}
-          alt={duplicate ? '' : item.alt}
-          fill
-          sizes="(min-width: 1280px) 360px, (min-width: 1024px) 340px, (min-width: 768px) 320px, 300px"
-          className="object-cover object-center transition duration-700 group-hover:scale-[1.025]"
-          loading="lazy"
-        />
+        {imageFailed ? (
+          <div className="flex h-full w-full items-center justify-center bg-[#050505] px-5 text-center text-xs font-black uppercase tracking-[0.16em] text-[#f6d58a]">
+            Student journey image unavailable
+          </div>
+        ) : (
+          <Image
+            src={item.image}
+            alt={duplicate ? '' : item.alt}
+            fill
+            sizes="(min-width: 1280px) 360px, (min-width: 1024px) 340px, (min-width: 768px) 320px, 300px"
+            className="object-cover transition duration-700 group-hover:scale-[1.025]"
+            style={{ objectPosition: item.imagePosition ?? 'center' }}
+            loading="eager"
+            onError={() => {
+              if (process.env.NODE_ENV === 'development') {
+                console.warn(`[student-journey] image failed: ${item.image}`);
+              }
+              setImageFailed(true);
+            }}
+          />
+        )}
       </div>
       <div className="flex flex-1 flex-col p-5 sm:p-6">
         <div className="flex flex-wrap items-center gap-2">
