@@ -42,6 +42,37 @@ export const GlobeIcon = (p: IconProps) => (
   </svg>
 );
 
+export const CompassIcon = (p: IconProps) => (
+  <svg {...base(p)}>
+    <circle cx="12" cy="12" r="10" />
+    <path d="m16 8-2.4 5.6L8 16l2.4-5.6z" />
+  </svg>
+);
+
+export const TargetIcon = (p: IconProps) => (
+  <svg {...base(p)}>
+    <circle cx="12" cy="12" r="10" />
+    <circle cx="12" cy="12" r="6" />
+    <circle cx="12" cy="12" r="2" />
+  </svg>
+);
+
+export const CpuIcon = (p: IconProps) => (
+  <svg {...base(p)}>
+    <rect x="7" y="7" width="10" height="10" rx="2" />
+    <path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3" />
+  </svg>
+);
+
+export const StoreIcon = (p: IconProps) => (
+  <svg {...base(p)}>
+    <path d="M4 10h16l-1-6H5z" />
+    <path d="M5 10v10h14V10" />
+    <path d="M9 20v-6h6v6" />
+    <path d="M4 10c0 1.1.9 2 2 2s2-.9 2-2c0 1.1.9 2 2 2s2-.9 2-2c0 1.1.9 2 2 2s2-.9 2-2c0 1.1.9 2 2 2s2-.9 2-2" />
+  </svg>
+);
+
 export const RupeeIcon = (p: IconProps) => (
   <svg {...base(p)}>
     <path d="M6 3h12M6 8h12M9 13c4 0 6-2 6-5" />

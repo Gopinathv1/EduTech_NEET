@@ -35,24 +35,34 @@ export default function AdmissionsPage() {
           <div>
             <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {ADMISSION_COUNTRY_PROFILES.map((country) => (
-              <Link
+              <div
                 key={country.slug}
-                href={`/admissions/${country.slug}`}
-                className="group flex min-h-48 flex-col rounded-[1.5rem] border border-[#2B2B2B] bg-[#111111] p-5 shadow-xl shadow-black/5 transition hover:-translate-y-1 hover:border-brand/35"
+                className="group flex min-h-56 flex-col rounded-[1.5rem] border border-[#2B2B2B] bg-[#111111] p-5 shadow-xl shadow-black/5 transition hover:-translate-y-1 hover:border-brand/35"
               >
                 <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">{t('destinations.cardLabel')}</p>
                 <div className="mt-4 flex items-center gap-3">
-                  <span className="text-3xl">{country.flag}</span>
+                  <span className="text-3xl" aria-hidden="true">{country.flag}</span>
                   <h3 className="text-2xl font-black uppercase text-white">{country.name}</h3>
                 </div>
                 <p className="mt-3 text-sm leading-6 text-[#D1D1D1]">{t(`countries.${country.slug}.short`)}</p>
                 <p className="mt-4 text-xs font-bold uppercase tracking-[0.1em] text-[#D1D1D1]">
                   {country.capital.value} · {country.currencyCode} · {country.timezone.labelCity}
                 </p>
-                <span className="mt-auto inline-flex pt-6 text-xs font-black uppercase tracking-[0.12em] text-brand transition group-hover:translate-x-1">
-                  {t('destinations.cta')}
-                </span>
-              </Link>
+                <div className="mt-auto grid gap-2 pt-6 sm:grid-cols-2">
+                  <Link
+                    href={`/admissions/${country.slug}`}
+                    className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-brand to-brand-light px-3 py-2.5 text-xs font-black uppercase tracking-[0.08em] text-white"
+                  >
+                    {t('destinations.cta')}
+                  </Link>
+                  <Link
+                    href={`/admissions/compare?countries=${country.slug}`}
+                    className="inline-flex items-center justify-center rounded-lg border border-[#2B2B2B] bg-[#050505] px-3 py-2.5 text-xs font-black uppercase tracking-[0.08em] text-[#D1D1D1] transition hover:border-brand/45"
+                  >
+                    {t('destinations.compareCta')}
+                  </Link>
+                </div>
+              </div>
             ))}
             </div>
             <CompareTray
@@ -64,6 +74,23 @@ export default function AdmissionsPage() {
                 helper: t('compare.helper'),
               }}
             />
+          </div>
+        </div>
+      </Section>
+
+      <Section tinted lazy>
+        <div className="grid gap-8 lg:grid-cols-[0.76fr_1.24fr] lg:items-center">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('whyCompare.eyebrow')}</p>
+            <h2 className="mt-5 text-[clamp(2.4rem,5vw,5rem)] font-black uppercase leading-[0.92] text-white">
+              {t('whyCompare.title')}
+            </h2>
+          </div>
+          <div className="rounded-2xl border border-[#2B2B2B] bg-[#050505]/72 p-6">
+            <p className="max-w-3xl text-base leading-8 text-[#D1D1D1]">{t('whyCompare.subtitle')}</p>
+            <div className="mt-6">
+              <PrimaryLink href="/admissions/compare">{t('whyCompare.cta')}</PrimaryLink>
+            </div>
           </div>
         </div>
       </Section>

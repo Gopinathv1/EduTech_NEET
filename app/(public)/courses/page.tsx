@@ -5,7 +5,11 @@ import Link from 'next/link';
 import PageHero from '@/components/public/PageHero';
 import { PrimaryLink, SecondaryLink, Section } from '@/components/public/ui';
 import ExploreSivora from '@/components/public/ExploreSivora';
-import { ACADEMIC_COURSE_STREAMS, AI_FUTURE_SKILL_CATEGORIES, AI_LEARNING_PATH } from '@/data/courses';
+import {
+  ACADEMIC_COURSE_STREAMS,
+  AI_FUTURE_SKILL_CATEGORIES,
+  AI_LEARNING_PATH,
+} from '@/data/courses';
 
 export async function generateMetadata() {
   const t = await getTranslations('seo.courses');

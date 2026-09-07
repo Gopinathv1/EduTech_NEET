@@ -8,7 +8,8 @@ import { PrimaryLink, Section } from '@/components/public/ui';
 import WhatsAppLink from '@/components/whatsapp/WhatsAppLink';
 import ExploreSivora from '@/components/public/ExploreSivora';
 import TimezonePanel from '@/components/admissions/TimezonePanel';
-import { getIndicativeFxRates, formatFx, type FxRate } from '@/lib/admission/fx';
+import CurrencyConverter from '@/components/admissions/CurrencyConverter';
+import { getIndicativeFxRates, type FxRate } from '@/lib/admission/fx';
 import {
   ADMISSION_COUNTRY_PROFILES,
   getAdmissionCountryProfile,
@@ -57,7 +58,6 @@ function Fact({ label, value }: { label: string; value: string }) {
 function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile; fxRate?: FxRate }) {
   const t = useTranslations('admissions');
   const support = t.raw('countrySupport.items') as string[];
-  const fx = formatFx(fxRate);
 
   return (
     <>
@@ -149,15 +149,27 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
               destinationTimeZone={country.timezone.iana}
               labelCity={country.timezone.labelCity}
               note={country.timezone.note}
+              labels={{
+                india: t('timezone.india'),
+                indiaZone: t('timezone.indiaZone'),
+                destinationFallback: t('timezone.destinationFallback'),
+                matchesIst: t('timezone.matchesIst'),
+                aheadOfIst: t('timezone.aheadOfIst'),
+                behindIst: t('timezone.behindIst'),
+                loading: t('timezone.loading'),
+              }}
             />
-            <div className="rounded-2xl border border-[#2B2B2B] bg-[#050505]/72 p-5">
-              <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">{t('timeCurrency.fxLabel')}</p>
-              <p className="mt-4 text-2xl font-black text-white">{fx.oneUnitInr}</p>
-              <p className="mt-2 text-lg font-black text-white">{fx.oneLakh}</p>
-              <p className="mt-5 text-xs leading-5 text-[#D1D1D1]">
-                {t('timeCurrency.fxDisclaimer')} {fxRate?.providerName ?? t('notVerified')}. {t('timeCurrency.lastUpdated')}: {fxRate?.lastUpdated ?? t('notVerified')}.
-              </p>
-            </div>
+            <CurrencyConverter
+              currencyCode={country.currencyCode}
+              fxRate={fxRate}
+              labels={{
+                amountLabel: t('timeCurrency.amountLabel'),
+                unavailable: t('timeCurrency.unavailable'),
+                indicative: t('timeCurrency.fxLabel'),
+                source: t('timeCurrency.source'),
+                lastUpdated: t('timeCurrency.lastUpdated'),
+              }}
+            />
           </div>
         </div>
       </Section>

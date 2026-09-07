@@ -45,11 +45,11 @@ export default function PublicHeader() {
       }`}
     >
       <div className="mx-auto flex w-full max-w-[1600px] items-center gap-3 px-[clamp(1rem,3vw,3rem)] py-1">
-        <div className="flex min-w-0 flex-1 items-center min-[1360px]:flex-none">
-          <Logo />
+        <div className="flex min-w-0 flex-1 items-center min-[1400px]:flex-none">
+          <Logo size="compact" />
         </div>
 
-        <nav className="hidden min-w-0 flex-1 items-center justify-center gap-0.5 min-[1360px]:flex" aria-label={tA11y('primaryNav')}>
+        <nav className="hidden min-w-0 flex-1 items-center justify-center gap-0.5 min-[1400px]:flex" aria-label={tA11y('primaryNav')}>
           {NAV_GROUPS.map((group) => (
             <div key={group.key} className="group relative">
               <button
@@ -104,7 +104,7 @@ export default function PublicHeader() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex items-center justify-center rounded-xl border border-[#2B2B2B] bg-[#111111] p-2 text-textPrimary hover:bg-brand-soft min-[1360px]:hidden"
+            className="inline-flex items-center justify-center rounded-xl border border-[#2B2B2B] bg-[#111111] p-2 text-textPrimary hover:bg-brand-soft min-[1400px]:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={tA11y('openMenu')}
@@ -118,7 +118,7 @@ export default function PublicHeader() {
         <nav
           id="mobile-nav"
           aria-label={tA11y('primaryNav')}
-          className="border-t border-[#2B2B2B] bg-[#050505]/96 px-4 py-4 shadow-2xl shadow-black/15 backdrop-blur-xl min-[1360px]:hidden"
+          className="border-t border-[#2B2B2B] bg-[#050505]/96 px-4 py-4 shadow-2xl shadow-black/15 backdrop-blur-xl min-[1400px]:hidden"
         >
           <ul className="flex flex-col">
             {NAV_GROUPS.map((group) => (

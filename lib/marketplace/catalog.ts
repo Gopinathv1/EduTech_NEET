@@ -1,5 +1,6 @@
 export type MarketplaceCondition = 'NEW' | 'LIKE_NEW' | 'GOOD' | 'FAIR';
 export type MarketplaceListingStatus = 'PUBLISHED' | 'PENDING_REVIEW' | 'SOLD_OUT';
+export type MarketplaceLevel = 'BEGINNER' | 'INTERMEDIATE' | 'ADVANCED';
 
 export type MarketplaceCategory = {
   slug: string;
@@ -11,6 +12,8 @@ export type MarketplaceListing = {
   slug: string;
   title: string;
   categorySlug: string;
+  subcategorySlug?: string;
+  level?: MarketplaceLevel;
   author?: string;
   publisher?: string;
   condition: MarketplaceCondition;
@@ -41,6 +44,8 @@ export const MARKETPLACE_CATEGORIES: MarketplaceCategory[] = [
   { slug: 'college-books', labelKey: 'collegeBooks' },
   { slug: 'medical-books', labelKey: 'medicalBooks' },
   { slug: 'engineering-books', labelKey: 'engineeringBooks' },
+  { slug: 'astronomy-reference-books', labelKey: 'astronomyReferenceBooks', parentSlug: 'reference-books' },
+  { slug: 'traditional-knowledge-books', labelKey: 'traditionalKnowledgeBooks', parentSlug: 'books' },
   { slug: 'educational-accessories', labelKey: 'educationalAccessories' },
 ];
 
@@ -100,4 +105,8 @@ export const MARKETPLACE_LISTINGS: MarketplaceListing[] = [
 
 export function getMarketplaceListing(slug: string) {
   return MARKETPLACE_LISTINGS.find((listing) => listing.slug === slug);
+}
+
+export function getMarketplaceCategory(slug: string) {
+  return MARKETPLACE_CATEGORIES.find((category) => category.slug === slug);
 }

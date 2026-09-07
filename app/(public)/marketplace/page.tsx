@@ -3,15 +3,25 @@ import { getTranslations } from 'next-intl/server';
 import { pageMetadata } from '@/lib/seo';
 import { PrimaryLink, Section } from '@/components/public/ui';
 import MarketplaceFilters from '@/components/marketplace/MarketplaceFilters';
-import { MARKETPLACE_CATEGORIES, MARKETPLACE_LISTINGS } from '@/lib/marketplace/catalog';
+import { MARKETPLACE_CATEGORIES, MARKETPLACE_LISTINGS, getMarketplaceCategory } from '@/lib/marketplace/catalog';
+
+type Props = {
+  searchParams?: Promise<{ category?: string }>;
+};
 
 export async function generateMetadata() {
   const t = await getTranslations('seo.marketplace');
   return pageMetadata({ title: t('title'), description: t('description'), path: '/marketplace' });
 }
 
-export default async function MarketplacePage() {
+export default async function MarketplacePage({ searchParams }: Props) {
   const t = await getTranslations('marketplace');
+  const params = await searchParams;
+  const requestedCategory = params?.category;
+  const initialCategory = requestedCategory && getMarketplaceCategory(requestedCategory) ? requestedCategory : 'ALL';
+  const featuredCategories = MARKETPLACE_CATEGORIES.filter((category) =>
+    ['books', 'exam-preparation-books', 'study-materials', 'reference-books', 'medical-books', 'engineering-books'].includes(category.slug),
+  );
 
   return (
     <>
@@ -35,7 +45,7 @@ export default async function MarketplacePage() {
             </div>
           </div>
           <div className="grid gap-4 sm:grid-cols-2" aria-label={t('categoriesTitle')}>
-            {MARKETPLACE_CATEGORIES.slice(0, 8).map((category) => (
+            {featuredCategories.map((category) => (
               <div key={category.slug} className="rounded-2xl border border-[#2B2B2B] bg-[#111111]/86 p-5">
                 <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">{t('categoryLabel')}</p>
                 <h2 className="mt-3 text-lg font-black uppercase leading-tight text-white">
@@ -58,12 +68,18 @@ export default async function MarketplacePage() {
           <p className="text-sm leading-7 text-[#D1D1D1]">{t('listingsNote')}</p>
         </div>
         <MarketplaceFilters
+          categories={MARKETPLACE_CATEGORIES}
           listings={MARKETPLACE_LISTINGS}
+          initialCategory={initialCategory}
           labels={{
             search: t('search'),
             searchPlaceholder: t('searchPlaceholder'),
+            category: t('postForm.category'),
             condition: t('condition'),
+            level: t('level'),
             all: t('all'),
+            categories: t.raw('categories') as Record<string, string>,
+            levels: t.raw('levels') as Record<'BEGINNER' | 'INTERMEDIATE' | 'ADVANCED', string>,
             buy: t('buy'),
             soldBy: t('soldBy'),
             delivery: t('delivery'),

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 import { pageMetadata } from '@/lib/seo';
 import { PrimaryLink, Section } from '@/components/public/ui';
+import CompareClocks from '@/components/admissions/CompareClocks';
 import { getIndicativeFxRates, formatFx } from '@/lib/admission/fx';
 import { ADMISSION_COUNTRY_PROFILES, getAdmissionCountryProfiles } from '@/lib/data/admissions/countries';
 
@@ -27,7 +28,15 @@ export default async function AdmissionsComparePage({ searchParams }: Props) {
     .filter(Boolean)
     .slice(0, 3);
   const selected = getAdmissionCountryProfiles(slugs);
-  const countries = selected.length > 0 ? selected : ADMISSION_COUNTRY_PROFILES.slice(0, 2);
+  const countries =
+    selected.length >= 2
+      ? selected
+      : selected.length === 1
+        ? [
+            selected[0],
+            ADMISSION_COUNTRY_PROFILES.find((country) => country.slug !== selected[0].slug) ?? ADMISSION_COUNTRY_PROFILES[1],
+          ]
+        : ADMISSION_COUNTRY_PROFILES.slice(0, 2);
   const fxRates = await getIndicativeFxRates(countries.map((country) => country.currencyCode));
 
   const rows = [
@@ -40,7 +49,10 @@ export default async function AdmissionsComparePage({ searchParams }: Props) {
       const country = countries.find((item) => item.slug === slug);
       return country ? formatFx(fxRates[country.currencyCode]).oneUnitInr : undefined;
     } },
-    { label: t('comparison.timeDifference'), render: (slug: string) => countries.find((country) => country.slug === slug)?.timezone.iana },
+    { label: t('comparison.timeDifference'), render: (slug: string) => {
+      const country = countries.find((item) => item.slug === slug);
+      return country ? `${country.timezone.labelCity}: ${country.timezone.iana}` : undefined;
+    } },
     { label: t('comparison.travelDistance'), render: (slug: string) => countries.find((country) => country.slug === slug)?.travel.distanceFromIndia },
     { label: t('comparison.travelTime'), render: (slug: string) => countries.find((country) => country.slug === slug)?.travel.typicalDuration },
     { label: t('comparison.climate'), render: (slug: string) => countries.find((country) => country.slug === slug)?.climate.value },
@@ -78,6 +90,27 @@ export default async function AdmissionsComparePage({ searchParams }: Props) {
             ))}
           </div>
         </div>
+      </Section>
+
+      <Section tinted lazy>
+        <CompareClocks
+          countries={countries}
+          labels={{
+            title: t('timezone.compareTitle'),
+            india: t('timezone.india'),
+            indiaZone: t('timezone.indiaZone'),
+            destinationFallback: t('timezone.destinationFallback'),
+            matchesIst: t('timezone.matchesIst'),
+            aheadOfIst: t('timezone.aheadOfIst'),
+            behindIst: t('timezone.behindIst'),
+            loading: t('timezone.loading'),
+          }}
+        />
+        {selected.length === 1 ? (
+          <p className="mt-4 rounded-xl border border-[#f6a623]/25 bg-[#f6a623]/10 px-4 py-3 text-sm font-bold leading-6 text-[#f6d58a]">
+            {t('compare.minimumNote')}
+          </p>
+        ) : null}
       </Section>
 
       <Section tinted lazy>

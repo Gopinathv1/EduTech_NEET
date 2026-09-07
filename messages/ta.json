@@ -78,12 +78,14 @@
     "marketplaceMenu": "மார்க்கெட்ப்ளேஸ்",
     "marketplace": "மார்க்கெட்ப்ளேஸ்",
     "marketplaceListings": "லிஸ்டிங்குகள்",
+    "astrologyBooks": "Astrology Books",
     "sellBooks": "புத்தகங்கள் விற்க",
     "neet": "NEET",
     "jee": "JEE",
     "partnerWithUs": "பார்ட்னராக சேருங்கள்",
     "admissionJourney": "சேர்க்கை பயணம்",
-    "aiFutureSkills": "AI & Future Skills"
+    "aiFutureSkills": "AI & Future Skills",
+    "astrologyLearning": "Astrology Learning"
   },
   "site": {
     "cta": {
@@ -432,14 +434,13 @@
       "successTitle": "Enquiry பெறப்பட்டது",
       "success": "நன்றி. SIVORA UP↑RISING team விரைவில் உங்களை தொடர்பு கொள்ளும்.",
       "interests": [
-        "வெளிநாட்டில் MBBS",
-        "ஐரோப்பாவில் படிப்பு",
-        "சர்வதேச கல்வி",
-        "இந்தியாவில் MBBS கவுன்செல்லிங்",
-        "Career & கல்லூரி வழிகாட்டல்",
-        "NEET தயாரிப்பு",
-        "கோர்ஸ்கள் & கற்றல் திட்டங்கள்",
-        "மற்றவை"
+        "Career Guidance",
+        "Admissions",
+        "Study Abroad",
+        "Exam Preparation",
+        "Course Selection",
+        "AI / Future Skills",
+        "Other Education Guidance"
       ]
     },
     "why": {
@@ -504,8 +505,8 @@
     "heroCtaPrimary": "NEET தயாரிப்பைத் தொடங்குங்கள்",
     "heroCtaSecondary": "உலகளாவிய சேர்க்கைகளை அறியுங்கள்",
     "heroEyebrow": "கல்வி • தயாரிப்பு • உலகளாவிய வாய்ப்பு",
-    "heroSubtitle": "சேர்க்கை, கவுன்செல்லிங், தேர்வு தயாரிப்பு மற்றும் AI-powered future skills க்கான ஒரே education platform.",
-    "heroExplore": "பிரோகிராம்களைப் பாருங்கள்",
+    "heroSubtitle": "சேர்க்கைகள், career guidance, தேர்வு தயாரிப்பு, future-ready courses மற்றும் student resources ஒரே focused education platform-ல்.",
+    "heroExplore": "SIVORA-வை ஆராயுங்கள்",
     "quickLinks": {
       "admissions": "சேர்க்கைகள்",
       "examPreparation": "தேர்வு தயாரிப்பு",
@@ -542,30 +543,59 @@
     }
   },
   "exploreSivora": {
-    "eyebrow": "SIVORA-வை அறியுங்கள்",
-    "title": "சரியான ஆதரவுடன் தொடருங்கள்.",
-    "subtitle": "உங்கள் இடத்தை இழக்காமல் SIVORA UP↑RISING சேவைகளுக்குள் செல்லுங்கள்.",
-    "cta": "சேவையைப் பாருங்கள் ->",
+    "eyebrow": "Explore SIVORA",
+    "title": "Every step of your learning journey.",
+    "subtitle": "Admissions, counselling, exam preparation, courses மற்றும் student resources ஒரே focused education மற்றும் career platform-ல்.",
     "items": {
       "admissions": {
-        "title": "சேர்க்கைகள்",
-        "body": "இந்தியா மற்றும் வெளிநாட்டு சேர்க்கை வழிகாட்டல், MBBS abroad மற்றும் உயர்கல்வி பாதைகள்."
+        "title": "Admissions",
+        "body": "Explore study destinations, universities and admission pathways with structured guidance and decision support.",
+        "cta": "Explore Admissions",
+        "tags": {
+          "tagOne": "Destinations",
+          "tagTwo": "Universities",
+          "tagThree": "Pathways"
+        }
       },
       "counselling": {
-        "title": "கவுன்செல்லிங்",
-        "body": "கல்வி நிலை, ஆர்வங்கள், கோர்ஸ் திசை, பல்கலைக்கழக தேர்வு மற்றும் நடைமுறை திட்டமிடல்."
+        "title": "Counselling & Career Guidance",
+        "body": "Get personalised guidance for education, career choices, courses, admissions and future pathways.",
+        "cta": "Get Guidance",
+        "tags": {
+          "tagOne": "Career Direction",
+          "tagTwo": "Course Selection",
+          "tagThree": "Planning"
+        }
       },
       "examPreparation": {
-        "title": "தேர்வு தயாரிப்பு",
-        "body": "NEET, JEE மற்றும் எதிர்கால தேர்வுகளுக்கு மாக் டெஸ்ட், கேள்வி வங்கி மற்றும் பகுப்பாய்வுடன் பயிற்சி."
+        "title": "Exam Preparation",
+        "body": "Practice with mock tests, question banks, previous-year questions and performance insights for competitive exams.",
+        "cta": "Start Preparing",
+        "tags": {
+          "tagOne": "NEET",
+          "tagTwo": "JEE",
+          "tagThree": "Future Exams"
+        }
       },
       "courses": {
-        "title": "கோர்ஸ்கள்",
-        "body": "தொழில்நுட்பம் மற்றும் வளர்ந்து வரும் career பகுதிகளில் கல்வி மற்றும் எதிர்கால திறன் திட்டங்கள்."
+        "title": "Courses & Future Skills",
+        "body": "AI, Python, machine learning, generative AI, data analytics மற்றும் future technology skills-ல் practical capabilities உருவாக்குங்கள்.",
+        "cta": "Explore Courses",
+        "tags": {
+          "tagOne": "AI",
+          "tagTwo": "Python",
+          "tagThree": "Future Skills"
+        }
       },
       "marketplace": {
         "title": "Marketplace",
-        "body": "Education books, exam resources மற்றும் learning materials buy, sell, reuse செய்யுங்கள்."
+        "body": "புத்தகங்கள், study materials, question banks மற்றும் learning resources-ஐ buy, sell, discover செய்யுங்கள்.",
+        "cta": "Explore Marketplace",
+        "tags": {
+          "tagOne": "Books",
+          "tagTwo": "Question Banks",
+          "tagThree": "Resources"
+        }
       }
     }
   },
@@ -1152,7 +1182,7 @@
     },
     "courses": {
       "title": "கோர்ஸ்கள் & எதிர்கால திறன்கள்",
-      "description": "SIVORA UP↑RISING வழங்கும் கல்வி கற்றல் மற்றும் எதிர்கால திறன் தொழில்நுட்ப கோர்ஸ்கள்."
+      "description": "SIVORA UP↑RISING வழங்கும் academic learning, AI, technology மற்றும் future-skills pathways-ஐ explore செய்யுங்கள்."
     },
     "studyAbroad": {
       "title": "சேர்க்கைகள்",
@@ -1188,7 +1218,7 @@
     },
     "marketplace": {
       "title": "SIVORA Marketplace",
-      "description": "Student books, exam preparation resources மற்றும் learning materials buy, sell, reuse செய்யுங்கள்."
+      "description": "Books, exam resources, question banks, study materials மற்றும் பிற learning resources buy, sell, discover செய்யுங்கள்."
     },
     "marketplaceDetail": {
       "title": "{title}",
@@ -1767,16 +1797,16 @@
   },
   "brandMarquee": {
     "items": [
-      "தேர்வு தயாரிப்பு",
+      "Exam Preparation",
       "NEET",
       "JEE",
-      "வெளிநாட்டு கல்வி",
-      "MBBS",
-      "Engineering",
-      "ஐரோப்பா",
-      "AI கோர்ஸ்கள்",
-      "கவுன்செல்லிங்",
-      "மாணவர் வெற்றி"
+      "Study Abroad",
+      "Admissions",
+      "AI Courses",
+      "Counselling",
+      "Marketplace",
+      "Books & Learning Resources",
+      "Student Success"
     ]
   },
   "founderStory": {
@@ -1950,30 +1980,72 @@
     }
   },
   "counselling": {
-    "eyebrow": "கவுன்செல்லிங்",
-    "heroTitle": "உங்கள் அடுத்த கல்வி படியை திட்டமிடுங்கள்.",
-    "heroSubtitle": "உங்கள் கல்வி நிலை, ஆர்வங்கள், கோர்ஸ் இலக்குகள் மற்றும் budget அம்சங்களைப் பகிருங்கள்; நடைமுறை கல்வி பாதையை திட்டமிட எங்கள் குழு உதவும்.",
+    "eyebrow": "Counselling & Career Guidance",
+    "heroTitle": "உங்கள் அடுத்த படிக்கு தெளிவு.",
+    "heroSubtitle": "சரியான course, career direction, admissions, competitive exams மற்றும் future skills பற்றி informed education decisions எடுக்க SIVORA உதவுகிறது.",
     "callbackEyebrow": "Callback கோரிக்கை",
     "callbackTitle": "நீங்கள் தேடுவது என்ன என்பதைச் சொல்லுங்கள்.",
-    "callbackSubtitle": "கவுன்செல்லிங், வெளிநாட்டு கல்வி, தேர்வு தயாரிப்பு அல்லது கற்றல் திட்டங்களுக்கு ஒரே படிவத்தைப் பயன்படுத்துங்கள்.",
+    "callbackSubtitle": "Career guidance, admissions, study abroad, exam preparation, course selection அல்லது AI and future-skills guidance க்கு இந்த form-ஐ பயன்படுத்துங்கள்.",
     "helpCards": [
-      "கல்வி நிலை புரிதல்",
-      "ஆர்வங்கள் & career direction",
-      "கோர்ஸ் & பல்கலைக்கழக தேர்வு",
-      "Budget-aware pathway planning"
+      {
+        "title": "Career Direction",
+        "body": "Understand interests, strengths and realistic academic-career pathways."
+      },
+      {
+        "title": "Course Selection",
+        "body": "Explore courses that fit the student profile, goals and future plans."
+      },
+      {
+        "title": "Admissions Guidance",
+        "body": "Get structured support for applications, documents and next steps."
+      },
+      {
+        "title": "Study Abroad",
+        "body": "Compare destinations and university options with practical planning support."
+      },
+      {
+        "title": "Exam Planning",
+        "body": "Choose preparation paths for NEET, JEE and future competitive exams."
+      },
+      {
+        "title": "AI & Future Skills",
+        "body": "Explore technology and future-ready skills such as AI, data and automation."
+      }
     ],
     "ctaEyebrow": "அடுத்த படியை திட்டமிட தயாரா?",
     "ctaTitle": "SIVORA UP↑RISING உடன் பேசுங்கள்.",
     "primaryCta": "இலவச கவுன்செல்லிங் பெறுங்கள்",
     "whatsappCta": "WhatsApp-ல் பேசுங்கள்",
     "whatsappLabel": "WhatsApp-ல் SIVORA UP↑RISING உடன் பேசுங்கள்",
-    "whatsappMessage": "Hello SIVORA UP↑RISING, எனது அடுத்த கல்வி படியை திட்டமிட இலவச கவுன்செல்லிங் வேண்டும்."
+    "whatsappMessage": "Hello SIVORA UP↑RISING, எனது அடுத்த கல்வி படியை திட்டமிட இலவச கவுன்செல்லிங் வேண்டும்.",
+    "helpEyebrow": "What Can We Help You With?",
+    "helpTitle": "Guidance for education and career decisions.",
+    "steps": {
+      "eyebrow": "How Counselling Works",
+      "title": "Understand, explore, compare, plan.",
+      "items": [
+        "Understand",
+        "Explore",
+        "Compare",
+        "Plan",
+        "Move Forward"
+      ]
+    }
   },
   "courses": {
     "eyebrow": "கோர்ஸ்கள் & எதிர்கால திறன்கள்",
     "heroTitle": "என்ன கற்றல் மற்றும் எதிர்கால திறன் திட்டங்கள் உள்ளன?",
-    "heroSubtitle": "SIVORA UP↑RISING தற்போது வழங்கும் கல்வி கற்றல் ஆதரவு மற்றும் தொழில்நுட்ப future-skill திட்டங்களை அறியுங்கள்.",
+    "heroSubtitle": "SIVORA UP↑RISING வழங்கும் academic learning support, AI மற்றும் technology skills, traditional knowledge learning pathways-ஐ explore செய்யுங்கள்.",
     "comingSoon": "விரைவில்",
+    "statuses": {
+      "COMING_SOON": "விரைவில்",
+      "AVAILABLE": "கிடைக்கும்"
+    },
+    "levels": {
+      "BEGINNER": "Beginner",
+      "INTERMEDIATE": "Intermediate",
+      "ADVANCED": "Advanced"
+    },
     "talkCta": "Counsellor உடன் பேசுங்கள்",
     "examCta": "Exam Preparation பார்க்கவும்",
     "academic": {
@@ -2066,6 +2138,75 @@
         "generativeAi": "Generative AI",
         "llmRag": "LLM / RAG",
         "aiAgents": "AI Agents"
+      }
+    },
+    "astrology": {
+      "eyebrow": "Traditional Knowledge • Structured Learning",
+      "title": "Astrology மொழியை explore செய்யுங்கள்.",
+      "subtitle": "Structured educational programs மூலம் astrology foundations, concepts மற்றும் traditional frameworks கற்றுக்கொள்ளுங்கள் - birth-chart fundamentals முதல் advanced chart interpretation வரை.",
+      "positioningTitle": "Educational framing",
+      "positioningBody": "Astrology இங்கே traditional, cultural மற்றும் historical knowledge system ஆக structured study க்கு காட்டப்படுகிறது. இது SIVORA evidence-based counselling-இல் இருந்து தனியாக வைக்கப்படுகிறது; scientifically proven என present செய்யப்படவில்லை.",
+      "marketplaceCta": "Astrology Books பார்க்கவும்",
+      "notifyCta": "Updates க்கு contact செய்யுங்கள்",
+      "pathEyebrow": "Astrology Learning Path",
+      "relatedEyebrow": "Related Learning Areas",
+      "astronomyNote": "Astronomy மற்றும் astrology தனித்தனியாக வைக்கப்படுகின்றன: astronomy scientific discipline; astrology இங்கே traditional மற்றும் cultural study ஆக வழங்கப்படுகிறது.",
+      "areas": {
+        "astrologyFoundations": {
+          "title": "Astrology Foundations",
+          "body": "History, traditions, terminology மற்றும் introductory frameworks."
+        },
+        "vedicAstrology": {
+          "title": "Indian / Vedic Astrology",
+          "body": "Indian astrology traditions மற்றும் concepts பற்றிய educational introduction."
+        },
+        "birthChartFundamentals": {
+          "title": "Birth Chart Fundamentals",
+          "body": "Chart structure, Lagna, signs, houses மற்றும் planetary placements."
+        },
+        "planetsHouses": {
+          "title": "Planets & Houses",
+          "body": "Planets மற்றும் twelve houses உடன் தொடர்புடைய traditional meanings."
+        },
+        "nakshatras": {
+          "title": "Nakshatras",
+          "body": "27 Nakshatras, classifications மற்றும் planetary associations."
+        },
+        "dashaTransits": {
+          "title": "Dasha & Transits",
+          "body": "Traditional planetary-period மற்றும் transit interpretation frameworks."
+        },
+        "chartInterpretation": {
+          "title": "Chart Interpretation",
+          "body": "Chart study-யில் traditional concepts எப்படி combine செய்யப்படுகின்றன."
+        },
+        "numerology": {
+          "title": "Numerology",
+          "body": "Personal interest study க்கான related traditional learning area."
+        },
+        "advancedAstrology": {
+          "title": "Advanced Astrology",
+          "body": "Divisional charts, Muhurta மற்றும் tradition history போன்ற future study areas."
+        }
+      },
+      "path": {
+        "foundations": "Foundations",
+        "zodiacPlanets": "Zodiac & Planets",
+        "houses": "Houses",
+        "nakshatras": "Nakshatras",
+        "birthCharts": "Birth Charts",
+        "dashaTransits": "Dasha & Transits",
+        "chartInterpretation": "Chart Interpretation",
+        "advancedStudy": "Advanced Study"
+      },
+      "related": {
+        "numerology": "Numerology",
+        "astronomyForAstrologyStudents": "Astronomy For Astrology Students",
+        "calendarPanchanga": "Calendar & Panchanga Fundamentals",
+        "indianCalendarSystems": "Indian Calendar Systems",
+        "mythologySymbolism": "Mythology & Symbolism",
+        "historyOfAstrology": "History Of Astrology",
+        "basicSanskritTerminology": "Basic Sanskrit Terminology"
       }
     }
   },
@@ -2219,7 +2360,7 @@
   "marketplace": {
     "eyebrow": "SIVORA Marketplace",
     "heroTitle": "Buy. Sell. Reuse. Learn.",
-    "heroSubtitle": "Students, educators மற்றும் education partners பயனுள்ள learning resources discover, buy, sell செய்யும் focused marketplace.",
+    "heroSubtitle": "Students, educators மற்றும் education partners books, exam resources, question banks, study materials மற்றும் useful learning resources discover, buy, sell செய்யும் focused marketplace.",
     "browseCta": "Listings பார்க்கவும்",
     "sellCta": "புத்தகங்கள் விற்க",
     "categoriesTitle": "Marketplace categories",
@@ -2230,6 +2371,7 @@
     "search": "Search",
     "searchPlaceholder": "Books, resources அல்லது location search செய்யுங்கள்",
     "condition": "Condition",
+    "level": "Level",
     "all": "All",
     "buy": "Buy",
     "soldBy": "Sold by",
@@ -2260,7 +2402,13 @@
     "safety": {
       "eyebrow": "Quality & Safety",
       "title": "Education-first commerce.",
-      "body": "Marketplace legitimate educational resources க்காக scoped, admin moderation மற்றும் seller attribution உடன்."
+      "body": "Marketplace legitimate educational books மற்றும் learning materials க்காக scoped, admin moderation மற்றும் seller attribution உடன்."
+    },
+    "astrologyLink": {
+      "eyebrow": "Interested In Learning?",
+      "title": "Astrology Courses Explore செய்யுங்கள்",
+      "body": "Astrology resources, SIVORA structured traditional-knowledge learning pathway உடன் connected. Educational framing counselling services-இல் இருந்து தனியாக வைக்கப்படுகிறது.",
+      "cta": "Astrology Courses பார்க்கவும்"
     },
     "sellerFlow": {
       "eyebrow": "Seller Registration",
@@ -2301,19 +2449,37 @@
       "collegeBooks": "College Books",
       "medicalBooks": "Medical Books",
       "engineeringBooks": "Engineering Books",
+      "astrologyTraditionalLearning": "Astrology & Traditional Learning",
+      "astrologyBooks": "Astrology Books",
+      "vedicAstrologyBooks": "Vedic Astrology Books",
+      "beginnerAstrologyBooks": "Beginner Astrology Books",
+      "advancedAstrologyBooks": "Advanced Astrology Books",
+      "nakshatraBooks": "Nakshatra Books",
+      "birthChartReferenceBooks": "Birth Chart Reference Books",
+      "numerologyBooks": "Numerology Books",
+      "panchangaCalendarReferences": "Panchanga / Calendar References",
+      "astrologyReferenceMaterials": "Astrology Reference Materials",
+      "astronomyReferenceBooks": "Astronomy Reference Books",
+      "traditionalKnowledgeBooks": "Traditional Knowledge Books",
       "educationalAccessories": "Educational Accessories"
+    },
+    "levels": {
+      "BEGINNER": "Beginner",
+      "INTERMEDIATE": "Intermediate",
+      "ADVANCED": "Advanced"
     }
   },
   "admissions": {
     "eyebrow": "சேர்க்கைகள்",
     "heroTitle": "உங்கள் admission journey-ஐ திட்டமிடுங்கள்.",
-    "heroSubtitle": "Selected destinations க்கான MBBS abroad மற்றும் international higher-education guidance, university shortlisting, applications, documentation மற்றும் transition planning.",
+    "heroSubtitle": "Structured guidance, comparison tools மற்றும் decision support உடன் destinations, universities மற்றும் admission pathways-ஐ ஆராயுங்கள்.",
     "destinations": {
       "eyebrow": "Destinations Explore",
       "title": "Medical education abroad explore செய்யுங்கள்.",
-      "subtitle": "Structured country facts, featured universities மற்றும் counselling support உடன் selected destination options compare செய்யுங்கள்.",
+      "subtitle": "Review selected destination options with flags, capital, currency, live-time context and featured universities.",
       "cta": "Destination பார்க்கவும்",
-      "cardLabel": "MBBS Abroad"
+      "cardLabel": "MBBS Abroad",
+      "compareCta": "Add To Compare"
     },
     "compare": {
       "eyebrow": "Compare Destinations",
@@ -2324,7 +2490,8 @@
       "cta": "Compare Countries",
       "helper": "குறைந்தது இரண்டு countries select செய்யுங்கள். இந்த interface இல் மூன்றுவரை compare செய்யலாம்.",
       "helpEyebrow": "Choosing க்கு உதவி வேண்டுமா?",
-      "helpTitle": "Free counselling பெறுங்கள்."
+      "helpTitle": "Free counselling பெறுங்கள்.",
+      "minimumNote": "Comparison needs at least two destinations, so one additional country has been added for context."
     },
     "notVerified": "Not currently verified",
     "contactForCurrentDetails": "Current details க்கு counselling contact செய்யுங்கள்",
@@ -2377,7 +2544,10 @@
       "title": "Timing மற்றும் currency plan செய்யுங்கள்.",
       "fxLabel": "Indicative exchange rate",
       "fxDisclaimer": "Indicative exchange rate only. Actual bank/card rates மற்றும் fees vary ஆகும். Source:",
-      "lastUpdated": "Last updated"
+      "lastUpdated": "Last updated",
+      "amountLabel": "INR amount",
+      "unavailable": "Exchange rate temporarily unavailable",
+      "source": "Source"
     },
     "comparison": {
       "field": "Field",
@@ -2472,6 +2642,22 @@
         "description": "Explore MBBS admission guidance for Kazakhstan with the two currently source-supported institutions.",
         "overview": "Kazakhstan is shown with only the two source-supported featured institutions currently available. Counselling focuses on suitability, documentation, application steps and practical next planning."
       }
+    },
+    "whyCompare": {
+      "eyebrow": "Why Compare Destinations?",
+      "title": "Decide with context, not guesswork.",
+      "subtitle": "Country choice affects travel, climate, currency, city life, university options and family planning. Compare destinations side by side before shortlisting universities.",
+      "cta": "Compare Destinations"
+    },
+    "timezone": {
+      "india": "India",
+      "indiaZone": "IST",
+      "destinationFallback": "Local time",
+      "matchesIst": "matches IST",
+      "aheadOfIst": "ahead of IST",
+      "behindIst": "behind IST",
+      "loading": "Loading time",
+      "compareTitle": "Live India vs destination time"
     }
   }
 }
