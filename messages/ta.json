@@ -1184,6 +1184,10 @@
       "title": "கோர்ஸ்கள் & எதிர்கால திறன்கள்",
       "description": "SIVORA UP↑RISING வழங்கும் academic learning, AI, technology மற்றும் future-skills pathways-ஐ explore செய்யுங்கள்."
     },
+    "coursesAstrology": {
+      "title": "Astrology & Traditional Knowledge Courses",
+      "description": "SIVORA UP↑RISING வழங்கும் structured astrology மற்றும் traditional knowledge learning areas-ஐ explore செய்யுங்கள்."
+    },
     "studyAbroad": {
       "title": "சேர்க்கைகள்",
       "description": "இந்தியா மற்றும் வெளிநாட்டு உயர்கல்வி, MBBS abroad, engineering, விண்ணப்பம் மற்றும் மாணவர் மாற்றத்திற்கான சேர்க்கை வழிகாட்டல்."
@@ -2144,6 +2148,9 @@
       "eyebrow": "Traditional Knowledge • Structured Learning",
       "title": "Astrology மொழியை explore செய்யுங்கள்.",
       "subtitle": "Structured educational programs மூலம் astrology foundations, concepts மற்றும் traditional frameworks கற்றுக்கொள்ளுங்கள் - birth-chart fundamentals முதல் advanced chart interpretation வரை.",
+      "streamTitle": "Astrology & Traditional Knowledge",
+      "streamSubtitle": "Astrology, traditional chart systems, zodiac concepts, nakshatras, planetary frameworks மற்றும் related knowledge-இல் structured learning explore செய்யுங்கள்.",
+      "learningArea": "Learning Area",
       "positioningTitle": "Educational framing",
       "positioningBody": "Astrology இங்கே traditional, cultural மற்றும் historical knowledge system ஆக structured study க்கு காட்டப்படுகிறது. இது SIVORA evidence-based counselling-இல் இருந்து தனியாக வைக்கப்படுகிறது; scientifically proven என present செய்யப்படவில்லை.",
       "marketplaceCta": "Astrology Books பார்க்கவும்",
@@ -2160,21 +2167,29 @@
           "title": "Indian / Vedic Astrology",
           "body": "Indian astrology traditions மற்றும் concepts பற்றிய educational introduction."
         },
+        "zodiacPlanets": {
+          "title": "Zodiac & Planets",
+          "body": "Signs, planets மற்றும் traditional symbolic frameworks."
+        },
+        "houses": {
+          "title": "Houses",
+          "body": "Twelve houses மற்றும் traditional chart study-இல் அவற்றின் பயன்பாடு."
+        },
         "birthChartFundamentals": {
           "title": "Birth Chart Fundamentals",
           "body": "Chart structure, Lagna, signs, houses மற்றும் planetary placements."
-        },
-        "planetsHouses": {
-          "title": "Planets & Houses",
-          "body": "Planets மற்றும் twelve houses உடன் தொடர்புடைய traditional meanings."
         },
         "nakshatras": {
           "title": "Nakshatras",
           "body": "27 Nakshatras, classifications மற்றும் planetary associations."
         },
-        "dashaTransits": {
-          "title": "Dasha & Transits",
-          "body": "Traditional planetary-period மற்றும் transit interpretation frameworks."
+        "dashaSystems": {
+          "title": "Dasha Systems",
+          "body": "சில astrology systems-இல் பயன்படுத்தப்படும் traditional planetary-period frameworks."
+        },
+        "transits": {
+          "title": "Transits",
+          "body": "Traditional chart interpretation-இல் transit concepts எப்படி study செய்யப்படுகின்றன."
         },
         "chartInterpretation": {
           "title": "Chart Interpretation",
@@ -2183,6 +2198,10 @@
         "numerology": {
           "title": "Numerology",
           "body": "Personal interest study க்கான related traditional learning area."
+        },
+        "panchangaFundamentals": {
+          "title": "Panchanga Fundamentals",
+          "body": "Calendar, tithi, nakshatra மற்றும் traditional timekeeping references."
         },
         "advancedAstrology": {
           "title": "Advanced Astrology",
@@ -2378,6 +2397,7 @@
     "delivery": "Delivery available",
     "pickup": "Pickup / seller contact",
     "noResults": "உங்கள் filters க்கு listing இல்லை.",
+    "noResultsForCategory": "{category} learning materials விரைவில் வரும். இந்த category இல் இன்னும் real seller inventory publish செய்யப்படவில்லை.",
     "listingType": "Listing type",
     "location": "Location",
     "stock": "Stock",
@@ -2459,6 +2479,20 @@
       "numerologyBooks": "Numerology Books",
       "panchangaCalendarReferences": "Panchanga / Calendar References",
       "astrologyReferenceMaterials": "Astrology Reference Materials",
+      "yogaWellnessLearning": "Yoga & Wellness Learning",
+      "yogaBooks": "Yoga Books",
+      "yogaPhilosophyBooks": "Yoga Philosophy Books",
+      "yogaForBeginnersBooks": "Yoga For Beginners Books",
+      "asanaReferenceBooks": "Asana Reference Books",
+      "pranayamaLearningMaterials": "Pranayama Learning Materials",
+      "meditationBooks": "Meditation Books",
+      "yogaAnatomyBooks": "Yoga Anatomy Books",
+      "yogaTeachingReferenceMaterials": "Yoga Teaching Reference Materials",
+      "yogaHistoryPhilosophy": "Yoga History & Philosophy",
+      "patanjaliYogaSutrasCommentaries": "Patanjali Yoga Sutras / Commentaries",
+      "ayurvedaYogaReferenceMaterials": "Ayurveda & Yoga Reference Materials",
+      "mindfulnessLearningMaterials": "Mindfulness Learning Materials",
+      "wellnessEducationBooks": "Wellness Education Books",
       "astronomyReferenceBooks": "Astronomy Reference Books",
       "traditionalKnowledgeBooks": "Traditional Knowledge Books",
       "educationalAccessories": "Educational Accessories"
@@ -2491,7 +2525,10 @@
       "helper": "குறைந்தது இரண்டு countries select செய்யுங்கள். இந்த interface இல் மூன்றுவரை compare செய்யலாம்.",
       "helpEyebrow": "Choosing க்கு உதவி வேண்டுமா?",
       "helpTitle": "Free counselling பெறுங்கள்.",
-      "minimumNote": "Comparison needs at least two destinations, so one additional country has been added for context."
+      "minimumNote": "Comparison needs at least two destinations, so one additional country has been added for context.",
+      "changeTitle": "மற்றொரு destination உடன் compare செய்யுங்கள்.",
+      "thisCountryTitle": "{country} பற்றி இன்னும் sure இல்லையா?",
+      "thisCountryBody": "Shortlist செய்யும் முன் time, travel, currency, airport மற்றும் university options compare செய்யுங்கள்."
     },
     "notVerified": "Not currently verified",
     "contactForCurrentDetails": "Current details க்கு counselling contact செய்யுங்கள்",
@@ -2512,7 +2549,9 @@
       "title": "{country} MBBS",
       "universitiesCta": "Featured Universities",
       "compareCta": "Destination Compare",
-      "landmarkPending": "Approved Landmark Asset Pending"
+      "landmarkPending": "Approved Landmark Asset Pending",
+      "studyTitle": "{country} இல் medicine படிக்கவும்",
+      "quickFactsCta": "Quick Facts"
     },
     "landmarks": {
       "russia": "Russia admissions guidance க்கான Moscow landmark view",
@@ -2532,6 +2571,7 @@
       "currency": "Currency",
       "languages": "Languages",
       "timezone": "Time zone",
+      "mainAirport": "Main airport",
       "travelDistance": "India இலிருந்து travel distance",
       "travelDuration": "Typical travel duration",
       "climate": "Climate",
@@ -2547,12 +2587,16 @@
       "lastUpdated": "Last updated",
       "amountLabel": "INR amount",
       "unavailable": "Exchange rate temporarily unavailable",
-      "source": "Source"
+      "source": "Source",
+      "quickTitle": "Quick currency check"
     },
     "comparison": {
       "field": "Field",
       "capital": "Capital",
       "currency": "Currency",
+      "mainAirport": "Main international airport",
+      "airportCity": "Airport city",
+      "flightType": "Direct / connecting status",
       "fx": "Current INR exchange indication",
       "timeDifference": "Time zone",
       "travelDistance": "Approximate travel distance",
@@ -2568,7 +2612,90 @@
       "medicalPrograms": "Medical programs where verified by counselling",
       "intake": "Typical intake",
       "medium": "Language / medium",
-      "disclaimer": "Indicative estimates. Actual costs university, city, exchange rate மற்றும் lifestyle அடிப்படையில் vary ஆகும்."
+      "disclaimer": "Indicative estimates. Actual costs university, city, exchange rate மற்றும் lifestyle அடிப்படையில் vary ஆகும்.",
+      "detailedCta": "Detailed Comparison பார்க்கவும்"
+    },
+    "heroSimplified": {
+      "eyebrow": "Study Abroad With Clarity",
+      "title": "உங்கள் medical journey சரியான destination-இல் தொடங்குகிறது.",
+      "subtitle": "Countries explore செய்து, study options compare செய்து, next step முன் essentials புரிந்துகொள்ளுங்கள்.",
+      "primary": "Explore Destinations",
+      "secondary": "Compare Countries"
+    },
+    "timeTravel": {
+      "eyebrow": "India ↔ Destination",
+      "title": "Live time மற்றும் travel ஒரு பார்வையில்.",
+      "travelTitle": "Delhi to destination",
+      "from": "From",
+      "to": "To",
+      "airport": "Airport",
+      "approxTravel": "Approx. Travel",
+      "route": "Route",
+      "details": "Travel Details"
+    },
+    "travel": {
+      "eyebrow": "Travel & Arrival",
+      "title": "India இலிருந்து arrival plan செய்யுங்கள்.",
+      "note": "Delhi standard comparison baseline. Actual routes, fares, layovers மற்றும் schedules airline, departure city, travel date அடிப்படையில் vary ஆகும்.",
+      "mainAirport": "Main International Airport",
+      "airportCode": "Airport Code",
+      "arrivalCity": "Arrival City",
+      "cityDistance": "Airport To City",
+      "role": "Student Arrival Role",
+      "fromDelhi": "Approximate Travel Time From Delhi",
+      "connectionPattern": "Common Connection Pattern",
+      "airportToCity": "Airport To City",
+      "universityCityAirport": "University-City Airport",
+      "source": "Source",
+      "beforeFly": {
+        "title": "Before You Fly",
+        "items": [
+          "Passport",
+          "Visa or entry documents where applicable",
+          "Admission documents",
+          "University letter",
+          "Accommodation confirmation",
+          "Insurance where applicable",
+          "Local currency / payment access",
+          "Emergency contact details"
+        ]
+      },
+      "afterArrival": {
+        "title": "After Arrival",
+        "items": [
+          "Immigration",
+          "Baggage",
+          "SIM / connectivity",
+          "Currency / payment access",
+          "Transport to city or accommodation",
+          "University reporting",
+          "Accommodation check-in"
+        ]
+      }
+    },
+    "cities": {
+      "eyebrow": "Major Student Cities",
+      "title": "Current university list உடன் இணைந்த cities.",
+      "universityCount": "{count, plural, =0 {Current SIVORA dataset இல் listed university இல்லை} =1 {Current SIVORA dataset இல் 1 listed university} other {Current SIVORA dataset இல் # listed universities}}"
+    },
+    "budget": {
+      "eyebrow": "Estimated Cost Of Study",
+      "title": "Current costs need counselling verification.",
+      "snapshotTitle": "Study cost snapshot.",
+      "currentFeesCta": "Current fee details பெறுங்கள்",
+      "noFigures": "University மற்றும் intake confirm ஆனபின் current tuition, accommodation மற்றும் total budget counselling மூலம் கிடைக்கும்.",
+      "noteLabel": "Budget note",
+      "note": "Tuition, hostel, insurance மற்றும் other university charges current official sources மூலம் verify ஆனபின் மட்டுமே காட்டப்படும்."
+    },
+    "programStructure": {
+      "eyebrow": "Program / Course Structure",
+      "title": "Program details university-wise verify செய்யுங்கள்.",
+      "verification": "Verification",
+      "note": "Duration, intake, clinical or internship structure மற்றும் medium current official university data verify ஆனபின் மட்டுமே காட்டப்படும்."
+    },
+    "whyCountry": {
+      "eyebrow": "Why Students Consider This Destination",
+      "title": "{country} க்கான practical factors."
     },
     "overview": {
       "eyebrow": "Destination Overview",
@@ -2578,6 +2705,8 @@
       "eyebrow": "Featured Medical Universities",
       "title": "Featured medical universities",
       "note": "{country} க்கான {count} source-supported featured university options காட்டப்படுகின்றன. இது ranking அல்ல.",
+      "shortNote": "Initial shortlisting க்கான compact list. Current fees, intake மற்றும் medium counselling மூலம் confirm செய்யுங்கள்.",
+      "durationLine": "Duration: {duration}",
       "askCta": "இந்த University பற்றி கேளுங்கள்"
     },
     "countrySupport": {
@@ -2598,7 +2727,23 @@
       "primary": "இலவச கவுன்செல்லிங் பெறுங்கள்",
       "whatsapp": "WhatsApp-ல் பேசுங்கள்",
       "whatsappLabel": "WhatsApp-ல் SIVORA UP↑RISING உடன் பேசுங்கள்",
-      "whatsappMessage": "Hello SIVORA UP↑RISING, MBBS abroad admissions க்கு free counselling வேண்டும்."
+      "whatsappMessage": "Hello SIVORA UP↑RISING, MBBS abroad admissions க்கு free counselling வேண்டும்.",
+      "simpleTitle": "Country தேர்வு செய்ய உதவி வேண்டுமா?",
+      "simpleBody": "Destinations compare செய்ய, university options புரிந்துகொள்ள, admission journey plan செய்ய SIVORA உதவும்."
+    },
+    "simplifiedJourney": {
+      "eyebrow": "Your Admission Journey",
+      "title": "Discover, understand, compare, choose.",
+      "items": [
+        "Discover destinations",
+        "Understand essentials",
+        "Compare countries",
+        "Choose a shortlist",
+        "Get guidance"
+      ]
+    },
+    "sources": {
+      "title": "Sources & Information"
     },
     "disclaimer": "Admission guidance advisory. Admission, visa மற்றும் future practice outcomes university criteria, documents, regulations மற்றும் authorities மீது depend செய்கின்றன; SIVORA UP↑RISING outcomes guarantee செய்யாது.",
     "countries": {

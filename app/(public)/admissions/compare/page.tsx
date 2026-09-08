@@ -64,13 +64,17 @@ export default async function AdmissionsComparePage({ searchParams }: Props) {
     } },
     { label: t('comparison.travelDistance'), render: (slug: string) => countries.find((country) => country.slug === slug)?.travel.distanceFromIndia },
     { label: t('comparison.travelTime'), render: (slug: string) => countries.find((country) => country.slug === slug)?.travel.typicalDuration },
-    { label: t('comparison.climate'), render: (slug: string) => countries.find((country) => country.slug === slug)?.climate.value },
-    { label: t('comparison.studentCities'), render: (slug: string) => countries.find((country) => country.slug === slug)?.majorStudentCities.join(', ') },
     { label: t('comparison.programDuration'), render: (slug: string) => countries.find((country) => country.slug === slug)?.program.duration?.value },
-    { label: t('comparison.tuition'), render: (slug: string) => countries.find((country) => country.slug === slug)?.budget.tuitionRange?.value },
-    { label: t('comparison.livingCost'), render: (slug: string) => countries.find((country) => country.slug === slug)?.budget.livingCost?.value },
     { label: t('comparison.overallBudget'), render: (slug: string) => countries.find((country) => country.slug === slug)?.budget.overall?.value },
     { label: t('comparison.universities'), render: (slug: string) => countries.find((country) => country.slug === slug)?.universities.join(', ') },
+    { label: t('comparison.medium'), render: (slug: string) => countries.find((country) => country.slug === slug)?.program.medium?.value },
+  ];
+
+  const detailRows = [
+    { label: t('comparison.climate'), render: (slug: string) => countries.find((country) => country.slug === slug)?.climate.value },
+    { label: t('comparison.studentCities'), render: (slug: string) => countries.find((country) => country.slug === slug)?.majorStudentCities.join(', ') },
+    { label: t('comparison.tuition'), render: (slug: string) => countries.find((country) => country.slug === slug)?.budget.tuitionRange?.value },
+    { label: t('comparison.livingCost'), render: (slug: string) => countries.find((country) => country.slug === slug)?.budget.livingCost?.value },
     { label: t('comparison.programs'), render: () => t('comparison.medicalPrograms') },
     { label: t('comparison.intake'), render: (slug: string) => countries.find((country) => country.slug === slug)?.program.intake?.value },
     { label: t('comparison.medium'), render: (slug: string) => countries.find((country) => country.slug === slug)?.program.medium?.value },
@@ -155,6 +159,29 @@ export default async function AdmissionsComparePage({ searchParams }: Props) {
           </table>
         </div>
         <p className="mt-5 text-sm leading-7 text-[#D1D1D1]">{t('comparison.disclaimer')}</p>
+        <details className="mt-4 rounded-2xl border border-[#2B2B2B] bg-[#111111] p-5">
+          <summary className="cursor-pointer text-sm font-black uppercase tracking-[0.12em] text-brand">
+            {t('comparison.detailedCta')}
+          </summary>
+          <div className="mt-5 overflow-x-auto">
+            <table className="min-w-[760px] w-full border-collapse text-left">
+              <tbody>
+                {detailRows.map((row) => (
+                  <tr key={row.label} className="align-top">
+                    <th className="border-b border-[#2B2B2B] p-4 text-xs font-black uppercase tracking-[0.12em] text-brand">
+                      {row.label}
+                    </th>
+                    {countries.map((country) => (
+                      <td key={`${row.label}-${country.slug}`} className="border-b border-[#2B2B2B] p-4 text-sm leading-6 text-[#D1D1D1]">
+                        {valueOrMissing(row.render(country.slug), t('notVerified'))}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </details>
       </Section>
 
       <Section lazy>

@@ -17,10 +17,15 @@ export async function generateMetadata() {
 export default async function MarketplacePage({ searchParams }: Props) {
   const t = await getTranslations('marketplace');
   const params = await searchParams;
-  const requestedCategory = params?.category === 'astrology' ? 'astrology-traditional-learning' : params?.category;
+  const requestedCategory =
+    params?.category === 'astrology'
+      ? 'astrology-traditional-learning'
+      : params?.category === 'yoga'
+        ? 'yoga-wellness-learning'
+        : params?.category;
   const initialCategory = requestedCategory && getMarketplaceCategory(requestedCategory) ? requestedCategory : 'ALL';
   const featuredCategories = MARKETPLACE_CATEGORIES.filter((category) =>
-    ['books', 'exam-preparation-books', 'study-materials', 'reference-books', 'medical-books', 'engineering-books', 'astrology-traditional-learning'].includes(category.slug),
+    ['books', 'exam-preparation-books', 'study-materials', 'reference-books', 'astrology-traditional-learning', 'yoga-wellness-learning'].includes(category.slug),
   );
 
   return (
@@ -85,6 +90,7 @@ export default async function MarketplacePage({ searchParams }: Props) {
             delivery: t('delivery'),
             pickup: t('pickup'),
             noResults: t('noResults'),
+            noResultsForCategory: t('noResultsForCategory'),
           }}
         />
       </Section>

@@ -31,6 +31,7 @@ export default function MarketplaceFilters({
     delivery: string;
     pickup: string;
     noResults: string;
+    noResultsForCategory: string;
   };
 }) {
   const [query, setQuery] = useState('');
@@ -180,7 +181,9 @@ export default function MarketplaceFilters({
           ))}
         </div>
       ) : (
-        <p className="mt-6 rounded-2xl border border-[#2B2B2B] bg-[#111111] p-5 text-sm text-[#D1D1D1]">{labels.noResults}</p>
+        <p className="mt-6 rounded-2xl border border-[#2B2B2B] bg-[#111111] p-5 text-sm font-bold leading-7 text-[#D1D1D1]">
+          {category === 'ALL' ? labels.noResults : labels.noResultsForCategory.replace('{category}', categoryLabels[category] ?? category)}
+        </p>
       )}
     </div>
   );
