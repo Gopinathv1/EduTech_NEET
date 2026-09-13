@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { pageMetadata } from '@/lib/seo';
 import { PrimaryLink, Section } from '@/components/public/ui';
@@ -9,17 +8,43 @@ import CompareTray from '@/components/admissions/CompareTray';
 import { ADMISSION_COUNTRY_PROFILES } from '@/lib/data/admissions/countries';
 import { ProductFaqSection, RelatedServicesSection } from '@/components/public/ProductPageBlocks';
 
+const REGION_FILTERS = ['all', 'apac', 'europe', 'central-asia', 'eastern-europe', 'southeast-asia'] as const;
+
+type RegionFilter = (typeof REGION_FILTERS)[number];
+
+type AdmissionsPageProps = {
+  searchParams?: Promise<{ region?: string }>;
+};
+
 export async function generateMetadata() {
   const t = await getTranslations('seo.admissions');
   return pageMetadata({ title: t('title'), description: t('description'), path: '/admissions' });
 }
 
-export default function AdmissionsPage() {
-  const t = useTranslations('admissions');
+function normalizeRegionFilter(region?: string): RegionFilter {
+  return REGION_FILTERS.includes(region as RegionFilter) ? (region as RegionFilter) : 'all';
+}
+
+function matchesRegion(country: (typeof ADMISSION_COUNTRY_PROFILES)[number], region: RegionFilter) {
+  if (region === 'all') return true;
+  if (region === 'apac') return country.region === 'APAC';
+  if (region === 'europe') return country.region === 'EUROPE';
+  if (region === 'central-asia') return country.region === 'CENTRAL_ASIA';
+  return country.subregion.toLowerCase().replace(/\s+/g, '-') === region;
+}
+
+export default async function AdmissionsPage({ searchParams }: AdmissionsPageProps) {
+  const params = await searchParams;
+  const activeRegion = normalizeRegionFilter(params?.region);
+  const t = await getTranslations('admissions');
   const journey = t.raw('simplifiedJourney.items') as string[];
   const chooseItems = t.raw('choose.items') as { title: string; body: string }[];
   const faqItems = t.raw('faq.items') as { q: string; a: string }[];
   const relatedItems = t.raw('related.items') as { title: string; body: string; href: string; cta: string }[];
+  const regions = t.raw('regions.items') as { key: RegionFilter | 'other'; title: string; body: string; cta: string }[];
+  const studyPaths = t.raw('studyPaths.items') as { title: string; body: string }[];
+  const featuredCountries = ADMISSION_COUNTRY_PROFILES.filter((country) => country.featured && country.detailAvailable);
+  const visibleCountries = featuredCountries.filter((country) => matchesRegion(country, activeRegion));
 
   return (
     <>
@@ -36,7 +61,7 @@ export default function AdmissionsPage() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <PrimaryLink href="#destinations">{t('heroSimplified.primary')}</PrimaryLink>
               <Link
-                href="/admissions/compare"
+                href="/counselling?interest=global-admissions"
                 className="inline-flex items-center justify-center rounded-lg border border-[#2B2B2B] bg-[#111111]/88 px-5 py-3 text-sm font-black uppercase tracking-[0.08em] text-white transition hover:-translate-y-0.5 hover:border-brand/45"
               >
                 {t('heroSimplified.secondary')}
@@ -73,6 +98,40 @@ export default function AdmissionsPage() {
         </div>
       </section>
 
+      <Section lazy>
+        <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('regions.eyebrow')}</p>
+            <h2 className="mt-4 text-[clamp(2.2rem,4.6vw,4.6rem)] font-black uppercase leading-[0.92] text-white">
+              {t('regions.title')}
+            </h2>
+          </div>
+          <p className="max-w-2xl text-sm leading-7 text-[#D1D1D1]">{t('regions.subtitle')}</p>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+          {regions.map((region) => {
+            const href =
+              region.key === 'other'
+                ? '/counselling?interest=global-admissions'
+                : `/admissions?region=${region.key}#destinations`;
+
+            return (
+              <Link
+                key={region.key}
+                href={href}
+                className="group flex min-h-44 flex-col rounded-2xl border border-[#2B2B2B] bg-[#111111] p-5 transition hover:-translate-y-1 hover:border-brand/35"
+              >
+                <h3 className="text-xl font-black uppercase text-white">{region.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-[#D1D1D1]">{region.body}</p>
+                <span className="mt-auto pt-5 text-xs font-black uppercase tracking-[0.12em] text-brand transition group-hover:translate-x-1">
+                  {region.cta}
+                </span>
+              </Link>
+            );
+          })}
+        </div>
+      </Section>
+
       <Section id="destinations">
         <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
@@ -83,8 +142,24 @@ export default function AdmissionsPage() {
           </div>
           <p className="max-w-2xl text-sm leading-7 text-[#D1D1D1]">{t('destinations.subtitle')}</p>
         </div>
+        <div className="mb-6 flex flex-wrap gap-2">
+          {REGION_FILTERS.map((region) => (
+            <Link
+              key={region}
+              href={region === 'all' ? '/admissions#destinations' : `/admissions?region=${region}#destinations`}
+              className={`rounded-full border px-4 py-2 text-xs font-black uppercase tracking-[0.08em] transition ${
+                activeRegion === region
+                  ? 'border-brand bg-brand-soft text-brand'
+                  : 'border-[#2B2B2B] bg-[#111111] text-[#D1D1D1] hover:border-brand/45'
+              }`}
+            >
+              {t(`regions.filters.${region}`)}
+            </Link>
+          ))}
+        </div>
+        {visibleCountries.length ? (
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {ADMISSION_COUNTRY_PROFILES.map((country) => (
+          {visibleCountries.map((country) => (
             <div
               key={country.slug}
               className="group overflow-hidden rounded-2xl border border-[#2B2B2B] bg-[#111111] shadow-xl shadow-black/5 transition hover:-translate-y-1 hover:border-brand/35"
@@ -110,7 +185,7 @@ export default function AdmissionsPage() {
                 <h3 className="text-2xl font-black uppercase text-white">{country.name}</h3>
                 <p className="mt-3 text-sm leading-6 text-[#D1D1D1]">{t(`countries.${country.slug}.short`)}</p>
                 <p className="mt-4 text-xs font-bold uppercase tracking-[0.1em] text-[#D1D1D1]">
-                  {country.capital.value} · {country.currencyCode}
+                  {country.subregion} · {country.currencyCode}
                 </p>
                 <div className="mt-auto grid gap-2 pt-6 sm:grid-cols-2">
                   <Link
@@ -127,6 +202,35 @@ export default function AdmissionsPage() {
                   </Link>
                 </div>
               </div>
+            </div>
+          ))}
+        </div>
+        ) : (
+          <div className="rounded-2xl border border-[#2B2B2B] bg-[#111111] p-6">
+            <h3 className="text-2xl font-black uppercase text-white">{t('regions.emptyTitle')}</h3>
+            <p className="mt-3 max-w-2xl text-sm leading-7 text-[#D1D1D1]">{t('regions.emptyBody')}</p>
+            <div className="mt-5">
+              <PrimaryLink href="/counselling?interest=global-admissions">{t('regions.emptyCta')}</PrimaryLink>
+            </div>
+          </div>
+        )}
+      </Section>
+
+      <Section tinted lazy>
+        <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('studyPaths.eyebrow')}</p>
+            <h2 className="mt-4 text-[clamp(2.2rem,4.6vw,4.6rem)] font-black uppercase leading-[0.92] text-white">
+              {t('studyPaths.title')}
+            </h2>
+          </div>
+          <p className="max-w-2xl text-sm leading-7 text-[#D1D1D1]">{t('studyPaths.subtitle')}</p>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {studyPaths.map((pathway) => (
+            <div key={pathway.title} className="rounded-2xl border border-[#2B2B2B] bg-[#050505]/72 p-5">
+              <h3 className="text-sm font-black uppercase tracking-[0.1em] text-white">{pathway.title}</h3>
+              <p className="mt-3 text-sm leading-6 text-[#D1D1D1]">{pathway.body}</p>
             </div>
           ))}
         </div>

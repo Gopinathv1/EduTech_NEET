@@ -128,6 +128,8 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
               <span aria-hidden="true">/</span>
               <Link href="/admissions" className="hover:text-brand">{t('breadcrumbs.admissions')}</Link>
               <span aria-hidden="true">/</span>
+              <span className="text-[#D1D1D1]">{t('breadcrumbs.featuredDestinations')}</span>
+              <span aria-hidden="true">/</span>
               <span className="text-brand">{country.name}</span>
             </nav>
             <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('countryHero.eyebrow')}</p>

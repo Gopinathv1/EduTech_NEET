@@ -45,7 +45,7 @@
     "services": "सेवाएं",
     "mockTests": "मॉक टेस्ट",
     "admission": "एडमिशन मार्गदर्शन",
-    "countries": "देश",
+    "countries": "Featured Destinations",
     "testimonials": "प्रतिक्रिया",
     "faq": "FAQ",
     "contact": "संपर्क",
@@ -65,7 +65,7 @@
     "coursesMenu": "कोर्स",
     "mbbsIndia": "भारत में MBBS काउंसलिंग",
     "mbbsCounsellingIndia": "भारत में MBBS काउंसलिंग",
-    "mbbsAbroad": "विदेश में MBBS",
+    "mbbsAbroad": "Destinations Explore करें",
     "studyEurope": "यूरोप में पढ़ाई",
     "medicalAdmissions": "मेडिकल एडमिशन",
     "otherPrograms": "अन्य प्रोग्राम",
@@ -576,12 +576,12 @@
     "items": {
       "admissions": {
         "title": "Admissions",
-        "body": "Explore study destinations, universities and admission pathways with structured guidance and decision support.",
+        "body": "APAC, Europe और beyond में destinations explore करें, study options compare करें और admission journey plan करें.",
         "cta": "Explore Admissions",
         "tags": {
-          "tagOne": "Destinations",
-          "tagTwo": "Universities",
-          "tagThree": "Pathways"
+          "tagOne": "Global Study",
+          "tagTwo": "APAC & Europe",
+          "tagThree": "Guidance"
         }
       },
       "counselling": {
@@ -1236,12 +1236,12 @@
       "description": "Understand the SIVORA UP↑RISING student admission journey from counselling and university selection to admission, departure and continued support abroad."
     },
     "admissions": {
-      "title": "एडमिशन",
-      "description": "Russia, Georgia, Vietnam, Armenia, Uzbekistan, Kyrgyzstan, Tajikistan और Kazakhstan के लिए MBBS abroad guidance."
+      "title": "Global Admissions",
+      "description": "APAC, Europe और अन्य international destinations के लिए study abroad guidance, featured destination comparison और admissions support."
     },
     "admissionCountry": {
-      "title": "{country} में MBBS",
-      "description": "{country} के लिए SIVORA UP↑RISING admission guidance और featured medical universities देखें."
+      "title": "{country} Admissions",
+      "description": "{country} को verified country facts, travel context और admissions guidance के साथ featured SIVORA study destination के रूप में explore करें."
     },
     "admissionsCompare": {
       "title": "Destinations Compare करें",
@@ -2833,19 +2833,112 @@
     "heroTitle": "अपनी admission journey plan करें.",
     "heroSubtitle": "Structured guidance, comparison tools और decision support के साथ destinations, universities और admission pathways देखें.",
     "heroSimplified": {
-      "eyebrow": "विदेश में पढ़ाई",
-      "title": "आपका अगला गंतव्य यहीं से शुरू होता है.",
-      "subtitle": "देश देखें, विकल्पों की तुलना करें और प्रवेश यात्रा के लिए मार्गदर्शन पाएं.",
+      "eyebrow": "Global Admissions",
+      "title": "आपका अगला destination कहीं भी हो सकता है.",
+      "subtitle": "APAC, Europe और अन्य international destinations में study opportunities explore करें, courses, universities और admissions guidance के साथ.",
       "primary": "Explore Destinations",
-      "secondary": "Compare Countries"
+      "secondary": "Get Admission Guidance"
     },
     "destinations": {
-      "eyebrow": "Destinations Explore करें",
-      "title": "Medical education abroad explore करें.",
-      "subtitle": "Review selected destination options with flags, capital, currency, live-time context and featured universities.",
+      "eyebrow": "Featured Destinations",
+      "title": "Destinations जिन्हें आप अभी explore कर सकते हैं.",
+      "subtitle": "इन researched country pages में current featured destinations के structured details हैं. अन्य international destinations के लिए SIVORA से बात करें.",
       "cta": "Destination देखें",
-      "cardLabel": "MBBS Abroad",
+      "cardLabel": "Featured Destination",
       "compareCta": "Add To Compare"
+    },
+    "regions": {
+      "eyebrow": "Explore By Region",
+      "title": "Global regions में study opportunities.",
+      "subtitle": "Region से शुरू करें, available featured destinations explore करें, फिर current researched list से आगे के places के लिए SIVORA से बात करें.",
+      "filters": {
+        "all": "All Featured",
+        "apac": "APAC",
+        "europe": "Europe",
+        "central-asia": "Central Asia",
+        "eastern-europe": "Eastern Europe",
+        "southeast-asia": "Southeast Asia"
+      },
+      "emptyTitle": "More destinations coming soon.",
+      "emptyBody": "कोई दूसरा destination देख रहे हैं? हमें बताएं आप कहां study करना चाहते हैं और हमारी counselling team guide करेगी.",
+      "emptyCta": "Get Admission Guidance",
+      "items": [
+        {
+          "key": "apac",
+          "title": "APAC",
+          "body": "Asia-Pacific destinations में education opportunities explore करें.",
+          "cta": "Explore Region"
+        },
+        {
+          "key": "europe",
+          "title": "Europe",
+          "body": "European destinations में higher-education opportunities explore करें.",
+          "cta": "Explore Region"
+        },
+        {
+          "key": "central-asia",
+          "title": "Central Asia",
+          "body": "Central Asia में currently available featured destinations review करें.",
+          "cta": "Explore Region"
+        },
+        {
+          "key": "eastern-europe",
+          "title": "Eastern Europe",
+          "body": "Researched country details वाले featured destination pages compare करें.",
+          "cta": "Explore Region"
+        },
+        {
+          "key": "southeast-asia",
+          "title": "Southeast Asia",
+          "body": "Available Southeast Asia destination guidance explore करें.",
+          "cta": "Explore Region"
+        },
+        {
+          "key": "other",
+          "title": "Other International Destinations",
+          "body": "कहीं और देख रहे हैं? SIVORA को बताएं आप कहां study करना चाहते हैं.",
+          "cta": "Speak With Our Team"
+        }
+      ]
+    },
+    "studyPaths": {
+      "eyebrow": "Explore Study Paths",
+      "title": "एक course या country से आगे.",
+      "subtitle": "SIVORA platform level पर broader international study planning support करता है. Course availability counselling में confirm होती है.",
+      "items": [
+        {
+          "title": "Medicine",
+          "body": "जहां destination और university details verified हैं, medical education pathways plan करें."
+        },
+        {
+          "title": "Engineering",
+          "body": "Engineering options और destination fit counselling team के साथ discuss करें."
+        },
+        {
+          "title": "Technology & AI",
+          "body": "Technology, data और AI-oriented international programs explore करें."
+        },
+        {
+          "title": "Business & Management",
+          "body": "Business, management और professional study pathways review करें."
+        },
+        {
+          "title": "Science",
+          "body": "Global regions में science और applied-science programs consider करें."
+        },
+        {
+          "title": "Undergraduate",
+          "body": "Region और course guidance के साथ bachelor-level study options plan करें."
+        },
+        {
+          "title": "Postgraduate",
+          "body": "Masters और other postgraduate pathways internationally explore करें."
+        },
+        {
+          "title": "Other Programs",
+          "body": "Featured pages से आगे arts, humanities और professional programs के बारे में पूछें."
+        }
+      ]
     },
     "compare": {
       "eyebrow": "Compare Destinations",
@@ -2877,12 +2970,12 @@
       ]
     },
     "countryHero": {
-      "eyebrow": "MBBS Abroad",
-      "title": "{country} में MBBS",
+      "eyebrow": "Featured Destination",
+      "title": "{country} Admissions",
       "universitiesCta": "Featured Universities",
       "compareCta": "Destination Compare करें",
       "landmarkPending": "Approved Landmark Asset Pending",
-      "studyTitle": "{country} में medicine पढ़ें",
+      "studyTitle": "{country} को एक global study destination के रूप में explore करें",
       "quickFactsCta": "Quick Facts"
     },
     "landmarks": {
@@ -3055,18 +3148,18 @@
       "primary": "फ्री काउंसलिंग लें",
       "whatsapp": "WhatsApp पर बात करें",
       "whatsappLabel": "WhatsApp पर SIVORA UP↑RISING से चैट करें",
-      "whatsappMessage": "Hello SIVORA UP↑RISING, मुझे MBBS abroad admissions के लिए free counselling चाहिए.",
-      "simpleTitle": "Country choose करने में मदद चाहिए?",
-      "simpleBody": "SIVORA destinations compare करने, university options समझने और admission journey plan करने में help कर सकता है."
+      "whatsappMessage": "Hello SIVORA UP↑RISING, मुझे global admissions और study abroad options के लिए guidance चाहिए.",
+      "simpleTitle": "Can't find your destination?",
+      "simpleBody": "हमें बताएं आप कहां study करना चाहते हैं. SIVORA APAC, Europe और current featured pages से आगे other international destinations explore करने में help कर सकता है."
     },
     "simplifiedJourney": {
       "eyebrow": "Your Admission Journey",
       "title": "Discover, understand, compare, choose.",
       "items": [
-        "Discover destinations",
-        "Understand essentials",
-        "Compare countries",
-        "Choose a shortlist",
+        "Choose region",
+        "Explore destinations",
+        "Compare",
+        "Shortlist universities",
         "Get guidance"
       ]
     },
@@ -3212,7 +3305,8 @@
     "breadcrumbs": {
       "label": "Breadcrumbs",
       "home": "Home",
-      "admissions": "Admissions"
+      "admissions": "Admissions",
+      "featuredDestinations": "Featured Destinations"
     },
     "countryFaq": {
       "eyebrow": "अक्सर पूछे जाने वाले प्रश्न",

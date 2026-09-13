@@ -45,7 +45,7 @@
     "services": "Services",
     "mockTests": "Mock Tests",
     "admission": "Admission Guidance",
-    "countries": "Countries",
+    "countries": "Featured Destinations",
     "testimonials": "Testimonials",
     "faq": "FAQ",
     "contact": "Contact",
@@ -65,7 +65,7 @@
     "coursesMenu": "Courses",
     "mbbsIndia": "MBBS Counselling in India",
     "mbbsCounsellingIndia": "MBBS Counselling in India",
-    "mbbsAbroad": "MBBS Abroad",
+    "mbbsAbroad": "Explore Destinations",
     "studyEurope": "Study in Europe",
     "medicalAdmissions": "Medical Admissions",
     "otherPrograms": "Other Programs",
@@ -576,12 +576,12 @@
     "items": {
       "admissions": {
         "title": "Admissions",
-        "body": "Explore study destinations, universities and admission pathways with structured guidance and decision support.",
+        "body": "Explore destinations across APAC, Europe and beyond, compare study options and plan your admission journey.",
         "cta": "Explore Admissions",
         "tags": {
-          "tagOne": "Destinations",
-          "tagTwo": "Universities",
-          "tagThree": "Pathways"
+          "tagOne": "Global Study",
+          "tagTwo": "APAC & Europe",
+          "tagThree": "Guidance"
         }
       },
       "counselling": {
@@ -1236,12 +1236,12 @@
       "description": "Understand the SIVORA UP↑RISING student admission journey from counselling and university selection to admission, departure and continued support abroad."
     },
     "admissions": {
-      "title": "Admissions",
-      "description": "MBBS abroad and international admission guidance for Russia, Georgia, Vietnam, Armenia, Uzbekistan, Kyrgyzstan, Tajikistan and Kazakhstan."
+      "title": "Global Admissions",
+      "description": "Study abroad guidance for global admissions, APAC and Europe destinations, international university admissions and featured destination comparison."
     },
     "admissionCountry": {
-      "title": "MBBS in {country}",
-      "description": "Explore SIVORA UP↑RISING admission guidance and featured medical universities for {country}."
+      "title": "{country} Admissions",
+      "description": "Explore {country} as a featured SIVORA UP↑RISING study destination with verified country facts, travel context and admissions guidance."
     },
     "admissionsCompare": {
       "title": "Compare Destinations",
@@ -2833,19 +2833,112 @@
     "heroTitle": "Plan your admission journey.",
     "heroSubtitle": "Explore destinations, universities and admission pathways with structured guidance, comparison tools and decision support.",
     "heroSimplified": {
-      "eyebrow": "Study Abroad",
-      "title": "Your next destination starts here.",
-      "subtitle": "Explore countries, compare study options and get guidance for your admission journey.",
+      "eyebrow": "Global Admissions",
+      "title": "Your next destination could be anywhere.",
+      "subtitle": "Explore study opportunities across APAC, Europe and other international destinations with guidance for courses, universities and admissions.",
       "primary": "Explore Destinations",
-      "secondary": "Compare Countries"
+      "secondary": "Get Admission Guidance"
     },
     "destinations": {
-      "eyebrow": "Explore Destinations",
-      "title": "Explore medical education abroad.",
-      "subtitle": "Review selected destination options with flags, capital, currency, live-time context and featured universities.",
+      "eyebrow": "Featured Destinations",
+      "title": "Destinations you can explore now.",
+      "subtitle": "These researched country pages include structured details for current featured destinations. Speak with SIVORA about other international destinations.",
       "cta": "View Destination",
-      "cardLabel": "MBBS Abroad",
+      "cardLabel": "Featured Destination",
       "compareCta": "Add To Compare"
+    },
+    "regions": {
+      "eyebrow": "Explore By Region",
+      "title": "Study opportunities across global regions.",
+      "subtitle": "Start with a region, explore available featured destinations, then speak with SIVORA about places beyond the current researched list.",
+      "filters": {
+        "all": "All Featured",
+        "apac": "APAC",
+        "europe": "Europe",
+        "central-asia": "Central Asia",
+        "eastern-europe": "Eastern Europe",
+        "southeast-asia": "Southeast Asia"
+      },
+      "emptyTitle": "More destinations coming soon.",
+      "emptyBody": "Looking for another destination? Tell us where you want to study and our counselling team can guide you.",
+      "emptyCta": "Get Admission Guidance",
+      "items": [
+        {
+          "key": "apac",
+          "title": "APAC",
+          "body": "Explore education opportunities across Asia-Pacific destinations.",
+          "cta": "Explore Region"
+        },
+        {
+          "key": "europe",
+          "title": "Europe",
+          "body": "Explore higher-education opportunities across European destinations.",
+          "cta": "Explore Region"
+        },
+        {
+          "key": "central-asia",
+          "title": "Central Asia",
+          "body": "Review featured destinations currently available in Central Asia.",
+          "cta": "Explore Region"
+        },
+        {
+          "key": "eastern-europe",
+          "title": "Eastern Europe",
+          "body": "Compare featured destination pages with researched country details.",
+          "cta": "Explore Region"
+        },
+        {
+          "key": "southeast-asia",
+          "title": "Southeast Asia",
+          "body": "Explore available Southeast Asia destination guidance.",
+          "cta": "Explore Region"
+        },
+        {
+          "key": "other",
+          "title": "Other International Destinations",
+          "body": "Looking elsewhere? Tell SIVORA where you want to study.",
+          "cta": "Speak With Our Team"
+        }
+      ]
+    },
+    "studyPaths": {
+      "eyebrow": "Explore Study Paths",
+      "title": "Beyond one course or country.",
+      "subtitle": "SIVORA supports broader international study planning at platform level. Course availability is confirmed during counselling.",
+      "items": [
+        {
+          "title": "Medicine",
+          "body": "Plan medical education pathways where destination and university details are verified."
+        },
+        {
+          "title": "Engineering",
+          "body": "Discuss engineering options and destination fit with the counselling team."
+        },
+        {
+          "title": "Technology & AI",
+          "body": "Explore technology, data and AI-oriented international programs."
+        },
+        {
+          "title": "Business & Management",
+          "body": "Review business, management and professional study pathways."
+        },
+        {
+          "title": "Science",
+          "body": "Consider science and applied-science programs across global regions."
+        },
+        {
+          "title": "Undergraduate",
+          "body": "Plan bachelor-level study options with region and course guidance."
+        },
+        {
+          "title": "Postgraduate",
+          "body": "Explore masters and other postgraduate pathways internationally."
+        },
+        {
+          "title": "Other Programs",
+          "body": "Ask about arts, humanities and professional programs beyond the featured pages."
+        }
+      ]
     },
     "compare": {
       "eyebrow": "Compare Destinations",
@@ -2877,12 +2970,12 @@
       ]
     },
     "countryHero": {
-      "eyebrow": "MBBS Abroad",
-      "title": "MBBS in {country}",
+      "eyebrow": "Featured Destination",
+      "title": "{country} Admissions",
       "universitiesCta": "Featured Universities",
       "compareCta": "Compare Destination",
       "landmarkPending": "Approved Landmark Asset Pending",
-      "studyTitle": "Study medicine in {country}",
+      "studyTitle": "Explore {country} as one global study destination",
       "quickFactsCta": "Quick Facts"
     },
     "landmarks": {
@@ -3055,18 +3148,18 @@
       "primary": "Get Free Counselling",
       "whatsapp": "Chat On WhatsApp",
       "whatsappLabel": "Chat with SIVORA UP↑RISING on WhatsApp",
-      "whatsappMessage": "Hello SIVORA UP↑RISING, I would like free counselling for MBBS abroad admissions.",
-      "simpleTitle": "Need help choosing a country?",
-      "simpleBody": "SIVORA can help you compare destinations, understand university options and plan your admission journey."
+      "whatsappMessage": "Hello SIVORA UP↑RISING, I would like guidance for global admissions and study abroad options.",
+      "simpleTitle": "Can't find your destination?",
+      "simpleBody": "Tell us where you want to study. SIVORA can help you explore APAC, Europe and other international destinations, including places beyond the current featured pages."
     },
     "simplifiedJourney": {
       "eyebrow": "Your Admission Journey",
       "title": "Discover, understand, compare, choose.",
       "items": [
-        "Discover destinations",
-        "Understand essentials",
-        "Compare countries",
-        "Choose a shortlist",
+        "Choose region",
+        "Explore destinations",
+        "Compare",
+        "Shortlist universities",
         "Get guidance"
       ]
     },
@@ -3212,7 +3305,8 @@
     "breadcrumbs": {
       "label": "Breadcrumbs",
       "home": "Home",
-      "admissions": "Admissions"
+      "admissions": "Admissions",
+      "featuredDestinations": "Featured Destinations"
     },
     "countryFaq": {
       "eyebrow": "Frequently Asked Questions",

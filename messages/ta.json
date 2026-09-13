@@ -45,7 +45,7 @@
     "services": "சேவைகள்",
     "mockTests": "மாதிரி தேர்வுகள்",
     "admission": "சேர்க்கை வழிகாட்டுதல்",
-    "countries": "நாடுகள்",
+    "countries": "Featured Destinations",
     "testimonials": "கருத்துகள்",
     "faq": "கேள்விகள்",
     "contact": "தொடர்பு",
@@ -65,7 +65,7 @@
     "coursesMenu": "பாடநெறிகள்",
     "mbbsIndia": "இந்தியாவில் MBBS கவுன்செல்லிங்",
     "mbbsCounsellingIndia": "இந்தியாவில் MBBS கவுன்செல்லிங்",
-    "mbbsAbroad": "வெளிநாட்டில் MBBS",
+    "mbbsAbroad": "Destinations Explore",
     "studyEurope": "ஐரோப்பாவில் படிப்பு",
     "medicalAdmissions": "மருத்துவ சேர்க்கைகள்",
     "otherPrograms": "மற்ற திட்டங்கள்",
@@ -576,12 +576,12 @@
     "items": {
       "admissions": {
         "title": "Admissions",
-        "body": "Explore study destinations, universities and admission pathways with structured guidance and decision support.",
+        "body": "APAC, Europe மற்றும் beyond இல் destinations explore செய்து, study options compare செய்து, admission journey plan செய்யுங்கள்.",
         "cta": "Explore Admissions",
         "tags": {
-          "tagOne": "Destinations",
-          "tagTwo": "Universities",
-          "tagThree": "Pathways"
+          "tagOne": "Global Study",
+          "tagTwo": "APAC & Europe",
+          "tagThree": "Guidance"
         }
       },
       "counselling": {
@@ -1236,12 +1236,12 @@
       "description": "Understand the SIVORA UP↑RISING student admission journey from counselling and university selection to admission, departure and continued support abroad."
     },
     "admissions": {
-      "title": "சேர்க்கைகள்",
-      "description": "Russia, Georgia, Vietnam, Armenia, Uzbekistan, Kyrgyzstan, Tajikistan, Kazakhstan க்கான MBBS abroad guidance."
+      "title": "Global Admissions",
+      "description": "APAC, Europe மற்றும் பிற international destinations க்கான study abroad guidance, featured destination comparison மற்றும் admissions support."
     },
     "admissionCountry": {
-      "title": "{country} MBBS",
-      "description": "{country} க்கான SIVORA UP↑RISING admission guidance மற்றும் featured medical universities."
+      "title": "{country} Admissions",
+      "description": "{country}-ஐ verified country facts, travel context மற்றும் admissions guidance உடன் featured SIVORA study destination ஆக explore செய்யுங்கள்."
     },
     "admissionsCompare": {
       "title": "Destinations Compare",
@@ -2833,12 +2833,105 @@
     "heroTitle": "உங்கள் admission journey-ஐ திட்டமிடுங்கள்.",
     "heroSubtitle": "Structured guidance, comparison tools மற்றும் decision support உடன் destinations, universities மற்றும் admission pathways-ஐ ஆராயுங்கள்.",
     "destinations": {
-      "eyebrow": "Destinations Explore",
-      "title": "Medical education abroad explore செய்யுங்கள்.",
-      "subtitle": "Review selected destination options with flags, capital, currency, live-time context and featured universities.",
+      "eyebrow": "Featured Destinations",
+      "title": "இப்போது explore செய்யக்கூடிய destinations.",
+      "subtitle": "இந்த researched country pages current featured destinations க்கான structured details கொண்டவை. மற்ற international destinations குறித்து SIVORA உடன் பேசுங்கள்.",
       "cta": "Destination பார்க்கவும்",
-      "cardLabel": "MBBS Abroad",
+      "cardLabel": "Featured Destination",
       "compareCta": "Add To Compare"
+    },
+    "regions": {
+      "eyebrow": "Explore By Region",
+      "title": "Global regions இல் study opportunities.",
+      "subtitle": "Region மூலம் தொடங்கி, available featured destinations explore செய்து, current researched list க்கு அப்பால் உள்ள places குறித்து SIVORA உடன் பேசுங்கள்.",
+      "filters": {
+        "all": "All Featured",
+        "apac": "APAC",
+        "europe": "Europe",
+        "central-asia": "Central Asia",
+        "eastern-europe": "Eastern Europe",
+        "southeast-asia": "Southeast Asia"
+      },
+      "emptyTitle": "More destinations coming soon.",
+      "emptyBody": "மற்றொரு destination தேடுகிறீர்களா? நீங்கள் எங்கு study செய்ய விரும்புகிறீர்கள் என்பதைச் சொல்லுங்கள்; counselling team guide செய்யும்.",
+      "emptyCta": "Get Admission Guidance",
+      "items": [
+        {
+          "key": "apac",
+          "title": "APAC",
+          "body": "Asia-Pacific destinations இல் education opportunities explore செய்யுங்கள்.",
+          "cta": "Explore Region"
+        },
+        {
+          "key": "europe",
+          "title": "Europe",
+          "body": "European destinations இல் higher-education opportunities explore செய்யுங்கள்.",
+          "cta": "Explore Region"
+        },
+        {
+          "key": "central-asia",
+          "title": "Central Asia",
+          "body": "Central Asia இல் currently available featured destinations review செய்யுங்கள்.",
+          "cta": "Explore Region"
+        },
+        {
+          "key": "eastern-europe",
+          "title": "Eastern Europe",
+          "body": "Researched country details உள்ள featured destination pages compare செய்யுங்கள்.",
+          "cta": "Explore Region"
+        },
+        {
+          "key": "southeast-asia",
+          "title": "Southeast Asia",
+          "body": "Available Southeast Asia destination guidance explore செய்யுங்கள்.",
+          "cta": "Explore Region"
+        },
+        {
+          "key": "other",
+          "title": "Other International Destinations",
+          "body": "வேறு destination பார்க்கிறீர்களா? நீங்கள் எங்கு study செய்ய விரும்புகிறீர்கள் என்பதை SIVORA-க்கு சொல்லுங்கள்.",
+          "cta": "Speak With Our Team"
+        }
+      ]
+    },
+    "studyPaths": {
+      "eyebrow": "Explore Study Paths",
+      "title": "ஒரு course அல்லது country-ஐ தாண்டி.",
+      "subtitle": "SIVORA platform level இல் broader international study planning-ஐ support செய்கிறது. Course availability counselling இல் confirm செய்யப்படும்.",
+      "items": [
+        {
+          "title": "Medicine",
+          "body": "Destination மற்றும் university details verified ஆன இடங்களில் medical education pathways plan செய்யுங்கள்."
+        },
+        {
+          "title": "Engineering",
+          "body": "Engineering options மற்றும் destination fit குறித்து counselling team உடன் discuss செய்யுங்கள்."
+        },
+        {
+          "title": "Technology & AI",
+          "body": "Technology, data மற்றும் AI-oriented international programs explore செய்யுங்கள்."
+        },
+        {
+          "title": "Business & Management",
+          "body": "Business, management மற்றும் professional study pathways review செய்யுங்கள்."
+        },
+        {
+          "title": "Science",
+          "body": "Global regions இல் science மற்றும் applied-science programs consider செய்யுங்கள்."
+        },
+        {
+          "title": "Undergraduate",
+          "body": "Region மற்றும் course guidance உடன் bachelor-level study options plan செய்யுங்கள்."
+        },
+        {
+          "title": "Postgraduate",
+          "body": "Masters மற்றும் other postgraduate pathways internationally explore செய்யுங்கள்."
+        },
+        {
+          "title": "Other Programs",
+          "body": "Featured pages-ஐ தாண்டி arts, humanities மற்றும் professional programs பற்றி கேளுங்கள்."
+        }
+      ]
     },
     "compare": {
       "eyebrow": "Compare Destinations",
@@ -2870,12 +2963,12 @@
       ]
     },
     "countryHero": {
-      "eyebrow": "MBBS Abroad",
-      "title": "{country} MBBS",
+      "eyebrow": "Featured Destination",
+      "title": "{country} Admissions",
       "universitiesCta": "Featured Universities",
       "compareCta": "Destination Compare",
       "landmarkPending": "Approved Landmark Asset Pending",
-      "studyTitle": "{country} இல் medicine படிக்கவும்",
+      "studyTitle": "{country}-ஐ ஒரு global study destination ஆக explore செய்யுங்கள்",
       "quickFactsCta": "Quick Facts"
     },
     "landmarks": {
@@ -2944,11 +3037,11 @@
       "fxUnavailable": "Exchange rates temporarily unavailable."
     },
     "heroSimplified": {
-      "eyebrow": "வெளிநாட்டு கல்வி",
-      "title": "உங்கள் அடுத்த இலக்கு இங்கே தொடங்குகிறது.",
-      "subtitle": "நாடுகளை ஆராய்ந்து, தேர்வுகளை ஒப்பிட்டு, சேர்க்கை பயணத்திற்கு வழிகாட்டல் பெறுங்கள்.",
+      "eyebrow": "Global Admissions",
+      "title": "உங்கள் அடுத்த destination எங்கும் இருக்கலாம்.",
+      "subtitle": "APAC, Europe மற்றும் பிற international destinations இல் study opportunities-ஐ courses, universities மற்றும் admissions guidance உடன் explore செய்யுங்கள்.",
       "primary": "Explore Destinations",
-      "secondary": "Compare Countries"
+      "secondary": "Get Admission Guidance"
     },
     "timeTravel": {
       "eyebrow": "India ↔ Destination",
@@ -3055,18 +3148,18 @@
       "primary": "இலவச கவுன்செல்லிங் பெறுங்கள்",
       "whatsapp": "WhatsApp-ல் பேசுங்கள்",
       "whatsappLabel": "WhatsApp-ல் SIVORA UP↑RISING உடன் பேசுங்கள்",
-      "whatsappMessage": "Hello SIVORA UP↑RISING, MBBS abroad admissions க்கு free counselling வேண்டும்.",
-      "simpleTitle": "Country தேர்வு செய்ய உதவி வேண்டுமா?",
-      "simpleBody": "Destinations compare செய்ய, university options புரிந்துகொள்ள, admission journey plan செய்ய SIVORA உதவும்."
+      "whatsappMessage": "Hello SIVORA UP↑RISING, global admissions மற்றும் study abroad options க்கு guidance வேண்டும்.",
+      "simpleTitle": "Can't find your destination?",
+      "simpleBody": "நீங்கள் எங்கு study செய்ய விரும்புகிறீர்கள் என்பதைச் சொல்லுங்கள். APAC, Europe மற்றும் current featured pages க்கு அப்பால் உள்ள international destinations explore செய்ய SIVORA உதவும்."
     },
     "simplifiedJourney": {
       "eyebrow": "Your Admission Journey",
       "title": "Discover, understand, compare, choose.",
       "items": [
-        "Discover destinations",
-        "Understand essentials",
-        "Compare countries",
-        "Choose a shortlist",
+        "Choose region",
+        "Explore destinations",
+        "Compare",
+        "Shortlist universities",
         "Get guidance"
       ]
     },
@@ -3212,7 +3305,8 @@
     "breadcrumbs": {
       "label": "Breadcrumbs",
       "home": "Home",
-      "admissions": "Admissions"
+      "admissions": "Admissions",
+      "featuredDestinations": "Featured Destinations"
     },
     "countryFaq": {
       "eyebrow": "அடிக்கடி கேட்கப்படும் கேள்விகள்",
