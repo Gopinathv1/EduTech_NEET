@@ -1,10 +1,11 @@
 import { test, expect } from '@playwright/test';
 import crypto from 'node:crypto';
+import { loadEnvConfig } from '@next/env';
 
 /**
  * End-to-end happy path:
- *   register → verify OTP (dev echo) → buy a test → take it → view result →
- *   submit a consultancy lead.
+ *   register with password → buy a test → take it → view result → submit a
+ *   consultancy lead.
  *
  * The Razorpay Checkout modal is a third-party iframe that cannot run headless
  * without a live gateway + manual UPI, so this test completes payment through
@@ -13,6 +14,8 @@ import crypto from 'node:crypto';
  * through the real UI. `RAZORPAY_KEY_SECRET` must match the running server's
  * (both come from the CI job env; set it locally to match your `.env`).
  */
+
+loadEnvConfig(process.cwd());
 
 const SECRET = process.env.RAZORPAY_KEY_SECRET ?? 'e2e_secret_xxxx';
 
@@ -26,27 +29,16 @@ test('student can register, buy, take a test, see the result, and request guidan
   page,
 }) => {
   const { mobile, email } = unique();
+  const password = 'TestPassword123!';
 
   // 1) Register -----------------------------------------------------------
   await page.goto('/register');
   await page.getByLabel('Full name').fill('E2E Student');
-  await page.getByLabel('Email').fill(email);
   await page.getByLabel('Mobile number').fill(mobile);
-  await expect(page.getByLabel('Password')).toHaveCount(0);
-  // State/District/Class/Board are <select> dropdowns (District depends on State).
-  await page.getByLabel('State').selectOption({ label: 'Tamil Nadu' });
-  await page.getByLabel('District').selectOption({ index: 1 });
-  await page.getByLabel('School name').fill('Govt Higher Secondary School');
-  await page.getByLabel('Class').selectOption('12');
-  await page.getByLabel('Board').selectOption('State Board');
-  await page.getByRole('button', { name: 'Register' }).click();
-
-  // 2) Verify OTP (dev mode echoes it on screen) --------------------------
-  await expect(page.getByText('Verify your mobile')).toBeVisible();
-  const hint = await page.getByText(/Dev mode: your OTP is \d{6}/).textContent();
-  const otp = hint!.match(/(\d{6})/)![1];
-  await page.getByLabel('OTP').fill(otp);
-  await page.getByRole('button', { name: 'Verify' }).click();
+  await page.getByLabel('Email').fill(email);
+  await page.getByLabel('Password', { exact: true }).fill(password);
+  await page.getByLabel('Confirm password').fill(password);
+  await page.getByRole('button', { name: 'Create account' }).click();
 
   // Lands on the student dashboard.
   await expect(page).toHaveURL(/\/student$/);
@@ -108,7 +100,7 @@ test('student can register, buy, take a test, see the result, and request guidan
   await page.getByRole('button', { name: 'Yes, submit' }).click();
 
   // 5) See the result -----------------------------------------------------
-  await expect(page).toHaveURL(/\/student\/results\//);
+  await page.waitForURL(/\/student\/results\//, { waitUntil: 'domcontentloaded', timeout: 60000 });
   await expect(page.getByText('Score')).toBeVisible();
 
   // 6) Submit a consultancy lead -----------------------------------------
