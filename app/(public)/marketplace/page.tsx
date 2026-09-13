@@ -4,6 +4,7 @@ import { pageMetadata } from '@/lib/seo';
 import { PrimaryLink, Section } from '@/components/public/ui';
 import MarketplaceFilters from '@/components/marketplace/MarketplaceFilters';
 import { MARKETPLACE_CATEGORIES, MARKETPLACE_LISTINGS, getMarketplaceCategory } from '@/lib/marketplace/catalog';
+import { ProductFaqSection, RelatedServicesSection } from '@/components/public/ProductPageBlocks';
 
 type Props = {
   searchParams?: Promise<{ category?: string }>;
@@ -25,8 +26,18 @@ export default async function MarketplacePage({ searchParams }: Props) {
         : params?.category;
   const initialCategory = requestedCategory && getMarketplaceCategory(requestedCategory) ? requestedCategory : 'ALL';
   const featuredCategories = MARKETPLACE_CATEGORIES.filter((category) =>
-    ['books', 'exam-preparation-books', 'study-materials', 'reference-books', 'astrology-traditional-learning', 'yoga-wellness-learning'].includes(category.slug),
+    [
+      'exam-preparation-resources',
+      'academic-books',
+      'ai-technology',
+      'astrology-traditional-learning',
+      'yoga-wellness-learning',
+      'used-books',
+      'other-learning-resources',
+    ].includes(category.slug),
   );
+  const faqItems = t.raw('faq.items') as { q: string; a: string }[];
+  const relatedItems = t.raw('related.items') as { title: string; body: string; href: string; cta: string }[];
 
   return (
     <>
@@ -49,14 +60,18 @@ export default async function MarketplacePage({ searchParams }: Props) {
               </Link>
             </div>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2" aria-label={t('categoriesTitle')}>
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3" aria-label={t('categoriesTitle')}>
             {featuredCategories.map((category) => (
-              <div key={category.slug} className="rounded-2xl border border-[#2B2B2B] bg-[#111111]/86 p-5">
+              <Link
+                key={category.slug}
+                href={`/marketplace?category=${category.slug}`}
+                className="rounded-2xl border border-[#2B2B2B] bg-[#111111]/86 p-5 transition hover:-translate-y-1 hover:border-brand/35"
+              >
                 <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">{t('categoryLabel')}</p>
                 <h2 className="mt-3 text-lg font-black uppercase leading-tight text-white">
                   {t(`categories.${category.labelKey}`)}
                 </h2>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -90,7 +105,7 @@ export default async function MarketplacePage({ searchParams }: Props) {
             delivery: t('delivery'),
             pickup: t('pickup'),
             noResults: t('noResults'),
-            noResultsForCategory: t('noResultsForCategory'),
+            noResultsForCategory: t.raw('noResultsForCategory') as string,
           }}
         />
       </Section>
@@ -127,6 +142,15 @@ export default async function MarketplacePage({ searchParams }: Props) {
           </div>
         </div>
       </Section>
+
+      <ProductFaqSection eyebrow={t('faq.eyebrow')} title={t('faq.title')} items={faqItems} tinted={false} />
+
+      <RelatedServicesSection
+        eyebrow={t('related.eyebrow')}
+        title={t('related.title')}
+        items={relatedItems}
+        tinted
+      />
     </>
   );
 }

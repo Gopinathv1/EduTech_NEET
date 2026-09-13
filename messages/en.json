@@ -85,7 +85,8 @@
     "partnerWithUs": "Partner With Us",
     "admissionJourney": "Admission Journey",
     "aiFutureSkills": "AI & Future Skills",
-    "astrologyLearning": "Astrology Learning"
+    "astrologyLearning": "Astrology Learning",
+    "yogaLearning": "Yoga Learning"
   },
   "site": {
     "cta": {
@@ -114,7 +115,11 @@
       "admissionsStudyAbroad": "Admissions & Study Abroad",
       "examPreparation": "Exam Preparation",
       "counselling": "Counselling",
-      "learning": "Learning"
+      "learning": "Learning",
+      "products": "Products",
+      "resources": "Resources",
+      "help": "Help",
+      "legal": "Legal"
     }
   },
   "home": {
@@ -540,6 +545,28 @@
         "title": "Counselling",
         "body": "Academic profile, interests, course direction, university selection and practical next-step planning."
       }
+    },
+    "faq": {
+      "eyebrow": "Frequently Asked Questions",
+      "title": "Quick answers before you start.",
+      "items": [
+        {
+          "q": "What can I explore on SIVORA?",
+          "a": "You can explore admissions, counselling, exam preparation, courses and the learning marketplace from one public site."
+        },
+        {
+          "q": "Is counselling linked to exam preparation?",
+          "a": "Yes. Students can use counselling for planning and use the exam preparation area for practice tools where features are available."
+        },
+        {
+          "q": "Are marketplace listings verified?",
+          "a": "Published listings are scoped for educational resources and remain controlled by seller approval and moderation flows."
+        },
+        {
+          "q": "Can I use SIVORA in different languages?",
+          "a": "The public interface supports English, Hindi and Tamil through the language switcher."
+        }
+      ]
     }
   },
   "exploreSivora": {
@@ -2034,6 +2061,52 @@
         "Plan",
         "Move Forward"
       ]
+    },
+    "faq": {
+      "eyebrow": "Frequently Asked Questions",
+      "title": "Before you book counselling.",
+      "items": [
+        {
+          "q": "Who is counselling for?",
+          "a": "It is for students and families planning courses, careers, study abroad, exams or future-skill learning."
+        },
+        {
+          "q": "What happens first?",
+          "a": "The team starts by understanding the student goal, current stage, preferences and next decision."
+        },
+        {
+          "q": "Can counselling help with study abroad?",
+          "a": "Yes. Counselling can support destination, university and application planning without unsupported guarantees."
+        },
+        {
+          "q": "Can I ask about AI and future skills?",
+          "a": "Yes. Students can discuss future-skill learning paths and course direction."
+        }
+      ]
+    },
+    "related": {
+      "eyebrow": "Explore Related SIVORA Services",
+      "title": "Move from guidance to action.",
+      "items": [
+        {
+          "title": "Admissions",
+          "body": "Explore destinations and compare country details.",
+          "href": "/admissions",
+          "cta": "Explore Admissions"
+        },
+        {
+          "title": "Exam Preparation",
+          "body": "Use available practice tools for supported exams.",
+          "href": "/exam-preparation",
+          "cta": "Start Preparing"
+        },
+        {
+          "title": "Courses",
+          "body": "Review AI, future-skill and traditional learning paths.",
+          "href": "/courses",
+          "cta": "Explore Courses"
+        }
+      ]
     }
   },
   "courses": {
@@ -2146,8 +2219,8 @@
     },
     "astrology": {
       "eyebrow": "Traditional Knowledge • Structured Learning",
-      "title": "Explore the language of astrology.",
-      "subtitle": "Learn the foundations, concepts and traditional frameworks of astrology through structured educational programs - from birth-chart fundamentals to advanced chart interpretation.",
+      "title": "Explore astrology as a structured learning path.",
+      "subtitle": "Learn foundational concepts, traditional systems and chart-based frameworks through organized learning areas.",
       "streamTitle": "Astrology & Traditional Knowledge",
       "streamSubtitle": "Explore structured learning in astrology, traditional chart systems, zodiac concepts, nakshatras, planetary frameworks and related knowledge.",
       "learningArea": "Learning Area",
@@ -2226,7 +2299,150 @@
         "mythologySymbolism": "Mythology & Symbolism",
         "historyOfAstrology": "History Of Astrology",
         "basicSanskritTerminology": "Basic Sanskrit Terminology"
+      },
+      "books": {
+        "eyebrow": "Books & Resources",
+        "title": "Continue with learning materials.",
+        "body": "Astrology marketplace resources stay connected to this traditional-knowledge learning path and appear only as real listings are published.",
+        "cta": "Explore Astrology Books"
+      },
+      "faq": {
+        "eyebrow": "Frequently Asked Questions",
+        "title": "Astrology learning questions.",
+        "items": [
+          {
+            "q": "What can I learn first?",
+            "a": "Start with foundations, zodiac and planets, houses, nakshatras and birth-chart fundamentals."
+          },
+          {
+            "q": "Are these areas available now?",
+            "a": "Areas are labelled as learning area or coming soon based on the current course state."
+          },
+          {
+            "q": "Is this career counselling?",
+            "a": "No. Astrology learning is kept separate from SIVORA counselling services."
+          },
+          {
+            "q": "Where can I find books?",
+            "a": "Use the marketplace astrology category for published learning resources."
+          }
+        ]
+      },
+      "relatedCourses": {
+        "eyebrow": "Related Courses",
+        "title": "Explore more learning paths.",
+        "items": [
+          {
+            "title": "AI & Future Skills",
+            "body": "Move into practical technology and AI learning.",
+            "href": "/courses#ai-future-skills",
+            "cta": "View AI Path"
+          },
+          {
+            "title": "Marketplace Astrology Books",
+            "body": "Browse real astrology resources when listings are available.",
+            "href": "/marketplace?category=astrology",
+            "cta": "Browse Books"
+          },
+          {
+            "title": "Counselling",
+            "body": "Ask about learning direction and course planning.",
+            "href": "/counselling",
+            "cta": "Get Guidance"
+          }
+        ]
       }
+    },
+    "families": {
+      "eyebrow": "Learning Streams",
+      "title": "Choose a learning family.",
+      "items": [
+        {
+          "title": "AI & Future Skills",
+          "body": "Build practical technology foundations through structured learning paths.",
+          "labels": [
+            "AI",
+            "Python",
+            "Agents"
+          ],
+          "href": "#ai-future-skills",
+          "cta": "Explore AI Path"
+        },
+        {
+          "title": "Astrology & Traditional Knowledge",
+          "body": "Study traditional frameworks through organized learning areas.",
+          "labels": [
+            "Foundations",
+            "Charts",
+            "Panchanga"
+          ],
+          "href": "/courses/astrology",
+          "cta": "Explore Astrology"
+        },
+        {
+          "title": "Future Learning Programs",
+          "body": "Follow new academic and skill programs as they are added.",
+          "labels": [
+            "NEET",
+            "JEE",
+            "More Soon"
+          ],
+          "href": "/exam-preparation",
+          "cta": "View Active Paths"
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "Frequently Asked Questions",
+      "title": "Course questions.",
+      "items": [
+        {
+          "q": "Are all courses live?",
+          "a": "Some learning areas are marked coming soon until genuine course content is available."
+        },
+        {
+          "q": "What is the AI learning path?",
+          "a": "The path moves from AI foundations to Python, machine learning, deep learning, generative AI, LLM/RAG and AI agents."
+        },
+        {
+          "q": "Is astrology presented as science?",
+          "a": "No. Astrology is framed as traditional, cultural and historical study, separate from evidence-based counselling."
+        },
+        {
+          "q": "Where do books fit?",
+          "a": "Relevant books and resources are linked through the marketplace when real listings exist."
+        }
+      ]
+    },
+    "related": {
+      "eyebrow": "Explore Related SIVORA Services",
+      "title": "Connect learning with support.",
+      "items": [
+        {
+          "title": "Marketplace",
+          "body": "Browse learning books and resources by category.",
+          "href": "/marketplace",
+          "cta": "Explore Marketplace"
+        },
+        {
+          "title": "Counselling",
+          "body": "Ask which learning path fits your education goal.",
+          "href": "/counselling",
+          "cta": "Get Guidance"
+        },
+        {
+          "title": "Exam Preparation",
+          "body": "Use active practice paths for supported exams.",
+          "href": "/exam-preparation",
+          "cta": "Start Practice"
+        }
+      ]
+    },
+    "breadcrumbs": {
+      "label": "Breadcrumbs",
+      "home": "Home",
+      "courses": "Courses",
+      "astrology": "Astrology"
     }
   },
   "studyAbroad": {
@@ -2356,6 +2572,63 @@
       "disclaimer": "SIVORA UP↑RISING does not claim official NTA affiliation.",
       "primaryCta": "Ask About JEE",
       "secondaryCta": "Talk To Counsellor"
+    },
+    "practiceFlow": {
+      "eyebrow": "Practice Flow",
+      "title": "Prepare in focused steps.",
+      "items": [
+        "Choose Exam",
+        "Pick Chapter",
+        "Practice",
+        "Review Result",
+        "Improve"
+      ]
+    },
+    "faq": {
+      "eyebrow": "Frequently Asked Questions",
+      "title": "Exam preparation questions.",
+      "items": [
+        {
+          "q": "Which exams are shown?",
+          "a": "The exam hub currently shows NEET, JEE and reserved future exam paths based on existing configuration."
+        },
+        {
+          "q": "What tools can students use?",
+          "a": "Available capabilities include mock tests, chapter-wise tests, previous-year questions, question bank, practice tests and analytics where enabled."
+        },
+        {
+          "q": "Is performance tracked?",
+          "a": "Students can review attempts, scores and weak areas after login where analytics are available."
+        },
+        {
+          "q": "Does SIVORA claim official exam affiliation?",
+          "a": "No. Exam pages are preparation resources and do not claim official exam-body affiliation."
+        }
+      ]
+    },
+    "related": {
+      "eyebrow": "Explore Related SIVORA Services",
+      "title": "Support preparation from more angles.",
+      "items": [
+        {
+          "title": "Courses",
+          "body": "Explore learning streams and future-skill pathways.",
+          "href": "/courses",
+          "cta": "View Courses"
+        },
+        {
+          "title": "Marketplace",
+          "body": "Discover books and study materials from moderated listings.",
+          "href": "/marketplace",
+          "cta": "Browse Resources"
+        },
+        {
+          "title": "Counselling",
+          "body": "Plan study direction, course choices and next steps.",
+          "href": "/counselling",
+          "cta": "Get Guidance"
+        }
+      ]
     }
   },
   "aiChat": {
@@ -2495,12 +2768,64 @@
       "wellnessEducationBooks": "Wellness Education Books",
       "astronomyReferenceBooks": "Astronomy Reference Books",
       "traditionalKnowledgeBooks": "Traditional Knowledge Books",
-      "educationalAccessories": "Educational Accessories"
+      "educationalAccessories": "Educational Accessories",
+      "examPreparationResources": "Exam Preparation",
+      "academicBooks": "Academic Books",
+      "aiTechnology": "AI & Technology",
+      "aiBooks": "AI Books",
+      "technologyBooks": "Technology Books",
+      "otherLearningResources": "Other Learning Resources"
     },
     "levels": {
       "BEGINNER": "Beginner",
       "INTERMEDIATE": "Intermediate",
       "ADVANCED": "Advanced"
+    },
+    "faq": {
+      "eyebrow": "Frequently Asked Questions",
+      "title": "Marketplace questions.",
+      "items": [
+        {
+          "q": "Can I filter yoga resources?",
+          "a": "Yes. Use /marketplace?category=yoga to open Yoga & Wellness Learning materials."
+        },
+        {
+          "q": "Is yoga part of astrology?",
+          "a": "No. Yoga & Wellness Learning is a separate marketplace category."
+        },
+        {
+          "q": "Why are some categories empty?",
+          "a": "SIVORA does not create fake inventory; empty categories show a coming-soon state until real listings are published."
+        },
+        {
+          "q": "Can anyone sell publicly?",
+          "a": "No. Seller registration, review and moderation are required before listings are published."
+        }
+      ]
+    },
+    "related": {
+      "eyebrow": "Learning Cross-Links",
+      "title": "Use marketplace with SIVORA learning.",
+      "items": [
+        {
+          "title": "Courses",
+          "body": "Connect resources to AI, future-skill and traditional learning paths.",
+          "href": "/courses",
+          "cta": "View Courses"
+        },
+        {
+          "title": "Exam Preparation",
+          "body": "Use books alongside active practice and test tools.",
+          "href": "/exam-preparation",
+          "cta": "Prepare"
+        },
+        {
+          "title": "Counselling",
+          "body": "Ask what resources fit your current goal.",
+          "href": "/counselling",
+          "cta": "Get Guidance"
+        }
+      ]
     }
   },
   "admissions": {
@@ -2508,9 +2833,9 @@
     "heroTitle": "Plan your admission journey.",
     "heroSubtitle": "Explore destinations, universities and admission pathways with structured guidance, comparison tools and decision support.",
     "heroSimplified": {
-      "eyebrow": "Study Abroad With Clarity",
-      "title": "Your medical journey starts with the right destination.",
-      "subtitle": "Explore countries, compare study options and understand the essentials before choosing your next step.",
+      "eyebrow": "Study Abroad",
+      "title": "Your next destination starts here.",
+      "subtitle": "Explore countries, compare study options and get guidance for your admission journey.",
       "primary": "Explore Destinations",
       "secondary": "Compare Countries"
     },
@@ -2674,7 +2999,7 @@
       }
     },
     "cities": {
-      "eyebrow": "Major Student Cities",
+      "eyebrow": "Student Cities",
       "title": "Cities connected to the current university list.",
       "universityCount": "{count, plural, =0 {No listed university in current SIVORA dataset} =1 {1 listed university in current SIVORA dataset} other {# listed universities in current SIVORA dataset}}"
     },
@@ -2803,6 +3128,139 @@
       "behindIst": "behind IST",
       "loading": "Loading time",
       "compareTitle": "Live India vs destination time"
+    },
+    "choose": {
+      "eyebrow": "How To Choose A Destination",
+      "title": "Compare the details that shape a student decision.",
+      "subtitle": "Keep the shortlist practical by reviewing program fit, cost, travel, city, university and language context.",
+      "items": [
+        {
+          "title": "Program",
+          "body": "Check whether the course pathway matches the student goal and current counselling scope."
+        },
+        {
+          "title": "Cost",
+          "body": "Review only current fee and living-cost details that can be verified for the intake."
+        },
+        {
+          "title": "Travel",
+          "body": "Understand flight routes, arrival airports and approximate travel time from India."
+        },
+        {
+          "title": "City",
+          "body": "Look at student cities, climate, airport access and everyday arrival planning."
+        },
+        {
+          "title": "University",
+          "body": "Shortlist featured universities and ask for current details before deciding."
+        },
+        {
+          "title": "Language",
+          "body": "Confirm local language context and any verified medium details through counselling."
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "Frequently Asked Questions",
+      "title": "Admissions questions, answered simply.",
+      "items": [
+        {
+          "q": "Can I compare destinations?",
+          "a": "Yes. Use the compare page to review time, travel, currency, airport and university context side by side."
+        },
+        {
+          "q": "Are all fees shown publicly?",
+          "a": "No. Fees are shown only when reliable current data is available; otherwise SIVORA asks students to get current fee details through counselling."
+        },
+        {
+          "q": "Does SIVORA guarantee admission?",
+          "a": "No. Admission depends on university criteria, documents, eligibility and applicable rules."
+        },
+        {
+          "q": "Where should I start?",
+          "a": "Start with destinations, compare two or three options, then request counselling for a practical shortlist."
+        }
+      ]
+    },
+    "related": {
+      "eyebrow": "Explore Related SIVORA Services",
+      "title": "Keep planning connected.",
+      "items": [
+        {
+          "title": "Counselling",
+          "body": "Discuss country, university and course fit with the SIVORA team.",
+          "href": "/counselling",
+          "cta": "Get Guidance"
+        },
+        {
+          "title": "Marketplace",
+          "body": "Find education resources as real listings are added and moderated.",
+          "href": "/marketplace",
+          "cta": "Explore Resources"
+        },
+        {
+          "title": "Courses",
+          "body": "Explore future-skill and traditional-knowledge learning paths.",
+          "href": "/courses",
+          "cta": "View Courses"
+        }
+      ]
+    },
+    "breadcrumbs": {
+      "label": "Breadcrumbs",
+      "home": "Home",
+      "admissions": "Admissions"
+    },
+    "countryFaq": {
+      "eyebrow": "Frequently Asked Questions",
+      "title": "{country} questions.",
+      "mainAirport": {
+        "q": "What is the main airport for {country}?",
+        "a": "The main airport shown here is {airport} ({code}) in {city}."
+      },
+      "travelTime": {
+        "q": "How long does travel from India usually take?"
+      },
+      "currency": {
+        "q": "What currency is used in {country}?",
+        "a": "{country} uses {currency} ({code})."
+      },
+      "studentCities": {
+        "q": "Which student cities are shown?"
+      },
+      "compare": {
+        "q": "How can I compare {country}?",
+        "a": "Use the compare page to review {country} with another destination before shortlisting."
+      }
+    },
+    "countryRelated": {
+      "eyebrow": "Explore Related SIVORA Services",
+      "title": "Plan beyond one destination.",
+      "items": [
+        {
+          "title": "Admissions Compare",
+          "body": "Compare this country with other study destinations side by side.",
+          "href": "/admissions/compare",
+          "cta": "Compare"
+        },
+        {
+          "title": "Counselling",
+          "body": "Ask for current university, intake and fee details before deciding.",
+          "href": "/counselling",
+          "cta": "Get Counselling"
+        },
+        {
+          "title": "Marketplace",
+          "body": "Explore learning resources and books as moderated listings grow.",
+          "href": "/marketplace",
+          "cta": "Browse"
+        }
+      ]
+    },
+    "more": {
+      "eyebrow": "Explore More",
+      "title": "More destination options.",
+      "compare": "Compare Destinations"
     }
   }
 }

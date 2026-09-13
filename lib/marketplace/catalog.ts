@@ -31,19 +31,24 @@ export type MarketplaceListing = {
 };
 
 export const MARKETPLACE_CATEGORIES: MarketplaceCategory[] = [
+  { slug: 'exam-preparation-resources', labelKey: 'examPreparationResources' },
+  { slug: 'academic-books', labelKey: 'academicBooks' },
+  { slug: 'ai-technology', labelKey: 'aiTechnology' },
   { slug: 'books', labelKey: 'books' },
   { slug: 'used-books', labelKey: 'usedBooks', parentSlug: 'books' },
   { slug: 'new-books', labelKey: 'newBooks', parentSlug: 'books' },
-  { slug: 'exam-preparation-books', labelKey: 'examPreparationBooks', parentSlug: 'books' },
+  { slug: 'exam-preparation-books', labelKey: 'examPreparationBooks', parentSlug: 'exam-preparation-resources' },
   { slug: 'neet-books', labelKey: 'neetBooks', parentSlug: 'exam-preparation-books' },
   { slug: 'jee-books', labelKey: 'jeeBooks', parentSlug: 'exam-preparation-books' },
-  { slug: 'question-banks', labelKey: 'questionBanks' },
-  { slug: 'previous-year-paper-collections', labelKey: 'previousYearPaperCollections' },
-  { slug: 'study-materials', labelKey: 'studyMaterials' },
-  { slug: 'reference-books', labelKey: 'referenceBooks' },
-  { slug: 'college-books', labelKey: 'collegeBooks' },
-  { slug: 'medical-books', labelKey: 'medicalBooks' },
-  { slug: 'engineering-books', labelKey: 'engineeringBooks' },
+  { slug: 'question-banks', labelKey: 'questionBanks', parentSlug: 'exam-preparation-resources' },
+  { slug: 'previous-year-paper-collections', labelKey: 'previousYearPaperCollections', parentSlug: 'exam-preparation-resources' },
+  { slug: 'study-materials', labelKey: 'studyMaterials', parentSlug: 'exam-preparation-resources' },
+  { slug: 'reference-books', labelKey: 'referenceBooks', parentSlug: 'academic-books' },
+  { slug: 'college-books', labelKey: 'collegeBooks', parentSlug: 'academic-books' },
+  { slug: 'medical-books', labelKey: 'medicalBooks', parentSlug: 'academic-books' },
+  { slug: 'engineering-books', labelKey: 'engineeringBooks', parentSlug: 'academic-books' },
+  { slug: 'ai-books', labelKey: 'aiBooks', parentSlug: 'ai-technology' },
+  { slug: 'technology-books', labelKey: 'technologyBooks', parentSlug: 'ai-technology' },
   { slug: 'astrology-traditional-learning', labelKey: 'astrologyTraditionalLearning' },
   { slug: 'astrology-books', labelKey: 'astrologyBooks', parentSlug: 'astrology-traditional-learning' },
   { slug: 'vedic-astrology-books', labelKey: 'vedicAstrologyBooks', parentSlug: 'astrology-traditional-learning' },
@@ -68,7 +73,8 @@ export const MARKETPLACE_CATEGORIES: MarketplaceCategory[] = [
   { slug: 'wellness-education-books', labelKey: 'wellnessEducationBooks', parentSlug: 'yoga-wellness-learning' },
   { slug: 'astronomy-reference-books', labelKey: 'astronomyReferenceBooks', parentSlug: 'reference-books' },
   { slug: 'traditional-knowledge-books', labelKey: 'traditionalKnowledgeBooks', parentSlug: 'books' },
-  { slug: 'educational-accessories', labelKey: 'educationalAccessories' },
+  { slug: 'other-learning-resources', labelKey: 'otherLearningResources' },
+  { slug: 'educational-accessories', labelKey: 'educationalAccessories', parentSlug: 'other-learning-resources' },
 ];
 
 export const MARKETPLACE_LISTINGS: MarketplaceListing[] = [

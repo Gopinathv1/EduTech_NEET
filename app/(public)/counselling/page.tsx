@@ -7,6 +7,7 @@ import HomeLeadForm from '@/components/public/HomeLeadForm';
 import WhatsAppLink from '@/components/whatsapp/WhatsAppLink';
 import ExploreSivora from '@/components/public/ExploreSivora';
 import { CompassIcon } from '@/components/public/icons';
+import { ProductFaqSection, RelatedServicesSection } from '@/components/public/ProductPageBlocks';
 
 export async function generateMetadata() {
   const t = await getTranslations('seo.counselling');
@@ -17,6 +18,8 @@ export default function CounsellingPage() {
   const t = useTranslations('counselling');
   const helpCards = t.raw('helpCards') as { title: string; body: string }[];
   const steps = t.raw('steps.items') as string[];
+  const faqItems = t.raw('faq.items') as { q: string; a: string }[];
+  const relatedItems = t.raw('related.items') as { title: string; body: string; href: string; cta: string }[];
 
   return (
     <>
@@ -103,6 +106,14 @@ export default function CounsellingPage() {
           </div>
         </div>
       </Section>
+
+      <ProductFaqSection eyebrow={t('faq.eyebrow')} title={t('faq.title')} items={faqItems} tinted />
+
+      <RelatedServicesSection
+        eyebrow={t('related.eyebrow')}
+        title={t('related.title')}
+        items={relatedItems}
+      />
 
       <ExploreSivora exclude={['counselling']} />
     </>

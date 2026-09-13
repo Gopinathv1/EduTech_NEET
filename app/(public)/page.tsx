@@ -6,6 +6,8 @@ import StudentJourneys from '@/components/public/StudentJourneys';
 import BrandMarquee from '@/components/public/BrandMarquee';
 import FounderStory from '@/components/public/FounderStory';
 import ExploreSivora from '@/components/public/ExploreSivora';
+import Faq, { type FaqItem } from '@/components/public/Faq';
+import { Section } from '@/components/public/ui';
 
 export async function generateMetadata() {
   const t = await getTranslations('seo.home');
@@ -19,6 +21,9 @@ export async function generateMetadata() {
 
 export default function HomePage() {
   const t = useTranslations('home');
+  const whyItems = t.raw('why.items') as { title: string; body: string }[];
+  const howItems = t.raw('how.items') as { title: string; body: string }[];
+  const faqItems = t.raw('faq.items') as FaqItem[];
 
   return (
     <>
@@ -63,7 +68,58 @@ export default function HomePage() {
 
       <ExploreSivora />
 
+      <Section tinted lazy>
+        <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('why.eyebrow')}</p>
+            <h2 className="mt-4 text-[clamp(2.3rem,5vw,5rem)] font-black uppercase leading-[0.92] text-white">
+              {t('why.title')}
+            </h2>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+            {whyItems.map((item) => (
+              <div key={item.title} className="rounded-2xl border border-[#2B2B2B] bg-[#050505]/72 p-5">
+                <h3 className="text-base font-black uppercase leading-tight text-white">{item.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-[#D1D1D1]">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
       <StudentJourneys />
+
+      <Section lazy>
+        <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('how.eyebrow')}</p>
+            <h2 className="mt-4 text-[clamp(2.3rem,5vw,5rem)] font-black uppercase leading-[0.92] text-white">
+              {t('how.title')}
+            </h2>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-4">
+            {howItems.map((item, index) => (
+              <div key={item.title} className="rounded-2xl border border-[#2B2B2B] bg-[#111111] p-4">
+                <p className="text-xs font-black text-brand">{String(index + 1).padStart(2, '0')}</p>
+                <h3 className="mt-3 text-sm font-black uppercase leading-5 tracking-[0.08em] text-white">{item.title}</h3>
+                <p className="mt-3 text-xs leading-6 text-[#D1D1D1]">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      <Section tinted lazy>
+        <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('faq.eyebrow')}</p>
+            <h2 className="mt-4 text-[clamp(2.3rem,5vw,5rem)] font-black uppercase leading-[0.92] text-white">
+              {t('faq.title')}
+            </h2>
+          </div>
+          <Faq items={faqItems} />
+        </div>
+      </Section>
 
       <FounderStory />
     </>

@@ -7,6 +7,7 @@ import { PrimaryLink, Section } from '@/components/public/ui';
 import WhatsAppLink from '@/components/whatsapp/WhatsAppLink';
 import CompareTray from '@/components/admissions/CompareTray';
 import { ADMISSION_COUNTRY_PROFILES } from '@/lib/data/admissions/countries';
+import { ProductFaqSection, RelatedServicesSection } from '@/components/public/ProductPageBlocks';
 
 export async function generateMetadata() {
   const t = await getTranslations('seo.admissions');
@@ -16,6 +17,9 @@ export async function generateMetadata() {
 export default function AdmissionsPage() {
   const t = useTranslations('admissions');
   const journey = t.raw('simplifiedJourney.items') as string[];
+  const chooseItems = t.raw('choose.items') as { title: string; body: string }[];
+  const faqItems = t.raw('faq.items') as { q: string; a: string }[];
+  const relatedItems = t.raw('related.items') as { title: string; body: string; href: string; cta: string }[];
 
   return (
     <>
@@ -131,6 +135,26 @@ export default function AdmissionsPage() {
       <Section tinted lazy>
         <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
           <div>
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('choose.eyebrow')}</p>
+            <h2 className="mt-4 text-[clamp(2.4rem,5vw,5rem)] font-black uppercase leading-[0.92] text-white">
+              {t('choose.title')}
+            </h2>
+            <p className="mt-5 text-sm leading-7 text-[#D1D1D1]">{t('choose.subtitle')}</p>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+            {chooseItems.map((item) => (
+              <div key={item.title} className="rounded-2xl border border-[#2B2B2B] bg-[#050505]/72 p-5">
+                <h3 className="text-sm font-black uppercase tracking-[0.1em] text-white">{item.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-[#D1D1D1]">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      <Section tinted lazy>
+        <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
+          <div>
             <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('compare.eyebrow')}</p>
             <h2 className="mt-4 text-[clamp(2.4rem,5vw,5rem)] font-black uppercase leading-[0.92] text-white">
               {t('whyCompare.title')}
@@ -187,6 +211,19 @@ export default function AdmissionsPage() {
           </div>
         </div>
       </Section>
+
+      <ProductFaqSection
+        eyebrow={t('faq.eyebrow')}
+        title={t('faq.title')}
+        items={faqItems}
+        tinted
+      />
+
+      <RelatedServicesSection
+        eyebrow={t('related.eyebrow')}
+        title={t('related.title')}
+        items={relatedItems}
+      />
     </>
   );
 }

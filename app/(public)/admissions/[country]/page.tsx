@@ -8,6 +8,8 @@ import { PrimaryLink, Section } from '@/components/public/ui';
 import WhatsAppLink from '@/components/whatsapp/WhatsAppLink';
 import DestinationTimeTravelCard from '@/components/admissions/DestinationTimeTravelCard';
 import CurrencyConverter from '@/components/admissions/CurrencyConverter';
+import Faq from '@/components/public/Faq';
+import { RelatedServicesSection } from '@/components/public/ProductPageBlocks';
 import { getIndicativeFxRates, type FxRate } from '@/lib/admission/fx';
 import {
   ADMISSION_COUNTRY_PROFILES,
@@ -75,6 +77,34 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
   const t = useTranslations('admissions');
   const mainCity = country.studentCityDetails.find((city) => city.universityCount > 0)?.name ?? country.majorStudentCities[0];
   const budgetValues = [country.budget.tuitionRange?.value, country.budget.livingCost?.value, country.budget.overall?.value].filter(Boolean);
+  const relatedItems = t.raw('countryRelated.items') as { title: string; body: string; href: string; cta: string }[];
+  const countryFaq = [
+    {
+      q: t('countryFaq.mainAirport.q', { country: country.name }),
+      a: t('countryFaq.mainAirport.a', {
+        airport: country.travel.mainAirport.name,
+        code: country.travel.mainAirport.code,
+        city: country.travel.mainAirport.city,
+      }),
+    },
+    {
+      q: t('countryFaq.travelTime.q'),
+      a: country.travel.typicalDuration,
+    },
+    {
+      q: t('countryFaq.currency.q', { country: country.name }),
+      a: t('countryFaq.currency.a', { country: country.name, currency: country.currency.value, code: country.currencyCode }),
+    },
+    {
+      q: t('countryFaq.studentCities.q'),
+      a: country.majorStudentCities.join(', '),
+    },
+    {
+      q: t('countryFaq.compare.q', { country: country.name }),
+      a: t('countryFaq.compare.a', { country: country.name }),
+    },
+  ];
+  const moreCountries = ADMISSION_COUNTRY_PROFILES.filter((item) => item.slug !== country.slug).slice(0, 3);
 
   return (
     <>
@@ -93,6 +123,13 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/72 to-black/24" />
         <div className="relative mx-auto flex min-h-[calc(92vh-73px)] w-full max-w-[1600px] flex-col justify-end px-[clamp(1rem,3vw,3rem)] py-12 sm:py-16 lg:py-20">
           <div className="max-w-4xl">
+            <nav className="mb-6 flex flex-wrap gap-2 text-xs font-bold uppercase tracking-[0.12em] text-[#D1D1D1]" aria-label={t('breadcrumbs.label')}>
+              <Link href="/" className="hover:text-brand">{t('breadcrumbs.home')}</Link>
+              <span aria-hidden="true">/</span>
+              <Link href="/admissions" className="hover:text-brand">{t('breadcrumbs.admissions')}</Link>
+              <span aria-hidden="true">/</span>
+              <span className="text-brand">{country.name}</span>
+            </nav>
             <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('countryHero.eyebrow')}</p>
             <div className="mt-5 flex flex-wrap items-end gap-4">
               <span className="text-6xl" aria-hidden="true">{country.flag}</span>
@@ -239,6 +276,28 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
       </Section>
 
       <Section lazy>
+        <div className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('cities.eyebrow')}</p>
+            <h2 className="mt-4 text-[clamp(2.2rem,5vw,4.7rem)] font-black uppercase leading-[0.92] text-white">
+              {t('cities.title')}
+            </h2>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+            {country.studentCityDetails.map((city) => (
+              <div key={city.name} className="rounded-2xl border border-[#2B2B2B] bg-[#111111] p-5">
+                <h3 className="text-lg font-black uppercase text-white">{city.name}</h3>
+                <p className="mt-2 text-xs font-bold uppercase tracking-[0.1em] text-brand">
+                  {t('cities.universityCount', { count: city.universityCount })}
+                </p>
+                {city.nearestAirport ? <p className="mt-3 text-sm leading-6 text-[#D1D1D1]">{city.nearestAirport}</p> : null}
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      <Section lazy>
         <div className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('compare.eyebrow')}</p>
@@ -256,6 +315,49 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
       </Section>
 
       <Section tinted lazy>
+        <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('countryFaq.eyebrow')}</p>
+            <h2 className="mt-4 text-[clamp(2.2rem,5vw,4.7rem)] font-black uppercase leading-[0.92] text-white">
+              {t('countryFaq.title', { country: country.name })}
+            </h2>
+          </div>
+          <Faq items={countryFaq} />
+        </div>
+      </Section>
+
+      <Section lazy>
+        <div className="mb-8">
+          <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('more.eyebrow')}</p>
+          <h2 className="mt-4 text-[clamp(2rem,4vw,4rem)] font-black uppercase leading-[0.95] text-white">{t('more.title')}</h2>
+        </div>
+        <div className="flex flex-wrap gap-3">
+          {moreCountries.map((item) => (
+            <Link
+              key={item.slug}
+              href={`/admissions/${item.slug}`}
+              className="rounded-full border border-[#2B2B2B] bg-[#111111] px-4 py-2 text-xs font-black uppercase tracking-[0.08em] text-[#D1D1D1] hover:border-brand/45"
+            >
+              {item.flag} {item.name}
+            </Link>
+          ))}
+          <Link
+            href={`/admissions/compare?countries=${country.slug}`}
+            className="rounded-full border border-brand/35 bg-brand-soft px-4 py-2 text-xs font-black uppercase tracking-[0.08em] text-brand hover:border-brand"
+          >
+            {t('more.compare')}
+          </Link>
+        </div>
+      </Section>
+
+      <RelatedServicesSection
+        eyebrow={t('countryRelated.eyebrow')}
+        title={t('countryRelated.title')}
+        items={relatedItems}
+        tinted
+      />
+
+      <Section lazy>
         <details className="rounded-2xl border border-[#2B2B2B] bg-[#111111] p-6">
           <summary className="cursor-pointer text-sm font-black uppercase tracking-[0.16em] text-brand">
             {t('sources.title')}

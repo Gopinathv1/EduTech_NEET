@@ -6,6 +6,7 @@ import PageHero from '@/components/public/PageHero';
 import { Section, PrimaryLink } from '@/components/public/ui';
 import ExploreSivora from '@/components/public/ExploreSivora';
 import { EXAMS } from '@/data/exams';
+import { ProductFaqSection, RelatedServicesSection } from '@/components/public/ProductPageBlocks';
 
 export async function generateMetadata() {
   const t = await getTranslations('seo.examPreparation');
@@ -16,6 +17,9 @@ export default function ExamPreparationPage() {
   const t = useTranslations('examPreparation');
   const exams = t.raw('exams') as Record<string, { description: string; subjects: string[] }>;
   const features = t.raw('hubFeatures') as string[];
+  const practiceSteps = t.raw('practiceFlow.items') as string[];
+  const faqItems = t.raw('faq.items') as { q: string; a: string }[];
+  const relatedItems = t.raw('related.items') as { title: string; body: string; href: string; cta: string }[];
 
   return (
     <>
@@ -69,6 +73,25 @@ export default function ExamPreparationPage() {
       </Section>
 
       <Section lazy>
+        <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('practiceFlow.eyebrow')}</p>
+            <h2 className="mt-5 text-[clamp(2.4rem,5vw,5rem)] font-black uppercase leading-[0.92] text-white">
+              {t('practiceFlow.title')}
+            </h2>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-5">
+            {practiceSteps.map((step, index) => (
+              <div key={step} className="rounded-2xl border border-[#2B2B2B] bg-[#111111] p-4">
+                <p className="text-xs font-black text-brand">0{index + 1}</p>
+                <p className="mt-3 text-sm font-black uppercase tracking-[0.08em] text-white">{step}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      <Section lazy>
         <div className="rounded-[2rem] border border-[#2B2B2B] bg-[#111111] p-8 shadow-xl shadow-black/5 lg:flex lg:items-center lg:justify-between lg:gap-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.24em] text-brand">{t('ctaEyebrow')}</p>
@@ -79,6 +102,14 @@ export default function ExamPreparationPage() {
           </div>
         </div>
       </Section>
+
+      <ProductFaqSection eyebrow={t('faq.eyebrow')} title={t('faq.title')} items={faqItems} tinted />
+
+      <RelatedServicesSection
+        eyebrow={t('related.eyebrow')}
+        title={t('related.title')}
+        items={relatedItems}
+      />
 
       <ExploreSivora exclude={['examPreparation']} />
     </>

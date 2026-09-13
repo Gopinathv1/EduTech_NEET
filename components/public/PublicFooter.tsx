@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import Logo from './Logo';
-import { FOOTER_COMPANY, type NavLink } from '@/lib/public/nav';
+import type { NavLink } from '@/lib/public/nav';
 
 function FooterColumn({ titleKey, links }: { titleKey: string; links: NavLink[] }) {
   const t = useTranslations('publicNav');
@@ -22,30 +22,40 @@ function FooterColumn({ titleKey, links }: { titleKey: string; links: NavLink[] 
   );
 }
 
-const ADMISSIONS: NavLink[] = [
-  { href: '/admissions', key: 'mbbsAbroad' },
-  { href: '/admissions', key: 'internationalEducation' },
-  { href: '/admissions', key: 'applicationGuidance' },
-];
-
-const COUNSELLING: NavLink[] = [
-  { href: '/counselling', key: 'mbbsCounsellingIndia' },
-  { href: '/counselling', key: 'collegeGuidance' },
-  { href: '/counselling', key: 'careerGuidance' },
-];
-
-const EXAM_PREP: NavLink[] = [
+const PRODUCTS: NavLink[] = [
+  { href: '/admissions', key: 'admissionsMenu' },
+  { href: '/counselling', key: 'counsellingMenu' },
   { href: '/exam-preparation', key: 'examPrepMenu' },
-  { href: '/exam-preparation/neet', key: 'neet' },
-  { href: '/exam-preparation/jee', key: 'jee' },
-  { href: '/mock-tests', key: 'questionBank' },
+  { href: '/courses', key: 'coursesMenu' },
+  { href: '/marketplace', key: 'marketplace' },
 ];
 
 const LEARNING: NavLink[] = [
-  { href: '/courses', key: 'coursesLearning' },
   { href: '/courses#ai-future-skills', key: 'aiFutureSkills' },
   { href: '/courses/astrology', key: 'astrologyLearning' },
-  { href: '/marketplace?category=astrology', key: 'astrologyBooks' },
+  { href: '/exam-preparation', key: 'examPrepMenu' },
+];
+
+const RESOURCES: NavLink[] = [
+  { href: '/admissions', key: 'countries' },
+  { href: '/marketplace', key: 'marketplace' },
+  { href: '/testimonials', key: 'testimonials' },
+];
+
+const COMPANY: NavLink[] = [
+  { href: '/about', key: 'about' },
+  { href: '/partners', key: 'partnerWithUs' },
+  { href: '/contact', key: 'contact' },
+];
+
+const HELP: NavLink[] = [
+  { href: '/counselling', key: 'counsellingMenu' },
+  { href: '/contact', key: 'contact' },
+];
+
+const LEGAL: NavLink[] = [
+  { href: '/privacy', key: 'privacy' },
+  { href: '/terms', key: 'terms' },
 ];
 
 export default function PublicFooter() {
@@ -55,7 +65,7 @@ export default function PublicFooter() {
   return (
     <footer className="border-t border-white/10 bg-[#050505]">
       <div className="mx-auto w-full max-w-[1600px] px-[clamp(1rem,3vw,3rem)] py-16 sm:py-20">
-        <div className="grid gap-10 border-b border-white/10 pb-12 lg:grid-cols-[1.25fr_0.8fr_0.8fr_0.8fr_0.8fr_0.8fr]">
+        <div className="grid gap-10 border-b border-white/10 pb-12 lg:grid-cols-[1.25fr_repeat(6,0.75fr)]">
           <div>
             <Logo className="text-white" size="footer" showTagline />
             <p className="mt-5 max-w-sm text-sm leading-7 text-[#D1D1D1]">{t('blurb')}</p>
@@ -66,11 +76,12 @@ export default function PublicFooter() {
             </div>
           </div>
 
-          <FooterColumn titleKey="admissionsStudyAbroad" links={ADMISSIONS} />
-          <FooterColumn titleKey="examPreparation" links={EXAM_PREP} />
-          <FooterColumn titleKey="counselling" links={COUNSELLING} />
+          <FooterColumn titleKey="products" links={PRODUCTS} />
           <FooterColumn titleKey="learning" links={LEARNING} />
-          <FooterColumn titleKey="company" links={FOOTER_COMPANY} />
+          <FooterColumn titleKey="resources" links={RESOURCES} />
+          <FooterColumn titleKey="company" links={COMPANY} />
+          <FooterColumn titleKey="help" links={HELP} />
+          <FooterColumn titleKey="legal" links={LEGAL} />
         </div>
 
         <p className="mt-8 border-l border-accent/40 bg-white/[0.04] p-4 text-xs leading-relaxed text-[#D1D1D1]">

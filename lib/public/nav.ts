@@ -52,6 +52,7 @@ export const NAV_GROUPS: NavGroup[] = [
       { href: '/marketplace', key: 'marketplace' },
       { href: '/marketplace#listings', key: 'marketplaceListings' },
       { href: '/marketplace?category=astrology', key: 'astrologyBooks' },
+      { href: '/marketplace?category=yoga', key: 'yogaLearning' },
       { href: '/marketplace/sell', key: 'sellBooks' },
     ],
   },
