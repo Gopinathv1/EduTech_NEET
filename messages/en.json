@@ -2918,7 +2918,7 @@
       "fxDisclaimer": "Indicative exchange rate only. Actual bank/card rates and fees vary. Source:",
       "lastUpdated": "Last updated",
       "amountLabel": "INR amount",
-      "unavailable": "Exchange rate temporarily unavailable",
+      "unavailable": "Exchange rate temporarily unavailable. Please check again later.",
       "source": "Source",
       "quickTitle": "Quick currency check"
     },
@@ -2945,7 +2945,10 @@
       "intake": "Typical intake",
       "medium": "Language / medium",
       "disclaimer": "Indicative estimates. Actual costs vary by university, city, exchange rate and lifestyle.",
-      "detailedCta": "View Detailed Comparison"
+      "detailedCta": "View Detailed Comparison",
+      "fxNoteTitle": "Indicative exchange rates",
+      "fxNoteUpdated": "Updated {timestamp}. Rates are for planning estimates only.",
+      "fxUnavailable": "Exchange rates temporarily unavailable."
     },
     "timeTravel": {
       "eyebrow": "India ↔ Destination",
@@ -3123,9 +3126,9 @@
       "india": "India",
       "indiaZone": "IST",
       "destinationFallback": "Local time",
-      "matchesIst": "matches IST",
-      "aheadOfIst": "ahead of IST",
-      "behindIst": "behind IST",
+      "matchesIst": "matches India",
+      "aheadOfIst": "ahead of India",
+      "behindIst": "behind India",
       "loading": "Loading time",
       "compareTitle": "Live India vs destination time"
     },

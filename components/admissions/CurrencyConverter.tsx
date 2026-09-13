@@ -26,6 +26,7 @@ export default function CurrencyConverter({
     if (!canConvert || !fxRate?.inrToQuote) return labels.unavailable;
     return `${Math.round(numericAmount * fxRate.inrToQuote).toLocaleString('en-IN')} ${currencyCode}`;
   }, [canConvert, currencyCode, fxRate?.inrToQuote, labels.unavailable, numericAmount]);
+  const hasRate = Boolean(fxRate?.inrToQuote);
 
   return (
     <div className="rounded-2xl border border-[#2B2B2B] bg-[#050505]/72 p-5">
@@ -48,7 +49,9 @@ export default function CurrencyConverter({
         </div>
       </div>
       <p className="mt-5 text-xs leading-5 text-[#D1D1D1]">
-        {labels.source}: {fxRate?.providerName ?? labels.unavailable}. {labels.lastUpdated}: {fxRate?.lastUpdated ?? labels.unavailable}.
+        {hasRate
+          ? `${labels.source}: ${fxRate?.providerName}. ${labels.lastUpdated}: ${fxRate?.lastUpdated}.`
+          : labels.unavailable}
       </p>
     </div>
   );

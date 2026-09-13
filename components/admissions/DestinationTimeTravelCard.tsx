@@ -31,6 +31,7 @@ export default function DestinationTimeTravelCard({
   const india = mounted ? getTimeParts('Asia/Kolkata') : null;
   const destination = mounted ? getTimeParts(country.timezone.iana) : null;
   const diff = mounted ? differenceText(country.timezone.labelCity, country.timezone.iana, labels) : labels.loading;
+  const destinationTimeLabel = `${country.timezone.labelCity.toUpperCase()} LOCAL TIME`;
 
   return (
     <div className="overflow-hidden rounded-2xl border border-[#2B2B2B] bg-[#111111] shadow-2xl shadow-black/10">
@@ -46,7 +47,7 @@ export default function DestinationTimeTravelCard({
           <p className="text-xs font-black uppercase tracking-[0.2em] text-brand">{country.timezone.labelCity}</p>
           <p className="mt-3 text-4xl font-black text-white">{destination?.time ?? labels.loading}</p>
           <p className="mt-1 text-xs font-bold uppercase tracking-[0.16em] text-[#D1D1D1]">
-            {destination ? `${destination.zone} · ${destination.date}` : labels.destinationFallback}
+            {destination ? `${destinationTimeLabel} · ${destination.date}` : labels.destinationFallback}
           </p>
         </div>
       </div>

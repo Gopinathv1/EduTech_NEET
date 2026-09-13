@@ -30,6 +30,7 @@ export default function CompareClocks({
           name={labels.india}
           zone="Asia/Kolkata"
           label={labels.indiaZone}
+          zoneLabel={labels.indiaZone}
           mounted={mounted}
           loading={labels.loading}
         />
@@ -38,7 +39,8 @@ export default function CompareClocks({
             key={country.slug}
             name={`${country.name} - ${country.timezone.labelCity}`}
             zone={country.timezone.iana}
-            label={mounted ? differenceText(country.name, country.timezone.iana, labels) : country.timezone.labelCity}
+            label={mounted ? differenceText(country.timezone.labelCity, country.timezone.iana, labels) : country.timezone.labelCity}
+            zoneLabel={`${country.timezone.labelCity.toUpperCase()} LOCAL TIME`}
             mounted={mounted}
             loading={labels.loading}
           />
@@ -52,12 +54,14 @@ function ClockCard({
   name,
   zone,
   label,
+  zoneLabel,
   mounted,
   loading,
 }: {
   name: string;
   zone: string;
   label: string;
+  zoneLabel?: string;
   mounted: boolean;
   loading: string;
 }) {
@@ -68,7 +72,7 @@ function ClockCard({
       <p className="text-xs font-black uppercase tracking-[0.14em] text-brand">{name}</p>
       <p className="mt-3 text-2xl font-black text-white">{time?.time ?? loading}</p>
       <p className="text-xs font-bold uppercase tracking-[0.12em] text-[#D1D1D1]">
-        {time ? `${time.zone} · ${time.date}` : label}
+        {time ? `${zoneLabel ?? zone} · ${time.date}` : label}
       </p>
       {mounted ? <p className="mt-3 text-xs font-bold leading-5 text-[#D1D1D1]">{label}</p> : null}
     </div>

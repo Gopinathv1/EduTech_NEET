@@ -2911,7 +2911,7 @@
       "fxDisclaimer": "Indicative exchange rate only. Actual bank/card rates மற்றும் fees vary ஆகும். Source:",
       "lastUpdated": "Last updated",
       "amountLabel": "INR amount",
-      "unavailable": "Exchange rate temporarily unavailable",
+      "unavailable": "Exchange rate temporarily unavailable. Please check again later.",
       "source": "Source",
       "quickTitle": "Quick currency check"
     },
@@ -2938,7 +2938,10 @@
       "intake": "Typical intake",
       "medium": "Language / medium",
       "disclaimer": "Indicative estimates. Actual costs university, city, exchange rate மற்றும் lifestyle அடிப்படையில் vary ஆகும்.",
-      "detailedCta": "Detailed Comparison பார்க்கவும்"
+      "detailedCta": "Detailed Comparison பார்க்கவும்",
+      "fxNoteTitle": "Indicative exchange rates",
+      "fxNoteUpdated": "Updated {timestamp}. Rates are for planning estimates only.",
+      "fxUnavailable": "Exchange rates temporarily unavailable."
     },
     "heroSimplified": {
       "eyebrow": "வெளிநாட்டு கல்வி",
@@ -3123,9 +3126,9 @@
       "india": "India",
       "indiaZone": "IST",
       "destinationFallback": "Local time",
-      "matchesIst": "matches IST",
-      "aheadOfIst": "ahead of IST",
-      "behindIst": "behind IST",
+      "matchesIst": "matches India",
+      "aheadOfIst": "ahead of India",
+      "behindIst": "behind India",
       "loading": "Loading time",
       "compareTitle": "Live India vs destination time"
     },

@@ -9,48 +9,54 @@ export type FxRate = {
   stale: boolean;
 };
 
-const FALLBACK_RATES: Record<string, number> = {
-  RUB: 0.94,
-  GEL: 0.031,
-  VND: 290.1,
-  AMD: 4.56,
-  UZS: 146.8,
-  KGS: 1.03,
-  TJS: 0.11,
-  KZT: 6.34,
-};
+const FX_PROVIDER_URL =
+  process.env.SIVORA_FX_PROVIDER_URL ??
+  'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/inr.min.json';
+
+function unavailableRate(code: string, now: string): FxRate {
+  return {
+    base: 'INR',
+    quote: code,
+    inrToQuote: null,
+    quoteToInr: null,
+    source: 'unavailable',
+    providerName: 'FX provider unavailable',
+    lastUpdated: now,
+    stale: true,
+  };
+}
 
 export async function getIndicativeFxRates(currencyCodes: string[]): Promise<Record<string, FxRate>> {
   const uniqueCodes = Array.from(new Set(currencyCodes.filter((code) => code !== 'INR')));
   const now = new Date().toISOString();
 
   try {
-    const res = await fetch('https://open.er-api.com/v6/latest/INR', {
+    const res = await fetch(FX_PROVIDER_URL, {
       next: { revalidate: 60 * 60 * 12 },
     });
     if (res.ok) {
       const data = (await res.json()) as {
-        result?: string;
-        provider?: string;
-        time_last_update_utc?: string;
-        rates?: Record<string, number>;
+        date?: string;
+        inr?: Record<string, number>;
       };
-      if (data.result === 'success' && data.rates) {
+      if (data.inr) {
         return Object.fromEntries(
           uniqueCodes.map((code) => {
-            const inrToQuote = data.rates?.[code] ?? null;
+            const inrToQuote = data.inr?.[code.toLowerCase()] ?? null;
             return [
               code,
-              {
-                base: 'INR',
-                quote: code,
-                inrToQuote,
-                quoteToInr: inrToQuote ? 1 / inrToQuote : null,
-                source: inrToQuote ? 'provider' : 'unavailable',
-                providerName: data.provider ?? 'open.er-api.com',
-                lastUpdated: data.time_last_update_utc ?? now,
-                stale: !inrToQuote,
-              },
+              inrToQuote
+                ? {
+                    base: 'INR',
+                    quote: code,
+                    inrToQuote,
+                    quoteToInr: 1 / inrToQuote,
+                    source: 'provider',
+                    providerName: 'fawazahmed0 currency-api via jsDelivr',
+                    lastUpdated: data.date ?? now,
+                    stale: false,
+                  }
+                : unavailableRate(code, now),
             ];
           }),
         );
@@ -60,24 +66,7 @@ export async function getIndicativeFxRates(currencyCodes: string[]): Promise<Rec
     // Development and static-build fallback below.
   }
 
-  return Object.fromEntries(
-    uniqueCodes.map((code) => {
-      const inrToQuote = FALLBACK_RATES[code] ?? null;
-      return [
-        code,
-        {
-          base: 'INR',
-          quote: code,
-          inrToQuote,
-          quoteToInr: inrToQuote ? 1 / inrToQuote : null,
-          source: inrToQuote ? 'development_fallback' : 'unavailable',
-          providerName: inrToQuote ? 'Static development fallback' : 'No FX provider configured',
-          lastUpdated: now,
-          stale: true,
-        },
-      ];
-    }),
-  );
+  return Object.fromEntries(uniqueCodes.map((code) => [code, unavailableRate(code, now)]));
 }
 
 export function formatFx(rate: FxRate | undefined) {

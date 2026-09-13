@@ -38,6 +38,9 @@ export default async function AdmissionsComparePage({ searchParams }: Props) {
           ]
         : ADMISSION_COUNTRY_PROFILES.slice(0, 2);
   const fxRates = await getIndicativeFxRates(countries.map((country) => country.currencyCode));
+  const selectedFxRates = countries.map((country) => fxRates[country.currencyCode]).filter(Boolean);
+  const fxAvailable = selectedFxRates.every((rate) => rate.inrToQuote && rate.source === 'provider');
+  const fxLastUpdated = Array.from(new Set(selectedFxRates.map((rate) => rate.lastUpdated).filter(Boolean))).join(', ');
 
   const rows = [
     { label: t('comparison.capital'), render: (slug: string) => countries.find((country) => country.slug === slug)?.capital.value },
@@ -127,6 +130,14 @@ export default async function AdmissionsComparePage({ searchParams }: Props) {
       </Section>
 
       <Section tinted lazy>
+        <div className="mb-4 rounded-2xl border border-[#2B2B2B] bg-[#111111] p-4">
+          <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">{t('comparison.fxNoteTitle')}</p>
+          <p className="mt-2 text-sm leading-6 text-[#D1D1D1]">
+            {fxAvailable
+              ? t('comparison.fxNoteUpdated', { timestamp: fxLastUpdated })
+              : t('comparison.fxUnavailable')}
+          </p>
+        </div>
         <div className="overflow-x-auto rounded-2xl border border-[#2B2B2B] bg-[#111111]">
           <table className="min-w-[760px] w-full border-collapse text-left">
             <thead>
