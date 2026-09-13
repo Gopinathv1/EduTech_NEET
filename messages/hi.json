@@ -776,7 +776,8 @@
       "countryRequired": "कम से कम एक country चुनें.",
       "scoreRange": "0 से 720 के बीच score दर्ज करें.",
       "selectRequired": "कृपया एक option चुनें.",
-      "leadExists": "आपकी admission request पहले से मौजूद है."
+      "leadExists": "आपकी admission request पहले से मौजूद है.",
+      "googleSignInFailed": "Google साइन-इन पूरा नहीं हो सका। कृपया फिर से कोशिश करें या अगर यह खाता पहले से पंजीकृत है तो सहायता से संपर्क करें।"
     }
   },
   "about": {
@@ -1324,7 +1325,9 @@
       "fixedNote": "Curated fixed question set.",
       "ownedNote": "यह test आपके पास है.",
       "buyCta": "₹{price} में खरीदें",
-      "startCta": "टेस्ट शुरू करें"
+      "startCta": "टेस्ट शुरू करें",
+      "freeNote": "Exam Preparation के लिए अभी कोई भुगतान आवश्यक नहीं है।",
+      "attemptsRemaining": "{count, plural, =0 {0 प्रयास शेष} =1 {1 निःशुल्क प्रयास शेष} other {# निःशुल्क प्रयास शेष}}"
     },
     "checkout": {
       "title": "Checkout",
@@ -1335,7 +1338,9 @@
       "title": "Test engine जल्द आएगा",
       "coming": "Timer, autosave और question navigation वाला test-taking experience next phase में बनेगा.",
       "back": "Test पर वापस"
-    }
+    },
+    "freeAccess": "निःशुल्क एक्सेस",
+    "attemptsRemaining": "{count, plural, =0 {0 प्रयास शेष} =1 {1 निःशुल्क प्रयास शेष} other {# निःशुल्क प्रयास शेष}}"
   },
   "payments": {
     "checkout": {
@@ -1393,7 +1398,10 @@
       "completedNote": "Each test can be attempted once. You can view your result.",
       "viewResult": "View result",
       "back": "Back to test",
-      "startError": "Could not start the test. Please try again."
+      "startError": "Could not start the test. Please try again.",
+      "attemptsRemaining": "{count, plural, =0 {0 प्रयास शेष} =1 {1 निःशुल्क प्रयास शेष} other {# निःशुल्क प्रयास शेष}}",
+      "limitReachedTitle": "निःशुल्क प्रयास सीमा पूरी हो गई",
+      "limitReachedNote": "आपने इस टेस्ट के लिए अपने {count} निःशुल्क प्रयास इस्तेमाल कर लिए हैं।"
     },
     "ui": {
       "questionOf": "Question {current} of {total}",
