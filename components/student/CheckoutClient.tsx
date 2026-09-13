@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { apiPost } from '@/lib/client/api';
+import { razorpayContact } from '@/lib/phone';
 
 type RazorpayResponse = {
   razorpay_order_id: string;
@@ -55,7 +56,7 @@ export default function CheckoutClient({
   student?: {
     name: string;
     email: string | null;
-    mobile: string;
+    mobile: string | null;
   };
 }) {
   const t = useTranslations('payments.checkout');
@@ -99,7 +100,7 @@ export default function CheckoutClient({
         ? {
             name: student.name,
             email: student.email ?? undefined,
-            contact: student.mobile ? `91${student.mobile}` : undefined,
+            contact: razorpayContact(student.mobile),
           }
         : undefined,
       handler: async (resp) => {

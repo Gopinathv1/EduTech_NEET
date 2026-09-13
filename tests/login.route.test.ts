@@ -3,19 +3,25 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 vi.mock('@/lib/prisma', () => ({
   prisma: { student: { findUnique: vi.fn() } },
 }));
-vi.mock('@/lib/auth/otp-service', () => ({ requestOtp: vi.fn() }));
+vi.mock('@/lib/auth/password', () => ({ verifyPassword: vi.fn() }));
+vi.mock('@/lib/auth/session', () => ({ createSession: vi.fn() }));
+vi.mock('@/lib/locale', () => ({ syncLocaleFromProfile: vi.fn() }));
 vi.mock('@/lib/auth/rate-limit', () => ({
   enforceRateLimit: vi.fn(async () => null),
   clientIp: vi.fn(() => '127.0.0.1'),
 }));
 
 import { prisma } from '@/lib/prisma';
-import { requestOtp } from '@/lib/auth/otp-service';
+import { verifyPassword } from '@/lib/auth/password';
+import { createSession } from '@/lib/auth/session';
+import { enforceRateLimit } from '@/lib/auth/rate-limit';
 import { POST } from '@/app/api/auth/login/route';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const p = prisma as any;
-const requestOtpMock = vi.mocked(requestOtp);
+const verifyPasswordMock = vi.mocked(verifyPassword);
+const createSessionMock = vi.mocked(createSession);
+const enforceRateLimitMock = vi.mocked(enforceRateLimit);
 
 function req(body: unknown) {
   return new Request('http://localhost/api/auth/login', {
@@ -28,83 +34,65 @@ function req(body: unknown) {
 beforeEach(() => vi.clearAllMocks());
 
 describe('POST /api/auth/login', () => {
-  it('sends a login OTP to a registered mobile number', async () => {
+  it('signs in a student with mobile and password', async () => {
     p.student.findUnique.mockResolvedValue({
       id: 's1',
       name: 'Ravi',
-      mobile: '9876543210',
-      email: 'ravi@example.com',
+      mobile: '+919876543210',
+      passwordHash: 'hash',
       preferredLanguage: 'ta',
     });
-    requestOtpMock.mockResolvedValue({ ok: true, expiresAt: new Date(), devOtp: '123456' });
+    verifyPasswordMock.mockResolvedValue(true);
 
-    const res = await POST(req({ mobile: '+91 98765-43210' }));
+    const res = await POST(req({ mobile: '+91 98765-43210', password: 'correct-password' }));
     const json = await res.json();
 
     expect(res.status).toBe(200);
-    expect(json.ok).toBe(true);
-    expect(json.mobile).toBe('9876543210');
-    expect(json.devOtp).toBe('123456');
-    expect(p.student.findUnique).toHaveBeenCalledWith({ where: { mobile: '9876543210' } });
-    expect(requestOtpMock).toHaveBeenCalledWith('9876543210', 'LOGIN', {
-      email: 'ravi@example.com',
-      language: 'ta',
-    });
+    expect(json.redirect).toBe('/student');
+    expect(p.student.findUnique).toHaveBeenCalledWith({ where: { mobile: '+919876543210' } });
+    expect(verifyPasswordMock).toHaveBeenCalledWith('correct-password', 'hash');
+    expect(createSessionMock).toHaveBeenCalledWith({ sub: 's1', kind: 'student', role: 'STUDENT', name: 'Ravi' });
   });
 
-  it('returns accountNotFound when the mobile is not registered', async () => {
+  it('returns generic invalidCredentials when no matching password account exists', async () => {
     p.student.findUnique.mockResolvedValue(null);
 
-    const res = await POST(req({ mobile: '9876543210' }));
+    const res = await POST(req({ mobile: '9876543210', password: 'anything' }));
     const json = await res.json();
 
-    expect(res.status).toBe(404);
-    expect(json.error).toBe('accountNotFound');
-    expect(requestOtpMock).not.toHaveBeenCalled();
+    expect(res.status).toBe(401);
+    expect(json.error).toBe('invalidCredentials');
+    expect(verifyPasswordMock).not.toHaveBeenCalled();
+  });
+
+  it('returns generic invalidCredentials for a wrong password', async () => {
+    p.student.findUnique.mockResolvedValue({ id: 's1', passwordHash: 'hash' });
+    verifyPasswordMock.mockResolvedValue(false);
+
+    const res = await POST(req({ mobile: '9876543210', password: 'wrong-password' }));
+    const json = await res.json();
+
+    expect(res.status).toBe(401);
+    expect(json.error).toBe('invalidCredentials');
+    expect(createSessionMock).not.toHaveBeenCalled();
   });
 
   it('returns a validation error for invalid mobile input', async () => {
-    const res = await POST(req({ mobile: 'not-a-mobile' }));
+    const res = await POST(req({ mobile: 'not-a-mobile', password: 'password123' }));
 
     expect(res.status).toBe(400);
     expect((await res.json()).error).toBe('validation');
     expect(p.student.findUnique).not.toHaveBeenCalled();
   });
 
-  it('returns rateLimited when OTP creation is throttled', async () => {
-    p.student.findUnique.mockResolvedValue({
-      id: 's1',
-      mobile: '9876543210',
-      email: null,
-      preferredLanguage: 'en',
-    });
-    requestOtpMock.mockResolvedValue({
-      ok: false,
-      reason: 'rate_limited',
-      retryAfterSeconds: 60,
-    });
+  it('returns rateLimited before checking credentials', async () => {
+    enforceRateLimitMock.mockResolvedValueOnce(60);
 
-    const res = await POST(req({ mobile: '9876543210' }));
+    const res = await POST(req({ mobile: '9876543210', password: 'password123' }));
     const json = await res.json();
 
     expect(res.status).toBe(429);
     expect(json.error).toBe('rateLimited');
-    expect(json.retryAfterSeconds).toBe(60);
-  });
-
-  it('returns otpDeliveryFailed when the provider cannot send the OTP', async () => {
-    p.student.findUnique.mockResolvedValue({
-      id: 's1',
-      mobile: '9876543210',
-      email: null,
-      preferredLanguage: 'en',
-    });
-    requestOtpMock.mockResolvedValue({ ok: false, reason: 'delivery_failed' });
-
-    const res = await POST(req({ mobile: '9876543210' }));
-    const json = await res.json();
-
-    expect(res.status).toBe(502);
-    expect(json.error).toBe('otpDeliveryFailed');
+    expect(p.student.findUnique).not.toHaveBeenCalled();
   });
 });

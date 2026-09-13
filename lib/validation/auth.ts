@@ -12,13 +12,13 @@ import { CLASS_OPTIONS, BOARD_OPTIONS } from '@/lib/data/locations';
  */
 
 // Indian mobile number: 10 digits starting 6–9, optional +91 prefix.
-// Validated, then normalised to the bare 10-digit form we store.
+// Validated, then normalised to E.164-style +91XXXXXXXXXX for storage.
 export const mobileSchema = z
   .string()
   .trim()
-  .transform((s) => s.replace(/[\s-]/g, '')) // drop spaces/hyphens users may type
+  .transform((s) => s.replace(/[\s()-]/g, '')) // drop common separators users may type
   .pipe(z.string().regex(/^(\+?91)?[6-9]\d{9}$/, 'mobileInvalid'))
-  .transform((s) => s.slice(-10)); // normalise to the bare 10-digit form we store
+  .transform((s) => `+91${s.slice(-10)}`);
 
 export const passwordSchema = z.string().min(8, 'passwordTooShort').max(72, 'passwordTooLong');
 
@@ -41,19 +41,31 @@ export const registerSchema = z
     name: z.string().trim().min(2, 'nameTooShort').max(80, 'nameTooLong'),
     email: emailSchema,
     mobile: mobileSchema,
-    state: z.string().trim().min(1, 'required'),
-    district: z.string().trim().min(1, 'required'),
-    schoolName: z.string().trim().min(2, 'schoolTooShort').max(120, 'schoolTooLong'),
-    class: z.enum(CLASS_OPTIONS, { message: 'required' }),
-    board: z.enum(BOARD_OPTIONS, { message: 'required' }),
-    preferredLanguage: localeSchema,
+    password: passwordSchema,
+    confirmPassword: z.string().min(1, 'required'),
+    preferredLanguage: localeSchema.optional(),
+  })
+  .refine((v) => v.password === v.confirmPassword, {
+    message: 'passwordMismatch',
+    path: ['confirmPassword'],
   });
 export type RegisterInput = z.infer<typeof registerSchema>;
 
-export const loginOtpRequestSchema = z.object({
+export const loginPasswordSchema = z.object({
+  mobile: mobileSchema,
+  password: z.string().min(1, 'required'),
+});
+export type LoginPasswordInput = z.infer<typeof loginPasswordSchema>;
+
+// Kept for a future mobile-verification feature. It is no longer used by the
+// normal student login UX.
+export const loginOtpRequestSchema = z.object({ mobile: mobileSchema });
+export type LoginOtpRequestInput = z.infer<typeof loginOtpRequestSchema>;
+
+export const completeProfileSchema = z.object({
   mobile: mobileSchema,
 });
-export type LoginOtpRequestInput = z.infer<typeof loginOtpRequestSchema>;
+export type CompleteProfileInput = z.infer<typeof completeProfileSchema>;
 
 // Request an OTP (login / registration resend).
 export const otpRequestSchema = z.object({

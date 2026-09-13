@@ -194,7 +194,8 @@ model Student {
   id                String   @id @default(cuid())
   name              String
   email             String?  @unique
-  mobile            String   @unique
+  mobile            String?  @unique
+  googleSubject     String?  @unique
   passwordHash      String?
   state             String?
   district          String?
@@ -215,12 +216,29 @@ model Student {
   notifications     Notification[]
   sellerProfile     MarketplaceSellerProfile?
   marketplaceOrders MarketplaceOrder[]         @relation("MarketplaceBuyerOrders")
+  passwordResetTokens PasswordResetToken[]
 
   @@index([state, district])
   // Admin reporting: registrations-over-time and district/board/class filters.
   @@index([createdAt])
   @@index([board])
   @@index([class])
+}
+
+/// Random, single-use password reset tokens. Token values are hashed before
+/// storage so a database read cannot be used to reset an account.
+model PasswordResetToken {
+  id         String    @id @default(cuid())
+  studentId  String
+  tokenHash  String    @unique
+  expiresAt  DateTime
+  consumedAt DateTime?
+  createdAt  DateTime  @default(now())
+
+  student Student @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  @@index([studentId])
+  @@index([expiresAt])
 }
 
 model Admin {

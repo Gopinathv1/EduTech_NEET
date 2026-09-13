@@ -66,11 +66,11 @@ beforeEach(() => {
 });
 
 describe('POST /api/payments/create-order', () => {
-  it('ignores manipulated client price and creates a ₹30 order in paise', async () => {
-    mocks.testFindUnique.mockResolvedValue({ id: 'test_1', isPublished: true, title: { en: 'Mock Test' } });
+  it('ignores manipulated client price and creates an order from the DB price', async () => {
+    mocks.testFindUnique.mockResolvedValue({ id: 'test_1', isPublished: true, title: { en: 'Mock Test' }, price: 45 });
     mocks.entitlementCount.mockResolvedValue(0);
     mocks.paymentCreate.mockResolvedValue({ id: 'payment_1' });
-    mocks.createOrder.mockResolvedValue({ id: 'order_1', amount: 3000, currency: 'INR', mock: false });
+    mocks.createOrder.mockResolvedValue({ id: 'order_1', amount: 4500, currency: 'INR', mock: false });
     mocks.paymentUpdate.mockResolvedValue({});
     mocks.logOrderCreated.mockResolvedValue({});
 
@@ -82,17 +82,17 @@ describe('POST /api/payments/create-order', () => {
     const json = await res.json();
 
     expect(res.status).toBe(200);
-    expect(json).toMatchObject({ ok: true, orderId: 'order_1', amount: 3000, currency: 'INR' });
+    expect(json).toMatchObject({ ok: true, orderId: 'order_1', amount: 4500, currency: 'INR' });
     expect(mocks.paymentCreate).toHaveBeenCalledWith({
-      data: { studentId: 'student_1', testId: 'test_1', amount: 30, currency: 'INR', status: 'CREATED' },
+      data: { studentId: 'student_1', testId: 'test_1', amount: 45, currency: 'INR', status: 'CREATED' },
     });
     expect(mocks.createOrder).toHaveBeenCalledWith(
-      expect.objectContaining({ amountPaise: 3000, currency: 'INR', receipt: 'payment_1' }),
+      expect.objectContaining({ amountPaise: 4500, currency: 'INR', receipt: 'payment_1' }),
     );
   });
 
   it('does not create another order when the test is already purchased', async () => {
-    mocks.testFindUnique.mockResolvedValue({ id: 'test_1', isPublished: true, title: { en: 'Mock Test' } });
+    mocks.testFindUnique.mockResolvedValue({ id: 'test_1', isPublished: true, title: { en: 'Mock Test' }, price: 30 });
     mocks.entitlementCount.mockResolvedValue(1);
 
     const res = await createOrderPost(jsonReq('http://localhost/api/payments/create-order', { testId: 'test_1' }));

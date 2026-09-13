@@ -2,27 +2,28 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { Prisma } from '@prisma/client';
 
 vi.mock('@/lib/prisma', () => ({
-  prisma: { student: { findUnique: vi.fn(), create: vi.fn(), update: vi.fn() } },
+  prisma: { student: { findUnique: vi.fn(), create: vi.fn() } },
 }));
-vi.mock('@/lib/auth/otp-service', () => ({ requestOtp: vi.fn() }));
+vi.mock('@/lib/auth/password', () => ({ hashPassword: vi.fn(async () => 'hashed-password') }));
+vi.mock('@/lib/auth/session', () => ({ createSession: vi.fn() }));
+vi.mock('@/lib/locale', () => ({ syncLocaleFromProfile: vi.fn() }));
 
 import { prisma } from '@/lib/prisma';
-import { requestOtp } from '@/lib/auth/otp-service';
+import { hashPassword } from '@/lib/auth/password';
+import { createSession } from '@/lib/auth/session';
 import { POST } from '@/app/api/auth/register/route';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const p = prisma as any;
-const requestOtpMock = vi.mocked(requestOtp);
+const hashPasswordMock = vi.mocked(hashPassword);
+const createSessionMock = vi.mocked(createSession);
 
 const validBody = {
   name: 'Test Student',
   email: 'new@example.com',
   mobile: '9876543210',
-  state: 'Tamil Nadu',
-  district: 'Chennai',
-  schoolName: 'Govt Higher Secondary School',
-  class: '12',
-  board: 'State Board',
+  password: 'password123',
+  confirmPassword: 'password123',
   preferredLanguage: 'ta',
 };
 
@@ -34,45 +35,52 @@ function req(body: unknown) {
   });
 }
 
-beforeEach(() => {
-  vi.clearAllMocks();
-  requestOtpMock.mockResolvedValue({ ok: true, expiresAt: new Date(), devOtp: '123456' });
-});
+beforeEach(() => vi.clearAllMocks());
 
 describe('POST /api/auth/register', () => {
-  it('creates an unverified student and sends a registration OTP', async () => {
+  it('creates a password account and starts a student session', async () => {
     p.student.findUnique.mockResolvedValue(null);
-    p.student.create.mockResolvedValue({ id: 's1' });
+    p.student.create.mockResolvedValue({
+      id: 's1',
+      name: 'Test Student',
+      preferredLanguage: 'ta',
+    });
 
     const res = await POST(req(validBody));
     const json = await res.json();
 
     expect(res.status).toBe(200);
-    expect(json.registered).toBe(true);
-    expect(json.mobile).toBe('9876543210');
-    expect(json.devOtp).toBe('123456');
-    expect(p.student.create).toHaveBeenCalledWith(
-      expect.objectContaining({
-        data: expect.not.objectContaining({ passwordHash: expect.anything() }),
+    expect(json).toMatchObject({ ok: true, registered: true, redirect: '/student' });
+    expect(hashPasswordMock).toHaveBeenCalledWith('password123');
+    expect(p.student.create).toHaveBeenCalledWith({
+      data: expect.objectContaining({
+        name: 'Test Student',
+        email: 'new@example.com',
+        mobile: '+919876543210',
+        passwordHash: 'hashed-password',
+        isMobileVerified: false,
       }),
-    );
-    expect(requestOtpMock).toHaveBeenCalledWith('9876543210', 'REGISTRATION', {
-      email: 'new@example.com',
-      language: 'ta',
     });
+    expect(createSessionMock).toHaveBeenCalledWith({ sub: 's1', kind: 'student', role: 'STUDENT', name: 'Test Student' });
   });
 
-  it('blocks a mobile that already belongs to a verified account', async () => {
-    p.student.findUnique.mockResolvedValue({ id: 's1', isMobileVerified: true });
+  it('blocks duplicate mobile numbers', async () => {
+    p.student.findUnique.mockImplementation(({ where }: { where: { mobile?: string; email?: string } }) => {
+      if (where.mobile) return { id: 's1' };
+      return null;
+    });
+
     const res = await POST(req(validBody));
+
     expect(res.status).toBe(409);
     expect((await res.json()).error).toBe('mobileTaken');
+    expect(p.student.create).not.toHaveBeenCalled();
   });
 
-  it('blocks an email that already belongs to a different account', async () => {
+  it('blocks duplicate email addresses', async () => {
     p.student.findUnique.mockImplementation(({ where }: { where: { mobile?: string; email?: string } }) => {
       if (where.mobile) return null;
-      if (where.email) return { id: 's2', mobile: '9123456789' };
+      if (where.email) return { id: 's2' };
       return null;
     });
 
@@ -81,7 +89,6 @@ describe('POST /api/auth/register', () => {
     expect(res.status).toBe(409);
     expect((await res.json()).error).toBe('emailTaken');
     expect(p.student.create).not.toHaveBeenCalled();
-    expect(requestOtpMock).not.toHaveBeenCalled();
   });
 
   it('maps a P2002 email conflict to emailTaken', async () => {
@@ -93,37 +100,11 @@ describe('POST /api/auth/register', () => {
         meta: { target: ['email'] },
       }),
     );
+
     const res = await POST(req(validBody));
+
     expect(res.status).toBe(409);
     expect((await res.json()).error).toBe('emailTaken');
-  });
-
-  it('returns otpDeliveryFailed when registration OTP cannot be sent', async () => {
-    p.student.findUnique.mockResolvedValue(null);
-    p.student.create.mockResolvedValue({ id: 's1' });
-    requestOtpMock.mockResolvedValue({ ok: false, reason: 'delivery_failed' });
-
-    const res = await POST(req(validBody));
-
-    expect(res.status).toBe(502);
-    expect((await res.json()).error).toBe('otpDeliveryFailed');
-  });
-
-  it('returns rateLimited when registration OTP creation is throttled', async () => {
-    p.student.findUnique.mockResolvedValue(null);
-    p.student.create.mockResolvedValue({ id: 's1' });
-    requestOtpMock.mockResolvedValue({
-      ok: false,
-      reason: 'rate_limited',
-      retryAfterSeconds: 60,
-    });
-
-    const res = await POST(req(validBody));
-    const json = await res.json();
-
-    expect(res.status).toBe(429);
-    expect(json.error).toBe('rateLimited');
-    expect(json.retryAfterSeconds).toBe(60);
   });
 
   it('rejects invalid input with 400', async () => {
@@ -132,17 +113,10 @@ describe('POST /api/auth/register', () => {
     expect((await res.json()).error).toBe('validation');
   });
 
-  it('does not require a password during registration', async () => {
-    p.student.findUnique.mockResolvedValue(null);
-    p.student.create.mockResolvedValue({ id: 's1' });
-
-    const res = await POST(req(validBody));
-
-    expect(res.status).toBe(200);
-    expect(p.student.create).toHaveBeenCalledWith(
-      expect.objectContaining({
-        data: expect.not.objectContaining({ passwordHash: expect.anything() }),
-      }),
-    );
+  it('requires matching password confirmation', async () => {
+    const res = await POST(req({ ...validBody, confirmPassword: 'different123' }));
+    expect(res.status).toBe(400);
+    expect((await res.json()).error).toBe('validation');
+    expect(p.student.create).not.toHaveBeenCalled();
   });
 });

@@ -1,12 +1,14 @@
 import { Prisma } from '@prisma/client';
 import { prisma } from '@/lib/prisma';
 import { registerSchema } from '@/lib/validation/auth';
-import { requestOtp } from '@/lib/auth/otp-service';
+import { hashPassword } from '@/lib/auth/password';
+import { createSession } from '@/lib/auth/session';
+import { syncLocaleFromProfile } from '@/lib/locale';
 import { ok, fail, readJson } from '@/lib/http';
 
 export const runtime = 'nodejs';
 
-// POST /api/auth/register — create an unverified passwordless student account.
+// POST /api/auth/register — create a password student account and sign in.
 export async function POST(req: Request) {
   const parsed = registerSchema.safeParse(await readJson(req));
   if (!parsed.success) {
@@ -14,37 +16,30 @@ export async function POST(req: Request) {
   }
   const d = parsed.data;
 
-  // A verified account already owns this mobile → block. An UNVERIFIED record is
-  // overwritten so an abandoned signup can be retried.
   const existing = await prisma.student.findUnique({ where: { mobile: d.mobile } });
-  if (existing?.isMobileVerified) {
+  if (existing) {
     return fail('mobileTaken', 409);
   }
 
   const existingByEmail = await prisma.student.findUnique({ where: { email: d.email } });
-  if (existingByEmail && existingByEmail.mobile !== d.mobile) {
+  if (existingByEmail) {
     return fail('emailTaken', 409);
   }
 
-  const data = {
-    name: d.name,
-    email: d.email,
-    mobile: d.mobile,
-    state: d.state,
-    district: d.district,
-    schoolName: d.schoolName,
-    class: d.class,
-    board: d.board,
-    preferredLanguage: d.preferredLanguage,
-    isMobileVerified: false,
-  };
-
   try {
-    if (existing) {
-      await prisma.student.update({ where: { id: existing.id }, data });
-    } else {
-      await prisma.student.create({ data });
-    }
+    const student = await prisma.student.create({
+      data: {
+        name: d.name,
+        email: d.email,
+        mobile: d.mobile,
+        passwordHash: await hashPassword(d.password),
+        preferredLanguage: d.preferredLanguage ?? 'en',
+        isMobileVerified: false,
+      },
+    });
+    await createSession({ sub: student.id, kind: 'student', role: 'STUDENT', name: student.name });
+    await syncLocaleFromProfile(student.preferredLanguage);
+    return ok({ registered: true, redirect: '/student' });
   } catch (e) {
     if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === 'P2002') {
       const target = String((e.meta?.target as string[] | undefined)?.join(',') ?? '');
@@ -54,15 +49,4 @@ export async function POST(req: Request) {
     }
     throw e;
   }
-
-  const otp = await requestOtp(d.mobile, 'REGISTRATION', {
-    email: d.email,
-    language: d.preferredLanguage,
-  });
-  if (!otp.ok) {
-    if (otp.reason === 'delivery_failed') return fail('otpDeliveryFailed', 502);
-    return fail('rateLimited', 429, { retryAfterSeconds: otp.retryAfterSeconds });
-  }
-
-  return ok({ registered: true, mobile: d.mobile, devOtp: otp.devOtp });
 }

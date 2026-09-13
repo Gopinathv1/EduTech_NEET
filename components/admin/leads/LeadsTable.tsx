@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Badge } from '@/components/admin/ui';
 import { budgetLabelEn } from '@/lib/admission/config';
+import { formatIndianMobile } from '@/lib/phone';
 import LeadDrawer from './LeadDrawer';
 
 const STATUS_LABEL: Record<string, string> = {
@@ -23,7 +24,7 @@ const STATUS_BADGE: Record<string, string> = {
 export type LeadRow = {
   id: string;
   studentName: string;
-  mobile: string;
+  mobile: string | null;
   country: string;
   budget: string | null;
   neetScore: number | null;
@@ -66,7 +67,7 @@ export default function LeadsTable({ leads, admins }: { leads: LeadRow[]; admins
                 >
                   <td className="px-4 py-3">
                     <p className="font-medium text-textPrimary">{l.studentName}</p>
-                    <p className="text-xs text-textSecondary">+91 {l.mobile}</p>
+                    <p className="text-xs text-textSecondary">{formatIndianMobile(l.mobile)}</p>
                   </td>
                   <td className="px-3 py-3 text-textSecondary">{l.country || '—'}</td>
                   <td className="px-3 py-3 text-textSecondary">{l.neetScore ?? '—'}</td>

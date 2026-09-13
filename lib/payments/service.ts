@@ -2,6 +2,7 @@ import type { Prisma, PaymentStatus } from '@prisma/client';
 import { prisma } from '@/lib/prisma';
 import { localizedName } from '@/lib/admin/format';
 import { log } from '@/lib/observability/logger';
+import { formatIndianMobile } from '@/lib/phone';
 
 /**
  * Core payment state machine — the single, idempotent place where a payment
@@ -89,7 +90,7 @@ export async function finalizeSuccess(
       invoiceNumber,
       date: now.toISOString(),
       studentName: payment.student.name,
-      studentMobile: payment.student.mobile,
+      studentMobile: formatIndianMobile(payment.student.mobile),
       studentEmail: payment.student.email,
       testTitle: testTitleEn,
       currency: payment.currency,

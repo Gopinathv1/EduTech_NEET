@@ -3,7 +3,7 @@ import { getSession } from '@/lib/auth/session';
 import { createOrderSchema } from '@/lib/validation/payment';
 import { createOrder, getKeys } from '@/lib/payments/razorpay';
 import { logOrderCreated } from '@/lib/payments/service';
-import { PAYMENT_CURRENCY, getMockTestPriceInr, inrToPaise } from '@/lib/payments/pricing';
+import { PAYMENT_CURRENCY, inrToPaise } from '@/lib/payments/pricing';
 import { log } from '@/lib/observability/logger';
 import { ok, fail, readJson } from '@/lib/http';
 
@@ -21,7 +21,7 @@ export async function POST(req: Request) {
 
   const test = await prisma.test.findUnique({
     where: { id: testId },
-    select: { id: true, isPublished: true, title: true },
+    select: { id: true, isPublished: true, title: true, price: true },
   });
   if (!test || !test.isPublished) return fail('testNotFound', 404);
 
@@ -29,7 +29,7 @@ export async function POST(req: Request) {
   const owned = await prisma.testEntitlement.count({ where: { studentId: session.sub, testId } });
   if (owned > 0) return fail('alreadyOwned', 409);
 
-  const amountInr = getMockTestPriceInr();
+  const amountInr = test.price;
   const currency = PAYMENT_CURRENCY;
 
   // Create the Payment row first so we have a stable id for the order receipt.
@@ -67,7 +67,7 @@ export async function POST(req: Request) {
     orderId: order.id,
     amount: order.amount, // paise
     currency,
-    keyId: getKeys().keyId,
+    keyId: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID ?? getKeys().keyId,
     mock: order.mock,
   });
 }

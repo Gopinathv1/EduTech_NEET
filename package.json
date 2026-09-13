@@ -38,6 +38,7 @@
     "@sentry/nextjs": "^8.55.2",
     "jose": "^6.2.7",
     "next": "^15.5.22",
+    "next-auth": "^4.24.11",
     "next-intl": "^3.26.3",
     "papaparse": "^5.5.4",
     "pdfkit": "^0.19.1",
