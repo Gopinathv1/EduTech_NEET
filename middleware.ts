@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from 'next/server';
 import { verifySession, SESSION_COOKIE } from '@/lib/auth/jwt';
 import { SUPER_ADMIN_PATHS } from '@/lib/admin/nav';
+import { safeReturnPath } from '@/lib/auth/redirect';
 
 /**
  * Route protection. Runs on the Edge runtime, so it only verifies the JWT from
@@ -16,6 +17,7 @@ import { SUPER_ADMIN_PATHS } from '@/lib/admin/nav';
 
 // Super-admin-only areas (defined alongside the nav so they never drift apart).
 const SUPER_ADMIN_PREFIXES = ['/admin/super', ...SUPER_ADMIN_PATHS];
+const STUDENT_SERVICE_PREFIXES = ['/exam-preparation', '/courses', '/marketplace'];
 
 export async function middleware(req: NextRequest) {
   const { pathname, search } = req.nextUrl;
@@ -41,7 +43,7 @@ export async function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
-  if (pathname.startsWith('/student')) {
+  if (pathname.startsWith('/student') || isStudentServicePath(pathname)) {
     if (session?.kind !== 'student') {
       return redirectTo(req, '/login', pathname + search);
     }
@@ -60,11 +62,22 @@ export async function middleware(req: NextRequest) {
 
 function redirectTo(req: NextRequest, loginPath: string, next: string) {
   const url = new URL(loginPath, req.url);
-  url.searchParams.set('next', next);
+  url.searchParams.set('callbackUrl', safeReturnPath(next));
   return NextResponse.redirect(url);
+}
+
+function isStudentServicePath(pathname: string) {
+  return STUDENT_SERVICE_PREFIXES.some((prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`));
 }
 
 // Only run on protected areas — keeps public pages and API routes untouched.
 export const config = {
-  matcher: ['/student/:path*', '/admin/:path*', '/partner/:path*'],
+  matcher: [
+    '/student/:path*',
+    '/admin/:path*',
+    '/partner/:path*',
+    '/exam-preparation/:path*',
+    '/courses/:path*',
+    '/marketplace/:path*',
+  ],
 };

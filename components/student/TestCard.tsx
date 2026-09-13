@@ -8,10 +8,9 @@ export type CatalogueCard = {
   testType: string;
   totalQuestions: number;
   durationMinutes: number;
-  price: number;
   difficulty: string | null;
   languages: string[];
-  purchased: boolean;
+  attemptsRemaining: number;
 };
 
 export default function TestCard({ test }: { test: CatalogueCard }) {
@@ -52,26 +51,15 @@ export default function TestCard({ test }: { test: CatalogueCard }) {
       </div>
 
       <div className="mt-4 flex items-center justify-between border-t border-border pt-4">
-        {test.purchased ? (
-          <span className="text-sm font-semibold text-green-200">{t('owned')}</span>
-        ) : (
-          <span className="text-lg font-extrabold text-textPrimary">₹{test.price}</span>
-        )}
-        {test.purchased ? (
-          <Link
-            href={`/student/tests/${test.id}/start`}
-            className="rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark"
-          >
-            {t('start')}
-          </Link>
-        ) : (
-          <Link
-            href={`/student/tests/${test.id}`}
-            className="rounded-lg border border-brand px-4 py-2 text-sm font-semibold text-brand hover:bg-brand-soft"
-          >
-            {t('viewDetails')}
-          </Link>
-        )}
+        <span className="text-sm font-semibold text-green-200">
+          {t('attemptsRemaining', { count: test.attemptsRemaining })}
+        </span>
+        <Link
+          href={`/student/tests/${test.id}/start`}
+          className="rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark"
+        >
+          {t('start')}
+        </Link>
       </div>
     </div>
   );

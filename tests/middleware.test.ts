@@ -32,7 +32,7 @@ describe('middleware role guards', () => {
     vs.mockResolvedValue(null);
     const res = await middleware(request('/student/dashboard', false));
     expect(location(res)).toContain('/login');
-    expect(location(res)).toContain('next=%2Fstudent%2Fdashboard');
+    expect(location(res)).toContain('callbackUrl=%2Fstudent%2Fdashboard');
   });
 
   it('lets a student into /student', async () => {
@@ -76,7 +76,7 @@ describe('middleware role guards', () => {
     vs.mockResolvedValue(null);
     const res = await middleware(request('/partner/profile', false));
     expect(location(res)).toContain('/partner/login');
-    expect(location(res)).toContain('next=%2Fpartner%2Fprofile');
+    expect(location(res)).toContain('callbackUrl=%2Fpartner%2Fprofile');
   });
 
   it('lets a partner into /partner pages', async () => {
@@ -95,5 +95,31 @@ describe('middleware role guards', () => {
     vs.mockResolvedValue(null);
     expect(location(await middleware(request('/partner/login', false)))).toBeNull();
     expect(location(await middleware(request('/partner/register', false)))).toBeNull();
+  });
+
+  it.each(['/exam-preparation', '/courses', '/marketplace'])(
+    'redirects an unauthenticated user from %s to login with callbackUrl',
+    async (path) => {
+      vs.mockResolvedValue(null);
+      const res = await middleware(request(path, false));
+      expect(location(res)).toContain('/login');
+      expect(location(res)).toContain(`callbackUrl=${encodeURIComponent(path)}`);
+    },
+  );
+
+  it.each(['/exam-preparation', '/courses', '/marketplace'])(
+    'lets an authenticated student access %s',
+    async (path) => {
+      vs.mockResolvedValue(student);
+      const res = await middleware(request(path));
+      expect(location(res)).toBeNull();
+    },
+  );
+
+  it('leaves admissions and counselling public', async () => {
+    vs.mockResolvedValue(null);
+    expect(location(await middleware(request('/admissions', false)))).toBeNull();
+    expect(location(await middleware(request('/counselling', false)))).toBeNull();
+    expect(location(await middleware(request('/admission-guidance', false)))).toBeNull();
   });
 });

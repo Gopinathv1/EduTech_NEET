@@ -10,7 +10,7 @@ import { useErrorText } from './hooks';
 
 type FormValues = { mobile: string };
 
-export default function CompleteProfileForm() {
+export default function CompleteProfileForm({ callbackUrl }: { callbackUrl?: string }) {
   const errText = useErrorText();
   const [banner, setBanner] = useState<string>();
   const {
@@ -30,7 +30,8 @@ export default function CompleteProfileForm() {
     );
     if (!data) return;
 
-    const res = await apiPost('/api/auth/complete-profile', data);
+    const qs = callbackUrl ? `?callbackUrl=${encodeURIComponent(callbackUrl)}` : '';
+    const res = await apiPost(`/api/auth/complete-profile${qs}`, data);
     if (res.ok && typeof res.redirect === 'string') {
       window.location.href = res.redirect;
       return;

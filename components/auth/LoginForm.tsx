@@ -26,7 +26,7 @@ function authErrorCode(error?: string) {
   return nextAuthErrorCodes.has(error) ? 'googleSignInFailed' : 'generic';
 }
 
-export default function LoginForm({ authError }: { authError?: string }) {
+export default function LoginForm({ authError, callbackUrl }: { authError?: string; callbackUrl?: string }) {
   const t = useTranslations('auth.login');
   const tc = useTranslations('auth.common');
   const errText = useErrorText();
@@ -50,7 +50,7 @@ export default function LoginForm({ authError }: { authError?: string }) {
       errText,
     );
     if (!data) return;
-    const res = await apiPost('/api/auth/login', data);
+    const res = await apiPost('/api/auth/login', { ...data, callbackUrl });
     if (res.ok && typeof res.redirect === 'string') {
       window.location.href = res.redirect;
       return;
@@ -103,7 +103,7 @@ export default function LoginForm({ authError }: { authError?: string }) {
         <span className="h-px flex-1 bg-border" />
       </div>
 
-      <GoogleButton label={t('google')} />
+      <GoogleButton label={t('google')} callbackUrl={callbackUrl} />
 
       <div className="space-y-2 border-t border-border pt-4 text-center text-sm">
         <p className="text-textSecondary">

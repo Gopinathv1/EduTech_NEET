@@ -24,22 +24,18 @@ export default function StartAttemptClient({
   const t = useTranslations('exam.instructions');
   const [language, setLanguage] = useState<ExamLanguage>(defaultLanguage);
   const [busy, setBusy] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState<string>();
 
   async function start() {
     setBusy(true);
-    setError(false);
+    setError(undefined);
     const res = await apiPost('/api/attempts', { testId, language });
     if (res.ok && typeof res.redirect === 'string') {
       window.location.href = res.redirect;
       return;
     }
-    if (res.error === 'alreadyCompleted') {
-      window.location.href = `/student/tests/${testId}/attempt`;
-      return;
-    }
     setBusy(false);
-    setError(true);
+    setError(res.error === 'attemptLimitReached' ? t('limitReachedNote', { count: 3 }) : t('startError'));
   }
 
   return (
@@ -71,7 +67,7 @@ export default function StartAttemptClient({
 
       {error ? (
         <p className="mt-4 rounded-lg border border-red-200 bg-red-950/30 px-3 py-2 text-sm text-red-200">
-          {t('startError')}
+          {error}
         </p>
       ) : null}
 

@@ -4,7 +4,7 @@ import { getLocale, getTranslations } from 'next-intl/server';
 import { getSession } from '@/lib/auth/session';
 import { prisma } from '@/lib/prisma';
 import { localizedName } from '@/lib/admin/format';
-import { getMockTestPriceInr } from '@/lib/payments/pricing';
+import { getFreeAttemptSummary } from '@/lib/attempts/service';
 import { computeCoverage } from '@/lib/student/catalogue';
 import StudentHeader from '@/components/student/StudentHeader';
 import { ClockIcon, BookIcon, GlobeIcon, ChartIcon } from '@/components/public/icons';
@@ -25,10 +25,7 @@ export default async function TestDetailPage({ params }: { params: Promise<{ id:
   ]);
   if (!test || !test.isPublished) notFound();
 
-  const price = getMockTestPriceInr();
-  const owned = session
-    ? (await prisma.testEntitlement.count({ where: { studentId: session.sub, testId: id } })) > 0
-    : false;
+  const attemptSummary = session ? await getFreeAttemptSummary(session.sub, id) : null;
 
   const subjectsById = new Map(subjects.map((s) => [s.id, { id: s.id, code: s.code }]));
   const chaptersById = new Map(chapters.map((c) => [c.id, { id: c.id, subjectId: c.subjectId }]));
@@ -64,11 +61,9 @@ export default async function TestDetailPage({ params }: { params: Promise<{ id:
           <span className="inline-block rounded-full bg-brand-soft px-2.5 py-0.5 text-xs font-semibold text-brand">
             {t(`types.${test.testType}`)}
           </span>
-          {owned ? (
-            <span className="rounded-full bg-green-950/40 px-2.5 py-0.5 text-xs font-semibold text-green-200">
-              {t('owned')}
-            </span>
-          ) : null}
+          <span className="rounded-full bg-green-950/40 px-2.5 py-0.5 text-xs font-semibold text-green-200">
+            {t('freeAccess')}
+          </span>
         </div>
 
         <h1 className="mt-2 text-2xl font-bold text-textPrimary sm:text-3xl">
@@ -117,27 +112,18 @@ export default async function TestDetailPage({ params }: { params: Promise<{ id:
 
         {/* CTA */}
         <div className="mt-8 flex items-center justify-between rounded-2xl border border-border bg-surfaceElevated p-5">
-          {owned ? (
-            <>
-              <span className="text-sm font-semibold text-green-200">{t('detail.ownedNote')}</span>
-              <Link
-                href={`/student/tests/${test.id}/start`}
-                className="rounded-lg bg-brand px-6 py-3 text-sm font-semibold text-white hover:bg-brand-dark"
-              >
-                {t('detail.startCta')}
-              </Link>
-            </>
-          ) : (
-            <>
-              <span className="text-2xl font-extrabold text-textPrimary">₹{price}</span>
-              <Link
-                href={`/student/tests/${test.id}/checkout`}
-                className="rounded-lg bg-brand px-6 py-3 text-sm font-semibold text-white hover:bg-brand-dark"
-              >
-                {t('detail.buyCta', { price })}
-              </Link>
-            </>
-          )}
+          <div>
+            <span className="text-sm font-semibold text-green-200">{t('detail.freeNote')}</span>
+            {attemptSummary ? (
+              <p className="mt-1 text-sm text-textSecondary">{t('detail.attemptsRemaining', { count: attemptSummary.remaining })}</p>
+            ) : null}
+          </div>
+          <Link
+            href={`/student/tests/${test.id}/start`}
+            className="rounded-lg bg-brand px-6 py-3 text-sm font-semibold text-white hover:bg-brand-dark"
+          >
+            {t('detail.startCta')}
+          </Link>
         </div>
       </main>
     </div>

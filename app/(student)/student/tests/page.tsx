@@ -2,7 +2,7 @@ import { getLocale, getTranslations } from 'next-intl/server';
 import { getSession } from '@/lib/auth/session';
 import { prisma } from '@/lib/prisma';
 import { localizedName } from '@/lib/admin/format';
-import { getMockTestPriceInr } from '@/lib/payments/pricing';
+import { FREE_ATTEMPT_LIMIT } from '@/lib/attempts/service';
 import { computeCoverage, subjectFilterCodes } from '@/lib/student/catalogue';
 import StudentHeader from '@/components/student/StudentHeader';
 import CatalogueFilters, { type CatalogueFilterValues } from '@/components/student/CatalogueFilters';
@@ -26,7 +26,7 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
   const t = await getTranslations('catalogue');
   const session = await getSession();
 
-  const [tests, subjects, chapters, payments] = await Promise.all([
+  const [tests, subjects, chapters, attempts] = await Promise.all([
     prisma.test.findMany({
       where: { isPublished: true },
       orderBy: { createdAt: 'desc' },
@@ -35,8 +35,12 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
     prisma.subject.findMany({ orderBy: { order: 'asc' } }),
     prisma.chapter.findMany({ orderBy: [{ subjectId: 'asc' }, { order: 'asc' }] }),
     session
-      ? prisma.testEntitlement.findMany({ where: { studentId: session.sub }, select: { testId: true } })
-      : Promise.resolve([] as { testId: string }[]),
+      ? prisma.testAttempt.groupBy({
+          by: ['testId'],
+          where: { studentId: session.sub },
+          _count: { _all: true },
+        })
+      : Promise.resolve([] as { testId: string; _count: { _all: number } }[]),
   ]);
 
   const subjectsById = new Map(subjects.map((s) => [s.id, { id: s.id, code: s.code }]));
@@ -44,7 +48,9 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
   const subjectByCode = new Map(subjects.map((s) => [s.code, s]));
   const chapterById = new Map(chapters.map((c) => [c.id, c]));
   const allCodes = subjects.map((s) => s.code);
-  const purchased = new Set(payments.map((p) => p.testId));
+  const remainingByTestId = new Map(
+    attempts.map((a) => [a.testId, Math.max(FREE_ATTEMPT_LIMIT - a._count._all, 0)]),
+  );
 
   const items = tests.map((test) => {
     const cov = computeCoverage(test, subjectsById, chaptersById, allCodes);
@@ -67,7 +73,7 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
     if (cov.subjectCodes.has('BOTANY') || cov.subjectCodes.has('ZOOLOGY')) {
       searchParts.push('Biology', 'உயிரியல்');
     }
-    return { test, cov, searchText: searchParts.join(' ').toLowerCase(), owned: purchased.has(test.id) };
+    return { test, cov, searchText: searchParts.join(' ').toLowerCase(), remaining: remainingByTestId.get(test.id) ?? FREE_ATTEMPT_LIMIT };
   });
 
   // Apply combined filters.
@@ -107,7 +113,7 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
           </div>
         ) : (
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {filtered.map(({ test, owned }) => (
+            {filtered.map(({ test, remaining }) => (
               <TestCard
                 key={test.id}
                 test={{
@@ -116,10 +122,9 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
                   testType: test.testType,
                   totalQuestions: test.totalQuestions,
                   durationMinutes: test.durationMinutes,
-                  price: getMockTestPriceInr(),
                   difficulty: test.difficulty,
                   languages: test.availableLanguages,
-                  purchased: owned,
+                  attemptsRemaining: remaining,
                 }}
               />
             ))}

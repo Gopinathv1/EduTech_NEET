@@ -5,6 +5,7 @@ import { createSession } from '@/lib/auth/session';
 import { enforceRateLimit, clientIp } from '@/lib/auth/rate-limit';
 import { syncLocaleFromProfile } from '@/lib/locale';
 import { ok, fail, readJson } from '@/lib/http';
+import { safeReturnPath } from '@/lib/auth/redirect';
 
 export const runtime = 'nodejs';
 
@@ -12,7 +13,7 @@ export const runtime = 'nodejs';
 export async function POST(req: Request) {
   const parsed = loginPasswordSchema.safeParse(await readJson(req));
   if (!parsed.success) return fail('validation', 400);
-  const { mobile, password } = parsed.data;
+  const { mobile, password, callbackUrl } = parsed.data;
 
   // Throttle before checking credentials to reduce brute-force attempts and
   // avoid turning responses into account-enumeration signals.
@@ -32,5 +33,5 @@ export async function POST(req: Request) {
 
   await createSession({ sub: student.id, kind: 'student', role: 'STUDENT', name: student.name });
   await syncLocaleFromProfile(student.preferredLanguage);
-  return ok({ redirect: '/student' });
+  return ok({ redirect: safeReturnPath(callbackUrl) });
 }

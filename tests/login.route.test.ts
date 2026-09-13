@@ -54,6 +54,40 @@ describe('POST /api/auth/login', () => {
     expect(createSessionMock).toHaveBeenCalledWith({ sub: 's1', kind: 'student', role: 'STUDENT', name: 'Ravi' });
   });
 
+  it('returns a safe callbackUrl after mobile and password login', async () => {
+    p.student.findUnique.mockResolvedValue({
+      id: 's1',
+      name: 'Ravi',
+      mobile: '+919876543210',
+      passwordHash: 'hash',
+      preferredLanguage: 'en',
+    });
+    verifyPasswordMock.mockResolvedValue(true);
+
+    const res = await POST(req({ mobile: '9876543210', password: 'correct-password', callbackUrl: '/courses?tab=ai' }));
+    const json = await res.json();
+
+    expect(res.status).toBe(200);
+    expect(json.redirect).toBe('/courses?tab=ai');
+  });
+
+  it('rejects external callbackUrl values after mobile and password login', async () => {
+    p.student.findUnique.mockResolvedValue({
+      id: 's1',
+      name: 'Ravi',
+      mobile: '+919876543210',
+      passwordHash: 'hash',
+      preferredLanguage: 'en',
+    });
+    verifyPasswordMock.mockResolvedValue(true);
+
+    const res = await POST(req({ mobile: '9876543210', password: 'correct-password', callbackUrl: 'https://evil.test' }));
+    const json = await res.json();
+
+    expect(res.status).toBe(200);
+    expect(json.redirect).toBe('/student');
+  });
+
   it('returns generic invalidCredentials when no matching password account exists', async () => {
     p.student.findUnique.mockResolvedValue(null);
 

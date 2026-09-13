@@ -1297,7 +1297,7 @@
     "minutes": "{count} min",
     "start": "Start Test",
     "viewDetails": "View details",
-    "owned": "Purchased",
+    "owned": "Free access",
     "difficulty": {
       "EASY": "Easy",
       "MEDIUM": "Medium",
@@ -1325,7 +1325,9 @@
       "fixedNote": "A curated, fixed set of questions.",
       "ownedNote": "You own this test.",
       "buyCta": "Buy for ₹{price}",
-      "startCta": "Start Test"
+      "startCta": "Start Test",
+      "freeNote": "No payment required for Exam Preparation right now.",
+      "attemptsRemaining": "{count, plural, =0 {0 attempts remaining} =1 {1 free attempt remaining} other {# free attempts remaining}}"
     },
     "checkout": {
       "title": "Checkout",
@@ -1336,7 +1338,9 @@
       "title": "Test engine coming soon",
       "coming": "The test-taking experience — timer, autosave and question navigation — is built in the next phase.",
       "back": "Back to test"
-    }
+    },
+    "freeAccess": "Free access",
+    "attemptsRemaining": "{count, plural, =0 {0 attempts remaining} =1 {1 free attempt remaining} other {# free attempts remaining}}"
   },
   "payments": {
     "checkout": {
@@ -1391,10 +1395,13 @@
       "resumeTitle": "You have a test in progress",
       "resume": "Resume Test",
       "completedTitle": "You have already taken this test",
-      "completedNote": "Each test can be attempted once. You can view your result.",
+      "completedNote": "You can start up to 3 free attempts for each test. You can view your latest result.",
       "viewResult": "View result",
       "back": "Back to test",
-      "startError": "Could not start the test. Please try again."
+      "startError": "Could not start the test. Please try again.",
+      "attemptsRemaining": "{count, plural, =0 {0 attempts remaining} =1 {1 free attempt remaining} other {# free attempts remaining}}",
+      "limitReachedTitle": "Free attempt limit reached",
+      "limitReachedNote": "You have used your {count} free attempts for this test."
     },
     "ui": {
       "questionOf": "Question {current} of {total}",

@@ -2,11 +2,13 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getToken } from 'next-auth/jwt';
 import { prisma } from '@/lib/prisma';
 import { createSession } from '@/lib/auth/session';
+import { returnParamFromUrl, withReturnParam } from '@/lib/auth/redirect';
 import { syncLocaleFromProfile } from '@/lib/locale';
 
 export const runtime = 'nodejs';
 
 export async function GET(req: NextRequest) {
+  const returnTo = returnParamFromUrl(req.nextUrl);
   const token = await getToken({
     req,
     secret: process.env.NEXTAUTH_SECRET ?? process.env.JWT_SECRET,
@@ -20,5 +22,6 @@ export async function GET(req: NextRequest) {
   await createSession({ sub: student.id, kind: 'student', role: 'STUDENT', name: student.name });
   await syncLocaleFromProfile(student.preferredLanguage);
 
-  return NextResponse.redirect(new URL(student.mobile ? '/student' : '/complete-profile', req.url));
+  const destination = student.mobile ? returnTo : withReturnParam('/complete-profile', returnTo);
+  return NextResponse.redirect(new URL(destination, req.url));
 }

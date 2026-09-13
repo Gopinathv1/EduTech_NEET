@@ -1,4 +1,4 @@
-import type { AttemptStatus, Prisma } from '@prisma/client';
+import { Prisma, type AttemptStatus } from '@prisma/client';
 import { prisma } from '@/lib/prisma';
 import { generateForAttempt } from '@/lib/generator/plan';
 import { GeneratorError } from '@/lib/generator';
@@ -22,13 +22,23 @@ import { buildResultNotificationData } from '@/lib/notifications/create';
 
 export type StartOutcome =
   | { ok: true; attemptId: string; resumed: boolean }
-  | { ok: false; code: 'notOwned' | 'notFound' | 'languageUnavailable' | 'alreadyCompleted' | 'generationFailed'; attemptId?: string };
+  | { ok: false; code: 'notFound' | 'languageUnavailable' | 'attemptLimitReached' | 'generationFailed'; attemptId?: string };
 
 const ACTIVE: AttemptStatus = 'IN_PROGRESS';
+export const FREE_ATTEMPT_LIMIT = 3;
+
+export async function getFreeAttemptSummary(studentId: string, testId: string) {
+  const used = await prisma.testAttempt.count({ where: { studentId, testId } });
+  return {
+    used,
+    limit: FREE_ATTEMPT_LIMIT,
+    remaining: Math.max(FREE_ATTEMPT_LIMIT - used, 0),
+  };
+}
 
 /**
- * Start a fresh attempt or resume the student's in-progress one. Enforces a single
- * active attempt per (student, test) and blocks re-attempting a completed test.
+ * Start a fresh attempt or resume the student's in-progress one. Starting a new
+ * attempt consumes one of the student's free attempts for this test.
  */
 export async function startOrResumeAttempt(
   studentId: string,
@@ -37,29 +47,18 @@ export async function startOrResumeAttempt(
 ): Promise<StartOutcome> {
   const test = await prisma.test.findUnique({
     where: { id: testId },
-    select: { id: true, isPublished: true, durationMinutes: true, availableLanguages: true, price: true },
+    select: { id: true, isPublished: true, durationMinutes: true, availableLanguages: true },
   });
   if (!test || !test.isPublished) return { ok: false, code: 'notFound' };
 
-  const owned = (await prisma.testEntitlement.count({ where: { studentId, testId } })) > 0;
-  if (!owned) {
-    if (test.price > 0) return { ok: false, code: 'notOwned' };
-    await prisma.testEntitlement.upsert({
-      where: { studentId_testId: { studentId, testId } },
-      create: { studentId, testId, source: 'FREE' },
-      update: {},
-    });
-  }
-
-  // One attempt per test: resume an active one, block a completed one.
+  // Resume an active attempt without consuming another free attempt.
   const existing = await prisma.testAttempt.findFirst({
-    where: { studentId, testId },
+    where: { studentId, testId, status: ACTIVE },
     orderBy: { createdAt: 'desc' },
     select: { id: true, status: true },
   });
   if (existing) {
-    if (existing.status === ACTIVE) return { ok: true, attemptId: existing.id, resumed: true };
-    return { ok: false, code: 'alreadyCompleted', attemptId: existing.id };
+    return { ok: true, attemptId: existing.id, resumed: true };
   }
 
   const languages = test.availableLanguages.length ? test.availableLanguages : ['en'];
@@ -67,17 +66,8 @@ export async function startOrResumeAttempt(
 
   // Create the attempt first so its id can seed the generator, then freeze the
   // question order. If generation fails, roll the attempt back.
-  const attempt = await prisma.testAttempt.create({
-    data: {
-      studentId,
-      testId,
-      selectedLanguage: language,
-      remainingSeconds: test.durationMinutes * 60,
-      status: ACTIVE,
-      shuffleOptions: true, // new attempts present options in a shuffled order
-    },
-    select: { id: true },
-  });
+  const attempt = await createFreeAttemptSlot({ studentId, testId, language, durationMinutes: test.durationMinutes });
+  if (!attempt) return { ok: false, code: 'attemptLimitReached' };
 
   try {
     const { questionIds } = await generateForAttempt(testId, language, attempt.id);
@@ -92,6 +82,48 @@ export async function startOrResumeAttempt(
     if (err instanceof GeneratorError) return { ok: false, code: 'generationFailed' };
     throw err;
   }
+}
+
+async function createFreeAttemptSlot({
+  studentId,
+  testId,
+  language,
+  durationMinutes,
+}: {
+  studentId: string;
+  testId: string;
+  language: 'en' | 'ta';
+  durationMinutes: number;
+}) {
+  for (let i = 0; i < 2; i += 1) {
+    try {
+      return await prisma.$transaction(
+        async (tx) => {
+          const used = await tx.testAttempt.count({ where: { studentId, testId } });
+          if (used >= FREE_ATTEMPT_LIMIT) return null;
+
+          return tx.testAttempt.create({
+            data: {
+              studentId,
+              testId,
+              selectedLanguage: language,
+              remainingSeconds: durationMinutes * 60,
+              status: ACTIVE,
+              shuffleOptions: true, // new attempts present options in a shuffled order
+            },
+            select: { id: true },
+          });
+        },
+        { isolationLevel: Prisma.TransactionIsolationLevel.Serializable },
+      );
+    } catch (e) {
+      if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === 'P2034' && i === 0) {
+        continue;
+      }
+      throw e;
+    }
+  }
+  return null;
 }
 
 /**

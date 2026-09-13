@@ -2,6 +2,7 @@ import { Prisma } from '@prisma/client';
 import { prisma } from '@/lib/prisma';
 import { completeProfileSchema } from '@/lib/validation/auth';
 import { getSession } from '@/lib/auth/session';
+import { returnParamFromUrl } from '@/lib/auth/redirect';
 import { ok, fail, readJson } from '@/lib/http';
 
 export const runtime = 'nodejs';
@@ -11,6 +12,7 @@ export const runtime = 'nodejs';
 export async function POST(req: Request) {
   const session = await getSession();
   if (!session || session.kind !== 'student') return fail('unauthorized', 401);
+  const returnTo = returnParamFromUrl(new URL(req.url));
 
   const parsed = completeProfileSchema.safeParse(await readJson(req));
   if (!parsed.success) {
@@ -29,5 +31,5 @@ export async function POST(req: Request) {
     throw e;
   }
 
-  return ok({ redirect: '/student' });
+  return ok({ redirect: returnTo });
 }

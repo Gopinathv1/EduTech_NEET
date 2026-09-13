@@ -54,6 +54,7 @@ export type RegisterInput = z.infer<typeof registerSchema>;
 export const loginPasswordSchema = z.object({
   mobile: mobileSchema,
   password: z.string().min(1, 'required'),
+  callbackUrl: z.string().optional(),
 });
 export type LoginPasswordInput = z.infer<typeof loginPasswordSchema>;
 

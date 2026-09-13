@@ -2,10 +2,13 @@
 
 import { signIn } from 'next-auth/react';
 
-export default function GoogleButton({ label }: { label: string }) {
+export default function GoogleButton({ label, callbackUrl }: { label: string; callbackUrl?: string }) {
   function startGoogle() {
+    const finishUrl = new URL('/api/auth/google/finish', window.location.origin);
+    if (callbackUrl) finishUrl.searchParams.set('callbackUrl', callbackUrl);
+
     void signIn('google', {
-      callbackUrl: '/api/auth/google/finish',
+      callbackUrl: `${finishUrl.pathname}${finishUrl.search}`,
     });
   }
 

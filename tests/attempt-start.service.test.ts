@@ -7,9 +7,10 @@ const generator = vi.hoisted(() => ({
 vi.mock('@/lib/generator/plan', () => generator);
 vi.mock('@/lib/prisma', () => ({
   prisma: {
+    $transaction: vi.fn(),
     test: { findUnique: vi.fn() },
-    testEntitlement: { count: vi.fn(), upsert: vi.fn() },
     testAttempt: {
+      count: vi.fn(),
       findFirst: vi.fn(),
       create: vi.fn(),
       update: vi.fn(),
@@ -34,9 +35,9 @@ const publishedPaidTest = {
 
 beforeEach(() => {
   vi.clearAllMocks();
+  p.$transaction.mockImplementation((fn: (tx: unknown) => unknown) => fn(p));
   p.test.findUnique.mockResolvedValue(publishedPaidTest);
-  p.testEntitlement.count.mockResolvedValue(1);
-  p.testEntitlement.upsert.mockResolvedValue({});
+  p.testAttempt.count.mockResolvedValue(0);
   p.testAttempt.findFirst.mockResolvedValue(null);
   p.testAttempt.create.mockResolvedValue({ id: 'att1' });
   p.testAttempt.update.mockResolvedValue({});
@@ -45,7 +46,7 @@ beforeEach(() => {
 });
 
 describe('startOrResumeAttempt', () => {
-  it('starts a paid owned mock test and freezes generated questions', async () => {
+  it('starts a mock test without requiring payment and freezes generated questions', async () => {
     const out = await startOrResumeAttempt('s1', 't1', 'en');
 
     expect(out).toEqual({ ok: true, attemptId: 'att1', resumed: false });
@@ -67,27 +68,12 @@ describe('startOrResumeAttempt', () => {
     });
   });
 
-  it('blocks a paid test when the student does not own it', async () => {
-    p.testEntitlement.count.mockResolvedValue(0);
-
-    const out = await startOrResumeAttempt('s1', 't1', 'en');
-
-    expect(out).toEqual({ ok: false, code: 'notOwned' });
-    expect(p.testAttempt.create).not.toHaveBeenCalled();
-  });
-
-  it('auto-grants and starts a free published mock test', async () => {
-    p.test.findUnique.mockResolvedValue({ ...publishedPaidTest, price: 0 });
-    p.testEntitlement.count.mockResolvedValue(0);
+  it('allows the third free attempt for a paid published mock test', async () => {
+    p.testAttempt.count.mockResolvedValue(2);
 
     const out = await startOrResumeAttempt('s1', 't1', 'ta');
 
     expect(out).toEqual({ ok: true, attemptId: 'att1', resumed: false });
-    expect(p.testEntitlement.upsert).toHaveBeenCalledWith({
-      where: { studentId_testId: { studentId: 's1', testId: 't1' } },
-      create: { studentId: 's1', testId: 't1', source: 'FREE' },
-      update: {},
-    });
   });
 
   it('resumes an existing in-progress attempt', async () => {
@@ -96,6 +82,16 @@ describe('startOrResumeAttempt', () => {
     const out = await startOrResumeAttempt('s1', 't1', 'en');
 
     expect(out).toEqual({ ok: true, attemptId: 'att-existing', resumed: true });
+    expect(p.testAttempt.create).not.toHaveBeenCalled();
+  });
+
+  it('blocks the fourth free attempt for a student and test', async () => {
+    p.testAttempt.count.mockResolvedValue(3);
+
+    const out = await startOrResumeAttempt('s1', 't1', 'en');
+
+    expect(out).toEqual({ ok: false, code: 'attemptLimitReached' });
+    expect(p.testAttempt.count).toHaveBeenCalledWith({ where: { studentId: 's1', testId: 't1' } });
     expect(p.testAttempt.create).not.toHaveBeenCalled();
   });
 

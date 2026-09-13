@@ -4,6 +4,7 @@ import { getLocale, getTranslations } from 'next-intl/server';
 import { getSession } from '@/lib/auth/session';
 import { prisma } from '@/lib/prisma';
 import { localizedName } from '@/lib/admin/format';
+import { FREE_ATTEMPT_LIMIT, getFreeAttemptSummary } from '@/lib/attempts/service';
 import type { ExamLanguage } from '@/lib/attempts/examState';
 import StudentHeader from '@/components/student/StudentHeader';
 import StartAttemptClient from '@/components/student/exam/StartAttemptClient';
@@ -11,9 +12,8 @@ import { ClockIcon, BookIcon } from '@/components/public/icons';
 
 /**
  * Instructions page: marking scheme, navigation help and a per-attempt language
- * choice before the timer begins. Owners only. Behaviour depends on any prior
- * attempt — start fresh, resume an in-progress one, or view the result of a
- * completed one (a test can be attempted only once).
+ * choice before the timer begins. Authenticated students get three free starts
+ * per test. An in-progress attempt can be resumed without consuming another.
  */
 export default async function StartTestPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -32,21 +32,24 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
       durationMinutes: true,
       totalQuestions: true,
       availableLanguages: true,
-      price: true,
     },
   });
   if (!test || !test.isPublished) notFound();
 
-  const owned = (await prisma.testEntitlement.count({ where: { studentId: session.sub, testId: id } })) > 0;
-  if (!owned && test.price > 0) redirect(`/student/tests/${id}`);
-
-  const existing = await prisma.testAttempt.findFirst({
-    where: { studentId: session.sub, testId: id },
-    orderBy: { createdAt: 'desc' },
-    select: { id: true, status: true },
-  });
-  const completed = existing && existing.status !== 'IN_PROGRESS';
-  const inProgress = existing && existing.status === 'IN_PROGRESS';
+  const [summary, inProgress, latestCompleted] = await Promise.all([
+    getFreeAttemptSummary(session.sub, id),
+    prisma.testAttempt.findFirst({
+      where: { studentId: session.sub, testId: id, status: 'IN_PROGRESS' },
+      orderBy: { createdAt: 'desc' },
+      select: { id: true, status: true },
+    }),
+    prisma.testAttempt.findFirst({
+      where: { studentId: session.sub, testId: id, status: { not: 'IN_PROGRESS' } },
+      orderBy: { createdAt: 'desc' },
+      select: { id: true },
+    }),
+  ]);
+  const limitReached = !inProgress && summary.remaining <= 0;
 
   const title = localizedName(test.title, locale) || localizedName(test.title, 'en');
   const languages = (test.availableLanguages.length ? test.availableLanguages : ['en']) as ExamLanguage[];
@@ -64,16 +67,22 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
 
         <h1 className="mt-3 text-2xl font-bold text-textPrimary">{title}</h1>
 
-        {completed ? (
+        <p className="mt-4 rounded-xl border border-border bg-surfaceElevated px-4 py-3 text-sm font-semibold text-textPrimary">
+          {t('attemptsRemaining', { count: inProgress ? summary.remaining : summary.remaining })}
+        </p>
+
+        {limitReached ? (
           <div className="mt-6 rounded-2xl border border-border bg-surfaceElevated p-6">
-            <h2 className="text-lg font-semibold text-textPrimary">{t('completedTitle')}</h2>
-            <p className="mt-2 text-sm text-textSecondary">{t('completedNote')}</p>
-            <Link
-              href={`/student/results/${existing!.id}`}
-              className="mt-5 inline-block rounded-lg bg-brand px-6 py-3 text-sm font-bold text-white hover:bg-brand-dark"
-            >
-              {t('viewResult')}
-            </Link>
+            <h2 className="text-lg font-semibold text-textPrimary">{t('limitReachedTitle')}</h2>
+            <p className="mt-2 text-sm text-textSecondary">{t('limitReachedNote', { count: FREE_ATTEMPT_LIMIT })}</p>
+            {latestCompleted ? (
+              <Link
+                href={`/student/results/${latestCompleted.id}`}
+                className="mt-5 inline-block rounded-lg bg-brand px-6 py-3 text-sm font-bold text-white hover:bg-brand-dark"
+              >
+                {t('viewResult')}
+              </Link>
+            ) : null}
           </div>
         ) : (
           <>
