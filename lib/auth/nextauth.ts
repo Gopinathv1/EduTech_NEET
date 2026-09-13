@@ -5,6 +5,9 @@ import { upsertGoogleStudent } from '@/lib/auth/google';
 export const authOptions: NextAuthOptions = {
   session: { strategy: 'jwt' },
   secret: process.env.NEXTAUTH_SECRET ?? process.env.JWT_SECRET,
+  pages: {
+    error: '/login',
+  },
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID ?? '',

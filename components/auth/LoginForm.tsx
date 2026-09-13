@@ -13,11 +13,27 @@ import GoogleButton from './GoogleButton';
 
 type FormValues = { mobile: string; password: string };
 
-export default function LoginForm() {
+const nextAuthErrorCodes = new Set([
+  'AccessDenied',
+  'Callback',
+  'Configuration',
+  'OAuthAccountNotLinked',
+  'Verification',
+]);
+
+function authErrorCode(error?: string) {
+  if (!error) return undefined;
+  return nextAuthErrorCodes.has(error) ? 'googleSignInFailed' : 'generic';
+}
+
+export default function LoginForm({ authError }: { authError?: string }) {
   const t = useTranslations('auth.login');
   const tc = useTranslations('auth.common');
   const errText = useErrorText();
-  const [banner, setBanner] = useState<string>();
+  const [banner, setBanner] = useState<string | undefined>(() => {
+    const code = authErrorCode(authError);
+    return code ? errText(code) : undefined;
+  });
   const {
     register,
     handleSubmit,

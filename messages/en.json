@@ -766,6 +766,7 @@
       "accountNotFound": "No account found for this number.",
       "alreadyVerified": "This number is already verified. Please login.",
       "invalidCredentials": "Incorrect login details.",
+      "googleSignInFailed": "Google sign-in could not be completed. Please try again or contact support if this account is already registered.",
       "notVerified": "Please verify your mobile number first.",
       "accountInactive": "This account is inactive. Contact support.",
       "unauthorized": "Please login to continue.",

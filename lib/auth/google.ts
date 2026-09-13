@@ -1,5 +1,6 @@
 import type { Account, Profile, User } from 'next-auth';
 import type { AdapterUser } from 'next-auth/adapters';
+import { Prisma } from '@prisma/client';
 import { prisma } from '@/lib/prisma';
 
 type GoogleProfile = Profile & {
@@ -24,11 +25,20 @@ export async function upsertGoogleStudent({
   if (!email || p?.email_verified === false) return false;
 
   const name = user.name ?? p?.name ?? email.split('@')[0] ?? 'Student';
-  const existing = await prisma.student.findFirst({
-    where: { OR: [{ googleSubject }, { email }] },
-  });
+  const [byGoogleSubject, byEmail] = await Promise.all([
+    prisma.student.findUnique({ where: { googleSubject } }),
+    prisma.student.findUnique({ where: { email } }),
+  ]);
 
+  if (byGoogleSubject && byEmail && byGoogleSubject.id !== byEmail.id) {
+    return false;
+  }
+
+  const existing = byGoogleSubject ?? byEmail;
   if (existing) {
+    const ownsVerifiedEmail = existing.email === email || !byEmail || byEmail.id === existing.id;
+    if (!ownsVerifiedEmail) return false;
+
     await prisma.student.update({
       where: { id: existing.id },
       data: {
@@ -41,16 +51,23 @@ export async function upsertGoogleStudent({
     return true;
   }
 
-  await prisma.student.create({
-    data: {
-      name,
-      email,
-      mobile: null,
-      googleSubject,
-      isEmailVerified: true,
-      isMobileVerified: false,
-      preferredLanguage: 'en',
-    },
-  });
-  return true;
+  try {
+    await prisma.student.create({
+      data: {
+        name,
+        email,
+        mobile: null,
+        googleSubject,
+        isEmailVerified: true,
+        isMobileVerified: false,
+        preferredLanguage: 'en',
+      },
+    });
+    return true;
+  } catch (e) {
+    if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === 'P2002') {
+      return false;
+    }
+    throw e;
+  }
 }
