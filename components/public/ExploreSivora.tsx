@@ -49,14 +49,14 @@ export default function ExploreSivora({ exclude = [] }: { exclude?: ProductKey[]
   const visibleProducts = PRODUCTS.filter((product) => !exclude.includes(product.key));
 
   return (
-    <section id="explore-sivora" className="border-t border-[#2B2B2B] bg-background/74 py-20 sm:py-28 lg:py-32">
-      <div className="mx-auto w-full max-w-[1600px] px-[clamp(1rem,3vw,3rem)]">
+    <section id="explore-sivora" className="sivora-section-sheen border-t border-[#2B2B2B] bg-background/74 py-20 sm:py-28 lg:py-32">
+      <div className="relative z-10 mx-auto w-full max-w-[1600px] px-[clamp(1rem,3vw,3rem)]">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">
               {t('eyebrow')}
             </p>
-            <h2 className="mt-5 max-w-5xl text-[clamp(2.7rem,6vw,6.6rem)] font-black uppercase leading-[0.9] text-white">
+            <h2 className="sivora-title-depth mt-5 max-w-5xl text-[clamp(2.7rem,6vw,6.6rem)] font-black uppercase leading-[0.9] text-white">
               {t('title')}
             </h2>
           </div>
@@ -73,14 +73,15 @@ export default function ExploreSivora({ exclude = [] }: { exclude?: ProductKey[]
               <Link
                 key={product.key}
                 href={product.href}
-                className={`group relative min-h-[320px] overflow-hidden rounded-2xl border border-[#2B2B2B] bg-[#111111] p-6 shadow-2xl shadow-black/10 transition duration-300 hover:-translate-y-1 hover:border-brand/45 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand ${PRODUCT_LAYOUT[product.key]}`}
+                className={`sivora-premium-card sivora-scroll-reveal group relative min-h-[320px] overflow-hidden rounded-2xl border border-[#2B2B2B] bg-[#111111] p-6 shadow-2xl shadow-black/10 transition duration-300 hover:-translate-y-1 hover:border-brand/45 hover:shadow-[0_24px_80px_rgba(0,0,0,0.34)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand ${PRODUCT_LAYOUT[product.key]}`}
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${PRODUCT_ACCENTS[product.key]} opacity-90`} />
                 <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full border border-[#f6a623]/20" />
                 <div className="absolute -bottom-20 right-10 h-48 w-48 rounded-full border border-brand/20" />
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
                 <div className="relative flex h-full flex-col">
                   <div className="flex items-start justify-between gap-4">
-                    <span className="inline-flex h-[3.25rem] w-[3.25rem] items-center justify-center rounded-2xl border border-[#f6a623]/25 bg-[#050505]/72 text-[#f6d58a]">
+                    <span className="inline-flex h-[3.25rem] w-[3.25rem] items-center justify-center rounded-2xl border border-[#f6a623]/25 bg-[#050505]/72 text-[#f6d58a] shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_16px_36px_rgba(0,0,0,0.24)] transition duration-300 group-hover:border-brand/45 group-hover:text-white">
                       <Icon className="h-6 w-6" />
                     </span>
                     <span className="text-xs font-black uppercase tracking-[0.2em] text-[#f6d58a]">

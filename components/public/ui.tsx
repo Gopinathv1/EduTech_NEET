@@ -27,9 +27,9 @@ export function Section({
   return (
     <section
       id={id}
-      className={`border-t border-[#2B2B2B] py-20 sm:py-28 lg:py-32 ${tinted ? 'bg-[#111111]/86' : 'bg-background/74'} ${lazy ? 'cv-auto' : ''} ${className}`}
+      className={`sivora-section-sheen border-t border-[#2B2B2B] py-20 sm:py-28 lg:py-32 ${tinted ? 'bg-[#111111]/86' : 'bg-background/74'} ${lazy ? 'cv-auto' : ''} ${className}`}
     >
-      <Container>{children}</Container>
+      <Container className="relative z-10">{children}</Container>
     </section>
   );
 }
@@ -62,7 +62,7 @@ export function SectionHeading({
 
 export function Card({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
-    <div className={`group rounded-2xl border border-[#2B2B2B] bg-[#111111] shadow-xl shadow-black/5 transition duration-300 hover:-translate-y-1 hover:border-brand/35 hover:shadow-2xl hover:shadow-black/10 ${className}`}>
+    <div className={`sivora-premium-card group rounded-2xl border border-[#2B2B2B] bg-[#111111] shadow-xl shadow-black/5 transition duration-300 hover:-translate-y-1 hover:border-brand/35 hover:shadow-2xl hover:shadow-black/10 ${className}`}>
       {children}
     </div>
   );
@@ -90,7 +90,7 @@ export function PrimaryLink({
   className?: string;
 }) {
   return (
-    <Link href={href} className={`${linkBase} bg-gradient-to-r from-brand to-brand-light text-white shadow-lg shadow-brand/25 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand/30 ${className}`}>
+    <Link href={href} className={`${linkBase} sivora-premium-link bg-gradient-to-r from-brand to-brand-light text-white shadow-lg shadow-brand/25 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand/30 ${className}`}>
       {children}
       <span className="transition group-hover:translate-x-1">-&gt;</span>
     </Link>
@@ -109,7 +109,7 @@ export function SecondaryLink({
   return (
     <Link
       href={href}
-      className={`${linkBase} border border-[#2B2B2B] bg-white/80 text-textPrimary hover:-translate-y-0.5 hover:border-brand/45 hover:bg-[#111111] ${className}`}
+      className={`${linkBase} border border-[#2B2B2B] bg-white/90 text-textPrimary shadow-[inset_0_1px_0_rgba(255,255,255,0.55),0_12px_32px_rgba(0,0,0,0.22)] hover:-translate-y-0.5 hover:border-brand/45 hover:bg-[#111111] hover:text-white ${className}`}
     >
       {children}
       <span className="transition group-hover:translate-x-1">-&gt;</span>

@@ -44,11 +44,11 @@ export default function BrandLogo({
           width={1024}
           height={1024}
           priority
-          className="h-full w-full object-contain object-center [filter:brightness(1.06)_contrast(1.04)_drop-shadow(0_0_7px_rgba(246,166,35,0.22))]"
+          className="h-full w-full object-contain object-center [filter:brightness(1.08)_contrast(1.06)_drop-shadow(0_0_10px_rgba(246,166,35,0.26))]"
         />
       </span>
       <span className="flex min-w-0 flex-col justify-center leading-none">
-        <span className={`${nameClass} font-black uppercase tracking-[0.12em] text-[#fff8e7]`}>SIVORA</span>
+        <span className={`${nameClass} font-black uppercase tracking-[0.12em] text-[#fff8e7] [text-shadow:0_0_20px_rgba(246,166,35,0.14)]`}>SIVORA</span>
         <span className={`${uprisingClass} mt-1 font-black uppercase tracking-[0.28em] text-[#f6a623]`}>
           UP<span className="text-brand">↑</span>RISING
         </span>
