@@ -29,7 +29,7 @@ export async function POST(_req: Request, { params }: { params: Promise<{ id: st
   }
 
   // Refresh the cached value used for a fast resume.
-  await prisma.testAttempt.update({ where: { id }, data: { remainingSeconds } });
+  await prisma.testAttempt.updateMany({ where: { id, status: 'IN_PROGRESS' }, data: { remainingSeconds } });
 
   return ok({ status: 'IN_PROGRESS', remainingSeconds });
 }

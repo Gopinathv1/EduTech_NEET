@@ -10,8 +10,9 @@ import { paletteStatus, type AnswerState, type PaletteStatus } from '@/lib/attem
 
 const STATUS_CLASS: Record<PaletteStatus, string> = {
   answered: 'bg-green-600 text-white border-green-600',
-  marked: 'bg-amber-950/300 text-white border-amber-500',
-  unanswered: 'bg-surfaceElevated text-textSecondary border-border',
+  marked: 'bg-purple-800 text-white border-purple-400',
+  answered_marked: 'bg-purple-800 text-white border-green-400 border-2',
+  unanswered: 'bg-orange-950 text-orange-100 border-orange-500',
   not_visited: 'bg-surfaceElevated text-slate-400 border-border',
 };
 
@@ -32,6 +33,7 @@ export default function QuestionPalette({
     { status: 'answered', label: t('legendAnswered') },
     { status: 'unanswered', label: t('legendUnanswered') },
     { status: 'marked', label: t('legendMarked') },
+    { status: 'answered_marked', label: t('legendAnsweredMarked') },
     { status: 'not_visited', label: t('legendNotVisited') },
   ];
 
@@ -47,12 +49,14 @@ export default function QuestionPalette({
               <button
                 type="button"
                 onClick={() => onJump(index)}
+                aria-label={`${index + 1}: ${legend.find(l => l.status === status)?.label}`}
+                title={legend.find(l => l.status === status)?.label}
                 aria-current={isCurrent ? 'true' : undefined}
                 className={`flex h-10 w-full items-center justify-center rounded-lg border text-sm font-semibold transition-colors ${STATUS_CLASS[status]} ${
                   isCurrent ? 'ring-2 ring-brand ring-offset-1' : ''
                 }`}
               >
-                {index + 1}
+                {index + 1}{status === 'answered_marked' ? '✓' : status === 'marked' ? '⚑' : ''}
               </button>
             </li>
           );

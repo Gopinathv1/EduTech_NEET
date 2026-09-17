@@ -1,3 +1,4 @@
+import AttemptHistory from '@/components/student/exam/AttemptHistory';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getLocale, getTranslations } from 'next-intl/server';
@@ -125,6 +126,7 @@ export default async function TestDetailPage({ params }: { params: Promise<{ id:
             {t('detail.startCta')}
           </Link>
         </div>
+        {session?.kind === 'student' ? <AttemptHistory studentId={session.sub} testId={test.id} /> : null}
       </main>
     </div>
   );

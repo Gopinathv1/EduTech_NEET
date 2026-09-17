@@ -1,5 +1,7 @@
 'use client';
 
+import { NEET_CONFIG } from '@/lib/attempts/config';
+
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { apiPost, apiPatch } from '@/lib/client/api';
@@ -126,7 +128,7 @@ export default function TestForm({
       availableLanguages: f.ta ? ['en', 'ta'] : ['en'],
       mode,
       questionIds: mode === 'FIXED' ? f.fixed.map((x) => x.id) : [],
-      totalQuestions: mode === 'RANDOM' ? Number(isFull ? 180 : f.totalQuestions) : undefined,
+      totalQuestions: mode === 'RANDOM' ? Number(isFull ? NEET_CONFIG.totalQuestions : f.totalQuestions) : undefined,
       scope: mode === 'RANDOM' ? (isFull ? 'FULL_SYLLABUS' : f.scope) : undefined,
       subjectIds: f.subjectIds,
       chapterIds: f.chapterIds,

@@ -1,3 +1,4 @@
+import { NEET_CONFIG } from '@/lib/attempts/config';
 import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
 import { getLocale, getTranslations } from 'next-intl/server';
@@ -19,6 +20,7 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
   const { id } = await params;
   const locale = (await getLocale()) as ExamLanguage;
   const t = await getTranslations('exam.instructions');
+  const tn = await getTranslations('neetPractice');
   const tc = await getTranslations('catalogue');
   const session = await getSession();
   if (!session || session.kind !== 'student') redirect(`/login?next=/student/tests/${id}/start`);
@@ -31,6 +33,7 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
       isPublished: true,
       durationMinutes: true,
       totalQuestions: true,
+      testType: true,
       availableLanguages: true,
     },
   });
@@ -65,10 +68,11 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
           ← {t('back')}
         </Link>
 
-        <h1 className="mt-3 text-2xl font-bold text-textPrimary">{title}</h1>
+        <h1 className="mt-3 text-2xl font-bold text-textPrimary">{tn('title')}</h1><p className="mt-1 text-textSecondary">{title}</p>
+        <p className="mt-3 text-xs text-textSecondary">{tn('disclaimer')}</p>
 
         <p className="mt-4 rounded-xl border border-border bg-surfaceElevated px-4 py-3 text-sm font-semibold text-textPrimary">
-          {t('attemptsRemaining', { count: inProgress ? summary.remaining : summary.remaining })}
+          {t('attemptsRemaining', { count: summary.remaining })} / {FREE_ATTEMPT_LIMIT}
         </p>
 
         {limitReached ? (
@@ -107,6 +111,13 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
               </div>
             </dl>
 
+            <div className="mt-4 space-y-2 text-sm text-textSecondary">
+              <p>{tn('maximumMarks')}: <strong>{test.totalQuestions * NEET_CONFIG.correct}</strong></p>
+              <p>{tn('questionType')}</p>
+              {test.testType === 'FULL_TEST' ? <p>{tn('distribution')}</p> : null}
+              <p>{tn('languageUnavailable')}</p>
+              <a href={NEET_CONFIG.source} target="_blank" rel="noreferrer" className="text-brand underline">{tn('source')}</a>
+            </div>
             <section className="mt-6 rounded-2xl border border-border bg-surfaceElevated p-5">
               <h2 className="text-sm font-semibold text-textPrimary">{t('marking')}</h2>
               <ul className="mt-2 space-y-1.5 text-sm text-textSecondary">

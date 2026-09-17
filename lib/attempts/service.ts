@@ -1,3 +1,6 @@
+import { randomUUID } from 'node:crypto';
+import { FREE_ATTEMPT_LIMIT, validFullMock } from './config';
+export { FREE_ATTEMPT_LIMIT } from './config';
 import { Prisma, type AttemptStatus } from '@prisma/client';
 import { prisma } from '@/lib/prisma';
 import { generateForAttempt } from '@/lib/generator/plan';
@@ -25,7 +28,7 @@ export type StartOutcome =
   | { ok: false; code: 'notFound' | 'languageUnavailable' | 'attemptLimitReached' | 'generationFailed'; attemptId?: string };
 
 const ACTIVE: AttemptStatus = 'IN_PROGRESS';
-export const FREE_ATTEMPT_LIMIT = 3;
+
 
 export async function getFreeAttemptSummary(studentId: string, testId: string) {
   const used = await prisma.testAttempt.count({ where: { studentId, testId } });
@@ -43,87 +46,54 @@ export async function getFreeAttemptSummary(studentId: string, testId: string) {
 export async function startOrResumeAttempt(
   studentId: string,
   testId: string,
-  language: 'en' | 'ta',
+  language: 'en' | 'ta' | 'hi',
 ): Promise<StartOutcome> {
-  const test = await prisma.test.findUnique({
-    where: { id: testId },
-    select: { id: true, isPublished: true, durationMinutes: true, availableLanguages: true },
-  });
+  const test = await prisma.test.findUnique({ where: { id: testId } });
   if (!test || !test.isPublished) return { ok: false, code: 'notFound' };
-
-  // Resume an active attempt without consuming another free attempt.
+  // Generate before insertion: a partially generated session is never visible.
   const existing = await prisma.testAttempt.findFirst({
-    where: { studentId, testId, status: ACTIVE },
-    orderBy: { createdAt: 'desc' },
-    select: { id: true, status: true },
+    where: { studentId, testId, status: ACTIVE }, orderBy: { createdAt: 'desc' },
   });
-  if (existing) {
-    return { ok: true, attemptId: existing.id, resumed: true };
+  if (existing) return { ok: true, attemptId: existing.id, resumed: true };
+  if (!(test.availableLanguages.length ? test.availableLanguages : ['en']).includes(language)) {
+    return { ok: false, code: 'languageUnavailable' };
   }
-
-  const languages = test.availableLanguages.length ? test.availableLanguages : ['en'];
-  if (!languages.includes(language)) return { ok: false, code: 'languageUnavailable' };
-
-  // Create the attempt first so its id can seed the generator, then freeze the
-  // question order. If generation fails, roll the attempt back.
-  const attempt = await createFreeAttemptSlot({ studentId, testId, language, durationMinutes: test.durationMinutes });
-  if (!attempt) return { ok: false, code: 'attemptLimitReached' };
-
+  if (await prisma.testAttempt.count({ where: { studentId, testId } }) >= FREE_ATTEMPT_LIMIT) {
+    return { ok: false, code: 'attemptLimitReached' };
+  }
+  if (!validFullMock(test)) return { ok: false, code: 'generationFailed' };
+  const seed = randomUUID();
+  let questionIds: string[];
   try {
-    const { questionIds } = await generateForAttempt(testId, language, attempt.id);
-    if (questionIds.length === 0) throw new GeneratorError('Empty question set');
-    await prisma.testAttempt.update({
-      where: { id: attempt.id },
-      data: { questionOrder: questionIds, seed: attempt.id },
-    });
-    return { ok: true, attemptId: attempt.id, resumed: false };
-  } catch (err) {
-    await prisma.testAttempt.delete({ where: { id: attempt.id } }).catch(() => {});
-    if (err instanceof GeneratorError) return { ok: false, code: 'generationFailed' };
-    throw err;
+    ({ questionIds } = await generateForAttempt(testId, language, seed));
+    if (!questionIds.length) throw new GeneratorError('Empty question set');
+  } catch (error) {
+    if (error instanceof GeneratorError) return { ok: false, code: 'generationFailed' };
+    throw error;
   }
-}
-
-async function createFreeAttemptSlot({
-  studentId,
-  testId,
-  language,
-  durationMinutes,
-}: {
-  studentId: string;
-  testId: string;
-  language: 'en' | 'ta';
-  durationMinutes: number;
-}) {
-  for (let i = 0; i < 2; i += 1) {
+  for (let retry = 0; retry < 5; retry++) {
     try {
-      return await prisma.$transaction(
-        async (tx) => {
-          const used = await tx.testAttempt.count({ where: { studentId, testId } });
-          if (used >= FREE_ATTEMPT_LIMIT) return null;
-
-          return tx.testAttempt.create({
-            data: {
-              studentId,
-              testId,
-              selectedLanguage: language,
-              remainingSeconds: durationMinutes * 60,
-              status: ACTIVE,
-              shuffleOptions: true, // new attempts present options in a shuffled order
-            },
-            select: { id: true },
-          });
-        },
-        { isolationLevel: Prisma.TransactionIsolationLevel.Serializable },
-      );
-    } catch (e) {
-      if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === 'P2034' && i === 0) {
-        continue;
-      }
-      throw e;
+      return await prisma.$transaction(async (tx): Promise<StartOutcome> => {
+        const active = await tx.testAttempt.findFirst({
+          where: { studentId, testId, status: ACTIVE }, orderBy: { createdAt: 'desc' },
+        });
+        if (active) return { ok: true, attemptId: active.id, resumed: true };
+        const used = await tx.testAttempt.count({ where: { studentId, testId } });
+        if (used >= FREE_ATTEMPT_LIMIT) return { ok: false, code: 'attemptLimitReached' };
+        const attempt = await tx.testAttempt.create({
+          data: { studentId, testId, selectedLanguage: language,
+            remainingSeconds: test.durationMinutes * 60, status: ACTIVE,
+            shuffleOptions: true, questionOrder: questionIds, seed },
+          select: { id: true },
+        });
+        return { ok: true, attemptId: attempt.id, resumed: false };
+      }, { isolationLevel: Prisma.TransactionIsolationLevel.Serializable });
+    } catch (error) {
+      if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2034' && retry < 4) continue;
+      throw error;
     }
   }
-  return null;
+  return { ok: false, code: 'attemptLimitReached' };
 }
 
 /**
@@ -161,9 +131,11 @@ export type ExamQuestion = {
   order: number;
   questionType: string;
   imageUrl: string | null;
+  subjectCode: string;
   en: ExamQuestionContent;
   /** Reviewed Tamil content, or null when the question has no reviewed Tamil. */
   ta: ExamQuestionContent | null;
+  hi: ExamQuestionContent | null;
 };
 
 export type ExamAnswerState = {
@@ -176,7 +148,7 @@ export type ExamPayload = {
   attemptId: string;
   testTitle: unknown; // { en, ta } Json — localized in the page
   availableLanguages: string[];
-  selectedLanguage: 'en' | 'ta';
+  selectedLanguage: 'en' | 'ta' | 'hi';
   remainingSeconds: number;
   status: AttemptStatus;
   questions: ExamQuestion[];
@@ -226,8 +198,9 @@ export async function buildExamPayload(attempt: {
         id: true,
         questionType: true,
         imageUrl: true,
+        subject: { select: { code: true } },
         translations: {
-          where: { language: { in: ['en', 'ta'] } },
+          where: { language: { in: ['en', 'ta', 'hi'] } },
           select: {
             language: true,
             questionText: true,
@@ -250,10 +223,11 @@ export async function buildExamPayload(attempt: {
   const examQuestions: ExamQuestion[] = [];
   orderIds.forEach((id, index) => {
     const q = byId.get(id);
-    if (!q) return;
+    if (!q) throw new Error('Attempt question missing');
     const en = q.translations.find((tr) => tr.language === 'en');
+    const hi = q.translations.find(tr => tr.language === 'hi' && tr.reviewed);
     const ta = q.translations.find((tr) => tr.language === 'ta' && tr.reviewed);
-    if (!en) return; // English is authoritative; skip a question missing it
+    if (!en) throw new Error('Attempt question has no English content');
 
     // Present options in a per-attempt shuffled order (same order for EN + TA),
     // skipping questions where reordering would break the options.
@@ -267,8 +241,10 @@ export async function buildExamPayload(attempt: {
       order: index,
       questionType: q.questionType,
       imageUrl: q.imageUrl,
+      subjectCode: q.subject.code,
       en: applyDisplayOrder(enContent, order),
       ta: taContent ? applyDisplayOrder(taContent, order) : null,
+      hi: hi ? applyDisplayOrder(pickContent(hi), order) : null,
     });
   });
 
@@ -281,12 +257,12 @@ export async function buildExamPayload(attempt: {
     };
   }
 
-  const selectedLanguage = attempt.selectedLanguage === 'ta' ? 'ta' : 'en';
+  const selectedLanguage = attempt.selectedLanguage === 'hi' ? 'hi' : attempt.selectedLanguage === 'ta' ? 'ta' : 'en';
 
   return {
     attemptId: attempt.id,
     testTitle: attempt.test.title,
-    availableLanguages: attempt.test.availableLanguages.length ? attempt.test.availableLanguages : ['en'],
+    availableLanguages: ['en', 'ta', 'hi'].filter(code => examQuestions.every(q => q[code as 'en' | 'ta' | 'hi'] !== null)),
     selectedLanguage,
     remainingSeconds: computeRemainingSeconds(attempt.startedAt, attempt.test.durationMinutes),
     status: attempt.status,
@@ -362,7 +338,7 @@ export async function finalizeAttempt(
       .map((id) => {
         const q = qById.get(id);
         const tr = q?.translations[0];
-        if (!q || !tr?.correctOption) return null;
+        if (!q || !tr?.correctOption) throw new Error('Cannot finalize: a frozen question or answer key is missing');
         // Answers were recorded in DISPLAY space, so map the canonical correct
         // option through the same per-attempt shuffle before comparing.
         const shuffle = attempt.shuffleOptions && canShuffleOptions(tr, q.questionType);

@@ -39,7 +39,7 @@ export type SubjectQuota = {
 
 export type GeneratorRules = {
   totalQuestions: number;
-  language: 'en' | 'ta';
+  language: 'en' | 'ta' | 'hi';
   /** Percentages (or any non-negative weights); normalised internally. */
   difficultyMix: Record<GeneratorDifficulty, number>;
   subjects: SubjectQuota[];
@@ -91,7 +91,7 @@ type Picked = { chosen: GeneratorQuestion[]; taFallback: number };
 function pickPreferLang(
   candidates: GeneratorQuestion[],
   n: number,
-  language: 'en' | 'ta',
+  language: 'en' | 'ta' | 'hi',
   rng: () => number,
 ): Picked {
   if (n <= 0 || candidates.length === 0) return { chosen: [], taFallback: 0 };
@@ -113,7 +113,7 @@ function pickFromChapter(
   available: GeneratorQuestion[],
   target: number,
   mixFrac: Record<GeneratorDifficulty, number>,
-  language: 'en' | 'ta',
+  language: 'en' | 'ta' | 'hi',
   rng: () => number,
 ): Picked {
   if (target <= 0 || available.length === 0) return { chosen: [], taFallback: 0 };

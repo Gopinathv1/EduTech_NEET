@@ -7,12 +7,8 @@
  * time from these two stored values so a tampered or lagging client can neither
  * gain time nor keep answering past the deadline.
  *
- * A small grace window absorbs clock skew and network latency so an answer that
- * left the browser just before the deadline is still accepted.
+ * Answer routes reject writes at the exact deadline.
  */
-
-/** Seconds past the hard deadline during which a late answer is still accepted. */
-export const GRACE_SECONDS = 15;
 
 /** Elapsed whole seconds since the attempt started (never negative). */
 export function elapsedSeconds(startedAt: Date, now: Date = new Date()): number {
@@ -39,17 +35,3 @@ export function isTimeUp(
   return computeRemainingSeconds(startedAt, durationMinutes, now) <= 0;
 }
 
-/**
- * True once we are past the deadline *and* the grace window — the point at which
- * the server refuses further answers and auto-submits the attempt. Answers that
- * arrive within the grace window (time up but not past grace) are still accepted.
- */
-export function isPastGrace(
-  startedAt: Date,
-  durationMinutes: number,
-  now: Date = new Date(),
-  grace: number = GRACE_SECONDS,
-): boolean {
-  const total = durationMinutes * 60;
-  return elapsedSeconds(startedAt, now) > total + grace;
-}

@@ -63,17 +63,6 @@ export default async function ResultAnalysis({
             </dl>
           </div>
 
-          {/* Future metrics */}
-          <div className="mt-4 grid grid-cols-2 gap-3">
-            {[t('summary.percentile'), t('summary.rank')].map((label) => (
-              <div key={label} className="flex items-center justify-between rounded-xl border border-dashed border-border bg-surface px-4 py-3">
-                <span className="text-sm font-medium text-textSecondary">{label}</span>
-                <span className="rounded-full bg-surface px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-textSecondary">
-                  {t('summary.comingSoon')}
-                </span>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -87,6 +76,8 @@ export default async function ResultAnalysis({
                 <th className="px-4 py-3">{t('subject.subject')}</th>
                 <th className="px-4 py-3 text-right">{t('subject.attempted')}</th>
                 <th className="px-4 py-3 text-right">{t('subject.correct')}</th>
+                <th className="px-4 py-3">{t('summary.wrong')}</th>
+                <th className="px-4 py-3">{t('summary.skipped')}</th>
                 <th className="px-4 py-3">{t('subject.accuracy')}</th>
                 <th className="px-4 py-3 text-right">{t('subject.marks')}</th>
                 <th className="px-4 py-3 text-right">{t('subject.time')}</th>
@@ -98,6 +89,8 @@ export default async function ResultAnalysis({
                   <td className="px-4 py-3 font-medium text-textPrimary">{L(row.name, locale)}</td>
                   <td className="px-4 py-3 text-right text-textSecondary">{row.attempted}</td>
                   <td className="px-4 py-3 text-right text-textSecondary">{row.correct}</td>
+                  <td className="px-4 py-3">{row.wrong}</td>
+                  <td className="px-4 py-3">{row.skipped}</td>
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-2">
                       <div className="h-1.5 w-20 overflow-hidden rounded-full bg-surfaceElevated">

@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 /** Zod schemas for the test-engine (attempt) API. Run on the server. */
 
-export const attemptLanguageSchema = z.enum(['en', 'ta']);
+export const attemptLanguageSchema = z.enum(['en', 'ta', 'hi']);
 export const answerOptionSchema = z.enum(['A', 'B', 'C', 'D']);
 
 export const startAttemptSchema = z.object({

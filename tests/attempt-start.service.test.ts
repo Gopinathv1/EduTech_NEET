@@ -61,11 +61,11 @@ describe('startOrResumeAttempt', () => {
         }),
       }),
     );
-    expect(generator.generateForAttempt).toHaveBeenCalledWith('t1', 'en', 'att1');
-    expect(p.testAttempt.update).toHaveBeenCalledWith({
-      where: { id: 'att1' },
-      data: { questionOrder: ['q1', 'q2'], seed: 'att1' },
-    });
+    expect(generator.generateForAttempt).toHaveBeenCalledWith('t1', 'en', expect.any(String));
+    expect(p.testAttempt.create).toHaveBeenCalledWith(expect.objectContaining({
+      data: expect.objectContaining({ questionOrder: ['q1', 'q2'], seed: expect.any(String) }),
+    }));
+    expect(p.testAttempt.update).not.toHaveBeenCalled();
   });
 
   it('allows the third free attempt for a paid published mock test', async () => {
@@ -104,3 +104,22 @@ describe('startOrResumeAttempt', () => {
     expect(p.testAttempt.create).not.toHaveBeenCalled();
   });
 });
+
+  it.each([0, 1, 2])('allows attempt with %i previous attempts', async used => {
+    p.testAttempt.count.mockResolvedValue(used);
+    expect((await startOrResumeAttempt('s1', 't1', 'en')).ok).toBe(true);
+  });
+  it.each([['s2', 't1'], ['s1', 't2']])('scopes quota to %s and %s', async (studentId, testId) => {
+    await startOrResumeAttempt(studentId, testId, 'en');
+    expect(p.testAttempt.count).toHaveBeenCalledWith({ where: { studentId, testId } });
+  });
+  it('resumes a session inserted by a concurrent request', async () => {
+    p.testAttempt.findFirst.mockResolvedValueOnce(null).mockResolvedValueOnce({ id: 'concurrent' });
+    expect(await startOrResumeAttempt('s1', 't1', 'en')).toEqual({ ok: true, attemptId: 'concurrent', resumed: true });
+    expect(p.testAttempt.create).not.toHaveBeenCalled();
+  });
+  it('does not consume a slot when question generation fails', async () => {
+    generator.generateForAttempt.mockResolvedValue({ questionIds: [] });
+    expect(await startOrResumeAttempt('s1', 't1', 'en')).toEqual({ ok: false, code: 'generationFailed' });
+    expect(p.testAttempt.create).not.toHaveBeenCalled();
+  });

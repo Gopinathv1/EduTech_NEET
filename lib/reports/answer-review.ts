@@ -35,6 +35,7 @@ export type ReviewItem = {
   en: ReviewContent;
   /** Reviewed Tamil content, or null when unavailable (client shows EN + notice). */
   ta: ReviewContent | null;
+  hi: ReviewContent | null;
   correctOption: ScoredOption;
   selectedOption: ScoredOption | null;
   isCorrect: boolean | null;
@@ -82,7 +83,7 @@ export async function buildAnswerReview(attemptId: string, studentId: string): P
         imageUrl: true,
         chapter: { select: { name: true } },
         translations: {
-          where: { language: { in: ['en', 'ta'] } },
+          where: { language: { in: ['en', 'ta', 'hi'] } },
           select: {
             language: true,
             questionText: true,
@@ -114,6 +115,7 @@ export async function buildAnswerReview(attemptId: string, studentId: string): P
     if (!q) return;
     const enRaw = q.translations.find((t) => t.language === 'en') as TranslationRow | undefined;
     if (!enRaw) return; // English is authoritative
+    const hiRaw = q.translations.find(t => t.language === 'hi' && t.reviewed) as TranslationRow | undefined;
     const taRaw = q.translations.find((t) => t.language === 'ta' && t.reviewed) as TranslationRow | undefined;
 
     // Reconstruct the same per-attempt option order the student saw, so the
@@ -138,6 +140,7 @@ export async function buildAnswerReview(attemptId: string, studentId: string): P
       imageUrl: q.imageUrl,
       en: toContent(en),
       ta: taReviewed ? toContent(taReviewed) : null,
+      hi: hiRaw ? toContent(applyDisplayOrder(hiRaw, order)) : null,
       correctOption,
       selectedOption,
       isCorrect: a?.isCorrect ?? (selectedOption === null ? null : selectedOption === correctOption),

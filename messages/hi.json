@@ -1421,7 +1421,8 @@
       "legendAnswered": "Answered",
       "legendUnanswered": "Not answered",
       "legendMarked": "Marked for review",
-      "legendNotVisited": "Not visited"
+      "legendNotVisited": "Not visited",
+      "legendAnsweredMarked": "उत्तर दिया और समीक्षा के लिए चिह्नित"
     },
     "submitDialog": {
       "title": "Submit your test?",
@@ -3378,5 +3379,36 @@
       "title": "अन्य गंतव्य विकल्प.",
       "compare": "गंतव्यों की तुलना करें"
     }
+  },
+  "neetPractice": {
+    "title": "नीट मॉक टेस्ट",
+    "resultTitle": "नीट मॉक टेस्ट परिणाम",
+    "subjectsLabel": "विषय",
+    "subjects": {
+      "PHYSICS": "भौतिकी",
+      "CHEMISTRY": "रसायन विज्ञान",
+      "BOTANY": "वनस्पति विज्ञान",
+      "ZOOLOGY": "प्राणी विज्ञान"
+    },
+    "disclaimer": "SIVORA UP↑RISING एक स्वतंत्र शैक्षिक मंच है। यह NTA से संबद्ध या उसके द्वारा समर्थित नहीं है।",
+    "maximumMarks": "अधिकतम अंक",
+    "questionType": "चार विकल्प, एक सही उत्तर",
+    "distribution": "भौतिकी: 45 · रसायन विज्ञान: 45 · जीव विज्ञान: 90। SIVORA अभ्यास में वनस्पति विज्ञान 45 और प्राणी विज्ञान 45।",
+    "languageUnavailable": "आपकी पसंदीदा भाषा में समीक्षित सामग्री उपलब्ध न होने पर प्रश्न अंग्रेज़ी में दिखाए जाते हैं। अनुवाद तैयार नहीं किया जाता।",
+    "chooseOne": "एक उत्तर चुनें",
+    "markNext": "समीक्षा के लिए चिह्नित करें और आगे बढ़ें",
+    "saveNext": "सहेजें और आगे बढ़ें",
+    "history": "प्रयासों का इतिहास",
+    "used": "{limit} में से {count} प्रयास उपयोग किए",
+    "attempt": "प्रयास {number}",
+    "inProgress": "जारी है",
+    "completed": "पूर्ण",
+    "another": "एक और प्रयास करें",
+    "source": "NTA 2026 परीक्षा योजना",
+    "full": "पूर्ण नीट मॉक टेस्ट",
+    "previous": "पिछले वर्षों का अभ्यास",
+    "subject": "विषय टेस्ट",
+    "chapter": "अध्याय अभ्यास",
+    "answeredMarked": "उत्तर दिया और समीक्षा के लिए चिह्नित"
   }
 }

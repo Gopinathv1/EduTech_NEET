@@ -1,3 +1,4 @@
+import AttemptHistory from '@/components/student/exam/AttemptHistory';
 import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
 import { getLocale, getTranslations } from 'next-intl/server';
@@ -24,6 +25,7 @@ export default async function ResultPage({ params }: { params: Promise<{ attempt
   const { attemptId } = await params;
   const locale = (await getLocale()) as ExamLanguage;
   const t = await getTranslations('results');
+  const tn = await getTranslations('neetPractice');
   const session = await getSession();
   if (!session || session.kind !== 'student') redirect(`/login?next=/student/results/${attemptId}`);
 
@@ -58,7 +60,7 @@ export default async function ResultPage({ params }: { params: Promise<{ attempt
             <Link href="/student" className="text-sm font-medium text-brand hover:text-red-200">
               ← {t('backToDashboard')}
             </Link>
-            <h1 className="mt-2 text-2xl font-bold text-textPrimary">{L(report.testTitle, locale)}</h1>
+            <h1 className="mt-2 text-2xl font-bold text-textPrimary">{tn('resultTitle')}</h1><p>{L(report.testTitle, locale)}</p>
             <p className="mt-1 text-sm text-textSecondary">
               {t('submittedOn', { date: dateStr })}
               {report.status === 'AUTO_SUBMITTED' ? ` · ${t('autoSubmitted')}` : ''}
@@ -79,6 +81,7 @@ export default async function ResultPage({ params }: { params: Promise<{ attempt
           analysis={<ResultAnalysis report={report} locale={locale} />}
           review={<AnswerReview items={review} locale={locale} />}
         />
+        <AttemptHistory studentId={session.sub} testId={state.testId} />
       </main>
     </div>
   );

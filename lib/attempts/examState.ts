@@ -4,7 +4,7 @@
  * current question — can be unit-tested directly.
  */
 
-export type ExamLanguage = 'en' | 'ta';
+export type ExamLanguage = 'en' | 'ta' | 'hi';
 export type ExamOption = 'A' | 'B' | 'C' | 'D';
 
 /** Per-question local state, keyed by questionId in the reducer. */
@@ -29,7 +29,7 @@ export type ExamAction =
   | { type: 'TOGGLE_MARK'; questionId: string };
 
 /** The four palette states a question can be in. */
-export type PaletteStatus = 'not_visited' | 'unanswered' | 'answered' | 'marked';
+export type PaletteStatus = 'not_visited' | 'unanswered' | 'answered' | 'marked' | 'answered_marked';
 
 const EMPTY_ANSWER: AnswerState = { selectedOption: null, markedForReview: false, visited: false };
 
@@ -84,7 +84,7 @@ export function examReducer(state: ExamState, action: ExamAction): ExamState {
 /** Map a question's answer state to its palette status. */
 export function paletteStatus(a: AnswerState | undefined): PaletteStatus {
   if (!a || !a.visited) return 'not_visited';
-  if (a.markedForReview) return 'marked';
+  if (a.markedForReview) return a.selectedOption ? 'answered_marked' : 'marked';
   if (a.selectedOption) return 'answered';
   return 'unanswered';
 }
@@ -103,6 +103,10 @@ export function summarize(questionIds: string[], answers: Record<string, AnswerS
     switch (paletteStatus(answers[id])) {
       case 'answered':
         counts.answered++;
+        break;
+      case 'answered_marked':
+        counts.answered++;
+        counts.marked++;
         break;
       case 'marked':
         counts.marked++;

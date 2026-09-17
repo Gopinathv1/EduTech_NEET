@@ -1,10 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import {
-  GRACE_SECONDS,
   elapsedSeconds,
   computeRemainingSeconds,
   isTimeUp,
-  isPastGrace,
 } from '@/lib/attempts/timer';
 
 // The timer is server-authoritative: remaining time is always derived from
@@ -44,19 +42,3 @@ describe('isTimeUp', () => {
   });
 });
 
-describe('isPastGrace', () => {
-  it('accepts answers within the grace window but refuses them after', () => {
-    const durationMin = 30; // deadline at 1800s
-    // Exactly at the deadline — still within grace.
-    expect(isPastGrace(start, durationMin, at(1800))).toBe(false);
-    // Inside the grace window — still accepted.
-    expect(isPastGrace(start, durationMin, at(1800 + GRACE_SECONDS))).toBe(false);
-    // One second past the grace window — refused.
-    expect(isPastGrace(start, durationMin, at(1800 + GRACE_SECONDS + 1))).toBe(true);
-  });
-
-  it('honours a custom grace value', () => {
-    expect(isPastGrace(start, 1, at(60 + 5), 5)).toBe(false);
-    expect(isPastGrace(start, 1, at(60 + 6), 5)).toBe(true);
-  });
-});

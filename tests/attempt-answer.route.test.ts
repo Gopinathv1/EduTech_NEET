@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 // Mock the collaborators; keep validation + timer logic real so the route's
 // time-authority behaviour is genuinely exercised.
-vi.mock('@/lib/prisma', () => ({ prisma: { answer: { upsert: vi.fn() } } }));
+vi.mock('@/lib/prisma', () => ({ prisma: { $transaction: vi.fn(), testAttempt: { updateMany: vi.fn() }, answer: { upsert: vi.fn() } } }));
 vi.mock('@/lib/auth/session', () => ({ getSession: vi.fn() }));
 vi.mock('@/lib/attempts/service', () => ({ loadAttemptContext: vi.fn(), finalizeAttempt: vi.fn() }));
 
@@ -43,6 +43,8 @@ function liveAttempt(overrides: Record<string, unknown> = {}) {
 
 beforeEach(() => {
   vi.clearAllMocks();
+  p.$transaction.mockImplementation((fn: (tx: unknown) => unknown) => fn(p));
+  p.testAttempt.updateMany.mockResolvedValue({ count: 1 });
   getSessionMock.mockResolvedValue({ sub: 's1', kind: 'student', role: 'STUDENT', name: 'Ravi' });
 });
 
@@ -136,4 +138,19 @@ describe('POST /api/attempts/[id]/answer', () => {
     expect(arg.update).not.toHaveProperty('selectedOption');
     expect(arg.update).toMatchObject({ visited: true, timeSpentSeconds: { increment: 5 } });
   });
+});
+
+it('refuses an answer when submission won the row lock', async () => {
+  loadCtxMock.mockResolvedValue(liveAttempt() as never);
+  p.testAttempt.updateMany.mockResolvedValue({ count: 0 });
+  const response = await POST(req({ questionId: 'q1', action: 'answer', selectedOption: 'A' }), { params });
+  expect(response.status).toBe(409);
+  expect(p.answer.upsert).not.toHaveBeenCalled();
+});
+it('rejects answers at the exact deadline, without a grace period', async () => {
+  loadCtxMock.mockResolvedValue(liveAttempt({ startedAt: new Date(Date.now() - 180 * 60_000) }) as never);
+  const response = await POST(req({ questionId: 'q1', action: 'answer', selectedOption: 'A' }), { params });
+  expect(response.status).toBe(409);
+  expect(finalizeMock).toHaveBeenCalledWith('att1', { auto: true });
+  expect(p.answer.upsert).not.toHaveBeenCalled();
 });

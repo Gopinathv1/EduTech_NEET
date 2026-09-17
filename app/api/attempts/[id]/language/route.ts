@@ -1,7 +1,8 @@
+import { isTimeUp } from '@/lib/attempts/timer';
 import { prisma } from '@/lib/prisma';
 import { getSession } from '@/lib/auth/session';
 import { switchLanguageSchema } from '@/lib/validation/attempt';
-import { loadAttemptContext } from '@/lib/attempts/service';
+import { loadAttemptContext, finalizeAttempt } from '@/lib/attempts/service';
 import { ok, fail, readJson } from '@/lib/http';
 
 export const runtime = 'nodejs';
@@ -23,6 +24,14 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
   if (!attempt) return fail('attemptNotFound', 404);
   if (attempt.status !== 'IN_PROGRESS') return fail('attemptClosed', 409);
 
-  await prisma.testAttempt.update({ where: { id }, data: { selectedLanguage: parsed.data.language } });
+  if (isTimeUp(attempt.startedAt, attempt.test.durationMinutes)) {
+    await finalizeAttempt(id, { auto: true });
+    return fail('timeUp', 409);
+  }
+  const missing = await prisma.question.count({ where: { id: { in: attempt.questionOrder },
+    translations: { none: { language: parsed.data.language, ...(parsed.data.language === 'en' ? {} : { reviewed: true }) } } } });
+  if (missing) return fail('languageUnavailable', 400);
+  const updated = await prisma.testAttempt.updateMany({ where: { id, status: 'IN_PROGRESS' }, data: { selectedLanguage: parsed.data.language } });
+  if (!updated.count) return fail('attemptClosed', 409);
   return ok({ language: parsed.data.language });
 }

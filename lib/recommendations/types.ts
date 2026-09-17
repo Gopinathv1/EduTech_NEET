@@ -1,6 +1,6 @@
 /** Shared types for the (pure, rule-based) recommendation engine. */
 
-export type LocalizedText = { en: string; ta?: string };
+export type LocalizedText = { en: string; ta?: string; hi?: string };
 
 export type ChapterTrend = 'declining' | 'improving' | 'flat';
 

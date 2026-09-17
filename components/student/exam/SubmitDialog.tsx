@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import type { PaletteCounts } from '@/lib/attempts/examState';
 
@@ -18,6 +19,8 @@ export default function SubmitDialog({
   onCancel: () => void;
 }) {
   const t = useTranslations('exam.submitDialog');
+  const dialog = useRef<HTMLDialogElement>(null);
+  useEffect(() => { dialog.current?.showModal(); }, []);
 
   const rows = [
     { label: t('answered'), value: counts.answered, tone: 'text-green-200' },
@@ -27,8 +30,8 @@ export default function SubmitDialog({
   ];
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-end justify-center bg-brand/50 p-4 sm:items-center"
+    <dialog ref={dialog} onCancel={event => { event.preventDefault(); if (!submitting) onCancel(); }}
+      className="fixed inset-0 z-50 m-auto w-[calc(100%-2rem)] max-w-md rounded-2xl bg-surfaceElevated p-0 text-textPrimary backdrop:bg-black/70"
       role="dialog"
       aria-modal="true"
       aria-labelledby="submit-dialog-title"
@@ -73,6 +76,6 @@ export default function SubmitDialog({
           </button>
         </div>
       </div>
-    </div>
+    </dialog>
   );
 }

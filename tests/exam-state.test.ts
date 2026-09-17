@@ -81,13 +81,13 @@ describe('examReducer — answer actions', () => {
 });
 
 describe('paletteStatus & summarize', () => {
-  it('maps answer state to the four palette states', () => {
+  it('maps answer state to the five palette states', () => {
     expect(paletteStatus(undefined)).toBe('not_visited');
     expect(paletteStatus({ selectedOption: null, markedForReview: false, visited: false })).toBe('not_visited');
     expect(paletteStatus({ selectedOption: null, markedForReview: false, visited: true })).toBe('unanswered');
     expect(paletteStatus({ selectedOption: 'A', markedForReview: false, visited: true })).toBe('answered');
     // Marked takes precedence, even when answered.
-    expect(paletteStatus({ selectedOption: 'A', markedForReview: true, visited: true })).toBe('marked');
+    expect(paletteStatus({ selectedOption: 'A', markedForReview: true, visited: true })).toBe('answered_marked');
   });
 
   it('summarize counts each state across the question set', () => {
@@ -95,4 +95,8 @@ describe('paletteStatus & summarize', () => {
     const counts = summarize(['q1', 'q2', 'q3', 'q4'], s.answers);
     expect(counts).toEqual({ answered: 1, marked: 1, unanswered: 1, notVisited: 1 });
   });
+});
+
+it('counts answered-and-marked as both answered and review, preserving the answer', () => {
+  expect(summarize(['q'], { q: { selectedOption: 'B', markedForReview: true, visited: true } })).toEqual({ answered: 1, marked: 1, unanswered: 0, notVisited: 0 });
 });

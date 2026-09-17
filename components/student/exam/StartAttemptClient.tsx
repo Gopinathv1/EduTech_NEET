@@ -22,6 +22,7 @@ export default function StartAttemptClient({
   resume: boolean;
 }) {
   const t = useTranslations('exam.instructions');
+  const tn = useTranslations('neetPractice');
   const [language, setLanguage] = useState<ExamLanguage>(defaultLanguage);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string>();
@@ -35,7 +36,7 @@ export default function StartAttemptClient({
       return;
     }
     setBusy(false);
-    setError(res.error === 'attemptLimitReached' ? t('limitReachedNote', { count: 3 }) : t('startError'));
+    setError(res.error === 'attemptLimitReached' ? t('limitReachedNote', { count: 3 }) : res.error === 'languageUnavailable' ? tn('languageUnavailable') : t('startError'));
   }
 
   return (
@@ -57,7 +58,7 @@ export default function StartAttemptClient({
                     active ? 'border-brand bg-brand text-white' : 'border-border text-textSecondary hover:bg-surface'
                   }`}
                 >
-                  {lang === 'ta' ? 'தமிழ்' : 'English'}
+                  {lang === 'ta' ? 'தமிழ்' : lang === 'hi' ? 'हिन्दी' : 'English'}
                 </button>
               );
             })}

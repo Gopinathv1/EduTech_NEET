@@ -1,3 +1,4 @@
+import { NEET_CONFIG } from '@/lib/attempts/config';
 import type { Prisma } from '@prisma/client';
 import type { TestInput } from '@/lib/validation/test';
 
@@ -30,12 +31,13 @@ export function buildTestPersistence(input: TestInput): {
   const scope = isFull ? 'FULL_SYLLABUS' : input.scope ?? 'FULL_SYLLABUS';
   const totalQuestions = isRandom
     ? isFull
-      ? 180
+      ? NEET_CONFIG.totalQuestions
       : input.totalQuestions ?? 0
     : input.questionIds.length;
 
   const rules: Prisma.InputJsonValue = {
     difficultyMix: input.difficultyMix,
+    ...(isFull ? { examConfiguration: NEET_CONFIG.version } : {}),
     ...(isRandom
       ? {
           random: {
@@ -55,7 +57,7 @@ export function buildTestPersistence(input: TestInput): {
     subjectId: input.subjectId ?? null,
     chapterId: input.chapterId ?? null,
     totalQuestions,
-    durationMinutes: input.durationMinutes,
+    durationMinutes: isFull ? NEET_CONFIG.durationMinutes : input.durationMinutes,
     price: input.price,
     difficulty: dominantDifficulty(input.difficultyMix),
     isRandom,

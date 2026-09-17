@@ -3,14 +3,14 @@ import { prisma } from '@/lib/prisma';
 import { getSession } from '@/lib/auth/session';
 import { answerActionSchema } from '@/lib/validation/attempt';
 import { loadAttemptContext, finalizeAttempt } from '@/lib/attempts/service';
-import { computeRemainingSeconds, isPastGrace } from '@/lib/attempts/timer';
+import { computeRemainingSeconds, isTimeUp } from '@/lib/attempts/timer';
 import { ok, fail, readJson } from '@/lib/http';
 
 export const runtime = 'nodejs';
 
 // POST /api/attempts/[id]/answer — autosave a single answer action (select, clear,
 // mark, unmark, visit) plus the time spent on that question. The server is the
-// time authority: an answer that arrives past the deadline + grace window is
+// time authority: an answer that arrives past the deadline is
 // refused and the attempt is auto-submitted.
 export async function POST(req: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -32,7 +32,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
   if (!attempt.questionOrder.includes(questionId)) return fail('questionNotInAttempt', 400);
 
   // Time authority — refuse late answers and auto-submit.
-  if (isPastGrace(attempt.startedAt, attempt.test.durationMinutes)) {
+  if (isTimeUp(attempt.startedAt, attempt.test.durationMinutes)) {
     await finalizeAttempt(id, { auto: true });
     return fail('timeUp', 409, { status: 'AUTO_SUBMITTED', redirect: `/student/results/${id}` });
   }
@@ -69,11 +69,20 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
   }
   if (delta > 0) update.timeSpentSeconds = { increment: delta };
 
-  await prisma.answer.upsert({
-    where: { attemptId_questionId: { attemptId: id, questionId } },
-    create,
-    update,
+  // Lock the parent row before writing: finalization claims the same row.
+  const saved = await prisma.$transaction(async tx => {
+    const claim = await tx.testAttempt.updateMany({
+      where: { id, studentId: session.sub, status: 'IN_PROGRESS' },
+      data: { remainingSeconds: computeRemainingSeconds(attempt.startedAt, attempt.test.durationMinutes) },
+    });
+    if (!claim.count || isTimeUp(attempt.startedAt, attempt.test.durationMinutes)) return false;
+    await tx.answer.upsert({ where: { attemptId_questionId: { attemptId: id, questionId } }, create, update });
+    return true;
   });
+  if (!saved) {
+    if (isTimeUp(attempt.startedAt, attempt.test.durationMinutes)) await finalizeAttempt(id, { auto: true });
+    return fail('attemptClosed', 409, { redirect: `/student/results/${id}` });
+  }
 
   return ok({
     saved: true,

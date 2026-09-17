@@ -30,6 +30,7 @@ export default function NeetPreparationPage() {
 
 function ExamDetail({ exam }: { exam: typeof neet }) {
   const t = useTranslations('examPreparation.neetDetail');
+  const tn = useTranslations('neetPractice');
   const features = t.raw('features') as string[];
 
   return (
@@ -54,6 +55,11 @@ function ExamDetail({ exam }: { exam: typeof neet }) {
         </div>
       </Section>
       <Section lazy>
+        <div className="mb-6 grid gap-3 sm:grid-cols-2">
+          {([['FULL_TEST', 'full'], ['YEAR_PATTERN', 'previous'], ['SUBJECT_TEST', 'subject'], ['CHAPTER_TEST', 'chapter']] as const).map(([type, label]) =>
+            <PrimaryLink key={type} href={`/student/tests?type=${type}`}>{tn(label)}</PrimaryLink>)}
+        </div>
+        <p className="mb-6 text-sm text-textSecondary">{tn('disclaimer')}</p>
         <div className="flex flex-col gap-3 sm:flex-row">
           <PrimaryLink href="/mock-tests">{t('primaryCta')}</PrimaryLink>
           <SecondaryLink href="/mock-tests">{t('secondaryCta')}</SecondaryLink>

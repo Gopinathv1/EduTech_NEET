@@ -1421,7 +1421,8 @@
       "legendAnswered": "Answered",
       "legendUnanswered": "Not answered",
       "legendMarked": "Marked for review",
-      "legendNotVisited": "Not visited"
+      "legendNotVisited": "Not visited",
+      "legendAnsweredMarked": "Answered & Marked for Review"
     },
     "submitDialog": {
       "title": "Submit your test?",
@@ -3378,5 +3379,36 @@
       "title": "More destination options.",
       "compare": "Compare Destinations"
     }
+  },
+  "neetPractice": {
+    "title": "NEET Mock Test",
+    "resultTitle": "NEET Mock Test Result",
+    "subjectsLabel": "Subjects",
+    "subjects": {
+      "PHYSICS": "Physics",
+      "CHEMISTRY": "Chemistry",
+      "BOTANY": "Botany",
+      "ZOOLOGY": "Zoology"
+    },
+    "disclaimer": "SIVORA UP↑RISING is an independent educational platform and is not affiliated with or endorsed by NTA.",
+    "maximumMarks": "Maximum marks",
+    "questionType": "Four options, one correct answer",
+    "distribution": "Physics: 45 · Chemistry: 45 · Biology: 90. SIVORA practice grouping: Botany 45 and Zoology 45.",
+    "languageUnavailable": "Questions are shown in English when reviewed content in your preferred language is unavailable. No translation is generated.",
+    "chooseOne": "Choose one answer",
+    "markNext": "Mark for Review & Next",
+    "saveNext": "Save & Next",
+    "history": "Attempt history",
+    "used": "{count} / {limit} attempts used",
+    "attempt": "Attempt {number}",
+    "inProgress": "In progress",
+    "completed": "Completed",
+    "another": "Take another attempt",
+    "source": "NTA 2026 examination scheme",
+    "full": "Full NEET Mock Tests",
+    "previous": "Previous-Year Practice",
+    "subject": "Subject Tests",
+    "chapter": "Chapter Practice",
+    "answeredMarked": "Answered & Marked for Review"
   }
 }

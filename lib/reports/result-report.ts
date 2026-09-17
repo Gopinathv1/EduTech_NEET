@@ -48,7 +48,7 @@ export type ResultReport = {
   attemptId: string;
   status: string;
   submittedAt: Date | null;
-  selectedLanguage: 'en' | 'ta';
+  selectedLanguage: 'en' | 'ta' | 'hi';
   testTitle: LocalizedText;
   studentName: string;
   summary: {
@@ -84,7 +84,7 @@ type TimeAnalysis = {
 function toLocalized(json: unknown): LocalizedText {
   const en = localizedName(json, 'en');
   const ta = localizedName(json, 'ta');
-  return { en: en || '', ta: ta || undefined };
+  return { en: en || '', ta: ta || undefined, hi: localizedName(json, 'hi') || undefined };
 }
 
 function asBreakdownMap(json: unknown): Record<string, Breakdown> {
@@ -99,6 +99,7 @@ export async function buildResultReport(attemptId: string, studentId: string): P
       id: true,
       status: true,
       submittedAt: true,
+      startedAt: true,
       selectedLanguage: true,
       questionOrder: true,
       student: { select: { name: true } },
@@ -175,7 +176,7 @@ export async function buildResultReport(attemptId: string, studentId: string): P
 
   // Time analysis.
   const allottedSeconds = attempt.test.durationMinutes * 60;
-  const totalSeconds = timeAnalysis.totalSeconds ?? 0;
+  const totalSeconds = attempt.submittedAt ? Math.min(allottedSeconds, Math.max(0, Math.floor((attempt.submittedAt.getTime() - attempt.startedAt.getTime()) / 1000))) : 0;
   const bySubject = subjects
     .map((s) => ({ code: s.code, name: toLocalized(s.name), seconds: bySubjectTime[s.id] ?? 0 }))
     .filter((r) => r.seconds > 0);

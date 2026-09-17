@@ -1,3 +1,4 @@
+import { NEET_CONFIG } from './config';
 /**
  * Pure NEET result scoring for a submitted attempt.
  *
@@ -9,8 +10,8 @@
 
 export type ScoredOption = 'A' | 'B' | 'C' | 'D';
 
-export const MARKS_CORRECT = 4;
-export const MARKS_WRONG = -1;
+export const MARKS_CORRECT = NEET_CONFIG.correct;
+export const MARKS_WRONG = NEET_CONFIG.wrong;
 
 export type ResultQuestion = {
   id: string;

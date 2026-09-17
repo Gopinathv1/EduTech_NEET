@@ -24,7 +24,8 @@
     "test:e2e": "playwright test",
     "load": "k6 run load/load-test.js",
     "ci": "npm run lint && npm run typecheck && npm run test",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "attempts:expire": "tsx scripts/expire-attempts.ts"
   },
   "engines": {
     "node": ">=20.0.0"

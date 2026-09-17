@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useReducer, useRef, useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { apiPost } from '@/lib/client/api';
 import {
   examReducer,
@@ -38,6 +38,9 @@ export default function ExamClient({
   studentName: string;
 }) {
   const t = useTranslations('exam.ui');
+  const locale = useLocale();
+  const tn = useTranslations('neetPractice');
+  const [paletteOpen, setPaletteOpen] = useState(false);
   const { attemptId, questions, availableLanguages } = payload;
   const questionIds = questions.map((q) => q.id);
 
@@ -54,8 +57,11 @@ export default function ExamClient({
   // Refs so the interval callbacks and async handlers read the latest values.
   const indexRef = useRef(state.currentIndex);
   indexRef.current = state.currentIndex;
+  const submitRef = useRef(false);
+  const saveChain = useRef<Promise<unknown>>(Promise.resolve());
+  const clockRef = useRef({ seconds: payload.remainingSeconds, at: performance.now() });
   const doneRef = useRef(false); // guards against double submit / redirect
-  const enteredRef = useRef<{ qid: string; at: number }>({ qid: questionIds[0], at: Date.now() });
+  const enteredRef = useRef<{ qid: string; at: number }>({ qid: questionIds[0], at: performance.now() });
 
   const goResult = useCallback((url: string) => {
     if (doneRef.current) return;
@@ -72,15 +78,22 @@ export default function ExamClient({
 
   // POST an action, retrying with back-off on transient network/parse errors.
   const postAction = useCallback(
-    async (body: { questionId: string; action: SaveAction; selectedOption?: ExamOption; timeSpentDelta?: number }) => {
-      let res = await apiPost(`/api/attempts/${attemptId}/answer`, body);
-      for (const delay of RETRY_DELAYS) {
-        if (res.ok || !(res.error === 'network' || res.error === 'generic')) break;
-        await sleep(delay);
-        if (doneRef.current) break;
-        res = await apiPost(`/api/attempts/${attemptId}/answer`, body);
-      }
-      return res;
+    async (body: { questionId: string; action: SaveAction; selectedOption?: ExamOption; timeSpentDelta?: number }, isCurrent: () => boolean = () => true) => {
+      const run = async () => {
+        if (!isCurrent()) return { ok: true };
+        let res = await apiPost(`/api/attempts/${attemptId}/answer`, body);
+        for (const delay of RETRY_DELAYS) {
+          if (res.ok || !(res.error === 'network' || res.error === 'generic')) break;
+          await sleep(delay);
+          if (doneRef.current || !isCurrent()) break;
+          // Dwell deltas must not be incremented twice after an uncertain reply.
+          res = await apiPost(`/api/attempts/${attemptId}/answer`, { ...body, timeSpentDelta: 0 });
+        }
+        return res;
+      };
+      const queued = saveChain.current.then(run, run);
+      saveChain.current = queued;
+      return queued;
     },
     [attemptId],
   );
@@ -90,8 +103,8 @@ export default function ExamClient({
   const flushPending = useCallback(async () => {
     if (doneRef.current || pendingRef.current.size === 0) return;
     for (const [key, item] of [...pendingRef.current.entries()]) {
-      const res = await postAction({ questionId: item.questionId, action: item.action, ...item.extra });
-      if (res.ok) pendingRef.current.delete(key);
+      const res = await postAction({ questionId: item.questionId, action: item.action, ...item.extra }, () => pendingRef.current.get(key) === item);
+      if (res.ok && pendingRef.current.get(key) === item) pendingRef.current.delete(key);
     }
     if (pendingRef.current.size === 0) setSaveStatus('saved');
   }, [postAction]);
@@ -104,39 +117,32 @@ export default function ExamClient({
     ) => {
       if (doneRef.current) return;
       setSaveStatus('saving');
-      const res = await postAction({ questionId, action, ...extra });
-      // 'visit' just tracks dwell time — not worth queueing if it fails.
       const queueKey = action === 'visit' ? null : `${questionId}|${saveCategory(action)}`;
+      const item = { action, questionId, extra: extra?.selectedOption ? { selectedOption: extra.selectedOption } : undefined };
+      if (queueKey) pendingRef.current.set(queueKey, item);
+      const isCurrent = () => !queueKey || pendingRef.current.get(queueKey) === item;
+      const res = await postAction({ questionId, action, ...extra }, isCurrent);
       if (res.ok) {
-        if (queueKey) pendingRef.current.delete(queueKey);
+        if (queueKey && isCurrent()) pendingRef.current.delete(queueKey);
         setSaveStatus(pendingRef.current.size > 0 ? 'saving' : 'saved');
         if (typeof res.remainingSeconds === 'number') {
-          setRemaining((r) => Math.min(r, res.remainingSeconds as number));
+          clockRef.current = { seconds: res.remainingSeconds, at: performance.now() };
+          setRemaining(res.remainingSeconds);
         }
-        void flushPending(); // drain anything queued from earlier failures
       } else if (typeof res.redirect === 'string') {
-        goResult(res.redirect); // time up / attempt closed
+        goResult(res.redirect);
       } else {
-        // Remember the latest intent for this question so the next sync/reconnect
-        // re-pushes it — the server never silently diverges from the UI.
-        if (queueKey) {
-          pendingRef.current.set(queueKey, {
-            action,
-            questionId,
-            extra: extra?.selectedOption ? { selectedOption: extra.selectedOption } : undefined,
-          });
-        }
         setSaveStatus('error');
       }
     },
-    [postAction, flushPending, goResult],
+    [postAction, goResult],
   );
 
   /** Record how long the student dwelled on the question they are leaving. */
   const flushTime = useCallback(() => {
     const { qid, at } = enteredRef.current;
-    const delta = Math.floor((Date.now() - at) / 1000);
-    enteredRef.current = { qid, at: Date.now() };
+    const delta = Math.floor((performance.now() - at) / 1000);
+    enteredRef.current = { qid, at: performance.now() };
     if (delta > 0 && qid) void persist('visit', qid, { timeSpentDelta: delta });
   }, [persist]);
 
@@ -146,7 +152,7 @@ export default function ExamClient({
       if (index < 0 || index >= questionIds.length || index === indexRef.current) return;
       flushTime();
       const nextQid = questionIds[index];
-      enteredRef.current = { qid: nextQid, at: Date.now() };
+      enteredRef.current = { qid: nextQid, at: performance.now() };
       dispatch({ type: 'NAVIGATE', index });
       dispatch({ type: 'VISIT', questionId: nextQid });
       void persist('visit', nextQid);
@@ -181,18 +187,29 @@ export default function ExamClient({
 
   // ---- Submit -------------------------------------------------------------
   const submit = useCallback(async () => {
-    if (doneRef.current) return;
+    if (doneRef.current || submitRef.current) return;
+    submitRef.current = true;
     setSubmitting(true);
     flushTime();
+    await saveChain.current;
+    await flushPending();
+    if (pendingRef.current.size && remaining > 0) {
+      submitRef.current = false;
+      setSubmitting(false);
+      setSaveStatus('error');
+      return;
+    }
     const res = await apiPost(`/api/attempts/${attemptId}/submit`, {});
     if (res.ok && typeof res.redirect === 'string') {
       goResult(res.redirect);
     } else if (typeof res.redirect === 'string') {
       goResult(res.redirect);
     } else {
+      submitRef.current = false;
       setSubmitting(false);
+      setSaveStatus('error');
     }
-  }, [attemptId, flushTime, goResult]);
+  }, [attemptId, flushTime, flushPending, remaining, goResult]);
 
   // Mark the very first question visited on mount.
   useEffect(() => {
@@ -204,15 +221,11 @@ export default function ExamClient({
   // ---- Timer: local countdown + periodic server resync --------------------
   useEffect(() => {
     const tick = setInterval(() => {
-      setRemaining((r) => {
-        if (r <= 1) {
-          clearInterval(tick);
-          void submit(); // time up → auto-submit (server records AUTO_SUBMITTED)
-          return 0;
-        }
-        return r - 1;
-      });
-    }, 1000);
+      const anchor = clockRef.current;
+      const next = Math.max(0, anchor.seconds - Math.floor((performance.now() - anchor.at) / 1000));
+      setRemaining(next);
+      if (next === 0) void submit();
+    }, 250);
     return () => clearInterval(tick);
   }, [submit]);
 
@@ -223,6 +236,7 @@ export default function ExamClient({
       flushTime();
       const res = await apiPost(`/api/attempts/${attemptId}/sync`, {});
       if (res.ok && typeof res.remainingSeconds === 'number') {
+        clockRef.current = { seconds: res.remainingSeconds, at: performance.now() };
         setRemaining(res.remainingSeconds);
       }
       if (typeof res.redirect === 'string' && res.status && res.status !== 'IN_PROGRESS') {
@@ -240,9 +254,18 @@ export default function ExamClient({
     return () => window.removeEventListener('online', onOnline);
   }, [flushPending]);
 
+  useEffect(() => {
+    const warn = (event: BeforeUnloadEvent) => {
+      if (pendingRef.current.size) { event.preventDefault(); event.returnValue = ''; }
+    };
+    window.addEventListener('beforeunload', warn);
+    return () => window.removeEventListener('beforeunload', warn);
+  }, []);
+
   // ---- Render -------------------------------------------------------------
-  const content = state.lang === 'ta' && current.ta ? current.ta : current.en;
-  const showTaNotice = state.lang === 'ta' && !current.ta;
+  const content = current[state.lang] ?? current.en;
+  const showTaNotice = !current[state.lang] || (locale !== 'en' && state.lang === 'en');
+  const subjectCodes = [...new Set(questions.map(q => q.subjectCode))];
   const counts = summarize(questionIds, state.answers);
   const lowTime = remaining <= 60;
 
@@ -251,12 +274,12 @@ export default function ExamClient({
       {/* Header */}
       <header className="sticky top-0 z-30 border-b border-border bg-surfaceElevated">
         <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-2.5 sm:px-6">
-          <h1 className="max-w-[45%] truncate text-sm font-bold text-textPrimary sm:text-base">{testTitle}</h1>
+          <div className="min-w-0"><p className="text-xs font-bold text-brand">SIVORA UP↑RISING</p><h1 className="truncate text-sm font-bold text-textPrimary">{tn('title')}</h1><p className="max-w-64 truncate text-xs text-textSecondary">{testTitle}</p></div>
 
           <div className="flex items-center gap-3">
             <div
               className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-bold tabular-nums ${
-                lowTime ? 'bg-red-950/40 text-red-200' : 'bg-brand-soft text-brand'
+                lowTime ? 'bg-red-950 text-red-100 ring-2 ring-red-400' : remaining <= 300 ? 'bg-amber-950 text-amber-100' : 'bg-brand-soft text-brand'
               }`}
               role="timer"
               aria-live="off"
@@ -287,6 +310,7 @@ export default function ExamClient({
               </div>
             ) : null}
 
+            <button type="button" onClick={() => setShowSubmit(true)} className="rounded-lg bg-brand px-3 py-2 text-xs font-bold text-white">{t('submit')}</button>
             <span className="hidden text-sm text-textSecondary sm:inline">{studentName}</span>
           </div>
         </div>
@@ -294,7 +318,17 @@ export default function ExamClient({
 
       <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-6 px-4 py-6 sm:px-6 lg:flex-row">
         {/* Question area */}
-        <main id="main-content" className="flex-1">
+        <main id="main-content" className="min-w-0 flex-1">
+          <nav aria-label={tn('subjectsLabel')} className="mb-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
+            {subjectCodes.map(code => {
+              const indices = questions.map((q, i) => q.subjectCode === code ? i : -1).filter(i => i >= 0);
+              const answered = indices.filter(i => state.answers[questions[i].id]?.selectedOption).length;
+              return <button key={code} type="button" aria-pressed={current.subjectCode === code}
+                onClick={() => goTo(indices[0])} className={`rounded-lg border p-3 text-sm font-semibold ${current.subjectCode === code ? 'border-brand bg-brand-soft text-brand' : 'border-border text-textSecondary'}`}>
+                {tn(`subjects.${code}`)} <span className="text-xs">{answered}/{indices.length}</span>
+              </button>;
+            })}
+          </nav>
           <div className="rounded-2xl border border-border bg-surfaceElevated p-5 sm:p-6">
             <div className="flex items-center justify-between">
               <span className="text-sm font-semibold text-brand">
@@ -313,11 +347,11 @@ export default function ExamClient({
 
             {showTaNotice ? (
               <p className="mt-3 rounded-lg border border-amber-500/40 bg-amber-950/30 px-3 py-2 text-xs text-amber-100">
-                {t('taFallbackNotice')}
+                {tn('languageUnavailable')}
               </p>
             ) : null}
 
-            <p className="mt-3 whitespace-pre-line text-base leading-relaxed text-textPrimary">
+            <p className="mt-3 whitespace-pre-wrap break-words text-base leading-relaxed text-textPrimary">
               {content.questionText}
             </p>
 
@@ -326,18 +360,19 @@ export default function ExamClient({
               <img
                 src={current.imageUrl}
                 alt=""
-                className="mt-4 max-h-72 w-auto rounded-lg border border-border"
+                className="mt-4 max-h-72 max-w-full w-auto rounded-lg border border-border"
               />
             ) : null}
 
-            <fieldset className="mt-5 space-y-3">
+            <fieldset disabled={submitting || remaining <= 0} className="mt-5 space-y-3">
+              <legend className="sr-only">{tn('chooseOne')}</legend>
               {OPTIONS.map((opt) => {
                 const label = content[`option${opt}` as 'optionA' | 'optionB' | 'optionC' | 'optionD'];
                 const selected = currentAnswer?.selectedOption === opt;
                 return (
                   <label
                     key={opt}
-                    className={`flex cursor-pointer items-start gap-3 rounded-xl border p-4 transition-colors ${
+                    className={`flex cursor-pointer focus-within:ring-2 focus-within:ring-brand items-start gap-3 rounded-xl border p-4 transition-colors ${
                       selected ? 'border-brand bg-brand-soft' : 'border-border bg-surfaceElevated hover:border-border'
                     }`}
                   >
@@ -355,7 +390,7 @@ export default function ExamClient({
                     >
                       {opt}
                     </span>
-                    <span className="pt-0.5 text-sm text-textPrimary">{label}</span>
+                    <span className="min-w-0 break-words whitespace-pre-wrap pt-0.5 text-sm text-textPrimary">{label}</span>
                   </label>
                 );
               })}
@@ -374,14 +409,14 @@ export default function ExamClient({
             </button>
             <button
               type="button"
-              onClick={toggleMark}
+              onClick={() => { if (!currentAnswer?.markedForReview) toggleMark(); goTo(state.currentIndex + 1); }}
               className={`rounded-lg border px-4 py-2.5 text-sm font-semibold transition-colors ${
                 currentAnswer?.markedForReview
                   ? 'border-amber-400 bg-amber-950/30 text-amber-100'
                   : 'border-border text-textSecondary hover:bg-surface'
               }`}
             >
-              {currentAnswer?.markedForReview ? t('marked') : t('markReview')}
+              {tn('markNext')}
             </button>
             <button
               type="button"
@@ -397,14 +432,16 @@ export default function ExamClient({
               disabled={state.currentIndex === questions.length - 1}
               className="rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-dark disabled:opacity-40"
             >
-              {t('next')} →
+              {tn('saveNext')} →
             </button>
           </div>
         </main>
 
         {/* Palette + submit */}
-        <aside className="lg:w-72 lg:shrink-0">
-          <div className="rounded-2xl border border-border bg-surfaceElevated p-5">
+        <button type="button" aria-expanded={paletteOpen} aria-controls="exam-palette" onClick={() => setPaletteOpen(!paletteOpen)} className="rounded-lg border border-border p-3 font-semibold lg:hidden">{t('palette')}</button>
+        <aside id="exam-palette" className={`${paletteOpen ? 'block' : 'hidden'} lg:block lg:w-72 lg:shrink-0`}>
+
+          <div className="max-h-[75vh] overflow-y-auto rounded-2xl border border-border bg-surfaceElevated p-5 lg:sticky lg:top-24">
             <QuestionPalette
               questionIds={questionIds}
               answers={state.answers}

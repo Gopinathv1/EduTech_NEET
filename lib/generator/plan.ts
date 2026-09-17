@@ -1,3 +1,4 @@
+import { NEET_CONFIG, validFullMock } from '@/lib/attempts/config';
 import { prisma } from '@/lib/prisma';
 import {
   generateQuestionSet,
@@ -44,7 +45,7 @@ type TestLike = {
 /** Build generator rules for a random test in a given language. */
 export async function buildRandomRules(
   test: TestLike,
-  opts: { language: 'en' | 'ta'; taOnly: boolean },
+  opts: { language: 'en' | 'ta' | 'hi'; taOnly: boolean },
 ): Promise<GeneratorRules> {
   const stored = parseTestRules(test.rules);
   const scope = stored.random?.scope ?? 'FULL_SYLLABUS';
@@ -72,7 +73,12 @@ export async function buildRandomRules(
     if (arr) arr.push(entry);
     else bySubject.set(c.subjectId, [entry]);
   }
-  const subjectIds = [...bySubject.keys()];
+  let subjectIds = [...bySubject.keys()];
+  if (test.testType === 'FULL_TEST') {
+    const subjects = await prisma.subject.findMany({ where: { code: { in: [...NEET_CONFIG.subjects] } } });
+    subjectIds = NEET_CONFIG.subjects.map(code => subjects.find(s => s.code === code)?.id ?? '');
+    if (subjectIds.some(id => !id || !bySubject.has(id))) throw new GeneratorError('Full mock requires all four subjects');
+  }
 
   // Per-subject counts: equal for FULL_TEST (NEET 45×4), else by weightage sum.
   const counts =
@@ -98,7 +104,7 @@ export async function buildRandomRules(
       subjectId: true,
       chapterId: true,
       difficulty: true,
-      translations: { where: { language: 'ta', reviewed: true }, select: { id: true } },
+      translations: { where: { language: opts.language, reviewed: true }, select: { id: true } },
     },
   });
   let pool: GeneratorQuestion[] = questions.map((q) => ({
@@ -136,14 +142,14 @@ export async function checkFeasibility(testId: string): Promise<FeasibilityResul
   const test = await prisma.test.findUnique({ where: { id: testId } });
   if (!test) return { ok: false, errors: ['Test not found'], warnings: [] };
 
-  const errors: string[] = [];
+  const errors: string[] = validFullMock(test) ? [] : ['Full mocks require 180 questions and 180 minutes.'];
   const warnings: string[] = [];
-  const languages = (test.availableLanguages.length ? test.availableLanguages : ['en']) as ('en' | 'ta')[];
+  const languages = (test.availableLanguages.length ? test.availableLanguages : ['en']) as ('en' | 'ta' | 'hi')[];
 
   if (test.isRandom) {
     for (const language of languages) {
       try {
-        const rules = await buildRandomRules(test, { language, taOnly: language === 'ta' });
+        const rules = await buildRandomRules(test, { language, taOnly: language !== 'en' });
         generateQuestionSet(rules, `feasibility:${testId}:${language}`);
       } catch (err) {
         const msg = err instanceof GeneratorError ? err.message : 'unknown error';
@@ -179,7 +185,7 @@ export async function checkFeasibility(testId: string): Promise<FeasibilityResul
 /** Produce the question set for a specific attempt (Tamil fallback allowed). */
 export async function generateForAttempt(
   testId: string,
-  language: 'en' | 'ta',
+  language: 'en' | 'ta' | 'hi',
   attemptSeed: string,
 ): Promise<{ questionIds: string[]; warnings: string[] }> {
   const test = await prisma.test.findUnique({ where: { id: testId } });
@@ -190,8 +196,23 @@ export async function generateForAttempt(
       orderBy: { order: 'asc' },
       select: { questionId: true },
     });
-    return { questionIds: rows.map((r) => r.questionId), warnings: [] };
+    const questionIds = rows.map(r => r.questionId);
+    await validateAttemptQuestions(test, questionIds, language);
+    return { questionIds, warnings: [] };
   }
-  const rules = await buildRandomRules(test, { language, taOnly: false });
-  return generateQuestionSet(rules, attemptSeed);
+  const rules = await buildRandomRules(test, { language, taOnly: language !== 'en' });
+  const result = generateQuestionSet(rules, attemptSeed);
+  await validateAttemptQuestions(test, result.questionIds, language);
+  return result;
+}
+
+async function validateAttemptQuestions(test: { testType: string; totalQuestions: number; durationMinutes: number }, ids: string[], language: string) {
+  if (!validFullMock(test) || ids.length !== test.totalQuestions || new Set(ids).size !== ids.length) throw new GeneratorError('Invalid test configuration');
+  const rows = await prisma.question.findMany({ where: { id: { in: ids }, isActive: true },
+    select: { questionType: true, subject: { select: { code: true } }, translations: { select: { language: true, reviewed: true, correctOption: true } } } });
+  if (rows.length !== ids.length || rows.some(q => !q.translations.some(t => t.language === 'en' && t.correctOption) ||
+    !q.translations.some(t => t.language === language && (language === 'en' || t.reviewed)))) throw new GeneratorError('Question content unavailable');
+  if (test.testType === 'FULL_TEST' && (NEET_CONFIG.subjects.some(code => rows.filter(q => q.subject.code === code).length !== NEET_CONFIG.questionsPerPracticeSubject))) {
+    throw new GeneratorError('Full mock requires 45 single-correct questions in each practice subject');
+  }
 }

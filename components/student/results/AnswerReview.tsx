@@ -23,6 +23,7 @@ const STATUS_BADGE: Record<ReviewStatus, string> = {
  */
 export default function AnswerReview({ items, locale }: { items: ReviewItem[]; locale: ExamLanguage }) {
   const t = useTranslations('results.review');
+  const tn = useTranslations('neetPractice');
   const [filter, setFilter] = useState<Filter>('all');
 
   const counts = useMemo(
@@ -75,8 +76,8 @@ export default function AnswerReview({ items, locale }: { items: ReviewItem[]; l
       ) : (
         <ul className="mt-4 space-y-4">
           {filtered.map((item) => {
-            const content = locale === 'ta' && item.ta ? item.ta : item.en;
-            const taNotice = locale === 'ta' && !item.ta;
+            const content = item[locale] ?? item.en;
+            const taNotice = locale !== 'en' && !item[locale];
             return (
               <li key={item.questionId} className="rounded-2xl border border-border bg-surfaceElevated p-4 sm:p-5">
                 <div className="flex flex-wrap items-center gap-2">
@@ -98,7 +99,7 @@ export default function AnswerReview({ items, locale }: { items: ReviewItem[]; l
 
                 {taNotice ? (
                   <p className="mt-3 rounded-lg border border-amber-500/40 bg-amber-950/30 px-3 py-2 text-xs text-amber-100">
-                    {t('taNotice')}
+                    {tn('languageUnavailable')}
                   </p>
                 ) : null}
 
@@ -106,7 +107,7 @@ export default function AnswerReview({ items, locale }: { items: ReviewItem[]; l
 
                 {item.imageUrl ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={item.imageUrl} alt="" className="mt-3 max-h-56 w-auto rounded-lg border border-border" />
+                  <img src={item.imageUrl} alt="" className="mt-3 max-h-56 max-w-full w-auto rounded-lg border border-border" />
                 ) : null}
 
                 <ul className="mt-3 space-y-2">
