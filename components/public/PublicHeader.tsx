@@ -40,13 +40,13 @@ export default function PublicHeader() {
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'border-b border-white/10 bg-[#0a0a09]/94 shadow-xl shadow-black/20 backdrop-blur-xl'
-          : 'border-b border-white/8 bg-[#0a0a09]/78 backdrop-blur-lg'
+          ? 'border-b border-[#d2c9bd] bg-[#f5f1e9]/94 shadow-none backdrop-blur-xl'
+          : 'border-b border-[#e5ded4] bg-[#f5f1e9]/88 backdrop-blur-lg'
       }`}
     >
       <div className="mx-auto flex w-full max-w-[1600px] items-center gap-3 px-[clamp(1rem,3vw,3rem)] py-1">
         <div className="flex min-w-0 flex-1 items-center min-[1536px]:flex-none">
-          <Logo className="sivora-logo-lockup" size="compact" />
+          <Logo className="text-[#171613]" size="compact" />
         </div>
 
         <nav className="hidden min-w-0 flex-1 items-center justify-center gap-0.5 min-[1200px]:flex" aria-label={tA11y('primaryNav')}>
@@ -72,16 +72,12 @@ export default function PublicHeader() {
             </div>
           ))}
 
-          {NAV_LINKS.filter((link) => link.href !== '/').map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={navLinkClass(link.href)}
-              aria-current={isActive(pathname, link.href) ? 'page' : undefined}
-            >
-              {t(link.key)}
-            </Link>
-          ))}
+          <div className="group relative">
+            <button type="button" className="whitespace-nowrap px-2.5 py-2 text-[13px] font-medium text-[#D1D1D1] transition-colors hover:text-textPrimary">More</button>
+            <div className="invisible absolute right-0 top-full z-50 min-w-48 translate-y-2 rounded-xl border border-white/10 bg-[#111111]/95 p-2 opacity-0 shadow-xl backdrop-blur-xl transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+              {NAV_LINKS.map((link) => <Link key={link.href} href={link.href} className="block rounded-lg px-3 py-2.5 text-sm text-[#D1D1D1] hover:bg-white/5 hover:text-textPrimary">{t(link.key)}</Link>)}
+            </div>
+          </div>
         </nav>
 
         <div className="flex shrink-0 items-center justify-end gap-1.5 sm:gap-2">
@@ -91,15 +87,15 @@ export default function PublicHeader() {
           </div>
           <Link
             href="/login"
-            className="hidden rounded-full px-3 py-2 text-sm font-medium text-[#D1D1D1] hover:bg-brand-soft hover:text-textPrimary sm:inline-flex"
+            className="hidden rounded-full px-3 py-2 text-sm font-medium text-[#6e685f] hover:bg-brand-soft hover:text-[#171613] sm:inline-flex"
           >
             {tNav('login')}
           </Link>
           <Link
             href="/counselling"
-            className="sivora-premium-link hidden rounded-full bg-gradient-to-r from-brand to-brand-light px-4 py-2 text-sm font-black uppercase tracking-[0.06em] text-white transition hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand/30 sm:inline-flex"
+            className="hidden rounded-full border border-brand/60 px-3.5 py-2 text-sm font-medium text-[#f5f1e9] transition hover:bg-brand hover:text-white sm:inline-flex"
           >
-            {t('getStarted')}
+            Get guidance
           </Link>
           <button
             type="button"

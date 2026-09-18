@@ -10,7 +10,7 @@ import AIChatButton from '@/components/ai/AIChatButton';
  */
 export default function PublicLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="public-site flex min-h-screen flex-col">
       <PublicHeader />
       <main id="main-content" className="flex-1">{children}</main>
       <AIChatButton />
