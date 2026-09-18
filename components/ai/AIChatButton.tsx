@@ -85,7 +85,7 @@ export default function AIChatButton() {
                 className={`rounded-2xl px-4 py-3 text-sm leading-6 ${
                   message.role === 'assistant'
                     ? 'mr-5 bg-[#1a1a1a] text-[#f5f5f5]'
-                    : 'ml-5 bg-[#D71920] text-white'
+                    : 'ml-5 bg-[#315f9f] text-white'
                 }`}
               >
                 <p className="whitespace-pre-line">{message.text}</p>
@@ -99,13 +99,13 @@ export default function AIChatButton() {
               <input
                 value={input}
                 onChange={(event) => setInput(event.target.value)}
-                className="min-w-0 flex-1 rounded-2xl border border-[#2b2b2b] bg-[#050505] px-3 py-2 text-sm text-white outline-none placeholder:text-[#d1d1d1]/55 focus:border-[#D71920]"
+                className="min-w-0 flex-1 rounded-md border border-[#d2c9bd] bg-[#f5f1e9] px-3 py-2 text-sm text-[#171613] outline-none placeholder:text-[#6e685f]/70 focus:border-[#315f9f]"
                 placeholder={t('placeholder')}
                 aria-label={t('inputLabel')}
               />
               <button
                 type="submit"
-                className="rounded-2xl bg-[#D71920] px-4 py-2 text-xs font-black text-white transition hover:bg-[#FF2B32]"
+                className="rounded-md bg-[#17191c] px-4 py-2 text-xs font-semibold text-white transition hover:bg-[#315f9f]"
               >
                 {t('ask')}
               </button>
@@ -116,7 +116,7 @@ export default function AIChatButton() {
                   key={topic}
                   type="button"
                   onClick={() => ask(topic)}
-                  className="rounded-2xl border border-[#2b2b2b] bg-[#050505] px-3 py-2 text-xs font-bold text-white transition hover:border-[#D71920] hover:bg-[#1a1a1a]"
+                  className="rounded-md border border-[#d2c9bd] bg-[#f5f1e9] px-3 py-2 text-xs font-semibold text-[#171613] transition hover:border-[#315f9f] hover:bg-[#e6edf7]"
                 >
                   {topic}
                 </button>
@@ -143,12 +143,12 @@ export default function AIChatButton() {
       <button
         type="button"
         onClick={() => setOpen((value) => !value)}
-        className="group relative flex h-14 w-14 items-center justify-center rounded-full border border-[#FF2B32]/80 bg-[#050505] text-white shadow-[0_0_0_1px_rgba(255,43,50,0.25),0_0_34px_rgba(215,25,32,0.45)] transition hover:-translate-y-0.5 hover:border-[#FF2B32] hover:bg-[#130708] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        className="group relative flex h-14 w-14 items-center justify-center rounded-full border border-[#315f9f] bg-[#17191c] text-white shadow-lg shadow-black/15 transition hover:-translate-y-0.5 hover:bg-[#315f9f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
         aria-label={open ? t('closeFloating') : t('openFloating')}
         aria-expanded={open}
         title={t('tooltip')}
       >
-        <span className="absolute inset-0 rounded-full bg-[#D71920]/18 motion-safe:animate-ping" aria-hidden="true" />
+        <span className="absolute inset-0 rounded-full bg-[#315f9f]/15 motion-safe:animate-ping" aria-hidden="true" />
         <RobotIcon className="relative h-7 w-7" />
         <span className="pointer-events-none absolute right-16 top-1/2 hidden -translate-y-1/2 whitespace-nowrap rounded-full border border-white/10 bg-[#111111] px-3 py-1.5 text-xs font-bold text-white opacity-0 shadow-xl shadow-black/30 transition group-hover:opacity-100 group-focus-visible:opacity-100 sm:block">
           {t('tooltip')}
@@ -185,12 +185,12 @@ function RobotIcon({ className = '' }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden="true">
       <path d="M12 3.5v2.2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-      <path d="M7.2 8.2h9.6a3.2 3.2 0 0 1 3.2 3.2v4.2a4.9 4.9 0 0 1-4.9 4.9H8.9A4.9 4.9 0 0 1 4 15.6v-4.2a3.2 3.2 0 0 1 3.2-3.2Z" fill="#D71920" />
+      <path d="M7.2 8.2h9.6a3.2 3.2 0 0 1 3.2 3.2v4.2a4.9 4.9 0 0 1-4.9 4.9H8.9A4.9 4.9 0 0 1 4 15.6v-4.2a3.2 3.2 0 0 1 3.2-3.2Z" fill="#315f9f" />
       <path d="M7.2 8.2h9.6a3.2 3.2 0 0 1 3.2 3.2v4.2a4.9 4.9 0 0 1-4.9 4.9H8.9A4.9 4.9 0 0 1 4 15.6v-4.2a3.2 3.2 0 0 1 3.2-3.2Z" stroke="white" strokeWidth="1.2" />
       <circle cx="9" cy="13.2" r="1.2" fill="white" />
       <circle cx="15" cy="13.2" r="1.2" fill="white" />
       <path d="M9.4 16.5c1.7 1 3.5 1 5.2 0" stroke="white" strokeWidth="1.4" strokeLinecap="round" />
-      <path d="M8 5.7h8" stroke="#FF2B32" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M8 5.7h8" stroke="#8fb1da" strokeWidth="1.8" strokeLinecap="round" />
     </svg>
   );
 }

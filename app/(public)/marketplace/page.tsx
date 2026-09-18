@@ -41,8 +41,8 @@ export default async function MarketplacePage({ searchParams }: Props) {
 
   return (
     <>
-      <section className="relative -mt-[73px] overflow-hidden border-b border-[#2B2B2B] bg-[#050505] pt-[73px]">
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,#050505_0%,#151515_52%,#050505_100%)]" />
+      <section className="public-editorial-hero relative overflow-hidden border-b border-[#d2c9bd] bg-[#f5f1e9]">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(49,95,159,0.1),transparent_32%)]" />
         <div className="relative mx-auto grid min-h-[calc(100vh-73px)] w-full max-w-[1600px] gap-10 px-[clamp(1rem,3vw,3rem)] py-16 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:py-24">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('eyebrow')}</p>

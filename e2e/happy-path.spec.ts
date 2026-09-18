@@ -62,7 +62,7 @@ test('student can register, take a free test, see the result, and request guidan
       await expect(page.getByText(`Question ${i + 2} of ${total}`)).toBeVisible();
     }
   }
-  await page.getByRole('button', { name: 'Submit test' }).click();
+  await page.getByRole('banner').getByRole('button', { name: 'Submit test' }).click();
   await expect(page.getByText('Submit your test?')).toBeVisible();
   await page.getByRole('button', { name: 'Yes, submit' }).click();
 

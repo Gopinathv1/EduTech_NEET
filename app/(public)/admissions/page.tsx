@@ -48,9 +48,9 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
 
   return (
     <>
-      <section className="relative -mt-[73px] overflow-hidden border-b border-[#2B2B2B] bg-[#050505] pt-[73px]">
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,#050505_0%,#111111_55%,#050505_100%)]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/76 to-transparent" />
+      <section className="public-editorial-hero relative overflow-hidden border-b border-[#d2c9bd] bg-[#f5f1e9]">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(49,95,159,0.1),transparent_32%)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#f5f1e9] via-[#f5f1e9]/85 to-transparent" />
         <div className="relative mx-auto grid min-h-[calc(92vh-73px)] w-full max-w-[1600px] gap-8 px-[clamp(1rem,3vw,3rem)] py-14 lg:grid-cols-[0.92fr_1.08fr] lg:items-end lg:py-20">
           <div className="pb-2">
             <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('heroSimplified.eyebrow')}</p>

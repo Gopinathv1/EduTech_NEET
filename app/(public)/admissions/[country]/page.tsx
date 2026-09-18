@@ -108,8 +108,8 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
 
   return (
     <>
-      <section className="relative -mt-[73px] overflow-hidden border-b border-[#2B2B2B] bg-[#050505] pt-[73px]">
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,#050505_0%,#111111_56%,#050505_100%)]" />
+      <section className="public-editorial-hero relative overflow-hidden border-b border-[#d2c9bd] bg-[#f5f1e9]">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(49,95,159,0.1),transparent_32%)]" />
         {country.landmark.imagePath ? (
           <Image
             src={country.landmark.imagePath}

@@ -515,6 +515,10 @@ body {
 .public-site header button{color:var(--public-muted)}
 .public-site header button:hover{color:var(--public-foreground)}
 .public-site .text-white{color:var(--public-dark-text)}
+.public-site .public-editorial-hero [class*="text-white"]{color:var(--public-foreground)!important}
+.public-site .public-editorial-hero [class*="text-[#D1D1D1]"],.public-site .public-editorial-hero [class*="text-[#d1d1d1]"]{color:var(--public-muted)!important}
+.public-site .public-editorial-hero [class*="bg-[#111111]"],.public-site .public-editorial-hero [class*="bg-[#050505]"]{background-color:var(--public-surface)!important}
+.public-site .public-editorial-hero [class*="border-[#2B2B2B]"],.public-site .public-editorial-hero [class*="border-[#2b2b2b]"]{border-color:var(--public-border)!important}
 
 /* Precision pass: quieter type, borders and red accents. */
 .sivora-product-title,.sivora-section-intro h2,.sivora-proof-section h2,.sivora-final-cta h2{font-weight:550;letter-spacing:-.052em;line-height:.92}

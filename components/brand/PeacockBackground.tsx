@@ -8,6 +8,7 @@ const ACTIVE_ATTEMPT_PATH = /^\/student\/tests\/[^/]+\/attempt(?:\/)?$/;
 function shouldShowPeacockBackground(pathname: string | null) {
   if (!pathname) return true;
   if (ACTIVE_ATTEMPT_PATH.test(pathname)) return false;
+  if (!pathname.startsWith('/student') && !pathname.startsWith('/admin') && !pathname.startsWith('/partner')) return false;
   if (pathname === '/admin' || pathname.startsWith('/admin/')) return false;
   if (pathname === '/partner' || pathname.startsWith('/partner/')) return false;
   return true;
