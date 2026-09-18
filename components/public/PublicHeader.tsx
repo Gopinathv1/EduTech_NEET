@@ -40,8 +40,8 @@ export default function PublicHeader() {
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'border-b border-[#2B2B2B] bg-[#050505]/94 shadow-xl shadow-black/8 backdrop-blur-xl'
-          : 'border-b border-[#2B2B2B]/70 bg-[#050505]/82 backdrop-blur-lg'
+          ? 'border-b border-white/10 bg-[#0a0a09]/94 shadow-xl shadow-black/20 backdrop-blur-xl'
+          : 'border-b border-white/8 bg-[#0a0a09]/78 backdrop-blur-lg'
       }`}
     >
       <div className="mx-auto flex w-full max-w-[1600px] items-center gap-3 px-[clamp(1rem,3vw,3rem)] py-1">
@@ -104,7 +104,7 @@ export default function PublicHeader() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex items-center justify-center rounded-xl border border-[#2B2B2B] bg-[#111111] p-2 text-textPrimary hover:bg-brand-soft min-[1536px]:hidden"
+            className="inline-flex items-center justify-center border border-white/15 bg-transparent p-2 text-textPrimary transition hover:border-brand/60 hover:text-brand min-[1536px]:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={tA11y('openMenu')}
