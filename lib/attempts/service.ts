@@ -49,7 +49,7 @@ export async function startOrResumeAttempt(
   language: 'en' | 'ta' | 'hi',
 ): Promise<StartOutcome> {
   const test = await prisma.test.findUnique({ where: { id: testId } });
-  if (!test || !test.isPublished) return { ok: false, code: 'notFound' };
+  if (!test || !test.isPublished || (test.contentClass && test.contentClass !== 'PRODUCTION')) return { ok: false, code: 'notFound' };
   // Generate before insertion: a partially generated session is never visible.
   const existing = await prisma.testAttempt.findFirst({
     where: { studentId, testId, status: ACTIVE }, orderBy: { createdAt: 'desc' },

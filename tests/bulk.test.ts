@@ -100,4 +100,27 @@ describe('validateRows', () => {
     expect(r.status).toBe('valid');
     expect(r.data?.ta?.reviewed).toBe(true);
   });
+
+  it('requires provenance metadata for production rows', () => {
+    const [missing] = validateRows([{ ...baseRow, contentClassification: 'PRODUCTION' }], makeCtx());
+    expect(missing.status).toBe('error');
+    expect(missing.errors.join(' ')).toMatch(/sourceType/);
+
+    const [pyq] = validateRows(
+      [{ ...baseRow, contentClassification: 'PRODUCTION', sourceType: 'OFFICIAL_PREVIOUS_YEAR', sourceName: 'Official paper', reviewer: 'Reviewer', reviewDate: '2026-01-01' }],
+      makeCtx(),
+    );
+    expect(pyq.status).toBe('error');
+    expect(pyq.errors.join(' ')).toMatch(/exam and examYear/);
+  });
+
+  it('accepts a production row only with review and source metadata', () => {
+    const [r] = validateRows(
+      [{ ...baseRow, contentClassification: 'PRODUCTION', sourceType: 'INTERNALLY_AUTHORED', sourceName: 'SIVORA editorial', reviewer: 'Reviewer', reviewDate: '2026-01-01' }],
+      makeCtx(),
+    );
+    expect(r.status).toBe('valid');
+    expect(r.data?.contentClass).toBe('PRODUCTION');
+    expect(r.data?.reviewer).toBe('Reviewer');
+  });
 });

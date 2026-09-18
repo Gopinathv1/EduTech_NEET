@@ -9,6 +9,7 @@ import { getFreeAttemptSummary } from '@/lib/attempts/service';
 import { computeCoverage } from '@/lib/student/catalogue';
 import StudentHeader from '@/components/student/StudentHeader';
 import { ClockIcon, BookIcon, GlobeIcon, ChartIcon } from '@/components/public/icons';
+import { productionTestWhere } from '@/lib/content/eligibility';
 
 export default async function TestDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -18,13 +19,13 @@ export default async function TestDetailPage({ params }: { params: Promise<{ id:
 
   const [test, subjects, chapters] = await Promise.all([
     prisma.test.findUnique({
-      where: { id },
+      where: { ...productionTestWhere, id },
       include: { testQuestions: { select: { question: { select: { subjectId: true, chapterId: true } } } } },
     }),
     prisma.subject.findMany({ orderBy: { order: 'asc' } }),
     prisma.chapter.findMany(),
   ]);
-  if (!test || !test.isPublished) notFound();
+  if (!test) notFound();
 
   const attemptSummary = session ? await getFreeAttemptSummary(session.sub, id) : null;
 

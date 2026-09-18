@@ -8,6 +8,7 @@ import StudentHeader from '@/components/student/StudentHeader';
 import CatalogueFilters, { type CatalogueFilterValues } from '@/components/student/CatalogueFilters';
 import TestCard from '@/components/student/TestCard';
 import ExamProductVisual from '@/components/public/ExamProductVisual';
+import { productionTestWhere } from '@/lib/content/eligibility';
 
 type SP = Record<string, string | string[] | undefined>;
 
@@ -29,7 +30,7 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
 
   const [tests, subjects, chapters, attempts] = await Promise.all([
     prisma.test.findMany({
-      where: { isPublished: true },
+      where: productionTestWhere,
       orderBy: { createdAt: 'desc' },
       include: { testQuestions: { select: { question: { select: { subjectId: true, chapterId: true } } } } },
     }),

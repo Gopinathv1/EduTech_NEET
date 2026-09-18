@@ -25,6 +25,15 @@ export type QuestionInitial = {
   difficulty: string;
   questionType: string;
   status: string;
+  contentClass: string;
+  sourceType: string;
+  sourceName: string;
+  exam: string;
+  examYear: string;
+  paperSession: string;
+  licenseReference: string;
+  reviewer: string;
+  reviewedAt: string;
   year: string;
   tags: string;
   imageUrl: string;
@@ -46,6 +55,7 @@ function defaults(subjects: SubjectOption[]): QuestionInitial {
     difficulty: 'MEDIUM',
     questionType: 'SINGLE_CORRECT',
     status: 'DRAFT',
+    contentClass: 'SAMPLE', sourceType: '', sourceName: '', exam: '', examYear: '', paperSession: '', licenseReference: '', reviewer: '', reviewedAt: '',
     year: '',
     tags: '',
     imageUrl: '',
@@ -74,6 +84,15 @@ export default function QuestionForm({
   const [difficulty, setDifficulty] = useState(base.difficulty);
   const [questionType, setQuestionType] = useState(base.questionType);
   const [status, setStatus] = useState(base.status);
+  const [contentClass, setContentClass] = useState(base.contentClass);
+  const [sourceType, setSourceType] = useState(base.sourceType);
+  const [sourceName, setSourceName] = useState(base.sourceName);
+  const [exam, setExam] = useState(base.exam);
+  const [examYear, setExamYear] = useState(base.examYear);
+  const [paperSession, setPaperSession] = useState(base.paperSession);
+  const [licenseReference, setLicenseReference] = useState(base.licenseReference);
+  const [reviewer, setReviewer] = useState(base.reviewer);
+  const [reviewedAt, setReviewedAt] = useState(base.reviewedAt);
   const [year, setYear] = useState(base.year);
   const [tags, setTags] = useState(base.tags);
   const [imageUrl, setImageUrl] = useState(base.imageUrl);
@@ -142,6 +161,15 @@ export default function QuestionForm({
       difficulty,
       questionType,
       status,
+      contentClass,
+      sourceType: sourceType || null,
+      sourceName,
+      exam,
+      examYear: examYear.trim() ? Number(examYear) : null,
+      paperSession,
+      licenseReference,
+      reviewer,
+      reviewedAt: reviewedAt ? new Date(reviewedAt).toISOString() : null,
       year: year.trim() ? Number(year) : null,
       tags: tags.split(',').map((t) => t.trim()).filter(Boolean),
       imageUrl,
@@ -269,6 +297,27 @@ export default function QuestionForm({
           <Field label="Tags" htmlFor="qTags" hint="Comma-separated (e.g. units, force)">
             <input id="qTags" className={inputClass} value={tags} onChange={(e) => setTags(e.target.value)} />
           </Field>
+
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <Field label="Content classification" htmlFor="qClass" hint="Sample stays out of the student catalogue.">
+              <select id="qClass" className={selectClass} value={contentClass} onChange={(e) => setContentClass(e.target.value)}>
+                <option value="SAMPLE">Sample / development</option><option value="PRODUCTION">Production</option>
+              </select>
+            </Field>
+            <Field label="Source type" htmlFor="qSourceType">
+              <select id="qSourceType" className={selectClass} value={sourceType} onChange={(e) => setSourceType(e.target.value)}>
+                <option value="">Not specified</option><option value="INTERNALLY_AUTHORED">Internally authored</option><option value="LICENSED">Licensed</option><option value="OFFICIAL_PREVIOUS_YEAR">Official previous year</option><option value="OTHER">Other</option>
+              </select>
+            </Field>
+          </div>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <Field label="Source name" htmlFor="qSourceName"><input id="qSourceName" className={inputClass} value={sourceName} onChange={(e) => setSourceName(e.target.value)} /></Field>
+            <Field label="Exam / year" htmlFor="qExam"><div className="flex gap-2"><input id="qExam" className={inputClass} placeholder="NEET" value={exam} onChange={(e) => setExam(e.target.value)} /><input className={inputClass} placeholder="Year" value={examYear} onChange={(e) => setExamYear(e.target.value)} /></div></Field>
+            <Field label="Paper / session" htmlFor="qSession"><input id="qSession" className={inputClass} value={paperSession} onChange={(e) => setPaperSession(e.target.value)} /></Field>
+            <Field label="License / permission reference" htmlFor="qLicense"><input id="qLicense" className={inputClass} value={licenseReference} onChange={(e) => setLicenseReference(e.target.value)} /></Field>
+            <Field label="Reviewer" htmlFor="qReviewer"><input id="qReviewer" className={inputClass} value={reviewer} onChange={(e) => setReviewer(e.target.value)} /></Field>
+            <Field label="Review date" htmlFor="qReviewedAt"><input id="qReviewedAt" type="date" className={inputClass} value={reviewedAt ? reviewedAt.slice(0, 10) : ''} onChange={(e) => setReviewedAt(e.target.value ? `${e.target.value}T00:00:00.000Z` : '')} /></Field>
+          </div>
 
           <div>
             <p className="block text-sm font-medium text-textSecondary">Correct option</p>

@@ -14,6 +14,8 @@ export const difficultyEnum = z.enum(['EASY', 'MEDIUM', 'HARD']);
 // — ASSERTION_REASON is a disabled "coming soon" option in the UI.
 export const questionTypeEnum = z.enum(['SINGLE_CORRECT', 'IMAGE_BASED', 'ASSERTION_REASON']);
 export const questionStatusEnum = z.enum(['DRAFT', 'REVIEW', 'PUBLISHED']);
+export const contentClassificationEnum = z.enum(['SAMPLE', 'PRODUCTION']);
+export const questionSourceTypeEnum = z.enum(['INTERNALLY_AUTHORED', 'LICENSED', 'OFFICIAL_PREVIOUS_YEAR', 'OTHER']);
 
 // ---- Chapters -------------------------------------------------------------
 
@@ -66,6 +68,15 @@ export const questionSchema = z
     difficulty: difficultyEnum,
     questionType: questionTypeEnum,
     status: questionStatusEnum.default('DRAFT'),
+    contentClass: contentClassificationEnum.default('SAMPLE'),
+    sourceType: questionSourceTypeEnum.nullable().optional(),
+    sourceName: z.string().trim().max(200).optional().default(''),
+    exam: z.string().trim().max(80).optional().default(''),
+    examYear: z.number().int().min(1990).max(2100).nullable().optional(),
+    paperSession: z.string().trim().max(120).optional().default(''),
+    licenseReference: z.string().trim().max(240).optional().default(''),
+    reviewer: z.string().trim().max(160).optional().default(''),
+    reviewedAt: z.string().datetime().nullable().optional(),
     year: z.number().int().min(1990).max(2100).nullable().optional(),
     tags: z.array(z.string().trim().min(1)).max(20).default([]),
     imageUrl: z.string().trim().max(1000).optional().default(''),
@@ -75,6 +86,15 @@ export const questionSchema = z
     ta: contentTa.optional(),
   })
   .superRefine((d, ctx) => {
+    if (d.contentClass === 'PRODUCTION') {
+      if (!d.sourceType) ctx.addIssue({ code: 'custom', path: ['sourceType'], message: 'Production questions require a source type' });
+      if (!d.sourceName) ctx.addIssue({ code: 'custom', path: ['sourceName'], message: 'Production questions require a source name' });
+      if (!d.reviewer) ctx.addIssue({ code: 'custom', path: ['reviewer'], message: 'Production questions require a reviewer' });
+      if (d.status === 'PUBLISHED' && !d.reviewedAt) ctx.addIssue({ code: 'custom', path: ['reviewedAt'], message: 'Published production questions require a review date' });
+    }
+    if (d.sourceType === 'OFFICIAL_PREVIOUS_YEAR' && (!d.exam || !d.examYear)) {
+      ctx.addIssue({ code: 'custom', path: ['sourceType'], message: 'Official previous-year questions require exam and exam year provenance' });
+    }
     if (d.questionType === 'IMAGE_BASED' && !d.imageUrl) {
       ctx.addIssue({ code: 'custom', path: ['imageUrl'], message: 'An image is required for image-based questions' });
     }

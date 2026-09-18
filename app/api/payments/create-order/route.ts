@@ -21,9 +21,9 @@ export async function POST(req: Request) {
 
   const test = await prisma.test.findUnique({
     where: { id: testId },
-    select: { id: true, isPublished: true, title: true, price: true },
+    select: { id: true, isPublished: true, contentClass: true, title: true, price: true },
   });
-  if (!test || !test.isPublished) return fail('testNotFound', 404);
+  if (!test || !test.isPublished || (test.contentClass && test.contentClass !== 'PRODUCTION')) return fail('testNotFound', 404);
 
   // Already owned → nothing to buy.
   const owned = await prisma.testEntitlement.count({ where: { studentId: session.sub, testId } });

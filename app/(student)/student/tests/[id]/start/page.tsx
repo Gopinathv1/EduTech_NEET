@@ -9,6 +9,7 @@ import { FREE_ATTEMPT_LIMIT, getFreeAttemptSummary } from '@/lib/attempts/servic
 import type { ExamLanguage } from '@/lib/attempts/examState';
 import StudentHeader from '@/components/student/StudentHeader';
 import StartAttemptClient from '@/components/student/exam/StartAttemptClient';
+import { productionTestWhere } from '@/lib/content/eligibility';
 import { ClockIcon, BookIcon } from '@/components/public/icons';
 
 /**
@@ -26,18 +27,17 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
   if (!session || session.kind !== 'student') redirect(`/login?next=/student/tests/${id}/start`);
 
   const test = await prisma.test.findUnique({
-    where: { id },
+    where: { ...productionTestWhere, id },
     select: {
       id: true,
       title: true,
-      isPublished: true,
       durationMinutes: true,
       totalQuestions: true,
       testType: true,
       availableLanguages: true,
     },
   });
-  if (!test || !test.isPublished) notFound();
+  if (!test) notFound();
 
   const [summary, inProgress, latestCompleted] = await Promise.all([
     getFreeAttemptSummary(session.sub, id),

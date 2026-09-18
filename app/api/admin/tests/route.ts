@@ -26,7 +26,7 @@ export async function POST(req: Request) {
   }
 
   const test = await prisma.$transaction(async (tx) => {
-    const created = await tx.test.create({ data: { ...data, isPublished: false } });
+    const created = await tx.test.create({ data: { ...data, contentClass: input.contentClass, isPublished: false } });
     if (!isRandom && fixedQuestionIds.length > 0) {
       await tx.testQuestion.createMany({
         data: fixedQuestionIds.map((questionId, i) => ({ testId: created.id, questionId, order: i + 1 })),

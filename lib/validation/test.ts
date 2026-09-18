@@ -9,6 +9,7 @@ export const testTypeEnum = z.enum([
   'SUBJECT_TEST',
   'YEAR_PATTERN',
 ]);
+export const contentClassificationEnum = z.enum(['SAMPLE', 'PRODUCTION']);
 
 const langEnum = z.enum(['en', 'ta']);
 
@@ -25,6 +26,7 @@ export const difficultyMixSchema = z
 export const testSchema = z
   .object({
     titleEn: z.string().trim().min(2, 'English title is required').max(200),
+    contentClass: contentClassificationEnum.default('SAMPLE'),
     titleTa: z.string().trim().max(300).optional().default(''),
     descEn: z.string().trim().max(3000).optional().default(''),
     descTa: z.string().trim().max(3000).optional().default(''),

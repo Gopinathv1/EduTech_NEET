@@ -85,8 +85,17 @@ export async function POST(req: Request) {
             questionType: 'SINGLE_CORRECT',
             year: d.year,
             tags: d.tags,
-            status: 'PUBLISHED',
-            isActive: true,
+            contentClass: d.contentClass,
+            sourceType: d.sourceType,
+            sourceName: d.sourceName,
+            exam: d.exam,
+            examYear: d.examYear,
+            paperSession: d.paperSession,
+            licenseReference: d.licenseReference,
+            reviewer: d.reviewer,
+            reviewedAt: d.reviewedAt ? new Date(d.reviewedAt) : null,
+            status: d.contentClass === 'PRODUCTION' ? 'PUBLISHED' : 'DRAFT',
+            isActive: d.contentClass === 'PRODUCTION',
             translations: {
               create: [
                 {

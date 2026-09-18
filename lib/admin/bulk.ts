@@ -35,6 +35,15 @@ export type NormalizedQuestion = {
   questionType: 'SINGLE_CORRECT';
   year: number | null;
   tags: string[];
+  contentClass: 'SAMPLE' | 'PRODUCTION';
+  sourceType: 'INTERNALLY_AUTHORED' | 'LICENSED' | 'OFFICIAL_PREVIOUS_YEAR' | 'OTHER' | null;
+  sourceName: string | null;
+  exam: string | null;
+  examYear: number | null;
+  paperSession: string | null;
+  licenseReference: string | null;
+  reviewer: string | null;
+  reviewedAt: string | null;
   correctOption: 'A' | 'B' | 'C' | 'D';
   textHash: string;
   en: {
@@ -131,6 +140,26 @@ export function validateRows(
       else year = n;
     }
 
+    const rawClass = get(row, 'contentClassification').toUpperCase() || 'SAMPLE';
+    if (rawClass !== 'SAMPLE' && rawClass !== 'PRODUCTION') errors.push(`Invalid contentClassification "${rawClass}"`);
+    const contentClass = rawClass as 'SAMPLE' | 'PRODUCTION';
+    const rawSource = get(row, 'sourceType').toUpperCase();
+    const sourceTypes = new Set(['INTERNALLY_AUTHORED', 'LICENSED', 'OFFICIAL_PREVIOUS_YEAR', 'OTHER']);
+    if (rawSource && !sourceTypes.has(rawSource)) errors.push(`Invalid sourceType "${rawSource}"`);
+    const sourceType = (rawSource || null) as NormalizedQuestion['sourceType'];
+    const sourceName = get(row, 'sourceName') || null;
+    const exam = get(row, 'exam') || null;
+    const rawExamYear = get(row, 'examYear');
+    const examYear = rawExamYear ? Number(rawExamYear) : null;
+    const reviewer = get(row, 'reviewer') || null;
+    const reviewedAt = get(row, 'reviewDate') || null;
+    if (contentClass === 'PRODUCTION' && (!sourceType || !sourceName || !reviewer || !reviewedAt)) {
+      errors.push('Production rows require sourceType, sourceName, reviewer and reviewDate');
+    }
+    if (sourceType === 'OFFICIAL_PREVIOUS_YEAR' && (!exam || !Number.isInteger(examYear))) {
+      errors.push('Official previous-year rows require exam and examYear');
+    }
+
     // Correct option
     const correctOption = get(row, 'correctOption').toUpperCase();
     if (!correctOption) errors.push('correctOption is required');
@@ -200,6 +229,15 @@ export function validateRows(
           .split(';')
           .map((t) => t.trim())
           .filter(Boolean),
+        contentClass,
+        sourceType,
+        sourceName,
+        exam,
+        examYear,
+        paperSession: get(row, 'paperSession') || null,
+        licenseReference: get(row, 'licenseReference') || null,
+        reviewer,
+        reviewedAt,
         correctOption: correctOption as 'A' | 'B' | 'C' | 'D',
         textHash,
         en,

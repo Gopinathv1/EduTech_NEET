@@ -138,6 +138,18 @@ enum ContactStatus {
   CLOSED
 }
 
+enum ContentClassification {
+  SAMPLE
+  PRODUCTION
+}
+
+enum QuestionSourceType {
+  INTERNALLY_AUTHORED
+  LICENSED
+  OFFICIAL_PREVIOUS_YEAR
+  OTHER
+}
+
 enum MarketplaceSellerStatus {
   REGISTERED
   UNDER_REVIEW
@@ -370,6 +382,15 @@ model Question {
   tags         String[]       @default([])
   questionType QuestionType   @default(SINGLE_CORRECT)
   status       QuestionStatus @default(DRAFT)
+  contentClass ContentClassification @default(SAMPLE)
+  sourceType   QuestionSourceType?
+  sourceName   String?
+  exam         String?
+  examYear     Int?
+  paperSession String?
+  licenseReference String?
+  reviewer     String?
+  reviewedAt   DateTime?
   imageUrl     String?
   // Mirrors `status == PUBLISHED`; kept for the generator/catalogue queries.
   isActive     Boolean        @default(true)
@@ -450,6 +471,7 @@ model Test {
   difficulty         Difficulty?
   isRandom           Boolean     @default(false) // true => questions generated per attempt
   isPublished        Boolean     @default(false)
+  contentClass       ContentClassification @default(SAMPLE)
   availableLanguages String[]    @default(["en"])
   // Generation rules for RANDOM tests + difficulty mix for all tests.
   // Shape: { difficultyMix: { EASY, MEDIUM, HARD }, random?: { scope, subjectIds[], chapterIds[] } }

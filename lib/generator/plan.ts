@@ -1,5 +1,6 @@
 import { NEET_CONFIG, validFullMock } from '@/lib/attempts/config';
 import { prisma } from '@/lib/prisma';
+import { productionQuestionWhere } from '@/lib/content/eligibility';
 import {
   generateQuestionSet,
   largestRemainder,
@@ -40,6 +41,7 @@ type TestLike = {
   isRandom: boolean;
   availableLanguages: string[];
   rules: unknown;
+  contentClass?: string;
 };
 
 /** Build generator rules for a random test in a given language. */
@@ -98,7 +100,7 @@ export async function buildRandomRules(
   // Eligible pool: active questions in scope; flag reviewed-Tamil availability.
   const chapterIds = chaptersInScope.map((c) => c.id);
   const questions = await prisma.question.findMany({
-    where: { isActive: true, chapterId: { in: chapterIds } },
+    where: { ...productionQuestionWhere, chapterId: { in: chapterIds } },
     select: {
       id: true,
       subjectId: true,
@@ -143,6 +145,7 @@ export async function checkFeasibility(testId: string): Promise<FeasibilityResul
   if (!test) return { ok: false, errors: ['Test not found'], warnings: [] };
 
   const errors: string[] = validFullMock(test) ? [] : ['Full mocks require 180 questions and 180 minutes.'];
+  if (test.contentClass !== 'PRODUCTION') errors.push('Only production-classified tests can be published to students.');
   const warnings: string[] = [];
   const languages = (test.availableLanguages.length ? test.availableLanguages : ['en']) as ('en' | 'ta' | 'hi')[];
 
@@ -158,11 +161,17 @@ export async function checkFeasibility(testId: string): Promise<FeasibilityResul
     }
   } else {
     const testQuestions = await prisma.testQuestion.findMany({
-      where: { testId },
+      where: { testId, question: productionQuestionWhere },
       select: {
         question: {
           select: {
             isActive: true,
+            status: true,
+            contentClass: true,
+            sourceType: true,
+            sourceName: true,
+            reviewer: true,
+            reviewedAt: true,
             translations: { where: { language: 'ta', reviewed: true }, select: { id: true } },
           },
         },

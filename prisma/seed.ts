@@ -266,19 +266,20 @@ async function main() {
   // (a) Random full mock test — questions are generated per attempt (no fixed rows).
   await prisma.test.create({
     data: {
-      title: { en: 'NEET Full Mock Test – 2024 Pattern', ta: 'நீட் முழு மாதிரித் தேர்வு – 2024 அமைப்பு' },
+      title: { en: 'Development sample: NEET full mock structure', ta: 'மேம்பாட்டு மாதிரி: நீட் முழு மாதிரி அமைப்பு' },
       description: {
         en: 'A full-length 180-question NEET simulation across Physics, Chemistry, Botany and Zoology.',
         ta: 'இயற்பியல், வேதியியல், தாவரவியல் மற்றும் விலங்கியல் முழுவதும் 180 வினாக்கள் கொண்ட முழு நீட் மாதிரித் தேர்வு.',
       },
       testType: 'FULL_TEST',
-      year: 2024,
+      year: null,
       totalQuestions: 180,
       durationMinutes: 180,
       price: 30,
       difficulty: 'MEDIUM',
       isRandom: true,
       isPublished: true,
+      contentClass: 'SAMPLE',
       availableLanguages: ['en', 'ta'],
       rules: {
         difficultyMix: { EASY: 30, MEDIUM: 50, HARD: 20 },
@@ -305,6 +306,7 @@ async function main() {
       difficulty: 'MEDIUM',
       isRandom: false,
       isPublished: true,
+      contentClass: 'SAMPLE',
       availableLanguages: ['en', 'ta'],
       testQuestions: {
         create: geneticsKeys.map((key, i) => ({
