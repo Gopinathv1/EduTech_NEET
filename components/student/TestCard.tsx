@@ -16,12 +16,12 @@ export type CatalogueCard = {
 export default function TestCard({ test }: { test: CatalogueCard }) {
   const t = useTranslations('catalogue');
   return (
-    <div className="flex flex-col rounded-2xl border border-border bg-surfaceElevated p-5 shadow-sm transition-shadow hover:shadow-md">
-      <div className="flex items-start justify-between gap-2">
-        <span className="inline-block rounded-full bg-brand-soft px-2.5 py-0.5 text-xs font-semibold text-brand">
+    <article className="student-test-row grid gap-5 border-b border-border bg-surfaceElevated py-6 lg:grid-cols-[0.72fr_1.35fr_1fr_auto] lg:items-center">
+      <div className="flex items-start justify-between gap-2 lg:block">
+        <span className="inline-block border-l-2 border-brand pl-2 text-xs font-semibold uppercase tracking-[0.12em] text-brand">
           {t(`types.${test.testType}`)}
         </span>
-        <div className="flex gap-1">
+        <div className="mt-3 flex gap-1 lg:mt-4">
           {test.languages.map((l) => (
             <span key={l} className="rounded border border-border px-1.5 py-0.5 text-[10px] font-semibold uppercase text-textSecondary">
               {l}
@@ -30,13 +30,13 @@ export default function TestCard({ test }: { test: CatalogueCard }) {
         </div>
       </div>
 
-      <h3 className="mt-3 text-base font-semibold text-textPrimary">
+      <h3 className="text-xl font-semibold tracking-[-0.035em] text-textPrimary sm:text-2xl">
         <Link href={`/student/tests/${test.id}`} className="hover:text-brand">
           {test.title}
         </Link>
       </h3>
 
-      <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm text-textSecondary">
+      <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-textSecondary">
         <span className="inline-flex items-center gap-1">
           <BookIcon className="h-4 w-4 text-slate-400" />
           {t('questions', { count: test.totalQuestions })}
@@ -50,17 +50,17 @@ export default function TestCard({ test }: { test: CatalogueCard }) {
         ) : null}
       </div>
 
-      <div className="mt-4 flex items-center justify-between border-t border-border pt-4">
-        <span className="text-sm font-semibold text-green-200">
+      <div className="flex items-center justify-between gap-4 lg:justify-end">
+        <span className="text-sm font-semibold text-green-700">
           {t('attemptsRemaining', { count: test.attemptsRemaining })}
         </span>
         <Link
           href={`/student/tests/${test.id}/start`}
-          className="rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark"
+          className="rounded-md bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark"
         >
           {t('start')}
         </Link>
       </div>
-    </div>
+    </article>
   );
 }

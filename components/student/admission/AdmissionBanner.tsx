@@ -10,9 +10,9 @@ import { GlobeIcon } from '@/components/public/icons';
 export default async function AdmissionBanner() {
   const t = await getTranslations('consultancy.banner');
   return (
-    <div className="mt-6 flex flex-col gap-3 rounded-2xl border border-amber-500/40 bg-amber-950/30 p-5 sm:flex-row sm:items-center sm:justify-between">
+    <div className="mt-6 flex flex-col gap-3 rounded-2xl border border-brand/20 bg-brand-soft p-5 sm:flex-row sm:items-center sm:justify-between">
       <div className="flex items-start gap-3">
-        <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-100 text-amber-200">
+        <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-brand">
           <GlobeIcon className="h-5 w-5" />
         </span>
         <div>
@@ -22,7 +22,7 @@ export default async function AdmissionBanner() {
       </div>
       <Link
         href="/student/admission-guidance"
-        className="shrink-0 rounded-lg bg-amber-600 px-5 py-2.5 text-center text-sm font-semibold text-white hover:bg-amber-700"
+        className="shrink-0 rounded-lg bg-brand px-5 py-2.5 text-center text-sm font-semibold text-white hover:bg-brand-dark"
       >
         {t('cta')}
       </Link>

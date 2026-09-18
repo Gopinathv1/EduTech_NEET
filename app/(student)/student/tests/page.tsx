@@ -7,6 +7,7 @@ import { computeCoverage, subjectFilterCodes } from '@/lib/student/catalogue';
 import StudentHeader from '@/components/student/StudentHeader';
 import CatalogueFilters, { type CatalogueFilterValues } from '@/components/student/CatalogueFilters';
 import TestCard from '@/components/student/TestCard';
+import ExamProductVisual from '@/components/public/ExamProductVisual';
 
 type SP = Record<string, string | string[] | undefined>;
 
@@ -97,11 +98,17 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
   return (
     <div className="min-h-screen bg-surface">
       <StudentHeader />
-      <main id="main-content" className="mx-auto max-w-5xl px-4 py-8 sm:px-6">
-        <h1 className="text-2xl font-bold text-textPrimary">{t('title')}</h1>
-        <p className="mt-1 text-textSecondary">{t('subtitle')}</p>
+      <main id="main-content" className="student-main mx-auto max-w-[1504px] px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
+        <section className="student-catalogue-hero grid gap-10 border-b border-border pb-12 lg:grid-cols-[0.72fr_1.28fr] lg:items-center lg:pb-16">
+          <div>
+            <p className="student-eyebrow">EXAM PREPARATION</p>
+            <h1 className="student-editorial-title">{t('title')}</h1>
+            <p className="mt-5 max-w-xl text-base leading-7 text-textSecondary">{t('subtitle')}</p>
+          </div>
+          <ExamProductVisual />
+        </section>
 
-        <div className="mt-6">
+        <div className="mt-12">
           <CatalogueFilters years={years} chapters={chapterOptions} initial={filters} />
         </div>
 
@@ -112,7 +119,7 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
             {t('empty')}
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="student-test-list border-t border-border">
             {filtered.map(({ test, remaining }) => (
               <TestCard
                 key={test.id}

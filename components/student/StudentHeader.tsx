@@ -8,7 +8,7 @@ import LanguageSwitcher from '@/components/LanguageSwitcher';
 import AccessibilityMenu from '@/components/a11y/AccessibilityMenu';
 import LogoutButton from '@/components/auth/LogoutButton';
 import NotificationBell, { type SerializedNotification } from '@/components/student/notifications/NotificationBell';
-import BrandLogo from '@/components/brand/Logo';
+import Logo from '@/components/public/Logo';
 
 /** Shared header for student pages: brand, nav, notification bell, language, logout. */
 export default async function StudentHeader() {
@@ -41,11 +41,11 @@ export default async function StudentHeader() {
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-surfaceElevated">
-      <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6">
-        <div className="flex min-w-0 flex-wrap items-center gap-4">
-          <BrandLogo className="text-white" label={t('brand')} size="compact" />
-          <nav className="flex flex-wrap items-center gap-3 text-sm">
+    <header className="student-header sticky top-0 z-40 border-b border-border bg-surfaceElevated">
+      <div className="mx-auto flex w-full max-w-[1504px] flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
+        <div className="flex min-w-0 items-center gap-6">
+          <Logo className="text-[#10151c]" size="compact" />
+          <nav aria-label={t('brand')} className="student-nav flex items-center gap-1 text-sm">
             <Link href="/student" className="font-medium text-textSecondary hover:text-brand">
               {t('dashboard')}
             </Link>
@@ -69,7 +69,7 @@ export default async function StudentHeader() {
             </Link>
           </nav>
         </div>
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="student-tools flex items-center gap-2 sm:gap-3">
           <NotificationBell key={locale} initialUnread={unread} items={items} />
           <AccessibilityMenu fontScale={a11y.fontScale} contrast={a11y.contrast} />
           <LanguageSwitcher />

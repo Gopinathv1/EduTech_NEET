@@ -3,8 +3,8 @@ import { redirect } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 import { getSession } from '@/lib/auth/session';
 import { prisma } from '@/lib/prisma';
-import AuthShell from '@/components/auth/AuthShell';
 import ProfileForm from '@/components/auth/ProfileForm';
+import StudentHeader from '@/components/student/StudentHeader';
 import type { Locale } from '@/i18n/config';
 
 export default async function ProfilePage() {
@@ -26,10 +26,13 @@ export default async function ProfilePage() {
   };
 
   return (
-    <AuthShell>
-      <div className="space-y-4">
+    <>
+      <StudentHeader />
+      <main className="student-profile-shell">
+        <div className="student-profile-card space-y-5">
         <div>
-          <h1 className="text-xl font-bold text-textPrimary">{t('title')}</h1>
+          <p className="student-eyebrow">STUDENT PROFILE</p>
+          <h1 className="mt-3 text-3xl font-semibold text-textPrimary">{t('title')}</h1>
           <p className="mt-1 text-sm text-textSecondary">{t('subtitle')}</p>
         </div>
         <ProfileForm initial={initial} />
@@ -49,7 +52,8 @@ export default async function ProfilePage() {
             {t('backToDashboard')}
           </Link>
         </p>
-      </div>
-    </AuthShell>
+        </div>
+      </main>
+    </>
   );
 }

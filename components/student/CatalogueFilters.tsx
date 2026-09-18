@@ -48,7 +48,7 @@ export default function CatalogueFilters({
   const cls = `${selectClass} !mt-0 py-2 text-sm`;
 
   return (
-    <form onSubmit={onSubmit} className="mb-6 rounded-xl border border-border bg-surfaceElevated p-4">
+    <form onSubmit={onSubmit} className="student-filters mb-6 border-y border-border bg-surfaceElevated py-4">
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
         <select className={cls} value={v.subject} onChange={(e) => set('subject', e.target.value)} aria-label={t('filterSubject')}>
           <option value="">{t('anySubject')}</option>
@@ -101,10 +101,10 @@ export default function CatalogueFilters({
       </div>
 
       <div className="mt-3 flex justify-end gap-2 text-sm">
-        <button type="button" className="rounded-lg border border-border px-3 py-1.5 font-medium text-textSecondary hover:bg-surfaceElevated" onClick={() => { setV(EMPTY); apply(EMPTY); }}>
+        <button type="button" className="rounded-md border border-border px-3 py-1.5 font-medium text-textSecondary hover:border-brand" onClick={() => { setV(EMPTY); apply(EMPTY); }}>
           {t('clear')}
         </button>
-        <button type="submit" className="rounded-lg border border-border px-3 py-1.5 font-medium text-textSecondary hover:bg-surfaceElevated">
+        <button type="submit" className="rounded-md bg-brand px-3 py-1.5 font-medium text-white hover:bg-brand-dark">
           {t('search')}
         </button>
       </div>

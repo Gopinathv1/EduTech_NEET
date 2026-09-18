@@ -2,6 +2,7 @@ import { getTranslations } from 'next-intl/server';
 import { getSession } from '@/lib/auth/session';
 import { getSettings } from '@/lib/settings/service';
 import AIChatButton from '@/components/ai/AIChatButton';
+import { publicFont } from '@/lib/public/font';
 
 /**
  * Wraps the whole student area. When maintenance mode is on (a super-admin
@@ -30,9 +31,9 @@ export default async function StudentAreaLayout({ children }: { children: React.
   }
 
   return (
-    <>
+    <div className={`${publicFont.className} student-site min-h-screen`}>
       {children}
       <AIChatButton />
-    </>
+    </div>
   );
 }
