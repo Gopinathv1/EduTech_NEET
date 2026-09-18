@@ -44,7 +44,7 @@ export default function CoursesPage() {
             <Link
               key={family.href}
               href={family.href}
-              className="rounded-2xl border border-[#2B2B2B] bg-[#111111] p-5 shadow-xl shadow-black/5 transition hover:-translate-y-1 hover:border-brand/35"
+              className="rounded-md border border-[#d2c9bd] bg-[#eee8df] p-5 transition hover:-translate-y-1 hover:border-[#315f9f]"
             >
               <h3 className="text-xl font-black uppercase leading-tight text-white">{family.title}</h3>
               <p className="mt-3 text-sm leading-6 text-[#D1D1D1]">{family.body}</p>
@@ -75,7 +75,7 @@ export default function CoursesPage() {
               <Link
                 key={course.key}
                 href={course.href}
-                className="rounded-[1.5rem] border border-[#2B2B2B] bg-[#111111] p-6 shadow-xl shadow-black/5 transition hover:-translate-y-1 hover:border-brand/35"
+                className="rounded-md border border-[#d2c9bd] bg-[#eee8df] p-6 transition hover:-translate-y-1 hover:border-[#315f9f]"
               >
                 <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">{t('academic.label')}</p>
                 <h3 className="mt-4 text-2xl font-black uppercase text-white">{t(`academic.items.${course.key}.title`)}</h3>

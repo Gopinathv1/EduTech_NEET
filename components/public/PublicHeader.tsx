@@ -58,12 +58,12 @@ export default function PublicHeader() {
               >
                 {t(group.key)}
               </button>
-              <div className="invisible absolute left-0 top-full z-50 min-w-64 translate-y-2 rounded-2xl border border-[#2B2B2B] bg-[#111111]/95 p-2 opacity-0 shadow-2xl shadow-black/12 backdrop-blur-xl transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+              <div className="invisible absolute left-0 top-full z-50 min-w-64 translate-y-2 rounded-md border border-[#d2c9bd] bg-[#f5f1e9] p-2 opacity-0 shadow-lg transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                 {group.links.map((link) => (
                   <Link
                     key={`${group.key}-${link.href}-${link.key}`}
                     href={link.href}
-                    className="block rounded-xl px-3 py-2.5 text-sm font-medium text-[#D1D1D1] hover:bg-brand-soft hover:text-textPrimary"
+                    className="block rounded-md px-3 py-2.5 text-sm font-medium text-[#6e685f] hover:bg-[#e6edf7] hover:text-[#171613]"
                   >
                     {t(link.key)}
                   </Link>
@@ -74,7 +74,7 @@ export default function PublicHeader() {
 
           <div className="group relative">
             <button type="button" className="whitespace-nowrap px-2.5 py-2 text-[13px] font-medium text-[#D1D1D1] transition-colors hover:text-textPrimary">More</button>
-            <div className="invisible absolute right-0 top-full z-50 min-w-48 translate-y-2 rounded-xl border border-white/10 bg-[#111111]/95 p-2 opacity-0 shadow-xl backdrop-blur-xl transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+            <div className="invisible absolute right-0 top-full z-50 min-w-48 translate-y-2 rounded-md border border-[#d2c9bd] bg-[#f5f1e9] p-2 opacity-0 shadow-lg transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
               {NAV_LINKS.map((link) => <Link key={link.href} href={link.href} className="block rounded-lg px-3 py-2.5 text-sm text-[#D1D1D1] hover:bg-white/5 hover:text-textPrimary">{t(link.key)}</Link>)}
             </div>
           </div>
@@ -114,7 +114,7 @@ export default function PublicHeader() {
         <nav
           id="mobile-nav"
           aria-label={tA11y('primaryNav')}
-          className="border-t border-[#2B2B2B] bg-[#050505]/96 px-4 py-4 shadow-2xl shadow-black/15 backdrop-blur-xl min-[1200px]:hidden"
+            className="border-t border-[#d2c9bd] bg-[#f5f1e9] px-4 py-4 shadow-lg min-[1200px]:hidden"
         >
           <ul className="flex flex-col">
             {NAV_GROUPS.map((group) => (
@@ -170,7 +170,7 @@ export default function PublicHeader() {
             <Link
               href="/counselling"
               onClick={() => setOpen(false)}
-              className="rounded-xl bg-gradient-to-r from-brand to-brand-light px-3 py-2.5 text-center text-sm font-semibold text-white"
+              className="rounded-md bg-[#17191c] px-3 py-2.5 text-center text-sm font-semibold text-white"
             >
               {t('getStarted')}
             </Link>

@@ -39,9 +39,9 @@ export default function CounsellingPage() {
           </div>
           <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {helpCards.map((card, index) => (
-              <div key={card.title} className="rounded-2xl border border-[#2B2B2B] bg-[#111111] p-5 shadow-xl shadow-black/5">
+              <div key={card.title} className="rounded-md border border-[#d2c9bd] bg-[#eee8df] p-5">
                 <div className="flex items-start justify-between gap-4">
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-[#f6a623]/25 bg-[#050505]/72 text-[#f6d58a]">
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-[#315f9f]/25 bg-[#e6edf7] text-[#315f9f]">
                     <CompassIcon className="h-5 w-5" />
                   </span>
                   <span className="text-xs font-black uppercase tracking-[0.18em] text-brand">0{index + 1}</span>
@@ -74,7 +74,7 @@ export default function CounsellingPage() {
       </Section>
 
       <Section id="callback" lazy>
-        <div className="grid gap-10 rounded-[2rem] border border-[#2B2B2B] bg-[#111111] p-6 shadow-2xl shadow-black/8 sm:p-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+        <div className="grid gap-10 rounded-md border border-[#d2c9bd] bg-[#eee8df] p-6 sm:p-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('callbackEyebrow')}</p>
             <h2 className="mt-5 text-[clamp(2.5rem,5vw,5.6rem)] font-black uppercase leading-[0.92] text-white">
@@ -89,7 +89,7 @@ export default function CounsellingPage() {
       </Section>
 
       <Section lazy>
-        <div className="rounded-[2rem] border border-[#2B2B2B] bg-[#111111] p-8 shadow-xl shadow-black/5 lg:flex lg:items-end lg:justify-between lg:gap-8">
+        <div className="rounded-md border border-[#d2c9bd] bg-[#eee8df] p-8 lg:flex lg:items-end lg:justify-between lg:gap-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.24em] text-brand">{t('ctaEyebrow')}</p>
             <h2 className="mt-4 text-3xl font-black uppercase text-white sm:text-5xl">{t('ctaTitle')}</h2>

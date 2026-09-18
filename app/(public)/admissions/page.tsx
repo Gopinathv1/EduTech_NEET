@@ -162,7 +162,7 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
           {visibleCountries.map((country) => (
             <div
               key={country.slug}
-              className="group overflow-hidden rounded-2xl border border-[#2B2B2B] bg-[#111111] shadow-xl shadow-black/5 transition hover:-translate-y-1 hover:border-brand/35"
+              className="group overflow-hidden rounded-md border border-[#d2c9bd] bg-[#eee8df] transition hover:-translate-y-1 hover:border-[#315f9f]"
             >
               <div className="relative h-40 bg-[#050505]">
                 {country.landmark.imagePath ? (
@@ -190,7 +190,7 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
                 <div className="mt-auto grid gap-2 pt-6 sm:grid-cols-2">
                   <Link
                     href={`/admissions/${country.slug}`}
-                    className="inline-flex min-h-11 items-center justify-center rounded-lg bg-gradient-to-r from-brand to-brand-light px-3 py-2.5 text-xs font-black uppercase tracking-[0.08em] text-white"
+                    className="inline-flex min-h-11 items-center justify-center rounded-md bg-[#17191c] px-3 py-2.5 text-xs font-semibold text-white"
                   >
                     {t('destinations.cta')}
                   </Link>
@@ -297,7 +297,7 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
       </Section>
 
       <Section tinted lazy>
-        <div className="rounded-2xl border border-[#2B2B2B] bg-[#111111] p-8 shadow-xl shadow-black/5 lg:flex lg:items-end lg:justify-between lg:gap-8">
+        <div className="rounded-md border border-[#d2c9bd] bg-[#eee8df] p-8 lg:flex lg:items-end lg:justify-between lg:gap-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.24em] text-brand">{t('cta.eyebrow')}</p>
             <h2 className="mt-4 text-3xl font-black uppercase text-white sm:text-5xl">{t('cta.simpleTitle')}</h2>

@@ -48,7 +48,7 @@ export default function StudentJourneys() {
 
         <AdmissionJourneyMarquee />
 
-        <div className="mt-10 rounded-[1.75rem] border border-[#2B2B2B] bg-[#111111]/90 p-6 shadow-2xl shadow-black/12 backdrop-blur-sm sm:p-8 lg:flex lg:items-end lg:justify-between lg:gap-8">
+        <div className="mt-10 rounded-md border border-[#d2c9bd] bg-[#eee8df] p-6 sm:p-8 lg:flex lg:items-end lg:justify-between lg:gap-8">
           <div>
             <h3 className="text-3xl font-black uppercase leading-tight text-white sm:text-5xl">
               {t('cta.title')}
@@ -60,7 +60,7 @@ export default function StudentJourneys() {
           <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:mt-0 lg:shrink-0">
             <Link
               href="/admission-journey"
-              className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-brand to-brand-light px-5 py-3 text-sm font-black uppercase tracking-[0.08em] text-white shadow-lg shadow-brand/25 transition hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+              className="inline-flex items-center justify-center rounded-md bg-[#17191c] px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#315f9f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
             >
               {t('cta.primary')}
             </Link>
@@ -91,11 +91,11 @@ function StudentJourneyCard({
   return (
     <article
       aria-hidden={duplicate ? true : undefined}
-      className="group flex h-[39rem] w-[min(78vw,18.75rem)] shrink-0 flex-col overflow-hidden rounded-[1.5rem] border border-[#f6a623]/20 bg-[#111111]/88 shadow-[0_0_0_1px_rgba(215,25,32,0.12),0_24px_70px_rgba(0,0,0,0.34)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-[#f6a623]/36 hover:shadow-[0_0_0_1px_rgba(246,166,35,0.22),0_28px_80px_rgba(0,0,0,0.42)] sm:w-[19rem] md:w-[20rem] lg:w-[21.25rem] xl:w-[22.5rem]"
+      className="group flex h-[39rem] w-[min(78vw,18.75rem)] shrink-0 flex-col overflow-hidden rounded-md border border-[#d2c9bd] bg-[#eee8df] transition duration-300 hover:-translate-y-1 hover:border-[#315f9f] sm:w-[19rem] md:w-[20rem] lg:w-[21.25rem] xl:w-[22.5rem]"
     >
       <div className="relative aspect-[16/10] shrink-0 overflow-hidden bg-[#050505]">
         {imageFailed ? (
-          <div className="flex h-full w-full items-center justify-center bg-[#050505] px-5 text-center text-xs font-black uppercase tracking-[0.16em] text-[#f6d58a]">
+          <div className="flex h-full w-full items-center justify-center bg-[#17191c] px-5 text-center text-xs font-semibold uppercase tracking-[0.16em] text-[#f5f1e9]">
             {t('imageUnavailable')}
           </div>
         ) : (
@@ -121,7 +121,7 @@ function StudentJourneyCard({
           <span className="rounded-full border border-brand/35 bg-brand-soft px-3 py-1 text-[11px] font-black uppercase tracking-[0.12em] text-brand-light">
             {t(`items.${item.key}.category`)}
           </span>
-          <span className="rounded-full border border-[#f6a623]/25 bg-[#f6a623]/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.12em] text-[#f6d58a]">
+          <span className="rounded-md border border-[#315f9f]/25 bg-[#e6edf7] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#315f9f]">
             {t(`items.${item.key}.country`)}
           </span>
         </div>
@@ -129,7 +129,7 @@ function StudentJourneyCard({
           {t(`items.${item.key}.title`)}
         </h3>
         {t.has(`items.${item.key}.university`) ? (
-          <p className="mt-2 text-sm font-bold text-[#f6d58a]">{t(`items.${item.key}.university`)}</p>
+          <p className="mt-2 text-sm font-semibold text-[#315f9f]">{t(`items.${item.key}.university`)}</p>
         ) : null}
         <p className="mt-4 text-sm leading-7 text-[#D1D1D1]">{t(`items.${item.key}.description`)}</p>
         <p className="mt-auto pt-5 text-xs font-black uppercase tracking-[0.16em] text-brand-light">

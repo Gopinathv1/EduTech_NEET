@@ -62,7 +62,7 @@ export default function AIChatButton() {
   return (
     <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3 sm:bottom-6 sm:right-6">
       {open ? (
-        <div className="flex h-[min(38rem,calc(100vh-7rem))] w-[min(calc(100vw-2rem),25rem)] flex-col overflow-hidden rounded-3xl border border-[#2b2b2b] bg-[#111111] shadow-2xl shadow-black/55">
+        <div className="flex h-[min(38rem,calc(100vh-7rem))] w-[min(calc(100vw-2rem),25rem)] flex-col overflow-hidden rounded-md border border-[#d2c9bd] bg-[#eee8df] shadow-lg shadow-black/15">
           <div className="flex items-start justify-between gap-3 border-b border-[#2b2b2b] bg-[#050505] p-4">
             <div>
               <p className="text-sm font-black text-white">{t('title')}</p>
@@ -170,7 +170,7 @@ function HumanHandoff({ whatsappUrl }: { whatsappUrl: string | null }) {
             {t('whatsapp')}
           </a>
         ) : null}
-        <Link href="/counselling" className="rounded-full bg-[#D71920] px-3 py-1.5 text-xs font-black text-white">
+        <Link href="/counselling" className="rounded-md bg-[#315f9f] px-3 py-1.5 text-xs font-semibold text-white">
           {t('counselling')}
         </Link>
         <Link href="/contact" className="rounded-full border border-white/15 px-3 py-1.5 text-xs font-black text-white">

@@ -47,7 +47,7 @@ export default function AdmissionJourneyPage() {
             <section
               key={step.id}
               id={step.id}
-              className="scroll-mt-28 overflow-hidden rounded-[1.5rem] border border-[#2B2B2B] bg-[#111111]/88 shadow-xl shadow-black/10 backdrop-blur-sm"
+              className="scroll-mt-28 overflow-hidden rounded-md border border-[#d2c9bd] bg-[#eee8df]"
             >
               {step.image ? (
                 <div className="relative aspect-[16/10] overflow-hidden bg-[#050505]">
@@ -68,7 +68,7 @@ export default function AdmissionJourneyPage() {
                 </h2>
                 <p className="mt-4 text-sm leading-7 text-[#D1D1D1]">{t(`steps.${step.id}.description`)}</p>
                 {step.id === 'visa-guidance' ? (
-                  <p className="mt-4 border-l border-[#f6a623]/40 bg-[#050505]/64 p-3 text-xs leading-6 text-[#D1D1D1]">
+                  <p className="mt-4 border-l border-[#315f9f]/40 bg-[#e6edf7] p-3 text-xs leading-6 text-[#6e685f]">
                     {t('visaDisclosure')}
                   </p>
                 ) : null}
@@ -79,7 +79,7 @@ export default function AdmissionJourneyPage() {
       </Section>
 
       <Section tinted lazy>
-        <div className="mx-auto max-w-[1280px] rounded-[1.75rem] border border-[#2B2B2B] bg-[#111111]/90 p-6 shadow-2xl shadow-black/12 backdrop-blur-sm sm:p-8 lg:flex lg:items-end lg:justify-between lg:gap-8">
+        <div className="mx-auto max-w-[1280px] rounded-md border border-[#d2c9bd] bg-[#eee8df] p-6 sm:p-8 lg:flex lg:items-end lg:justify-between lg:gap-8">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.24em] text-brand-light">{t('cta.eyebrow')}</p>
             <h2 className="mt-4 text-3xl font-black uppercase leading-tight text-white sm:text-5xl">
@@ -88,14 +88,14 @@ export default function AdmissionJourneyPage() {
             <p className="mt-4 max-w-3xl text-base leading-8 text-[#D1D1D1]">
               {t('cta.body')}
             </p>
-            <p className="mt-5 border-l border-[#f6a623]/40 bg-[#050505]/64 p-4 text-xs leading-6 text-[#D1D1D1]">
+            <p className="mt-5 border-l border-[#315f9f]/40 bg-[#e6edf7] p-4 text-xs leading-6 text-[#6e685f]">
               {t('cta.disclaimer')}
             </p>
           </div>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:mt-0 lg:shrink-0">
             <Link
               href="/counselling"
-              className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-brand to-brand-light px-5 py-3 text-sm font-black uppercase tracking-[0.08em] text-white shadow-lg shadow-brand/25 transition hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+              className="inline-flex items-center justify-center rounded-md bg-[#17191c] px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#315f9f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#315f9f]"
             >
               {t('cta.primary')}
             </Link>

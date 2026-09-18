@@ -8,7 +8,7 @@ function BrandMarqueeTrack({ duplicate = false, items }: { duplicate?: boolean; 
           <span className="text-xs font-black uppercase tracking-[0.22em] text-white/86 sm:text-sm">
             {item}
           </span>
-          <span className="text-sm font-black text-[#f6d58a]" aria-hidden="true">
+          <span className="text-sm font-semibold text-[#315f9f]" aria-hidden="true">
             *
           </span>
         </span>

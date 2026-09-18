@@ -38,7 +38,7 @@ function ExamDetail({ exam }: { exam: typeof neet }) {
       <Section>
         <div className="grid gap-5 md:grid-cols-3">
           {exam.subjects.map((subject) => (
-            <div key={subject} className="rounded-[1.5rem] border border-[#2B2B2B] bg-[#111111] p-6 shadow-xl shadow-black/5">
+            <div key={subject} className="rounded-md border border-[#d2c9bd] bg-[#eee8df] p-6">
               <h2 className="text-2xl font-black uppercase text-white">{subject}</h2>
               <p className="mt-3 text-sm leading-7 text-[#D1D1D1]">{t('subjectBody')}</p>
             </div>

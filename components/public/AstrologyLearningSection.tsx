@@ -37,7 +37,7 @@ export default function AstrologyLearningSection({ standalone = false }: { stand
               <Link
                 key={area.key}
                 href={area.href}
-                className="min-h-44 rounded-2xl border border-[#2B2B2B] bg-[#111111] p-4 shadow-xl shadow-black/5 transition hover:-translate-y-1 hover:border-brand/35"
+                className="min-h-44 rounded-md border border-[#d2c9bd] bg-[#eee8df] p-4 transition hover:-translate-y-1 hover:border-[#315f9f]"
               >
                 <div className="flex items-start justify-between gap-3">
                   <p className="text-sm font-black uppercase leading-5 tracking-[0.08em] text-white">

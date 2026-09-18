@@ -41,10 +41,10 @@ export default function Testimonials({ items }: { items: Testimonial[] }) {
       onBlur={() => setPaused(false)}
       aria-roledescription="carousel"
     >
-      <div className="rounded-2xl border border-border bg-surfaceElevated p-6 shadow-sm sm:p-8">
+      <div className="rounded-md border border-[#d2c9bd] bg-[#eee8df] p-6 sm:p-8">
         <QuoteIcon className="h-8 w-8 text-brand/30" />
         <p
-          className="mt-3 text-lg leading-relaxed text-textPrimary"
+          className="mt-3 text-lg leading-relaxed text-[#171613]"
           aria-live="polite"
         >
           {current.quote}
@@ -55,8 +55,8 @@ export default function Testimonials({ items }: { items: Testimonial[] }) {
           ))}
         </div>
         <div className="mt-3">
-          <p className="font-semibold text-textPrimary">{current.name}</p>
-          <p className="text-sm text-textSecondary">{current.role}</p>
+          <p className="font-semibold text-[#171613]">{current.name}</p>
+          <p className="text-sm text-[#6e685f]">{current.role}</p>
         </div>
       </div>
 

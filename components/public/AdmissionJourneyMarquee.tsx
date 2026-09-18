@@ -24,7 +24,7 @@ function JourneyItems({ copyIndex, inert = false }: JourneyItemsProps) {
           >
             {t(`${step.id}.shortTitle`)}
           </Link>
-          <span className="mx-2 text-sm font-black text-[#f6d58a]" aria-hidden="true">
+          <span className="mx-2 text-sm font-semibold text-[#315f9f]" aria-hidden="true">
             -&gt;
           </span>
         </div>
@@ -56,7 +56,7 @@ function JourneyStaticList() {
             {t(`${step.id}.shortTitle`)}
           </Link>
           {index < admissionJourneySteps.length - 1 ? (
-            <span className="mx-2 text-sm font-black text-[#f6d58a]" aria-hidden="true">
+            <span className="mx-2 text-sm font-semibold text-[#315f9f]" aria-hidden="true">
               -&gt;
             </span>
           ) : null}

@@ -263,7 +263,7 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
         </div>
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {country.universities.map((university) => (
-            <div key={university} className="flex min-h-52 flex-col rounded-2xl border border-[#2B2B2B] bg-[#111111] p-5 shadow-xl shadow-black/5">
+            <div key={university} className="flex min-h-52 flex-col rounded-md border border-[#d2c9bd] bg-[#eee8df] p-5">
               <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">{mainCity}</p>
               <h3 className="mt-3 text-lg font-black uppercase leading-tight text-white">{university}</h3>
               <p className="mt-4 text-sm leading-6 text-[#D1D1D1]">
@@ -387,7 +387,7 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
       </Section>
 
       <Section lazy>
-        <div className="rounded-2xl border border-[#2B2B2B] bg-[#111111] p-8 shadow-xl shadow-black/5 lg:flex lg:items-end lg:justify-between lg:gap-8">
+        <div className="rounded-md border border-[#d2c9bd] bg-[#eee8df] p-8 lg:flex lg:items-end lg:justify-between lg:gap-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.24em] text-brand">{t('cta.eyebrow')}</p>
             <h2 className="mt-4 text-3xl font-black uppercase text-white sm:text-5xl">{t('cta.simpleTitle')}</h2>

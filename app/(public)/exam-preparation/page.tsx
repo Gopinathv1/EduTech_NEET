@@ -35,7 +35,7 @@ export default function ExamPreparationPage() {
             <Link
               key={exam.slug}
               href={exam.active ? `/exam-preparation/${exam.slug}` : '/exam-preparation'}
-              className="rounded-[1.5rem] border border-[#2B2B2B] bg-[#111111] p-6 shadow-xl shadow-black/5 transition hover:-translate-y-1 hover:border-brand/35"
+              className="rounded-md border border-[#d2c9bd] bg-[#eee8df] p-6 transition hover:-translate-y-1 hover:border-[#315f9f]"
             >
               <p className="text-sm font-black text-brand">0{index + 1}</p>
               <h2 className="mt-5 text-2xl font-black uppercase text-white">{exam.name}</h2>
@@ -92,7 +92,7 @@ export default function ExamPreparationPage() {
       </Section>
 
       <Section lazy>
-        <div className="rounded-[2rem] border border-[#2B2B2B] bg-[#111111] p-8 shadow-xl shadow-black/5 lg:flex lg:items-center lg:justify-between lg:gap-8">
+        <div className="rounded-md border border-[#d2c9bd] bg-[#eee8df] p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.24em] text-brand">{t('ctaEyebrow')}</p>
             <h2 className="mt-4 text-3xl font-black uppercase text-white sm:text-5xl">{t('ctaTitle')}</h2>

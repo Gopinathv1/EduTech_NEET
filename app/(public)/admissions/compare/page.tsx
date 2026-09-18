@@ -123,7 +123,7 @@ export default async function AdmissionsComparePage({ searchParams }: Props) {
           }}
         />
         {selected.length === 1 ? (
-          <p className="mt-4 rounded-xl border border-[#f6a623]/25 bg-[#f6a623]/10 px-4 py-3 text-sm font-bold leading-6 text-[#f6d58a]">
+          <p className="mt-4 rounded-md border border-[#d2c9bd] bg-[#eee8df] px-4 py-3 text-sm font-semibold leading-6 text-[#6e685f]">
             {t('compare.minimumNote')}
           </p>
         ) : null}
