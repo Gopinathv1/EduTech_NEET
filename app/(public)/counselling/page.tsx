@@ -2,6 +2,9 @@ import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { pageMetadata } from '@/lib/seo';
 import PageHero from '@/components/public/PageHero';
+import JourneyExperience from '@/components/public/JourneyExperience';
+import OpportunityVisual from '@/components/public/OpportunityVisual';
+import styles from '@/components/public/RouteExperience.module.css';
 import { Section, PrimaryLink } from '@/components/public/ui';
 import HomeLeadForm from '@/components/public/HomeLeadForm';
 import WhatsAppLink from '@/components/whatsapp/WhatsAppLink';
@@ -22,31 +25,34 @@ export default function CounsellingPage() {
   const relatedItems = t.raw('related.items') as { title: string; body: string; href: string; cta: string }[];
 
   return (
-    <>
+    <div className={styles.page}>
+      <div className="mx-auto grid max-w-[1280px] items-center gap-10 px-5 py-16 lg:grid-cols-2 [&_section]:border-0 [&_section>div]:p-0">
       <PageHero
         eyebrow={t('eyebrow')}
         title={t('heroTitle')}
         subtitle={t('heroSubtitle')}
       />
+      <OpportunityVisual kind="counselling" />
+      </div>
 
       <Section>
         <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('helpEyebrow')}</p>
-            <h2 className="mt-5 text-[clamp(2.5rem,5vw,5.6rem)] font-semibold uppercase leading-[0.92] tracking-[-0.045em] text-[#171613]">
+            <h2 className="mt-5 text-[clamp(2.5rem,5vw,5.6rem)] font-semibold uppercase leading-[0.92] tracking-[-0.045em] text-[#171717]">
               {t('helpTitle')}
             </h2>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-0 divide-y divide-[#dce0e2]">
             {helpCards.map((card, index) => (
-              <div key={card.title} className="rounded-md border border-[#e1e5ea] bg-white p-5">
+              <div key={card.title} className="rounded-md border border-[#deded9] bg-white p-5">
                 <div className="flex items-start justify-between gap-4">
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-[#315f9f]/25 bg-[#e6edf7] text-[#315f9f]">
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-[#deded9] bg-[#f0f0ed] text-[#ff5a36]">
                     <CompassIcon className="h-5 w-5" />
                   </span>
                   <span className="text-xs font-black uppercase tracking-[0.18em] text-brand">0{index + 1}</span>
                 </div>
-                <h3 className="mt-5 text-lg font-semibold uppercase leading-tight text-[#171613]">{card.title}</h3>
+                <h3 className="mt-5 text-lg font-semibold uppercase leading-tight text-[#171717]">{card.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-[#6e685f]">{card.body}</p>
               </div>
             ))}
@@ -55,21 +61,14 @@ export default function CounsellingPage() {
       </Section>
 
       <Section tinted lazy>
-        <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
+        <div className="grid gap-8 lg:grid-cols-1">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('steps.eyebrow')}</p>
-            <h2 className="mt-5 text-[clamp(2.4rem,5vw,5rem)] font-semibold uppercase leading-[0.92] tracking-[-0.045em] text-[#171613]">
+            <h2 className="mt-5 text-[clamp(2.4rem,5vw,5rem)] font-semibold uppercase leading-[0.92] tracking-[-0.045em] text-[#171717]">
               {t('steps.title')}
             </h2>
           </div>
-          <div className="grid gap-3 sm:grid-cols-5">
-            {steps.map((step, index) => (
-              <div key={step} className="rounded-md border border-[#e1e5ea] bg-white p-4">
-                <p className="text-xs font-black text-brand">0{index + 1}</p>
-                <p className="mt-3 text-sm font-semibold uppercase tracking-[0.08em] text-[#171613]">{step}</p>
-              </div>
-            ))}
-          </div>
+          <JourneyExperience steps={steps} />
         </div>
       </Section>
 
@@ -84,7 +83,7 @@ export default function CounsellingPage() {
               {t('callbackSubtitle')}
             </p>
           </div>
-          <HomeLeadForm />
+          <div className={styles.form}><HomeLeadForm /></div>
         </div>
       </Section>
 
@@ -99,7 +98,7 @@ export default function CounsellingPage() {
             <WhatsAppLink
               label={t('whatsappLabel')}
               message={t('whatsappMessage')}
-              className="inline-flex items-center justify-center rounded-lg border border-[#25D366]/45 bg-[#25D366]/14 px-5 py-3 text-sm font-black uppercase tracking-[0.08em] text-white transition hover:-translate-y-0.5 hover:bg-[#25D366]/24"
+              className="inline-flex items-center justify-center rounded-lg border border-[#25D366]/45 bg-[#25D366]/14 px-5 py-3 text-sm font-black uppercase tracking-[0.08em] text-[#176537] transition hover:-translate-y-0.5 hover:bg-[#25D366]/24"
             >
               {t('whatsappCta')}
             </WhatsAppLink>
@@ -116,6 +115,6 @@ export default function CounsellingPage() {
       />
 
       <ExploreSivora exclude={['counselling']} />
-    </>
+    </div>
   );
 }

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import styles from '@/components/public/RouteExperience.module.css';
 import { getTranslations } from 'next-intl/server';
 import { pageMetadata } from '@/lib/seo';
 import { PrimaryLink, Section } from '@/components/public/ui';
@@ -84,22 +85,22 @@ export default async function AdmissionsComparePage({ searchParams }: Props) {
   ];
 
   return (
-    <>
+    <div className={styles.page}>
       <Section>
         <div className="grid gap-8 lg:grid-cols-[0.76fr_1.24fr] lg:items-end">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('compare.eyebrow')}</p>
-            <h1 className="mt-5 text-[clamp(2.8rem,6vw,6rem)] font-black uppercase leading-[0.9] text-white">
+            <h1 className="mt-5 text-[clamp(2.75rem,5vw,4rem)] font-black uppercase leading-[0.9] text-[#171717]">
               {t('compare.title')}
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-[#D1D1D1]">{t('compare.subtitle')}</p>
+            <p className="mt-6 max-w-2xl text-base leading-8 text-[#565c60]">{t('compare.subtitle')}</p>
           </div>
           <div className="flex flex-wrap gap-3 lg:justify-end">
             {ADMISSION_COUNTRY_PROFILES.map((country) => (
               <Link
                 key={country.slug}
                 href={`/admissions/compare?countries=${countries.map((item) => item.slug).filter((item) => item !== country.slug).concat(country.slug).slice(-3).join(',')}`}
-                className="rounded-full border border-[#2B2B2B] bg-[#111111] px-4 py-2 text-xs font-black uppercase tracking-[0.08em] text-[#D1D1D1] hover:border-brand/45"
+                className="rounded-md border border-[#dce0e2] bg-white px-4 py-2 text-xs font-black uppercase tracking-[0.08em] text-[#565c60] hover:border-brand/45"
               >
                 {country.flag} {country.name}
               </Link>
@@ -123,30 +124,30 @@ export default async function AdmissionsComparePage({ searchParams }: Props) {
           }}
         />
         {selected.length === 1 ? (
-          <p className="mt-4 rounded-md border border-[#d2c9bd] bg-[#eee8df] px-4 py-3 text-sm font-semibold leading-6 text-[#6e685f]">
+          <p className="mt-4 rounded-md border border-[#d2c9bd] bg-white px-4 py-3 text-sm font-semibold leading-6 text-[#6e685f]">
             {t('compare.minimumNote')}
           </p>
         ) : null}
       </Section>
 
       <Section tinted lazy>
-        <div className="mb-4 rounded-2xl border border-[#2B2B2B] bg-[#111111] p-4">
+        <div className="mb-4 rounded-2xl border border-[#dce0e2] bg-white p-4">
           <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">{t('comparison.fxNoteTitle')}</p>
-          <p className="mt-2 text-sm leading-6 text-[#D1D1D1]">
+          <p className="mt-2 text-sm leading-6 text-[#565c60]">
             {fxAvailable
               ? t('comparison.fxNoteUpdated', { timestamp: fxLastUpdated })
               : t('comparison.fxUnavailable')}
           </p>
         </div>
-        <div className="overflow-x-auto rounded-2xl border border-[#2B2B2B] bg-[#111111]">
-          <table className="min-w-[760px] w-full border-collapse text-left">
+        <div className="overflow-x-auto rounded-2xl border border-[#dce0e2] bg-white">
+          <table className="min-w-[640px] w-full border-collapse text-left [&_tr:nth-child(even)]:bg-[#f5f7f8] [&_th]:normal-case [&_th]:tracking-normal">
             <thead>
               <tr>
-                <th className="w-56 border-b border-[#2B2B2B] p-4 text-xs font-black uppercase tracking-[0.18em] text-brand">
+                <th className="w-56 border-b border-[#dce0e2] p-4 text-xs font-black uppercase tracking-[0.18em] text-brand">
                   {t('comparison.field')}
                 </th>
                 {countries.map((country) => (
-                  <th key={country.slug} className="border-b border-[#2B2B2B] p-4 text-lg font-black uppercase text-white">
+                  <th key={country.slug} className="border-b border-[#dce0e2] p-4 text-lg font-black uppercase text-[#171717]">
                     <span className="mr-2 text-2xl">{country.flag}</span>
                     {country.name}
                   </th>
@@ -156,11 +157,11 @@ export default async function AdmissionsComparePage({ searchParams }: Props) {
             <tbody>
               {rows.map((row) => (
                 <tr key={row.label} className="align-top">
-                  <th className="border-b border-[#2B2B2B] p-4 text-xs font-black uppercase tracking-[0.12em] text-brand">
+                  <th className="border-b border-[#dce0e2] p-4 text-xs font-black uppercase tracking-[0.12em] text-brand">
                     {row.label}
                   </th>
                   {countries.map((country) => (
-                    <td key={`${row.label}-${country.slug}`} className="border-b border-[#2B2B2B] p-4 text-sm leading-6 text-[#D1D1D1]">
+                    <td key={`${row.label}-${country.slug}`} className="border-b border-[#dce0e2] p-4 text-sm leading-6 text-[#565c60]">
                       {valueOrMissing(row.render(country.slug), t('notVerified'))}
                     </td>
                   ))}
@@ -169,8 +170,8 @@ export default async function AdmissionsComparePage({ searchParams }: Props) {
             </tbody>
           </table>
         </div>
-        <p className="mt-5 text-sm leading-7 text-[#D1D1D1]">{t('comparison.disclaimer')}</p>
-        <details className="mt-4 rounded-2xl border border-[#2B2B2B] bg-[#111111] p-5">
+        <p className="mt-5 text-sm leading-7 text-[#565c60]">{t('comparison.disclaimer')}</p>
+        <details className="mt-4 rounded-2xl border border-[#dce0e2] bg-white p-5">
           <summary className="cursor-pointer text-sm font-black uppercase tracking-[0.12em] text-brand">
             {t('comparison.detailedCta')}
           </summary>
@@ -179,11 +180,11 @@ export default async function AdmissionsComparePage({ searchParams }: Props) {
               <tbody>
                 {detailRows.map((row) => (
                   <tr key={row.label} className="align-top">
-                    <th className="border-b border-[#2B2B2B] p-4 text-xs font-black uppercase tracking-[0.12em] text-brand">
+                    <th className="border-b border-[#dce0e2] p-4 text-xs font-black uppercase tracking-[0.12em] text-brand">
                       {row.label}
                     </th>
                     {countries.map((country) => (
-                      <td key={`${row.label}-${country.slug}`} className="border-b border-[#2B2B2B] p-4 text-sm leading-6 text-[#D1D1D1]">
+                      <td key={`${row.label}-${country.slug}`} className="border-b border-[#dce0e2] p-4 text-sm leading-6 text-[#565c60]">
                         {valueOrMissing(row.render(country.slug), t('notVerified'))}
                       </td>
                     ))}
@@ -196,16 +197,16 @@ export default async function AdmissionsComparePage({ searchParams }: Props) {
       </Section>
 
       <Section lazy>
-        <div className="rounded-2xl border border-[#2B2B2B] bg-[#111111] p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
+        <div className="rounded-2xl border border-[#dce0e2] bg-white p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.24em] text-brand">{t('compare.helpEyebrow')}</p>
-            <h2 className="mt-4 text-3xl font-black uppercase text-white sm:text-5xl">{t('compare.helpTitle')}</h2>
+            <h2 className="mt-4 text-3xl font-black uppercase text-[#171717] sm:text-5xl">{t('compare.helpTitle')}</h2>
           </div>
           <div className="mt-6 lg:mt-0">
             <PrimaryLink href="/counselling">{t('cta.primary')}</PrimaryLink>
           </div>
         </div>
       </Section>
-    </>
+    </div>
   );
 }

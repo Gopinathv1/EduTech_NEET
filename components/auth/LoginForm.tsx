@@ -61,8 +61,8 @@ export default function LoginForm({ authError, callbackUrl }: { authError?: stri
   return (
     <div className="space-y-5">
       <div>
-        <h1 className="text-xl font-bold text-textPrimary">{t('title')}</h1>
-        <p className="mt-1 text-sm text-textSecondary">{t('subtitle')}</p>
+        <h1 className="text-4xl font-medium tracking-tight text-[#171717]">{t('title')}</h1>
+        <p className="mt-1 text-sm text-[#565c60]">{t('subtitle')}</p>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
@@ -92,12 +92,12 @@ export default function LoginForm({ authError, callbackUrl }: { authError?: stri
       </form>
 
       <div className="text-right text-sm">
-        <Link href="/forgot-password" className="font-medium text-textSecondary hover:text-textPrimary">
+        <Link href="/forgot-password" className="font-medium text-[#565c60] hover:text-[#171717]">
           {t('forgotPassword')}
         </Link>
       </div>
 
-      <div className="flex items-center gap-3 text-xs font-semibold uppercase text-textSecondary">
+      <div className="flex items-center gap-3 text-xs font-semibold uppercase text-[#565c60]">
         <span className="h-px flex-1 bg-border" />
         {t('or')}
         <span className="h-px flex-1 bg-border" />
@@ -106,13 +106,13 @@ export default function LoginForm({ authError, callbackUrl }: { authError?: stri
       <GoogleButton label={t('google')} callbackUrl={callbackUrl} />
 
       <div className="space-y-2 border-t border-border pt-4 text-center text-sm">
-        <p className="text-textSecondary">
+        <p className="text-[#565c60]">
           {t('noAccount')}{' '}
           <Link href="/register" className="font-semibold text-brand hover:text-accent">
             {t('register')}
           </Link>
         </p>
-        <Link href="/admin/login" className="font-medium text-textSecondary hover:text-textPrimary">
+        <Link href="/admin/login" className="font-medium text-[#565c60] hover:text-[#171717]">
           {t('adminLogin')}
         </Link>
       </div>

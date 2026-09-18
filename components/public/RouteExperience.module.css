@@ -1,0 +1,33 @@
+.page { color:#171717; background:#f7f7f5; }
+.page > section > div { max-width:1280px; margin-inline:auto; }
+.page h1 { font-size:clamp(2.75rem,5vw,4rem); line-height:1.1; font-weight:500; letter-spacing:-.045em; }
+.page h2 { font-size:clamp(2rem,3.5vw,3rem); line-height:1.12; font-weight:500; letter-spacing:-.04em; }
+.page h3 { letter-spacing:-.025em; }
+.page p { line-height:1.65; }
+.page :global(.text-brand),.page :global(.text-brand-light) { color:#344c58!important; }
+.rows { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); border-top:1px solid #dce0e2; }
+.rows > a { min-height:0; border:0; border-bottom:1px solid #dce0e2; border-radius:0; background:transparent; padding:28px 24px 28px 0; }
+.visual { position:relative; display:flex; flex-direction:column; justify-content:center; min-height:380px; padding:32px; color:#17252b; background:#edf3f5; border:1px solid #d2dfe3; border-radius:8px; overflow:hidden; }
+.visual > small { font:12px ui-monospace,monospace; letter-spacing:.1em; text-transform:uppercase; }
+.visualHead { display:flex; justify-content:space-between; align-items:center; padding-block:24px; border-bottom:1px solid #c8d6dc; font-size:22px; letter-spacing:-.025em; }
+.visualRows { display:grid; gap:12px; margin-top:24px; }
+.visualRow { display:grid; grid-template-columns:32px 1fr auto; gap:12px; align-items:center; padding:16px; border:1px solid #ccd9de; background:#fff; border-radius:4px; font-size:14px; }
+.visualRow > span:first-child { color:#4d6d7c; font:12px ui-monospace,monospace; }
+.visualFoot { display:flex; justify-content:space-between; margin-top:24px; font:12px ui-monospace,monospace; color:#526670; }
+.lifecycle { padding:80px 0; }
+.tabs { display:flex; flex-wrap:wrap; border-bottom:1px solid #cbd4d8; gap:8px 24px; }
+.tabs button { padding:16px 0; background:none; border-bottom:2px solid transparent; font:13px ui-monospace,monospace; color:#59636a; }
+.tabs button[aria-selected=true] { border-color:#171717; color:#171717; }
+.stage { display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:64px; padding-top:48px; }
+.stage h3 { margin:20px 0; font-size:clamp(2rem,3.8vw,3rem); line-height:1.12; }
+.stage p { max-width:40rem; color:#565c60; line-height:1.7; }
+.stage a { display:inline-block; margin-top:28px; border-bottom:1px solid currentColor; padding-bottom:5px; }
+.auth { color:#171717; }
+.auth :global(.text-textPrimary),.form :global(.text-textPrimary) { color:#171717; }
+.auth :global(.text-textSecondary),.form :global(.text-textSecondary) { color:#565c60; }
+.auth input,.auth select,.form input,.form select { color:#171717!important; background:white!important; border:1px solid #b7c0c4; border-radius:4px; min-height:46px; }
+.auth input:focus,.form input:focus,.form select:focus { outline:2px solid #466a7d; outline-offset:2px; box-shadow:none; border-color:#466a7d; }
+.auth button[type=submit],.form button[type=submit] { background:#171717!important; color:white; border-radius:4px; min-height:46px; }
+.auth button:not([type=submit]):not([aria-pressed]) { color:#171717; }
+.form :global(.text-red-300) { color:#b42318; }
+@media(max-width:767px){.rows,.stage{grid-template-columns:1fr}.stage{gap:32px}.visual{min-height:320px;padding:20px}.page h1{font-size:2.75rem}.lifecycle{padding:48px 0}.tabs{gap:4px 16px}.tabs button{font-size:12px}}

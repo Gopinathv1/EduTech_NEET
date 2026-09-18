@@ -8,11 +8,11 @@ function FooterColumn({ titleKey, links }: { titleKey: string; links: NavLink[] 
   const tf = useTranslations('site.footer');
   return (
     <div>
-      <h3 className="text-xs font-black uppercase tracking-[0.22em] text-accent">{tf(titleKey)}</h3>
+      <h3 className="text-sm font-medium text-white">{tf(titleKey)}</h3>
       <ul className="mt-5 space-y-3">
         {links.map((link) => (
           <li key={`${link.href}-${link.key}`}>
-            <Link href={link.href} className="text-sm text-[#D1D1D1] transition hover:text-accent">
+            <Link href={link.href} className="text-sm text-[#bfc8cc] transition hover:text-accent">
               {t(link.key)}
             </Link>
           </li>
@@ -63,13 +63,13 @@ export default function PublicFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/10 bg-[#050505]">
-      <div className="mx-auto w-full max-w-[1600px] px-[clamp(1rem,3vw,3rem)] py-16 sm:py-20">
-        <div className="grid gap-10 border-b border-white/10 pb-12 lg:grid-cols-[1.25fr_repeat(6,0.75fr)]">
-          <div>
+    <footer className="border-t border-white/10 bg-[#111719] text-white">
+      <div className="mx-auto w-full max-w-[1280px] px-[clamp(1rem,3vw,3rem)] py-16 sm:py-20">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-12 border-b border-white/15 pb-16 md:grid-cols-3 lg:grid-cols-6">
+          <div className="col-span-2 md:col-span-3 lg:col-span-6 flex flex-col gap-6 lg:flex-row lg:justify-between">
             <Logo className="text-white" size="footer" showTagline />
-            <p className="mt-5 max-w-sm text-sm leading-7 text-[#D1D1D1]">{t('blurb')}</p>
-            <div className="mt-7 flex flex-wrap gap-2 text-xs text-[#D1D1D1]">
+            <p className="mt-5 max-w-sm text-sm leading-7 text-[#bfc8cc]">{t('blurb')}</p>
+            <div className="mt-7 flex flex-wrap gap-2 text-xs text-[#bfc8cc]">
               <span className="rounded-lg border border-white/10 px-3 py-1.5">{t('english')}</span>
               <span className="rounded-lg border border-white/10 px-3 py-1.5">{t('tamil')}</span>
               <span className="rounded-lg border border-white/10 px-3 py-1.5">{t('hindi')}</span>
@@ -84,15 +84,15 @@ export default function PublicFooter() {
           <FooterColumn titleKey="legal" links={LEGAL} />
         </div>
 
-        <p className="mt-8 border-l border-accent/40 bg-white/[0.04] p-4 text-xs leading-relaxed text-[#D1D1D1]">
+        <p className="mt-8 border-l border-white/20 bg-white/[0.04] p-4 text-xs leading-relaxed text-[#bfc8cc]">
           {t('disclaimer')}
         </p>
 
-        <div className="mt-8 flex flex-col gap-3 text-xs text-[#D1D1D1] sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-8 flex flex-col gap-3 text-xs text-[#bfc8cc] sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {t('rights')}
           </p>
-          <p className="text-4xl font-black uppercase tracking-[-0.06em] text-[#f5f1e9] sm:text-6xl">RISE BEYOND<br />BOUNDARIES.</p>
+          <p className="text-3xl font-medium tracking-[-0.04em] text-white sm:text-5xl">RISE BEYOND<br />BOUNDARIES.</p>
         </div>
       </div>
     </footer>

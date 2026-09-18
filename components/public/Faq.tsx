@@ -10,12 +10,12 @@ export type FaqItem = { q: string; a: string };
 
 export default function Faq({ items }: { items: FaqItem[] }) {
   return (
-    <div className="divide-y divide-[#d2c9bd] rounded-md border border-[#d2c9bd] bg-[#eee8df]">
+    <div className="divide-y divide-[#dce0e2] rounded-md border border-[#dce0e2] bg-[#ffffff]">
       {items.map((item, i) => (
         <details key={i} className="group px-5">
           <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 text-base font-semibold text-[#171613] [&::-webkit-details-marker]:hidden">
             {item.q}
-            <ChevronDownIcon className="h-5 w-5 shrink-0 text-brand transition-transform duration-200 group-open:rotate-180" />
+            <ChevronDownIcon className="h-5 w-5 shrink-0 text-[#343b40] transition-transform duration-200 group-open:rotate-180" />
           </summary>
           <p className="pb-4 text-sm leading-7 text-[#6e685f]">{item.a}</p>
         </details>

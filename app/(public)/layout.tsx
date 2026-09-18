@@ -1,6 +1,7 @@
 import PublicHeader from '@/components/public/PublicHeader';
 import PublicFooter from '@/components/public/PublicFooter';
 import AIChatButton from '@/components/ai/AIChatButton';
+import { publicFont } from '@/lib/public/font';
 
 /**
  * Shared chrome for the public marketing site: sticky header + footer wrap
@@ -10,7 +11,7 @@ import AIChatButton from '@/components/ai/AIChatButton';
  */
 export default function PublicLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="public-site flex min-h-screen flex-col">
+    <div className={`${publicFont.className} public-site flex min-h-screen flex-col`}>
       <PublicHeader />
       <main id="main-content" className="flex-1">{children}</main>
       <AIChatButton />

@@ -14,14 +14,14 @@ export default function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <section className="border-b border-[#e1e5ea] bg-white text-[#171613]">
+    <section className="public-editorial-hero border-b border-[#deded9] bg-[#f7f7f5] text-[#171717]">
       <Container className="py-24 sm:py-32 lg:py-40">
         {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
-        <h1 className="sivora-editorial-heading max-w-5xl text-[clamp(3rem,7vw,7.5rem)] font-semibold leading-[0.92] text-[#171613]">
+        <h1 className="sivora-editorial-heading max-w-5xl text-[clamp(3rem,7vw,7.5rem)] font-semibold leading-[0.92] text-[#171717]">
           {title}
         </h1>
         {subtitle ? (
-          <p className="mt-7 max-w-2xl text-lg leading-8 text-[#6e685f] sm:text-xl">{subtitle}</p>
+          <p className="mt-7 max-w-2xl text-lg leading-8 text-[#6b6b67] sm:text-xl">{subtitle}</p>
         ) : null}
         {children ? <div className="mt-6">{children}</div> : null}
       </Container>

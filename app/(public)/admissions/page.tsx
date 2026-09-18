@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import OpportunityVisual from '@/components/public/OpportunityVisual';
+import styles from '@/components/public/RouteExperience.module.css';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 import { pageMetadata } from '@/lib/seo';
@@ -47,54 +49,26 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
   const visibleCountries = featuredCountries.filter((country) => matchesRegion(country, activeRegion));
 
   return (
-    <>
-      <section className="public-editorial-hero relative overflow-hidden border-b border-[#d2c9bd] bg-[#f5f1e9]">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(49,95,159,0.1),transparent_32%)]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#f5f1e9] via-[#f5f1e9]/85 to-transparent" />
-        <div className="relative mx-auto grid min-h-[calc(92vh-73px)] w-full max-w-[1600px] gap-8 px-[clamp(1rem,3vw,3rem)] py-14 lg:grid-cols-[0.92fr_1.08fr] lg:items-end lg:py-20">
+    <div className={styles.page}>
+      <section className="public-editorial-hero relative overflow-hidden border-b border-[#deded9] bg-[#f7f7f5]">
+        <div className="relative mx-auto grid min-h-[580px] w-full max-w-[1280px] gap-8 px-[clamp(1rem,3vw,3rem)] py-14 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:py-20">
           <div className="pb-2">
             <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('heroSimplified.eyebrow')}</p>
-            <h1 className="mt-5 max-w-5xl text-[clamp(3rem,7vw,7.8rem)] font-black uppercase leading-[0.88] text-white">
+            <h1 className="mt-5 max-w-5xl text-[clamp(2.75rem,5vw,4rem)] font-semibold uppercase leading-[0.88] text-[#171717]">
               {t('heroSimplified.title')}
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#D1D1D1]">{t('heroSimplified.subtitle')}</p>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#6b6b67]">{t('heroSimplified.subtitle')}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <PrimaryLink href="#destinations">{t('heroSimplified.primary')}</PrimaryLink>
               <Link
                 href="/counselling?interest=global-admissions"
-                className="inline-flex items-center justify-center rounded-lg border border-[#2B2B2B] bg-[#111111]/88 px-5 py-3 text-sm font-black uppercase tracking-[0.08em] text-white transition hover:-translate-y-0.5 hover:border-brand/45"
+                className="inline-flex items-center justify-center rounded-lg border border-[#dce0e2] bg-white px-5 py-3 text-sm font-black uppercase tracking-[0.08em] text-[#171717] transition hover:-translate-y-0.5 hover:border-brand/45"
               >
                 {t('heroSimplified.secondary')}
               </Link>
             </div>
           </div>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {ADMISSION_COUNTRY_PROFILES.slice(0, 4).map((country) => (
-              <Link
-                key={country.slug}
-                href={`/admissions/${country.slug}`}
-                className="group relative min-h-48 overflow-hidden rounded-2xl border border-[#2B2B2B] bg-[#111111] p-5"
-              >
-                {country.landmark.imagePath ? (
-                  <Image
-                    src={country.landmark.imagePath}
-                    alt={t(`landmarks.${country.landmark.altKey}`)}
-                    fill
-                    className="object-cover opacity-35 transition group-hover:scale-105"
-                    sizes="(min-width: 1024px) 24vw, 50vw"
-                  />
-                ) : null}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/52 to-transparent" />
-                <div className="relative flex h-full flex-col justify-end">
-                  <span className="text-4xl" aria-hidden="true">{country.flag}</span>
-                  <h2 className="mt-3 text-2xl font-black uppercase text-white">{country.name}</h2>
-                  <p className="mt-1 text-xs font-bold uppercase tracking-[0.12em] text-brand">
-                    {country.capital.value} · {country.currencyCode}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
+          <OpportunityVisual kind="admissions" />
         </div>
       </section>
 
@@ -102,13 +76,13 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
         <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('regions.eyebrow')}</p>
-            <h2 className="mt-4 text-[clamp(2.2rem,4.6vw,4.6rem)] font-black uppercase leading-[0.92] text-white">
+            <h2 className="mt-4 text-[clamp(2.2rem,4.6vw,4.6rem)] font-black uppercase leading-[0.92] text-[#171717]">
               {t('regions.title')}
             </h2>
           </div>
-          <p className="max-w-2xl text-sm leading-7 text-[#D1D1D1]">{t('regions.subtitle')}</p>
+          <p className="max-w-2xl text-sm leading-7 text-[#565c60]">{t('regions.subtitle')}</p>
         </div>
-        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+        <div className={styles.rows}>
           {regions.map((region) => {
             const href =
               region.key === 'other'
@@ -119,10 +93,10 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
               <Link
                 key={region.key}
                 href={href}
-                className="group flex min-h-44 flex-col rounded-2xl border border-[#2B2B2B] bg-[#111111] p-5 transition hover:-translate-y-1 hover:border-brand/35"
+                className="group flex min-h-44 flex-col rounded-2xl border border-[#dce0e2] bg-white p-5 transition hover:-translate-y-1 hover:border-brand/35"
               >
-                <h3 className="text-xl font-black uppercase text-white">{region.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-[#D1D1D1]">{region.body}</p>
+                <h3 className="text-xl font-black uppercase text-[#171717]">{region.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-[#565c60]">{region.body}</p>
                 <span className="mt-auto pt-5 text-xs font-black uppercase tracking-[0.12em] text-brand transition group-hover:translate-x-1">
                   {region.cta}
                 </span>
@@ -136,11 +110,11 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
         <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('destinations.eyebrow')}</p>
-            <h2 className="mt-4 text-[clamp(2.4rem,5vw,5rem)] font-black uppercase leading-[0.92] text-white">
+            <h2 className="mt-4 text-[clamp(2.4rem,5vw,5rem)] font-black uppercase leading-[0.92] text-[#171717]">
               {t('destinations.title')}
             </h2>
           </div>
-          <p className="max-w-2xl text-sm leading-7 text-[#D1D1D1]">{t('destinations.subtitle')}</p>
+          <p className="max-w-2xl text-sm leading-7 text-[#565c60]">{t('destinations.subtitle')}</p>
         </div>
         <div className="mb-6 flex flex-wrap gap-2">
           {REGION_FILTERS.map((region) => (
@@ -150,7 +124,7 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
               className={`rounded-full border px-4 py-2 text-xs font-black uppercase tracking-[0.08em] transition ${
                 activeRegion === region
                   ? 'border-brand bg-brand-soft text-brand'
-                  : 'border-[#2B2B2B] bg-[#111111] text-[#D1D1D1] hover:border-brand/45'
+                  : 'border-[#dce0e2] bg-white text-[#565c60] hover:border-brand/45'
               }`}
             >
               {t(`regions.filters.${region}`)}
@@ -158,11 +132,11 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
           ))}
         </div>
         {visibleCountries.length ? (
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-2">
           {visibleCountries.map((country) => (
             <div
               key={country.slug}
-              className="group overflow-hidden rounded-md border border-[#d2c9bd] bg-[#eee8df] transition hover:-translate-y-1 hover:border-[#315f9f]"
+              className="group overflow-hidden rounded-md border border-[#dce0e2] bg-white transition hover:-translate-y-1 hover:border-[#315f9f]"
             >
               <div className="relative h-40 bg-[#050505]">
                 {country.landmark.imagePath ? (
@@ -182,9 +156,9 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
                 <span className="absolute bottom-4 left-4 text-4xl" aria-hidden="true">{country.flag}</span>
               </div>
               <div className="flex min-h-72 flex-col p-5">
-                <h3 className="text-2xl font-black uppercase text-white">{country.name}</h3>
-                <p className="mt-3 text-sm leading-6 text-[#D1D1D1]">{t(`countries.${country.slug}.short`)}</p>
-                <p className="mt-4 text-xs font-bold uppercase tracking-[0.1em] text-[#D1D1D1]">
+                <h3 className="text-2xl font-black uppercase text-[#171717]">{country.name}</h3>
+                <p className="mt-3 text-sm leading-6 text-[#565c60]">{t(`countries.${country.slug}.short`)}</p>
+                <p className="mt-4 text-xs font-bold uppercase tracking-[0.1em] text-[#565c60]">
                   {country.subregion} · {country.currencyCode}
                 </p>
                 <div className="mt-auto grid gap-2 pt-6 sm:grid-cols-2">
@@ -196,7 +170,7 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
                   </Link>
                   <Link
                     href={`/admissions/compare?countries=${country.slug}`}
-                    className="inline-flex min-h-11 items-center justify-center rounded-lg border border-[#2B2B2B] bg-[#050505] px-3 py-2.5 text-xs font-black uppercase tracking-[0.08em] text-[#D1D1D1] transition hover:border-brand/45"
+                    className="inline-flex min-h-11 items-center justify-center rounded-lg border border-[#dce0e2] bg-[#050505] px-3 py-2.5 text-xs font-black uppercase tracking-[0.08em] text-[#565c60] transition hover:border-brand/45"
                   >
                     {t('destinations.compareCta')}
                   </Link>
@@ -206,9 +180,9 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
           ))}
         </div>
         ) : (
-          <div className="rounded-2xl border border-[#2B2B2B] bg-[#111111] p-6">
-            <h3 className="text-2xl font-black uppercase text-white">{t('regions.emptyTitle')}</h3>
-            <p className="mt-3 max-w-2xl text-sm leading-7 text-[#D1D1D1]">{t('regions.emptyBody')}</p>
+          <div className="rounded-2xl border border-[#dce0e2] bg-white p-6">
+            <h3 className="text-2xl font-black uppercase text-[#171717]">{t('regions.emptyTitle')}</h3>
+            <p className="mt-3 max-w-2xl text-sm leading-7 text-[#565c60]">{t('regions.emptyBody')}</p>
             <div className="mt-5">
               <PrimaryLink href="/counselling?interest=global-admissions">{t('regions.emptyCta')}</PrimaryLink>
             </div>
@@ -220,17 +194,17 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
         <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('studyPaths.eyebrow')}</p>
-            <h2 className="mt-4 text-[clamp(2.2rem,4.6vw,4.6rem)] font-black uppercase leading-[0.92] text-white">
+            <h2 className="mt-4 text-[clamp(2.2rem,4.6vw,4.6rem)] font-black uppercase leading-[0.92] text-[#171717]">
               {t('studyPaths.title')}
             </h2>
           </div>
-          <p className="max-w-2xl text-sm leading-7 text-[#D1D1D1]">{t('studyPaths.subtitle')}</p>
+          <p className="max-w-2xl text-sm leading-7 text-[#565c60]">{t('studyPaths.subtitle')}</p>
         </div>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {studyPaths.map((pathway) => (
-            <div key={pathway.title} className="rounded-2xl border border-[#2B2B2B] bg-[#050505]/72 p-5">
-              <h3 className="text-sm font-black uppercase tracking-[0.1em] text-white">{pathway.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-[#D1D1D1]">{pathway.body}</p>
+            <div key={pathway.title} className="rounded-2xl border border-[#dce0e2] bg-white p-5">
+              <h3 className="text-sm font-black uppercase tracking-[0.1em] text-[#171717]">{pathway.title}</h3>
+              <p className="mt-3 text-sm leading-6 text-[#565c60]">{pathway.body}</p>
             </div>
           ))}
         </div>
@@ -240,16 +214,16 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
         <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('choose.eyebrow')}</p>
-            <h2 className="mt-4 text-[clamp(2.4rem,5vw,5rem)] font-black uppercase leading-[0.92] text-white">
+            <h2 className="mt-4 text-[clamp(2.4rem,5vw,5rem)] font-black uppercase leading-[0.92] text-[#171717]">
               {t('choose.title')}
             </h2>
-            <p className="mt-5 text-sm leading-7 text-[#D1D1D1]">{t('choose.subtitle')}</p>
+            <p className="mt-5 text-sm leading-7 text-[#565c60]">{t('choose.subtitle')}</p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
             {chooseItems.map((item) => (
-              <div key={item.title} className="rounded-2xl border border-[#2B2B2B] bg-[#050505]/72 p-5">
-                <h3 className="text-sm font-black uppercase tracking-[0.1em] text-white">{item.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-[#D1D1D1]">{item.body}</p>
+              <div key={item.title} className="rounded-2xl border border-[#dce0e2] bg-white p-5">
+                <h3 className="text-sm font-black uppercase tracking-[0.1em] text-[#171717]">{item.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-[#565c60]">{item.body}</p>
               </div>
             ))}
           </div>
@@ -260,10 +234,10 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
         <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('compare.eyebrow')}</p>
-            <h2 className="mt-4 text-[clamp(2.4rem,5vw,5rem)] font-black uppercase leading-[0.92] text-white">
+            <h2 className="mt-4 text-[clamp(2.4rem,5vw,5rem)] font-black uppercase leading-[0.92] text-[#171717]">
               {t('whyCompare.title')}
             </h2>
-            <p className="mt-5 text-sm leading-7 text-[#D1D1D1]">{t('whyCompare.subtitle')}</p>
+            <p className="mt-5 text-sm leading-7 text-[#565c60]">{t('whyCompare.subtitle')}</p>
           </div>
           <CompareTray
             countries={ADMISSION_COUNTRY_PROFILES}
@@ -281,15 +255,15 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
         <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('simplifiedJourney.eyebrow')}</p>
-            <h2 className="mt-4 text-[clamp(2.4rem,5vw,5rem)] font-black uppercase leading-[0.92] text-white">
+            <h2 className="mt-4 text-[clamp(2.4rem,5vw,5rem)] font-black uppercase leading-[0.92] text-[#171717]">
               {t('simplifiedJourney.title')}
             </h2>
           </div>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
             {journey.map((item, index) => (
-              <div key={item} className="rounded-2xl border border-[#2B2B2B] bg-[#111111] p-4">
+              <div key={item} className="rounded-2xl border border-[#dce0e2] bg-white p-4">
                 <p className="text-xs font-black text-brand">{String(index + 1).padStart(2, '0')}</p>
-                <p className="mt-3 text-sm font-black uppercase leading-5 tracking-[0.08em] text-white">{item}</p>
+                <p className="mt-3 text-sm font-black uppercase leading-5 tracking-[0.08em] text-[#171717]">{item}</p>
               </div>
             ))}
           </div>
@@ -297,18 +271,18 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
       </Section>
 
       <Section tinted lazy>
-        <div className="rounded-md border border-[#d2c9bd] bg-[#eee8df] p-8 lg:flex lg:items-end lg:justify-between lg:gap-8">
+        <div className="rounded-md border border-[#dce0e2] bg-white p-8 lg:flex lg:items-end lg:justify-between lg:gap-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.24em] text-brand">{t('cta.eyebrow')}</p>
-            <h2 className="mt-4 text-3xl font-black uppercase text-white sm:text-5xl">{t('cta.simpleTitle')}</h2>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-[#D1D1D1]">{t('cta.simpleBody')}</p>
+            <h2 className="mt-4 text-3xl font-black uppercase text-[#171717] sm:text-5xl">{t('cta.simpleTitle')}</h2>
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-[#565c60]">{t('cta.simpleBody')}</p>
           </div>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:mt-0">
             <PrimaryLink href="/counselling">{t('cta.primary')}</PrimaryLink>
             <WhatsAppLink
               label={t('cta.whatsappLabel')}
               message={t('cta.whatsappMessage')}
-              className="inline-flex items-center justify-center rounded-lg border border-[#25D366]/45 bg-[#25D366]/14 px-5 py-3 text-sm font-black uppercase tracking-[0.08em] text-white transition hover:-translate-y-0.5 hover:bg-[#25D366]/24"
+              className="inline-flex items-center justify-center rounded-lg border border-[#25D366]/45 bg-[#25D366]/14 px-5 py-3 text-sm font-black uppercase tracking-[0.08em] text-[#171717] transition hover:-translate-y-0.5 hover:bg-[#25D366]/24"
             >
               {t('cta.whatsapp')}
             </WhatsAppLink>
@@ -328,6 +302,6 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
         title={t('related.title')}
         items={relatedItems}
       />
-    </>
+    </div>
   );
 }
