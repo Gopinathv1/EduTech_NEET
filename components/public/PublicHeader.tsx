@@ -49,7 +49,7 @@ export default function PublicHeader() {
           <Logo className="sivora-logo-lockup" size="compact" />
         </div>
 
-        <nav className="hidden min-w-0 flex-1 items-center justify-center gap-0.5 min-[1536px]:flex" aria-label={tA11y('primaryNav')}>
+        <nav className="hidden min-w-0 flex-1 items-center justify-center gap-0.5 min-[1200px]:flex" aria-label={tA11y('primaryNav')}>
           {NAV_GROUPS.map((group) => (
             <div key={group.key} className="group relative">
               <button
@@ -104,7 +104,7 @@ export default function PublicHeader() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex items-center justify-center border border-white/15 bg-transparent p-2 text-textPrimary transition hover:border-brand/60 hover:text-brand min-[1536px]:hidden"
+            className="inline-flex items-center justify-center border border-white/15 bg-transparent p-2 text-textPrimary transition hover:border-brand/60 hover:text-brand min-[1200px]:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={tA11y('openMenu')}
@@ -118,7 +118,7 @@ export default function PublicHeader() {
         <nav
           id="mobile-nav"
           aria-label={tA11y('primaryNav')}
-          className="border-t border-[#2B2B2B] bg-[#050505]/96 px-4 py-4 shadow-2xl shadow-black/15 backdrop-blur-xl min-[1536px]:hidden"
+          className="border-t border-[#2B2B2B] bg-[#050505]/96 px-4 py-4 shadow-2xl shadow-black/15 backdrop-blur-xl min-[1200px]:hidden"
         >
           <ul className="flex flex-col">
             {NAV_GROUPS.map((group) => (

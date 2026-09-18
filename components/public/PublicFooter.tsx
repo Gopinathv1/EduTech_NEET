@@ -92,7 +92,7 @@ export default function PublicFooter() {
           <p>
             © {year} {t('rights')}
           </p>
-          <p>SIVORA UP↑RISING</p>
+          <p className="text-4xl font-black uppercase tracking-[-0.06em] text-[#f5f1e9] sm:text-6xl">RISE BEYOND<br />BOUNDARIES.</p>
         </div>
       </div>
     </footer>
