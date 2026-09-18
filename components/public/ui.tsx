@@ -27,7 +27,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={`border-t border-[#d2c9bd] py-20 sm:py-28 lg:py-32 ${tinted ? 'bg-[#eee8df]' : 'bg-[#f5f1e9]'} ${lazy ? 'cv-auto' : ''} ${className}`}
+      className={`border-t border-[#e1e5ea] py-20 sm:py-28 lg:py-32 ${tinted ? 'bg-[#f1f3f5]' : 'bg-white'} ${lazy ? 'cv-auto' : ''} ${className}`}
     >
       <Container className="relative z-10">{children}</Container>
     </section>
@@ -62,7 +62,7 @@ export function SectionHeading({
 
 export function Card({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
-    <div className={`group rounded-md border border-[#d2c9bd] bg-[#eee8df] transition duration-300 hover:-translate-y-1 hover:border-[#315f9f] ${className}`}>
+    <div className={`group rounded-md border border-[#e1e5ea] bg-white transition duration-300 hover:-translate-y-1 hover:border-[#315f9f] ${className}`}>
       {children}
     </div>
   );

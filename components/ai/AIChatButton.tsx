@@ -62,7 +62,7 @@ export default function AIChatButton() {
   return (
     <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3 sm:bottom-6 sm:right-6">
       {open ? (
-        <div className="flex h-[min(38rem,calc(100vh-7rem))] w-[min(calc(100vw-2rem),25rem)] flex-col overflow-hidden rounded-md border border-[#d2c9bd] bg-[#eee8df] shadow-lg shadow-black/15">
+        <div className="flex h-[min(38rem,calc(100vh-7rem))] w-[min(calc(100vw-2rem),25rem)] flex-col overflow-hidden rounded-md border border-[#e1e5ea] bg-[#f1f3f5] shadow-lg shadow-black/15">
           <div className="flex items-start justify-between gap-3 border-b border-[#2b2b2b] bg-[#050505] p-4">
             <div>
               <p className="text-sm font-black text-white">{t('title')}</p>
@@ -99,7 +99,7 @@ export default function AIChatButton() {
               <input
                 value={input}
                 onChange={(event) => setInput(event.target.value)}
-                className="min-w-0 flex-1 rounded-md border border-[#d2c9bd] bg-[#f5f1e9] px-3 py-2 text-sm text-[#171613] outline-none placeholder:text-[#6e685f]/70 focus:border-[#315f9f]"
+                className="min-w-0 flex-1 rounded-md border border-[#e1e5ea] bg-white px-3 py-2 text-sm text-[#171613] outline-none placeholder:text-[#6e685f]/70 focus:border-[#315f9f]"
                 placeholder={t('placeholder')}
                 aria-label={t('inputLabel')}
               />
@@ -116,7 +116,7 @@ export default function AIChatButton() {
                   key={topic}
                   type="button"
                   onClick={() => ask(topic)}
-                  className="rounded-md border border-[#d2c9bd] bg-[#f5f1e9] px-3 py-2 text-xs font-semibold text-[#171613] transition hover:border-[#315f9f] hover:bg-[#e6edf7]"
+                  className="rounded-md border border-[#e1e5ea] bg-white px-3 py-2 text-xs font-semibold text-[#171613] transition hover:border-[#315f9f] hover:bg-[#e6edf7]"
                 >
                   {topic}
                 </button>

@@ -23,18 +23,18 @@
   --foreground: #ffffff;
   --accent-blue: var(--primary-red);
   color-scheme: dark;
-  --public-bg: #f5f1e9;
-  --public-surface: #eee8df;
-  --public-surface-muted: #e5ded4;
+  --public-bg: #ffffff;
+  --public-surface: #f7f8fa;
+  --public-surface-muted: #f1f3f5;
   --public-foreground: #171613;
   --public-muted: #6e685f;
-  --public-border: #d2c9bd;
+  --public-border: #e1e5ea;
   --public-accent: #315f9f;
   --public-accent-hover: #244d86;
   --public-accent-soft: #e6edf7;
   --public-dark: #17191c;
   --public-dark-surface: #222529;
-  --public-dark-text: #f5f1e9;
+  --public-dark-text: #ffffff;
   --public-dark-muted: #b8b5af;
   --public-error: #b42318;
 }
@@ -493,7 +493,7 @@ body {
 @media(prefers-reduced-motion:reduce){.sivora-hero-glow,.sivora-network-lines .sivora-network-flow,.sivora-network-core-dot,.sivora-track>div,.sivora-rotating-line{animation:none}.sivora-track>div{transform:none}}
 
 /* Shared public-site migration tokens. Functional/error states keep semantic red. */
-.public-site{--brand:#315f9f;--brand-light:#4779bd;--brand-soft:#e6edf7;--accent:#315f9f;--surface:#f5f1e9;--surface-elevated:#eee8df}
+.public-site{--brand:#315f9f;--brand-light:#4779bd;--brand-soft:#e6edf7;--accent:#315f9f;--surface:#ffffff;--surface-elevated:#f1f3f5}
 .public-site .text-brand,.public-site .text-brand-light,.public-site .text-accent{color:var(--public-accent)!important}
 .public-site .bg-brand{background-color:var(--public-accent)!important}
 .public-site .bg-brand-soft{background-color:var(--public-accent-soft)!important}
@@ -514,7 +514,6 @@ body {
 .public-site header [class*="text-[#D1D1D1]"],.public-site header [class*="text-[#d1d1d1]"]{color:var(--public-muted)!important}
 .public-site header button{color:var(--public-muted)}
 .public-site header button:hover{color:var(--public-foreground)}
-.public-site .text-white{color:var(--public-dark-text)}
 .public-site .public-editorial-hero [class*="text-white"]{color:var(--public-foreground)!important}
 .public-site .public-editorial-hero [class*="text-[#D1D1D1]"],.public-site .public-editorial-hero [class*="text-[#d1d1d1]"]{color:var(--public-muted)!important}
 .public-site .public-editorial-hero [class*="bg-[#111111]"],.public-site .public-editorial-hero [class*="bg-[#050505]"]{background-color:var(--public-surface)!important}
@@ -536,6 +535,8 @@ body {
 .sivora-cinematic-image { animation: sivoraCinematicDrift 24s ease-in-out infinite; will-change: transform; }
 .sivora-journey-node { animation: sivoraNodePulse 5s ease-in-out infinite; }
 .sivora-journey-orbit { animation: sivoraOrbit 12s linear infinite; transform-origin: 50% 180px; }
+.public-site .sivora-product-hero,.public-site .sivora-journey-section,.public-site .sivora-proof-section{background:#fff}
+.public-site .sivora-network{background:linear-gradient(135deg,#f8f9fb,#fff)}
 
 @keyframes sivoraCinematicDrift {
   0%, 100% { transform: scale(1.04) translate3d(-1%, 0, 0); }

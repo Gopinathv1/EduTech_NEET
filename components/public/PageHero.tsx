@@ -14,7 +14,7 @@ export default function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <section className="border-b border-[#d2c9bd] bg-[#f5f1e9] text-[#171613]">
+    <section className="border-b border-[#e1e5ea] bg-white text-[#171613]">
       <Container className="py-24 sm:py-32 lg:py-40">
         {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
         <h1 className="sivora-editorial-heading max-w-5xl text-[clamp(3rem,7vw,7.5rem)] font-semibold leading-[0.92] text-[#171613]">
