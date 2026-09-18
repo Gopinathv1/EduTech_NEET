@@ -1,9 +1,6 @@
-import Image from 'next/image';
-import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { pageMetadata } from '@/lib/seo';
-import { Container, PrimaryLink, SecondaryLink } from '@/components/public/ui';
-import AnimatedJourney from '@/components/public/AnimatedJourney';
+import SivoraHomeExperience from '@/components/public/SivoraHomeExperience';
 
 export async function generateMetadata() {
   const t = await getTranslations('seo.home');
@@ -11,6 +8,8 @@ export async function generateMetadata() {
 }
 
 export default function HomePage() {
+  return <SivoraHomeExperience />;
+  /*
   const t = useTranslations('home');
   const stories = [
     { key: 'admissions', href: '/admissions', image: '/admissions/student-departure-02.jpg', dark: false },
@@ -46,5 +45,5 @@ export default function HomePage() {
 
       <section className="bg-[#11110f] py-28 text-[#f5f1e9] sm:py-40"><Container className="grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-end"><div><p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#c9a45b]">SIVORA UP↑RISING</p><h2 className="sivora-editorial-heading mt-7 max-w-4xl text-[clamp(3.5rem,8vw,8rem)] font-semibold uppercase leading-[0.82]">Your next step<br /><span className="text-[#d84a3e]">starts here.</span></h2></div><div><p className="mb-8 max-w-md text-lg leading-8 text-[#b8b2a8]">{t('heroSubtitle')}</p><PrimaryLink href="/counselling">{t('ctaPrimary')}</PrimaryLink></div></Container></section>
     </>
-  );
+  ); */
 }
