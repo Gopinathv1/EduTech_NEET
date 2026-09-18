@@ -8,6 +8,8 @@ import { paletteStatus, type AnswerState, type PaletteStatus } from '@/lib/attem
  * unanswered / answered / marked for review) with jump navigation, plus a legend.
  */
 
+const STATUS_ICON: Record<PaletteStatus, string> = { answered: '✓', marked: '⚑', answered_marked: '✓⚑', unanswered: '–', not_visited: '·' };
+
 const STATUS_CLASS: Record<PaletteStatus, string> = {
   answered: 'bg-green-600 text-white border-green-600',
   marked: 'bg-purple-800 text-white border-purple-400',
@@ -40,7 +42,7 @@ export default function QuestionPalette({
   return (
     <div>
       <h2 className="text-sm font-semibold text-textPrimary">{t('palette')}</h2>
-      <ul className="mt-3 grid grid-cols-6 gap-2 sm:grid-cols-5">
+      <ul className="mt-3 grid max-h-[45vh] grid-cols-6 gap-2 overflow-y-auto p-1 sm:grid-cols-5">
         {questionIds.map((id, index) => {
           const status = paletteStatus(answers[id]);
           const isCurrent = index === currentIndex;
@@ -56,7 +58,7 @@ export default function QuestionPalette({
                   isCurrent ? 'ring-2 ring-brand ring-offset-1' : ''
                 }`}
               >
-                {index + 1}{status === 'answered_marked' ? '✓' : status === 'marked' ? '⚑' : ''}
+                {index + 1}<span aria-hidden="true" className="ml-0.5 text-[10px]">{STATUS_ICON[status]}</span>
               </button>
             </li>
           );
@@ -66,7 +68,7 @@ export default function QuestionPalette({
       <ul className="mt-4 space-y-1.5">
         {legend.map((l) => (
           <li key={l.status} className="flex items-center gap-2 text-xs text-textSecondary">
-            <span className={`inline-block h-4 w-4 rounded border ${STATUS_CLASS[l.status]}`} />
+            <span aria-hidden="true" className={`inline-flex h-5 w-7 items-center justify-center rounded border text-[10px] ${STATUS_CLASS[l.status]}`}>{STATUS_ICON[l.status]}</span>
             {l.label}
           </li>
         ))}

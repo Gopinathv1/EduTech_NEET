@@ -8,9 +8,11 @@ import { finalizeExpiredAttempts } from '../lib/attempts/expiry';
 import { NEET_CONFIG } from '../lib/attempts/config';
 
 async function main() {
-  const url = new URL(process.env.DATABASE_URL ?? '');
-  assert.equal(url.hostname, '127.0.0.1');
-  assert.equal(url.port, '55432');
+  for (const key of ['DATABASE_URL', 'DIRECT_URL']) {
+    const url = new URL(process.env[key] ?? '');
+    assert.equal(url.hostname, '127.0.0.1');
+    assert.equal(url.port, '55432');
+  }
   const prefix = `verify-${Date.now()}`;
   const students = await Promise.all([0, 1, 2].map(i => prisma.student.create({ data: {
     name: `Local NEET verification ${i}`, mobile: `+9198${String(Date.now() + i).slice(-8)}`,
@@ -62,7 +64,7 @@ async function main() {
   assert(!JSON.stringify(payload).includes('correctOption'));
   assert(!JSON.stringify(payload).includes('explanation'));
   await prisma.testAttempt.update({ where: { id: other.attemptId }, data: { startedAt: new Date(Date.now() - 181 * 60_000) } });
-  assert.equal(await finalizeExpiredAttempts(), 1);
+  assert((await finalizeExpiredAttempts()) >= 1, 'The newly expired session must be finalized; previous local fixtures may also be expired');
   assert.equal((await prisma.testAttempt.findUniqueOrThrow({ where: { id: other.attemptId } })).status, 'AUTO_SUBMITTED');
   writeFileSync('test-results/neet-fixture.json', JSON.stringify({ testId: tests[0].id, secondTestId: tests[1].id, mobile: students[2].mobile, password }));
   console.info('PASS: concurrent starts, three-attempt quota, independent users/tests, duplicate submission, 180-question totals, private answers, browser-independent expiry.');

@@ -6,8 +6,7 @@ import { L } from './localize';
 
 /**
  * Analysis tab of the result page (server component): score summary + subject,
- * chapter and time breakdowns. Percentile & rank are shown as "coming soon"
- * placeholders for a future release.
+ * chapter and time breakdowns, using persisted server results.
  */
 
 const STRENGTH_STYLE: Record<Strength, { bar: string; text: string; dot: string }> = {

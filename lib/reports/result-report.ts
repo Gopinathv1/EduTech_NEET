@@ -207,7 +207,7 @@ export async function buildResultReport(attemptId: string, studentId: string): P
     attemptId: attempt.id,
     status: attempt.status,
     submittedAt: attempt.submittedAt,
-    selectedLanguage: attempt.selectedLanguage === 'ta' ? 'ta' : 'en',
+    selectedLanguage: attempt.selectedLanguage === 'ta' || attempt.selectedLanguage === 'hi' ? attempt.selectedLanguage : 'en',
     testTitle: toLocalized(attempt.test.title),
     studentName: attempt.student.name,
     summary: {
