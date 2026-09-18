@@ -22,7 +22,9 @@ describe('floating WhatsApp enquiry helpers', () => {
     expect(isWhatsAppButtonHiddenPath('/partner')).toBe(false);
     expect(isWhatsAppButtonHiddenPath('/partner/profile')).toBe(false);
     expect(isWhatsAppButtonHiddenPath('/partners')).toBe(false);
-    expect(isWhatsAppButtonHiddenPath('/exam-preparation/neet')).toBe(false);
+    expect(isWhatsAppButtonHiddenPath('/exam-preparation/neet')).toBe(true);
+    expect(isWhatsAppButtonHiddenPath('/courses')).toBe(true);
+    expect(isWhatsAppButtonHiddenPath('/marketplace')).toBe(true);
   });
 
   it('builds a student/parent message without sensitive data', () => {

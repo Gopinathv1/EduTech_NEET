@@ -20,7 +20,14 @@ export const PARTNER_WHATSAPP_TYPES = [
 ];
 
 export function isFloatingContactHiddenPath(pathname: string) {
-  return pathname === '/student' || pathname.startsWith('/student/');
+  return pathname === '/student'
+    || pathname.startsWith('/student/')
+    || pathname === '/exam-preparation'
+    || pathname.startsWith('/exam-preparation/')
+    || pathname === '/courses'
+    || pathname.startsWith('/courses/')
+    || pathname === '/marketplace'
+    || pathname.startsWith('/marketplace/');
 }
 
 export const isWhatsAppButtonHiddenPath = isFloatingContactHiddenPath;
