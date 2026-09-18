@@ -105,6 +105,7 @@ export async function POST(req: Request) {
   const question = await prisma.$transaction(async (tx) => {
     const created = await tx.question.create({
       data: {
+        externalId: d.externalId || null,
         subjectId: d.subjectId,
         chapterId: d.chapterId,
         topic: d.topic || null,

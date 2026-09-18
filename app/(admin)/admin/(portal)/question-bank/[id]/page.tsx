@@ -24,6 +24,7 @@ export default async function EditQuestionPage({ params }: { params: Promise<{ i
   const initial: QuestionInitial = {
     id: question.id,
     subjectId: question.subjectId,
+    externalId: question.externalId ?? '',
     chapterId: question.chapterId,
     topic: question.topic ?? '',
     difficulty: question.difficulty,

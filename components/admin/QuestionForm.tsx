@@ -20,6 +20,7 @@ type Content = {
 export type QuestionInitial = {
   id: string;
   subjectId: string;
+  externalId: string;
   chapterId: string;
   topic: string;
   difficulty: string;
@@ -50,6 +51,7 @@ function defaults(subjects: SubjectOption[]): QuestionInitial {
   return {
     id: '',
     subjectId: subjects[0]?.id ?? '',
+    externalId: '',
     chapterId: '',
     topic: '',
     difficulty: 'MEDIUM',
@@ -79,6 +81,7 @@ export default function QuestionForm({
 
   const [tab, setTab] = useState<'details' | 'translations'>('details');
   const [subjectId, setSubjectId] = useState(base.subjectId);
+  const [externalId, setExternalId] = useState(base.externalId);
   const [chapterId, setChapterId] = useState(base.chapterId);
   const [topic, setTopic] = useState(base.topic);
   const [difficulty, setDifficulty] = useState(base.difficulty);
@@ -156,6 +159,7 @@ export default function QuestionForm({
     setBusy(true);
     const payload = {
       subjectId,
+      externalId: externalId.trim(),
       chapterId,
       topic: topic.trim(),
       difficulty,
@@ -299,6 +303,7 @@ export default function QuestionForm({
           </Field>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <Field label="External / import ID" htmlFor="qExternalId" hint="Stable source identifier; optional but recommended."><input id="qExternalId" className={inputClass} value={externalId} onChange={(e) => setExternalId(e.target.value)} /></Field>
             <Field label="Content classification" htmlFor="qClass" hint="Sample stays out of the student catalogue.">
               <select id="qClass" className={selectClass} value={contentClass} onChange={(e) => setContentClass(e.target.value)}>
                 <option value="SAMPLE">Sample / development</option><option value="PRODUCTION">Production</option>

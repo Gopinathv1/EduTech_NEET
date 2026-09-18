@@ -41,10 +41,11 @@ export async function POST(req: Request) {
   if (rows.length === 0) return fail('emptyCsv', 400);
 
   // Build lookup context from the DB.
-  const [subjects, chapters, enTranslations] = await Promise.all([
+  const [subjects, chapters, enTranslations, existingExternalIds] = await Promise.all([
     prisma.subject.findMany({ select: { id: true, code: true } }),
     prisma.chapter.findMany({ select: { id: true, subjectId: true, name: true } }),
     prisma.questionTranslation.findMany({ where: { language: 'en' }, select: { questionText: true } }),
+    prisma.question.findMany({ where: { externalId: { not: null } }, select: { externalId: true } }),
   ]);
   const subjectIdByCode = new Map(subjects.map((s) => [s.code, s.id]));
   const chapterIdByKey = new Map(
@@ -55,7 +56,7 @@ export async function POST(req: Request) {
   );
   const existingHashes = new Set(enTranslations.map((t) => questionTextHash(t.questionText)));
 
-  const results = validateRows(rows, { subjectIdByCode, chapterIdByKey, existingHashes });
+  const results = validateRows(rows, { subjectIdByCode, chapterIdByKey, existingHashes, existingExternalIds: new Set(existingExternalIds.map((q) => q.externalId!).filter(Boolean)) });
   const validRows = results.filter((r) => r.status === 'valid' && r.data);
   const summary = { total: results.length, valid: validRows.length, errors: results.length - validRows.length };
 
@@ -79,6 +80,7 @@ export async function POST(req: Request) {
         const d = r.data!;
         const created = await tx.question.create({
           data: {
+            externalId: d.externalId,
             subjectId: d.subjectId,
             chapterId: d.chapterId,
             difficulty: d.difficulty,
@@ -94,8 +96,8 @@ export async function POST(req: Request) {
             licenseReference: d.licenseReference,
             reviewer: d.reviewer,
             reviewedAt: d.reviewedAt ? new Date(d.reviewedAt) : null,
-            status: d.contentClass === 'PRODUCTION' ? 'PUBLISHED' : 'DRAFT',
-            isActive: d.contentClass === 'PRODUCTION',
+            status: d.contentClass === 'PRODUCTION' ? 'REVIEW' : 'DRAFT',
+            isActive: false,
             translations: {
               create: [
                 {

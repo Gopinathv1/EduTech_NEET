@@ -31,6 +31,9 @@ export default async function QuestionBankPage({ searchParams }: { searchParams:
     active: g('active'),
     q: g('q'),
   };
+  const classification = g('classification');
+  const status = g('status');
+  const sourceType = g('sourceType');
   const page = Math.max(1, parseInt(g('page') || '1', 10) || 1);
 
   // Build the query.
@@ -49,6 +52,9 @@ export default async function QuestionBankPage({ searchParams }: { searchParams:
   }
   if (filters.active === 'true') where.isActive = true;
   else if (filters.active === 'false') where.isActive = false;
+  if (classification === 'SAMPLE' || classification === 'PRODUCTION') where.contentClass = classification;
+  if (['DRAFT', 'REVIEW', 'PUBLISHED'].includes(status)) where.status = status as 'DRAFT' | 'REVIEW' | 'PUBLISHED';
+  if (['INTERNALLY_AUTHORED', 'LICENSED', 'OFFICIAL_PREVIOUS_YEAR', 'OTHER'].includes(sourceType)) where.sourceType = sourceType as 'INTERNALLY_AUTHORED' | 'LICENSED' | 'OFFICIAL_PREVIOUS_YEAR' | 'OTHER';
 
   const and: Prisma.QuestionWhereInput[] = [];
   if (filters.lang === 'enta') and.push({ translations: { some: { language: 'ta' } } });
@@ -58,7 +64,7 @@ export default async function QuestionBankPage({ searchParams }: { searchParams:
   }
   if (and.length) where.AND = and;
 
-  const [total, questions, subjects, yearRows] = await Promise.all([
+  const [total, questions, subjects, yearRows, quality] = await Promise.all([
     prisma.question.count({ where }),
     prisma.question.findMany({
       where,
@@ -73,6 +79,17 @@ export default async function QuestionBankPage({ searchParams }: { searchParams:
     }),
     prisma.subject.findMany({ orderBy: { order: 'asc' }, include: { chapters: { orderBy: { order: 'asc' } } } }),
     prisma.question.findMany({ where: { year: { not: null } }, distinct: ['year'], select: { year: true }, orderBy: { year: 'desc' } }),
+    Promise.all([
+      prisma.question.count(),
+      prisma.question.count({ where: { contentClass: 'SAMPLE' } }),
+      prisma.question.count({ where: { contentClass: 'PRODUCTION' } }),
+      prisma.question.count({ where: { status: 'DRAFT' } }),
+      prisma.question.count({ where: { status: 'REVIEW' } }),
+      prisma.question.count({ where: { status: 'PUBLISHED' } }),
+      prisma.question.count({ where: { isActive: false } }),
+      prisma.question.count({ where: { topic: null } }),
+      prisma.question.count({ where: { sourceType: null } }),
+    ]),
   ]);
 
   const subjectOptions = subjects.map((s) => ({
@@ -106,6 +123,14 @@ export default async function QuestionBankPage({ searchParams }: { searchParams:
       <QuestionBankTabs />
 
       <QuestionFilters subjects={subjectOptions} years={years} initial={filters} />
+
+      <div className="mb-5 grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-9">
+        {['Total', 'Sample', 'Production', 'Draft', 'Review', 'Published', 'Inactive', 'Missing topic', 'Missing provenance'].map((label, i) => (
+          <div key={label} className="rounded-lg border border-border bg-surfaceElevated px-3 py-2">
+            <p className="text-[10px] uppercase tracking-wide text-textSecondary">{label}</p><p className="mt-1 text-lg font-semibold text-textPrimary">{quality[i]}</p>
+          </div>
+        ))}
+      </div>
 
       <p className="mb-3 text-sm text-textSecondary">
         {total} question{total === 1 ? '' : 's'} found

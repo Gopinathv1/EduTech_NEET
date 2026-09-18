@@ -2,6 +2,7 @@ CREATE TYPE "ContentClassification" AS ENUM ('SAMPLE', 'PRODUCTION');
 CREATE TYPE "QuestionSourceType" AS ENUM ('INTERNALLY_AUTHORED', 'LICENSED', 'OFFICIAL_PREVIOUS_YEAR', 'OTHER');
 
 ALTER TABLE "Question"
+  ADD COLUMN "externalId" TEXT,
   ADD COLUMN "contentClass" "ContentClassification" NOT NULL DEFAULT 'SAMPLE',
   ADD COLUMN "sourceType" "QuestionSourceType",
   ADD COLUMN "sourceName" TEXT,
@@ -16,4 +17,5 @@ ALTER TABLE "Test"
   ADD COLUMN "contentClass" "ContentClassification" NOT NULL DEFAULT 'SAMPLE';
 
 CREATE INDEX "Question_contentClass_status_isActive_idx" ON "Question"("contentClass", "status", "isActive");
+CREATE UNIQUE INDEX "Question_externalId_key" ON "Question"("externalId");
 CREATE INDEX "Test_contentClass_isPublished_idx" ON "Test"("contentClass", "isPublished");

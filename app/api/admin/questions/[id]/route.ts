@@ -31,6 +31,7 @@ export async function PATCH(req: Request, { params }: Ctx) {
     await tx.question.update({
       where: { id },
       data: {
+        externalId: d.externalId || null,
         subjectId: d.subjectId,
         chapterId: d.chapterId,
         topic: d.topic || null,

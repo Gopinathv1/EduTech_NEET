@@ -64,6 +64,7 @@ export const questionSchema = z
   .object({
     subjectId: z.string().min(1, 'Subject is required'),
     chapterId: z.string().min(1, 'Chapter is required'),
+    externalId: z.string().trim().max(160).optional().default(''),
     topic: z.string().trim().max(120).optional().default(''),
     difficulty: difficultyEnum,
     questionType: questionTypeEnum,

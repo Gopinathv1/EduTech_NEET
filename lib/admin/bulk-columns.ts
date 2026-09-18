@@ -4,6 +4,7 @@
  * into a client component.)
  */
 export const BULK_COLUMNS = [
+  'externalId',
   'subjectCode',
   'chapterName',
   'difficulty',

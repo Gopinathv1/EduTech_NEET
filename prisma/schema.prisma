@@ -374,6 +374,7 @@ model Chapter {
 
 model Question {
   id           String         @id @default(cuid())
+  externalId   String?        @unique
   subjectId    String
   chapterId    String
   topic        String? // finer-grained than chapter (NEET topic), optional

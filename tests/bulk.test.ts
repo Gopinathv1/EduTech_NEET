@@ -3,6 +3,7 @@ import { validateRows, questionTextHash, type BulkContext } from '@/lib/admin/bu
 
 function makeCtx(overrides: Partial<BulkContext> = {}): BulkContext {
   return {
+    existingExternalIds: new Set<string>(),
     subjectIdByCode: new Map([['PHYSICS', 'subj-phy']]),
     chapterIdByKey: new Map([['subj-phy::laws of motion', 'chap-1']]),
     existingHashes: new Set<string>(),

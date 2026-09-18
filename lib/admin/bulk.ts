@@ -22,6 +22,7 @@ export function questionTextHash(englishText: string): string {
 }
 
 export type BulkContext = {
+  existingExternalIds: Set<string>;
   subjectIdByCode: Map<string, string>;
   // key: `${subjectId}::${normalizeText(chapterNameEn)}`
   chapterIdByKey: Map<string, string>;
@@ -29,6 +30,7 @@ export type BulkContext = {
 };
 
 export type NormalizedQuestion = {
+  externalId: string | null;
   subjectId: string;
   chapterId: string;
   difficulty: 'EASY' | 'MEDIUM' | 'HARD';
@@ -100,6 +102,9 @@ export function validateRows(
     const line = i + 1;
     const enText = get(row, 'en_questionText');
     const preview = enText.length > 80 ? `${enText.slice(0, 80)}…` : enText || '(empty)';
+    const externalId = get(row, 'externalId') || null;
+    if (externalId && ctx.existingExternalIds.has(externalId)) errors.push(`Duplicate external ID "${externalId}"`);
+    if (externalId && seenHashes.has(`external:${externalId}`)) errors.push(`Duplicate external ID "${externalId}" in this file`);
 
     // Subject
     const subjectCode = get(row, 'subjectCode').toUpperCase();
@@ -214,12 +219,14 @@ export function validateRows(
     }
 
     seenHashes.add(textHash);
+    if (externalId) seenHashes.add(`external:${externalId}`);
     results.push({
       line,
       status: 'valid',
       errors: [],
       preview,
       data: {
+        externalId,
         subjectId,
         chapterId,
         difficulty,
