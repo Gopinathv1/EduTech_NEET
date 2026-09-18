@@ -14,14 +14,21 @@ export async function GET(req: NextRequest) {
     secret: process.env.NEXTAUTH_SECRET ?? process.env.JWT_SECRET,
   });
   const email = typeof token?.email === 'string' ? token.email.toLowerCase() : null;
-  if (!email) return NextResponse.redirect(new URL('/login?error=google', req.url));
+  if (!email) return authErrorRedirect(req, 'OAuthCallback', returnTo);
 
   const student = await prisma.student.findUnique({ where: { email } });
-  if (!student) return NextResponse.redirect(new URL('/login?error=google', req.url));
+  if (!student) return authErrorRedirect(req, 'GoogleAccountNotRegistered', returnTo);
 
   await createSession({ sub: student.id, kind: 'student', role: 'STUDENT', name: student.name });
   await syncLocaleFromProfile(student.preferredLanguage);
 
   const destination = student.mobile ? returnTo : withReturnParam('/complete-profile', returnTo);
   return NextResponse.redirect(new URL(destination, req.url));
+}
+
+function authErrorRedirect(req: NextRequest, error: string, returnTo: string) {
+  const url = new URL('/login', req.url);
+  url.searchParams.set('error', error);
+  url.searchParams.set('callbackUrl', returnTo);
+  return NextResponse.redirect(url);
 }

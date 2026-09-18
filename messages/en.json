@@ -767,6 +767,7 @@
       "alreadyVerified": "This number is already verified. Please login.",
       "invalidCredentials": "Incorrect login details.",
       "googleSignInFailed": "Google sign-in could not be completed. Please try again or contact support if this account is already registered.",
+      "googleAccountNotRegistered": "No registered SIVORA account uses this Google email. Please register first, then link Google to that account.",
       "notVerified": "Please verify your mobile number first.",
       "accountInactive": "This account is inactive. Contact support.",
       "unauthorized": "Please login to continue.",

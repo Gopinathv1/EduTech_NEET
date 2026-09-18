@@ -17,12 +17,15 @@ const nextAuthErrorCodes = new Set([
   'AccessDenied',
   'Callback',
   'Configuration',
+  'CredentialsSignin',
+  'OAuthCallback',
   'OAuthAccountNotLinked',
   'Verification',
 ]);
 
 function authErrorCode(error?: string) {
   if (!error) return undefined;
+  if (error === 'GoogleAccountNotRegistered') return 'googleAccountNotRegistered';
   return nextAuthErrorCodes.has(error) ? 'googleSignInFailed' : 'generic';
 }
 

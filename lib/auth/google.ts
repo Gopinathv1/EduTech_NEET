@@ -1,6 +1,5 @@
 import type { Account, Profile, User } from 'next-auth';
 import type { AdapterUser } from 'next-auth/adapters';
-import { Prisma } from '@prisma/client';
 import { prisma } from '@/lib/prisma';
 
 type GoogleProfile = Profile & {
@@ -9,7 +8,9 @@ type GoogleProfile = Profile & {
   name?: string;
 };
 
-export async function upsertGoogleStudent({
+export type GoogleStudentDecision = 'linked' | 'notFound' | 'denied';
+
+export async function authorizeGoogleStudent({
   user,
   account,
   profile,
@@ -17,12 +18,12 @@ export async function upsertGoogleStudent({
   user: User | AdapterUser;
   account: Account | null;
   profile?: Profile;
-}): Promise<boolean> {
-  if (account?.provider !== 'google') return false;
+}): Promise<GoogleStudentDecision> {
+  if (account?.provider !== 'google') return 'denied';
   const googleSubject = account.providerAccountId;
   const p = profile as GoogleProfile | undefined;
   const email = (user.email ?? p?.email ?? '').trim().toLowerCase();
-  if (!email || p?.email_verified === false) return false;
+  if (!email || p?.email_verified !== true) return 'denied';
 
   const name = user.name ?? p?.name ?? email.split('@')[0] ?? 'Student';
   const [byGoogleSubject, byEmail] = await Promise.all([
@@ -31,13 +32,13 @@ export async function upsertGoogleStudent({
   ]);
 
   if (byGoogleSubject && byEmail && byGoogleSubject.id !== byEmail.id) {
-    return false;
+    return 'denied';
   }
 
   const existing = byGoogleSubject ?? byEmail;
   if (existing) {
     const ownsVerifiedEmail = existing.email === email || !byEmail || byEmail.id === existing.id;
-    if (!ownsVerifiedEmail) return false;
+    if (!ownsVerifiedEmail) return 'denied';
 
     await prisma.student.update({
       where: { id: existing.id },
@@ -48,26 +49,8 @@ export async function upsertGoogleStudent({
         name: existing.name || name,
       },
     });
-    return true;
+    return 'linked';
   }
 
-  try {
-    await prisma.student.create({
-      data: {
-        name,
-        email,
-        mobile: null,
-        googleSubject,
-        isEmailVerified: true,
-        isMobileVerified: false,
-        preferredLanguage: 'en',
-      },
-    });
-    return true;
-  } catch (e) {
-    if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === 'P2002') {
-      return false;
-    }
-    throw e;
-  }
+  return 'notFound';
 }

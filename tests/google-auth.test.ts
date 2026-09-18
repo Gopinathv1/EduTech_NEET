@@ -11,11 +11,11 @@ vi.mock('@/lib/prisma', () => ({
 }));
 
 import { prisma } from '@/lib/prisma';
-import { upsertGoogleStudent } from '@/lib/auth/google';
+import { authorizeGoogleStudent } from '@/lib/auth/google';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const p = prisma as any;
-type GoogleArgs = Parameters<typeof upsertGoogleStudent>[0];
+type GoogleArgs = Parameters<typeof authorizeGoogleStudent>[0];
 
 function googleArgs(email = 'Student@Gmail.com', providerAccountId = 'google-subject-1') {
   return {
@@ -35,7 +35,7 @@ function googleArgs(email = 'Student@Gmail.com', providerAccountId = 'google-sub
 
 beforeEach(() => vi.clearAllMocks());
 
-describe('upsertGoogleStudent', () => {
+describe('authorizeGoogleStudent', () => {
   it('links a verified Google email to an existing password student without changing password or mobile', async () => {
     const existing = {
       id: 'student-1',
@@ -49,7 +49,7 @@ describe('upsertGoogleStudent', () => {
       .mockResolvedValueOnce(existing);
     p.student.update.mockResolvedValue({ ...existing, googleSubject: 'google-subject-1' });
 
-    await expect(upsertGoogleStudent(googleArgs())).resolves.toBe(true);
+    await expect(authorizeGoogleStudent(googleArgs())).resolves.toBe('linked');
 
     expect(p.student.update).toHaveBeenCalledWith({
       where: { id: 'student-1' },
@@ -63,23 +63,12 @@ describe('upsertGoogleStudent', () => {
     expect(p.student.create).not.toHaveBeenCalled();
   });
 
-  it('creates a profile-incomplete student for a brand-new verified Google account', async () => {
+  it('does not create a student for an unknown verified Google account', async () => {
     p.student.findUnique.mockResolvedValue(null);
-    p.student.create.mockResolvedValue({ id: 'student-2' });
 
-    await expect(upsertGoogleStudent(googleArgs('new@gmail.com', 'google-subject-2'))).resolves.toBe(true);
+    await expect(authorizeGoogleStudent(googleArgs('new@gmail.com', 'google-subject-2'))).resolves.toBe('notFound');
 
-    expect(p.student.create).toHaveBeenCalledWith({
-      data: {
-        name: 'Google Student',
-        email: 'new@gmail.com',
-        mobile: null,
-        googleSubject: 'google-subject-2',
-        isEmailVerified: true,
-        isMobileVerified: false,
-        preferredLanguage: 'en',
-      },
-    });
+    expect(p.student.create).not.toHaveBeenCalled();
   });
 
   it('allows an already-linked Google account to sign in directly', async () => {
@@ -94,7 +83,7 @@ describe('upsertGoogleStudent', () => {
       .mockResolvedValueOnce(existing);
     p.student.update.mockResolvedValue(existing);
 
-    await expect(upsertGoogleStudent(googleArgs())).resolves.toBe(true);
+    await expect(authorizeGoogleStudent(googleArgs())).resolves.toBe('linked');
 
     expect(p.student.update).toHaveBeenCalledWith({
       where: { id: 'student-1' },
@@ -112,7 +101,7 @@ describe('upsertGoogleStudent', () => {
       .mockResolvedValueOnce({ id: 'google-owner', email: 'old@gmail.com', googleSubject: 'google-subject-1' })
       .mockResolvedValueOnce({ id: 'email-owner', email: 'student@gmail.com', passwordHash: 'hash' });
 
-    await expect(upsertGoogleStudent(googleArgs())).resolves.toBe(false);
+    await expect(authorizeGoogleStudent(googleArgs())).resolves.toBe('denied');
 
     expect(p.student.update).not.toHaveBeenCalled();
     expect(p.student.create).not.toHaveBeenCalled();
@@ -122,7 +111,7 @@ describe('upsertGoogleStudent', () => {
     const args = googleArgs();
     args.profile = { email: 'student@gmail.com', email_verified: false } as GoogleArgs['profile'];
 
-    await expect(upsertGoogleStudent(args)).resolves.toBe(false);
+    await expect(authorizeGoogleStudent(args)).resolves.toBe('denied');
 
     expect(p.student.findUnique).not.toHaveBeenCalled();
   });

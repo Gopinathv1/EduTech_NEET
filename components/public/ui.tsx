@@ -36,7 +36,7 @@ export function Section({
 
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-[#ff5a36]">{children}</p>
+    <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-[#2774e6]">{children}</p>
   );
 }
 
@@ -62,7 +62,7 @@ export function SectionHeading({
 
 export function Card({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
-    <div className={`group rounded-md border border-[#deded9] bg-white transition duration-300 hover:-translate-y-1 hover:border-[#ff5a36] ${className}`}>
+    <div className={`group rounded-md border border-[#d9dee5] bg-white transition duration-300 hover:-translate-y-1 hover:border-[#2774e6] ${className}`}>
       {children}
     </div>
   );
@@ -90,7 +90,7 @@ export function PrimaryLink({
   className?: string;
 }) {
   return (
-    <Link href={href} className={`${linkBase} bg-[#171717] text-white hover:-translate-y-0.5 hover:bg-[#ff5a36] ${className}`}>
+    <Link href={href} className={`${linkBase} bg-[#10151c] text-white hover:-translate-y-0.5 hover:bg-[#2774e6] ${className}`}>
       {children}
       <span className="transition group-hover:translate-x-1">-&gt;</span>
     </Link>
@@ -109,7 +109,7 @@ export function SecondaryLink({
   return (
     <Link
       href={href}
-      className={`${linkBase} border border-[#deded9] bg-transparent text-[#171717] hover:-translate-y-0.5 hover:border-[#ff5a36] hover:text-[#ff5a36] ${className}`}
+      className={`${linkBase} border border-[#d9dee5] bg-transparent text-[#10151c] hover:-translate-y-0.5 hover:border-[#2774e6] hover:text-[#2774e6] ${className}`}
     >
       {children}
       <span className="transition group-hover:translate-x-1">-&gt;</span>
@@ -122,7 +122,7 @@ export function ArrowLink({ href, children }: { href: string; children: ReactNod
   return (
     <Link
       href={href}
-      className="group inline-flex items-center gap-2 text-sm font-semibold text-[#ff5a36] transition hover:text-[#e44725]"
+      className="group inline-flex items-center gap-2 text-sm font-semibold text-[#2774e6] transition hover:text-[#135bc2]"
     >
       {children}
       <ArrowRightIcon className="h-4 w-4 transition group-hover:translate-x-1" />

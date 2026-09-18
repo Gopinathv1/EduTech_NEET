@@ -5,6 +5,7 @@ import PageHero from '@/components/public/PageHero';
 import { Section, PrimaryLink, SecondaryLink } from '@/components/public/ui';
 import ExploreSivora from '@/components/public/ExploreSivora';
 import { EXAMS } from '@/data/exams';
+import ExamProductVisual from '@/components/public/ExamProductVisual';
 
 const neet = EXAMS.find((exam) => exam.slug === 'neet')!;
 
@@ -23,6 +24,9 @@ export default function NeetPreparationPage() {
         title={t('title')}
         subtitle={t('subtitle')}
       />
+      <Section>
+        <ExamProductVisual exam="NEET" />
+      </Section>
       <ExamDetail exam={neet} />
     </>
   );
@@ -38,9 +42,9 @@ function ExamDetail({ exam }: { exam: typeof neet }) {
       <Section>
         <div className="grid gap-5 md:grid-cols-3">
           {exam.subjects.map((subject) => (
-            <div key={subject} className="rounded-md border border-[#d2c9bd] bg-[#eee8df] p-6">
-              <h2 className="text-2xl font-black uppercase text-white">{subject}</h2>
-              <p className="mt-3 text-sm leading-7 text-[#D1D1D1]">{t('subjectBody')}</p>
+            <div key={subject} className="rounded-md border border-[#dce0e2] bg-white p-6">
+              <h2 className="text-2xl font-black uppercase text-[#171717]">{subject}</h2>
+              <p className="mt-3 text-sm leading-7 text-[#6b6b67]">{t('subjectBody')}</p>
             </div>
           ))}
         </div>
@@ -48,8 +52,8 @@ function ExamDetail({ exam }: { exam: typeof neet }) {
       <Section tinted lazy>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature) => (
-            <div key={feature} className="rounded-2xl border border-[#2B2B2B] bg-[#050505]/76 p-4">
-              <p className="text-sm font-black uppercase tracking-[0.08em] text-white">{feature}</p>
+            <div key={feature} className="rounded-md border border-[#dce0e2] bg-white p-4">
+              <p className="text-sm font-black uppercase tracking-[0.08em] text-[#171717]">{feature}</p>
             </div>
           ))}
         </div>
@@ -59,7 +63,7 @@ function ExamDetail({ exam }: { exam: typeof neet }) {
           {([['FULL_TEST', 'full'], ['YEAR_PATTERN', 'previous'], ['SUBJECT_TEST', 'subject'], ['CHAPTER_TEST', 'chapter']] as const).map(([type, label]) =>
             <PrimaryLink key={type} href={`/student/tests?type=${type}`}>{tn(label)}</PrimaryLink>)}
         </div>
-        <p className="mb-6 text-sm text-textSecondary">{tn('disclaimer')}</p>
+        <p className="mb-6 text-sm text-[#6b6b67]">{tn('disclaimer')}</p>
         <div className="flex flex-col gap-3 sm:flex-row">
           <PrimaryLink href="/mock-tests">{t('primaryCta')}</PrimaryLink>
           <SecondaryLink href="/mock-tests">{t('secondaryCta')}</SecondaryLink>

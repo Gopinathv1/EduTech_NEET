@@ -25,7 +25,7 @@ export function ProductFaqSection({
     <Section tinted={tinted} lazy>
       <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#ff5a36]">{eyebrow}</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#2774e6]">{eyebrow}</p>
           <h2 className="mt-4 text-[clamp(2.2rem,5vw,4.7rem)] font-semibold leading-[0.92] tracking-[-0.045em] text-[#171717]">
             {title}
           </h2>
@@ -51,7 +51,7 @@ export function RelatedServicesSection({
   return (
     <Section tinted={tinted} lazy>
       <div className="mb-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#ff5a36]">{eyebrow}</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#2774e6]">{eyebrow}</p>
         <h2 className="mt-4 text-[clamp(2rem,4vw,4rem)] font-semibold leading-[0.95] tracking-[-0.045em] text-[#171717]">
           {title}
         </h2>

@@ -778,6 +778,7 @@
       "selectRequired": "कृपया एक option चुनें.",
       "leadExists": "आपकी admission request पहले से मौजूद है.",
       "googleSignInFailed": "Google साइन-इन पूरा नहीं हो सका। कृपया फिर से कोशिश करें या अगर यह खाता पहले से पंजीकृत है तो सहायता से संपर्क करें।"
+      ,"googleAccountNotRegistered": "इस Google ईमेल से कोई पंजीकृत SIVORA खाता नहीं मिला। पहले पंजीकरण करें, फिर Google को उसी खाते से जोड़ें।"
     }
   },
   "about": {

@@ -1,157 +1,130 @@
-import { pageMetadata } from '@/lib/seo';
-import { useTranslations } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
-import PageHero from '@/components/public/PageHero';
-import { PrimaryLink, SecondaryLink, Section } from '@/components/public/ui';
-import ExploreSivora from '@/components/public/ExploreSivora';
+import { getTranslations } from 'next-intl/server';
+import { pageMetadata } from '@/lib/seo';
+import { AI_FUTURE_SKILL_CATEGORIES, AI_LEARNING_PATH } from '@/data/courses';
 import AstrologyLearningSection from '@/components/public/AstrologyLearningSection';
-import {
-  ACADEMIC_COURSE_STREAMS,
-  AI_FUTURE_SKILL_CATEGORIES,
-  AI_LEARNING_PATH,
-} from '@/data/courses';
-import { ProductFaqSection, RelatedServicesSection } from '@/components/public/ProductPageBlocks';
+import CourseProductVisual from '@/components/public/CourseProductVisual';
+import CourseLearningJourney from '@/components/public/CourseLearningJourney';
+import { PrimaryLink, SecondaryLink } from '@/components/public/ui';
+import styles from '@/components/public/CourseExperience.module.css';
 
 export async function generateMetadata() {
   const t = await getTranslations('seo.courses');
   return pageMetadata({ title: t('title'), description: t('description'), path: '/courses' });
 }
 
+const discovery = [
+  ['01', 'AI & Future Skills', 'Build practical foundations across AI, data, programming and emerging technologies.', '#ai-future-skills'],
+  ['02', 'Spoken English', 'Strengthen communication for everyday life, interviews, workplaces and presentations.', '#spoken-languages'],
+  ['03', 'Spoken Hindi', 'Build useful Hindi for conversation, travel, social settings and workplace communication.', '#spoken-languages'],
+  ['04', 'Academic Preparation', 'Connect focused exam preparation with the broader learning journey.', '/exam-preparation'],
+  ['05', 'Astrology Learning', 'Explore the existing SIVORA astrology pathway as a distinct personal-learning area.', '#astrology'],
+] as const;
+
+const englishAreas = ['Everyday communication', 'Workplace communication', 'Interview communication', 'Presentations', 'Vocabulary', 'Grammar in conversation', 'Listening', 'Pronunciation', 'Real-life speaking practice'];
+const hindiAreas = ['Everyday conversation', 'Workplace Hindi', 'Travel & social communication', 'Vocabulary', 'Sentence building', 'Listening', 'Pronunciation', 'Real-life speaking practice'];
+
 export default function CoursesPage() {
-  const t = useTranslations('courses');
-  const families = t.raw('families.items') as { title: string; body: string; labels: string[]; href: string; cta: string }[];
-  const faqItems = t.raw('faq.items') as { q: string; a: string }[];
-  const relatedItems = t.raw('related.items') as { title: string; body: string; href: string; cta: string }[];
-
   return (
-    <>
-      <PageHero
-        eyebrow={t('eyebrow')}
-        title={t('heroTitle')}
-        subtitle={t('heroSubtitle')}
-      />
-
-      <Section>
-        <div className="mb-10">
-          <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('families.eyebrow')}</p>
-          <h2 className="mt-4 text-[clamp(2.4rem,5vw,5rem)] font-black uppercase leading-[0.92] text-white">
-            {t('families.title')}
-          </h2>
-        </div>
-        <div className="grid gap-4 md:grid-cols-3">
-          {families.map((family) => (
-            <Link
-              key={family.href}
-              href={family.href}
-              className="rounded-md border border-[#d2c9bd] bg-[#eee8df] p-5 transition hover:-translate-y-1 hover:border-[#315f9f]"
-            >
-              <h3 className="text-xl font-black uppercase leading-tight text-white">{family.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-[#D1D1D1]">{family.body}</p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {family.labels.map((label) => (
-                  <span key={label} className="rounded-full border border-[#2B2B2B] bg-[#050505] px-3 py-1.5 text-[11px] font-black uppercase tracking-[0.1em] text-[#D1D1D1]">
-                    {label}
-                  </span>
-                ))}
-              </div>
-              <span className="mt-6 inline-flex text-xs font-black uppercase tracking-[0.12em] text-brand">{family.cta}</span>
-            </Link>
-          ))}
-        </div>
-      </Section>
-
-      <Section tinted lazy>
-        <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+    <div className={styles.page}>
+      <section className={styles.hero}>
+        <div className={styles.heroInner}>
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('academic.eyebrow')}</p>
-            <h2 className="mt-5 text-[clamp(2.4rem,5vw,5rem)] font-black uppercase leading-[0.92] text-white">
-              {t('academic.title')}
-            </h2>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-[#D1D1D1]">{t('academic.subtitle')}</p>
+            <p className={styles.eyebrow}>COURSES &amp; FUTURE SKILLS</p>
+            <h1>LEARN WHAT MOVES YOU FORWARD.</h1>
+            <p className={styles.heroCopy}>Practical learning for technology, communication, career preparation and personal growth—connected in one clear SIVORA experience.</p>
+            <div className={styles.actions}>
+              <PrimaryLink href="#course-discovery">Explore learning paths</PrimaryLink>
+              <SecondaryLink href="/counselling">Get guidance</SecondaryLink>
+            </div>
           </div>
-          <div className="grid gap-5 sm:grid-cols-2">
-            {ACADEMIC_COURSE_STREAMS.map((course) => (
-              <Link
-                key={course.key}
-                href={course.href}
-                className="rounded-md border border-[#d2c9bd] bg-[#eee8df] p-6 transition hover:-translate-y-1 hover:border-[#315f9f]"
-              >
-                <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">{t('academic.label')}</p>
-                <h3 className="mt-4 text-2xl font-black uppercase text-white">{t(`academic.items.${course.key}.title`)}</h3>
-                <p className="mt-3 text-sm leading-7 text-[#D1D1D1]">{t(`academic.items.${course.key}.body`)}</p>
-                <span className="mt-6 inline-flex text-xs font-black uppercase tracking-[0.12em] text-brand">
-                  {t('academic.viewCta')}
-                </span>
+          <CourseProductVisual />
+        </div>
+      </section>
+
+      <section id="course-discovery" className={styles.section}>
+        <div className={styles.sectionInner}>
+          <div className={styles.sectionHead}>
+            <div><p className={styles.sectionEyebrow}>COURSE DISCOVERY</p><h2>Choose a useful direction.</h2></div>
+            <p>Start with the capability you want to build, then move into a pathway designed around practice and real use.</p>
+          </div>
+          <div className={styles.discovery}>
+            {discovery.map(([number, title, body, href]) => (
+              <Link key={number} href={href} className={styles.discoveryRow}>
+                <span>{number}</span><h3>{title}</h3><p>{body}</p><b>↗</b>
               </Link>
             ))}
           </div>
         </div>
-      </Section>
+      </section>
 
-      <Section id="ai-future-skills" lazy>
-        <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
-          <div>
-            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('ai.eyebrow')}</p>
-            <h2 className="mt-5 text-[clamp(2.4rem,5vw,5rem)] font-black uppercase leading-[0.92] text-white">
-              {t('ai.title')}
-            </h2>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-[#D1D1D1]">{t('ai.subtitle')}</p>
+      <section id="spoken-languages" className={`${styles.section} ${styles.dark}`}>
+        <div className={styles.sectionInner}>
+          <div className={styles.sectionHead}>
+            <div><p className={styles.sectionEyebrow}>LANGUAGE LEARNING</p><h2>Listen. Understand. Speak.</h2></div>
+            <p>Communication grows through context and repetition. These pathways focus on useful speaking, listening and sentence-building practice.</p>
           </div>
-          <div className="space-y-6">
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {AI_FUTURE_SKILL_CATEGORIES.map((category) => (
-                <div key={category} className="rounded-2xl border border-[#2B2B2B] bg-[#050505]/76 p-4">
-                  <div className="flex items-start justify-between gap-3">
-                    <p className="text-sm font-black uppercase leading-5 tracking-[0.08em] text-white">
-                      {t(`ai.categories.${category}.title`)}
-                    </p>
-                    <span className="shrink-0 rounded-full border border-brand/30 bg-brand-soft px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.08em] text-brand">
-                      {t('comingSoon')}
-                    </span>
-                  </div>
-                  <p className="mt-3 text-xs leading-6 text-[#D1D1D1]">{t(`ai.categories.${category}.body`)}</p>
+          <div className={styles.languageGrid}>
+            <article className={styles.language}>
+              <span>01 / PRACTICAL COMMUNICATION</span><h3>Spoken English</h3>
+              <p>Build confidence for conversations that matter in education, work and everyday life.</p>
+              <div className={styles.learningAreas}>{englishAreas.map(area => <span key={area}>↗ {area}</span>)}</div>
+              <Link href="/counselling" className={styles.languageLink}>Ask about Spoken English ↗</Link>
+            </article>
+            <article className={styles.language}>
+              <span>02 / PRACTICAL COMMUNICATION</span><h3>Spoken Hindi</h3>
+              <p>Develop practical Hindi for clearer communication across social, travel and workplace settings.</p>
+              <div className={styles.learningAreas}>{hindiAreas.map(area => <span key={area}>↗ {area}</span>)}</div>
+              <Link href="/counselling" className={styles.languageLink}>Ask about Spoken Hindi ↗</Link>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="ai-future-skills" className={styles.section}>
+        <div className={`${styles.sectionInner} ${styles.aiLayout}`}>
+          <div className={styles.aiIntro}>
+            <p className={styles.sectionEyebrow}>AI &amp; FUTURE SKILLS</p>
+            <h2>Build for what comes next.</h2>
+            <p>The existing SIVORA pathway spans supported foundations in AI, programming, data and emerging technology. Availability remains clearly marked rather than commercially implied.</p>
+          </div>
+          <div>
+            <div className={styles.aiRows}>
+              {AI_FUTURE_SKILL_CATEGORIES.map((category, index) => (
+                <div key={category} className={styles.aiRow}>
+                  <span>{String(index + 1).padStart(2, '0')}</span>
+                  <strong>{formatCategory(category)}</strong>
+                  <small>COMING SOON</small>
                 </div>
               ))}
             </div>
-
-            <div className="rounded-[1.5rem] border border-[#2B2B2B] bg-[#111111] p-5">
-              <p className="text-xs font-black uppercase tracking-[0.24em] text-brand">{t('path.eyebrow')}</p>
-              <div className="mt-4 flex flex-wrap items-center gap-2">
-                {AI_LEARNING_PATH.map((step, index) => (
-                  <div key={step} className="flex items-center gap-2">
-                    <span className="rounded-full border border-[#2B2B2B] bg-[#050505] px-3 py-1.5 text-xs font-black uppercase text-white">
-                      {t(`path.steps.${step}`)}
-                    </span>
-                    {index < AI_LEARNING_PATH.length - 1 ? (
-                      <span className="text-brand" aria-hidden="true">-&gt;</span>
-                    ) : null}
-                  </div>
-                ))}
-              </div>
-            </div>
+            <div className={styles.aiPath}>{AI_LEARNING_PATH.map(step => <span key={step}>{formatCategory(step)}</span>)}</div>
           </div>
         </div>
-      </Section>
+      </section>
+
+      <section className={styles.section}>
+        <div className={styles.sectionInner}>
+          <div className={styles.sectionHead}>
+            <div><p className={styles.sectionEyebrow}>LEARNING JOURNEY</p><h2>From interest to useful skill.</h2></div>
+            <p>A connected progression keeps discovery, learning, practice and application part of one experience.</p>
+          </div>
+          <CourseLearningJourney />
+        </div>
+      </section>
 
       <AstrologyLearningSection />
 
-      <ProductFaqSection eyebrow={t('faq.eyebrow')} title={t('faq.title')} items={faqItems} tinted />
-
-      <RelatedServicesSection
-        eyebrow={t('related.eyebrow')}
-        title={t('related.title')}
-        items={relatedItems}
-      />
-
-      <Section lazy>
-        <div className="flex flex-col gap-3 sm:flex-row">
-          <PrimaryLink href="/counselling">{t('talkCta')}</PrimaryLink>
-          <SecondaryLink href="/exam-preparation">{t('examCta')}</SecondaryLink>
+      <section className={styles.section}>
+        <div className={`${styles.sectionInner} ${styles.cta}`}>
+          <div><p className={styles.sectionEyebrow}>YOUR NEXT LEARNING STEP</p><h2>Not sure which pathway fits?</h2><p>Use the existing counselling experience to discuss your goals without implying enrollment, pricing or certification that has not been configured.</p></div>
+          <div className={styles.actions}><PrimaryLink href="/counselling">Get guidance</PrimaryLink><SecondaryLink href="/exam-preparation">Explore exam preparation</SecondaryLink></div>
         </div>
-      </Section>
-
-      <ExploreSivora exclude={['courses']} />
-    </>
+      </section>
+    </div>
   );
+}
+
+function formatCategory(value: string) {
+  return value.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/\bAi\b/g, 'AI').replace(/\bRag\b/g, 'RAG').replace(/\bLlm\b/g, 'LLM').replace(/^./, letter => letter.toUpperCase());
 }

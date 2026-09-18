@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import type { MarketplaceCategory, MarketplaceListing, MarketplaceLevel } from '@/lib/marketplace/catalog';
+import styles from '@/components/public/MarketplaceExperience.module.css';
 
 function normalized(value: string) {
   return value.trim().toLowerCase();
@@ -92,14 +93,14 @@ export default function MarketplaceFilters({
 
   return (
     <div>
-      <div className="grid gap-3 rounded-2xl border border-[#2B2B2B] bg-[#111111] p-4 md:grid-cols-[1fr_220px_180px_180px]">
+      <div className={styles.filters}>
         <label className="block">
           <span className="sr-only">{labels.search}</span>
           <input
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder={labels.searchPlaceholder}
-            className="h-12 w-full rounded-xl border border-[#2B2B2B] bg-[#050505] px-4 text-sm text-white outline-none transition placeholder:text-[#8A8A8A] focus:border-brand"
+            className={styles.filterInput}
           />
         </label>
         <label className="block">
@@ -107,7 +108,7 @@ export default function MarketplaceFilters({
           <select
             value={category}
             onChange={(event) => setCategory(event.target.value)}
-            className="h-12 w-full rounded-xl border border-[#2B2B2B] bg-[#050505] px-4 text-sm font-bold uppercase tracking-[0.08em] text-white outline-none transition focus:border-brand"
+            className={styles.filterInput}
           >
             <option value="ALL">{labels.all}</option>
             {categoryOptions.map((option) => (
@@ -122,7 +123,7 @@ export default function MarketplaceFilters({
           <select
             value={condition}
             onChange={(event) => setCondition(event.target.value)}
-            className="h-12 w-full rounded-xl border border-[#2B2B2B] bg-[#050505] px-4 text-sm font-bold uppercase tracking-[0.08em] text-white outline-none transition focus:border-brand"
+            className={styles.filterInput}
           >
             <option value="ALL">{labels.all}</option>
             <option value="NEW">New</option>
@@ -136,7 +137,7 @@ export default function MarketplaceFilters({
           <select
             value={level}
             onChange={(event) => setLevel(event.target.value)}
-            className="h-12 w-full rounded-xl border border-[#2B2B2B] bg-[#050505] px-4 text-sm font-bold uppercase tracking-[0.08em] text-white outline-none transition focus:border-brand"
+            className={styles.filterInput}
           >
             <option value="ALL">{labels.all}</option>
             <option value="BEGINNER">{labels.levels.BEGINNER}</option>
@@ -147,41 +148,39 @@ export default function MarketplaceFilters({
       </div>
 
       {visible.length > 0 ? (
-        <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <div className={styles.productGrid}>
           {visible.map((listing) => (
             <Link
               key={listing.slug}
               href={`/marketplace/${listing.slug}`}
-              className="group flex min-h-80 flex-col rounded-2xl border border-[#2B2B2B] bg-[#111111] p-5 shadow-xl shadow-black/5 transition hover:-translate-y-1 hover:border-brand/35"
+              className={styles.productCard}
             >
-              <div className="flex h-36 items-center justify-center rounded-xl border border-[#2B2B2B] bg-[linear-gradient(135deg,#050505,#191919)] text-center">
-                <span className="px-4 text-xs font-black uppercase tracking-[0.18em] text-brand">
+              <div className={styles.productVisual}>
+                <span>
                   {categoryLabels[listing.subcategorySlug ?? listing.categorySlug] ?? listing.categorySlug.replaceAll('-', ' ')}
                 </span>
               </div>
-              <div className="mt-5 flex items-start justify-between gap-4">
-                <h3 className="text-lg font-black uppercase leading-tight text-white">{listing.title}</h3>
-                <p className="shrink-0 text-lg font-black text-brand">₹{listing.priceInr.toLocaleString('en-IN')}</p>
+              <div className={styles.productTitleRow}>
+                <h3 className={styles.productTitle}>{listing.title}</h3><p className={styles.price}>₹{listing.priceInr.toLocaleString('en-IN')}</p>
               </div>
-              <p className="mt-3 line-clamp-3 text-sm leading-6 text-[#D1D1D1]">{listing.description}</p>
-              <div className="mt-5 flex flex-wrap gap-2 text-xs font-bold uppercase tracking-[0.08em] text-[#D1D1D1]">
-                <span className="rounded-full border border-[#2B2B2B] px-3 py-1">{listing.condition.replace('_', ' ')}</span>
-                <span className="rounded-full border border-[#2B2B2B] px-3 py-1">{listing.listingType}</span>
+              <p className={styles.productDescription}>{listing.description}</p>
+              <div className={styles.metadata}>
+                <span>{listing.condition.replace('_', ' ')}</span><span>{listing.listingType}</span>
                 {listing.level ? (
-                  <span className="rounded-full border border-[#2B2B2B] px-3 py-1">{labels.levels[listing.level]}</span>
+                  <span>{labels.levels[listing.level]}</span>
                 ) : null}
-                <span className="rounded-full border border-[#2B2B2B] px-3 py-1">
+                <span>
                   {listing.deliveryAvailable ? labels.delivery : labels.pickup}
                 </span>
               </div>
-              <p className="mt-auto pt-6 text-xs font-black uppercase tracking-[0.12em] text-brand">
+              <p className={styles.seller}>
                 {labels.soldBy}: {listing.sellerName}
               </p>
             </Link>
           ))}
         </div>
       ) : (
-        <p className="mt-6 rounded-2xl border border-[#2B2B2B] bg-[#111111] p-5 text-sm font-bold leading-7 text-[#D1D1D1]">
+        <p className={styles.empty}>
           {category === 'ALL' ? labels.noResults : labels.noResultsForCategory.replace('{category}', categoryLabels[category] ?? category)}
         </p>
       )}

@@ -4,6 +4,7 @@ import { getTranslations } from 'next-intl/server';
 import { pageMetadata } from '@/lib/seo';
 import { PrimaryLink, Section } from '@/components/public/ui';
 import { MARKETPLACE_LISTINGS, getMarketplaceListing } from '@/lib/marketplace/catalog';
+import styles from '@/components/public/MarketplaceExperience.module.css';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -32,20 +33,16 @@ export default async function MarketplaceDetailPage({ params }: Props) {
   const t = await getTranslations('marketplace');
 
   return (
-    <>
-      <Section>
-        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <div className="flex min-h-[420px] items-center justify-center rounded-2xl border border-[#2B2B2B] bg-[linear-gradient(135deg,#111111,#050505)] p-8 text-center">
+    <div className={styles.page}><Section className="!border-0 !bg-transparent">
+        <div className={styles.detailHero}>
+          <div className={styles.detailVisual}>
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.24em] text-brand">{listing.categorySlug.replaceAll('-', ' ')}</p>
-              <h1 className="mt-4 text-4xl font-black uppercase leading-tight text-white sm:text-6xl">{listing.title}</h1>
+              <p>{listing.categorySlug.replaceAll('-', ' ')}</p><h1>{listing.title}</h1>
             </div>
           </div>
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('detailEyebrow')}</p>
-            <h2 className="mt-4 text-3xl font-black uppercase text-white sm:text-5xl">₹{listing.priceInr.toLocaleString('en-IN')}</h2>
-            <p className="mt-5 text-base leading-8 text-[#D1D1D1]">{listing.description}</p>
-            <dl className="mt-6 grid gap-3 sm:grid-cols-2">
+            <p className={styles.eyebrow}>{t('detailEyebrow')}</p><h2 className={styles.detailPrice}>₹{listing.priceInr.toLocaleString('en-IN')}</h2><p className={styles.detailCopy}>{listing.description}</p>
+            <dl className={styles.detailInfo}>
               <Info label={t('condition')} value={listing.condition.replace('_', ' ')} />
               <Info label={t('listingType')} value={listing.listingType} />
               <Info label={t('soldBy')} value={listing.sellerName} />
@@ -55,30 +52,24 @@ export default async function MarketplaceDetailPage({ params }: Props) {
               <Info label={t('author')} value={listing.author ?? t('notApplicable')} />
               <Info label={t('publisher')} value={listing.publisher ?? t('notApplicable')} />
             </dl>
-            <p className="mt-6 rounded-2xl border border-[#2B2B2B] bg-[#111111] p-4 text-sm leading-7 text-[#D1D1D1]">
+            <p className={styles.notice}>
               {t('checkoutPending')}
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <PrimaryLink href="/marketplace">{t('backToMarketplace')}</PrimaryLink>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-lg border border-[#2B2B2B] bg-[#111111] px-5 py-3 text-sm font-black uppercase tracking-[0.08em] text-white transition hover:-translate-y-0.5 hover:border-brand/45"
-              >
+              <Link href="/contact" className="inline-flex items-center justify-center rounded-md border border-[#d9dee5] px-5 py-3 text-sm font-semibold text-[#10151c] transition hover:border-[#2774e6] hover:text-[#2774e6]">
                 {t('askSeller')}
               </Link>
             </div>
           </div>
         </div>
-      </Section>
-    </>
+      </Section></div>
   );
 }
 
 function Info({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-2xl border border-[#2B2B2B] bg-[#111111] p-4">
-      <dt className="text-xs font-black uppercase tracking-[0.16em] text-brand">{label}</dt>
-      <dd className="mt-2 text-sm font-bold leading-6 text-white">{value}</dd>
+    <div><dt>{label}</dt><dd>{value}</dd>
     </div>
   );
 }

@@ -5,6 +5,8 @@ import { PrimaryLink, Section } from '@/components/public/ui';
 import MarketplaceFilters from '@/components/marketplace/MarketplaceFilters';
 import { MARKETPLACE_CATEGORIES, MARKETPLACE_LISTINGS, getMarketplaceCategory } from '@/lib/marketplace/catalog';
 import { ProductFaqSection, RelatedServicesSection } from '@/components/public/ProductPageBlocks';
+import MarketplaceProductVisual from '@/components/public/MarketplaceProductVisual';
+import styles from '@/components/public/MarketplaceExperience.module.css';
 
 type Props = {
   searchParams?: Promise<{ category?: string }>;
@@ -40,53 +42,35 @@ export default async function MarketplacePage({ searchParams }: Props) {
   const relatedItems = t.raw('related.items') as { title: string; body: string; href: string; cta: string }[];
 
   return (
-    <>
-      <section className="public-editorial-hero relative overflow-hidden border-b border-[#d2c9bd] bg-[#f5f1e9]">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(49,95,159,0.1),transparent_32%)]" />
-        <div className="relative mx-auto grid min-h-[calc(100vh-73px)] w-full max-w-[1600px] gap-10 px-[clamp(1rem,3vw,3rem)] py-16 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:py-24">
+    <div className={styles.page}>
+      <section className={styles.hero}>
+        <div className={styles.heroInner}>
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('eyebrow')}</p>
-            <h1 className="mt-5 text-[clamp(3rem,7vw,7.8rem)] font-black uppercase leading-[0.9] text-white">
-              {t('heroTitle')}
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#D1D1D1]">{t('heroSubtitle')}</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <p className={styles.eyebrow}>{t('eyebrow')}</p><h1>{t('heroTitle')}</h1><p className={styles.heroCopy}>{t('heroSubtitle')}</p>
+            <div className={styles.actions}>
               <PrimaryLink href="#listings">{t('browseCta')}</PrimaryLink>
-              <Link
-                href="/marketplace/sell"
-                className="inline-flex items-center justify-center rounded-lg border border-[#2B2B2B] bg-[#111111] px-5 py-3 text-sm font-black uppercase tracking-[0.08em] text-white transition hover:-translate-y-0.5 hover:border-brand/45"
-              >
-                {t('sellCta')}
-              </Link>
+              <Link href="/marketplace/sell" className="inline-flex items-center justify-center rounded-md border border-[#d9dee5] px-5 py-3 text-sm font-semibold text-[#10151c] transition hover:border-[#2774e6] hover:text-[#2774e6]">{t('sellCta')}</Link>
             </div>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3" aria-label={t('categoriesTitle')}>
+          <MarketplaceProductVisual />
+        </div>
+      </section>
+
+      <section className={styles.section} aria-label={t('categoriesTitle')}>
+        <div className={styles.sectionInner}>
+          <div className={styles.sectionHead}><div><p className={styles.sectionEyebrow}>{t('categoryLabel')}</p><h2>{t('categoriesTitle')}</h2></div><p>{t('listingsNote')}</p></div>
+          <div className={styles.discovery}>
             {featuredCategories.map((category) => (
-              <Link
-                key={category.slug}
-                href={`/marketplace?category=${category.slug}`}
-                className="rounded-2xl border border-[#2B2B2B] bg-[#111111]/86 p-5 transition hover:-translate-y-1 hover:border-brand/35"
-              >
-                <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">{t('categoryLabel')}</p>
-                <h2 className="mt-3 text-lg font-black uppercase leading-tight text-white">
-                  {t(`categories.${category.labelKey}`)}
-                </h2>
+              <Link key={category.slug} href={`/marketplace?category=${category.slug}`} className={styles.discoveryRow}>
+                <span>{String(featuredCategories.indexOf(category) + 1).padStart(2, '0')}</span><h3>{t(`categories.${category.labelKey}`)}</h3><p>{t('categoryLabel')}</p><b>↗</b>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      <Section id="listings">
-        <div className="mb-8 grid gap-4 lg:grid-cols-[0.74fr_1.26fr] lg:items-end">
-          <div>
-            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('listingsEyebrow')}</p>
-            <h2 className="mt-5 text-[clamp(2.4rem,5vw,5rem)] font-black uppercase leading-[0.92] text-white">
-              {t('listingsTitle')}
-            </h2>
-          </div>
-          <p className="text-sm leading-7 text-[#D1D1D1]">{t('listingsNote')}</p>
-        </div>
+      <section id="listings" className={`${styles.section} ${styles.sectionTint}`}><div className={styles.sectionInner}>
+        <div className={styles.sectionHead}><div><p className={styles.sectionEyebrow}>{t('listingsEyebrow')}</p><h2>{t('listingsTitle')}</h2></div><p>{t('listingsNote')}</p></div>
         <MarketplaceFilters
           categories={MARKETPLACE_CATEGORIES}
           listings={MARKETPLACE_LISTINGS}
@@ -108,40 +92,13 @@ export default async function MarketplacePage({ searchParams }: Props) {
             noResultsForCategory: t.raw('noResultsForCategory') as string,
           }}
         />
-      </Section>
+      </div></section>
 
-      <Section tinted lazy>
-        <div className="mb-6 rounded-2xl border border-[#2B2B2B] bg-[#111111] p-6 lg:flex lg:items-center lg:justify-between lg:gap-8">
-          <div>
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">{t('astrologyLink.eyebrow')}</p>
-            <h2 className="mt-3 text-2xl font-black uppercase text-white">{t('astrologyLink.title')}</h2>
-            <p className="mt-3 max-w-3xl text-sm leading-7 text-[#D1D1D1]">{t('astrologyLink.body')}</p>
-          </div>
-          <div className="mt-5 shrink-0 lg:mt-0">
-            <PrimaryLink href="/courses/astrology">{t('astrologyLink.cta')}</PrimaryLink>
-          </div>
-        </div>
-        <div className="grid gap-4 lg:grid-cols-3">
-          <div className="rounded-2xl border border-[#2B2B2B] bg-[#111111] p-6">
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">{t('usedNew.eyebrow')}</p>
-            <h2 className="mt-3 text-2xl font-black uppercase text-white">{t('usedNew.title')}</h2>
-            <p className="mt-4 text-sm leading-7 text-[#D1D1D1]">{t('usedNew.body')}</p>
-          </div>
-          <div className="rounded-2xl border border-[#2B2B2B] bg-[#111111] p-6">
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">{t('seller.eyebrow')}</p>
-            <h2 className="mt-3 text-2xl font-black uppercase text-white">{t('seller.title')}</h2>
-            <p className="mt-4 text-sm leading-7 text-[#D1D1D1]">{t('seller.body')}</p>
-            <div className="mt-5">
-              <PrimaryLink href="/marketplace/sell">{t('seller.cta')}</PrimaryLink>
-            </div>
-          </div>
-          <div className="rounded-2xl border border-[#2B2B2B] bg-[#111111] p-6">
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">{t('safety.eyebrow')}</p>
-            <h2 className="mt-3 text-2xl font-black uppercase text-white">{t('safety.title')}</h2>
-            <p className="mt-4 text-sm leading-7 text-[#D1D1D1]">{t('safety.body')}</p>
-          </div>
-        </div>
-      </Section>
+      <section className={styles.section}><div className={styles.sectionInner}><div className={styles.supportGrid}>
+        <article className={styles.supportCard}><p className={styles.sectionEyebrow}>{t('astrologyLink.eyebrow')}</p><h3>{t('astrologyLink.title')}</h3><p>{t('astrologyLink.body')}</p><div className={styles.actions}><PrimaryLink href="/courses/astrology">{t('astrologyLink.cta')}</PrimaryLink></div></article>
+        <article className={styles.supportCard}><p className={styles.sectionEyebrow}>{t('usedNew.eyebrow')}</p><h3>{t('usedNew.title')}</h3><p>{t('usedNew.body')}</p></article>
+        <article className={styles.supportCard}><p className={styles.sectionEyebrow}>{t('seller.eyebrow')}</p><h3>{t('seller.title')}</h3><p>{t('seller.body')}</p><div className={styles.actions}><PrimaryLink href="/marketplace/sell">{t('seller.cta')}</PrimaryLink></div></article>
+      </div></div></section>
 
       <ProductFaqSection eyebrow={t('faq.eyebrow')} title={t('faq.title')} items={faqItems} tinted={false} />
 
@@ -151,6 +108,6 @@ export default async function MarketplacePage({ searchParams }: Props) {
         items={relatedItems}
         tinted
       />
-    </>
+    </div>
   );
 }

@@ -44,7 +44,7 @@ export default function PublicHeader() {
           : 'border-b border-[#eef0f3] bg-white/88 backdrop-blur-lg'
       }`}
     >
-      <div className="mx-auto flex w-full max-w-[1600px] items-center gap-3 px-[clamp(1rem,3vw,3rem)] min-h-[72px] py-3">
+      <div className="mx-auto flex min-h-[76px] w-full max-w-[1600px] items-center gap-3 px-[clamp(1rem,3vw,3rem)] py-3">
         <div className="flex min-w-0 flex-1 items-center min-[1536px]:flex-none">
           <Logo className="text-[#171613]" size="compact" />
         </div>
@@ -93,7 +93,7 @@ export default function PublicHeader() {
           </Link>
           <Link
             href="/counselling"
-            className="hidden rounded-sm sivora-header-cta bg-[#171717] px-3.5 py-2 text-sm font-medium text-white transition hover:bg-[#ff5a36] sm:inline-flex"
+            className="hidden rounded-sm sivora-header-cta bg-[#10151c] px-4 py-2.5 text-sm font-medium text-white transition hover:bg-[#2774e6] sm:inline-flex"
           >
             Get guidance
           </Link>
@@ -128,7 +128,7 @@ export default function PublicHeader() {
                       key={`${group.key}-${link.href}-${link.key}`}
                       href={link.href}
                       onClick={() => setOpen(false)}
-                      className="block rounded-xl px-3 py-2.5 text-sm font-medium text-[#4e575d] hover:bg-brand-soft hover:text-textPrimary"
+                      className="block rounded-md px-3 py-2.5 text-sm font-medium text-[#4e575d] hover:bg-brand-soft hover:text-textPrimary"
                     >
                       {t(link.key)}
                     </Link>
@@ -163,7 +163,7 @@ export default function PublicHeader() {
             <Link
               href="/login"
               onClick={() => setOpen(false)}
-              className="rounded-xl border border-brand/35 bg-[#111111] px-3 py-2.5 text-center text-sm font-medium text-textPrimary"
+              className="rounded-md border border-[#d9dee5] bg-white px-3 py-2.5 text-center text-sm font-medium text-[#10151c]"
             >
               {tNav('login')}
             </Link>

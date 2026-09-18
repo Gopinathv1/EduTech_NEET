@@ -63,8 +63,8 @@ export default function PublicFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/10 bg-[#111719] text-white">
-      <div className="mx-auto w-full max-w-[1280px] px-[clamp(1rem,3vw,3rem)] py-16 sm:py-20">
+    <footer className="border-t border-white/10 bg-[#07111f] text-white">
+      <div className="mx-auto w-full max-w-[1600px] px-[clamp(1rem,3vw,3rem)] py-20 sm:py-28">
         <div className="grid grid-cols-2 gap-x-8 gap-y-12 border-b border-white/15 pb-16 md:grid-cols-3 lg:grid-cols-6">
           <div className="col-span-2 md:col-span-3 lg:col-span-6 flex flex-col gap-6 lg:flex-row lg:justify-between">
             <Logo className="text-white" size="footer" showTagline />
@@ -92,7 +92,7 @@ export default function PublicFooter() {
           <p>
             © {year} {t('rights')}
           </p>
-          <p className="text-3xl font-medium tracking-[-0.04em] text-white sm:text-5xl">RISE BEYOND<br />BOUNDARIES.</p>
+          <p className="text-4xl font-medium leading-[0.9] tracking-[-0.06em] text-white sm:text-6xl">RISE BEYOND<br />BOUNDARIES.</p>
         </div>
       </div>
     </footer>
