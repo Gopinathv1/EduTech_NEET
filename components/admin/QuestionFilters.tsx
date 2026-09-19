@@ -15,6 +15,9 @@ export type FilterValues = {
   year: string;
   lang: string;
   active: string;
+  classification: string;
+  status: string;
+  sourceType: string;
   q: string;
 };
 
@@ -26,6 +29,9 @@ const EMPTY: FilterValues = {
   year: '',
   lang: '',
   active: '',
+  classification: '',
+  status: '',
+  sourceType: '',
   q: '',
 };
 
@@ -122,6 +128,16 @@ export default function QuestionFilters({
           <option value="">Any status</option>
           <option value="true">Active</option>
           <option value="false">Inactive</option>
+        </select>
+
+        <select className={cls} value={v.classification} onChange={(e) => set('classification', e.target.value)} aria-label="Content classification">
+          <option value="">Any classification</option><option value="PRODUCTION">Production</option><option value="SAMPLE">Sample</option>
+        </select>
+        <select className={cls} value={v.status} onChange={(e) => set('status', e.target.value)} aria-label="Editorial status">
+          <option value="">Any editorial status</option><option value="DRAFT">Draft</option><option value="REVIEW">Review</option><option value="PUBLISHED">Published</option>
+        </select>
+        <select className={cls} value={v.sourceType} onChange={(e) => set('sourceType', e.target.value)} aria-label="Source type">
+          <option value="">Any source</option><option value="INTERNALLY_AUTHORED">Internally authored</option><option value="LICENSED">Licensed</option><option value="OFFICIAL_PREVIOUS_YEAR">Official PYQ</option><option value="OTHER">Other</option>
         </select>
 
         <div className="col-span-2 flex gap-2 sm:col-span-1 lg:col-span-1">

@@ -9,7 +9,6 @@ import { apiPost } from '@/lib/client/api';
 import { parseForm, applyServerFieldErrors } from '@/lib/client/forms';
 import { Field, inputClass, Banner, SubmitButton } from '@/components/ui/Form';
 import { useErrorText } from './hooks';
-import GoogleButton from './GoogleButton';
 
 type FormValues = {
   name: string;
@@ -122,14 +121,6 @@ export default function RegisterForm() {
           {t('submit')}
         </SubmitButton>
       </form>
-
-      <div className="flex items-center gap-3 text-xs font-semibold uppercase text-textSecondary">
-        <span className="h-px flex-1 bg-border" />
-        {t('or')}
-        <span className="h-px flex-1 bg-border" />
-      </div>
-
-      <GoogleButton label={t('google')} />
 
       <p className="text-center text-sm text-textSecondary">
         {t('haveAccount')}{' '}

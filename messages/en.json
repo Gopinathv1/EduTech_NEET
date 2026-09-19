@@ -2584,17 +2584,15 @@
     },
     "jeeDetail": {
       "eyebrow": "Exam Preparation",
-      "title": "JEE Preparation",
-      "subtitle": "Structured practice, concept reinforcement, chapter-wise tests and mock assessments for engineering entrance preparation.",
-      "subjectBody": "Practise concepts, chapters and previous-pattern assessment formats.",
+      "title": "JEE Preparation — Coming Soon",
+      "subtitle": "Structured JEE practice is being prepared for future release.",
+      "subjectBody": "Planned areas include Physics, Chemistry and Mathematics. Practice content is not available yet.",
       "features": [
-        "Question Bank",
-        "Chapter-wise Practice",
-        "Mock Tests",
-        "Previous-pattern Practice",
-        "Performance Analytics"
+        "Physics — Planned",
+        "Chemistry — Planned",
+        "Mathematics — Planned"
       ],
-      "disclaimer": "SIVORA UP↑RISING does not claim official NTA affiliation.",
+      "disclaimer": "JEE practice content is being prepared. SIVORA UP↑RISING does not claim official NTA affiliation.",
       "primaryCta": "Ask About JEE",
       "secondaryCta": "Talk To Counsellor"
     },

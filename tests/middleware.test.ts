@@ -97,29 +97,18 @@ describe('middleware role guards', () => {
     expect(location(await middleware(request('/partner/register', false)))).toBeNull();
   });
 
-  it.each(['/exam-preparation', '/courses', '/marketplace'])(
-    'redirects an unauthenticated user from %s to login with callbackUrl',
-    async (path) => {
-      vs.mockResolvedValue(null);
-      const res = await middleware(request(path, false));
-      expect(location(res)).toContain('/login');
-      expect(location(res)).toContain(`callbackUrl=${encodeURIComponent(path)}`);
-    },
-  );
-
-  it.each(['/exam-preparation', '/courses', '/marketplace'])(
-    'lets an authenticated student access %s',
-    async (path) => {
-      vs.mockResolvedValue(student);
-      const res = await middleware(request(path));
-      expect(location(res)).toBeNull();
-    },
-  );
-
   it('leaves admissions and counselling public', async () => {
     vs.mockResolvedValue(null);
     expect(location(await middleware(request('/admissions', false)))).toBeNull();
     expect(location(await middleware(request('/counselling', false)))).toBeNull();
     expect(location(await middleware(request('/admission-guidance', false)))).toBeNull();
   });
+
+  it.each(['/marketplace', '/marketplace/sell', '/marketplace/neet-physics-materials', '/courses', '/exam-preparation', '/exam-preparation/neet', '/exam-preparation/jee'])(
+    'leaves anonymous public discovery route public: %s',
+    async (path) => {
+      vs.mockResolvedValue(null);
+      expect(location(await middleware(request(path, false)))).toBeNull();
+    },
+  );
 });

@@ -58,6 +58,9 @@ export const loginPasswordSchema = z.object({
 });
 export type LoginPasswordInput = z.infer<typeof loginPasswordSchema>;
 
+export const forgotPasswordSchema = z.object({ email: emailSchema, mobile: mobileSchema });
+export const resetPasswordSchema = z.object({ token: z.string().min(32).max(256), password: passwordSchema, confirmPassword: z.string().min(1) }).refine((v) => v.password === v.confirmPassword, { path: ['confirmPassword'], message: 'passwordMismatch' });
+
 // Kept for a future mobile-verification feature. It is no longer used by the
 // normal student login UX.
 export const loginOtpRequestSchema = z.object({ mobile: mobileSchema });

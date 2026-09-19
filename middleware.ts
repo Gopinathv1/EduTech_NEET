@@ -17,7 +17,7 @@ import { safeReturnPath } from '@/lib/auth/redirect';
 
 // Super-admin-only areas (defined alongside the nav so they never drift apart).
 const SUPER_ADMIN_PREFIXES = ['/admin/super', ...SUPER_ADMIN_PATHS];
-const STUDENT_SERVICE_PREFIXES = ['/exam-preparation', '/courses', '/marketplace'];
+const STUDENT_SERVICE_PREFIXES: string[] = [];
 
 export async function middleware(req: NextRequest) {
   const { pathname, search } = req.nextUrl;
@@ -76,8 +76,5 @@ export const config = {
     '/student/:path*',
     '/admin/:path*',
     '/partner/:path*',
-    '/exam-preparation/:path*',
-    '/courses/:path*',
-    '/marketplace/:path*',
   ],
 };

@@ -1,120 +1,40 @@
-import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
+import Link from 'next/link';
 import { pageMetadata } from '@/lib/seo';
-import PageHero from '@/components/public/PageHero';
-import JourneyExperience from '@/components/public/JourneyExperience';
 import OpportunityVisual from '@/components/public/OpportunityVisual';
-import styles from '@/components/public/RouteExperience.module.css';
-import { Section, PrimaryLink } from '@/components/public/ui';
 import HomeLeadForm from '@/components/public/HomeLeadForm';
 import WhatsAppLink from '@/components/whatsapp/WhatsAppLink';
-import ExploreSivora from '@/components/public/ExploreSivora';
-import { CompassIcon } from '@/components/public/icons';
-import { ProductFaqSection, RelatedServicesSection } from '@/components/public/ProductPageBlocks';
+import { PrimaryLink, Section } from '@/components/public/ui';
+import styles from '@/components/public/RouteExperience.module.css';
 
 export async function generateMetadata() {
   const t = await getTranslations('seo.counselling');
   return pageMetadata({ title: t('title'), description: t('description'), path: '/counselling' });
 }
 
+const guidanceAreas = [
+  ['CAREER DIRECTION', 'Understand interests and goals, explore realistic career pathways, identify suitable fields of study, and make an education plan with course-selection guidance.'],
+  ['AFTER SCHOOL GUIDANCE', 'Consider options after Class 10 and Class 12, stream and course direction, entrance-exam routes, and college or university pathways.'],
+  ['COMPETITIVE EXAM GUIDANCE', 'Understand NEET and JEE preparation pathways, the requirements behind focused preparation, and where SIVORA Exam Preparation can help.'],
+  ['ADMISSION GUIDANCE', 'Explore India and international education pathways, universities and courses, destinations, applications, documents and processes.'],
+];
+
+const journey = ['Understand the student', 'Explore suitable pathways', 'Compare realistic options', 'Build an education and action plan', 'Connect to preparation or admissions support', 'Continue guidance as the student progresses'];
+
 export default function CounsellingPage() {
-  const t = useTranslations('counselling');
-  const helpCards = t.raw('helpCards') as { title: string; body: string }[];
-  const steps = t.raw('steps.items') as string[];
-  const faqItems = t.raw('faq.items') as { q: string; a: string }[];
-  const relatedItems = t.raw('related.items') as { title: string; body: string; href: string; cta: string }[];
+  return <div className={styles.page}>
+    <section className="border-b border-border"><div className="mx-auto grid max-w-[1504px] gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[.82fr_1.18fr] lg:items-center lg:px-12 lg:py-28"><div><p className="text-xs font-bold tracking-[.2em] text-brand">COUNSELLING & CAREER GUIDANCE</p><h1 className="mt-5 max-w-3xl text-[clamp(3.6rem,7vw,7.5rem)] font-semibold leading-[.84] tracking-[-.075em] text-[#10151c]">Clarity before the next step.</h1><p className="mt-7 max-w-xl text-lg leading-8 text-[#5f6975]">SIVORA helps students and families understand education pathways, career options, entrance preparation and admission opportunities before making important decisions.</p><div className="mt-8 flex flex-wrap gap-3"><PrimaryLink href="#talk">Talk to SIVORA</PrimaryLink><a href="#guidance" className="inline-flex items-center justify-center border border-[#d9dee5] px-5 py-3 text-sm font-semibold text-[#10151c] transition hover:border-brand hover:text-brand">Explore guidance</a></div></div><OpportunityVisual kind="counselling" /></div></section>
 
-  return (
-    <div className={styles.page}>
-      <div className="mx-auto grid max-w-[1280px] items-center gap-10 px-5 py-16 lg:grid-cols-2 [&_section]:border-0 [&_section>div]:p-0">
-      <PageHero
-        eyebrow={t('eyebrow')}
-        title={t('heroTitle')}
-        subtitle={t('heroSubtitle')}
-      />
-      <OpportunityVisual kind="counselling" />
-      </div>
+    <Section id="guidance"><div className="grid gap-10 lg:grid-cols-[.55fr_1.45fr]"><div><p className="text-xs font-bold tracking-[.2em] text-brand">FOR STUDENTS & PARENTS</p><h2 className="mt-5 max-w-md text-[clamp(3rem,5vw,5.7rem)] font-semibold leading-[.88] tracking-[-.07em] text-[#10151c]">Guidance that starts with your situation.</h2><p className="mt-6 max-w-sm text-[#5f6975]">Every conversation is about the next practical decision—not a guaranteed outcome.</p></div><div className="border-t border-[#d9dee5]">{guidanceAreas.map(([title, copy], index) => <article key={title} className="grid gap-4 border-b border-[#d9dee5] py-7 sm:grid-cols-[48px_.65fr_1.35fr] sm:gap-7"><span className="text-xs text-[#7a8795]">0{index + 1}</span><h3 className="text-2xl font-semibold tracking-[-.045em] text-[#10151c]">{title}</h3><p className="text-sm leading-7 text-[#5f6975]">{copy}</p></article>)}</div></div></Section>
 
-      <Section>
-        <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
-          <div>
-            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('helpEyebrow')}</p>
-            <h2 className="mt-5 text-[clamp(2.5rem,5vw,5.6rem)] font-semibold uppercase leading-[0.92] tracking-[-0.045em] text-[#171717]">
-              {t('helpTitle')}
-            </h2>
-          </div>
-          <div className="grid gap-0 divide-y divide-[#dce0e2]">
-            {helpCards.map((card, index) => (
-              <div key={card.title} className="rounded-md border border-[#deded9] bg-white p-5">
-                <div className="flex items-start justify-between gap-4">
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-[#deded9] bg-[#f0f0ed] text-[#ff5a36]">
-                    <CompassIcon className="h-5 w-5" />
-                  </span>
-                  <span className="text-xs font-black uppercase tracking-[0.18em] text-brand">0{index + 1}</span>
-                </div>
-                <h3 className="mt-5 text-lg font-semibold uppercase leading-tight text-[#171717]">{card.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-[#6e685f]">{card.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </Section>
+    <Section tinted><div className="grid gap-10 lg:grid-cols-[.65fr_1.35fr]"><div><p className="text-xs font-bold tracking-[.2em] text-brand">INTERNATIONAL EDUCATION</p><h2 className="mt-5 text-[clamp(2.8rem,4.8vw,5.2rem)] font-semibold leading-[.9] tracking-[-.065em] text-[#10151c]">Explore the pathway before the paperwork.</h2></div><div className="border-l-2 border-brand pl-6"><p className="max-w-2xl text-lg leading-8 text-[#3d5066]">For families considering education abroad, SIVORA can help with destination exploration, university and course selection, application planning, documentation, admission processes and understanding available pathways.</p><p className="mt-6 max-w-2xl text-sm leading-7 text-[#5f6975]">Final admission, eligibility, visa, university and government decisions remain with the relevant institutions and authorities.</p><Link href="/admissions" className="mt-7 inline-block border-b border-current pb-1 text-sm font-semibold text-brand">Explore Admissions pathways →</Link></div></div></Section>
 
-      <Section tinted lazy>
-        <div className="grid gap-8 lg:grid-cols-1">
-          <div>
-            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('steps.eyebrow')}</p>
-            <h2 className="mt-5 text-[clamp(2.4rem,5vw,5rem)] font-semibold uppercase leading-[0.92] tracking-[-0.045em] text-[#171717]">
-              {t('steps.title')}
-            </h2>
-          </div>
-          <JourneyExperience steps={steps} />
-        </div>
-      </Section>
+    <Section><div><p className="text-xs font-bold tracking-[.2em] text-brand">PERSONALISED GUIDANCE JOURNEY</p><h2 className="mt-5 max-w-4xl text-[clamp(3rem,5vw,5.8rem)] font-semibold leading-[.88] tracking-[-.07em] text-[#10151c]">A connected path, not a one-time answer.</h2><div className="mt-12 border-l border-[#2774e6]">{journey.map((step, index) => <div key={step} className="grid gap-3 border-b border-[#d9dee5] py-6 pl-6 sm:grid-cols-[58px_1fr] sm:items-center"><span className="text-xs font-bold tracking-[.12em] text-brand">0{index + 1}</span><p className="text-2xl font-semibold tracking-[-.04em] text-[#10151c]">{step}</p></div>)}</div></div></Section>
 
-      <Section id="callback" lazy>
-        <div className="grid gap-10 rounded-md border border-[#e1e5ea] bg-white p-6 sm:p-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
-          <div>
-            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('callbackEyebrow')}</p>
-            <h2 className="mt-5 text-[clamp(2.5rem,5vw,5.6rem)] font-semibold uppercase leading-[0.92] tracking-[-0.045em] text-[#171613]">
-              {t('callbackTitle')}
-            </h2>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-[#6e685f]">
-              {t('callbackSubtitle')}
-            </p>
-          </div>
-          <div className={styles.form}><HomeLeadForm /></div>
-        </div>
-      </Section>
+    <Section tinted><div className="grid gap-10 lg:grid-cols-[.65fr_1.35fr]"><div><p className="text-xs font-bold tracking-[.2em] text-brand">ONE CONNECTED ECOSYSTEM</p><h2 className="mt-5 text-[clamp(2.8rem,4.8vw,5.2rem)] font-semibold leading-[.9] tracking-[-.065em] text-[#10151c]">Guidance can lead somewhere useful.</h2></div><p className="max-w-2xl text-lg leading-8 text-[#5f6975]">When appropriate, counselling can connect a student to Admissions for suitable pathways, Exam Preparation for NEET or JEE preparation, Courses for structured learning pathways, and the future Marketplace for learning resources.</p></div></Section>
 
-      <Section lazy>
-        <div className="rounded-md border border-[#e1e5ea] bg-white p-8 lg:flex lg:items-end lg:justify-between lg:gap-8">
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.24em] text-brand">{t('ctaEyebrow')}</p>
-            <h2 className="mt-4 text-3xl font-semibold uppercase tracking-[-0.045em] text-[#171613] sm:text-5xl">{t('ctaTitle')}</h2>
-          </div>
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:mt-0">
-            <PrimaryLink href="#callback">{t('primaryCta')}</PrimaryLink>
-            <WhatsAppLink
-              label={t('whatsappLabel')}
-              message={t('whatsappMessage')}
-              className="inline-flex items-center justify-center rounded-lg border border-[#25D366]/45 bg-[#25D366]/14 px-5 py-3 text-sm font-black uppercase tracking-[0.08em] text-[#176537] transition hover:-translate-y-0.5 hover:bg-[#25D366]/24"
-            >
-              {t('whatsappCta')}
-            </WhatsAppLink>
-          </div>
-        </div>
-      </Section>
+    <section className="bg-[#07111f] px-5 py-20 text-[#edf6ff] sm:px-8 lg:px-12 lg:py-28"><div className="mx-auto max-w-[1504px]"><div className="grid gap-10 lg:grid-cols-[.65fr_1.35fr]"><div><p className="text-xs font-bold tracking-[.2em] text-[#75aaff]">PARTNER WITH SIVORA</p><h2 className="mt-5 text-[clamp(3rem,5vw,5.8rem)] font-semibold leading-[.88] tracking-[-.07em]">Support more students, together.</h2></div><p className="max-w-2xl text-lg leading-8 text-[#b8c5d4]">Education consultants, counsellors, tutors, coaching centres, institutes, educators and other suitable education partners may eventually work with SIVORA to support students, parents, candidates and enquiries.</p></div><div className="mt-14 border-t border-white/20">{[['ADMISSION REFERRALS', 'Partners with candidates seeking admission opportunities may eventually work with SIVORA through the admission guidance process.'], ['COUNSELLING REFERRALS', 'Partners may refer students or parents requiring education and career guidance.'], ['COURSES', 'Approved educators and institutes may eventually offer structured courses through SIVORA.'], ['MARKETPLACE', 'Approved partners may eventually offer educational materials and learning resources through SIVORA Marketplace.']].map(([title, copy], index) => <article key={title} className="grid gap-4 border-b border-white/20 py-7 sm:grid-cols-[48px_.6fr_1.4fr] sm:gap-7"><span className="text-xs text-[#8fa2ba]">0{index + 1}</span><h3 className="text-2xl font-semibold tracking-[-.045em]">{title}</h3><p className="text-sm leading-7 text-[#b8c5d4]">{copy}</p></article>)}</div><div className="mt-10 flex flex-wrap items-center justify-between gap-5 border border-white/20 bg-white/5 p-6"><div><p className="text-xs font-bold tracking-[.16em] text-[#75aaff]">PARTNER ONBOARDING — COMING SOON</p><p className="mt-2 max-w-xl text-sm leading-7 text-[#b8c5d4]">Partner participation will be subject to approval, appropriate review, policies and future commercial terms. Partner Portal — Coming Soon.</p></div><WhatsAppLink label="Discuss a partnership" message="Hello SIVORA, I would like to discuss a future partnership opportunity." className="inline-flex items-center justify-center border border-[#75aaff] px-5 py-3 text-sm font-semibold text-[#edf6ff] transition hover:bg-[#75aaff] hover:text-[#07111f]">Discuss a partnership</WhatsAppLink></div></div></section>
 
-      <ProductFaqSection eyebrow={t('faq.eyebrow')} title={t('faq.title')} items={faqItems} tinted />
-
-      <RelatedServicesSection
-        eyebrow={t('related.eyebrow')}
-        title={t('related.title')}
-        items={relatedItems}
-      />
-
-      <ExploreSivora exclude={['counselling']} />
-    </div>
-  );
+    <Section id="talk"><div className="grid gap-10 border border-[#d9dee5] bg-white p-6 sm:p-10 lg:grid-cols-[.8fr_1.2fr]"><div><p className="text-xs font-bold tracking-[.2em] text-brand">TALK TO SIVORA</p><h2 className="mt-5 text-[clamp(2.8rem,5vw,5.5rem)] font-semibold leading-[.9] tracking-[-.065em] text-[#10151c]">Start with the question in front of you.</h2><p className="mt-6 max-w-md text-[#5f6975]">Tell us what you are exploring and the team can guide your next conversation.</p><WhatsAppLink label="Talk to a counsellor" message="Hello SIVORA, I would like to speak with a counsellor about education and career guidance." className="mt-7 inline-flex items-center justify-center border border-[#25D366]/50 bg-[#25D366]/10 px-5 py-3 text-sm font-semibold text-[#176537]">Talk to a counsellor</WhatsAppLink></div><div className={styles.form}><HomeLeadForm /></div></div></Section>
+  </div>;
 }

@@ -225,14 +225,14 @@ model Student {
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
 
-  attempts          TestAttempt[]
-  payments          Payment[]
-  leads             AdmissionLead[]
-  notificationReads NotificationRead[]
-  entitlements      TestEntitlement[]
-  notifications     Notification[]
-  sellerProfile     MarketplaceSellerProfile?
-  marketplaceOrders MarketplaceOrder[]         @relation("MarketplaceBuyerOrders")
+  attempts            TestAttempt[]
+  payments            Payment[]
+  leads               AdmissionLead[]
+  notificationReads   NotificationRead[]
+  entitlements        TestEntitlement[]
+  notifications       Notification[]
+  sellerProfile       MarketplaceSellerProfile?
+  marketplaceOrders   MarketplaceOrder[]        @relation("MarketplaceBuyerOrders")
   passwordResetTokens PasswordResetToken[]
   paidAttemptCredits  PaidAttemptCredit[]
 
@@ -295,7 +295,7 @@ model Agency {
   createdAt          DateTime             @default(now())
   updatedAt          DateTime             @updatedAt
 
-  users AgencyUser[]
+  users                    AgencyUser[]
   marketplaceSellerProfile MarketplaceSellerProfile?
 
   @@index([approvalStatus])
@@ -379,30 +379,30 @@ model Chapter {
 }
 
 model Question {
-  id           String         @id @default(cuid())
-  externalId   String?        @unique
-  subjectId    String
-  chapterId    String
-  topic        String? // finer-grained than chapter (NEET topic), optional
-  difficulty   Difficulty     @default(MEDIUM)
-  year         Int? // NEET year this question is drawn from, if any
-  tags         String[]       @default([])
-  questionType QuestionType   @default(SINGLE_CORRECT)
-  status       QuestionStatus @default(DRAFT)
-  contentClass ContentClassification @default(SAMPLE)
-  sourceType   QuestionSourceType?
-  sourceName   String?
-  exam         String?
-  examYear     Int?
-  paperSession String?
+  id               String                @id @default(cuid())
+  externalId       String?               @unique
+  subjectId        String
+  chapterId        String
+  topic            String? // finer-grained than chapter (NEET topic), optional
+  difficulty       Difficulty            @default(MEDIUM)
+  year             Int? // NEET year this question is drawn from, if any
+  tags             String[]              @default([])
+  questionType     QuestionType          @default(SINGLE_CORRECT)
+  status           QuestionStatus        @default(DRAFT)
+  contentClass     ContentClassification @default(SAMPLE)
+  sourceType       QuestionSourceType?
+  sourceName       String?
+  exam             String?
+  examYear         Int?
+  paperSession     String?
   licenseReference String?
-  reviewer     String?
-  reviewedAt   DateTime?
-  imageUrl     String?
+  reviewer         String?
+  reviewedAt       DateTime?
+  imageUrl         String?
   // Mirrors `status == PUBLISHED`; kept for the generator/catalogue queries.
-  isActive     Boolean        @default(true)
-  createdAt    DateTime       @default(now())
-  updatedAt    DateTime       @updatedAt
+  isActive         Boolean               @default(true)
+  createdAt        DateTime              @default(now())
+  updatedAt        DateTime              @updatedAt
 
   subject       Subject               @relation(fields: [subjectId], references: [id], onDelete: Restrict)
   chapter       Chapter               @relation(fields: [chapterId], references: [id], onDelete: Restrict)
@@ -465,7 +465,7 @@ model QuestionTranslation {
 // ---------------------------------------------------------------------------
 
 model Test {
-  id                 String      @id @default(cuid())
+  id                 String                @id @default(cuid())
   title              Json // { "en": "...", "ta": "..." }
   description        Json? // { "en": "...", "ta": "..." }
   testType           TestType
@@ -474,24 +474,24 @@ model Test {
   chapterId          String?
   totalQuestions     Int
   durationMinutes    Int
-  price              Int         @default(30) // in INR
+  price              Int                   @default(30) // in INR
   difficulty         Difficulty?
-  isRandom           Boolean     @default(false) // true => questions generated per attempt
-  isPublished        Boolean     @default(false)
+  isRandom           Boolean               @default(false) // true => questions generated per attempt
+  isPublished        Boolean               @default(false)
   contentClass       ContentClassification @default(SAMPLE)
-  availableLanguages String[]    @default(["en"])
+  availableLanguages String[]              @default(["en"])
   // Generation rules for RANDOM tests + difficulty mix for all tests.
   // Shape: { difficultyMix: { EASY, MEDIUM, HARD }, random?: { scope, subjectIds[], chapterIds[] } }
   rules              Json?
-  createdAt          DateTime    @default(now())
-  updatedAt          DateTime    @updatedAt
+  createdAt          DateTime              @default(now())
+  updatedAt          DateTime              @updatedAt
 
-  subject       Subject?          @relation(fields: [subjectId], references: [id], onDelete: SetNull)
-  chapter       Chapter?          @relation(fields: [chapterId], references: [id], onDelete: SetNull)
-  testQuestions TestQuestion[]
-  attempts      TestAttempt[]
-  payments      Payment[]
-  entitlements  TestEntitlement[]
+  subject            Subject?            @relation(fields: [subjectId], references: [id], onDelete: SetNull)
+  chapter            Chapter?            @relation(fields: [chapterId], references: [id], onDelete: SetNull)
+  testQuestions      TestQuestion[]
+  attempts           TestAttempt[]
+  payments           Payment[]
+  entitlements       TestEntitlement[]
   paidAttemptCredits PaidAttemptCredit[]
 
   @@index([testType])
@@ -538,10 +538,10 @@ model TestAttempt {
   createdAt        DateTime      @default(now())
   updatedAt        DateTime      @updatedAt
 
-  student Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
-  test    Test     @relation(fields: [testId], references: [id], onDelete: Cascade)
-  answers Answer[]
-  result  Result?
+  student           Student            @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  test              Test               @relation(fields: [testId], references: [id], onDelete: Cascade)
+  answers           Answer[]
+  result            Result?
   paidAttemptCredit PaidAttemptCredit?
 
   @@index([studentId])
@@ -611,10 +611,10 @@ model Payment {
   createdAt         DateTime      @default(now())
   updatedAt         DateTime      @updatedAt
 
-  student     Student          @relation(fields: [studentId], references: [id], onDelete: Restrict)
-  test        Test             @relation(fields: [testId], references: [id], onDelete: Restrict)
-  events      PaymentEvent[]
-  entitlement TestEntitlement?
+  student           Student            @relation(fields: [studentId], references: [id], onDelete: Restrict)
+  test              Test               @relation(fields: [testId], references: [id], onDelete: Restrict)
+  events            PaymentEvent[]
+  entitlement       TestEntitlement?
   paidAttemptCredit PaidAttemptCredit?
 
   @@index([studentId])
@@ -830,8 +830,8 @@ model MarketplaceSellerProfile {
   createdAt   DateTime                @default(now())
   updatedAt   DateTime                @updatedAt
 
-  student  Student?             @relation(fields: [studentId], references: [id], onDelete: SetNull)
-  agency   Agency?              @relation(fields: [agencyId], references: [id], onDelete: SetNull)
+  student  Student?               @relation(fields: [studentId], references: [id], onDelete: SetNull)
+  agency   Agency?                @relation(fields: [agencyId], references: [id], onDelete: SetNull)
   listings MarketplaceListing[]
   orders   MarketplaceOrderItem[]
 
@@ -910,17 +910,17 @@ model MarketplaceImage {
 }
 
 model MarketplaceAddress {
-  id          String   @id @default(cuid())
-  studentId   String?
-  name        String
-  mobile      String
-  line1       String
-  line2       String?
-  city        String
-  state       String
-  postalCode  String
-  country     String   @default("India")
-  createdAt   DateTime @default(now())
+  id         String   @id @default(cuid())
+  studentId  String?
+  name       String
+  mobile     String
+  line1      String
+  line2      String?
+  city       String
+  state      String
+  postalCode String
+  country    String   @default("India")
+  createdAt  DateTime @default(now())
 
   orders MarketplaceOrder[]
 }
@@ -938,8 +938,8 @@ model MarketplaceOrder {
   createdAt         DateTime               @default(now())
   updatedAt         DateTime               @updatedAt
 
-  buyer           Student                 @relation("MarketplaceBuyerOrders", fields: [buyerStudentId], references: [id], onDelete: Restrict)
-  shippingAddress MarketplaceAddress      @relation(fields: [shippingAddressId], references: [id], onDelete: Restrict)
+  buyer           Student                @relation("MarketplaceBuyerOrders", fields: [buyerStudentId], references: [id], onDelete: Restrict)
+  shippingAddress MarketplaceAddress     @relation(fields: [shippingAddressId], references: [id], onDelete: Restrict)
   items           MarketplaceOrderItem[]
   payments        MarketplacePayment[]
 
@@ -980,7 +980,7 @@ model MarketplacePayment {
   createdAt         DateTime                 @default(now())
   updatedAt         DateTime                 @updatedAt
 
-  order MarketplaceOrder @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  order  MarketplaceOrder          @relation(fields: [orderId], references: [id], onDelete: Restrict)
   events MarketplacePaymentEvent[]
 
   @@index([orderId])

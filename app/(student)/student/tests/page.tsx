@@ -3,6 +3,7 @@ import { getSession } from '@/lib/auth/session';
 import { prisma } from '@/lib/prisma';
 import { localizedName } from '@/lib/admin/format';
 import { FREE_ATTEMPT_LIMIT } from '@/lib/attempts/service';
+import { examPaidRetriesEnabled } from '@/lib/attempts/paid-retries';
 import { computeCoverage, subjectFilterCodes } from '@/lib/student/catalogue';
 import StudentHeader from '@/components/student/StudentHeader';
 import CatalogueFilters, { type CatalogueFilterValues } from '@/components/student/CatalogueFilters';
@@ -50,8 +51,9 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
   const subjectByCode = new Map(subjects.map((s) => [s.code, s]));
   const chapterById = new Map(chapters.map((c) => [c.id, c]));
   const allCodes = subjects.map((s) => s.code);
+  const paidRetriesEnabled = examPaidRetriesEnabled();
   const remainingByTestId = new Map(
-    attempts.map((a) => [a.testId, Math.max(FREE_ATTEMPT_LIMIT - a._count._all, 0)]),
+    attempts.map((a) => [a.testId, paidRetriesEnabled ? Math.max(FREE_ATTEMPT_LIMIT - a._count._all, 0) : null]),
   );
 
   const items = tests.map((test) => {
@@ -75,7 +77,7 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
     if (cov.subjectCodes.has('BOTANY') || cov.subjectCodes.has('ZOOLOGY')) {
       searchParts.push('Biology', 'உயிரியல்');
     }
-    return { test, cov, searchText: searchParts.join(' ').toLowerCase(), remaining: remainingByTestId.get(test.id) ?? FREE_ATTEMPT_LIMIT };
+    return { test, cov, searchText: searchParts.join(' ').toLowerCase(), remaining: paidRetriesEnabled ? (remainingByTestId.get(test.id) ?? FREE_ATTEMPT_LIMIT) : null };
   });
 
   // Apply combined filters.

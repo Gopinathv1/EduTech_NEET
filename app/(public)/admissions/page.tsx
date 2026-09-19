@@ -6,6 +6,7 @@ import { getTranslations } from 'next-intl/server';
 import { pageMetadata } from '@/lib/seo';
 import { PrimaryLink, Section } from '@/components/public/ui';
 import WhatsAppLink from '@/components/whatsapp/WhatsAppLink';
+import HomeLeadForm from '@/components/public/HomeLeadForm';
 import CompareTray from '@/components/admissions/CompareTray';
 import { ADMISSION_COUNTRY_PROFILES } from '@/lib/data/admissions/countries';
 import { ProductFaqSection, RelatedServicesSection } from '@/components/public/ProductPageBlocks';
@@ -53,24 +54,31 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
       <section className="public-editorial-hero relative overflow-hidden border-b border-[#deded9] bg-[#f7f7f5]">
         <div className="relative mx-auto grid min-h-[580px] w-full max-w-[1280px] gap-8 px-[clamp(1rem,3vw,3rem)] py-14 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:py-20">
           <div className="pb-2">
-            <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('heroSimplified.eyebrow')}</p>
-            <h1 className="mt-5 max-w-5xl text-[clamp(2.75rem,5vw,4rem)] font-semibold uppercase leading-[0.88] text-[#171717]">
-              {t('heroSimplified.title')}
+            <p className="text-xs font-bold tracking-[0.2em] text-brand">SIVORA ADMISSIONS</p>
+            <h1 className="mt-5 max-w-5xl text-[clamp(3.5rem,6.5vw,7rem)] font-semibold leading-[0.84] tracking-[-.075em] text-[#10151c]">
+              Your admission journey, with clarity.
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#6b6b67]">{t('heroSimplified.subtitle')}</p>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#5f6975]">SIVORA helps students and families explore education opportunities, compare realistic options and move through the admission process with structured guidance.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <PrimaryLink href="#destinations">{t('heroSimplified.primary')}</PrimaryLink>
+              <PrimaryLink href="#enquiry">Start your admission enquiry</PrimaryLink>
               <Link
-                href="/counselling?interest=global-admissions"
+                href="#destinations"
                 className="inline-flex items-center justify-center rounded-lg border border-[#dce0e2] bg-white px-5 py-3 text-sm font-black uppercase tracking-[0.08em] text-[#171717] transition hover:-translate-y-0.5 hover:border-brand/45"
               >
-                {t('heroSimplified.secondary')}
+                Explore destinations
               </Link>
             </div>
           </div>
           <OpportunityVisual kind="admissions" />
         </div>
       </section>
+
+      <Section lazy>
+        <div className="grid gap-10 lg:grid-cols-[.55fr_1.45fr]">
+          <div><p className="text-xs font-bold tracking-[.2em] text-brand">STUDENTS & PARENTS</p><h2 className="mt-5 text-[clamp(3rem,5vw,5.7rem)] font-semibold leading-[.88] tracking-[-.07em] text-[#10151c]">A practical path through a significant decision.</h2></div>
+          <div className="border-t border-[#d9dee5]">{[['UNDERSTAND YOUR GOAL', 'Education goals, course and programme exploration, university or institution exploration, and destination considerations.'], ['CHECK REALISTIC OPTIONS', 'Eligibility guidance, requirements and practical pathways based on the programme and institution being explored.'], ['PREPARE THE PROCESS', 'Application planning, documentation guidance, application support and admission-process guidance.'], ['PLAN THE NEXT STEP', 'Pre-departure guidance where applicable, or a route to Counselling when a student needs more clarity first.']].map(([title, body], index) => <article key={title} className="grid gap-4 border-b border-[#d9dee5] py-7 sm:grid-cols-[48px_.65fr_1.35fr] sm:gap-7"><span className="text-xs text-[#7a8795]">0{index + 1}</span><h3 className="text-2xl font-semibold tracking-[-.045em] text-[#10151c]">{title}</h3><p className="text-sm leading-7 text-[#5f6975]">{body}</p></article>)}</div>
+        </div>
+      </Section>
 
       <Section lazy>
         <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
@@ -288,6 +296,23 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
             </WhatsAppLink>
           </div>
         </div>
+      </Section>
+
+      <Section lazy>
+        <div className="grid gap-10 lg:grid-cols-[.65fr_1.35fr]">
+          <div><p className="text-xs font-bold tracking-[.2em] text-brand">ADMISSION JOURNEY</p><h2 className="mt-5 text-[clamp(3rem,5vw,5.7rem)] font-semibold leading-[.88] tracking-[-.07em] text-[#10151c]">See the whole path before you begin.</h2><p className="mt-6 max-w-sm text-[#5f6975]">From the first question to the next practical step, the detailed journey remains available when you are ready to explore it.</p><Link href="/admission-journey" className="mt-7 inline-block border-b border-current pb-1 text-sm font-semibold text-brand">Explore the admission journey →</Link></div>
+          <div className="border-l border-brand pl-6"><ol className="grid gap-4 text-lg font-semibold tracking-[-.03em] text-[#10151c]">{['Understand your goal', 'Explore courses and destinations', 'Shortlist realistic options', 'Review eligibility and requirements', 'Prepare applications and documents', 'Submit and track the admission process', 'Prepare for the next steps'].map((item, index) => <li key={item} className="flex gap-4 border-b border-[#d9dee5] pb-4"><span className="text-xs font-bold tracking-[.12em] text-brand">0{index + 1}</span>{item}</li>)}</ol></div>
+        </div>
+      </Section>
+
+      <section className="bg-[#07111f] px-5 py-20 text-[#edf6ff] sm:px-8 lg:px-12 lg:py-28"><div className="mx-auto max-w-[1280px]"><div className="grid gap-10 lg:grid-cols-[.65fr_1.35fr]"><div><p className="text-xs font-bold tracking-[.2em] text-[#75aaff]">PARTNER WITH SIVORA</p><h2 className="mt-5 text-[clamp(3rem,5vw,5.8rem)] font-semibold leading-[.88] tracking-[-.07em]">Support candidates, together.</h2></div><p className="max-w-2xl text-lg leading-8 text-[#b8c5d4]">Education consultants, counsellors, coaching centres, institutes, educators and suitable education organisations may eventually work with SIVORA to support candidates through an admission journey.</p></div><div className="mt-12 border-t border-white/20"><div className="grid gap-4 border-b border-white/20 py-7 sm:grid-cols-[48px_.6fr_1.4fr] sm:gap-7"><span className="text-xs text-[#8fa2ba]">01</span><h3 className="text-2xl font-semibold tracking-[-.045em]">CANDIDATE REFERRALS</h3><p className="text-sm leading-7 text-[#b8c5d4]">A partner may identify or refer a candidate; SIVORA may then support that candidate&apos;s admission journey.</p></div><div className="grid gap-4 border-b border-white/20 py-7 sm:grid-cols-[48px_.6fr_1.4fr] sm:gap-7"><span className="text-xs text-[#8fa2ba]">02</span><h3 className="text-2xl font-semibold tracking-[-.045em]">FUTURE TRACKING</h3><p className="text-sm leading-7 text-[#b8c5d4]">Approved partners may eventually track referrals through a future Partner Portal. Partner onboarding and the portal are Coming Soon.</p></div></div><div className="mt-9 border border-white/20 bg-white/5 p-6 text-sm leading-7 text-[#b8c5d4]">This is a future business proposition only. No partner account, dashboard, commission or payout system is currently operational.</div></div></section>
+
+      <Section id="enquiry" tinted lazy>
+        <div className="grid gap-10 border border-[#d9dee5] bg-white p-6 sm:p-10 lg:grid-cols-[.8fr_1.2fr]"><div><p className="text-xs font-bold tracking-[.2em] text-brand">START YOUR ADMISSION ENQUIRY</p><h2 className="mt-5 text-[clamp(2.8rem,5vw,5.5rem)] font-semibold leading-[.9] tracking-[-.065em] text-[#10151c]">Discuss your options with SIVORA.</h2><p className="mt-6 max-w-md text-[#5f6975]">If you are unsure about the right course, career direction or destination, start with Counselling & Career Guidance.</p><Link href="/counselling" className="mt-7 inline-block border-b border-current pb-1 text-sm font-semibold text-brand">Talk to SIVORA Counselling →</Link><WhatsAppLink label="Discuss your admission options" message="Hello SIVORA, I would like to discuss admission options." className="mt-6 flex w-fit items-center justify-center border border-[#25D366]/50 bg-[#25D366]/10 px-5 py-3 text-sm font-semibold text-[#176537]">Discuss your options</WhatsAppLink></div><div className={styles.form}><HomeLeadForm /></div></div>
+      </Section>
+
+      <Section lazy>
+        <p className="mx-auto max-w-4xl border-l-2 border-brand bg-[#edf1f5] px-5 py-4 text-sm leading-7 text-[#5f6975]">SIVORA provides guidance and support. Eligibility and admission decisions are made by the relevant institutions; examination, recognition, visa and immigration requirements remain subject to the relevant authorities. Students should verify current official requirements.</p>
       </Section>
 
       <ProductFaqSection

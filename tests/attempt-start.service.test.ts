@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { afterEach, describe, it, expect, vi, beforeEach } from 'vitest';
 
 const generator = vi.hoisted(() => ({
   generateForAttempt: vi.fn(),
@@ -34,7 +34,15 @@ const publishedPaidTest = {
   price: 30,
 };
 
+const originalPaidRetriesFlag = process.env.EXAM_PAID_RETRIES_ENABLED;
+
+afterEach(() => {
+  if (originalPaidRetriesFlag === undefined) delete process.env.EXAM_PAID_RETRIES_ENABLED;
+  else process.env.EXAM_PAID_RETRIES_ENABLED = originalPaidRetriesFlag;
+});
+
 beforeEach(() => {
+  process.env.EXAM_PAID_RETRIES_ENABLED = 'false';
   vi.clearAllMocks();
   p.$transaction.mockImplementation((fn: (tx: unknown) => unknown) => fn(p));
   p.test.findUnique.mockResolvedValue(publishedPaidTest);
@@ -71,12 +79,13 @@ describe('startOrResumeAttempt', () => {
     expect(p.testAttempt.update).not.toHaveBeenCalled();
   });
 
-  it('allows the third free attempt for a paid published mock test', async () => {
-    p.testAttempt.count.mockResolvedValue(2);
+  it.each([0, 1, 2, 3, 4, 9])('allows a free attempt after %i previous attempts in marketing mode', async (used) => {
+    p.testAttempt.count.mockResolvedValue(used);
 
     const out = await startOrResumeAttempt('s1', 't1', 'ta');
 
     expect(out).toEqual({ ok: true, attemptId: 'att1', resumed: false });
+    expect(p.paidAttemptCredit.findFirst).not.toHaveBeenCalled();
   });
 
   it('resumes an existing in-progress attempt', async () => {
@@ -88,7 +97,8 @@ describe('startOrResumeAttempt', () => {
     expect(p.testAttempt.create).not.toHaveBeenCalled();
   });
 
-  it('requires payment credit for the fourth attempt', async () => {
+  it('requires payment credit for the fourth attempt only when paid retries are enabled', async () => {
+    process.env.EXAM_PAID_RETRIES_ENABLED = 'true';
     p.testAttempt.count.mockResolvedValue(3);
 
     const out = await startOrResumeAttempt('s1', 't1', 'en');
@@ -98,7 +108,8 @@ describe('startOrResumeAttempt', () => {
     expect(p.testAttempt.create).not.toHaveBeenCalled();
   });
 
-  it('consumes one matching credit to create the fourth attempt and resumes it', async () => {
+  it('consumes one matching credit to create the fourth attempt only when paid retries are enabled', async () => {
+    process.env.EXAM_PAID_RETRIES_ENABLED = 'true';
     p.testAttempt.count.mockResolvedValue(3);
     p.paidAttemptCredit.findFirst.mockResolvedValue({ id: 'credit_1' });
     const out = await startOrResumeAttempt('s1', 't1', 'en');
@@ -116,7 +127,8 @@ describe('startOrResumeAttempt', () => {
   });
 });
 
-  it.each([0, 1, 2])('allows attempt with %i previous attempts', async used => {
+  it.each([0, 1, 2])('allows paid-mode free attempt with %i previous attempts', async used => {
+    process.env.EXAM_PAID_RETRIES_ENABLED = 'true';
     p.testAttempt.count.mockResolvedValue(used);
     expect((await startOrResumeAttempt('s1', 't1', 'en')).ok).toBe(true);
   });

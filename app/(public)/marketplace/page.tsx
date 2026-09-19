@@ -1,113 +1,44 @@
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 import { pageMetadata } from '@/lib/seo';
-import { PrimaryLink, Section } from '@/components/public/ui';
-import MarketplaceFilters from '@/components/marketplace/MarketplaceFilters';
-import { MARKETPLACE_CATEGORIES, MARKETPLACE_LISTINGS, getMarketplaceCategory } from '@/lib/marketplace/catalog';
-import { ProductFaqSection, RelatedServicesSection } from '@/components/public/ProductPageBlocks';
+import { PrimaryLink } from '@/components/public/ui';
 import MarketplaceProductVisual from '@/components/public/MarketplaceProductVisual';
+import { MARKETPLACE_CATEGORIES, type MarketplaceCategory } from '@/lib/marketplace/catalog';
 import styles from '@/components/public/MarketplaceExperience.module.css';
-
-type Props = {
-  searchParams?: Promise<{ category?: string }>;
-};
 
 export async function generateMetadata() {
   const t = await getTranslations('seo.marketplace');
   return pageMetadata({ title: t('title'), description: t('description'), path: '/marketplace' });
 }
 
-export default async function MarketplacePage({ searchParams }: Props) {
-  const t = await getTranslations('marketplace');
-  const params = await searchParams;
-  const requestedCategory =
-    params?.category === 'astrology'
-      ? 'astrology-traditional-learning'
-      : params?.category === 'yoga'
-        ? 'yoga-wellness-learning'
-        : params?.category;
-  const initialCategory = requestedCategory && getMarketplaceCategory(requestedCategory) ? requestedCategory : 'ALL';
-  const featuredCategories = MARKETPLACE_CATEGORIES.filter((category) =>
-    [
-      'exam-preparation-resources',
-      'academic-books',
-      'ai-technology',
-      'astrology-traditional-learning',
-      'yoga-wellness-learning',
-      'used-books',
-      'other-learning-resources',
-    ].includes(category.slug),
-  );
-  const faqItems = t.raw('faq.items') as { q: string; a: string }[];
-  const relatedItems = t.raw('related.items') as { title: string; body: string; href: string; cta: string }[];
+const groups = [
+  ['EXAM', 'EXAM PREPARATION', 'Preparation material categories for NEET and JEE. Currently unavailable while the marketplace is being prepared.'],
+  ['LANGUAGE', 'LANGUAGE LEARNING', 'Planned material categories for spoken English and Hindi learning.'],
+  ['GENERAL', 'GENERAL LEARNING', 'Planned categories for revision and wider learning resources.'],
+  ['FUTURE', 'FUTURE CATEGORIES', 'Secondary categories that will be considered later as the marketplace evolves.'],
+] as const;
 
-  return (
-    <div className={styles.page}>
-      <section className={styles.hero}>
-        <div className={styles.heroInner}>
-          <div>
-            <p className={styles.eyebrow}>{t('eyebrow')}</p><h1>{t('heroTitle')}</h1><p className={styles.heroCopy}>{t('heroSubtitle')}</p>
-            <div className={styles.actions}>
-              <PrimaryLink href="#listings">{t('browseCta')}</PrimaryLink>
-              <Link href="/marketplace/sell" className="inline-flex items-center justify-center rounded-md border border-[#d9dee5] px-5 py-3 text-sm font-semibold text-[#10151c] transition hover:border-[#2774e6] hover:text-[#2774e6]">{t('sellCta')}</Link>
-            </div>
-          </div>
-          <MarketplaceProductVisual />
-        </div>
-      </section>
+export default function MarketplacePage() {
+  return <div className={styles.page}>
+    <section className={styles.hero}><div className={styles.heroInner}>
+      <div><p className={styles.eyebrow}>SIVORA MARKETPLACE</p><h1>Learning resources, in one place.</h1><p className={styles.heroCopy}>SIVORA Marketplace is being prepared as a curated education-focused marketplace connecting learners with useful resources and approved education partners.</p><div className={styles.actions}><PrimaryLink href="#categories">Explore planned categories</PrimaryLink></div></div>
+      <MarketplaceProductVisual />
+    </div></section>
+    <section id="categories" className={styles.section}><div className={styles.sectionInner}>
+      <div className={styles.sectionHead}><div><p className={styles.sectionEyebrow}>MARKETPLACE LAUNCHING SOON</p><h2>Categories, clearly staged.</h2></div><p>These are category previews only. There is no current inventory, pricing, seller listing, or checkout.</p></div>
+      {groups.map(([group, heading, description], index) => <CategoryGroup key={group} heading={heading} description={description} categories={MARKETPLACE_CATEGORIES.filter((category) => category.group === group)} future={group === 'FUTURE'} tinted={index % 2 === 1} />)}
+    </div></section>
+    <section className={`${styles.section} ${styles.sectionTint}`}><div className={styles.sectionInner}>
+      <div className={styles.sectionHead}><div><p className={styles.sectionEyebrow}>SELL WITH SIVORA</p><h2>Approved partners, in a future phase.</h2></div><p>Partner onboarding is Coming Soon. Selling and course offers are not operational today.</p></div>
+      <div className={styles.supportGrid}>
+        <article className={styles.supportCard}><p className={styles.sectionEyebrow}>PLANNED CONTRIBUTIONS</p><h3>Resources for learners.</h3><p>Future approved education partners may list educational materials, exam-preparation resources, learning resources, relevant education products, and eventually approved courses.</p></article>
+        <article className={styles.supportCard}><p className={styles.sectionEyebrow}>PLANNED PARTNER CAPABILITIES</p><h3>Part of the SIVORA ecosystem.</h3><p>Approved partners may eventually refer candidates for Admissions, refer students and parents for Counselling & Career Guidance, offer structured Courses, and offer Marketplace materials.</p></article>
+        <article className={styles.supportCard}><p className={styles.sectionEyebrow}>PARTNER ONBOARDING</p><h3>Coming Soon.</h3><p>Participation will be subject to SIVORA approval, content or product review, marketplace policies, and future commercial terms. Partner portal — Coming Soon.</p><div className={styles.actions}><Link href="/marketplace/sell" className="inline-flex items-center justify-center rounded-md border border-[#d9dee5] px-5 py-3 text-sm font-semibold text-[#10151c] transition hover:border-[#2774e6] hover:text-[#2774e6]">Learn about partnership</Link></div></article>
+      </div>
+    </div></section>
+  </div>;
+}
 
-      <section className={styles.section} aria-label={t('categoriesTitle')}>
-        <div className={styles.sectionInner}>
-          <div className={styles.sectionHead}><div><p className={styles.sectionEyebrow}>{t('categoryLabel')}</p><h2>{t('categoriesTitle')}</h2></div><p>{t('listingsNote')}</p></div>
-          <div className={styles.discovery}>
-            {featuredCategories.map((category) => (
-              <Link key={category.slug} href={`/marketplace?category=${category.slug}`} className={styles.discoveryRow}>
-                <span>{String(featuredCategories.indexOf(category) + 1).padStart(2, '0')}</span><h3>{t(`categories.${category.labelKey}`)}</h3><p>{t('categoryLabel')}</p><b>↗</b>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="listings" className={`${styles.section} ${styles.sectionTint}`}><div className={styles.sectionInner}>
-        <div className={styles.sectionHead}><div><p className={styles.sectionEyebrow}>{t('listingsEyebrow')}</p><h2>{t('listingsTitle')}</h2></div><p>{t('listingsNote')}</p></div>
-        <MarketplaceFilters
-          categories={MARKETPLACE_CATEGORIES}
-          listings={MARKETPLACE_LISTINGS}
-          initialCategory={initialCategory}
-          labels={{
-            search: t('search'),
-            searchPlaceholder: t('searchPlaceholder'),
-            category: t('postForm.category'),
-            condition: t('condition'),
-            level: t('level'),
-            all: t('all'),
-            categories: t.raw('categories') as Record<string, string>,
-            levels: t.raw('levels') as Record<'BEGINNER' | 'INTERMEDIATE' | 'ADVANCED', string>,
-            buy: t('buy'),
-            soldBy: t('soldBy'),
-            delivery: t('delivery'),
-            pickup: t('pickup'),
-            noResults: t('noResults'),
-            noResultsForCategory: t.raw('noResultsForCategory') as string,
-          }}
-        />
-      </div></section>
-
-      <section className={styles.section}><div className={styles.sectionInner}><div className={styles.supportGrid}>
-        <article className={styles.supportCard}><p className={styles.sectionEyebrow}>{t('astrologyLink.eyebrow')}</p><h3>{t('astrologyLink.title')}</h3><p>{t('astrologyLink.body')}</p><div className={styles.actions}><PrimaryLink href="/courses/astrology">{t('astrologyLink.cta')}</PrimaryLink></div></article>
-        <article className={styles.supportCard}><p className={styles.sectionEyebrow}>{t('usedNew.eyebrow')}</p><h3>{t('usedNew.title')}</h3><p>{t('usedNew.body')}</p></article>
-        <article className={styles.supportCard}><p className={styles.sectionEyebrow}>{t('seller.eyebrow')}</p><h3>{t('seller.title')}</h3><p>{t('seller.body')}</p><div className={styles.actions}><PrimaryLink href="/marketplace/sell">{t('seller.cta')}</PrimaryLink></div></article>
-      </div></div></section>
-
-      <ProductFaqSection eyebrow={t('faq.eyebrow')} title={t('faq.title')} items={faqItems} tinted={false} />
-
-      <RelatedServicesSection
-        eyebrow={t('related.eyebrow')}
-        title={t('related.title')}
-        items={relatedItems}
-        tinted
-      />
-    </div>
-  );
+function CategoryGroup({ heading, description, categories, future, tinted }: { heading: string; description: string; categories: readonly MarketplaceCategory[]; future: boolean; tinted: boolean }) {
+  return <section className={`py-12 ${tinted ? 'border-y border-[#d9dee5] bg-[#edf1f5] px-5 sm:px-8' : ''}`}><div className="grid gap-6 lg:grid-cols-[.5fr_1.5fr]"><div><p className={styles.sectionEyebrow}>{future ? 'COMING LATER' : 'CURRENT PREVIEW'}</p><h3 className="mt-3 text-3xl font-semibold tracking-[-.055em] text-[#10151c]">{heading}</h3><p className="mt-4 max-w-sm text-sm leading-6 text-[#5f6975]">{description}</p></div><div className={styles.discovery}>{categories.map((category, index) => <div key={category.slug} className={styles.discoveryRow}><span>{String(index + 1).padStart(2, '0')}</span><h3>{category.title}</h3><p>{category.state === 'COMING_LATER' ? 'Coming later' : 'Currently unavailable · Coming soon'}</p><b>—</b></div>)}</div></div></section>;
 }

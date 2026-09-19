@@ -7,6 +7,7 @@ import QuestionBankTabs from '@/components/admin/QuestionBankTabs';
 import QuestionFilters, { type FilterValues } from '@/components/admin/QuestionFilters';
 import QuestionActiveToggle from '@/components/admin/QuestionActiveToggle';
 import { EditIcon } from '@/components/admin/icons';
+import { productionQuestionWhere } from '@/lib/content/eligibility';
 
 const PAGE_SIZE = 20;
 
@@ -29,11 +30,11 @@ export default async function QuestionBankPage({ searchParams }: { searchParams:
     year: g('year'),
     lang: g('lang'),
     active: g('active'),
+    classification: g('classification'),
+    status: g('status'),
+    sourceType: g('sourceType'),
     q: g('q'),
   };
-  const classification = g('classification');
-  const status = g('status');
-  const sourceType = g('sourceType');
   const page = Math.max(1, parseInt(g('page') || '1', 10) || 1);
 
   // Build the query.
@@ -52,9 +53,9 @@ export default async function QuestionBankPage({ searchParams }: { searchParams:
   }
   if (filters.active === 'true') where.isActive = true;
   else if (filters.active === 'false') where.isActive = false;
-  if (classification === 'SAMPLE' || classification === 'PRODUCTION') where.contentClass = classification;
-  if (['DRAFT', 'REVIEW', 'PUBLISHED'].includes(status)) where.status = status as 'DRAFT' | 'REVIEW' | 'PUBLISHED';
-  if (['INTERNALLY_AUTHORED', 'LICENSED', 'OFFICIAL_PREVIOUS_YEAR', 'OTHER'].includes(sourceType)) where.sourceType = sourceType as 'INTERNALLY_AUTHORED' | 'LICENSED' | 'OFFICIAL_PREVIOUS_YEAR' | 'OTHER';
+  if (filters.classification === 'SAMPLE' || filters.classification === 'PRODUCTION') where.contentClass = filters.classification;
+  if (['DRAFT', 'REVIEW', 'PUBLISHED'].includes(filters.status)) where.status = filters.status as 'DRAFT' | 'REVIEW' | 'PUBLISHED';
+  if (['INTERNALLY_AUTHORED', 'LICENSED', 'OFFICIAL_PREVIOUS_YEAR', 'OTHER'].includes(filters.sourceType)) where.sourceType = filters.sourceType as 'INTERNALLY_AUTHORED' | 'LICENSED' | 'OFFICIAL_PREVIOUS_YEAR' | 'OTHER';
 
   const and: Prisma.QuestionWhereInput[] = [];
   if (filters.lang === 'enta') and.push({ translations: { some: { language: 'ta' } } });
@@ -64,7 +65,7 @@ export default async function QuestionBankPage({ searchParams }: { searchParams:
   }
   if (and.length) where.AND = and;
 
-  const [total, questions, subjects, yearRows, quality] = await Promise.all([
+  const [total, questions, subjects, yearRows, quality, eligibleBySubject] = await Promise.all([
     prisma.question.count({ where }),
     prisma.question.findMany({
       where,
@@ -90,6 +91,7 @@ export default async function QuestionBankPage({ searchParams }: { searchParams:
       prisma.question.count({ where: { topic: null } }),
       prisma.question.count({ where: { sourceType: null } }),
     ]),
+    prisma.question.groupBy({ by: ['subjectId'], where: productionQuestionWhere, _count: { _all: true } }),
   ]);
 
   const subjectOptions = subjects.map((s) => ({
@@ -98,6 +100,9 @@ export default async function QuestionBankPage({ searchParams }: { searchParams:
     chapters: s.chapters.map((c) => ({ id: c.id, name: localizedName(c.name) })),
   }));
   const years = yearRows.map((r) => r.year).filter((y): y is number => y != null);
+  const eligibleCountBySubject = new Map(eligibleBySubject.map((r) => [r.subjectId, r._count._all]));
+  const neetCoverage = subjects.filter((s) => ['PHYSICS', 'CHEMISTRY', 'BOTANY', 'ZOOLOGY'].includes(s.code));
+  const fullMockReady = neetCoverage.length === 4 && neetCoverage.every((s) => (eligibleCountBySubject.get(s.id) ?? 0) >= 45);
 
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
   const pageHref = (p: number) => {
@@ -123,6 +128,11 @@ export default async function QuestionBankPage({ searchParams }: { searchParams:
       <QuestionBankTabs />
 
       <QuestionFilters subjects={subjectOptions} years={years} initial={filters} />
+
+      <section className="mb-5 rounded-xl border border-border bg-surfaceElevated p-4" aria-label="NEET production readiness">
+        <div className="flex flex-wrap items-baseline justify-between gap-2"><div><h2 className="font-semibold text-textPrimary">NEET production readiness</h2><p className="text-sm text-textSecondary">Eligible reviewed production questions only.</p></div><Badge color={fullMockReady ? 'green' : 'amber'}>FULL MOCK READY: {fullMockReady ? 'YES' : 'NO'}</Badge></div>
+        <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">{neetCoverage.map((s) => { const count = eligibleCountBySubject.get(s.id) ?? 0; return <div key={s.id} className="rounded-lg border border-border px-3 py-2"><p className="text-xs text-textSecondary">{localizedName(s.name) || s.code}</p><p className="mt-1 font-semibold text-textPrimary">{count} / 45</p></div>; })}</div>
+      </section>
 
       <div className="mb-5 grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-9">
         {['Total', 'Sample', 'Production', 'Draft', 'Review', 'Published', 'Inactive', 'Missing topic', 'Missing provenance'].map((label, i) => (

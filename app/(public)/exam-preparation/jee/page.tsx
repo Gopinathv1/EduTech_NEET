@@ -52,7 +52,7 @@ export default function JeePreparationPage() {
       </Section>
       <Section lazy>
         <div className="flex flex-col gap-3 sm:flex-row">
-          <PrimaryLink href="/mock-tests">{t('primaryCta')}</PrimaryLink>
+          <PrimaryLink href="/counselling">{t('primaryCta')}</PrimaryLink>
           <SecondaryLink href="/counselling">{t('secondaryCta')}</SecondaryLink>
         </div>
       </Section>

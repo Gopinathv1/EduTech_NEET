@@ -44,6 +44,7 @@ function csvCell(v: string): string {
 export function csvTemplate(): string {
   const header = BULK_COLUMNS.join(',');
   const example = [
+    'physics-development-001',
     'PHYSICS',
     'Laws of Motion',
     'EASY',

@@ -90,7 +90,7 @@ export const questionSchema = z
     if (d.contentClass === 'PRODUCTION') {
       if (!d.sourceType) ctx.addIssue({ code: 'custom', path: ['sourceType'], message: 'Production questions require a source type' });
       if (!d.sourceName) ctx.addIssue({ code: 'custom', path: ['sourceName'], message: 'Production questions require a source name' });
-      if (!d.reviewer) ctx.addIssue({ code: 'custom', path: ['reviewer'], message: 'Production questions require a reviewer' });
+      if (d.status === 'PUBLISHED' && !d.reviewer) ctx.addIssue({ code: 'custom', path: ['reviewer'], message: 'Published production questions require a reviewer' });
       if (d.status === 'PUBLISHED' && !d.reviewedAt) ctx.addIssue({ code: 'custom', path: ['reviewedAt'], message: 'Published production questions require a review date' });
     }
     if (d.sourceType === 'OFFICIAL_PREVIOUS_YEAR' && (!d.exam || !d.examYear)) {

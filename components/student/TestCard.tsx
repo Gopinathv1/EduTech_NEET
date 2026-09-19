@@ -10,7 +10,7 @@ export type CatalogueCard = {
   durationMinutes: number;
   difficulty: string | null;
   languages: string[];
-  attemptsRemaining: number;
+  attemptsRemaining: number | null;
 };
 
 export default function TestCard({ test }: { test: CatalogueCard }) {
@@ -52,7 +52,7 @@ export default function TestCard({ test }: { test: CatalogueCard }) {
 
       <div className="flex items-center justify-between gap-4 lg:justify-end">
         <span className="text-sm font-semibold text-green-700">
-          {t('attemptsRemaining', { count: test.attemptsRemaining })}
+          {test.attemptsRemaining === null ? 'Unlimited attempts' : t('attemptsRemaining', { count: test.attemptsRemaining })}
         </span>
         <Link
           href={`/student/tests/${test.id}/start`}

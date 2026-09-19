@@ -5,6 +5,7 @@ import { createOrder, getKeys } from '@/lib/payments/razorpay';
 import { inrToPaise, PAYMENT_CURRENCY } from '@/lib/payments/pricing';
 import { logOrderCreated } from '@/lib/payments/service';
 import { ok, fail, readJson } from '@/lib/http';
+import { examPaidRetriesEnabled } from '@/lib/attempts/paid-retries';
 
 export const runtime = 'nodejs';
 export const PAID_RETRY_PRICE_INR = 30;
@@ -12,6 +13,9 @@ const schema = z.object({ testId: z.string().min(1) });
 
 export async function POST(req: Request) {
   const session = await getSession(); if (!session || session.kind !== 'student') return fail('unauthorized', 401);
+  // This endpoint remains available for the later commercial launch, but no
+  // exam-payment order may be created during the free-access marketing phase.
+  if (!examPaidRetriesEnabled()) return fail('paidRetriesDisabled', 403);
   const body = schema.safeParse(await readJson(req)); if (!body.success) return fail('validation', 400);
   const { testId } = body.data;
   const [test, active, attempts, credit] = await Promise.all([

@@ -158,8 +158,8 @@ export function validateRows(
     const examYear = rawExamYear ? Number(rawExamYear) : null;
     const reviewer = get(row, 'reviewer') || null;
     const reviewedAt = get(row, 'reviewDate') || null;
-    if (contentClass === 'PRODUCTION' && (!sourceType || !sourceName || !reviewer || !reviewedAt)) {
-      errors.push('Production rows require sourceType, sourceName, reviewer and reviewDate');
+    if (contentClass === 'PRODUCTION' && (!sourceType || !sourceName)) {
+      errors.push('Production rows require sourceType and sourceName');
     }
     if (sourceType === 'OFFICIAL_PREVIOUS_YEAR' && (!exam || !Number.isInteger(examYear))) {
       errors.push('Official previous-year rows require exam and examYear');

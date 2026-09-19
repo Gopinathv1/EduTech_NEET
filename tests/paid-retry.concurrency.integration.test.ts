@@ -1,5 +1,5 @@
 import { randomUUID } from 'node:crypto';
-import { afterAll, afterEach, describe, expect, it, vi } from 'vitest';
+import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 
 // Question selection is deliberately outside these persistence-concurrency
 // checks. The real attempt service and the real Prisma client remain in use.
@@ -13,6 +13,11 @@ import { finalizeSuccess } from '@/lib/payments/service';
 
 type Fixture = { studentIds: string[]; testIds: string[]; paymentIds: string[] };
 const fixtures: Fixture[] = [];
+const originalPaidRetriesFlag = process.env.EXAM_PAID_RETRIES_ENABLED;
+
+beforeAll(() => {
+  process.env.EXAM_PAID_RETRIES_ENABLED = 'true';
+});
 
 function fixtureIds() {
   const token = randomUUID();
@@ -63,6 +68,8 @@ afterEach(async () => {
 });
 
 afterAll(async () => {
+  if (originalPaidRetriesFlag === undefined) delete process.env.EXAM_PAID_RETRIES_ENABLED;
+  else process.env.EXAM_PAID_RETRIES_ENABLED = originalPaidRetriesFlag;
   await prisma.$disconnect();
 });
 

@@ -6,6 +6,7 @@ import { getSession } from '@/lib/auth/session';
 import { prisma } from '@/lib/prisma';
 import { localizedName } from '@/lib/admin/format';
 import { FREE_ATTEMPT_LIMIT, getFreeAttemptSummary } from '@/lib/attempts/service';
+import { examPaidRetriesEnabled } from '@/lib/attempts/paid-retries';
 import type { ExamLanguage } from '@/lib/attempts/examState';
 import StudentHeader from '@/components/student/StudentHeader';
 import StartAttemptClient from '@/components/student/exam/StartAttemptClient';
@@ -52,7 +53,8 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
       select: { id: true },
     }),
   ]);
-  const limitReached = !inProgress && summary.remaining <= 0;
+  const paidRetriesEnabled = examPaidRetriesEnabled();
+  const limitReached = paidRetriesEnabled && !inProgress && (summary.remaining ?? 0) <= 0;
 
   const title = localizedName(test.title, locale) || localizedName(test.title, 'en');
   const languages = (test.availableLanguages.length ? test.availableLanguages : ['en']) as ExamLanguage[];
@@ -71,9 +73,15 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
         <h1 className="mt-3 text-2xl font-bold text-textPrimary">{tn('title')}</h1><p className="mt-1 text-textSecondary">{title}</p>
         <p className="mt-3 text-xs text-textSecondary">{tn('disclaimer')}</p>
 
-        <p className="mt-4 rounded-xl border border-border bg-surfaceElevated px-4 py-3 text-sm font-semibold text-textPrimary">
-          {t('attemptsRemaining', { count: summary.remaining })} / {FREE_ATTEMPT_LIMIT}
-        </p>
+        {paidRetriesEnabled ? (
+          <p className="mt-4 rounded-xl border border-border bg-surfaceElevated px-4 py-3 text-sm font-semibold text-textPrimary">
+            {t('attemptsRemaining', { count: summary.remaining ?? 0 })} / {FREE_ATTEMPT_LIMIT}
+          </p>
+        ) : (
+          <p className="mt-4 rounded-xl border border-brand/30 bg-surfaceElevated px-4 py-3 text-sm font-semibold text-textPrimary">
+            Unlimited practice access is available for this test.
+          </p>
+        )}
 
         {limitReached ? (
           <div className="mt-6 rounded-2xl border border-border bg-surfaceElevated p-6">

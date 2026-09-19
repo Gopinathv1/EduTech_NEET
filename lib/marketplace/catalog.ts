@@ -1,175 +1,26 @@
-export type MarketplaceCondition = 'NEW' | 'LIKE_NEW' | 'GOOD' | 'FAIR';
-export type MarketplaceListingStatus = 'PUBLISHED' | 'PENDING_REVIEW' | 'SOLD_OUT';
-export type MarketplaceLevel = 'BEGINNER' | 'INTERMEDIATE' | 'ADVANCED';
-
 export type MarketplaceCategory = {
   slug: string;
-  labelKey: string;
-  parentSlug?: string;
-};
-
-export type MarketplaceListing = {
-  slug: string;
   title: string;
-  categorySlug: string;
-  subcategorySlug?: string;
-  level?: MarketplaceLevel;
-  author?: string;
-  publisher?: string;
-  condition: MarketplaceCondition;
-  listingType: 'NEW' | 'USED';
-  description: string;
-  priceInr: number;
-  originalPriceInr?: number;
-  sellerName: string;
-  location: string;
-  deliveryAvailable: boolean;
-  stock: number;
-  status: MarketplaceListingStatus;
-  createdAt: string;
-  imagePath?: string;
+  group: 'EXAM' | 'LANGUAGE' | 'GENERAL' | 'FUTURE';
+  state: 'COMING_SOON' | 'COMING_LATER';
 };
 
-export const MARKETPLACE_CATEGORIES: MarketplaceCategory[] = [
-  { slug: 'exam-preparation-resources', labelKey: 'examPreparationResources' },
-  { slug: 'academic-books', labelKey: 'academicBooks' },
-  { slug: 'ai-technology', labelKey: 'aiTechnology' },
-  { slug: 'books', labelKey: 'books' },
-  { slug: 'used-books', labelKey: 'usedBooks', parentSlug: 'books' },
-  { slug: 'new-books', labelKey: 'newBooks', parentSlug: 'books' },
-  { slug: 'exam-preparation-books', labelKey: 'examPreparationBooks', parentSlug: 'exam-preparation-resources' },
-  { slug: 'neet-books', labelKey: 'neetBooks', parentSlug: 'exam-preparation-books' },
-  { slug: 'jee-books', labelKey: 'jeeBooks', parentSlug: 'exam-preparation-books' },
-  { slug: 'question-banks', labelKey: 'questionBanks', parentSlug: 'exam-preparation-resources' },
-  { slug: 'previous-year-paper-collections', labelKey: 'previousYearPaperCollections', parentSlug: 'exam-preparation-resources' },
-  { slug: 'study-materials', labelKey: 'studyMaterials', parentSlug: 'exam-preparation-resources' },
-  { slug: 'reference-books', labelKey: 'referenceBooks', parentSlug: 'academic-books' },
-  { slug: 'college-books', labelKey: 'collegeBooks', parentSlug: 'academic-books' },
-  { slug: 'medical-books', labelKey: 'medicalBooks', parentSlug: 'academic-books' },
-  { slug: 'engineering-books', labelKey: 'engineeringBooks', parentSlug: 'academic-books' },
-  { slug: 'ai-books', labelKey: 'aiBooks', parentSlug: 'ai-technology' },
-  { slug: 'technology-books', labelKey: 'technologyBooks', parentSlug: 'ai-technology' },
-  { slug: 'astrology-traditional-learning', labelKey: 'astrologyTraditionalLearning' },
-  { slug: 'astrology-books', labelKey: 'astrologyBooks', parentSlug: 'astrology-traditional-learning' },
-  { slug: 'vedic-astrology-books', labelKey: 'vedicAstrologyBooks', parentSlug: 'astrology-traditional-learning' },
-  { slug: 'nakshatra-books', labelKey: 'nakshatraBooks', parentSlug: 'astrology-traditional-learning' },
-  { slug: 'birth-chart-reference-books', labelKey: 'birthChartReferenceBooks', parentSlug: 'astrology-traditional-learning' },
-  { slug: 'numerology-books', labelKey: 'numerologyBooks', parentSlug: 'astrology-traditional-learning' },
-  { slug: 'panchanga-calendar-references', labelKey: 'panchangaCalendarReferences', parentSlug: 'astrology-traditional-learning' },
-  { slug: 'astrology-reference-materials', labelKey: 'astrologyReferenceMaterials', parentSlug: 'astrology-traditional-learning' },
-  { slug: 'yoga-wellness-learning', labelKey: 'yogaWellnessLearning' },
-  { slug: 'yoga-books', labelKey: 'yogaBooks', parentSlug: 'yoga-wellness-learning' },
-  { slug: 'yoga-philosophy-books', labelKey: 'yogaPhilosophyBooks', parentSlug: 'yoga-wellness-learning' },
-  { slug: 'yoga-for-beginners-books', labelKey: 'yogaForBeginnersBooks', parentSlug: 'yoga-wellness-learning' },
-  { slug: 'asana-reference-books', labelKey: 'asanaReferenceBooks', parentSlug: 'yoga-wellness-learning' },
-  { slug: 'pranayama-learning-materials', labelKey: 'pranayamaLearningMaterials', parentSlug: 'yoga-wellness-learning' },
-  { slug: 'meditation-books', labelKey: 'meditationBooks', parentSlug: 'yoga-wellness-learning' },
-  { slug: 'yoga-anatomy-books', labelKey: 'yogaAnatomyBooks', parentSlug: 'yoga-wellness-learning' },
-  { slug: 'yoga-teaching-reference-materials', labelKey: 'yogaTeachingReferenceMaterials', parentSlug: 'yoga-wellness-learning' },
-  { slug: 'yoga-history-philosophy', labelKey: 'yogaHistoryPhilosophy', parentSlug: 'yoga-wellness-learning' },
-  { slug: 'patanjali-yoga-sutras-commentaries', labelKey: 'patanjaliYogaSutrasCommentaries', parentSlug: 'yoga-wellness-learning' },
-  { slug: 'ayurveda-yoga-reference-materials', labelKey: 'ayurvedaYogaReferenceMaterials', parentSlug: 'yoga-wellness-learning' },
-  { slug: 'mindfulness-learning-materials', labelKey: 'mindfulnessLearningMaterials', parentSlug: 'yoga-wellness-learning' },
-  { slug: 'wellness-education-books', labelKey: 'wellnessEducationBooks', parentSlug: 'yoga-wellness-learning' },
-  { slug: 'astronomy-reference-books', labelKey: 'astronomyReferenceBooks', parentSlug: 'reference-books' },
-  { slug: 'traditional-knowledge-books', labelKey: 'traditionalKnowledgeBooks', parentSlug: 'books' },
-  { slug: 'other-learning-resources', labelKey: 'otherLearningResources' },
-  { slug: 'educational-accessories', labelKey: 'educationalAccessories', parentSlug: 'other-learning-resources' },
-];
-
-export const MARKETPLACE_LISTINGS: MarketplaceListing[] = [
-  {
-    slug: 'neet-biology-practice-bundle',
-    title: 'NEET Biology Practice Bundle',
-    categorySlug: 'neet-books',
-    author: 'Compiled practice set',
-    publisher: 'SIVORA verified seller',
-    condition: 'GOOD',
-    listingType: 'USED',
-    description: 'A focused used-book bundle for NEET Biology revision. Buyer should review photos and edition details before purchase.',
-    priceInr: 420,
-    originalPriceInr: 780,
-    sellerName: 'Listed by approved seller',
-    location: 'Chennai, Tamil Nadu',
-    deliveryAvailable: true,
-    stock: 1,
-    status: 'PUBLISHED',
-    createdAt: '2026-09-07',
-  },
-  {
-    slug: 'jee-previous-year-paper-set',
-    title: 'JEE Previous-Year Paper Set',
-    categorySlug: 'previous-year-paper-collections',
-    author: 'Exam practice collection',
-    condition: 'LIKE_NEW',
-    listingType: 'USED',
-    description: 'Previous-year paper collection for engineering entrance preparation. Edition and answer-key availability must be confirmed by seller.',
-    priceInr: 350,
-    originalPriceInr: 650,
-    sellerName: 'Listed by approved seller',
-    location: 'Bengaluru, Karnataka',
-    deliveryAvailable: true,
-    stock: 1,
-    status: 'PUBLISHED',
-    createdAt: '2026-09-07',
-  },
-  {
-    slug: 'medical-reference-notes',
-    title: 'Medical Reference Notes',
-    categorySlug: 'medical-books',
-    publisher: 'Partner listing',
-    condition: 'NEW',
-    listingType: 'NEW',
-    description: 'New reference material listing scaffold for medical students. Fulfilment and payment are pending marketplace order integration.',
-    priceInr: 899,
-    sellerName: 'Education partner',
-    location: 'Coimbatore, Tamil Nadu',
-    deliveryAvailable: false,
-    stock: 12,
-    status: 'PUBLISHED',
-    createdAt: '2026-09-07',
-  },
-  {
-    slug: 'astrology-foundations-reader',
-    title: 'Astrology Foundations Reader',
-    categorySlug: 'astrology-books',
-    subcategorySlug: 'vedic-astrology-books',
-    level: 'BEGINNER',
-    author: 'Traditional knowledge study reference',
-    condition: 'LIKE_NEW',
-    listingType: 'USED',
-    description: 'Educational reading material for astrology terminology, zodiac concepts and traditional chart study. Edition and condition should be confirmed with the seller.',
-    priceInr: 260,
-    originalPriceInr: 520,
-    sellerName: 'Listed by approved seller',
-    location: 'Chennai, Tamil Nadu',
-    deliveryAvailable: true,
-    stock: 1,
-    status: 'PUBLISHED',
-    createdAt: '2026-09-07',
-  },
-  {
-    slug: 'panchanga-calendar-reference',
-    title: 'Panchanga Calendar Reference',
-    categorySlug: 'panchanga-calendar-references',
-    level: 'INTERMEDIATE',
-    publisher: 'Traditional learning reference',
-    condition: 'NEW',
-    listingType: 'NEW',
-    description: 'Reference material for calendar and Panchanga fundamentals as a traditional-knowledge learning area. Not a scientific or counselling claim.',
-    priceInr: 390,
-    sellerName: 'Education partner',
-    location: 'Madurai, Tamil Nadu',
-    deliveryAvailable: true,
-    stock: 5,
-    status: 'PUBLISHED',
-    createdAt: '2026-09-07',
-  },
-];
-
-export function getMarketplaceListing(slug: string) {
-  return MARKETPLACE_LISTINGS.find((listing) => listing.slug === slug);
-}
+/** Public catalogue previews only. No inventory, sellers, prices, or purchase data exists here. */
+export const MARKETPLACE_CATEGORIES: readonly MarketplaceCategory[] = [
+  { slug: 'neet-physics-materials', title: 'NEET Physics Materials', group: 'EXAM', state: 'COMING_SOON' },
+  { slug: 'neet-chemistry-materials', title: 'NEET Chemistry Materials', group: 'EXAM', state: 'COMING_SOON' },
+  { slug: 'neet-biology-materials', title: 'NEET Biology Materials', group: 'EXAM', state: 'COMING_SOON' },
+  { slug: 'jee-physics-materials', title: 'JEE Physics Materials', group: 'EXAM', state: 'COMING_SOON' },
+  { slug: 'jee-chemistry-materials', title: 'JEE Chemistry Materials', group: 'EXAM', state: 'COMING_SOON' },
+  { slug: 'jee-mathematics-materials', title: 'JEE Mathematics Materials', group: 'EXAM', state: 'COMING_SOON' },
+  { slug: 'spoken-english-materials', title: 'Spoken English Materials', group: 'LANGUAGE', state: 'COMING_SOON' },
+  { slug: 'spoken-hindi-materials', title: 'Spoken Hindi Materials', group: 'LANGUAGE', state: 'COMING_SOON' },
+  { slug: 'exam-practice-revision-materials', title: 'Exam Practice & Revision Materials', group: 'GENERAL', state: 'COMING_SOON' },
+  { slug: 'educational-books-learning-resources', title: 'Educational Books & Learning Resources', group: 'GENERAL', state: 'COMING_SOON' },
+  { slug: 'ai-future-technology-materials', title: 'AI & Future Technology Materials', group: 'FUTURE', state: 'COMING_LATER' },
+  { slug: 'yoga-wellness-materials', title: 'Yoga & Wellness Materials', group: 'FUTURE', state: 'COMING_LATER' },
+  { slug: 'astrology-learning-materials', title: 'Astrology Learning Materials', group: 'FUTURE', state: 'COMING_LATER' },
+] as const;
 
 export function getMarketplaceCategory(slug: string) {
   return MARKETPLACE_CATEGORIES.find((category) => category.slug === slug);

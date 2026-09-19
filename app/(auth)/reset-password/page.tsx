@@ -1,0 +1,2 @@
+import AuthShell from '@/components/auth/AuthShell'; import { ResetPasswordForm } from '@/components/auth/PasswordResetForms';
+export default function ResetPasswordPage(){return <AuthShell><div className="space-y-4"><div><h1 className="text-xl font-bold text-textPrimary">Choose a new password</h1><p className="mt-1 text-sm text-textSecondary">Your reset link can be used once.</p></div><ResetPasswordForm /></div></AuthShell>}

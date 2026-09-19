@@ -124,4 +124,14 @@ describe('validateRows', () => {
     expect(r.data?.contentClass).toBe('PRODUCTION');
     expect(r.data?.reviewer).toBe('Reviewer');
   });
+
+  it('rejects duplicate external IDs without relying on question text', () => {
+    const [existing] = validateRows([{ ...baseRow, externalId: 'source-17' }], makeCtx({ existingExternalIds: new Set(['source-17']) }));
+    expect(existing.status).toBe('error');
+    expect(existing.errors.join(' ')).toMatch(/Duplicate external ID/);
+
+    const rows = validateRows([{ ...baseRow, externalId: 'source-18' }, { ...baseRow, externalId: 'source-18', en_questionText: 'Different wording' }], makeCtx());
+    expect(rows[1].status).toBe('error');
+    expect(rows[1].errors.join(' ')).toMatch(/Duplicate external ID/);
+  });
 });

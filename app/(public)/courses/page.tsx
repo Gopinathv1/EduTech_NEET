@@ -1,11 +1,8 @@
-import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
+import Link from 'next/link';
 import { pageMetadata } from '@/lib/seo';
-import { AI_FUTURE_SKILL_CATEGORIES, AI_LEARNING_PATH } from '@/data/courses';
-import AstrologyLearningSection from '@/components/public/AstrologyLearningSection';
+import { PLANNED_COURSES, type PlannedCourse } from '@/data/courses';
 import CourseProductVisual from '@/components/public/CourseProductVisual';
-import CourseLearningJourney from '@/components/public/CourseLearningJourney';
-import { PrimaryLink, SecondaryLink } from '@/components/public/ui';
 import styles from '@/components/public/CourseExperience.module.css';
 
 export async function generateMetadata() {
@@ -13,16 +10,9 @@ export async function generateMetadata() {
   return pageMetadata({ title: t('title'), description: t('description'), path: '/courses' });
 }
 
-const discovery = [
-  ['01', 'AI & Future Skills', 'Build practical foundations across AI, data, programming and emerging technologies.', '#ai-future-skills'],
-  ['02', 'Spoken English', 'Strengthen communication for everyday life, interviews, workplaces and presentations.', '#spoken-languages'],
-  ['03', 'Spoken Hindi', 'Build useful Hindi for conversation, travel, social settings and workplace communication.', '#spoken-languages'],
-  ['04', 'Academic Preparation', 'Connect focused exam preparation with the broader learning journey.', '/exam-preparation'],
-  ['05', 'Astrology Learning', 'Explore the existing SIVORA astrology pathway as a distinct personal-learning area.', '#astrology'],
-] as const;
-
-const englishAreas = ['Everyday communication', 'Workplace communication', 'Interview communication', 'Presentations', 'Vocabulary', 'Grammar in conversation', 'Listening', 'Pronunciation', 'Real-life speaking practice'];
-const hindiAreas = ['Everyday conversation', 'Workplace Hindi', 'Travel & social communication', 'Vocabulary', 'Sentence building', 'Listening', 'Pronunciation', 'Real-life speaking practice'];
+const neetCourses = PLANNED_COURSES.slice(0, 3);
+const jeeCourses = PLANNED_COURSES.slice(3, 6);
+const languageCourses = PLANNED_COURSES.slice(6, 8);
 
 export default function CoursesPage() {
   return (
@@ -30,101 +20,79 @@ export default function CoursesPage() {
       <section className={styles.hero}>
         <div className={styles.heroInner}>
           <div>
-            <p className={styles.eyebrow}>COURSES &amp; FUTURE SKILLS</p>
-            <h1>LEARN WHAT MOVES YOU FORWARD.</h1>
-            <p className={styles.heroCopy}>Practical learning for technology, communication, career preparation and personal growth—connected in one clear SIVORA experience.</p>
-            <div className={styles.actions}>
-              <PrimaryLink href="#course-discovery">Explore learning paths</PrimaryLink>
-              <SecondaryLink href="/counselling">Get guidance</SecondaryLink>
-            </div>
+            <p className={styles.eyebrow}>COURSES & FUTURE SKILLS</p>
+            <h1>Learn with a clear path.</h1>
+            <p className={styles.heroCopy}>
+              SIVORA is preparing structured learning pathways for competitive exams and practical communication skills. Explore what is planned; enrollment will open soon.
+            </p>
+            <Link href="/exam-preparation" className="mt-7 inline-flex border-b border-current pb-1 text-sm font-semibold text-[#2774e6]">Explore free Exam Preparation practice →</Link>
           </div>
           <CourseProductVisual />
         </div>
       </section>
 
-      <section id="course-discovery" className={styles.section}>
+      <CourseSection eyebrow="NEET PREPARATION" title="Aligned to NEET preparation." description="Planned pathways for focused study. These module groupings are SIVORA learning pathways, not official NTA chapter structures." courses={neetCourses} />
+      <CourseSection eyebrow="JEE MAIN PREPARATION" title="Built for a deliberate JEE Main path." description="Inspect the planned Physics, Chemistry and Mathematics pathways, each organised for sustained preparation." courses={jeeCourses} tinted />
+      <CourseSection eyebrow="LANGUAGE SKILLS" title="Practical communication, step by step." description="Two planned pathways for everyday confidence, workplace communication and fluency practice." courses={languageCourses} />
+
+      <section className={`${styles.section} ${styles.dark}`}>
         <div className={styles.sectionInner}>
           <div className={styles.sectionHead}>
-            <div><p className={styles.sectionEyebrow}>COURSE DISCOVERY</p><h2>Choose a useful direction.</h2></div>
-            <p>Start with the capability you want to build, then move into a pathway designed around practice and real use.</p>
+            <div><p className={styles.sectionEyebrow}>FUTURE SKILLS · COMING LATER</p><h2>More pathways are ahead.</h2></div>
+            <p>These future areas are being shaped as secondary SIVORA learning pathways. Curriculum details and enrollment will be announced separately.</p>
           </div>
-          <div className={styles.discovery}>
-            {discovery.map(([number, title, body, href]) => (
-              <Link key={number} href={href} className={styles.discoveryRow}>
-                <span>{number}</span><h3>{title}</h3><p>{body}</p><b>↗</b>
-              </Link>
+          <div className={styles.languageGrid}>
+            {['AI & Future Technologies', 'Yoga & Wellness', 'Astrology'].map((name, index) => (
+              <article key={name} className={styles.language}>
+                <span>0{index + 1} · COMING LATER</span><h3>{name}</h3><p>Future learning pathway. Details will be shared when this programme is ready.</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="spoken-languages" className={`${styles.section} ${styles.dark}`}>
+      <section className={styles.section}>
         <div className={styles.sectionInner}>
-          <div className={styles.sectionHead}>
-            <div><p className={styles.sectionEyebrow}>LANGUAGE LEARNING</p><h2>Listen. Understand. Speak.</h2></div>
-            <p>Communication grows through context and repetition. These pathways focus on useful speaking, listening and sentence-building practice.</p>
-          </div>
-          <div className={styles.languageGrid}>
-            <article className={styles.language}>
-              <span>01 / PRACTICAL COMMUNICATION</span><h3>Spoken English</h3>
-              <p>Build confidence for conversations that matter in education, work and everyday life.</p>
-              <div className={styles.learningAreas}>{englishAreas.map(area => <span key={area}>↗ {area}</span>)}</div>
-              <Link href="/counselling" className={styles.languageLink}>Ask about Spoken English ↗</Link>
-            </article>
-            <article className={styles.language}>
-              <span>02 / PRACTICAL COMMUNICATION</span><h3>Spoken Hindi</h3>
-              <p>Develop practical Hindi for clearer communication across social, travel and workplace settings.</p>
-              <div className={styles.learningAreas}>{hindiAreas.map(area => <span key={area}>↗ {area}</span>)}</div>
-              <Link href="/counselling" className={styles.languageLink}>Ask about Spoken Hindi ↗</Link>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="ai-future-skills" className={styles.section}>
-        <div className={`${styles.sectionInner} ${styles.aiLayout}`}>
-          <div className={styles.aiIntro}>
-            <p className={styles.sectionEyebrow}>AI &amp; FUTURE SKILLS</p>
-            <h2>Build for what comes next.</h2>
-            <p>The existing SIVORA pathway spans supported foundations in AI, programming, data and emerging technology. Availability remains clearly marked rather than commercially implied.</p>
-          </div>
-          <div>
-            <div className={styles.aiRows}>
-              {AI_FUTURE_SKILL_CATEGORIES.map((category, index) => (
-                <div key={category} className={styles.aiRow}>
-                  <span>{String(index + 1).padStart(2, '0')}</span>
-                  <strong>{formatCategory(category)}</strong>
-                  <small>COMING SOON</small>
-                </div>
-              ))}
+          <div className={styles.cta}>
+            <div>
+              <p className={styles.sectionEyebrow}>TEACH WITH SIVORA</p>
+              <h2>Partner onboarding — Coming Soon.</h2>
+              <p>Educators, institutes and learning partners will eventually be able to offer structured courses through the SIVORA platform. This is informational only for now.</p>
             </div>
-            <div className={styles.aiPath}>{AI_LEARNING_PATH.map(step => <span key={step}>{formatCategory(step)}</span>)}</div>
+            <span className="border border-[#2774e6]/30 bg-[#eaf2ff] px-4 py-3 text-xs font-bold tracking-[.12em] text-[#2774e6]">COMING SOON</span>
           </div>
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <div className={styles.sectionInner}>
-          <div className={styles.sectionHead}>
-            <div><p className={styles.sectionEyebrow}>LEARNING JOURNEY</p><h2>From interest to useful skill.</h2></div>
-            <p>A connected progression keeps discovery, learning, practice and application part of one experience.</p>
-          </div>
-          <CourseLearningJourney />
-        </div>
-      </section>
-
-      <AstrologyLearningSection />
-
-      <section className={styles.section}>
-        <div className={`${styles.sectionInner} ${styles.cta}`}>
-          <div><p className={styles.sectionEyebrow}>YOUR NEXT LEARNING STEP</p><h2>Not sure which pathway fits?</h2><p>Use the existing counselling experience to discuss your goals without implying enrollment, pricing or certification that has not been configured.</p></div>
-          <div className={styles.actions}><PrimaryLink href="/counselling">Get guidance</PrimaryLink><SecondaryLink href="/exam-preparation">Explore exam preparation</SecondaryLink></div>
         </div>
       </section>
     </div>
   );
 }
 
-function formatCategory(value: string) {
-  return value.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/\bAi\b/g, 'AI').replace(/\bRag\b/g, 'RAG').replace(/\bLlm\b/g, 'LLM').replace(/^./, letter => letter.toUpperCase());
+function CourseSection({ eyebrow, title, description, courses, tinted = false }: { eyebrow: string; title: string; description: string; courses: readonly PlannedCourse[]; tinted?: boolean }) {
+  return <section className={`${styles.section}${tinted ? ` ${styles.sectionTint}` : ''}`}>
+    <div className={styles.sectionInner}>
+      <div className={styles.sectionHead}><div><p className={styles.sectionEyebrow}>{eyebrow}</p><h2>{title}</h2></div><p>{description} Every current pathway is Coming Soon; purchasing is not available.</p></div>
+      <div className={styles.discovery}>
+        {courses.map((course, index) => <CourseRow key={course.title} course={course} index={index + 1} />)}
+      </div>
+    </div>
+  </section>;
+}
+
+function CourseRow({ course, index }: { course: PlannedCourse; index: number }) {
+  const hasTracks = Boolean(course.tracks);
+  return <details className="group border-b border-[#d9dee5]" open={false}>
+    <summary className="grid cursor-pointer list-none gap-4 py-7 sm:grid-cols-[52px_minmax(0,1fr)_auto] sm:items-center sm:gap-7">
+      <span className="text-xs text-[#7a8795]">{String(index).padStart(2, '0')}</span>
+      <span><span className="block text-xs font-bold uppercase tracking-[.14em] text-[#2774e6]">{course.category}</span><strong className="mt-2 block text-3xl font-semibold tracking-[-.055em] text-[#10151c] sm:text-4xl">{course.title}</strong></span>
+      <span className="flex items-center gap-3 text-xs font-bold tracking-[.1em] text-[#2774e6]"><span>{course.duration ?? 'TWO LEARNING TRACKS'}</span><span className="border border-[#2774e6]/30 bg-[#eaf2ff] px-2 py-1">COMING SOON</span><span aria-hidden>+</span></span>
+    </summary>
+    <div className="grid gap-5 border-t border-[#d9dee5] py-6 sm:grid-cols-2">
+      {hasTracks ? course.tracks?.map((track) => <ModuleTrack key={track.title} title={track.title} duration={track.duration} modules={track.modules} />) : <ModuleTrack title="Planned modules" duration={course.duration ?? ''} modules={course.modules ?? []} />}
+    </div>
+    <p className="pb-6 text-xs font-semibold uppercase tracking-[.11em] text-[#5f6975]">Enrollment opening soon</p>
+  </details>;
+}
+
+function ModuleTrack({ title, duration, modules }: { title: string; duration: string; modules: readonly string[] }) {
+  return <section className="border border-[#d9dee5] bg-white p-5"><div className="flex items-baseline justify-between gap-4"><h3 className="text-lg font-semibold text-[#10151c]">{title}</h3><span className="text-xs font-bold text-[#2774e6]">{duration}</span></div><p className="mt-3 text-xs font-bold uppercase tracking-[.12em] text-[#5f6975]">10 planned modules</p><ol className="mt-4 grid gap-2 text-sm leading-5 text-[#5f6975]">{modules.map((module, index) => <li key={module}><span className="mr-2 text-xs text-[#7a8795]">{String(index + 1).padStart(2, '0')}</span>{module}</li>)}</ol></section>;
 }

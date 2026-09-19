@@ -1,5 +1,6 @@
 import { randomUUID } from 'node:crypto';
 import { FREE_ATTEMPT_LIMIT, validFullMock } from './config';
+import { examPaidRetriesEnabled } from './paid-retries';
 export { FREE_ATTEMPT_LIMIT } from './config';
 import { Prisma, type AttemptStatus } from '@prisma/client';
 import { prisma } from '@/lib/prisma';
@@ -34,8 +35,8 @@ export async function getFreeAttemptSummary(studentId: string, testId: string) {
   const used = await prisma.testAttempt.count({ where: { studentId, testId } });
   return {
     used,
-    limit: FREE_ATTEMPT_LIMIT,
-    remaining: Math.max(FREE_ATTEMPT_LIMIT - used, 0),
+    limit: examPaidRetriesEnabled() ? FREE_ATTEMPT_LIMIT : null,
+    remaining: examPaidRetriesEnabled() ? Math.max(FREE_ATTEMPT_LIMIT - used, 0) : null,
   };
 }
 
@@ -77,7 +78,7 @@ export async function startOrResumeAttempt(
         if (active) return { ok: true, attemptId: active.id, resumed: true };
         const used = await tx.testAttempt.count({ where: { studentId, testId } });
         let creditId: string | null = null;
-        if (used >= FREE_ATTEMPT_LIMIT) {
+        if (examPaidRetriesEnabled() && used >= FREE_ATTEMPT_LIMIT) {
           const credit = await tx.paidAttemptCredit.findFirst({ where: { studentId, testId, consumedAt: null, attemptId: null }, orderBy: { createdAt: 'asc' } });
           if (!credit) return { ok: false, code: 'paymentRequired' };
           creditId = credit.id;
