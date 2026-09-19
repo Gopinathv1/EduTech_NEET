@@ -1,4 +1,5 @@
 import { randomUUID } from 'node:crypto';
+import type { PrismaClient } from '@prisma/client';
 import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 
 // Question selection is deliberately outside these persistence-concurrency
@@ -7,15 +8,23 @@ vi.mock('@/lib/generator/plan', () => ({
   generateForAttempt: vi.fn(async () => ({ questionIds: ['integration-question'] })),
 }));
 
-import { prisma } from '@/lib/prisma';
-import { startOrResumeAttempt } from '@/lib/attempts/service';
-import { finalizeSuccess } from '@/lib/payments/service';
-
 type Fixture = { studentIds: string[]; testIds: string[]; paymentIds: string[] };
 const fixtures: Fixture[] = [];
 const originalPaidRetriesFlag = process.env.EXAM_PAID_RETRIES_ENABLED;
+const runDatabaseIntegrationTests =
+  process.env.RUN_DB_INTEGRATION_TESTS === 'true' && Boolean(process.env.DATABASE_URL);
+const describeDatabaseIntegration = runDatabaseIntegrationTests ? describe.sequential : describe.skip;
 
-beforeAll(() => {
+let prisma: PrismaClient;
+let startOrResumeAttempt: typeof import('@/lib/attempts/service').startOrResumeAttempt;
+let finalizeSuccess: typeof import('@/lib/payments/service').finalizeSuccess;
+
+beforeAll(async () => {
+  if (!runDatabaseIntegrationTests) return;
+
+  ({ prisma } = await import('@/lib/prisma'));
+  ({ startOrResumeAttempt } = await import('@/lib/attempts/service'));
+  ({ finalizeSuccess } = await import('@/lib/payments/service'));
   process.env.EXAM_PAID_RETRIES_ENABLED = 'true';
 });
 
@@ -56,6 +65,8 @@ async function createRetryCredit(studentId: string, testId: string, paymentId: s
 }
 
 afterEach(async () => {
+  if (!runDatabaseIntegrationTests) return;
+
   for (const fixture of fixtures.splice(0)) {
     await prisma.notification.deleteMany({ where: { studentId: { in: fixture.studentIds } } });
     await prisma.paidAttemptCredit.deleteMany({ where: { studentId: { in: fixture.studentIds }, testId: { in: fixture.testIds } } });
@@ -68,12 +79,14 @@ afterEach(async () => {
 });
 
 afterAll(async () => {
+  if (!runDatabaseIntegrationTests) return;
+
   if (originalPaidRetriesFlag === undefined) delete process.env.EXAM_PAID_RETRIES_ENABLED;
   else process.env.EXAM_PAID_RETRIES_ENABLED = originalPaidRetriesFlag;
   await prisma.$disconnect();
 });
 
-describe.sequential('paid retry concurrency (real PostgreSQL)', () => {
+describeDatabaseIntegration('paid retry concurrency (real PostgreSQL)', () => {
   it('consumes one credit for six parallel fourth-attempt starts', async () => {
     const ids = fixtureIds();
     fixtures.push({ studentIds: [ids.studentId], testIds: [ids.testId], paymentIds: [ids.paymentId] });
