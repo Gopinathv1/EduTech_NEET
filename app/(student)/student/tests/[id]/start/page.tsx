@@ -87,6 +87,14 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
                 {t('viewResult')}
               </Link>
             ) : null}
+            <div className="mt-4">
+              <StartAttemptClient
+                testId={id}
+                languages={languages}
+                defaultLanguage={defaultLanguage}
+                resume={false}
+              />
+            </div>
           </div>
         ) : (
           <>

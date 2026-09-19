@@ -18,7 +18,7 @@ export async function POST(req: Request) {
   const outcome = await startOrResumeAttempt(session.sub, parsed.data.testId, parsed.data.language);
   if (!outcome.ok) {
     const status =
-      outcome.code === 'attemptLimitReached' ? 409 : outcome.code === 'notFound' ? 404 : 400;
+      outcome.code === 'paymentRequired' ? 402 : outcome.code === 'notFound' ? 404 : 400;
     return fail(outcome.code, status, outcome.attemptId ? { attemptId: outcome.attemptId } : undefined);
   }
 

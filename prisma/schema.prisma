@@ -94,6 +94,11 @@ enum PaymentStatus {
   REFUNDED
 }
 
+enum PaymentPurpose {
+  TEST_PURCHASE
+  PAID_RETRY
+}
+
 enum LeadStatus {
   NEW
   CONTACTED
@@ -229,6 +234,7 @@ model Student {
   sellerProfile     MarketplaceSellerProfile?
   marketplaceOrders MarketplaceOrder[]         @relation("MarketplaceBuyerOrders")
   passwordResetTokens PasswordResetToken[]
+  paidAttemptCredits  PaidAttemptCredit[]
 
   @@index([state, district])
   // Admin reporting: registrations-over-time and district/board/class filters.
@@ -486,6 +492,7 @@ model Test {
   attempts      TestAttempt[]
   payments      Payment[]
   entitlements  TestEntitlement[]
+  paidAttemptCredits PaidAttemptCredit[]
 
   @@index([testType])
   @@index([isPublished])
@@ -535,6 +542,7 @@ model TestAttempt {
   test    Test     @relation(fields: [testId], references: [id], onDelete: Cascade)
   answers Answer[]
   result  Result?
+  paidAttemptCredit PaidAttemptCredit?
 
   @@index([studentId])
   @@index([testId])
@@ -593,6 +601,7 @@ model Payment {
   razorpayOrderId   String?       @unique
   razorpayPaymentId String?       @unique
   status            PaymentStatus @default(CREATED)
+  purpose           PaymentPurpose @default(TEST_PURCHASE)
   invoiceNumber     String?       @unique
   // Snapshot of invoice fields at success (name/title/amount/GST) so the PDF is
   // reproducible even if the test or student later changes.
@@ -606,6 +615,7 @@ model Payment {
   test        Test             @relation(fields: [testId], references: [id], onDelete: Restrict)
   events      PaymentEvent[]
   entitlement TestEntitlement?
+  paidAttemptCredit PaidAttemptCredit?
 
   @@index([studentId])
   @@index([status])
@@ -780,6 +790,24 @@ model ContactEnquiry {
 
   @@index([status])
   @@index([createdAt])
+}
+
+/// A single verified payment's one-time right to create a paid retry attempt.
+model PaidAttemptCredit {
+  id         String    @id @default(cuid())
+  studentId  String
+  testId     String
+  paymentId  String    @unique
+  attemptId  String?   @unique
+  createdAt  DateTime  @default(now())
+  consumedAt DateTime?
+
+  student Student      @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  test    Test         @relation(fields: [testId], references: [id], onDelete: Cascade)
+  payment Payment      @relation(fields: [paymentId], references: [id], onDelete: Restrict)
+  attempt TestAttempt? @relation(fields: [attemptId], references: [id], onDelete: SetNull)
+
+  @@index([studentId, testId, consumedAt])
 }
 
 // ---------------------------------------------------------------------------

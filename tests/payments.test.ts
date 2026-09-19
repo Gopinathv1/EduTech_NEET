@@ -59,8 +59,8 @@ describe('verifyWebhookSignature', () => {
 // A stateful mock: the payment's status flips to SUCCESS on the first claim, so
 // the conditional updateMany returns count 1 once and 0 thereafter — exactly how
 // the real DB behaves under concurrent verify + webhook.
-const state = { status: 'CREATED' as string, seq: 0 };
-const calls = { entitlementUpsert: 0, notificationCreate: 0, paymentEventCreate: 0, paymentUpdate: 0 };
+const state = { status: 'CREATED' as string, purpose: 'TEST_PURCHASE', seq: 0 };
+const calls = { entitlementUpsert: 0, creditUpsert: 0, notificationCreate: 0, paymentEventCreate: 0, paymentUpdate: 0 };
 
 const tx = {
   payment: {
@@ -71,6 +71,7 @@ const tx = {
       currency: 'INR',
       studentId: 's1',
       testId: 't1',
+      purpose: state.purpose,
       student: { name: 'Ravi', mobile: '9876543210', email: null },
       test: { title: { en: 'Mini Test', ta: 'சிறு தேர்வு' } },
     })),
@@ -94,6 +95,7 @@ const tx = {
       return {};
     }),
   },
+  paidAttemptCredit: { upsert: vi.fn(async () => { calls.creditUpsert += 1; return {}; }) },
   notification: {
     create: vi.fn(async () => {
       calls.notificationCreate += 1;
@@ -119,8 +121,10 @@ import { finalizeSuccess } from '@/lib/payments/service';
 describe('finalizeSuccess idempotency', () => {
   beforeEach(() => {
     state.status = 'CREATED';
+    state.purpose = 'TEST_PURCHASE';
     state.seq = 0;
     calls.entitlementUpsert = 0;
+    calls.creditUpsert = 0;
     calls.notificationCreate = 0;
     calls.paymentEventCreate = 0;
     calls.paymentUpdate = 0;
@@ -136,6 +140,7 @@ describe('finalizeSuccess idempotency', () => {
 
     // Side effects happened once only.
     expect(calls.entitlementUpsert).toBe(1);
+    expect(calls.creditUpsert).toBe(0);
     expect(calls.notificationCreate).toBe(1);
     expect(calls.paymentEventCreate).toBe(1);
   });
@@ -146,5 +151,11 @@ describe('finalizeSuccess idempotency', () => {
     expect(res).toMatchObject({ ok: true, alreadyProcessed: true });
     expect(calls.entitlementUpsert).toBe(0);
     expect(calls.notificationCreate).toBe(0);
+  });
+  it('issues one retry credit and no durable entitlement for PAID_RETRY', async () => {
+    state.purpose = 'PAID_RETRY';
+    await finalizeSuccess('p1', { razorpayPaymentId: 'pay_1', source: 'verify' });
+    await finalizeSuccess('p1', { razorpayPaymentId: 'pay_1', source: 'webhook' });
+    expect(calls.creditUpsert).toBe(1); expect(calls.entitlementUpsert).toBe(0);
   });
 });

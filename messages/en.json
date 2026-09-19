@@ -1402,7 +1402,11 @@
       "startError": "Could not start the test. Please try again.",
       "attemptsRemaining": "{count, plural, =0 {0 attempts remaining} =1 {1 free attempt remaining} other {# free attempts remaining}}",
       "limitReachedTitle": "Free attempt limit reached",
-      "limitReachedNote": "You have used your {count} free attempts for this test."
+      "limitReachedNote": "You have used your {count} free attempts for this test.",
+      "paidRetryTitle": "Free attempts used",
+      "paidRetryNote": "One payment unlocks one additional attempt.",
+      "paidRetryAttempt": "Additional attempt",
+      "paidRetryButton": "Pay ₹30 & Start Attempt"
     },
     "ui": {
       "questionOf": "Question {current} of {total}",

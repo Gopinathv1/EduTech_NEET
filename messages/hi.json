@@ -1402,6 +1402,10 @@
       "startError": "Could not start the test. Please try again.",
       "attemptsRemaining": "{count, plural, =0 {0 प्रयास शेष} =1 {1 निःशुल्क प्रयास शेष} other {# निःशुल्क प्रयास शेष}}",
       "limitReachedTitle": "निःशुल्क प्रयास सीमा पूरी हो गई",
+      "paidRetryTitle": "निःशुल्क प्रयास पूरे हो गए",
+      "paidRetryNote": "एक भुगतान एक अतिरिक्त प्रयास अनलॉक करता है।",
+      "paidRetryAttempt": "अतिरिक्त प्रयास",
+      "paidRetryButton": "₹30 देकर प्रयास शुरू करें",
       "limitReachedNote": "आपने इस टेस्ट के लिए अपने {count} निःशुल्क प्रयास इस्तेमाल कर लिए हैं।"
     },
     "ui": {

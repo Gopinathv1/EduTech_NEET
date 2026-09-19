@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { apiPost } from '@/lib/client/api';
 import type { ExamLanguage } from '@/lib/attempts/examState';
+import CheckoutClient from '@/components/student/CheckoutClient';
+import { requestAttemptStart } from '@/lib/client/paid-retry-flow';
 
 /**
  * The language chooser + Start button on the instructions page. If the student
@@ -22,21 +24,31 @@ export default function StartAttemptClient({
   resume: boolean;
 }) {
   const t = useTranslations('exam.instructions');
-  const tn = useTranslations('neetPractice');
   const [language, setLanguage] = useState<ExamLanguage>(defaultLanguage);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string>();
+  const [paymentRequired, setPaymentRequired] = useState(false);
 
-  async function start() {
+  async function start(): Promise<boolean> {
     setBusy(true);
     setError(undefined);
-    const res = await apiPost('/api/attempts', { testId, language });
-    if (res.ok && typeof res.redirect === 'string') {
-      window.location.href = res.redirect;
-      return;
+    setPaymentRequired(false);
+    const outcome = await requestAttemptStart({
+      post: apiPost,
+      testId,
+      language,
+      navigate: (url) => { window.location.href = url; },
+    });
+    if (outcome === 'started') {
+      return true;
     }
     setBusy(false);
-    setError(res.error === 'attemptLimitReached' ? t('limitReachedNote', { count: 3 }) : res.error === 'languageUnavailable' ? tn('languageUnavailable') : t('startError'));
+    if (outcome === 'paymentRequired') {
+      setPaymentRequired(true);
+      return false;
+    }
+    setError(t('startError'));
+    return false;
   }
 
   return (
@@ -72,14 +84,34 @@ export default function StartAttemptClient({
         </p>
       ) : null}
 
-      <button
-        type="button"
-        onClick={start}
-        disabled={busy}
-        className="mt-6 w-full rounded-lg bg-brand px-6 py-3.5 text-base font-bold text-white hover:bg-brand-dark disabled:opacity-60 sm:w-auto sm:px-10"
-      >
-        {busy ? t('starting') : resume ? t('resume') : t('start')}
-      </button>
+      {paymentRequired ? (
+        <div className="mt-5 rounded-2xl border border-border bg-surface p-5">
+          <h2 className="text-lg font-semibold text-textPrimary">{t('paidRetryTitle')}</h2>
+          <p className="mt-2 text-sm text-textSecondary">{t('paidRetryNote')}</p>
+          <CheckoutClient
+            testId={testId}
+            price={30}
+            title={t('paidRetryAttempt')}
+            orderEndpoint="/api/payments/retry-order"
+            heading={t('paidRetryTitle')}
+            subtitle={t('paidRetryNote')}
+            buttonLabel={t('paidRetryButton')}
+            onOrderConflict={start}
+            onVerified={start}
+          />
+        </div>
+      ) : null}
+
+      {!paymentRequired ? (
+        <button
+          type="button"
+          onClick={start}
+          disabled={busy}
+          className="mt-6 w-full rounded-lg bg-brand px-6 py-3.5 text-base font-bold text-white hover:bg-brand-dark disabled:opacity-60 sm:w-auto sm:px-10"
+        >
+          {busy ? t('starting') : resume ? t('resume') : t('start')}
+        </button>
+      ) : null}
     </div>
   );
 }

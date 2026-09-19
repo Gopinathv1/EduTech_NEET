@@ -1,10 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { apiPost } from '@/lib/client/api';
 import { razorpayContact } from '@/lib/phone';
+import { createCheckoutRequestGuard, requestRetryOrder, verifyRetryPayment } from '@/lib/client/paid-retry-flow';
 
 type RazorpayResponse = {
   razorpay_order_id: string;
@@ -49,6 +50,12 @@ export default function CheckoutClient({
   price,
   title,
   student,
+  orderEndpoint,
+  heading,
+  subtitle,
+  buttonLabel,
+  onOrderConflict,
+  onVerified,
 }: {
   testId: string;
   price: number;
@@ -58,32 +65,68 @@ export default function CheckoutClient({
     email: string | null;
     mobile: string | null;
   };
+  orderEndpoint?: '/api/payments/create-order' | '/api/payments/retry-order';
+  heading?: string;
+  subtitle?: string;
+  buttonLabel?: string;
+  onOrderConflict?: () => Promise<boolean>;
+  onVerified?: () => Promise<boolean>;
 }) {
   const t = useTranslations('payments.checkout');
   const [state, setState] = useState<State>('idle');
+  const requestGuard = useRef(createCheckoutRequestGuard());
 
   const busy = state === 'creating' || state === 'opening' || state === 'verifying';
 
   async function pay() {
+    if (!requestGuard.current.tryEnter()) return;
     setState('creating');
-    const order = await apiPost('/api/payments/create-order', { testId });
+    let order: Awaited<ReturnType<typeof apiPost>>;
+    if (orderEndpoint === '/api/payments/retry-order') {
+      let retryOrder: Awaited<ReturnType<typeof apiPost>> | undefined;
+      const outcome = await requestRetryOrder({
+        post: apiPost,
+        testId,
+        retryStart: onOrderConflict ?? (async () => false),
+        openCheckout: async (createdOrder) => { retryOrder = createdOrder; return true; },
+      });
+      if (outcome === 'recovered') return;
+      if (outcome !== 'opened' || !retryOrder) {
+        setState('failed');
+        requestGuard.current.release();
+        return;
+      }
+      order = retryOrder;
+    } else {
+      order = await apiPost('/api/payments/create-order', { testId });
+    }
     if (!order.ok) {
+      if (
+        onOrderConflict &&
+        (order.error === 'freeAttemptsRemain' || order.error === 'attemptActive' || order.error === 'creditAvailable')
+      ) {
+        const resolved = await onOrderConflict();
+        if (resolved) return;
+      }
       if (order.error === 'alreadyOwned') {
         window.location.href = `/student/tests/${testId}/start`;
         return;
       }
       setState('failed');
+      requestGuard.current.release();
       return;
     }
     if (order.mock) {
       // Real Razorpay keys aren't configured — the modal can't open.
       setState('notConfigured');
+      requestGuard.current.release();
       return;
     }
 
     const loaded = await loadRazorpay();
     if (!loaded || !window.Razorpay) {
       setState('failed');
+      requestGuard.current.release();
       return;
     }
 
@@ -105,28 +148,36 @@ export default function CheckoutClient({
         : undefined,
       handler: async (resp) => {
         setState('verifying');
-        const v = await apiPost('/api/payments/verify', {
-          razorpay_order_id: resp.razorpay_order_id,
-          razorpay_payment_id: resp.razorpay_payment_id,
-          razorpay_signature: resp.razorpay_signature,
-        });
-        if (v.ok && typeof v.redirect === 'string') {
-          window.location.href = v.redirect;
-        } else {
+        if (onVerified) {
+          const started = await verifyRetryPayment({ post: apiPost, response: resp, retryStart: onVerified });
+          if (started) return;
           setState('failed');
+          requestGuard.current.release();
+        } else {
+          const v = await apiPost('/api/payments/verify', {
+            razorpay_order_id: resp.razorpay_order_id,
+            razorpay_payment_id: resp.razorpay_payment_id,
+            razorpay_signature: resp.razorpay_signature,
+          });
+          if (v.ok && typeof v.redirect === 'string') {
+            window.location.href = v.redirect;
+          } else {
+            setState('failed');
+            requestGuard.current.release();
+          }
         }
       },
-      modal: { ondismiss: () => setState('cancelled') },
+      modal: { ondismiss: () => { setState('cancelled'); requestGuard.current.release(); } },
     });
-    rzp.on('payment.failed', () => setState('failed'));
+    rzp.on('payment.failed', () => { setState('failed'); requestGuard.current.release(); });
     rzp.open();
   }
 
   return (
     <div className="mx-auto max-w-lg">
       <div className="rounded-2xl border border-border bg-surfaceElevated p-6 sm:p-8">
-        <h1 className="text-xl font-bold text-textPrimary">{t('title')}</h1>
-        <p className="mt-1 text-sm text-textSecondary">{t('subtitle')}</p>
+        <h1 className="text-xl font-bold text-textPrimary">{heading ?? t('title')}</h1>
+        <p className="mt-1 text-sm text-textSecondary">{subtitle ?? t('subtitle')}</p>
 
         <div className="mt-5 flex items-center justify-between rounded-xl bg-surface p-4">
           <span className="font-medium text-textPrimary">{title}</span>
@@ -164,7 +215,7 @@ export default function CheckoutClient({
             ? t('processing')
             : state === 'cancelled' || state === 'failed'
               ? t('retry')
-              : t('payButton', { price })}
+            : buttonLabel ?? t('payButton', { price })}
         </button>
 
         <p className="mt-3 text-center text-xs text-textSecondary">{t('methods')}</p>

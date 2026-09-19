@@ -25,7 +25,7 @@ import { buildResultNotificationData } from '@/lib/notifications/create';
 
 export type StartOutcome =
   | { ok: true; attemptId: string; resumed: boolean }
-  | { ok: false; code: 'notFound' | 'languageUnavailable' | 'attemptLimitReached' | 'generationFailed'; attemptId?: string };
+  | { ok: false; code: 'notFound' | 'languageUnavailable' | 'paymentRequired' | 'generationFailed'; attemptId?: string };
 
 const ACTIVE: AttemptStatus = 'IN_PROGRESS';
 
@@ -58,9 +58,6 @@ export async function startOrResumeAttempt(
   if (!(test.availableLanguages.length ? test.availableLanguages : ['en']).includes(language)) {
     return { ok: false, code: 'languageUnavailable' };
   }
-  if (await prisma.testAttempt.count({ where: { studentId, testId } }) >= FREE_ATTEMPT_LIMIT) {
-    return { ok: false, code: 'attemptLimitReached' };
-  }
   if (!validFullMock(test)) return { ok: false, code: 'generationFailed' };
   const seed = randomUUID();
   let questionIds: string[];
@@ -79,13 +76,19 @@ export async function startOrResumeAttempt(
         });
         if (active) return { ok: true, attemptId: active.id, resumed: true };
         const used = await tx.testAttempt.count({ where: { studentId, testId } });
-        if (used >= FREE_ATTEMPT_LIMIT) return { ok: false, code: 'attemptLimitReached' };
+        let creditId: string | null = null;
+        if (used >= FREE_ATTEMPT_LIMIT) {
+          const credit = await tx.paidAttemptCredit.findFirst({ where: { studentId, testId, consumedAt: null, attemptId: null }, orderBy: { createdAt: 'asc' } });
+          if (!credit) return { ok: false, code: 'paymentRequired' };
+          creditId = credit.id;
+        }
         const attempt = await tx.testAttempt.create({
           data: { studentId, testId, selectedLanguage: language,
             remainingSeconds: test.durationMinutes * 60, status: ACTIVE,
             shuffleOptions: true, questionOrder: questionIds, seed },
           select: { id: true },
         });
+        if (creditId) await tx.paidAttemptCredit.update({ where: { id: creditId }, data: { attemptId: attempt.id, consumedAt: new Date() } });
         return { ok: true, attemptId: attempt.id, resumed: false };
       }, { isolationLevel: Prisma.TransactionIsolationLevel.Serializable });
     } catch (error) {
@@ -93,7 +96,7 @@ export async function startOrResumeAttempt(
       throw error;
     }
   }
-  return { ok: false, code: 'attemptLimitReached' };
+  return { ok: false, code: 'paymentRequired' };
 }
 
 /**

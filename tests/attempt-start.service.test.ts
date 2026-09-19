@@ -16,6 +16,7 @@ vi.mock('@/lib/prisma', () => ({
       update: vi.fn(),
       delete: vi.fn(),
     },
+    paidAttemptCredit: { findFirst: vi.fn(), update: vi.fn() },
   },
 }));
 
@@ -42,6 +43,8 @@ beforeEach(() => {
   p.testAttempt.create.mockResolvedValue({ id: 'att1' });
   p.testAttempt.update.mockResolvedValue({});
   p.testAttempt.delete.mockResolvedValue({});
+  p.paidAttemptCredit.findFirst.mockResolvedValue(null);
+  p.paidAttemptCredit.update.mockResolvedValue({});
   generator.generateForAttempt.mockResolvedValue({ questionIds: ['q1', 'q2'] });
 });
 
@@ -85,14 +88,22 @@ describe('startOrResumeAttempt', () => {
     expect(p.testAttempt.create).not.toHaveBeenCalled();
   });
 
-  it('blocks the fourth free attempt for a student and test', async () => {
+  it('requires payment credit for the fourth attempt', async () => {
     p.testAttempt.count.mockResolvedValue(3);
 
     const out = await startOrResumeAttempt('s1', 't1', 'en');
 
-    expect(out).toEqual({ ok: false, code: 'attemptLimitReached' });
+    expect(out).toEqual({ ok: false, code: 'paymentRequired' });
     expect(p.testAttempt.count).toHaveBeenCalledWith({ where: { studentId: 's1', testId: 't1' } });
     expect(p.testAttempt.create).not.toHaveBeenCalled();
+  });
+
+  it('consumes one matching credit to create the fourth attempt and resumes it', async () => {
+    p.testAttempt.count.mockResolvedValue(3);
+    p.paidAttemptCredit.findFirst.mockResolvedValue({ id: 'credit_1' });
+    const out = await startOrResumeAttempt('s1', 't1', 'en');
+    expect(out).toEqual({ ok: true, attemptId: 'att1', resumed: false });
+    expect(p.paidAttemptCredit.update).toHaveBeenCalledWith({ where: { id: 'credit_1' }, data: expect.objectContaining({ attemptId: 'att1', consumedAt: expect.any(Date) }) });
   });
 
   it('blocks unavailable languages', async () => {

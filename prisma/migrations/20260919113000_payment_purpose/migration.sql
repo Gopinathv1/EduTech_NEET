@@ -1,0 +1,2 @@
+CREATE TYPE "PaymentPurpose" AS ENUM ('TEST_PURCHASE', 'PAID_RETRY');
+ALTER TABLE "Payment" ADD COLUMN "purpose" "PaymentPurpose" NOT NULL DEFAULT 'TEST_PURCHASE';

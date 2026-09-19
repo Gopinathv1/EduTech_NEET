@@ -105,13 +105,16 @@ export async function finalizeSuccess(
       data: { invoiceNumber, invoiceData: invoiceData as unknown as Prisma.InputJsonValue },
     });
 
-    // Ownership — the entitlement that unlocks "Start Test".
-    await tx.testEntitlement.upsert({
-      where: { studentId_testId: { studentId: payment.studentId, testId: payment.testId } },
-      create: { studentId: payment.studentId, testId: payment.testId, paymentId: payment.id, source: 'PURCHASE' },
-      update: {},
-    });
-    log.info('payment.entitlementGranted', { paymentId: payment.id, testId: payment.testId });
+    if (payment.purpose === 'PAID_RETRY') {
+      await tx.paidAttemptCredit.upsert({ where: { paymentId: payment.id }, create: { studentId: payment.studentId, testId: payment.testId, paymentId: payment.id }, update: {} });
+      log.info('payment.retryCreditGranted', { paymentId: payment.id, testId: payment.testId });
+    } else {
+      await tx.testEntitlement.upsert({
+        where: { studentId_testId: { studentId: payment.studentId, testId: payment.testId } },
+        create: { studentId: payment.studentId, testId: payment.testId, paymentId: payment.id, source: 'PURCHASE' }, update: {},
+      });
+      log.info('payment.entitlementGranted', { paymentId: payment.id, testId: payment.testId });
+    }
 
     await tx.notification.create({
       data: {
