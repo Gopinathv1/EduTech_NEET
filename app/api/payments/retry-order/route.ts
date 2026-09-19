@@ -8,7 +8,7 @@ import { ok, fail, readJson } from '@/lib/http';
 import { examPaidRetriesEnabled } from '@/lib/attempts/paid-retries';
 
 export const runtime = 'nodejs';
-export const PAID_RETRY_PRICE_INR = 30;
+const PAID_RETRY_PRICE_INR = 30;
 const schema = z.object({ testId: z.string().min(1) });
 
 export async function POST(req: Request) {
