@@ -60,7 +60,7 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[#5f6975]">SIVORA helps students and families explore education opportunities, compare realistic options and move through the admission process with structured guidance.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <PrimaryLink href="#enquiry">Start your admission enquiry</PrimaryLink>
+              <PrimaryLink href="/contact">Talk to SIVORA</PrimaryLink>
               <Link
                 href="#destinations"
                 className="inline-flex items-center justify-center rounded-lg border border-[#dce0e2] bg-white px-5 py-3 text-sm font-black uppercase tracking-[0.08em] text-[#171717] transition hover:-translate-y-0.5 hover:border-brand/45"

@@ -30,4 +30,12 @@
 .auth button[type=submit],.form button[type=submit] { background:#171717!important; color:white; border-radius:4px; min-height:46px; }
 .auth button:not([type=submit]):not([aria-pressed]) { color:#171717; }
 .form :global(.text-red-300) { color:#b42318; }
+.page :global(.public-editorial-hero){background:#f5f7fa!important;border-color:#d9dee5!important}
+.page :global(.public-editorial-hero) h1{max-width:760px;font-size:clamp(3.8rem,7.3vw,8.5rem);line-height:.82;letter-spacing:-.075em}
+.page :global(.sivora-button),.page :global(a.rounded-lg),.page :global(a.rounded-md){border-radius:4px}
+.page :global(.bg-white){box-shadow:none}
+.page :global(.overflow-x-auto){border-radius:4px}
+.page :global(table th){font-size:.72rem;letter-spacing:.12em}
+.page :global(table td){vertical-align:top}
+.page :global(.text-brand){color:#2774e6!important}
 @media(max-width:767px){.rows,.stage{grid-template-columns:1fr}.stage{gap:32px}.visual{min-height:320px;padding:20px}.page h1{font-size:2.75rem}.lifecycle{padding:48px 0}.tabs{gap:4px 16px}.tabs button{font-size:12px}}

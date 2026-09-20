@@ -1,9 +1,9 @@
 import styles from './CourseExperience.module.css';
 
 const pathways = [
-  { key: 'AI', detail: 'BUILD · PROJECT · APPLY' },
-  { key: 'ENGLISH', detail: 'LISTEN · SPEAK · PRACTISE' },
-  { key: 'HINDI', detail: 'UNDERSTAND · SPEAK · CONNECT' },
+  { key: 'EXAMS', detail: 'NEET · JEE · PRACTICE' },
+  { key: 'LANGUAGES', detail: 'ENGLISH · HINDI · COMMUNICATE' },
+  { key: 'FUTURE SKILLS', detail: 'AI · TECHNOLOGY · COMING LATER' },
 ];
 
 export default function CourseProductVisual() {
@@ -11,7 +11,7 @@ export default function CourseProductVisual() {
     <div className={styles.visual} aria-label="SIVORA connected learning pathway">
       <div className={styles.visualHeader}>
         <span>LEARNING SYSTEM</span>
-        <span>PATH 01 / ACTIVE</span>
+        <span>ROADMAP / PLANNED</span>
       </div>
       <div className={styles.visualCanvas}>
         <div className={styles.visualGrid} />
@@ -29,8 +29,8 @@ export default function CourseProductVisual() {
           ))}
         </div>
         <div className={styles.visualOutcome}>
-          <span>APPLY</span>
-          <strong>Turn learning into forward movement.</strong>
+          <span>GROW</span>
+          <strong>Build knowledge and skills for what comes next.</strong>
         </div>
       </div>
     </div>

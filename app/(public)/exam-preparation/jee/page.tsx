@@ -5,7 +5,7 @@ import PageHero from '@/components/public/PageHero';
 import { Section, PrimaryLink, SecondaryLink } from '@/components/public/ui';
 import ExploreSivora from '@/components/public/ExploreSivora';
 import { EXAMS } from '@/data/exams';
-import ExamProductVisual from '@/components/public/ExamProductVisual';
+import ExamLoopVisual from '@/components/public/ExamLoopVisual';
 
 const jee = EXAMS.find((exam) => exam.slug === 'jee')!;
 
@@ -26,7 +26,7 @@ export default function JeePreparationPage() {
         subtitle={t('subtitle')}
       />
       <Section>
-        <ExamProductVisual exam="JEE" />
+        <ExamLoopVisual exam="JEE" />
       </Section>
       <Section>
         <div className="grid gap-5 md:grid-cols-3">

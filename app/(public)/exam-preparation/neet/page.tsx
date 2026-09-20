@@ -5,7 +5,7 @@ import PageHero from '@/components/public/PageHero';
 import { Section, PrimaryLink, SecondaryLink } from '@/components/public/ui';
 import ExploreSivora from '@/components/public/ExploreSivora';
 import { EXAMS } from '@/data/exams';
-import ExamProductVisual from '@/components/public/ExamProductVisual';
+import ExamLoopVisual from '@/components/public/ExamLoopVisual';
 
 const neet = EXAMS.find((exam) => exam.slug === 'neet')!;
 
@@ -25,7 +25,7 @@ export default function NeetPreparationPage() {
         subtitle={t('subtitle')}
       />
       <Section>
-        <ExamProductVisual exam="NEET" />
+        <ExamLoopVisual exam="NEET" />
       </Section>
       <ExamDetail exam={neet} />
     </>
@@ -60,7 +60,7 @@ function ExamDetail({ exam }: { exam: typeof neet }) {
       </Section>
       <Section lazy>
         <div className="mb-6 grid gap-3 sm:grid-cols-2">
-          {([['FULL_TEST', 'full'], ['YEAR_PATTERN', 'previous'], ['SUBJECT_TEST', 'subject'], ['CHAPTER_TEST', 'chapter']] as const).map(([type, label]) =>
+          {([['FULL_TEST', 'full'], ['SUBJECT_TEST', 'subject'], ['CHAPTER_TEST', 'chapter']] as const).map(([type, label]) =>
             <PrimaryLink key={type} href={`/student/tests?type=${type}`}>{tn(label)}</PrimaryLink>)}
         </div>
         <p className="mb-6 text-sm text-[#6b6b67]">{tn('disclaimer')}</p>

@@ -1,9 +1,10 @@
 import { requirePartnerPage } from '@/lib/auth/partner';
 
-const statCards = [
-  ['Leads', '0', 'Coming in Phase 2'],
-  ['Applications', '0', 'Coming in Phase 2'],
-  ['Students', '0', 'Coming in Phase 2'],
+const futureAreas = [
+  ['Admissions referrals', 'Coming Soon'],
+  ['Counselling referrals', 'Coming Soon'],
+  ['Courses participation', 'Coming Soon'],
+  ['Marketplace seller tools', 'Coming Soon'],
 ];
 
 export default async function PartnerDashboardPage() {
@@ -20,20 +21,19 @@ export default async function PartnerDashboardPage() {
         </div>
       </section>
 
-      <section className="grid gap-4 sm:grid-cols-3">
-        {statCards.map(([label, value, note]) => (
+      <section className="grid gap-4 sm:grid-cols-2">
+        {futureAreas.map(([label, note]) => (
           <div key={label} className="rounded-xl border border-white/10 bg-[#0b1b1e] p-5">
-            <p className="text-sm text-slate-400">{label}</p>
-            <p className="mt-2 text-3xl font-black text-white">{value}</p>
-            <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-[#e4c46a]">{note}</p>
+            <p className="text-sm font-semibold text-slate-200">{label}</p>
+            <p className="mt-3 text-xs font-semibold uppercase tracking-[.14em] text-[#75aaff]">{note}</p>
           </div>
         ))}
       </section>
 
       <section className="rounded-xl border border-white/10 bg-[#0b1b1e] p-6">
-        <h2 className="text-xl font-black text-white">Phase 1 foundation is active</h2>
+        <h2 className="text-xl font-black text-white">Your approved partner foundation</h2>
         <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-300">
-          Your agency account is approved. Student, application, university and task workflows will be connected in later phases.
+          Your agency account is approved. Partner Portal tools will be introduced in future phases as workflows become available.
         </p>
       </section>
     </div>

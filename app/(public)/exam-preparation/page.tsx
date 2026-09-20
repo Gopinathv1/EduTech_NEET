@@ -7,7 +7,7 @@ import { Section, PrimaryLink } from '@/components/public/ui';
 import ExploreSivora from '@/components/public/ExploreSivora';
 import { EXAMS } from '@/data/exams';
 import { ProductFaqSection, RelatedServicesSection } from '@/components/public/ProductPageBlocks';
-import ExamProductVisual from '@/components/public/ExamProductVisual';
+import ExamLoopVisual from '@/components/public/ExamLoopVisual';
 
 export async function generateMetadata() {
   const t = await getTranslations('seo.examPreparation');
@@ -31,7 +31,7 @@ export default function ExamPreparationPage() {
       />
 
       <Section>
-        <ExamProductVisual />
+        <ExamLoopVisual />
       </Section>
 
       <Section>

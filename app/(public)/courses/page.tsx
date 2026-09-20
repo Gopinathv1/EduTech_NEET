@@ -23,7 +23,7 @@ export default function CoursesPage() {
             <p className={styles.eyebrow}>COURSES & FUTURE SKILLS</p>
             <h1>Learn with a clear path.</h1>
             <p className={styles.heroCopy}>
-              SIVORA is preparing structured learning pathways for competitive exams and practical communication skills. Explore what is planned; enrollment will open soon.
+              SIVORA is preparing structured learning pathways for competitive exams, communication and future skills. Explore the roadmap; enrollment will open when each pathway is ready.
             </p>
             <Link href="/exam-preparation" className="mt-7 inline-flex border-b border-current pb-1 text-sm font-semibold text-[#2774e6]">Explore free Exam Preparation practice →</Link>
           </div>
@@ -35,7 +35,7 @@ export default function CoursesPage() {
       <CourseSection eyebrow="JEE MAIN PREPARATION" title="Built for a deliberate JEE Main path." description="Inspect the planned Physics, Chemistry and Mathematics pathways, each organised for sustained preparation." courses={jeeCourses} tinted />
       <CourseSection eyebrow="LANGUAGE SKILLS" title="Practical communication, step by step." description="Two planned pathways for everyday confidence, workplace communication and fluency practice." courses={languageCourses} />
 
-      <section className={`${styles.section} ${styles.dark}`}>
+      <section id="ai-future-skills" className={`${styles.section} ${styles.dark}`}>
         <div className={styles.sectionInner}>
           <div className={styles.sectionHead}>
             <div><p className={styles.sectionEyebrow}>FUTURE SKILLS · COMING LATER</p><h2>More pathways are ahead.</h2></div>
@@ -57,9 +57,23 @@ export default function CoursesPage() {
             <div>
               <p className={styles.sectionEyebrow}>TEACH WITH SIVORA</p>
               <h2>Partner onboarding — Coming Soon.</h2>
-              <p>Educators, institutes and learning partners will eventually be able to offer structured courses through the SIVORA platform. This is informational only for now.</p>
+              <p>Educators, institutes and learning partners may eventually offer structured courses through the SIVORA platform. Partner onboarding and the Partner Portal are Coming Soon; this is informational only for now.</p>
             </div>
             <span className="border border-[#2774e6]/30 bg-[#eaf2ff] px-4 py-3 text-xs font-bold tracking-[.12em] text-[#2774e6]">COMING SOON</span>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <div className={styles.sectionInner}>
+          <div className={styles.sectionHead}><div><p className={styles.sectionEyebrow}>KEEP THE JOURNEY CONNECTED</p><h2>Learning can meet the next question.</h2></div><p>Use the right SIVORA layer for the decision in front of you.</p></div>
+          <div className={styles.discovery}>
+            {[
+              ['01', 'Need practice?', 'Move into structured NEET preparation and available practice tools.', '/exam-preparation', 'Explore Exam Preparation'],
+              ['02', 'Unsure what to learn?', 'Talk through direction, course choices and future pathways with Counselling.', '/counselling', 'Talk to SIVORA'],
+              ['03', 'Exploring higher education?', 'Explore destinations and admission pathways with the Admissions team.', '/admissions', 'Explore Admissions'],
+              ['04', 'Looking for resources?', 'Browse the Marketplace as real learning resources are added and moderated.', '/marketplace', 'Browse Marketplace'],
+            ].map(([number, title, body, href, cta]) => <Link key={number} href={href} className={styles.discoveryRow}><span>{number}</span><h3>{title}</h3><p>{body}</p><b aria-hidden>↗</b><span className="sr-only">{cta}</span></Link>)}
           </div>
         </div>
       </section>

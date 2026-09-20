@@ -1,9 +1,9 @@
 import styles from './MarketplaceExperience.module.css';
 
 const signals = [
-  ['01', 'LEARN', 'Books and study materials'],
-  ['02', 'PREPARE', 'Exam and academic resources'],
-  ['03', 'APPLY', 'Choose the resource that fits'],
+  ['01', 'LEARNERS', 'Discover a useful next resource'],
+  ['02', 'RESOURCES', 'Exam, language and learning areas'],
+  ['03', 'PARTNERS', 'Future educator contributions'],
 ];
 
 export default function MarketplaceProductVisual() {
@@ -18,7 +18,7 @@ export default function MarketplaceProductVisual() {
             <div key={title} className={styles.visualSignal}><span>{number}</span><strong>{title}</strong><small>{detail}</small></div>
           ))}
         </div>
-        <div className={styles.visualFooter}><span>DISCOVER</span><strong>Find useful materials for the next move.</strong></div>
+      <div className={styles.visualFooter}><span>MARKETPLACE / FUTURE</span><strong>Connect learning resources with the next step.</strong></div>
       </div>
     </div>
   );
