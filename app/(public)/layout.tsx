@@ -1,6 +1,7 @@
 import PublicHeader from '@/components/public/PublicHeader';
 import PublicFooter from '@/components/public/PublicFooter';
 import AIChatButton from '@/components/ai/AIChatButton';
+import { getSession } from '@/lib/auth/session';
 import { publicFont } from '@/lib/public/font';
 
 /**
@@ -9,10 +10,12 @@ import { publicFont } from '@/lib/public/font';
  * also live in this group but render their own AuthShell inside the <main>,
  * which is fine — they simply sit below the shared header.
  */
-export default function PublicLayout({ children }: { children: React.ReactNode }) {
+export default async function PublicLayout({ children }: { children: React.ReactNode }) {
+  const session = await getSession();
+
   return (
     <div className={`${publicFont.className} public-site flex min-h-screen flex-col`}>
-      <PublicHeader />
+      <PublicHeader studentAuthenticated={session?.kind === 'student'} />
       <main id="main-content" className="flex-1">{children}</main>
       <AIChatButton />
       <PublicFooter />

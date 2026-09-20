@@ -4,7 +4,15 @@ import { prisma } from '@/lib/prisma';
 import { FREE_ATTEMPT_LIMIT, NEET_CONFIG } from '@/lib/attempts/config';
 import { examPaidRetriesEnabled } from '@/lib/attempts/paid-retries';
 
-export default async function AttemptHistory({ studentId, testId }: { studentId: string; testId: string }) {
+export default async function AttemptHistory({
+  studentId,
+  testId,
+  canStartAnotherAttempt = true,
+}: {
+  studentId: string;
+  testId: string;
+  canStartAnotherAttempt?: boolean;
+}) {
   const t = await getTranslations('neetPractice');
   const locale = await getLocale();
   const attempts = await prisma.testAttempt.findMany({
@@ -25,7 +33,7 @@ export default async function AttemptHistory({ studentId, testId }: { studentId:
         <span>{t(a.status === 'IN_PROGRESS' ? 'inProgress' : 'completed')}</span>
       </li>)}
     </ul>
-    {(!paidRetriesEnabled || attempts.length < FREE_ATTEMPT_LIMIT) && !attempts.some(a => a.status === 'IN_PROGRESS') ?
+    {canStartAnotherAttempt && (!paidRetriesEnabled || attempts.length < FREE_ATTEMPT_LIMIT) && !attempts.some(a => a.status === 'IN_PROGRESS') ?
       <Link className="mt-4 inline-block rounded-lg bg-brand px-4 py-3 font-semibold text-white" href={`/student/tests/${testId}/start`}>{t('another')}</Link> : null}
   </section>;
 }

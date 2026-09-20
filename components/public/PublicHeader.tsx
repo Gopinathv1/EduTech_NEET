@@ -14,7 +14,7 @@ function isActive(pathname: string, href: string) {
   return href === '/' ? pathname === '/' : pathname.startsWith(href);
 }
 
-export default function PublicHeader() {
+export default function PublicHeader({ studentAuthenticated = false }: { studentAuthenticated?: boolean }) {
   const t = useTranslations('publicNav');
   const tNav = useTranslations('nav');
   const tA11y = useTranslations('a11y');
@@ -86,10 +86,10 @@ export default function PublicHeader() {
             <LanguageSwitcher variant="select" />
           </div>
           <Link
-            href="/login"
+            href={studentAuthenticated ? '/student' : '/login'}
             className="hidden px-3 py-2 text-sm font-medium text-[#6b6b67] hover:text-[#171717] sm:inline-flex"
           >
-            {tNav('login')}
+            {studentAuthenticated ? tNav('dashboard') : tNav('login')}
           </Link>
           <Link
             href="/counselling"
@@ -161,11 +161,11 @@ export default function PublicHeader() {
 
           <div className="mt-3 grid grid-cols-2 gap-2">
             <Link
-              href="/login"
+              href={studentAuthenticated ? '/student' : '/login'}
               onClick={() => setOpen(false)}
               className="rounded-md border border-[#d9dee5] bg-white px-3 py-2.5 text-center text-sm font-medium text-[#10151c]"
             >
-              {tNav('login')}
+              {studentAuthenticated ? tNav('dashboard') : tNav('login')}
             </Link>
             <Link
               href="/counselling"
