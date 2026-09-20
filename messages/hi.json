@@ -14,7 +14,7 @@
     "tests": "टेस्ट",
     "payments": "भुगतान",
     "performance": "प्रदर्शन",
-    "admission": "विदेश में पढ़ाई",
+    "admission": "प्रवेश",
     "notifications": "सूचनाएं",
     "help": "मदद"
   },
@@ -1647,9 +1647,9 @@
       "cta": "Explore options"
     },
     "dashboardCard": {
-      "title": "Study MBBS abroad",
-      "body": "Get free admission guidance for medical universities overseas.",
-      "cta": "Learn more",
+      "title": "प्रवेश और मार्गदर्शन",
+      "body": "अपने अगले कदम के लिए शिक्षा के रास्ते, गंतव्य और व्यक्तिगत मार्गदर्शन खोजें।",
+      "cta": "प्रवेश विकल्प देखें",
       "trackCta": "Track your request"
     }
   },
@@ -1681,21 +1681,18 @@
     "continueBody": "Timer खत्म होने से पहले वहीं से जारी रखें.",
     "resume": "Test resume करें",
     "purchased": "आपके tests",
-    "upcoming": "नए tests",
+    "upcoming": "उपलब्ध टेस्ट",
     "start": "शुरू करें",
     "resumeShort": "Resume",
     "viewResult": "Result देखें",
     "buy": "₹{price} खरीदें",
-    "noPurchased": "आपने अभी कोई test नहीं खरीदा है.",
-    "noUpcoming": "आपके पास सभी available tests हैं.",
+    "noPurchased": "अपना practice history बनाना शुरू करने के लिए एक टेस्ट शुरू करें.",
+    "noUpcoming": "अभी कोई टेस्ट उपलब्ध नहीं है.",
     "previousScores": "Recent scores",
     "noScores": "Scores देखने के लिए test दें.",
     "score": "Score",
-    "platformRank": "Platform Rank",
-    "rankValue": "#{rank}",
-    "rankOf": "{total} students में",
-    "noRank": "Rank पाने के लिए full test दें.",
-    "bestScore": "Best full test: {score}",
+    "practiceTitle": "परीक्षा तैयारी",
+    "practiceBody": "अपना प्रदर्शन इतिहास बनाने के लिए अभ्यास जारी रखें.",
     "weakChapters": "Focus areas",
     "strongChapters": "आपकी strengths",
     "noWeak": "अभी weak chapters नहीं हैं - अभ्यास जारी रखें.",
@@ -1706,7 +1703,7 @@
     "viewAll": "सभी देखें",
     "browseCta": "Tests देखें",
     "emptyTitle": "स्वागत है! शुरू करें.",
-    "emptyBody": "अपना पहला ₹30 mock test खरीदें और NEET practice शुरू करें."
+    "emptyBody": "NEET की तैयारी शुरू करने के लिए एक free टेस्ट शुरू करें."
   },
   "errors": {
     "notFound": {

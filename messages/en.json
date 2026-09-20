@@ -14,7 +14,7 @@
     "tests": "Tests",
     "payments": "Payments",
     "performance": "Performance",
-    "admission": "Study Abroad",
+    "admission": "Admissions",
     "notifications": "Notifications",
     "help": "Help"
   },
@@ -1647,9 +1647,9 @@
       "cta": "Explore options"
     },
     "dashboardCard": {
-      "title": "Study MBBS abroad",
-      "body": "Get free admission guidance for medical universities overseas.",
-      "cta": "Learn more",
+      "title": "Admissions & Guidance",
+      "body": "Explore education pathways, destinations and personalised guidance for your next step.",
+      "cta": "Explore admissions",
       "trackCta": "Track your request"
     }
   },
@@ -1681,21 +1681,18 @@
     "continueBody": "Pick up where you left off before the timer runs out.",
     "resume": "Resume test",
     "purchased": "Your tests",
-    "upcoming": "New tests to try",
+    "upcoming": "Available tests",
     "start": "Start",
     "resumeShort": "Resume",
     "viewResult": "View result",
     "buy": "Buy ₹{price}",
-    "noPurchased": "You haven’t bought any tests yet.",
-    "noUpcoming": "You own every available test — nice!",
+    "noPurchased": "Start a test to begin building your practice history.",
+    "noUpcoming": "No tests are currently available.",
     "previousScores": "Recent scores",
     "noScores": "Take a test to see your scores here.",
     "score": "Score",
-    "platformRank": "Platform Rank",
-    "rankValue": "#{rank}",
-    "rankOf": "of {total} students",
-    "noRank": "Take a full test to get ranked.",
-    "bestScore": "Best full test: {score}",
+    "practiceTitle": "Exam preparation",
+    "practiceBody": "Continue practising to build your performance history.",
     "weakChapters": "Focus areas",
     "strongChapters": "Your strengths",
     "noWeak": "No weak chapters yet — keep practising.",
@@ -1706,7 +1703,7 @@
     "viewAll": "View all",
     "browseCta": "Browse tests",
     "emptyTitle": "Welcome! Let’s begin.",
-    "emptyBody": "Buy your first ₹30 mock test and start practising for NEET."
+    "emptyBody": "Start a free test to begin practising for NEET."
   },
   "errors": {
     "notFound": {
