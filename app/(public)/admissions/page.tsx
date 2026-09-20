@@ -11,7 +11,7 @@ import CompareTray from '@/components/admissions/CompareTray';
 import { ADMISSION_COUNTRY_PROFILES } from '@/lib/data/admissions/countries';
 import { ProductFaqSection, RelatedServicesSection } from '@/components/public/ProductPageBlocks';
 
-const REGION_FILTERS = ['all', 'apac', 'europe', 'central-asia', 'eastern-europe', 'southeast-asia'] as const;
+const REGION_FILTERS = ['all', 'europe', 'caucasus', 'central-asia', 'southeast-asia'] as const;
 
 type RegionFilter = (typeof REGION_FILTERS)[number];
 
@@ -30,10 +30,10 @@ function normalizeRegionFilter(region?: string): RegionFilter {
 
 function matchesRegion(country: (typeof ADMISSION_COUNTRY_PROFILES)[number], region: RegionFilter) {
   if (region === 'all') return true;
-  if (region === 'apac') return country.region === 'APAC';
   if (region === 'europe') return country.region === 'EUROPE';
+  if (region === 'caucasus') return country.region === 'CAUCASUS';
   if (region === 'central-asia') return country.region === 'CENTRAL_ASIA';
-  return country.subregion.toLowerCase().replace(/\s+/g, '-') === region;
+  return country.region === 'SOUTHEAST_ASIA';
 }
 
 export default async function AdmissionsPage({ searchParams }: AdmissionsPageProps) {
@@ -44,10 +44,14 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
   const chooseItems = t.raw('choose.items') as { title: string; body: string }[];
   const faqItems = t.raw('faq.items') as { q: string; a: string }[];
   const relatedItems = t.raw('related.items') as { title: string; body: string; href: string; cta: string }[];
-  const regions = t.raw('regions.items') as { key: RegionFilter | 'other'; title: string; body: string; cta: string }[];
+  const regions = (t.raw('regions.items') as { key: RegionFilter | 'other'; title: string; body: string; cta: string }[])
+    .filter((region, index, items) => region.key === 'other' || (REGION_FILTERS.includes(region.key as RegionFilter) && items.findIndex((item) => item.key === region.key) === index));
   const studyPaths = t.raw('studyPaths.items') as { title: string; body: string }[];
   const featuredCountries = ADMISSION_COUNTRY_PROFILES.filter((country) => country.featured && country.detailAvailable);
   const visibleCountries = featuredCountries.filter((country) => matchesRegion(country, activeRegion));
+  const countriesByRegion = Array.from(new Map(
+    visibleCountries.map((country) => [country.subregion, visibleCountries.filter((item) => item.subregion === country.subregion)]),
+  ).entries());
 
   return (
     <div className={styles.page}>
@@ -124,15 +128,15 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
           </div>
           <p className="max-w-2xl text-sm leading-7 text-[#565c60]">{t('destinations.subtitle')}</p>
         </div>
-        <div className="mb-6 flex flex-wrap gap-2">
+        <div className="mb-6 flex flex-wrap gap-2" aria-label={t('regions.eyebrow')}>
           {REGION_FILTERS.map((region) => (
             <Link
               key={region}
               href={region === 'all' ? '/admissions#destinations' : `/admissions?region=${region}#destinations`}
               className={`rounded-full border px-4 py-2 text-xs font-black uppercase tracking-[0.08em] transition ${
                 activeRegion === region
-                  ? 'border-brand bg-brand-soft text-brand'
-                  : 'border-[#dce0e2] bg-white text-[#565c60] hover:border-brand/45'
+                  ? 'border-[#17191c] bg-[#17191c] text-white shadow-sm'
+                  : 'border-[#b9c4d0] bg-white text-[#344253] hover:border-[#315f9f] hover:text-[#17191c]'
               }`}
             >
               {t(`regions.filters.${region}`)}
@@ -140,8 +144,15 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
           ))}
         </div>
         {visibleCountries.length ? (
-        <div className="grid gap-6 md:grid-cols-2">
-          {visibleCountries.map((country) => (
+        <div className="space-y-10">
+          {countriesByRegion.map(([region, countries]) => (
+            <section key={region} aria-labelledby={`region-${region.toLowerCase().replace(/\s+/g, '-')}`}>
+              <div className="mb-4 flex items-center gap-4">
+                <h3 id={`region-${region.toLowerCase().replace(/\s+/g, '-')}`} className="text-sm font-black uppercase tracking-[0.18em] text-[#344253]">{region}</h3>
+                <span className="h-px flex-1 bg-[#b9c4d0]" />
+              </div>
+              <div className="grid gap-6 md:grid-cols-2">
+          {countries.map((country) => (
             <div
               key={country.slug}
               className="group overflow-hidden rounded-md border border-[#dce0e2] bg-white transition hover:-translate-y-1 hover:border-[#315f9f]"
@@ -178,13 +189,16 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
                   </Link>
                   <Link
                     href={`/admissions/compare?countries=${country.slug}`}
-                    className="inline-flex min-h-11 items-center justify-center rounded-lg border border-[#dce0e2] bg-[#050505] px-3 py-2.5 text-xs font-black uppercase tracking-[0.08em] text-[#565c60] transition hover:border-brand/45"
+                    className="inline-flex min-h-11 items-center justify-center rounded-lg border border-[#10151c] bg-[#10151c] px-3 py-2.5 text-xs font-black uppercase tracking-[0.08em] text-white transition hover:border-[#315f9f] hover:bg-[#315f9f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#315f9f]"
                   >
                     {t('destinations.compareCta')}
                   </Link>
                 </div>
               </div>
             </div>
+          ))}
+              </div>
+            </section>
           ))}
         </div>
         ) : (

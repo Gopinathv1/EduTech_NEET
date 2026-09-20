@@ -2873,10 +2873,10 @@
       "subtitle": "Start with a region, explore available featured destinations, then speak with SIVORA about places beyond the current researched list.",
       "filters": {
         "all": "All Featured",
-        "apac": "APAC",
-        "europe": "Europe",
-        "central-asia": "Central Asia",
-        "eastern-europe": "Eastern Europe",
+      "europe": "Europe",
+      "caucasus": "Caucasus",
+      "central-asia": "Central Asia",
+      "eastern-europe": "Eastern Europe",
         "southeast-asia": "Southeast Asia"
       },
       "emptyTitle": "More destinations coming soon.",
@@ -2884,9 +2884,9 @@
       "emptyCta": "Get Admission Guidance",
       "items": [
         {
-          "key": "apac",
-          "title": "APAC",
-          "body": "Explore education opportunities across Asia-Pacific destinations.",
+        "key": "caucasus",
+        "title": "Caucasus",
+        "body": "Explore the featured destinations in the Caucasus with researched country details.",
           "cta": "Explore Region"
         },
         {
@@ -2902,9 +2902,9 @@
           "cta": "Explore Region"
         },
         {
-          "key": "eastern-europe",
-          "title": "Eastern Europe",
-          "body": "Compare featured destination pages with researched country details.",
+        "key": "europe",
+        "title": "Europe",
+        "body": "Explore the current European destination with researched country details.",
           "cta": "Explore Region"
         },
         {

@@ -108,7 +108,7 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
 
   return (
     <>
-      <section className="public-editorial-hero relative overflow-hidden border-b border-[#d2c9bd] bg-[#f5f1e9]">
+      <section className="public-editorial-hero relative overflow-hidden border-b border-[#d9dee5] bg-[#f5f7fa]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(49,95,159,0.1),transparent_32%)]" />
         {country.landmark.imagePath ? (
           <Image
@@ -167,7 +167,7 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
       <Section tinted lazy>
         <div className="mb-7">
           <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('timeTravel.eyebrow')}</p>
-          <h2 className="mt-4 text-[clamp(2.2rem,5vw,4.7rem)] font-black uppercase leading-[0.92] text-white">
+          <h2 className="mt-4 text-[clamp(2.2rem,5vw,4.7rem)] font-black uppercase leading-[0.92] text-[#171717]">
             {t('timeTravel.title')}
           </h2>
         </div>
@@ -218,7 +218,7 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
         <div className="grid gap-6 lg:grid-cols-[0.7fr_0.9fr] lg:items-start">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('budget.eyebrow')}</p>
-            <h2 className="mt-4 text-[clamp(2.2rem,5vw,4.7rem)] font-black uppercase leading-[0.92] text-white">
+          <h2 className="mt-4 text-[clamp(2.2rem,5vw,4.7rem)] font-black uppercase leading-[0.92] text-[#171717]">
               {t('budget.snapshotTitle')}
             </h2>
             <p className="mt-4 text-sm leading-7 text-[#D1D1D1]">{t('budget.note')}</p>
@@ -263,10 +263,10 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
         </div>
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {country.universities.map((university) => (
-            <div key={university} className="flex min-h-52 flex-col rounded-md border border-[#d2c9bd] bg-[#eee8df] p-5">
+            <div key={university} className="flex min-h-52 flex-col rounded-md border border-[#dce0e2] bg-white p-5">
               <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">{mainCity}</p>
-              <h3 className="mt-3 text-lg font-black uppercase leading-tight text-white">{university}</h3>
-              <p className="mt-4 text-sm leading-6 text-[#D1D1D1]">
+              <h3 className="mt-3 text-lg font-black uppercase leading-tight text-[#171717]">{university}</h3>
+              <p className="mt-4 text-sm leading-6 text-[#565c60]">
                 {country.program.duration?.value ? t('universities.durationLine', { duration: country.program.duration.value }) : t('contactForCurrentDetails')}
               </p>
               <div className="mt-auto pt-5">
@@ -281,7 +281,7 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
         <div className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('cities.eyebrow')}</p>
-            <h2 className="mt-4 text-[clamp(2.2rem,5vw,4.7rem)] font-black uppercase leading-[0.92] text-white">
+          <h2 className="mt-4 text-[clamp(2.2rem,5vw,4.7rem)] font-black uppercase leading-[0.92] text-[#171717]">
               {t('cities.title')}
             </h2>
           </div>
@@ -303,7 +303,7 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
         <div className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('compare.eyebrow')}</p>
-            <h2 className="mt-4 text-[clamp(2.2rem,5vw,4.7rem)] font-black uppercase leading-[0.92] text-white">
+          <h2 className="mt-4 text-[clamp(2.2rem,5vw,4.7rem)] font-black uppercase leading-[0.92] text-[#171717]">
               {t('compare.thisCountryTitle', { country: country.name })}
             </h2>
           </div>
@@ -320,7 +320,7 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
         <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('countryFaq.eyebrow')}</p>
-            <h2 className="mt-4 text-[clamp(2.2rem,5vw,4.7rem)] font-black uppercase leading-[0.92] text-white">
+          <h2 className="mt-4 text-[clamp(2.2rem,5vw,4.7rem)] font-black uppercase leading-[0.92] text-[#171717]">
               {t('countryFaq.title', { country: country.name })}
             </h2>
           </div>
@@ -331,7 +331,7 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
       <Section lazy>
         <div className="mb-8">
           <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('more.eyebrow')}</p>
-          <h2 className="mt-4 text-[clamp(2rem,4vw,4rem)] font-black uppercase leading-[0.95] text-white">{t('more.title')}</h2>
+          <h2 className="mt-4 text-[clamp(2rem,4vw,4rem)] font-black uppercase leading-[0.95] text-[#171717]">{t('more.title')}</h2>
         </div>
         <div className="flex flex-wrap gap-3">
           {moreCountries.map((item) => (
@@ -387,18 +387,18 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
       </Section>
 
       <Section lazy>
-        <div className="rounded-md border border-[#d2c9bd] bg-[#eee8df] p-8 lg:flex lg:items-end lg:justify-between lg:gap-8">
+        <div className="rounded-md border border-[#dce0e2] bg-white p-8 lg:flex lg:items-end lg:justify-between lg:gap-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.24em] text-brand">{t('cta.eyebrow')}</p>
-            <h2 className="mt-4 text-3xl font-black uppercase text-white sm:text-5xl">{t('cta.simpleTitle')}</h2>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-[#D1D1D1]">{t('cta.simpleBody')}</p>
+            <h2 className="mt-4 text-3xl font-black uppercase text-[#171717] sm:text-5xl">{t('cta.simpleTitle')}</h2>
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-[#565c60]">{t('cta.simpleBody')}</p>
           </div>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:mt-0">
             <PrimaryLink href="/counselling">{t('cta.primary')}</PrimaryLink>
             <WhatsAppLink
               label={t('cta.whatsappLabel')}
               message={t('cta.whatsappMessage')}
-              className="inline-flex items-center justify-center rounded-lg border border-[#25D366]/45 bg-[#25D366]/14 px-5 py-3 text-sm font-black uppercase tracking-[0.08em] text-white transition hover:-translate-y-0.5 hover:bg-[#25D366]/24"
+              className="inline-flex items-center justify-center rounded-lg border border-[#168a45] bg-[#e7f7ed] px-5 py-3 text-sm font-black uppercase tracking-[0.08em] text-[#14532d] transition hover:-translate-y-0.5 hover:bg-[#d5f2df] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#168a45]"
             >
               {t('cta.whatsapp')}
             </WhatsAppLink>

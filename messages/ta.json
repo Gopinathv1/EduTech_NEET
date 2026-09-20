@@ -2868,9 +2868,9 @@
       "subtitle": "Region மூலம் தொடங்கி, available featured destinations explore செய்து, current researched list க்கு அப்பால் உள்ள places குறித்து SIVORA உடன் பேசுங்கள்.",
       "filters": {
         "all": "All Featured",
-        "apac": "APAC",
-        "europe": "Europe",
-        "central-asia": "Central Asia",
+      "europe": "Europe",
+      "caucasus": "Caucasus",
+      "central-asia": "Central Asia",
         "eastern-europe": "Eastern Europe",
         "southeast-asia": "Southeast Asia"
       },
@@ -2879,9 +2879,9 @@
       "emptyCta": "Get Admission Guidance",
       "items": [
         {
-          "key": "apac",
-          "title": "APAC",
-          "body": "Asia-Pacific destinations இல் education opportunities explore செய்யுங்கள்.",
+        "key": "caucasus",
+        "title": "Caucasus",
+        "body": "ஆராயப்பட்ட country details உடன் Caucasus இல் உள்ள featured destinations explore செய்யுங்கள்.",
           "cta": "Explore Region"
         },
         {
@@ -2897,9 +2897,9 @@
           "cta": "Explore Region"
         },
         {
-          "key": "eastern-europe",
-          "title": "Eastern Europe",
-          "body": "Researched country details உள்ள featured destination pages compare செய்யுங்கள்.",
+        "key": "europe",
+        "title": "Europe",
+        "body": "ஆராயப்பட்ட country details உடன் தற்போதைய European destination explore செய்யுங்கள்.",
           "cta": "Explore Region"
         },
         {

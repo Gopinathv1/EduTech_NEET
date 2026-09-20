@@ -2875,9 +2875,9 @@
       "subtitle": "Region से शुरू करें, available featured destinations explore करें, फिर current researched list से आगे के places के लिए SIVORA से बात करें.",
       "filters": {
         "all": "All Featured",
-        "apac": "APAC",
-        "europe": "Europe",
-        "central-asia": "Central Asia",
+      "europe": "Europe",
+      "caucasus": "Caucasus",
+      "central-asia": "Central Asia",
         "eastern-europe": "Eastern Europe",
         "southeast-asia": "Southeast Asia"
       },
@@ -2886,9 +2886,9 @@
       "emptyCta": "Get Admission Guidance",
       "items": [
         {
-          "key": "apac",
-          "title": "APAC",
-          "body": "Asia-Pacific destinations में education opportunities explore करें.",
+        "key": "caucasus",
+        "title": "Caucasus",
+        "body": "researched country details के साथ Caucasus के featured destinations explore करें.",
           "cta": "Explore Region"
         },
         {
@@ -2904,9 +2904,9 @@
           "cta": "Explore Region"
         },
         {
-          "key": "eastern-europe",
-          "title": "Eastern Europe",
-          "body": "Researched country details वाले featured destination pages compare करें.",
+        "key": "europe",
+        "title": "Europe",
+        "body": "researched country details के साथ current European destination explore करें.",
           "cta": "Explore Region"
         },
         {

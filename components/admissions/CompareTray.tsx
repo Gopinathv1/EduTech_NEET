@@ -38,9 +38,10 @@ export default function CompareTray({
               type="button"
               onClick={() => toggle(country.slug)}
               className={`flex min-h-16 items-center justify-between gap-3 rounded-xl border px-4 py-3 text-left transition ${
-                active ? 'border-brand bg-brand-soft text-white' : 'border-[#2B2B2B] bg-[#111111] text-[#D1D1D1] hover:border-brand/45'
+                active ? 'border-[#75aaff] bg-[#1f4f86] text-white ring-2 ring-[#75aaff]/45' : 'border-[#667789] bg-[#111111] text-[#edf6ff] hover:border-[#75aaff]'
               }`}
               aria-pressed={active}
+              aria-label={`${active ? labels.remove : labels.add} ${country.name}`}
             >
               <span className="min-w-0">
                 <span className="mr-2 text-xl">{country.flag}</span>
