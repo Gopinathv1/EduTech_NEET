@@ -17,6 +17,9 @@ export const questionStatusEnum = z.enum(['DRAFT', 'REVIEW', 'PUBLISHED']);
 export const contentClassificationEnum = z.enum(['SAMPLE', 'PRODUCTION']);
 export const questionSourceTypeEnum = z.enum(['INTERNALLY_AUTHORED', 'LICENSED', 'OFFICIAL_PREVIOUS_YEAR', 'OTHER']);
 
+export const contactStatusEnum = z.enum(['NEW', 'RESPONDED', 'CLOSED']);
+export const contactStatusUpdateSchema = z.object({ status: contactStatusEnum });
+
 // ---- Chapters -------------------------------------------------------------
 
 export const chapterCreateSchema = z.object({

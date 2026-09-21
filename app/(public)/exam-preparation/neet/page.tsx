@@ -61,7 +61,7 @@ function ExamDetail({ exam }: { exam: typeof neet }) {
       <Section lazy>
         <div className="mb-6 grid gap-3 sm:grid-cols-2">
           {([['FULL_TEST', 'full'], ['SUBJECT_TEST', 'subject'], ['CHAPTER_TEST', 'chapter']] as const).map(([type, label]) =>
-            <PrimaryLink key={type} href={`/student/tests?type=${type}`}>{tn(label)}</PrimaryLink>)}
+            <PrimaryLink key={type} href={`/login?callbackUrl=${encodeURIComponent(`/student/tests?type=${type}`)}`}>{tn(label)}</PrimaryLink>)}
         </div>
         <p className="mb-6 text-sm text-[#6b6b67]">{tn('disclaimer')}</p>
         <div className="flex flex-col gap-3 sm:flex-row">

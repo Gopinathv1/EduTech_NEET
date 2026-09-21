@@ -2,6 +2,7 @@ import { prisma } from '@/lib/prisma';
 import { contactEnquirySchema } from '@/lib/validation/contact';
 import { enforceRateLimit, clientIp } from '@/lib/auth/rate-limit';
 import { ok, fail, readJson } from '@/lib/http';
+import { getWhatsAppUrl } from '@/lib/whatsapp';
 
 export const runtime = 'nodejs';
 
@@ -20,7 +21,7 @@ export async function POST(req: Request) {
   }
   const d = parsed.data;
 
-  await prisma.contactEnquiry.create({
+  const enquiry = await prisma.contactEnquiry.create({
     data: {
       name: d.name,
       mobile: d.mobile,
@@ -29,5 +30,7 @@ export async function POST(req: Request) {
     },
   });
 
-  return ok();
+  const reference = `SIV-${enquiry.id.slice(-6).toUpperCase()}`;
+  const whatsapp = getWhatsAppUrl(`Hello SIVORA,\nI requested counselling/callback through the website.\nReference: ${reference}`);
+  return ok({ reference, whatsappUrl: whatsapp.url });
 }

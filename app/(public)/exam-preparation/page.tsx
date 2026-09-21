@@ -103,7 +103,7 @@ export default function ExamPreparationPage() {
             <h2 className="mt-4 text-3xl font-black uppercase text-[#171717] sm:text-5xl">{t('ctaTitle')}</h2>
           </div>
           <div className="mt-6 lg:mt-0">
-            <PrimaryLink href="/mock-tests">{t('primaryCta')}</PrimaryLink>
+            <PrimaryLink href="/exam-preparation/neet">Take a free test</PrimaryLink>
           </div>
         </div>
       </Section>

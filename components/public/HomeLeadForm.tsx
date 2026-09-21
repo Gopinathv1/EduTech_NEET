@@ -32,6 +32,7 @@ export default function HomeLeadForm() {
   const errText = useErrorText();
   const [banner, setBanner] = useState<string>();
   const [done, setDone] = useState(false);
+  const [whatsappUrl, setWhatsappUrl] = useState<string | null>(null);
   const interests = t.raw('interests') as string[];
   const {
     register,
@@ -76,6 +77,7 @@ export default function HomeLeadForm() {
 
     if (res.ok) {
       setDone(true);
+      setWhatsappUrl(typeof res.whatsappUrl === 'string' ? res.whatsappUrl : null);
       reset();
       return;
     }
@@ -90,6 +92,7 @@ export default function HomeLeadForm() {
         </span>
         <h3 className="mt-3 text-lg font-semibold text-textPrimary">{t('successTitle')}</h3>
         <p className="mt-1 text-sm text-textSecondary">{t('success')}</p>
+        {whatsappUrl ? <a href={whatsappUrl} target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center justify-center rounded-md bg-[#168a45] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#126f39]">Continue on WhatsApp</a> : null}
       </div>
     );
   }
