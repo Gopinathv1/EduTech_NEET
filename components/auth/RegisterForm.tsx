@@ -19,7 +19,7 @@ type FormValues = {
   preferredLanguage: string;
 };
 
-export default function RegisterForm() {
+export default function RegisterForm({ callbackUrl }: { callbackUrl?: string }) {
   const t = useTranslations('auth.register');
   const errText = useErrorText();
   const locale = useLocale();
@@ -49,8 +49,9 @@ export default function RegisterForm() {
     const data = parseForm(registerSchema, values, setFieldError, errText);
     if (!data) return;
 
-    const res = await apiPost('/api/auth/register', data);
-    if (res.ok && typeof res.redirect === 'string') {
+    const qs = callbackUrl ? `?callbackUrl=${encodeURIComponent(callbackUrl)}` : '';
+    const res = await apiPost(`/api/auth/register${qs}`, data);
+    if (typeof res.redirect === 'string' && (res.ok || res.registered === true)) {
       window.location.href = res.redirect;
       return;
     }
@@ -67,6 +68,7 @@ export default function RegisterForm() {
         <div>
           <h1 className="text-xl font-bold text-textPrimary">{t('title')}</h1>
           <p className="mt-1 text-sm text-textSecondary">{t('subtitle')}</p>
+          <p className="mt-2 text-xs leading-5 text-textSecondary">Use an active mobile number and email address. Verification is required to access tests and receive important account or counselling updates.</p>
         </div>
 
         {banner ? <Banner kind="error">{banner}</Banner> : null}

@@ -6,6 +6,7 @@ import { Section, PrimaryLink, SecondaryLink } from '@/components/public/ui';
 import ExploreSivora from '@/components/public/ExploreSivora';
 import { EXAMS } from '@/data/exams';
 import ExamLoopVisual from '@/components/public/ExamLoopVisual';
+import SivoraPracticePreview from '@/components/public/SivoraPracticePreview';
 
 const neet = EXAMS.find((exam) => exam.slug === 'neet')!;
 
@@ -26,6 +27,9 @@ export default function NeetPreparationPage() {
       />
       <Section>
         <ExamLoopVisual exam="NEET" />
+      </Section>
+      <Section tinted lazy>
+        <SivoraPracticePreview />
       </Section>
       <ExamDetail exam={neet} />
     </>

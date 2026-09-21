@@ -11,6 +11,7 @@ import type { ExamLanguage } from '@/lib/attempts/examState';
 import StudentHeader from '@/components/student/StudentHeader';
 import StartAttemptClient from '@/components/student/exam/StartAttemptClient';
 import { productionTestWhere } from '@/lib/content/eligibility';
+import { withReturnParam } from '@/lib/auth/redirect';
 import { ClockIcon, BookIcon } from '@/components/public/icons';
 
 /**
@@ -26,6 +27,10 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
   const tc = await getTranslations('catalogue');
   const session = await getSession();
   if (!session || session.kind !== 'student') redirect(`/login?next=/student/tests/${id}/start`);
+  const identity = await prisma.student.findUnique({ where: { id: session.sub }, select: { isEmailVerified: true, isMobileVerified: true } });
+  if (!identity || (!identity.isEmailVerified && !identity.isMobileVerified)) {
+    redirect(withReturnParam('/verify-email', `/student/tests/${id}/start`));
+  }
 
   const test = await prisma.test.findUnique({
     where: { ...productionTestWhere, id },
@@ -101,6 +106,7 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
                 languages={languages}
                 defaultLanguage={defaultLanguage}
                 resume={false}
+                testType={test.testType}
               />
             </div>
           </div>
@@ -162,6 +168,7 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
                     languages={languages}
                     defaultLanguage={defaultLanguage}
                     resume
+                    testType={test.testType}
                   />
                 </div>
               </div>
@@ -172,6 +179,7 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
                   languages={languages}
                   defaultLanguage={defaultLanguage}
                   resume={false}
+                  testType={test.testType}
                 />
               </div>
             )}

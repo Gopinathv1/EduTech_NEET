@@ -27,6 +27,13 @@ describe('paid retry client flow', () => {
     expect(post).toHaveBeenCalledTimes(1);
   });
 
+  it('surfaces an unavailable question set without attempting a payment flow', async () => {
+    const post = vi.fn().mockResolvedValue({ ok: false, error: 'questionSetUnavailable' });
+
+    await expect(requestAttemptStart({ post, testId: 't1', language: 'en', navigate: vi.fn() })).resolves.toBe('questionSetUnavailable');
+    expect(post).toHaveBeenCalledTimes(1);
+  });
+
   it.each(['creditAvailable', 'attemptActive', 'freeAttemptsRemain'])(
     'retries normal start instead of checkout when retry-order reports %s',
     async (error) => {

@@ -6,6 +6,7 @@ import { apiPost } from '@/lib/client/api';
 import type { ExamLanguage } from '@/lib/attempts/examState';
 import CheckoutClient from '@/components/student/CheckoutClient';
 import { requestAttemptStart } from '@/lib/client/paid-retry-flow';
+import Link from 'next/link';
 
 /**
  * The language chooser + Start button on the instructions page. If the student
@@ -17,11 +18,13 @@ export default function StartAttemptClient({
   languages,
   defaultLanguage,
   resume,
+  testType,
 }: {
   testId: string;
   languages: ExamLanguage[];
   defaultLanguage: ExamLanguage;
   resume: boolean;
+  testType: string;
 }) {
   const t = useTranslations('exam.instructions');
   const [language, setLanguage] = useState<ExamLanguage>(defaultLanguage);
@@ -45,6 +48,15 @@ export default function StartAttemptClient({
     setBusy(false);
     if (outcome === 'paymentRequired') {
       setPaymentRequired(true);
+      return false;
+    }
+    if (outcome === 'verificationRequired') return false;
+    if (outcome === 'questionSetUnavailable') {
+      setError(
+        testType === 'FULL_TEST'
+          ? 'This 180-question full mock is being prepared. Choose a subject or chapter practice set while it becomes available.'
+          : 'This practice set does not yet have enough eligible questions for its published format. Please choose another available set.',
+      );
       return false;
     }
     setError(t('startError'));
@@ -79,9 +91,14 @@ export default function StartAttemptClient({
       ) : null}
 
       {error ? (
-        <p className="mt-4 rounded-lg border border-red-200 bg-red-950/30 px-3 py-2 text-sm text-red-200">
+        <div className="mt-4 rounded-lg border border-red-200 bg-red-950/30 px-3 py-2 text-sm text-red-200">
           {error}
-        </p>
+          {testType === 'FULL_TEST' ? (
+            <Link href="/student/tests?type=SUBJECT_TEST" className="mt-2 block font-semibold underline">
+              Browse subject practice
+            </Link>
+          ) : null}
+        </div>
       ) : null}
 
       {paymentRequired ? (

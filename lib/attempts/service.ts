@@ -26,7 +26,7 @@ import { buildResultNotificationData } from '@/lib/notifications/create';
 
 export type StartOutcome =
   | { ok: true; attemptId: string; resumed: boolean }
-  | { ok: false; code: 'notFound' | 'languageUnavailable' | 'paymentRequired' | 'generationFailed'; attemptId?: string };
+  | { ok: false; code: 'notFound' | 'languageUnavailable' | 'paymentRequired' | 'questionSetUnavailable' | 'generationFailed'; attemptId?: string };
 
 const ACTIVE: AttemptStatus = 'IN_PROGRESS';
 
@@ -66,7 +66,12 @@ export async function startOrResumeAttempt(
     ({ questionIds } = await generateForAttempt(testId, language, seed));
     if (!questionIds.length) throw new GeneratorError('Empty question set');
   } catch (error) {
-    if (error instanceof GeneratorError) return { ok: false, code: 'generationFailed' };
+    if (error instanceof GeneratorError) {
+      // A test must keep its configured question count and duration. Never
+      // silently shorten a practice paper just because its eligible pool is
+      // temporarily smaller than the published configuration.
+      return { ok: false, code: 'questionSetUnavailable' };
+    }
     throw error;
   }
   for (let retry = 0; retry < 5; retry++) {

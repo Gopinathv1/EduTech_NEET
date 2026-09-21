@@ -22,6 +22,7 @@ vi.mock('@/lib/prisma', () => ({
 
 import { prisma } from '@/lib/prisma';
 import { startOrResumeAttempt } from '@/lib/attempts/service';
+import { GeneratorError } from '@/lib/generator';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const p = prisma as any;
@@ -141,8 +142,15 @@ describe('startOrResumeAttempt', () => {
     expect(await startOrResumeAttempt('s1', 't1', 'en')).toEqual({ ok: true, attemptId: 'concurrent', resumed: true });
     expect(p.testAttempt.create).not.toHaveBeenCalled();
   });
-  it('does not consume a slot when question generation fails', async () => {
+  it('does not consume a slot when an empty question set is unavailable', async () => {
     generator.generateForAttempt.mockResolvedValue({ questionIds: [] });
-    expect(await startOrResumeAttempt('s1', 't1', 'en')).toEqual({ ok: false, code: 'generationFailed' });
+    expect(await startOrResumeAttempt('s1', 't1', 'en')).toEqual({ ok: false, code: 'questionSetUnavailable' });
+    expect(p.testAttempt.create).not.toHaveBeenCalled();
+  });
+
+  it('reports an unavailable practice set when its eligible question pool is too small', async () => {
+    generator.generateForAttempt.mockRejectedValue(new GeneratorError('Not enough active questions for subject physics'));
+
+    expect(await startOrResumeAttempt('s1', 't1', 'en')).toEqual({ ok: false, code: 'questionSetUnavailable' });
     expect(p.testAttempt.create).not.toHaveBeenCalled();
   });

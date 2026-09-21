@@ -19,12 +19,17 @@ export async function requestAttemptStart(input: {
   testId: string;
   language: string;
   navigate: (url: string) => void;
-}): Promise<'started' | 'paymentRequired' | 'failed'> {
+}): Promise<'started' | 'paymentRequired' | 'verificationRequired' | 'questionSetUnavailable' | 'failed'> {
   const result = await input.post('/api/attempts', { testId: input.testId, language: input.language });
   if (result.ok && typeof result.redirect === 'string') {
     input.navigate(result.redirect);
     return 'started';
   }
+  if (result.error === 'verificationRequired' && typeof result.redirect === 'string') {
+    input.navigate(result.redirect);
+    return 'verificationRequired';
+  }
+  if (result.error === 'questionSetUnavailable') return 'questionSetUnavailable';
   return result.error === 'paymentRequired' ? 'paymentRequired' : 'failed';
 }
 

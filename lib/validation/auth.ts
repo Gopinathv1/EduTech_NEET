@@ -86,6 +86,15 @@ export const otpVerifySchema = z.object({
 });
 export type OtpVerifyInput = z.infer<typeof otpVerifySchema>;
 
+export const emailVerificationRequestSchema = z.object({
+  email: emailSchema,
+  mobile: mobileSchema,
+});
+
+export const emailVerificationVerifySchema = emailVerificationRequestSchema.extend({
+  otp: otpSchema,
+});
+
 export const adminLoginSchema = z.object({
   email: emailSchema,
   password: z.string().min(1, 'required'),

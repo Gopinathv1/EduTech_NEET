@@ -2,13 +2,14 @@ import { Prisma } from '@prisma/client';
 import { prisma } from '@/lib/prisma';
 import { registerSchema } from '@/lib/validation/auth';
 import { hashPassword } from '@/lib/auth/password';
-import { createSession } from '@/lib/auth/session';
-import { syncLocaleFromProfile } from '@/lib/locale';
+import { requestEmailVerificationOtp } from '@/lib/email/otp';
+import { clientIp } from '@/lib/auth/rate-limit';
+import { returnParamFromUrl, withReturnParam } from '@/lib/auth/redirect';
 import { ok, fail, readJson } from '@/lib/http';
 
 export const runtime = 'nodejs';
 
-// POST /api/auth/register — create a password student account and sign in.
+// POST /api/auth/register — create an unverified password account and send email verification.
 export async function POST(req: Request) {
   const parsed = registerSchema.safeParse(await readJson(req));
   if (!parsed.success) {
@@ -37,9 +38,12 @@ export async function POST(req: Request) {
         isMobileVerified: false,
       },
     });
-    await createSession({ sub: student.id, kind: 'student', role: 'STUDENT', name: student.name });
-    await syncLocaleFromProfile(student.preferredLanguage);
-    return ok({ registered: true, redirect: '/student' });
+    const delivery = await requestEmailVerificationOtp({ email: d.email, mobile: d.mobile, ip: clientIp(req) });
+    const verifyUrl = new URL(withReturnParam('/verify-email', returnParamFromUrl(new URL(req.url))), 'http://sivora.local');
+    verifyUrl.searchParams.set('email', d.email);
+    const redirect = `${verifyUrl.pathname}${verifyUrl.search}`;
+    if (!delivery.ok) return fail(delivery.reason === 'delivery_failed' ? 'otpDeliveryFailed' : 'rateLimited', delivery.reason === 'delivery_failed' ? 502 : 429, { registered: true, redirect, retryAfterSeconds: delivery.retryAfterSeconds });
+    return ok({ registered: true, redirect });
   } catch (e) {
     if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === 'P2002') {
       const target = String((e.meta?.target as string[] | undefined)?.join(',') ?? '');

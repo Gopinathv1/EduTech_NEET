@@ -111,7 +111,7 @@ export default function LoginForm({ authError, callbackUrl }: { authError?: stri
       <div className="space-y-2 border-t border-border pt-4 text-center text-sm">
         <p className="text-[#565c60]">
           {t('noAccount')}{' '}
-          <Link href="/register" className="font-semibold text-brand hover:text-accent">
+          <Link href={callbackUrl ? `/register?callbackUrl=${encodeURIComponent(callbackUrl)}` : '/register'} className="font-semibold text-brand hover:text-accent">
             {t('register')}
           </Link>
         </p>
