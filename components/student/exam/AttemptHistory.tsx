@@ -20,9 +20,10 @@ export default async function AttemptHistory({
     select: { id: true, status: true, startedAt: true, result: { select: { score: true, totalQuestions: true } } },
   });
   const paidRetriesEnabled = examPaidRetriesEnabled();
+  const completedCount = attempts.filter((attempt) => attempt.status !== 'IN_PROGRESS').length;
   return <section className="mt-8 rounded-2xl border border-border p-5">
     <h2 className="text-lg font-bold">{t('history')}</h2>
-    <p className="mt-1 text-sm text-textSecondary">{paidRetriesEnabled ? t('used', { count: attempts.length, limit: FREE_ATTEMPT_LIMIT }) : `${attempts.length} practice attempts completed — unlimited access.`}</p>
+    <p className="mt-1 text-sm text-textSecondary">{paidRetriesEnabled ? t('used', { count: attempts.length, limit: FREE_ATTEMPT_LIMIT }) : `${completedCount} completed · Practice again anytime — repeat attempts are currently free.`}</p>
     <ul className="mt-3 divide-y divide-border">
       {attempts.map((a, i) => <li key={a.id} className="flex flex-wrap items-center justify-between gap-3 py-3 text-sm">
         <Link className="font-semibold text-brand underline" href={a.status === 'IN_PROGRESS' ? `/student/tests/${testId}/attempt` : `/student/results/${a.id}`}>

@@ -11,6 +11,9 @@ export type CatalogueCard = {
   difficulty: string | null;
   languages: string[];
   attemptsRemaining: number | null;
+  actionHref?: string;
+  actionLabel?: string;
+  statusNote?: string;
 };
 
 export default function TestCard({ test }: { test: CatalogueCard }) {
@@ -51,14 +54,14 @@ export default function TestCard({ test }: { test: CatalogueCard }) {
       </div>
 
       <div className="flex items-center justify-between gap-4 lg:justify-end">
-        <span className="text-sm font-semibold text-green-700">
-          {test.attemptsRemaining === null ? 'Unlimited attempts' : t('attemptsRemaining', { count: test.attemptsRemaining })}
+        <span className="max-w-40 text-sm font-semibold text-green-700">
+          {test.statusNote ?? (test.attemptsRemaining === null ? 'Repeat practice is free' : t('attemptsRemaining', { count: test.attemptsRemaining }))}
         </span>
         <Link
-          href={`/student/tests/${test.id}/start`}
+          href={test.actionHref ?? `/student/tests/${test.id}/start`}
           className="rounded-md bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark"
         >
-          {t('start')}
+          {test.actionLabel ?? t('start')}
         </Link>
       </div>
     </article>

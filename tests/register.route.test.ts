@@ -1,22 +1,23 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { afterEach, describe, it, expect, vi, beforeEach } from 'vitest';
 import { Prisma } from '@prisma/client';
 
 vi.mock('@/lib/prisma', () => ({
-  prisma: { student: { findUnique: vi.fn(), create: vi.fn() } },
+  prisma: {
+    $transaction: vi.fn(),
+    student: { findUnique: vi.fn(), create: vi.fn() },
+    rateLimit: { findUnique: vi.fn(), upsert: vi.fn(), update: vi.fn() },
+    otpToken: { findMany: vi.fn(), updateMany: vi.fn(), create: vi.fn() },
+  },
 }));
 vi.mock('@/lib/auth/password', () => ({ hashPassword: vi.fn(async () => 'hashed-password') }));
-vi.mock('@/lib/auth/session', () => ({ createSession: vi.fn() }));
-vi.mock('@/lib/locale', () => ({ syncLocaleFromProfile: vi.fn() }));
 
 import { prisma } from '@/lib/prisma';
 import { hashPassword } from '@/lib/auth/password';
-import { createSession } from '@/lib/auth/session';
 import { POST } from '@/app/api/auth/register/route';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const p = prisma as any;
 const hashPasswordMock = vi.mocked(hashPassword);
-const createSessionMock = vi.mocked(createSession);
 
 const validBody = {
   name: 'Test Student',
@@ -35,10 +36,28 @@ function req(body: unknown) {
   });
 }
 
-beforeEach(() => vi.clearAllMocks());
+beforeEach(() => {
+  vi.clearAllMocks();
+  p.$transaction.mockImplementation((fn: (tx: unknown) => unknown) => fn(p));
+  p.rateLimit.findUnique.mockResolvedValue(null);
+  p.rateLimit.upsert.mockResolvedValue({});
+  p.rateLimit.update.mockResolvedValue({});
+  p.otpToken.findMany.mockResolvedValue([]);
+  p.otpToken.updateMany.mockResolvedValue({ count: 0 });
+  p.otpToken.create.mockResolvedValue({});
+  process.env.RESEND_API_KEY = 'test-resend-key';
+  process.env.RESEND_FROM_EMAIL = 'test@example.com';
+  vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: true }));
+});
+
+afterEach(() => {
+  delete process.env.RESEND_API_KEY;
+  delete process.env.RESEND_FROM_EMAIL;
+  vi.unstubAllGlobals();
+});
 
 describe('POST /api/auth/register', () => {
-  it('creates a password account and starts a student session', async () => {
+  it('creates an unverified password account and sends it to email verification', async () => {
     p.student.findUnique.mockResolvedValue(null);
     p.student.create.mockResolvedValue({
       id: 's1',
@@ -50,7 +69,11 @@ describe('POST /api/auth/register', () => {
     const json = await res.json();
 
     expect(res.status).toBe(200);
-    expect(json).toMatchObject({ ok: true, registered: true, redirect: '/student' });
+    expect(json).toMatchObject({
+      ok: true,
+      registered: true,
+      redirect: '/verify-email?callbackUrl=%2Fstudent&email=new%40example.com',
+    });
     expect(hashPasswordMock).toHaveBeenCalledWith('password123');
     expect(p.student.create).toHaveBeenCalledWith({
       data: expect.objectContaining({
@@ -61,7 +84,19 @@ describe('POST /api/auth/register', () => {
         isMobileVerified: false,
       }),
     });
-    expect(createSessionMock).toHaveBeenCalledWith({ sub: 's1', kind: 'student', role: 'STUDENT', name: 'Test Student' });
+    expect(p.otpToken.create).toHaveBeenCalledWith({
+      data: expect.objectContaining({
+        mobile: '+919876543210',
+        email: 'new@example.com',
+        purpose: 'EMAIL_VERIFICATION',
+        channel: 'EMAIL',
+        otpHash: expect.not.stringMatching(/^\d{6}$/),
+      }),
+    });
+    expect(fetch).toHaveBeenCalledWith(
+      'https://api.resend.com/emails',
+      expect.objectContaining({ method: 'POST' }),
+    );
   });
 
   it('blocks duplicate mobile numbers', async () => {

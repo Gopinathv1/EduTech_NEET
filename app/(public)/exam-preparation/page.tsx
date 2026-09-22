@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { pageMetadata } from '@/lib/seo';
 import PageHero from '@/components/public/PageHero';
@@ -8,14 +7,19 @@ import ExploreSivora from '@/components/public/ExploreSivora';
 import { EXAMS } from '@/data/exams';
 import { ProductFaqSection, RelatedServicesSection } from '@/components/public/ProductPageBlocks';
 import ExamLoopVisual from '@/components/public/ExamLoopVisual';
+import { getSession } from '@/lib/auth/session';
 
 export async function generateMetadata() {
   const t = await getTranslations('seo.examPreparation');
   return pageMetadata({ title: t('title'), description: t('description'), path: '/exam-preparation' });
 }
 
-export default function ExamPreparationPage() {
-  const t = useTranslations('examPreparation');
+export default async function ExamPreparationPage() {
+  const [t, session] = await Promise.all([
+    getTranslations('examPreparation'),
+    getSession(),
+  ]);
+  const studentAuthenticated = session?.kind === 'student';
   const exams = t.raw('exams') as Record<string, { description: string; subjects: string[] }>;
   const features = t.raw('hubFeatures') as string[];
   const practiceSteps = t.raw('practiceFlow.items') as string[];
@@ -103,7 +107,9 @@ export default function ExamPreparationPage() {
             <h2 className="mt-4 text-3xl font-black uppercase text-[#171717] sm:text-5xl">{t('ctaTitle')}</h2>
           </div>
           <div className="mt-6 lg:mt-0">
-            <PrimaryLink href="/exam-preparation/neet">Take a free test</PrimaryLink>
+            <PrimaryLink href={studentAuthenticated ? '/student/tests' : `/login?callbackUrl=${encodeURIComponent('/student/tests')}`}>
+              {studentAuthenticated ? 'Continue practice' : 'Take a free test'}
+            </PrimaryLink>
           </div>
         </div>
       </Section>

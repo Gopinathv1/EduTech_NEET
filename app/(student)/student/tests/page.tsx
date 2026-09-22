@@ -1,4 +1,5 @@
 import { getLocale, getTranslations } from 'next-intl/server';
+import Link from 'next/link';
 import { getSession } from '@/lib/auth/session';
 import { prisma } from '@/lib/prisma';
 import { localizedName } from '@/lib/admin/format';
@@ -38,12 +39,19 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
     prisma.subject.findMany({ orderBy: { order: 'asc' } }),
     prisma.chapter.findMany({ orderBy: [{ subjectId: 'asc' }, { order: 'asc' }] }),
     session
-      ? prisma.testAttempt.groupBy({
-          by: ['testId'],
+      ? prisma.testAttempt.findMany({
           where: { studentId: session.sub },
-          _count: { _all: true },
+          orderBy: { createdAt: 'desc' },
+          select: {
+            id: true,
+            testId: true,
+            status: true,
+            startedAt: true,
+            result: { select: { score: true, totalQuestions: true } },
+            test: { select: { title: true } },
+          },
         })
-      : Promise.resolve([] as { testId: string; _count: { _all: number } }[]),
+      : Promise.resolve([]),
   ]);
 
   const subjectsById = new Map(subjects.map((s) => [s.id, { id: s.id, code: s.code }]));
@@ -52,8 +60,14 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
   const chapterById = new Map(chapters.map((c) => [c.id, c]));
   const allCodes = subjects.map((s) => s.code);
   const paidRetriesEnabled = examPaidRetriesEnabled();
+  const attemptCountByTestId = new Map<string, number>();
+  const latestAttemptByTestId = new Map<string, (typeof attempts)[number]>();
+  for (const attempt of attempts) {
+    attemptCountByTestId.set(attempt.testId, (attemptCountByTestId.get(attempt.testId) ?? 0) + 1);
+    if (!latestAttemptByTestId.has(attempt.testId)) latestAttemptByTestId.set(attempt.testId, attempt);
+  }
   const remainingByTestId = new Map(
-    attempts.map((a) => [a.testId, paidRetriesEnabled ? Math.max(FREE_ATTEMPT_LIMIT - a._count._all, 0) : null]),
+    tests.map((test) => [test.id, paidRetriesEnabled ? Math.max(FREE_ATTEMPT_LIMIT - (attemptCountByTestId.get(test.id) ?? 0), 0) : null]),
   );
 
   const items = tests.map((test) => {
@@ -77,7 +91,13 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
     if (cov.subjectCodes.has('BOTANY') || cov.subjectCodes.has('ZOOLOGY')) {
       searchParts.push('Biology', 'உயிரியல்');
     }
-    return { test, cov, searchText: searchParts.join(' ').toLowerCase(), remaining: paidRetriesEnabled ? (remainingByTestId.get(test.id) ?? FREE_ATTEMPT_LIMIT) : null };
+    return {
+      test,
+      cov,
+      searchText: searchParts.join(' ').toLowerCase(),
+      remaining: paidRetriesEnabled ? (remainingByTestId.get(test.id) ?? FREE_ATTEMPT_LIMIT) : null,
+      latestAttempt: latestAttemptByTestId.get(test.id),
+    };
   });
 
   // Apply combined filters.
@@ -97,6 +117,11 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
   const chapterOptions = chapters
     .filter((c) => coveredChapterIds.has(c.id))
     .map((c) => ({ id: c.id, name: localizedName(c.name, locale) }));
+  const practiceGroups = [
+    { type: 'FULL_TEST', title: 'Full mock tests', description: 'Complete NEET-style practice using the published test configuration.' },
+    { type: 'SUBJECT_TEST', title: 'Subject practice', description: 'Focus on one NEET subject and strengthen specific areas.' },
+    { type: 'CHAPTER_TEST', title: 'Chapter practice', description: 'Build confidence one chapter at a time.' },
+  ].map((group) => ({ ...group, items: filtered.filter(({ test }) => test.testType === group.type) }));
 
   return (
     <div className="min-h-screen bg-surface">
@@ -115,31 +140,77 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
           <CatalogueFilters years={years} chapters={chapterOptions} initial={filters} />
         </div>
 
-        <p className="mb-4 text-sm text-textSecondary">{t('resultsCount', { count: filtered.length })}</p>
+        <div className="mb-5">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand">Available practice</p>
+          <h2 className="mt-2 text-2xl font-bold text-textPrimary">Choose what you want to practise next</h2>
+          <p className="mt-2 text-sm text-textSecondary">{t('resultsCount', { count: filtered.length })} · Practice again anytime — repeat attempts are currently free.</p>
+        </div>
 
         {filtered.length === 0 ? (
           <div className="rounded-xl border border-border bg-surfaceElevated p-10 text-center text-textSecondary">
             {t('empty')}
           </div>
         ) : (
-          <div className="student-test-list border-t border-border">
-            {filtered.map(({ test, remaining }) => (
-              <TestCard
-                key={test.id}
-                test={{
-                  id: test.id,
-                  title: localizedName(test.title, locale) || localizedName(test.title, 'en'),
-                  testType: test.testType,
-                  totalQuestions: test.totalQuestions,
-                  durationMinutes: test.durationMinutes,
-                  difficulty: test.difficulty,
-                  languages: test.availableLanguages,
-                  attemptsRemaining: remaining,
-                }}
-              />
+          <div className="space-y-10">
+            {practiceGroups.filter((group) => group.items.length > 0).map((group) => (
+              <section key={group.type} aria-labelledby={`practice-${group.type}`}>
+                <h2 id={`practice-${group.type}`} className="text-xl font-bold text-textPrimary">{group.title}</h2>
+                <p className="mt-1 text-sm text-textSecondary">{group.description}</p>
+                <div className="student-test-list mt-4 border-t border-border">
+                  {group.items.map(({ test, remaining, latestAttempt }) => {
+                    const active = latestAttempt?.status === 'IN_PROGRESS';
+                    const completed = latestAttempt && !active;
+                    return (
+                      <TestCard
+                        key={test.id}
+                        test={{
+                          id: test.id,
+                          title: localizedName(test.title, locale) || localizedName(test.title, 'en'),
+                          testType: test.testType,
+                          totalQuestions: test.totalQuestions,
+                          durationMinutes: test.durationMinutes,
+                          difficulty: test.difficulty,
+                          languages: test.availableLanguages,
+                          attemptsRemaining: remaining,
+                          actionHref: active ? `/student/tests/${test.id}/attempt` : `/student/tests/${test.id}/start`,
+                          actionLabel: active ? 'Resume Test' : completed ? 'Practice Again' : 'Start Test',
+                          statusNote: active ? 'Unfinished attempt' : completed ? `${attemptCountByTestId.get(test.id) ?? 0} previous attempt${(attemptCountByTestId.get(test.id) ?? 0) === 1 ? '' : 's'}` : undefined,
+                        }}
+                      />
+                    );
+                  })}
+                </div>
+              </section>
             ))}
           </div>
         )}
+
+        {attempts.length > 0 ? (
+          <section className="mt-14 border-t border-border pt-8" aria-labelledby="practice-history">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand">My practice history</p>
+            <h2 id="practice-history" className="mt-2 text-2xl font-bold text-textPrimary">Recent attempts</h2>
+            <p className="mt-2 text-sm text-textSecondary">Completed work stays here for review. It does not limit your next practice attempt.</p>
+            <ul className="mt-5 divide-y divide-border rounded-xl border border-border bg-surfaceElevated px-4 sm:px-6">
+              {attempts.slice(0, 8).map((attempt) => {
+                const isActive = attempt.status === 'IN_PROGRESS';
+                return (
+                  <li key={attempt.id} className="flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="font-semibold text-textPrimary">{localizedName(attempt.test.title, locale) || localizedName(attempt.test.title, 'en')}</p>
+                      <p className="mt-1 text-xs text-textSecondary">{isActive ? 'In progress' : 'Completed'} · {attempt.startedAt.toLocaleDateString(locale === 'ta' ? 'ta-IN' : 'en-GB')}</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      {attempt.result ? <span className="text-sm font-bold text-textPrimary">{attempt.result.score} / {attempt.result.totalQuestions * 4}</span> : null}
+                      <Link href={isActive ? `/student/tests/${attempt.testId}/attempt` : `/student/results/${attempt.id}`} className="rounded-md border border-brand px-4 py-2 text-sm font-semibold text-brand hover:bg-brand-soft">
+                        {isActive ? 'Resume Test' : 'View Result'}
+                      </Link>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        ) : null}
       </main>
     </div>
   );

@@ -27,7 +27,17 @@ export default async function TestDetailPage({ params }: { params: Promise<{ id:
   ]);
   if (!test) notFound();
 
-  const attemptSummary = session ? await getFreeAttemptSummary(session.sub, id) : null;
+  const [attemptSummary, activeAttempt, completedAttempts] = session?.kind === 'student'
+    ? await Promise.all([
+        getFreeAttemptSummary(session.sub, id),
+        prisma.testAttempt.findFirst({
+          where: { studentId: session.sub, testId: id, status: 'IN_PROGRESS' },
+          orderBy: { createdAt: 'desc' },
+          select: { id: true },
+        }),
+        prisma.testAttempt.count({ where: { studentId: session.sub, testId: id, status: { not: 'IN_PROGRESS' } } }),
+      ])
+    : [null, null, 0];
 
   const subjectsById = new Map(subjects.map((s) => [s.id, { id: s.id, code: s.code }]));
   const chaptersById = new Map(chapters.map((c) => [c.id, { id: c.id, subjectId: c.subjectId }]));
@@ -117,14 +127,20 @@ export default async function TestDetailPage({ params }: { params: Promise<{ id:
           <div>
             <span className="text-sm font-semibold text-green-200">{t('detail.freeNote')}</span>
             {attemptSummary ? (
-              <p className="mt-1 text-sm text-textSecondary">{t('detail.attemptsRemaining', { count: attemptSummary.remaining })}</p>
+              <p className="mt-1 text-sm text-textSecondary">
+                {attemptSummary.limit === null
+                  ? completedAttempts > 0
+                    ? `${completedAttempts} completed · Practice again anytime — repeat attempts are currently free.`
+                    : 'Repeat attempts are currently free.'
+                  : t('detail.attemptsRemaining', { count: attemptSummary.remaining ?? 0 })}
+              </p>
             ) : null}
           </div>
           <Link
             href={`/student/tests/${test.id}/start`}
             className="rounded-lg bg-brand px-6 py-3 text-sm font-semibold text-white hover:bg-brand-dark"
           >
-            {t('detail.startCta')}
+            {activeAttempt ? 'Resume Test' : completedAttempts > 0 ? 'Take Another Attempt' : t('detail.startCta')}
           </Link>
         </div>
         {session?.kind === 'student' ? <AttemptHistory studentId={session.sub} testId={test.id} /> : null}

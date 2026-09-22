@@ -1,4 +1,3 @@
-import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { pageMetadata } from '@/lib/seo';
 import PageHero from '@/components/public/PageHero';
@@ -7,6 +6,7 @@ import ExploreSivora from '@/components/public/ExploreSivora';
 import { EXAMS } from '@/data/exams';
 import ExamLoopVisual from '@/components/public/ExamLoopVisual';
 import SivoraPracticePreview from '@/components/public/SivoraPracticePreview';
+import { getSession } from '@/lib/auth/session';
 
 const neet = EXAMS.find((exam) => exam.slug === 'neet')!;
 
@@ -15,8 +15,11 @@ export async function generateMetadata() {
   return pageMetadata({ title: t('title'), description: t('description'), path: '/exam-preparation/neet' });
 }
 
-export default function NeetPreparationPage() {
-  const t = useTranslations('examPreparation.neetDetail');
+export default async function NeetPreparationPage() {
+  const [t, session] = await Promise.all([
+    getTranslations('examPreparation.neetDetail'),
+    getSession(),
+  ]);
 
   return (
     <>
@@ -31,14 +34,16 @@ export default function NeetPreparationPage() {
       <Section tinted lazy>
         <SivoraPracticePreview />
       </Section>
-      <ExamDetail exam={neet} />
+      <ExamDetail exam={neet} studentAuthenticated={session?.kind === 'student'} />
     </>
   );
 }
 
-function ExamDetail({ exam }: { exam: typeof neet }) {
-  const t = useTranslations('examPreparation.neetDetail');
-  const tn = useTranslations('neetPractice');
+async function ExamDetail({ exam, studentAuthenticated }: { exam: typeof neet; studentAuthenticated: boolean }) {
+  const [t, tn] = await Promise.all([
+    getTranslations('examPreparation.neetDetail'),
+    getTranslations('neetPractice'),
+  ]);
   const features = t.raw('features') as string[];
 
   return (
@@ -64,12 +69,16 @@ function ExamDetail({ exam }: { exam: typeof neet }) {
       </Section>
       <Section lazy>
         <div className="mb-6 grid gap-3 sm:grid-cols-2">
-          {([['FULL_TEST', 'full'], ['SUBJECT_TEST', 'subject'], ['CHAPTER_TEST', 'chapter']] as const).map(([type, label]) =>
-            <PrimaryLink key={type} href={`/login?callbackUrl=${encodeURIComponent(`/student/tests?type=${type}`)}`}>{tn(label)}</PrimaryLink>)}
+          {([['FULL_TEST', 'full'], ['SUBJECT_TEST', 'subject'], ['CHAPTER_TEST', 'chapter']] as const).map(([type, label]) => {
+            const destination = `/student/tests?type=${type}`;
+            return <PrimaryLink key={type} href={studentAuthenticated ? destination : `/login?callbackUrl=${encodeURIComponent(destination)}`}>{tn(label)}</PrimaryLink>;
+          })}
         </div>
         <p className="mb-6 text-sm text-[#6b6b67]">{tn('disclaimer')}</p>
         <div className="flex flex-col gap-3 sm:flex-row">
-          <PrimaryLink href="/mock-tests">{t('primaryCta')}</PrimaryLink>
+          <PrimaryLink href={studentAuthenticated ? '/student/tests' : `/login?callbackUrl=${encodeURIComponent('/student/tests')}`}>
+            {studentAuthenticated ? 'Go to my tests' : t('primaryCta')}
+          </PrimaryLink>
           <SecondaryLink href="/mock-tests">{t('secondaryCta')}</SecondaryLink>
         </div>
       </Section>
