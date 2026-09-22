@@ -4,6 +4,7 @@ import { startOrResumeAttempt } from '@/lib/attempts/service';
 import { ok, fail, readJson } from '@/lib/http';
 import { prisma } from '@/lib/prisma';
 import { withReturnParam } from '@/lib/auth/redirect';
+import { examEmailVerificationGateEnabled } from '@/lib/attempts/verification';
 
 export const runtime = 'nodejs';
 
@@ -17,9 +18,11 @@ export async function POST(req: Request) {
   const parsed = startAttemptSchema.safeParse(await readJson(req));
   if (!parsed.success) return fail('validation', 400);
 
-  const student = await prisma.student.findUnique({ where: { id: session.sub }, select: { isEmailVerified: true, isMobileVerified: true } });
-  if (!student || (!student.isEmailVerified && !student.isMobileVerified)) {
-    return fail('verificationRequired', 403, { redirect: withReturnParam('/verify-email', `/student/tests/${parsed.data.testId}/start`) });
+  if (examEmailVerificationGateEnabled()) {
+    const student = await prisma.student.findUnique({ where: { id: session.sub }, select: { isEmailVerified: true, isMobileVerified: true } });
+    if (!student || (!student.isEmailVerified && !student.isMobileVerified)) {
+      return fail('verificationRequired', 403, { redirect: withReturnParam('/verify-email', `/student/tests/${parsed.data.testId}/start`) });
+    }
   }
 
   const outcome = await startOrResumeAttempt(session.sub, parsed.data.testId, parsed.data.language);

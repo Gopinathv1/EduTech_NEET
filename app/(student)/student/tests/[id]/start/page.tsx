@@ -12,6 +12,7 @@ import StudentHeader from '@/components/student/StudentHeader';
 import StartAttemptClient from '@/components/student/exam/StartAttemptClient';
 import { productionTestWhere } from '@/lib/content/eligibility';
 import { withReturnParam } from '@/lib/auth/redirect';
+import { examEmailVerificationGateEnabled } from '@/lib/attempts/verification';
 import { ClockIcon, BookIcon } from '@/components/public/icons';
 
 /**
@@ -27,9 +28,11 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
   const tc = await getTranslations('catalogue');
   const session = await getSession();
   if (!session || session.kind !== 'student') redirect(`/login?next=/student/tests/${id}/start`);
-  const identity = await prisma.student.findUnique({ where: { id: session.sub }, select: { isEmailVerified: true, isMobileVerified: true } });
-  if (!identity || (!identity.isEmailVerified && !identity.isMobileVerified)) {
-    redirect(withReturnParam('/verify-email', `/student/tests/${id}/start`));
+  if (examEmailVerificationGateEnabled()) {
+    const identity = await prisma.student.findUnique({ where: { id: session.sub }, select: { isEmailVerified: true, isMobileVerified: true } });
+    if (!identity || (!identity.isEmailVerified && !identity.isMobileVerified)) {
+      redirect(withReturnParam('/verify-email', `/student/tests/${id}/start`));
+    }
   }
 
   const test = await prisma.test.findUnique({
