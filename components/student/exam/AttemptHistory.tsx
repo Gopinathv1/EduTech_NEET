@@ -3,6 +3,7 @@ import { getLocale, getTranslations } from 'next-intl/server';
 import { prisma } from '@/lib/prisma';
 import { FREE_ATTEMPT_LIMIT, NEET_CONFIG } from '@/lib/attempts/config';
 import { examPaidRetriesEnabled } from '@/lib/attempts/paid-retries';
+import { attemptHistoryAction } from '@/lib/attempts/history-action';
 
 export default async function AttemptHistory({
   studentId,
@@ -21,6 +22,13 @@ export default async function AttemptHistory({
   });
   const paidRetriesEnabled = examPaidRetriesEnabled();
   const completedCount = attempts.filter((attempt) => attempt.status !== 'IN_PROGRESS').length;
+  const nextAction = attemptHistoryAction({
+    canStartAnotherAttempt,
+    paidRetriesEnabled,
+    attemptCount: attempts.length,
+    freeAttemptLimit: FREE_ATTEMPT_LIMIT,
+    hasActiveAttempt: attempts.some((attempt) => attempt.status === 'IN_PROGRESS'),
+  });
   return <section className="mt-8 rounded-2xl border border-border p-5">
     <h2 className="text-lg font-bold">{t('history')}</h2>
     <p className="mt-1 text-sm text-textSecondary">{paidRetriesEnabled ? t('used', { count: attempts.length, limit: FREE_ATTEMPT_LIMIT }) : `${completedCount} completed · Practice again anytime — repeat attempts are currently free.`}</p>
@@ -34,7 +42,13 @@ export default async function AttemptHistory({
         <span>{t(a.status === 'IN_PROGRESS' ? 'inProgress' : 'completed')}</span>
       </li>)}
     </ul>
-    {canStartAnotherAttempt && (!paidRetriesEnabled || attempts.length < FREE_ATTEMPT_LIMIT) && !attempts.some(a => a.status === 'IN_PROGRESS') ?
+    {nextAction === 'practice-again' ?
       <Link className="mt-4 inline-block rounded-lg bg-brand px-4 py-3 font-semibold text-white" href={`/student/tests/${testId}/start`}>{t('another')}</Link> : null}
+    {nextAction === 'choose-another' ? (
+      <div className="mt-4 rounded-lg border border-border bg-surface px-4 py-3 text-sm text-textSecondary">
+        <p>This previous practice set is no longer available for a new attempt. Your result remains available above.</p>
+        <Link className="mt-2 inline-block font-semibold text-brand underline" href="/student/tests">Choose another practice test</Link>
+      </div>
+    ) : null}
   </section>;
 }

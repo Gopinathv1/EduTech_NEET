@@ -56,7 +56,7 @@
     "terms": "Terms & Conditions",
     "privacy": "Privacy Policy",
     "examNeet": "NEET",
-    "examJeeSoon": "JEE - Coming Soon",
+    "examJeeSoon": "JEE",
     "getStarted": "Get Free Counselling",
     "admissionsMenu": "Admissions",
     "studyAbroadMenu": "Admissions",
@@ -107,7 +107,7 @@
       "rights": "SIVORA UP↑RISING. All rights reserved.",
       "exams": "Exams",
       "neet": "NEET",
-      "jeeSoon": "JEE - Coming Soon",
+      "jeeSoon": "JEE",
       "languages": "Languages",
       "english": "English",
       "tamil": "தமிழ்",
@@ -143,8 +143,8 @@
       },
       {
         "label": "JEE",
-        "status": "Coming Soon",
-        "available": false
+        "status": "Preparation available",
+        "available": true
       }
     ],
     "heroStats": [
@@ -2581,15 +2581,15 @@
     },
     "jeeDetail": {
       "eyebrow": "Exam Preparation",
-      "title": "JEE Preparation — Coming Soon",
-      "subtitle": "Structured JEE practice is being prepared for future release.",
-      "subjectBody": "Planned areas include Physics, Chemistry and Mathematics. Practice content is not available yet.",
+      "title": "JEE Preparation",
+      "subtitle": "A dedicated SIVORA preparation area for engineering entrance students.",
+      "subjectBody": "Explore Physics, Chemistry and Mathematics preparation. Practice options appear when vetted content is published.",
       "features": [
-        "Physics — Planned",
-        "Chemistry — Planned",
-        "Mathematics — Planned"
+        "Physics",
+        "Chemistry",
+        "Mathematics"
       ],
-      "disclaimer": "JEE practice content is being prepared. SIVORA UP↑RISING does not claim official NTA affiliation.",
+      "disclaimer": "SIVORA UP↑RISING is an independent practice platform, not the official NTA examination interface. Available practice options are shown only when vetted content is published.",
       "primaryCta": "Ask About JEE",
       "secondaryCta": "Talk To Counsellor"
     },

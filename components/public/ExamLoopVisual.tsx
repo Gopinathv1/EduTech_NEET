@@ -1,4 +1,5 @@
 import styles from './ExamLoopVisual.module.css';
+import { EXAM_PRACTICE_LOOP_LABEL } from '@/lib/exams/product-status';
 
 type Props = { exam?: 'NEET' | 'JEE' };
 
@@ -14,11 +15,11 @@ const stages = [
 export default function ExamLoopVisual({ exam = 'NEET' }: Props) {
   return (
     <div className={styles.visual} aria-label={`${exam} preparation practice loop`}>
-      <div className={styles.top}><span>SIVORA / {exam} PREPARATION</span><strong>{exam === 'JEE' ? 'COMING SOON' : 'PRACTICE LOOP'}</strong></div>
+      <div className={styles.top}><span>SIVORA / {exam} PREPARATION</span><strong>{EXAM_PRACTICE_LOOP_LABEL}</strong></div>
       <div className={styles.diagram}>
         <div className={styles.orbit} aria-hidden="true" />
-        <div className={styles.core}><span>{exam}</span><small>{exam === 'JEE' ? 'content in preparation' : 'prepare · practice · improve'}</small></div>
-        {stages.map(([number, title, copy], index) => <div key={title} className={`${styles.stage} ${styles[`stage${index}`]}${exam === 'JEE' ? ` ${styles.coming}` : ''}`}><span>{number}</span><strong>{title}</strong><small>{exam === 'JEE' ? 'Planned for future release' : copy}</small></div>)}
+        <div className={styles.core}><span>{exam}</span><small>prepare · practice · improve</small></div>
+        {stages.map(([number, title, copy], index) => <div key={title} className={`${styles.stage} ${styles[`stage${index}`]}`}><span>{number}</span><strong>{title}</strong><small>{copy}</small></div>)}
       </div>
       <div className={styles.bottom}><span>QUESTION → ATTEMPT → UNDERSTAND → IMPROVE</span><b>↺</b></div>
     </div>

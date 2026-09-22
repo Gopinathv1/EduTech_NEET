@@ -56,7 +56,7 @@
     "terms": "விதிமுறைகள்",
     "privacy": "தனியுரிமைக் கொள்கை",
     "examNeet": "NEET",
-    "examJeeSoon": "JEE - விரைவில்",
+    "examJeeSoon": "JEE",
     "getStarted": "இலவச கவுன்செல்லிங் பெறுங்கள்",
     "admissionsMenu": "சேர்க்கைகள்",
     "studyAbroadMenu": "சேர்க்கைகள்",
@@ -107,7 +107,7 @@
       "rights": "SIVORA UP↑RISING. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
       "exams": "தேர்வுகள்",
       "neet": "NEET",
-      "jeeSoon": "JEE - விரைவில்",
+      "jeeSoon": "JEE",
       "languages": "மொழிகள்",
       "english": "English",
       "tamil": "தமிழ்",
@@ -142,8 +142,8 @@
       },
       {
         "label": "JEE",
-        "status": "Coming Soon",
-        "available": false
+        "status": "தயாரிப்பு கிடைக்கிறது",
+        "available": true
       }
     ],
     "heroStats": [
@@ -223,7 +223,7 @@
           "label": "தேர்வு",
           "values": [
             "NEET",
-            "JEE விரைவில்"
+            "JEE"
           ]
         },
         {

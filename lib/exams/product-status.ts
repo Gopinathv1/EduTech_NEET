@@ -1,0 +1,1 @@
+export const EXAM_PRACTICE_LOOP_LABEL = 'PRACTICE LOOP';

@@ -56,7 +56,7 @@
     "terms": "नियम और शर्तें",
     "privacy": "गोपनीयता नीति",
     "examNeet": "NEET",
-    "examJeeSoon": "JEE - जल्द आ रहा है",
+    "examJeeSoon": "JEE",
     "getStarted": "फ्री काउंसलिंग लें",
     "admissionsMenu": "एडमिशन",
     "studyAbroadMenu": "एडमिशन",
@@ -107,7 +107,7 @@
       "rights": "SIVORA UP↑RISING. सर्वाधिकार सुरक्षित.",
       "exams": "परीक्षाएं",
       "neet": "NEET",
-      "jeeSoon": "JEE - जल्द आ रहा है",
+      "jeeSoon": "JEE",
       "languages": "भाषाएं",
       "english": "English",
       "tamil": "தமிழ்",
@@ -142,8 +142,8 @@
       },
       {
         "label": "JEE",
-        "status": "Coming Soon",
-        "available": false
+        "status": "तैयारी उपलब्ध है",
+        "available": true
       }
     ],
     "heroStats": [
