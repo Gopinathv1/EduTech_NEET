@@ -1,4 +1,14 @@
 import { test, expect } from '@playwright/test';
+import bcrypt from 'bcryptjs';
+import { PrismaClient } from '@prisma/client';
+import type { OtpPurpose } from '@prisma/client';
+
+const prisma = new PrismaClient();
+const TEST_EMAIL_OTP = '246810';
+
+test.afterAll(async () => {
+  await prisma.$disconnect();
+});
 
 /**
  * End-to-end happy path:
@@ -12,6 +22,31 @@ function unique() {
   return { mobile: `9${n}`, email: `e2e_${n}@example.com` };
 }
 
+/**
+ * Replace the delivery-generated code with a deterministic code inside the
+ * isolated E2E database. Verification still goes through the real endpoint,
+ * including hash comparison, one-time consumption, and session creation.
+ */
+async function installTestEmailVerificationOtp(mobile: string, email: string) {
+  const normalizedMobile = `+91${mobile}`;
+  const purpose = 'EMAIL_VERIFICATION' as OtpPurpose;
+
+  await prisma.otpToken.updateMany({
+    where: { mobile: normalizedMobile, purpose, consumedAt: null },
+    data: { consumedAt: new Date() },
+  });
+  await prisma.otpToken.create({
+    data: {
+      mobile: normalizedMobile,
+      email,
+      otpHash: await bcrypt.hash(TEST_EMAIL_OTP, 8),
+      purpose,
+      channel: 'EMAIL',
+      expiresAt: new Date(Date.now() + 5 * 60_000),
+    },
+  });
+}
+
 test('student can register, take a free test, see the result, and request guidance', async ({
   page,
 }) => {
@@ -19,7 +54,7 @@ test('student can register, take a free test, see the result, and request guidan
   const password = 'TestPassword123!';
 
   // 1) Register -----------------------------------------------------------
-  await page.goto('/register');
+  await page.goto('/register?callbackUrl=%2Fstudent');
   await page.getByLabel('Full name').fill('E2E Student');
   await page.getByLabel('Mobile number').fill(mobile);
   await page.getByLabel('Email').fill(email);
@@ -27,7 +62,16 @@ test('student can register, take a free test, see the result, and request guidan
   await page.getByLabel('Confirm password').fill(password);
   await page.getByRole('button', { name: 'Create account' }).click();
 
-  // Lands on the student dashboard.
+  // Registration requires real email verification before creating a session.
+  await expect(page).toHaveURL(/\/verify-email\?/);
+  expect(new URL(page.url()).searchParams.get('callbackUrl')).toBe('/student');
+
+  await installTestEmailVerificationOtp(mobile, email);
+  await page.getByLabel('Verification code').fill(TEST_EMAIL_OTP);
+  await page.getByRole('button', { name: 'Verify' }).click();
+
+  // A successful verification creates the authenticated session and honors
+  // the safe callback URL.
   await expect(page).toHaveURL(/\/student$/);
 
   // 3) Open a test --------------------------------------------------------
