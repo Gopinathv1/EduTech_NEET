@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { pageMetadata } from '@/lib/seo';
+import styles from '@/components/public/RouteExperience.module.css';
 import { PrimaryLink, Section } from '@/components/public/ui';
 import WhatsAppLink from '@/components/whatsapp/WhatsAppLink';
 import DestinationTimeTravelCard from '@/components/admissions/DestinationTimeTravelCard';
@@ -107,7 +108,7 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
   const moreCountries = ADMISSION_COUNTRY_PROFILES.filter((item) => item.slug !== country.slug).slice(0, 3);
 
   return (
-    <>
+    <div className={styles.compactPage}>
       <section className="public-editorial-hero relative overflow-hidden border-b border-[#d9dee5] bg-[#f5f7fa]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(49,95,159,0.1),transparent_32%)]" />
         {country.landmark.imagePath ? (
@@ -405,6 +406,6 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
           </div>
         </div>
       </Section>
-    </>
+    </div>
   );
 }

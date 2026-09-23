@@ -24,7 +24,7 @@ export default function AdmissionJourneyPage() {
   const intro = t.raw('intro') as string[];
 
   return (
-    <div className={styles.page}>
+    <div className={`${styles.page} ${styles.compactPage}`}>
       <section className="border-b border-[#deded9] bg-[#f7f7f5] py-20 sm:py-28">
         <Container>
           <div className="mx-auto max-w-[1280px]">

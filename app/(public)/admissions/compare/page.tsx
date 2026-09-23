@@ -85,7 +85,7 @@ export default async function AdmissionsComparePage({ searchParams }: Props) {
   ];
 
   return (
-    <div className={styles.page}>
+    <div className={`${styles.page} ${styles.compactPage}`}>
       <Section>
         <div className="grid gap-8 lg:grid-cols-[0.76fr_1.24fr] lg:items-end">
           <div>

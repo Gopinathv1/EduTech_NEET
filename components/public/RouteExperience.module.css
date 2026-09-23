@@ -1,4 +1,6 @@
 .page { color:#171717; background:#f7f7f5; }
+.compactPage { color:#171717; background:#f7f7f5; }
+.compactPage > section { padding-block:clamp(4rem,7vw,7rem)!important; }
 .page > section > div { max-width:1280px; margin-inline:auto; }
 .page h1 { font-size:clamp(2.75rem,5vw,4rem); line-height:1.1; font-weight:500; letter-spacing:-.045em; }
 .page h2 { font-size:clamp(2rem,3.5vw,3rem); line-height:1.12; font-weight:500; letter-spacing:-.04em; }

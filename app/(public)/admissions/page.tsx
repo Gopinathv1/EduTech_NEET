@@ -54,7 +54,7 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
   ).entries());
 
   return (
-    <div className={styles.page}>
+    <div className={`${styles.page} ${styles.compactPage}`}>
       <section className="public-editorial-hero relative overflow-hidden border-b border-[#deded9] bg-[#f7f7f5]">
         <div className="relative mx-auto grid min-h-[580px] w-full max-w-[1280px] gap-8 px-[clamp(1rem,3vw,3rem)] py-14 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:py-20">
           <div className="pb-2">

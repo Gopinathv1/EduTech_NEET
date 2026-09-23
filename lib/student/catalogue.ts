@@ -80,3 +80,9 @@ export function subjectFilterCodes(value: string): string[] {
       return [];
   }
 }
+
+export function catalogueAttemptAction(status?: string): { label: string; route: 'start' | 'attempt' } {
+  if (status === 'IN_PROGRESS') return { label: 'Resume Test', route: 'attempt' };
+  if (status) return { label: 'Take Another Attempt', route: 'start' };
+  return { label: 'Take Test', route: 'start' };
+}

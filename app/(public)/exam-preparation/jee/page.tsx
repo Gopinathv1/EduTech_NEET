@@ -1,4 +1,3 @@
-import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { pageMetadata } from '@/lib/seo';
 import PageHero from '@/components/public/PageHero';
@@ -17,7 +16,7 @@ export async function generateMetadata() {
 }
 
 export default async function JeePreparationPage() {
-  const t = useTranslations('examPreparation.jeeDetail');
+  const t = await getTranslations('examPreparation.jeeDetail');
   const features = t.raw('features') as string[];
   const session = await getSession();
 

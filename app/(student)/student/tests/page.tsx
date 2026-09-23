@@ -5,7 +5,7 @@ import { prisma } from '@/lib/prisma';
 import { localizedName } from '@/lib/admin/format';
 import { FREE_ATTEMPT_LIMIT } from '@/lib/attempts/service';
 import { examPaidRetriesEnabled } from '@/lib/attempts/paid-retries';
-import { computeCoverage, subjectFilterCodes } from '@/lib/student/catalogue';
+import { catalogueAttemptAction, computeCoverage, subjectFilterCodes } from '@/lib/student/catalogue';
 import StudentHeader from '@/components/student/StudentHeader';
 import CatalogueFilters, { type CatalogueFilterValues } from '@/components/student/CatalogueFilters';
 import TestCard from '@/components/student/TestCard';
@@ -119,10 +119,9 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
     .filter((c) => coveredChapterIds.has(c.id))
     .map((c) => ({ id: c.id, name: localizedName(c.name, locale) }));
   const practiceGroups = [
-    { type: 'FULL_TEST', title: 'Full mock tests', description: 'Complete NEET-style practice using the published test configuration.' },
-    { type: 'SUBJECT_TEST', title: 'Subject practice', description: 'Focus on one NEET subject and strengthen specific areas.' },
-    { type: 'CHAPTER_TEST', title: 'Chapter practice', description: 'Build confidence one chapter at a time.' },
-  ].map((group) => ({ ...group, items: filtered.filter(({ test }) => test.testType === group.type) }));
+    { exam: 'NEET', title: 'NEET practice', description: 'Choose an available NEET full, subject or chapter practice set.' },
+    { exam: 'JEE', title: 'JEE practice', description: 'Demo practice appears here after the reviewed JEE content seed is separately approved and populated.' },
+  ].map((group) => ({ ...group, items: filtered.filter((item) => item.exam === group.exam) }));
 
   return (
     <div className="min-h-screen bg-surface">
@@ -147,20 +146,16 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
           <p className="mt-2 text-sm text-textSecondary">{t('resultsCount', { count: filtered.length })} · Practice as many times as you want while unlimited practice is enabled.</p>
         </div>
 
-        {filtered.length === 0 ? (
-          <div className="rounded-xl border border-border bg-surfaceElevated p-10 text-center text-textSecondary">
-            {t('empty')}
-          </div>
-        ) : (
-          <div className="space-y-10">
-            {practiceGroups.filter((group) => group.items.length > 0).map((group) => (
-              <section key={group.type} aria-labelledby={`practice-${group.type}`}>
-                <h2 id={`practice-${group.type}`} className="text-xl font-bold text-textPrimary">{group.title}</h2>
+        <div className="space-y-10">
+            {practiceGroups.map((group) => (
+              <section key={group.exam} aria-labelledby={`practice-${group.exam}`}>
+                <h2 id={`practice-${group.exam}`} className="text-xl font-bold text-textPrimary">{group.title}</h2>
                 <p className="mt-1 text-sm text-textSecondary">{group.description}</p>
-                <div className="student-test-list mt-4 border-t border-border">
+                {group.items.length > 0 ? <div className="student-test-list mt-4 border-t border-border">
                   {group.items.map(({ test, exam, remaining, latestAttempt }) => {
                     const active = latestAttempt?.status === 'IN_PROGRESS';
                     const completed = latestAttempt && !active;
+                    const action = catalogueAttemptAction(latestAttempt?.status);
                     return (
                       <TestCard
                         key={test.id}
@@ -174,22 +169,21 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
                           difficulty: test.difficulty,
                           languages: test.availableLanguages,
                           attemptsRemaining: remaining,
-                          actionHref: active ? `/student/tests/${test.id}/attempt` : `/student/tests/${test.id}/start`,
-                          actionLabel: active ? 'Resume Test' : completed ? 'Practice Again' : 'Start Test',
+                          actionHref: `/student/tests/${test.id}/${action.route}`,
+                          actionLabel: action.label,
                           statusNote: active ? 'Unfinished attempt' : completed ? `${attemptCountByTestId.get(test.id) ?? 0} previous attempt${(attemptCountByTestId.get(test.id) ?? 0) === 1 ? '' : 's'}` : undefined,
                         }}
                       />
                     );
                   })}
-                </div>
+                </div> : <div className="mt-4 rounded-xl border border-border bg-surfaceElevated p-6 text-sm text-textSecondary">No eligible {group.exam} practice test is available yet. Reviewed practice will appear here when it is published.</div>}
               </section>
             ))}
-          </div>
-        )}
+        </div>
 
         {attempts.length > 0 ? (
           <section className="mt-14 border-t border-border pt-8" aria-labelledby="practice-history">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand">My practice history</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand">Your recent attempts</p>
             <h2 id="practice-history" className="mt-2 text-2xl font-bold text-textPrimary">Recent attempts</h2>
             <p className="mt-2 text-sm text-textSecondary">Completed work stays here for review. It does not limit your next practice attempt.</p>
             <ul className="mt-5 divide-y divide-border rounded-xl border border-border bg-surfaceElevated px-4 sm:px-6">
