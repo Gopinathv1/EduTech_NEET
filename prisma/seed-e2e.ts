@@ -89,6 +89,7 @@ async function main() {
           sourceName: 'CI E2E fixture',
           reviewer: 'ci-e2e',
           reviewedAt,
+          reviewState: 'APPROVED',
         },
       }),
     ]);
