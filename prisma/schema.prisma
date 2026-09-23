@@ -151,9 +151,19 @@ enum ContentClassification {
 
 enum QuestionSourceType {
   INTERNALLY_AUTHORED
+  SIVORA_AUTHORED
   LICENSED
   OFFICIAL_PREVIOUS_YEAR
+  OFFICIAL_NTA
   OTHER
+}
+
+enum QuestionReviewState {
+  DRAFT
+  REVIEW_REQUIRED
+  APPROVED
+  REJECTED
+  NEEDS_CORRECTION
 }
 
 enum MarketplaceSellerStatus {
@@ -380,30 +390,35 @@ model Chapter {
 }
 
 model Question {
-  id               String                @id @default(cuid())
-  externalId       String?               @unique
-  subjectId        String
-  chapterId        String
-  topic            String? // finer-grained than chapter (NEET topic), optional
-  difficulty       Difficulty            @default(MEDIUM)
-  year             Int? // NEET year this question is drawn from, if any
-  tags             String[]              @default([])
-  questionType     QuestionType          @default(SINGLE_CORRECT)
-  status           QuestionStatus        @default(DRAFT)
-  contentClass     ContentClassification @default(SAMPLE)
-  sourceType       QuestionSourceType?
-  sourceName       String?
-  exam             String?
-  examYear         Int?
-  paperSession     String?
-  licenseReference String?
-  reviewer         String?
-  reviewedAt       DateTime?
-  imageUrl         String?
+  id                         String                @id @default(cuid())
+  externalId                 String?               @unique
+  subjectId                  String
+  chapterId                  String
+  topic                      String? // finer-grained than chapter (NEET topic), optional
+  difficulty                 Difficulty            @default(MEDIUM)
+  year                       Int? // NEET year this question is drawn from, if any
+  tags                       String[]              @default([])
+  questionType               QuestionType          @default(SINGLE_CORRECT)
+  status                     QuestionStatus        @default(DRAFT)
+  contentClass               ContentClassification @default(SAMPLE)
+  sourceType                 QuestionSourceType?
+  sourceName                 String?
+  sourceUrl                  String?
+  officialAnswerKeyReference String?
+  importedAt                 DateTime?
+  exam                       String?
+  examYear                   Int?
+  paperSession               String?
+  licenseReference           String?
+  reviewer                   String?
+  reviewedAt                 DateTime?
+  reviewState                QuestionReviewState   @default(DRAFT)
+  reviewNote                 String?
+  imageUrl                   String?
   // Mirrors `status == PUBLISHED`; kept for the generator/catalogue queries.
-  isActive         Boolean               @default(true)
-  createdAt        DateTime              @default(now())
-  updatedAt        DateTime              @updatedAt
+  isActive                   Boolean               @default(true)
+  createdAt                  DateTime              @default(now())
+  updatedAt                  DateTime              @updatedAt
 
   subject       Subject               @relation(fields: [subjectId], references: [id], onDelete: Restrict)
   chapter       Chapter               @relation(fields: [chapterId], references: [id], onDelete: Restrict)
@@ -594,23 +609,23 @@ model Result {
 // ---------------------------------------------------------------------------
 
 model Payment {
-  id                String        @id @default(cuid())
+  id                String         @id @default(cuid())
   studentId         String
   testId            String
   amount            Int // in INR
-  currency          String        @default("INR")
-  razorpayOrderId   String?       @unique
-  razorpayPaymentId String?       @unique
-  status            PaymentStatus @default(CREATED)
+  currency          String         @default("INR")
+  razorpayOrderId   String?        @unique
+  razorpayPaymentId String?        @unique
+  status            PaymentStatus  @default(CREATED)
   purpose           PaymentPurpose @default(TEST_PURCHASE)
-  invoiceNumber     String?       @unique
+  invoiceNumber     String?        @unique
   // Snapshot of invoice fields at success (name/title/amount/GST) so the PDF is
   // reproducible even if the test or student later changes.
   invoiceData       Json?
   failureReason     String?
   paidAt            DateTime?
-  createdAt         DateTime      @default(now())
-  updatedAt         DateTime      @updatedAt
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
 
   student           Student            @relation(fields: [studentId], references: [id], onDelete: Restrict)
   test              Test               @relation(fields: [testId], references: [id], onDelete: Restrict)

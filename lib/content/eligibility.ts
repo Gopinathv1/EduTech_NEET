@@ -4,6 +4,7 @@ import type { Prisma } from '@prisma/client';
 export const productionQuestionWhere = {
   contentClass: 'PRODUCTION',
   status: 'PUBLISHED',
+  reviewState: 'APPROVED',
   isActive: true,
   sourceType: { not: null },
   sourceName: { not: null },

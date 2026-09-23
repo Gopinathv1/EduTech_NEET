@@ -55,7 +55,7 @@ export default async function QuestionBankPage({ searchParams }: { searchParams:
   else if (filters.active === 'false') where.isActive = false;
   if (filters.classification === 'SAMPLE' || filters.classification === 'PRODUCTION') where.contentClass = filters.classification;
   if (['DRAFT', 'REVIEW', 'PUBLISHED'].includes(filters.status)) where.status = filters.status as 'DRAFT' | 'REVIEW' | 'PUBLISHED';
-  if (['INTERNALLY_AUTHORED', 'LICENSED', 'OFFICIAL_PREVIOUS_YEAR', 'OTHER'].includes(filters.sourceType)) where.sourceType = filters.sourceType as 'INTERNALLY_AUTHORED' | 'LICENSED' | 'OFFICIAL_PREVIOUS_YEAR' | 'OTHER';
+  if (['INTERNALLY_AUTHORED', 'SIVORA_AUTHORED', 'LICENSED', 'OFFICIAL_PREVIOUS_YEAR', 'OFFICIAL_NTA', 'OTHER'].includes(filters.sourceType)) where.sourceType = filters.sourceType as 'INTERNALLY_AUTHORED' | 'SIVORA_AUTHORED' | 'LICENSED' | 'OFFICIAL_PREVIOUS_YEAR' | 'OFFICIAL_NTA' | 'OTHER';
 
   const and: Prisma.QuestionWhereInput[] = [];
   if (filters.lang === 'enta') and.push({ translations: { some: { language: 'ta' } } });

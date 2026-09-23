@@ -15,7 +15,7 @@ export const difficultyEnum = z.enum(['EASY', 'MEDIUM', 'HARD']);
 export const questionTypeEnum = z.enum(['SINGLE_CORRECT', 'IMAGE_BASED', 'ASSERTION_REASON']);
 export const questionStatusEnum = z.enum(['DRAFT', 'REVIEW', 'PUBLISHED']);
 export const contentClassificationEnum = z.enum(['SAMPLE', 'PRODUCTION']);
-export const questionSourceTypeEnum = z.enum(['INTERNALLY_AUTHORED', 'LICENSED', 'OFFICIAL_PREVIOUS_YEAR', 'OTHER']);
+export const questionSourceTypeEnum = z.enum(['INTERNALLY_AUTHORED', 'SIVORA_AUTHORED', 'LICENSED', 'OFFICIAL_PREVIOUS_YEAR', 'OFFICIAL_NTA', 'OTHER']);
 
 export const contactStatusEnum = z.enum(['NEW', 'RESPONDED', 'CLOSED']);
 export const contactStatusUpdateSchema = z.object({ status: contactStatusEnum });
@@ -75,6 +75,8 @@ export const questionSchema = z
     contentClass: contentClassificationEnum.default('SAMPLE'),
     sourceType: questionSourceTypeEnum.nullable().optional(),
     sourceName: z.string().trim().max(200).optional().default(''),
+    sourceUrl: z.union([z.literal(''), z.string().url().max(1000)]).optional().default(''),
+    officialAnswerKeyReference: z.string().trim().max(1000).optional().default(''),
     exam: z.string().trim().max(80).optional().default(''),
     examYear: z.number().int().min(1990).max(2100).nullable().optional(),
     paperSession: z.string().trim().max(120).optional().default(''),
@@ -96,8 +98,11 @@ export const questionSchema = z
       if (d.status === 'PUBLISHED' && !d.reviewer) ctx.addIssue({ code: 'custom', path: ['reviewer'], message: 'Published production questions require a reviewer' });
       if (d.status === 'PUBLISHED' && !d.reviewedAt) ctx.addIssue({ code: 'custom', path: ['reviewedAt'], message: 'Published production questions require a review date' });
     }
-    if (d.sourceType === 'OFFICIAL_PREVIOUS_YEAR' && (!d.exam || !d.examYear)) {
+    if ((d.sourceType === 'OFFICIAL_PREVIOUS_YEAR' || d.sourceType === 'OFFICIAL_NTA') && (!d.exam || !d.examYear)) {
       ctx.addIssue({ code: 'custom', path: ['sourceType'], message: 'Official previous-year questions require exam and exam year provenance' });
+    }
+    if ((d.sourceType === 'OFFICIAL_PREVIOUS_YEAR' || d.sourceType === 'OFFICIAL_NTA') && !d.sourceUrl) {
+      ctx.addIssue({ code: 'custom', path: ['sourceUrl'], message: 'Official questions require an official source URL' });
     }
     if (d.questionType === 'IMAGE_BASED' && !d.imageUrl) {
       ctx.addIssue({ code: 'custom', path: ['imageUrl'], message: 'An image is required for image-based questions' });

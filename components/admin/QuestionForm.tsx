@@ -29,6 +29,8 @@ export type QuestionInitial = {
   contentClass: string;
   sourceType: string;
   sourceName: string;
+  sourceUrl: string;
+  officialAnswerKeyReference: string;
   exam: string;
   examYear: string;
   paperSession: string;
@@ -57,7 +59,7 @@ function defaults(subjects: SubjectOption[]): QuestionInitial {
     difficulty: 'MEDIUM',
     questionType: 'SINGLE_CORRECT',
     status: 'DRAFT',
-    contentClass: 'SAMPLE', sourceType: '', sourceName: '', exam: '', examYear: '', paperSession: '', licenseReference: '', reviewer: '', reviewedAt: '',
+    contentClass: 'SAMPLE', sourceType: '', sourceName: '', sourceUrl: '', officialAnswerKeyReference: '', exam: '', examYear: '', paperSession: '', licenseReference: '', reviewer: '', reviewedAt: '',
     year: '',
     tags: '',
     imageUrl: '',
@@ -90,6 +92,8 @@ export default function QuestionForm({
   const [contentClass, setContentClass] = useState(base.contentClass);
   const [sourceType, setSourceType] = useState(base.sourceType);
   const [sourceName, setSourceName] = useState(base.sourceName);
+  const [sourceUrl, setSourceUrl] = useState(base.sourceUrl);
+  const [officialAnswerKeyReference, setOfficialAnswerKeyReference] = useState(base.officialAnswerKeyReference);
   const [exam, setExam] = useState(base.exam);
   const [examYear, setExamYear] = useState(base.examYear);
   const [paperSession, setPaperSession] = useState(base.paperSession);
@@ -168,6 +172,8 @@ export default function QuestionForm({
       contentClass,
       sourceType: sourceType || null,
       sourceName,
+      sourceUrl,
+      officialAnswerKeyReference,
       exam,
       examYear: examYear.trim() ? Number(examYear) : null,
       paperSession,
@@ -311,14 +317,16 @@ export default function QuestionForm({
             </Field>
             <Field label="Source type" htmlFor="qSourceType">
               <select id="qSourceType" className={selectClass} value={sourceType} onChange={(e) => setSourceType(e.target.value)}>
-                <option value="">Not specified</option><option value="INTERNALLY_AUTHORED">Internally authored</option><option value="LICENSED">Licensed</option><option value="OFFICIAL_PREVIOUS_YEAR">Official previous year</option><option value="OTHER">Other</option>
+                <option value="">Not specified</option><option value="SIVORA_AUTHORED">SIVORA authored</option><option value="OFFICIAL_NTA">Official NTA</option><option value="INTERNALLY_AUTHORED">Legacy internally authored</option><option value="LICENSED">Licensed</option><option value="OFFICIAL_PREVIOUS_YEAR">Legacy official previous year</option><option value="OTHER">Other</option>
               </select>
             </Field>
           </div>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <Field label="Source name" htmlFor="qSourceName"><input id="qSourceName" className={inputClass} value={sourceName} onChange={(e) => setSourceName(e.target.value)} /></Field>
+            <Field label="Official source URL" htmlFor="qSourceUrl"><input id="qSourceUrl" type="url" className={inputClass} value={sourceUrl} onChange={(e) => setSourceUrl(e.target.value)} placeholder="https://neet.nta.nic.in/..." /></Field>
             <Field label="Exam / year" htmlFor="qExam"><div className="flex gap-2"><input id="qExam" className={inputClass} placeholder="NEET" value={exam} onChange={(e) => setExam(e.target.value)} /><input className={inputClass} placeholder="Year" value={examYear} onChange={(e) => setExamYear(e.target.value)} /></div></Field>
             <Field label="Paper / session" htmlFor="qSession"><input id="qSession" className={inputClass} value={paperSession} onChange={(e) => setPaperSession(e.target.value)} /></Field>
+            <Field label="Official answer-key reference" htmlFor="qAnswerKey"><input id="qAnswerKey" className={inputClass} value={officialAnswerKeyReference} onChange={(e) => setOfficialAnswerKeyReference(e.target.value)} /></Field>
             <Field label="License / permission reference" htmlFor="qLicense"><input id="qLicense" className={inputClass} value={licenseReference} onChange={(e) => setLicenseReference(e.target.value)} /></Field>
             <Field label="Reviewer" htmlFor="qReviewer"><input id="qReviewer" className={inputClass} value={reviewer} onChange={(e) => setReviewer(e.target.value)} /></Field>
             <Field label="Review date" htmlFor="qReviewedAt"><input id="qReviewedAt" type="date" className={inputClass} value={reviewedAt ? reviewedAt.slice(0, 10) : ''} onChange={(e) => setReviewedAt(e.target.value ? `${e.target.value}T00:00:00.000Z` : '')} /></Field>

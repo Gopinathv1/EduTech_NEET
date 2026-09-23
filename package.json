@@ -26,7 +26,11 @@
     "load": "k6 run load/load-test.js",
     "ci": "npm run lint && npm run typecheck && npm run test",
     "postinstall": "prisma generate",
-    "attempts:expire": "tsx scripts/expire-attempts.ts"
+    "attempts:expire": "tsx scripts/expire-attempts.ts",
+    "questions:sync-syllabus": "tsx scripts/questions-sync-syllabus.ts",
+    "questions:import-official": "tsx scripts/questions-import-official.ts",
+    "questions:validate": "tsx scripts/questions-validate.ts",
+    "questions:readiness": "tsx scripts/questions-readiness.ts"
   },
   "engines": {
     "node": ">=20.0.0"

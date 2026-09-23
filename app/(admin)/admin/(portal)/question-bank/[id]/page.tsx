@@ -3,6 +3,7 @@ import { prisma } from '@/lib/prisma';
 import { localizedName } from '@/lib/admin/format';
 import { AdminPageHeader } from '@/components/admin/ui';
 import QuestionForm, { type QuestionInitial } from '@/components/admin/QuestionForm';
+import QuestionReviewActions from '@/components/admin/QuestionReviewActions';
 
 export default async function EditQuestionPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -33,6 +34,8 @@ export default async function EditQuestionPage({ params }: { params: Promise<{ i
     contentClass: question.contentClass,
     sourceType: question.sourceType ?? '',
     sourceName: question.sourceName ?? '',
+    sourceUrl: question.sourceUrl ?? '',
+    officialAnswerKeyReference: question.officialAnswerKeyReference ?? '',
     exam: question.exam ?? '',
     examYear: question.examYear != null ? String(question.examYear) : '',
     paperSession: question.paperSession ?? '',
@@ -68,6 +71,7 @@ export default async function EditQuestionPage({ params }: { params: Promise<{ i
   return (
     <div>
       <AdminPageHeader title="Edit question" description="Update content, translation and metadata." />
+      <QuestionReviewActions questionId={question.id} reviewState={question.reviewState} reviewNote={question.reviewNote ?? ''} />
       <QuestionForm subjects={subjectOptions} initial={initial} />
     </div>
   );

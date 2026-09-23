@@ -21,8 +21,8 @@ async function main() {
     const chapter = existingChapter ?? await prisma.chapter.create({ data: { subjectId, name: { en: chapterName }, class: 11, weightage: 1, order: 1 } });
     const question = await prisma.question.upsert({
       where: { externalId: `sivora-jee-demo-${questionIds.length + 1}` },
-      update: { subjectId, chapterId: chapter.id, status: 'PUBLISHED', isActive: true, contentClass: 'PRODUCTION', sourceType: 'INTERNALLY_AUTHORED', sourceName: 'SIVORA editorial demo', reviewer: 'SIVORA editorial', reviewedAt: new Date() },
-      create: { externalId: `sivora-jee-demo-${questionIds.length + 1}`, subjectId, chapterId: chapter.id, exam: 'JEE', difficulty: 'EASY', status: 'PUBLISHED', isActive: true, contentClass: 'PRODUCTION', sourceType: 'INTERNALLY_AUTHORED', sourceName: 'SIVORA editorial demo', reviewer: 'SIVORA editorial', reviewedAt: new Date(), translations: { create: { language: 'en', questionText: prompt, optionA: options[0], optionB: options[1], optionC: options[2], optionD: options[3], correctOption: correct, explanation: 'Original SIVORA demonstration question.', reviewed: true } } },
+      update: { subjectId, chapterId: chapter.id, exam: 'JEE', status: 'PUBLISHED', isActive: true, contentClass: 'PRODUCTION', sourceType: 'SIVORA_AUTHORED', sourceName: 'SIVORA editorial demo', reviewer: 'SIVORA editorial', reviewedAt: new Date(), reviewState: 'APPROVED' },
+      create: { externalId: `sivora-jee-demo-${questionIds.length + 1}`, subjectId, chapterId: chapter.id, exam: 'JEE', difficulty: 'EASY', status: 'PUBLISHED', isActive: true, contentClass: 'PRODUCTION', sourceType: 'SIVORA_AUTHORED', sourceName: 'SIVORA editorial demo', reviewer: 'SIVORA editorial', reviewedAt: new Date(), reviewState: 'APPROVED', translations: { create: { language: 'en', questionText: prompt, optionA: options[0], optionB: options[1], optionC: options[2], optionD: options[3], correctOption: correct, explanation: 'Original SIVORA demonstration question.', reviewed: true } } },
     });
     await prisma.questionTranslation.upsert({
       where: { questionId_language: { questionId: question.id, language: 'en' } },

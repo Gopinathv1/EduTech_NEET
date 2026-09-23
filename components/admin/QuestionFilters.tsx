@@ -137,7 +137,7 @@ export default function QuestionFilters({
           <option value="">Any editorial status</option><option value="DRAFT">Draft</option><option value="REVIEW">Review</option><option value="PUBLISHED">Published</option>
         </select>
         <select className={cls} value={v.sourceType} onChange={(e) => set('sourceType', e.target.value)} aria-label="Source type">
-          <option value="">Any source</option><option value="INTERNALLY_AUTHORED">Internally authored</option><option value="LICENSED">Licensed</option><option value="OFFICIAL_PREVIOUS_YEAR">Official PYQ</option><option value="OTHER">Other</option>
+          <option value="">Any source</option><option value="SIVORA_AUTHORED">SIVORA authored</option><option value="OFFICIAL_NTA">Official NTA</option><option value="INTERNALLY_AUTHORED">Legacy internally authored</option><option value="LICENSED">Licensed</option><option value="OFFICIAL_PREVIOUS_YEAR">Legacy official PYQ</option><option value="OTHER">Other</option>
         </select>
 
         <div className="col-span-2 flex gap-2 sm:col-span-1 lg:col-span-1">
