@@ -21,6 +21,7 @@
     "neet:2025:validate": "tsx scripts/import-neet-paper.ts data/neet-2025-template.json",
     "neet:2025:import": "tsx scripts/import-neet-paper.ts data/neet-2025-template.json --import",
     "admin:create": "tsx prisma/create-admin.ts",
+    "admin:rotate-password": "tsx scripts/rotate-admin-password.ts",
     "test": "vitest run",
     "test:e2e": "playwright test",
     "load": "k6 run load/load-test.js",
