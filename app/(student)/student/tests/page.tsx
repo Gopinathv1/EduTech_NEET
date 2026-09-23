@@ -94,6 +94,7 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
     return {
       test,
       cov,
+      exam: ((test.rules as { exam?: string } | null)?.exam ?? (localizedName(test.title, 'en').toLowerCase().includes('jee') ? 'JEE' : 'NEET')),
       searchText: searchParts.join(' ').toLowerCase(),
       remaining: paidRetriesEnabled ? (remainingByTestId.get(test.id) ?? FREE_ATTEMPT_LIMIT) : null,
       latestAttempt: latestAttemptByTestId.get(test.id),
@@ -143,7 +144,7 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
         <div className="mb-5">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand">Available practice</p>
           <h2 className="mt-2 text-2xl font-bold text-textPrimary">Choose what you want to practise next</h2>
-          <p className="mt-2 text-sm text-textSecondary">{t('resultsCount', { count: filtered.length })} · Practice again anytime — repeat attempts are currently free.</p>
+          <p className="mt-2 text-sm text-textSecondary">{t('resultsCount', { count: filtered.length })} · Practice as many times as you want while unlimited practice is enabled.</p>
         </div>
 
         {filtered.length === 0 ? (
@@ -157,7 +158,7 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
                 <h2 id={`practice-${group.type}`} className="text-xl font-bold text-textPrimary">{group.title}</h2>
                 <p className="mt-1 text-sm text-textSecondary">{group.description}</p>
                 <div className="student-test-list mt-4 border-t border-border">
-                  {group.items.map(({ test, remaining, latestAttempt }) => {
+                  {group.items.map(({ test, exam, remaining, latestAttempt }) => {
                     const active = latestAttempt?.status === 'IN_PROGRESS';
                     const completed = latestAttempt && !active;
                     return (
@@ -167,6 +168,7 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
                           id: test.id,
                           title: localizedName(test.title, locale) || localizedName(test.title, 'en'),
                           testType: test.testType,
+                          exam,
                           totalQuestions: test.totalQuestions,
                           durationMinutes: test.durationMinutes,
                           difficulty: test.difficulty,

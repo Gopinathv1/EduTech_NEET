@@ -31,7 +31,7 @@ export default async function AttemptHistory({
   });
   return <section className="mt-8 rounded-2xl border border-border p-5">
     <h2 className="text-lg font-bold">{t('history')}</h2>
-    <p className="mt-1 text-sm text-textSecondary">{paidRetriesEnabled ? t('used', { count: attempts.length, limit: FREE_ATTEMPT_LIMIT }) : `${completedCount} completed · Practice again anytime — repeat attempts are currently free.`}</p>
+    <p className="mt-1 text-sm text-textSecondary">{paidRetriesEnabled ? t('used', { count: attempts.length, limit: FREE_ATTEMPT_LIMIT }) : `${completedCount} completed · Unlimited practice attempts are available.`}</p>
     <ul className="mt-3 divide-y divide-border">
       {attempts.map((a, i) => <li key={a.id} className="flex flex-wrap items-center justify-between gap-3 py-3 text-sm">
         <Link className="font-semibold text-brand underline" href={a.status === 'IN_PROGRESS' ? `/student/tests/${testId}/attempt` : `/student/results/${a.id}`}>
@@ -43,7 +43,7 @@ export default async function AttemptHistory({
       </li>)}
     </ul>
     {nextAction === 'practice-again' ?
-      <Link className="mt-4 inline-block rounded-lg bg-brand px-4 py-3 font-semibold text-white" href={`/student/tests/${testId}/start`}>{t('another')}</Link> : null}
+      <Link className="mt-4 inline-block rounded-lg bg-brand px-4 py-3 font-semibold text-white" href={`/student/tests/${testId}/start`}>Take Another Attempt</Link> : null}
     {nextAction === 'choose-another' ? (
       <div className="mt-4 rounded-lg border border-border bg-surface px-4 py-3 text-sm text-textSecondary">
         <p>This previous practice set is no longer available for a new attempt. Your result remains available above.</p>

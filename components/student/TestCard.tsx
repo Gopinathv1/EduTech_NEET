@@ -14,6 +14,7 @@ export type CatalogueCard = {
   actionHref?: string;
   actionLabel?: string;
   statusNote?: string;
+  exam?: string;
 };
 
 export default function TestCard({ test }: { test: CatalogueCard }) {
@@ -34,6 +35,7 @@ export default function TestCard({ test }: { test: CatalogueCard }) {
       </div>
 
       <h3 className="text-xl font-semibold tracking-[-0.035em] text-textPrimary sm:text-2xl">
+        {test.exam ? <span className="mb-2 block text-xs font-bold uppercase tracking-[0.14em] text-textSecondary">{test.exam}</span> : null}
         <Link href={`/student/tests/${test.id}`} className="hover:text-brand">
           {test.title}
         </Link>
