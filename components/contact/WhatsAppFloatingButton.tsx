@@ -34,9 +34,9 @@ export default function WhatsAppFloatingButton() {
       target={result.available ? '_blank' : undefined}
       rel="noopener noreferrer"
       onClick={handleUnavailableClick}
-      className="group fixed bottom-6 left-6 z-[99999] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_0_28px_rgba(37,211,102,0.32),0_18px_38px_rgba(0,0,0,0.42)] ring-1 ring-white/20 transition hover:-translate-y-0.5 hover:bg-[#1ebe5d] hover:shadow-[0_0_34px_rgba(37,211,102,0.46),0_20px_42px_rgba(0,0,0,0.5)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-      aria-label="Chat on WhatsApp"
-      title="Chat on WhatsApp"
+      className="group fixed bottom-[max(1rem,env(safe-area-inset-bottom))] left-4 z-[60] flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_8px_24px_rgba(7,17,31,0.18)] ring-1 ring-white/20 transition hover:-translate-y-0.5 hover:bg-[#1ebe5d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:left-6 sm:h-14 sm:w-14"
+      aria-label="Open WhatsApp support"
+      title="Open WhatsApp support"
     >
       <WhatsAppIcon className="h-7 w-7" />
       <span className="pointer-events-none absolute left-16 top-1/2 hidden -translate-y-1/2 whitespace-nowrap rounded-full border border-white/10 bg-[#111111] px-3 py-1.5 text-xs font-bold text-white opacity-0 shadow-xl shadow-black/30 transition group-hover:opacity-100 group-focus-visible:opacity-100 sm:block">

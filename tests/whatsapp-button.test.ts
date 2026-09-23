@@ -8,11 +8,13 @@ import {
 } from '@/lib/contact/whatsapp-enquiry';
 
 describe('floating WhatsApp enquiry helpers', () => {
-  it('hides throughout the authenticated student product', () => {
-    expect(isWhatsAppButtonHiddenPath('/student')).toBe(true);
-    expect(isWhatsAppButtonHiddenPath('/student/profile')).toBe(true);
-    expect(isWhatsAppButtonHiddenPath('/student/results/attempt-1')).toBe(true);
+  it('hides only in the active test-taking interface', () => {
+    expect(isWhatsAppButtonHiddenPath('/student')).toBe(false);
+    expect(isWhatsAppButtonHiddenPath('/student/profile')).toBe(false);
+    expect(isWhatsAppButtonHiddenPath('/student/results/attempt-1')).toBe(false);
     expect(isWhatsAppButtonHiddenPath('/student/tests/test-1/attempt')).toBe(true);
+    expect(isWhatsAppButtonHiddenPath('/student/tests/test-1/attempt/')).toBe(true);
+    expect(isWhatsAppButtonHiddenPath('/student/tests/test-1')).toBe(false);
   });
 
   it('shows on public, admin, and partner pages', () => {
@@ -22,9 +24,9 @@ describe('floating WhatsApp enquiry helpers', () => {
     expect(isWhatsAppButtonHiddenPath('/partner')).toBe(false);
     expect(isWhatsAppButtonHiddenPath('/partner/profile')).toBe(false);
     expect(isWhatsAppButtonHiddenPath('/partners')).toBe(false);
-    expect(isWhatsAppButtonHiddenPath('/exam-preparation/neet')).toBe(true);
-    expect(isWhatsAppButtonHiddenPath('/courses')).toBe(true);
-    expect(isWhatsAppButtonHiddenPath('/marketplace')).toBe(true);
+    expect(isWhatsAppButtonHiddenPath('/exam-preparation/neet')).toBe(false);
+    expect(isWhatsAppButtonHiddenPath('/courses')).toBe(false);
+    expect(isWhatsAppButtonHiddenPath('/marketplace')).toBe(false);
   });
 
   it('builds a student/parent message without sensitive data', () => {

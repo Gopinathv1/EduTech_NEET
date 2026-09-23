@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { apiPost } from '@/lib/client/api';
 import WhatsAppLink from '@/components/whatsapp/WhatsAppLink';
 
 const nav = [
@@ -25,11 +24,6 @@ export default function PartnerNav({ userName, agencyName }: { userName: string;
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const supportMessage = `Hello SIVORA UP↑RISING,\nI am contacting you from ${agencyName} and need partner support.`;
-
-  async function logout() {
-    await apiPost('/api/auth/logout');
-    window.location.href = '/partner/login';
-  }
 
   let lastSection = '';
   const links = (
@@ -68,9 +62,6 @@ export default function PartnerNav({ userName, agencyName }: { userName: string;
     <div className="border-t border-white/10 p-4">
       <p className="truncate text-sm font-bold text-white">{userName}</p>
       <p className="truncate text-xs text-slate-400">{agencyName}</p>
-      <button type="button" onClick={logout} className="mt-3 w-full rounded-lg border border-white/10 px-3 py-2 text-sm font-semibold text-slate-300 hover:bg-white/8">
-        Logout
-      </button>
     </div>
   );
 

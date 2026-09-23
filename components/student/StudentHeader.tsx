@@ -6,7 +6,6 @@ import { getStudentAudience, getUnreadCount, getNotificationsForStudent } from '
 import { getA11yPrefs } from '@/lib/a11y';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import AccessibilityMenu from '@/components/a11y/AccessibilityMenu';
-import LogoutButton from '@/components/auth/LogoutButton';
 import NotificationBell, { type SerializedNotification } from '@/components/student/notifications/NotificationBell';
 import Logo from '@/components/public/Logo';
 
@@ -73,7 +72,6 @@ export default async function StudentHeader() {
           <NotificationBell key={locale} initialUnread={unread} items={items} />
           <AccessibilityMenu fontScale={a11y.fontScale} contrast={a11y.contrast} />
           <LanguageSwitcher />
-          <LogoutButton />
         </div>
       </div>
     </header>

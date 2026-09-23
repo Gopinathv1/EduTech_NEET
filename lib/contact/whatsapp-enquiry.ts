@@ -1,3 +1,5 @@
+import { shouldShowFloatingSupport } from '@/lib/navigation/global-controls';
+
 export const STUDENT_WHATSAPP_CATEGORIES = [
   'NEET Preparation',
   'Mock Tests',
@@ -20,14 +22,7 @@ export const PARTNER_WHATSAPP_TYPES = [
 ];
 
 export function isFloatingContactHiddenPath(pathname: string) {
-  return pathname === '/student'
-    || pathname.startsWith('/student/')
-    || pathname === '/exam-preparation'
-    || pathname.startsWith('/exam-preparation/')
-    || pathname === '/courses'
-    || pathname.startsWith('/courses/')
-    || pathname === '/marketplace'
-    || pathname.startsWith('/marketplace/');
+  return !shouldShowFloatingSupport(pathname);
 }
 
 export const isWhatsAppButtonHiddenPath = isFloatingContactHiddenPath;

@@ -60,7 +60,7 @@ export default function AIChatButton() {
   }
 
   return (
-    <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3 sm:bottom-6 sm:right-6">
+    <div className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-4 z-[60] flex flex-col items-end gap-3 sm:right-6">
       {open ? (
         <div className="flex h-[min(38rem,calc(100vh-7rem))] w-[min(calc(100vw-2rem),25rem)] flex-col overflow-hidden rounded-md border border-[#e1e5ea] bg-[#f1f3f5] shadow-lg shadow-black/15">
           <div className="flex items-start justify-between gap-3 border-b border-[#2b2b2b] bg-[#050505] p-4">
@@ -143,7 +143,7 @@ export default function AIChatButton() {
       <button
         type="button"
         onClick={() => setOpen((value) => !value)}
-        className="group relative flex h-14 w-14 items-center justify-center rounded-full border border-[#315f9f] bg-[#17191c] text-white shadow-lg shadow-black/15 transition hover:-translate-y-0.5 hover:bg-[#315f9f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        className="group relative flex h-12 w-12 items-center justify-center rounded-full border border-[#315f9f] bg-[#17191c] text-white shadow-[0_8px_24px_rgba(7,17,31,0.18)] transition hover:-translate-y-0.5 hover:bg-[#315f9f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:h-14 sm:w-14"
         aria-label={open ? t('closeFloating') : t('openFloating')}
         aria-expanded={open}
         title={t('tooltip')}

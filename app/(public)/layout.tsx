@@ -1,6 +1,5 @@
 import PublicHeader from '@/components/public/PublicHeader';
 import PublicFooter from '@/components/public/PublicFooter';
-import AIChatButton from '@/components/ai/AIChatButton';
 import { getSession } from '@/lib/auth/session';
 import { publicFont } from '@/lib/public/font';
 
@@ -17,7 +16,6 @@ export default async function PublicLayout({ children }: { children: React.React
     <div className={`${publicFont.className} public-site flex min-h-screen flex-col`}>
       <PublicHeader studentAuthenticated={session?.kind === 'student'} />
       <main id="main-content" className="flex-1">{children}</main>
-      <AIChatButton />
       <PublicFooter />
     </div>
   );

@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, type ComponentType, type SVGProps } from 'react';
-import { apiPost } from '@/lib/client/api';
 import { ADMIN_NAV } from '@/lib/admin/nav';
 import {
   GridIcon,
@@ -54,11 +53,6 @@ export default function AdminNav({
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  async function logout() {
-    await apiPost('/api/auth/logout');
-    window.location.href = '/admin/login';
-  }
-
   const navList = (
     <nav className="flex-1 space-y-1 overflow-y-auto px-3 py-4" aria-label="Admin">
       {ADMIN_NAV.filter((item) => !item.superOnly || role === 'SUPER_ADMIN').map((item) => {
@@ -99,13 +93,6 @@ export default function AdminNav({
     <div className="border-t border-border p-4">
       <p className="truncate text-sm font-semibold text-textPrimary">{name}</p>
       <p className="text-xs text-textSecondary">{role === 'SUPER_ADMIN' ? 'Super Admin' : 'Admin'}</p>
-      <button
-        type="button"
-        onClick={logout}
-        className="mt-3 w-full rounded-lg border border-border px-3 py-1.5 text-sm font-medium text-textSecondary hover:bg-surfaceElevated"
-      >
-        Logout
-      </button>
     </div>
   );
 

@@ -6,6 +6,9 @@ import { getA11yPrefs } from '@/lib/a11y';
 import SkipLink from '@/components/a11y/SkipLink';
 import SentryInit from '@/components/observability/SentryInit';
 import WhatsAppFloatingButton from '@/components/contact/WhatsAppFloatingButton';
+import AIChatButton from '@/components/ai/AIChatButton';
+import GlobalNavigationControls from '@/components/navigation/GlobalNavigationControls';
+import { getSession } from '@/lib/auth/session';
 import PeacockBackground from '@/components/brand/PeacockBackground';
 import './globals.css';
 
@@ -30,12 +33,14 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const locale = await getLocale();
-  const messages = await getMessages();
+  const [locale, messages, session, { fontScale, contrast }] = await Promise.all([
+    getLocale(),
+    getMessages(),
+    getSession(),
+    getA11yPrefs(),
+  ]);
   // Accessibility preferences are stamped on <html> server-side so the chosen
   // font size / contrast theme is already in the first paint (no flash).
-  const { fontScale, contrast } = await getA11yPrefs();
-
   return (
     // suppressHydrationWarning: browser extensions (e.g. Bitdefender, Grammarly)
     // inject attributes into <html>/<body> before React hydrates, which would
@@ -57,6 +62,8 @@ export default async function RootLayout({
           <PeacockBackground />
           <div className="relative z-10">{children}</div>
           <WhatsAppFloatingButton />
+          <AIChatButton />
+          <GlobalNavigationControls sessionKind={session?.kind ?? null} />
         </NextIntlClientProvider>
       </body>
     </html>
