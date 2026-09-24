@@ -3,7 +3,7 @@ import { CURRENT_EXAM_STRUCTURES } from '@/lib/question-bank/exam-structures';
 import { officialExternalId, sivoraExternalId } from '@/lib/question-bank/identity';
 import { isAllowedOfficialSource } from '@/lib/question-bank/official-sources';
 import { planPracticeQuestionIds } from '@/lib/question-bank/practice';
-import { evaluateFullMockReadiness, evaluatePracticeReadiness, readinessCounts, type EligibleQuestionRecord } from '@/lib/question-bank/readiness';
+import { evaluateCandidateFullMockReadiness, evaluateFullMockReadiness, evaluatePracticeReadiness, readinessCounts, type EligibleQuestionRecord } from '@/lib/question-bank/readiness';
 import { QUESTION_BANK_V1_TAXONOMY, validateTaxonomy } from '@/lib/question-bank/taxonomy';
 import { validateQuestionBank, type BankQuestion } from '@/lib/question-bank/validator';
 
@@ -39,6 +39,34 @@ describe('question bank V1 taxonomy and official structures', () => {
     expect(QUESTION_BANK_V1_TAXONOMY.some((entry) => entry.subjectCode === 'ZOOLOGY')).toBe(true);
     const gravitation = QUESTION_BANK_V1_TAXONOMY.find((entry) => entry.unitSlug === 'physics-gravitation');
     expect(gravitation?.topicSlugs).toEqual(expect.arrayContaining(['keplers-laws', 'gravitational-potential', 'escape-velocity', 'satellite-motion']));
+  });
+
+  it.each([
+    ['NEET', 'PHYSICS', 'physics-optics', 'ray-optics'],
+    ['NEET', 'CHEMISTRY', 'chemistry-coordination-compounds', 'bonding'],
+    ['NEET', 'BOTANY', 'biology-plant-physiology', 'photosynthesis'],
+    ['NEET', 'ZOOLOGY', 'biology-reproduction', 'human-reproduction'],
+    ['JEE', 'JEE_PHYSICS', 'jee-physics-electrostatics', 'electric-charge-field'],
+    ['JEE', 'JEE_CHEMISTRY', 'jee-chemistry-chemical-kinetics', 'rate-law'],
+    ['JEE', 'JEE_MATHEMATICS', 'jee-mathematics-integral-calculus', 'definite-integrals'],
+  ] as const)('accepts expanded %s %s taxonomy: %s/%s', (exam, subjectCode, chapterSlug, topic) => {
+    const identityKey = `${exam}:${subjectCode}:${chapterSlug}:${topic}:test`;
+    expect(validateQuestionBank([question({
+      identityKey,
+      externalId: sivoraExternalId(identityKey),
+      exam,
+      subjectCode,
+      chapterSlug,
+      topic,
+      status: 'REVIEW',
+      reviewState: 'REVIEW_REQUIRED',
+      contentClass: 'PRODUCTION',
+    })])).toEqual([]);
+  });
+
+  it('continues to reject an unknown expanded-taxonomy chapter and topic', () => {
+    const issues = validateQuestionBank([question({ chapterSlug: 'physics-not-real', topic: 'invented-topic' })]);
+    expect(issues.map((issue) => issue.code)).toContain('unsupported_taxonomy');
   });
 
   it('pins the verified current full-mock structures', () => {
@@ -130,5 +158,14 @@ describe('readiness and practice planning', () => {
     }
     expect(evaluateFullMockReadiness(rows, 'JEE').ready).toBe(true);
     expect(evaluateFullMockReadiness(rows.slice(0, -1), 'JEE').ready).toBe(false);
+  });
+
+  it('distinguishes complete candidate inventory from approved production eligibility', () => {
+    const rows: EligibleQuestionRecord[] = [];
+    for (let i = 0; i < 45; i++) rows.push(record(`p-${i}`, { reviewState: 'REVIEW_REQUIRED', eligible: false }));
+    for (let i = 0; i < 45; i++) rows.push(record(`c-${i}`, { subjectCode: 'CHEMISTRY', reviewState: 'REVIEW_REQUIRED', eligible: false }));
+    for (let i = 0; i < 90; i++) rows.push(record(`b-${i}`, { subjectCode: i % 2 ? 'BOTANY' : 'ZOOLOGY', reviewState: 'REVIEW_REQUIRED', eligible: false }));
+    expect(evaluateCandidateFullMockReadiness(rows, 'NEET').ready).toBe(true);
+    expect(evaluateFullMockReadiness(rows, 'NEET').ready).toBe(false);
   });
 });

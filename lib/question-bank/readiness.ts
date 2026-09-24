@@ -70,6 +70,16 @@ export function evaluateFullMockReadiness(records: readonly EligibleQuestionReco
   return { ready: reasons.length === 0, availableUnique: eligible.length, reasons };
 }
 
+/** Candidate readiness includes reviewed and review-required repository inventory.
+ * It never makes a question production-eligible; approved readiness continues to
+ * use the explicit `eligible` flag above. */
+export function evaluateCandidateFullMockReadiness(records: readonly EligibleQuestionRecord[], exam: 'NEET' | 'JEE') {
+  const candidates = records
+    .filter((record) => record.reviewState === 'APPROVED' || record.reviewState === 'REVIEW_REQUIRED')
+    .map((record) => ({ ...record, eligible: true }));
+  return evaluateFullMockReadiness(candidates, exam);
+}
+
 export function evaluatePracticeReadiness(records: readonly EligibleQuestionRecord[], request: PracticeRequest) {
   let pool = records.filter((record) => record.eligible && record.exam === request.exam);
   if (request.mode === 'YEAR') pool = pool.filter((record) => record.year === request.year && record.sourceType === 'OFFICIAL_NTA');
