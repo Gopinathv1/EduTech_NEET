@@ -10,7 +10,7 @@ import { examPaidRetriesEnabled } from '@/lib/attempts/paid-retries';
 import type { ExamLanguage } from '@/lib/attempts/examState';
 import StudentHeader from '@/components/student/StudentHeader';
 import StartAttemptClient from '@/components/student/exam/StartAttemptClient';
-import { productionTestWhere } from '@/lib/content/eligibility';
+import { studentTestWhere } from '@/lib/content/eligibility';
 import { withReturnParam } from '@/lib/auth/redirect';
 import { examEmailVerificationGateEnabled } from '@/lib/attempts/verification';
 import { ClockIcon, BookIcon } from '@/components/public/icons';
@@ -36,7 +36,7 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
   }
 
   const test = await prisma.test.findUnique({
-    where: { ...productionTestWhere, id },
+    where: { ...studentTestWhere, id },
     select: {
       id: true,
       title: true,

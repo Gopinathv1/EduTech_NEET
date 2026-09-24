@@ -18,6 +18,8 @@
     "db:seed": "prisma db seed",
     "db:seed:reference": "tsx prisma/seed-reference.ts",
     "db:seed:jee-demo": "tsx prisma/seed-jee-demo.ts",
+    "db:seed:sivora-samples": "tsx prisma/seed-sivora-samples.ts",
+    "test:sivora-samples": "tsx scripts/verify-sample-lifecycle.ts",
     "neet:2025:validate": "tsx scripts/import-neet-paper.ts data/neet-2025-template.json",
     "neet:2025:import": "tsx scripts/import-neet-paper.ts data/neet-2025-template.json --import",
     "admin:create": "tsx prisma/create-admin.ts",

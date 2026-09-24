@@ -9,7 +9,7 @@ import { buildPerformance } from '@/lib/reports/performance';
 import { getStudentLead } from '@/lib/admission/leads';
 import { round1 } from '@/lib/attempts/analysis';
 import { examPaidRetriesEnabled } from '@/lib/attempts/paid-retries';
-import { productionTestWhere } from '@/lib/content/eligibility';
+import { studentTestWhere } from '@/lib/content/eligibility';
 import StudentHeader from '@/components/student/StudentHeader';
 import RecommendationList from '@/components/student/RecommendationList';
 import { L } from '@/components/student/results/localize';
@@ -42,7 +42,7 @@ export default async function StudentHomePage() {
       select: { id: true, testId: true, status: true },
     }),
     prisma.test.findMany({
-      where: { ...productionTestWhere, entitlements: { none: { studentId } } },
+      where: { ...studentTestWhere, entitlements: { none: { studentId } } },
       orderBy: { createdAt: 'desc' },
       take: 4,
       select: { id: true, title: true, price: true },

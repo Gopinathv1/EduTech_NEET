@@ -16,3 +16,17 @@ export const productionTestWhere = {
   contentClass: 'PRODUCTION',
   isPublished: true,
 } satisfies Prisma.TestWhereInput;
+
+/** Controlled student-facing SIVORA practice fixtures. These never enter the
+ * production/reviewed catalogue gate. */
+export const sampleTestWhere = {
+  contentClass: 'SAMPLE',
+  isPublished: true,
+  id: { in: ['sivora-neet-sample-practice', 'sivora-jee-sample-practice'] },
+} satisfies Prisma.TestWhereInput;
+
+export const studentTestWhere = { OR: [productionTestWhere, sampleTestWhere] } satisfies Prisma.TestWhereInput;
+
+export function isFreeSampleTest(test: { id: string; contentClass?: string | null }) {
+  return test.contentClass === 'SAMPLE' && sampleTestWhere.id.in.includes(test.id);
+}

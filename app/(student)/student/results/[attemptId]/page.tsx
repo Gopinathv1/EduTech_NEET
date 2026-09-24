@@ -16,6 +16,7 @@ import { L } from '@/components/student/results/localize';
 import { shouldShowAdmissionBanner } from '@/lib/admission/config';
 import { getSettings } from '@/lib/settings/service';
 import AdmissionBanner from '@/components/student/admission/AdmissionBanner';
+import { isFreeSampleTest } from '@/lib/content/eligibility';
 
 /**
  * Result page: score summary + subject/chapter/time analysis (Analysis tab) and a
@@ -32,7 +33,7 @@ export default async function ResultPage({ params }: { params: Promise<{ attempt
   // If the attempt is still running, send the student back to it.
   const state = await prisma.testAttempt.findFirst({
     where: { id: attemptId, studentId: session.sub },
-    select: { status: true, testId: true, test: { select: { testType: true, contentClass: true, isPublished: true } } },
+    select: { status: true, testId: true, test: { select: { id: true, testType: true, contentClass: true, isPublished: true } } },
   });
   if (!state) notFound();
   if (state.status === 'IN_PROGRESS') redirect(`/student/tests/${state.testId}/attempt`);
@@ -84,7 +85,7 @@ export default async function ResultPage({ params }: { params: Promise<{ attempt
         <AttemptHistory
           studentId={session.sub}
           testId={state.testId}
-          canStartAnotherAttempt={state.test.isPublished && state.test.contentClass === 'PRODUCTION'}
+          canStartAnotherAttempt={state.test.isPublished && (state.test.contentClass === 'PRODUCTION' || isFreeSampleTest(state.test))}
         />
       </main>
     </div>

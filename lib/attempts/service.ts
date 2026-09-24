@@ -16,6 +16,7 @@ import {
   type OptLetter,
 } from './options';
 import { buildResultNotificationData } from '@/lib/notifications/create';
+import { isFreeSampleTest } from '@/lib/content/eligibility';
 
 /**
  * Server-side orchestration for a test attempt: starting/resuming, building the
@@ -50,7 +51,7 @@ export async function startOrResumeAttempt(
   language: 'en' | 'ta' | 'hi',
 ): Promise<StartOutcome> {
   const test = await prisma.test.findUnique({ where: { id: testId } });
-  if (!test || !test.isPublished || (test.contentClass && test.contentClass !== 'PRODUCTION')) return { ok: false, code: 'notFound' };
+  if (!test || !test.isPublished || (test.contentClass && test.contentClass !== 'PRODUCTION' && !isFreeSampleTest(test))) return { ok: false, code: 'notFound' };
   // Generate before insertion: a partially generated session is never visible.
   const existing = await prisma.testAttempt.findFirst({
     where: { studentId, testId, status: ACTIVE }, orderBy: { createdAt: 'desc' },
@@ -83,7 +84,7 @@ export async function startOrResumeAttempt(
         if (active) return { ok: true, attemptId: active.id, resumed: true };
         const used = await tx.testAttempt.count({ where: { studentId, testId } });
         let creditId: string | null = null;
-        if (examPaidRetriesEnabled() && used >= FREE_ATTEMPT_LIMIT) {
+        if (examPaidRetriesEnabled() && !isFreeSampleTest(test) && used >= FREE_ATTEMPT_LIMIT) {
           const credit = await tx.paidAttemptCredit.findFirst({ where: { studentId, testId, consumedAt: null, attemptId: null }, orderBy: { createdAt: 'asc' } });
           if (!credit) return { ok: false, code: 'paymentRequired' };
           creditId = credit.id;
