@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 // Mock the collaborators; keep validation + timer logic real so the route's
 // time-authority behaviour is genuinely exercised.
-vi.mock('@/lib/prisma', () => ({ prisma: { $transaction: vi.fn(), testAttempt: { updateMany: vi.fn() }, answer: { upsert: vi.fn() } } }));
+vi.mock('@/lib/prisma', () => ({ prisma: { $transaction: vi.fn(), testAttempt: { updateMany: vi.fn() }, question: { findUnique: vi.fn() }, answer: { upsert: vi.fn() } } }));
 vi.mock('@/lib/auth/session', () => ({ getSession: vi.fn() }));
 vi.mock('@/lib/attempts/service', () => ({ loadAttemptContext: vi.fn(), finalizeAttempt: vi.fn() }));
 
@@ -45,6 +45,7 @@ beforeEach(() => {
   vi.clearAllMocks();
   p.$transaction.mockImplementation((fn: (tx: unknown) => unknown) => fn(p));
   p.testAttempt.updateMany.mockResolvedValue({ count: 1 });
+  p.question.findUnique.mockResolvedValue({ questionType: 'SINGLE_CORRECT' });
   getSessionMock.mockResolvedValue({ sub: 's1', kind: 'student', role: 'STUDENT', name: 'Ravi' });
 });
 
@@ -137,6 +138,19 @@ describe('POST /api/attempts/[id]/answer', () => {
     const arg = p.answer.upsert.mock.calls[0][0];
     expect(arg.update).not.toHaveProperty('selectedOption');
     expect(arg.update).toMatchObject({ visited: true, timeSpentSeconds: { increment: 5 } });
+  });
+
+  it('persists a numerical response and rejects a fake option response', async () => {
+    loadCtxMock.mockResolvedValue(liveAttempt() as never);
+    p.question.findUnique.mockResolvedValue({ questionType: 'NUMERICAL_VALUE' });
+    p.answer.upsert.mockResolvedValue({});
+
+    const saved = await POST(req({ questionId: 'q1', action: 'answer', numericResponse: 12.5 }), { params });
+    expect(saved.status).toBe(200);
+    expect(p.answer.upsert.mock.calls[0][0].create).toMatchObject({ numericResponse: 12.5 });
+
+    const rejected = await POST(req({ questionId: 'q1', action: 'answer', selectedOption: 'A' }), { params });
+    expect(rejected.status).toBe(400);
   });
 });
 

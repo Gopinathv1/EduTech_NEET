@@ -218,10 +218,20 @@ export async function generateForAttempt(
 async function validateAttemptQuestions(test: { testType: string; totalQuestions: number; durationMinutes: number }, ids: string[], language: string) {
   if (!validFullMock(test) || ids.length !== test.totalQuestions || new Set(ids).size !== ids.length) throw new GeneratorError('Invalid test configuration');
   const rows = await prisma.question.findMany({ where: { id: { in: ids }, isActive: true },
-    select: { questionType: true, subject: { select: { code: true } }, translations: { select: { language: true, reviewed: true, correctOption: true } } } });
-  if (rows.length !== ids.length || rows.some(q => !q.translations.some(t => t.language === 'en' && t.correctOption) ||
+    select: { questionType: true, subject: { select: { code: true } }, translations: { select: { language: true, reviewed: true, correctOption: true, numericAnswer: true } } } });
+  if (rows.length !== ids.length || rows.some(q => !q.translations.some(t => t.language === 'en' && (q.questionType === 'NUMERICAL_VALUE' ? t.numericAnswer !== null : t.correctOption !== null)) ||
     !q.translations.some(t => t.language === language && (language === 'en' || t.reviewed)))) throw new GeneratorError('Question content unavailable');
-  if (test.testType === 'FULL_TEST' && (NEET_CONFIG.subjects.some(code => rows.filter(q => q.subject.code === code).length !== NEET_CONFIG.questionsPerPracticeSubject))) {
-    throw new GeneratorError('Full mock requires 45 single-correct questions in each practice subject');
+  if (test.testType === 'FULL_TEST') {
+    const isJee = rows.some(q => q.subject.code.startsWith('JEE_'));
+    const invalid = isJee
+      ? ['JEE_PHYSICS', 'JEE_CHEMISTRY', 'JEE_MATHEMATICS'].some(code =>
+          rows.filter(q => q.subject.code === code && q.questionType !== 'NUMERICAL_VALUE').length !== 20
+          || rows.filter(q => q.subject.code === code && q.questionType === 'NUMERICAL_VALUE').length !== 5)
+      : rows.filter(q => q.subject.code === 'PHYSICS').length !== 45
+        || rows.filter(q => q.subject.code === 'CHEMISTRY').length !== 45
+        || rows.filter(q => q.subject.code === 'BOTANY' || q.subject.code === 'ZOOLOGY').length !== 90;
+    if (invalid) throw new GeneratorError(isJee
+      ? 'JEE full mock requires 20 MCQ and 5 numerical questions per subject'
+      : 'NEET full mock requires Physics 45, Chemistry 45, and Biology 90 questions');
   }
 }

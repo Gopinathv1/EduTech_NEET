@@ -130,10 +130,10 @@ export async function loadAttemptContext(attemptId: string, studentId: string) {
 
 export type ExamQuestionContent = {
   questionText: string;
-  optionA: string;
-  optionB: string;
-  optionC: string;
-  optionD: string;
+  optionA: string | null;
+  optionB: string | null;
+  optionC: string | null;
+  optionD: string | null;
 };
 
 export type ExamQuestion = {
@@ -150,6 +150,7 @@ export type ExamQuestion = {
 
 export type ExamAnswerState = {
   selectedOption: ScoredOption | null;
+  numericResponse: number | null;
   markedForReview: boolean;
   visited: boolean;
 };
@@ -167,10 +168,10 @@ export type ExamPayload = {
 
 function pickContent(t: {
   questionText: string;
-  optionA: string;
-  optionB: string;
-  optionC: string;
-  optionD: string;
+  optionA: string | null;
+  optionB: string | null;
+  optionC: string | null;
+  optionD: string | null;
 }): ExamQuestionContent {
   return {
     questionText: t.questionText,
@@ -225,7 +226,7 @@ export async function buildExamPayload(attempt: {
     }),
     prisma.answer.findMany({
       where: { attemptId: attempt.id },
-      select: { questionId: true, selectedOption: true, isMarkedForReview: true, visited: true },
+      select: { questionId: true, selectedOption: true, numericResponse: true, isMarkedForReview: true, visited: true },
     }),
   ]);
 
@@ -262,6 +263,7 @@ export async function buildExamPayload(attempt: {
   for (const a of answers) {
     answerMap[a.questionId] = {
       selectedOption: a.selectedOption,
+      numericResponse: a.numericResponse === null ? null : Number(a.numericResponse),
       markedForReview: a.isMarkedForReview,
       visited: a.visited,
     };
@@ -333,13 +335,13 @@ export async function finalizeAttempt(
           questionType: true,
           translations: {
             where: { language: 'en' },
-            select: { correctOption: true, optionA: true, optionB: true, optionC: true, optionD: true },
+            select: { correctOption: true, numericAnswer: true, numericTolerance: true, optionA: true, optionB: true, optionC: true, optionD: true },
           },
         },
       }),
       tx.answer.findMany({
         where: { attemptId },
-        select: { questionId: true, selectedOption: true, timeSpentSeconds: true },
+        select: { questionId: true, selectedOption: true, numericResponse: true, timeSpentSeconds: true },
       }),
     ]);
 
@@ -348,19 +350,27 @@ export async function finalizeAttempt(
       .map((id) => {
         const q = qById.get(id);
         const tr = q?.translations[0];
-        if (!q || !tr?.correctOption) throw new Error('Cannot finalize: a frozen question or answer key is missing');
+        if (!q || !tr) throw new Error('Cannot finalize: a frozen question or answer key is missing');
+        if (q.questionType === 'NUMERICAL_VALUE') {
+          if (tr.numericAnswer === null) throw new Error('Cannot finalize: a numerical answer key is missing');
+          return {
+            id: q.id, subjectId: q.subjectId, chapterId: q.chapterId,
+            questionType: 'NUMERICAL_VALUE' as const, correctOption: null,
+            numericAnswer: Number(tr.numericAnswer), numericTolerance: Number(tr.numericTolerance ?? 0),
+          };
+        }
+        if (!tr.correctOption) throw new Error('Cannot finalize: an MCQ answer key is missing');
         // Answers were recorded in DISPLAY space, so map the canonical correct
         // option through the same per-attempt shuffle before comparing.
         const shuffle = attempt.shuffleOptions && canShuffleOptions(tr, q.questionType);
         const order = optionDisplayOrder(attempt.seed, q.id, shuffle);
         const displayCorrect = canonicalToDisplay(order, tr.correctOption as OptLetter);
-        return { id: q.id, subjectId: q.subjectId, chapterId: q.chapterId, correctOption: displayCorrect as ScoredOption };
-      })
-      .filter((q): q is ResultQuestion => q !== null);
+        return { id: q.id, subjectId: q.subjectId, chapterId: q.chapterId, questionType: q.questionType, correctOption: displayCorrect as ScoredOption };
+      });
 
-    const answers: Record<string, { selectedOption: ScoredOption | null; timeSpentSeconds: number }> = {};
+    const answers: Record<string, { selectedOption: ScoredOption | null; numericResponse: number | null; timeSpentSeconds: number }> = {};
     for (const a of answerRows) {
-      answers[a.questionId] = { selectedOption: a.selectedOption, timeSpentSeconds: a.timeSpentSeconds };
+      answers[a.questionId] = { selectedOption: a.selectedOption, numericResponse: a.numericResponse === null ? null : Number(a.numericResponse), timeSpentSeconds: a.timeSpentSeconds };
     }
 
     const result = computeResult(questions, answers);

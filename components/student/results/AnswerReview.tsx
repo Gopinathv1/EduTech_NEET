@@ -110,6 +110,16 @@ export default function AnswerReview({ items, locale }: { items: ReviewItem[]; l
                   <img src={item.imageUrl} alt="" className="mt-3 max-h-56 max-w-full w-auto rounded-lg border border-border" />
                 ) : null}
 
+                {item.questionType === 'NUMERICAL_VALUE' ? (
+                  <div className="mt-3 grid gap-2 sm:grid-cols-2">
+                    <p className="rounded-lg border border-border p-3 text-sm text-textPrimary">
+                      {t('yourAnswer')}: {item.numericResponse ?? t('notAnswered')}
+                    </p>
+                    <p className="rounded-lg border border-green-500/50 bg-green-950/30 p-3 text-sm text-textPrimary">
+                      {t('correctAnswer')}: {item.numericAnswer}
+                    </p>
+                  </div>
+                ) : (
                 <ul className="mt-3 space-y-2">
                   {OPTIONS.map((opt) => {
                     const isCorrect = opt === item.correctOption;
@@ -150,6 +160,7 @@ export default function AnswerReview({ items, locale }: { items: ReviewItem[]; l
                     );
                   })}
                 </ul>
+                )}
 
                 {item.status === 'skipped' ? (
                   <p className="mt-2 text-xs italic text-slate-400">{t('notAnswered')}</p>

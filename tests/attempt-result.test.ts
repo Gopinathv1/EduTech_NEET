@@ -53,4 +53,16 @@ describe('computeResult', () => {
     expect(r.timeAnalysis.bySubject.phy).toBe(50);
     expect(r.timeAnalysis.byQuestion.q3).toBe(15);
   });
+
+  it('scores numerical responses without fake options and preserves MCQ behavior', () => {
+    const numerical: ResultQuestion[] = [
+      { id: 'n1', subjectId: 'math', chapterId: 'algebra', questionType: 'NUMERICAL_VALUE', correctOption: null, numericAnswer: 2.5, numericTolerance: 0 },
+      { id: 'n2', subjectId: 'phy', chapterId: 'units', questionType: 'NUMERICAL_VALUE', correctOption: null, numericAnswer: 10, numericTolerance: 0.01 },
+    ];
+    const result = computeResult(numerical, {
+      n1: { selectedOption: null, numericResponse: 2.5, timeSpentSeconds: 1 },
+      n2: { selectedOption: null, numericResponse: 10.02, timeSpentSeconds: 1 },
+    });
+    expect(result).toMatchObject({ correct: 1, wrong: 1, skipped: 0, score: 3 });
+  });
 });

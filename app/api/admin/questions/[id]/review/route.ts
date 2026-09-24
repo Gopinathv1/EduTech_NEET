@@ -26,10 +26,15 @@ function approvalIssues(question: Awaited<ReturnType<typeof loadQuestion>>): str
   if (!question.sourceType || !question.sourceName) issues.push('Source type and source name are required.');
   if (!en?.questionText?.trim() || !en.explanation?.trim()) issues.push('English question text and explanation are required.');
   if (en) {
-    const options = [en.optionA, en.optionB, en.optionC, en.optionD].map((option) => option.trim().toLocaleLowerCase());
-    if (options.some((option) => !option)) issues.push('All four answer options are required.');
-    if (new Set(options).size !== options.length) issues.push('Answer options must be distinct.');
-    if (!['A', 'B', 'C', 'D'].includes(en.correctOption)) issues.push('A valid correct option is required.');
+    if (question.questionType === 'NUMERICAL_VALUE') {
+      if (en.numericAnswer === null) issues.push('A numerical answer is required.');
+      if (en.numericTolerance !== null && en.numericTolerance.isNegative()) issues.push('Numerical tolerance cannot be negative.');
+    } else {
+      const options = [en.optionA, en.optionB, en.optionC, en.optionD].map((option) => option?.trim().toLocaleLowerCase() ?? '');
+      if (options.some((option) => !option)) issues.push('All four answer options are required.');
+      if (new Set(options).size !== options.length) issues.push('Answer options must be distinct.');
+      if (!en.correctOption || !['A', 'B', 'C', 'D'].includes(en.correctOption)) issues.push('A valid correct option is required.');
+    }
   }
   if (question.sourceType === 'OFFICIAL_NTA' || question.sourceType === 'OFFICIAL_PREVIOUS_YEAR') {
     if (!question.examYear) issues.push('Official questions require an exam year.');

@@ -1,0 +1,13 @@
+ALTER TYPE "QuestionType" ADD VALUE IF NOT EXISTS 'NUMERICAL_VALUE';
+
+ALTER TABLE "QuestionTranslation"
+  ALTER COLUMN "optionA" DROP NOT NULL,
+  ALTER COLUMN "optionB" DROP NOT NULL,
+  ALTER COLUMN "optionC" DROP NOT NULL,
+  ALTER COLUMN "optionD" DROP NOT NULL,
+  ALTER COLUMN "correctOption" DROP NOT NULL,
+  ADD COLUMN "numericAnswer" DECIMAL(18,8),
+  ADD COLUMN "numericTolerance" DECIMAL(18,8);
+
+ALTER TABLE "Answer"
+  ADD COLUMN "numericResponse" DECIMAL(18,8);

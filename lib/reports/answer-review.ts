@@ -19,7 +19,7 @@ import type { LocalizedText } from '@/lib/recommendations/types';
 
 export type ReviewContent = {
   questionText: string;
-  options: Record<ScoredOption, string>;
+  options: Record<ScoredOption, string | null>;
   explanation: string | null;
 };
 
@@ -36,8 +36,10 @@ export type ReviewItem = {
   /** Reviewed Tamil content, or null when unavailable (client shows EN + notice). */
   ta: ReviewContent | null;
   hi: ReviewContent | null;
-  correctOption: ScoredOption;
+  correctOption: ScoredOption | null;
   selectedOption: ScoredOption | null;
+  numericAnswer: number | null;
+  numericResponse: number | null;
   isCorrect: boolean | null;
   marked: boolean;
   status: ReviewStatus;
@@ -46,11 +48,13 @@ export type ReviewItem = {
 type TranslationRow = {
   language: string;
   questionText: string;
-  optionA: string;
-  optionB: string;
-  optionC: string;
-  optionD: string;
-  correctOption: ScoredOption;
+  optionA: string | null;
+  optionB: string | null;
+  optionC: string | null;
+  optionD: string | null;
+  correctOption: ScoredOption | null;
+  numericAnswer: unknown;
+  numericTolerance: unknown;
   explanation: string | null;
   reviewed: boolean;
 };
@@ -92,6 +96,8 @@ export async function buildAnswerReview(attemptId: string, studentId: string): P
             optionC: true,
             optionD: true,
             correctOption: true,
+            numericAnswer: true,
+            numericTolerance: true,
             explanation: true,
             reviewed: true,
           },
@@ -100,7 +106,7 @@ export async function buildAnswerReview(attemptId: string, studentId: string): P
     }),
     prisma.answer.findMany({
       where: { attemptId },
-      select: { questionId: true, selectedOption: true, isCorrect: true, isMarkedForReview: true },
+      select: { questionId: true, selectedOption: true, numericResponse: true, isCorrect: true, isMarkedForReview: true },
     }),
     prisma.subject.findMany({ select: { id: true, code: true } }),
   ]);
@@ -124,12 +130,18 @@ export async function buildAnswerReview(attemptId: string, studentId: string): P
     const order = optionDisplayOrder(attempt.seed, id, shuffle);
     const en = applyDisplayOrder(enRaw, order);
     const taReviewed = taRaw ? applyDisplayOrder(taRaw, order) : undefined;
-    const correctOption = canonicalToDisplay(order, enRaw.correctOption as OptLetter) as ScoredOption;
+    const correctOption = enRaw.correctOption
+      ? canonicalToDisplay(order, enRaw.correctOption as OptLetter) as ScoredOption
+      : null;
 
     const a = answerByQuestion.get(id);
     const selectedOption = (a?.selectedOption ?? null) as ScoredOption | null;
+    const numericAnswer = enRaw.numericAnswer === null ? null : Number(enRaw.numericAnswer);
+    const numericResponse = a?.numericResponse === null || a?.numericResponse === undefined ? null : Number(a.numericResponse);
     const status: ReviewStatus =
-      selectedOption === null ? 'skipped' : selectedOption === correctOption ? 'correct' : 'wrong';
+      q.questionType === 'NUMERICAL_VALUE'
+        ? numericResponse === null ? 'skipped' : a?.isCorrect ? 'correct' : 'wrong'
+        : selectedOption === null ? 'skipped' : selectedOption === correctOption ? 'correct' : 'wrong';
 
     items.push({
       number: index + 1,
@@ -143,6 +155,8 @@ export async function buildAnswerReview(attemptId: string, studentId: string): P
       hi: hiRaw ? toContent(applyDisplayOrder(hiRaw, order)) : null,
       correctOption,
       selectedOption,
+      numericAnswer,
+      numericResponse,
       isCorrect: a?.isCorrect ?? (selectedOption === null ? null : selectedOption === correctOption),
       marked: a?.isMarkedForReview ?? false,
       status,

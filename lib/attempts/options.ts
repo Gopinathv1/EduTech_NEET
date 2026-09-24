@@ -20,16 +20,16 @@ import { makeRng, seededShuffle } from '@/lib/generator/rng';
 export type OptLetter = 'A' | 'B' | 'C' | 'D';
 export const OPTION_LETTERS: readonly OptLetter[] = ['A', 'B', 'C', 'D'];
 
-export type OptionContent = { optionA: string; optionB: string; optionC: string; optionD: string };
+export type OptionContent = { optionA: string | null; optionB: string | null; optionC: string | null; optionD: string | null };
 
 // Options that reference position / each other — reordering would break them.
 const POSITIONAL = /\b(all|none|both|neither|any)\b|of the above|of these|of the following|and\s*\(?[a-d1-4]\)?|\bonly\b|\boption[s]?\s*[a-d]\b|\bstatement[s]?\b|\bboth\b/i;
 
 /** Whether a question's options may be safely reordered. */
 export function canShuffleOptions(en: OptionContent, questionType: string): boolean {
-  if (questionType === 'ASSERTION_REASON') return false;
+  if (questionType === 'ASSERTION_REASON' || questionType === 'NUMERICAL_VALUE') return false;
   const texts = [en.optionA, en.optionB, en.optionC, en.optionD];
-  return !texts.some((t) => POSITIONAL.test(t));
+  return texts.every((t) => t !== null) && !texts.some((t) => POSITIONAL.test(t ?? ''));
 }
 
 /**

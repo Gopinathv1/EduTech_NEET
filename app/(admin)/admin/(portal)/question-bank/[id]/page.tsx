@@ -58,10 +58,10 @@ export default async function EditQuestionPage({ params }: { params: Promise<{ i
     ta: ta
       ? {
           questionText: ta.questionText,
-          optionA: ta.optionA,
-          optionB: ta.optionB,
-          optionC: ta.optionC,
-          optionD: ta.optionD,
+          optionA: ta.optionA ?? '',
+          optionB: ta.optionB ?? '',
+          optionC: ta.optionC ?? '',
+          optionD: ta.optionD ?? '',
           explanation: ta.explanation ?? '',
           reviewed: ta.reviewed,
         }

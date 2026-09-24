@@ -19,7 +19,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
 
   const parsed = answerActionSchema.safeParse(await readJson(req));
   if (!parsed.success) return fail('validation', 400);
-  const { questionId, action, selectedOption, timeSpentDelta } = parsed.data;
+  const { questionId, action, selectedOption, numericResponse, timeSpentDelta } = parsed.data;
 
   const attempt = await loadAttemptContext(id, session.sub);
   if (!attempt) return fail('attemptNotFound', 404);
@@ -37,6 +37,14 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
     return fail('timeUp', 409, { status: 'AUTO_SUBMITTED', redirect: `/student/results/${id}` });
   }
 
+  if (action === 'answer' && selectedOption === undefined && numericResponse === undefined) return fail('validation', 400);
+  if (action === 'answer' && selectedOption !== undefined && numericResponse !== undefined) return fail('validation', 400);
+  const question = action === 'answer'
+    ? await prisma.question.findUnique({ where: { id: questionId }, select: { questionType: true } })
+    : null;
+  if (action === 'answer' && !question) return fail('questionNotInAttempt', 400);
+  if (action === 'answer' && (question?.questionType === 'NUMERICAL_VALUE' ? numericResponse === undefined : selectedOption === undefined)) return fail('validation', 400);
+
   const delta = timeSpentDelta ?? 0;
   const update: Prisma.AnswerUpdateInput = { visited: true };
   const create: Prisma.AnswerUncheckedCreateInput = {
@@ -48,13 +56,23 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
 
   switch (action) {
     case 'answer':
-      if (!selectedOption) return fail('validation', 400);
-      update.selectedOption = selectedOption as AnswerOption;
-      create.selectedOption = selectedOption as AnswerOption;
+      if (question?.questionType === 'NUMERICAL_VALUE') {
+        if (numericResponse === undefined || selectedOption !== undefined) return fail('validation', 400);
+        update.numericResponse = numericResponse;
+        update.selectedOption = null;
+        create.numericResponse = numericResponse;
+      } else {
+        if (!selectedOption || numericResponse !== undefined) return fail('validation', 400);
+        update.selectedOption = selectedOption as AnswerOption;
+        update.numericResponse = null;
+        create.selectedOption = selectedOption as AnswerOption;
+      }
       break;
     case 'clear':
       update.selectedOption = null;
+      update.numericResponse = null;
       create.selectedOption = null;
+      create.numericResponse = null;
       break;
     case 'mark':
       update.isMarkedForReview = true;

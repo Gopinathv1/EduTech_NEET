@@ -10,8 +10,10 @@ export type BankQuestion = {
   difficulty: string;
   questionType: string;
   questionText: string;
-  options: readonly string[];
-  correctOption: string;
+  options?: readonly string[];
+  correctOption?: string;
+  numericAnswer?: number;
+  numericTolerance?: number;
   explanation?: string;
   sourceType: string;
   sourceName: string;
@@ -40,9 +42,19 @@ export function validateQuestionBank(questions: readonly BankQuestion[]): Valida
     if (!question.chapterSlug) add('missing_chapter', 'chapterSlug is required');
     if (!question.topic) add('missing_topic', 'topic is required');
     if (!question.questionText.trim()) add('missing_question', 'questionText is required');
-    if (question.options.length !== 4 || question.options.some((option) => !option.trim())) add('malformed_options', 'Exactly four non-empty options are required');
-    if (new Set(question.options.map((option) => option.trim().toLowerCase())).size !== question.options.length) add('duplicate_options', 'Options must be distinct');
-    if (!['A', 'B', 'C', 'D'].includes(question.correctOption)) add('invalid_answer', 'correctOption must be A, B, C, or D');
+    if (!['SINGLE_CORRECT', 'IMAGE_BASED', 'ASSERTION_REASON', 'NUMERICAL_VALUE'].includes(question.questionType)) add('invalid_question_type', 'Unsupported question type');
+    if (question.questionType === 'NUMERICAL_VALUE') {
+      if (question.correctOption) add('numerical_fake_mcq', 'Numerical questions must not have a correctOption');
+      if (question.options?.some((option) => option.trim())) add('numerical_fake_mcq', 'Numerical questions must not use answer options');
+      if (question.numericAnswer === undefined || !Number.isFinite(question.numericAnswer)) add('invalid_numeric_answer', 'A finite numericAnswer is required');
+      if (question.numericTolerance !== undefined && (!Number.isFinite(question.numericTolerance) || question.numericTolerance < 0)) add('invalid_numeric_tolerance', 'numericTolerance must be finite and non-negative');
+    } else {
+      const options = question.options ?? [];
+      if (options.length !== 4 || options.some((option) => !option.trim())) add('malformed_options', 'Exactly four non-empty options are required');
+      if (new Set(options.map((option) => option.trim().toLowerCase())).size !== options.length) add('duplicate_options', 'Options must be distinct');
+      if (!question.correctOption || !['A', 'B', 'C', 'D'].includes(question.correctOption)) add('invalid_answer', 'correctOption must be A, B, C, or D');
+      if (question.numericAnswer !== undefined) add('mcq_numeric_answer', 'MCQ questions must not have numericAnswer');
+    }
     const hash = questionTextHash(question.questionText);
     if (hashes.has(hash)) add('duplicate_question', 'Normalized question text is duplicated');
     hashes.add(hash);

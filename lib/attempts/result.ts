@@ -17,11 +17,15 @@ export type ResultQuestion = {
   id: string;
   subjectId: string;
   chapterId: string;
-  correctOption: ScoredOption;
+  questionType?: 'SINGLE_CORRECT' | 'IMAGE_BASED' | 'ASSERTION_REASON' | 'NUMERICAL_VALUE';
+  correctOption: ScoredOption | null;
+  numericAnswer?: number | null;
+  numericTolerance?: number | null;
 };
 
 export type ResultAnswer = {
   selectedOption: ScoredOption | null;
+  numericResponse?: number | null;
   timeSpentSeconds: number;
 };
 
@@ -73,6 +77,8 @@ export function computeResult(
   for (const q of questions) {
     const a = answers[q.id];
     const selected = a?.selectedOption ?? null;
+    const numeric = a?.numericResponse ?? null;
+    const isNumerical = q.questionType === 'NUMERICAL_VALUE';
     const time = a?.timeSpentSeconds ?? 0;
     byQuestion[q.id] = time;
     bySubject[q.subjectId] = (bySubject[q.subjectId] ?? 0) + time;
@@ -80,11 +86,13 @@ export function computeResult(
 
     let field: keyof Breakdown;
     let isCorrect: boolean | null;
-    if (selected === null) {
+    if ((isNumerical && numeric === null) || (!isNumerical && selected === null)) {
       skipped++;
       isCorrect = null;
       field = 'skipped';
-    } else if (selected === q.correctOption) {
+    } else if (isNumerical
+      ? q.numericAnswer !== null && q.numericAnswer !== undefined && Math.abs(numeric! - q.numericAnswer) <= (q.numericTolerance ?? 0)
+      : selected === q.correctOption) {
       correct++;
       isCorrect = true;
       field = 'correct';

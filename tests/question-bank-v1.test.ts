@@ -3,7 +3,7 @@ import { CURRENT_EXAM_STRUCTURES } from '@/lib/question-bank/exam-structures';
 import { officialExternalId, sivoraExternalId } from '@/lib/question-bank/identity';
 import { isAllowedOfficialSource } from '@/lib/question-bank/official-sources';
 import { planPracticeQuestionIds } from '@/lib/question-bank/practice';
-import { evaluatePracticeReadiness, readinessCounts, type EligibleQuestionRecord } from '@/lib/question-bank/readiness';
+import { evaluateFullMockReadiness, evaluatePracticeReadiness, readinessCounts, type EligibleQuestionRecord } from '@/lib/question-bank/readiness';
 import { QUESTION_BANK_V1_TAXONOMY, validateTaxonomy } from '@/lib/question-bank/taxonomy';
 import { validateQuestionBank, type BankQuestion } from '@/lib/question-bank/validator';
 
@@ -61,6 +61,12 @@ describe('question validation', () => {
     const issues = validateQuestionBank([question({ sourceType: 'OFFICIAL_NTA', sourceName: 'NTA', sourceUrl: 'https://example.com/paper.pdf', status: 'PUBLISHED', contentClass: 'PRODUCTION' })]);
     expect(issues.map((issue) => issue.code)).toEqual(expect.arrayContaining(['invalid_official_source', 'incomplete_official_identity', 'incomplete_review']));
   });
+
+  it('accepts a real numerical question and rejects fake numerical MCQs', () => {
+    expect(validateQuestionBank([question({ questionType: 'NUMERICAL_VALUE', options: [], correctOption: undefined, numericAnswer: 42 })])).toEqual([]);
+    const issues = validateQuestionBank([question({ questionType: 'NUMERICAL_VALUE', numericAnswer: 42 })]);
+    expect(issues.map((issue) => issue.code)).toContain('numerical_fake_mcq');
+  });
 });
 
 describe('readiness and practice planning', () => {
@@ -106,5 +112,15 @@ describe('readiness and practice planning', () => {
     const ids = planPracticeQuestionIds([...records, record('p1')], { mode: 'MIXED', exam: 'NEET', totalQuestions: 3 }, 'attempt-1');
     expect(ids).toHaveLength(3);
     expect(new Set(ids).size).toBe(3);
+  });
+
+  it('requires all six JEE MCQ/numerical quotas for a full mock', () => {
+    const rows: EligibleQuestionRecord[] = [];
+    for (const subjectCode of ['JEE_PHYSICS', 'JEE_CHEMISTRY', 'JEE_MATHEMATICS']) {
+      for (let i = 0; i < 20; i++) rows.push(record(`${subjectCode}-m-${i}`, { exam: 'JEE', subjectCode, questionType: 'SINGLE_CORRECT' }));
+      for (let i = 0; i < 5; i++) rows.push(record(`${subjectCode}-n-${i}`, { exam: 'JEE', subjectCode, questionType: 'NUMERICAL_VALUE' }));
+    }
+    expect(evaluateFullMockReadiness(rows, 'JEE').ready).toBe(true);
+    expect(evaluateFullMockReadiness(rows.slice(0, -1), 'JEE').ready).toBe(false);
   });
 });

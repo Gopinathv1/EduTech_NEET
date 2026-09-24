@@ -73,12 +73,12 @@ export default function ExamClient({
   // Queue of answers/marks whose save failed, keyed by `${questionId}|category`
   // so only the student's latest intent per question is retried.
   const pendingRef = useRef<
-    Map<string, { action: SaveAction; questionId: string; extra?: { selectedOption?: ExamOption } }>
+    Map<string, { action: SaveAction; questionId: string; extra?: { selectedOption?: ExamOption; numericResponse?: number } }>
   >(new Map());
 
   // POST an action, retrying with back-off on transient network/parse errors.
   const postAction = useCallback(
-    async (body: { questionId: string; action: SaveAction; selectedOption?: ExamOption; timeSpentDelta?: number }, isCurrent: () => boolean = () => true) => {
+    async (body: { questionId: string; action: SaveAction; selectedOption?: ExamOption; numericResponse?: number; timeSpentDelta?: number }, isCurrent: () => boolean = () => true) => {
       const run = async () => {
         if (!isCurrent()) return { ok: true };
         let res = await apiPost(`/api/attempts/${attemptId}/answer`, body);
@@ -113,12 +113,15 @@ export default function ExamClient({
     async (
       action: SaveAction,
       questionId: string,
-      extra?: { selectedOption?: ExamOption; timeSpentDelta?: number },
+      extra?: { selectedOption?: ExamOption; numericResponse?: number; timeSpentDelta?: number },
     ) => {
       if (doneRef.current) return;
       setSaveStatus('saving');
       const queueKey = action === 'visit' ? null : `${questionId}|${saveCategory(action)}`;
-      const item = { action, questionId, extra: extra?.selectedOption ? { selectedOption: extra.selectedOption } : undefined };
+      const responseExtra = extra?.selectedOption !== undefined
+        ? { selectedOption: extra.selectedOption }
+        : extra?.numericResponse !== undefined ? { numericResponse: extra.numericResponse } : undefined;
+      const item = { action, questionId, extra: responseExtra };
       if (queueKey) pendingRef.current.set(queueKey, item);
       const isCurrent = () => !queueKey || pendingRef.current.get(queueKey) === item;
       const res = await postAction({ questionId, action, ...extra }, isCurrent);
@@ -167,6 +170,11 @@ export default function ExamClient({
   const selectOption = (option: ExamOption) => {
     dispatch({ type: 'SELECT_OPTION', questionId: current.id, option });
     void persist('answer', current.id, { selectedOption: option });
+  };
+  const setNumericResponse = (value: number) => {
+    if (!Number.isFinite(value)) return;
+    dispatch({ type: 'SET_NUMERIC_RESPONSE', questionId: current.id, value });
+    void persist('answer', current.id, { numericResponse: value });
   };
   const clearResponse = () => {
     dispatch({ type: 'CLEAR', questionId: current.id });
@@ -322,7 +330,11 @@ export default function ExamClient({
           <nav aria-label={tn('subjectsLabel')} className="mb-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
             {subjectCodes.map(code => {
               const indices = questions.map((q, i) => q.subjectCode === code ? i : -1).filter(i => i >= 0);
-              const answered = indices.filter(i => state.answers[questions[i].id]?.selectedOption).length;
+              const answered = indices.filter(i => {
+                const answer = state.answers[questions[i].id];
+                return answer?.selectedOption !== null && answer?.selectedOption !== undefined
+                  || answer?.numericResponse !== null && answer?.numericResponse !== undefined;
+              }).length;
               return <button key={code} type="button" aria-pressed={current.subjectCode === code}
                 onClick={() => goTo(indices[0])} className={`rounded-lg border p-3 text-sm font-semibold ${current.subjectCode === code ? 'border-brand bg-brand-soft text-brand' : 'border-border text-textSecondary'}`}>
                 {tn(`subjects.${code}`)} <span className="text-xs">{answered}/{indices.length}</span>
@@ -364,6 +376,27 @@ export default function ExamClient({
               />
             ) : null}
 
+            {current.questionType === 'NUMERICAL_VALUE' ? (
+              <div className="mt-5">
+                <label htmlFor={`numeric-${current.id}`} className="block text-sm font-semibold text-textPrimary">
+                  Numerical answer
+                </label>
+                <input
+                  key={current.id}
+                  id={`numeric-${current.id}`}
+                  type="number"
+                  step="any"
+                  defaultValue={currentAnswer?.numericResponse ?? ''}
+                  disabled={submitting || remaining <= 0}
+                  onBlur={(event) => {
+                    if (event.currentTarget.value.trim() === '') return;
+                    setNumericResponse(event.currentTarget.valueAsNumber);
+                  }}
+                  className="mt-2 w-full max-w-xs rounded-lg border border-border bg-surface px-3 py-2 text-textPrimary"
+                />
+                <p className="mt-2 text-xs text-textSecondary">Enter a numeric value. Your response is saved when you leave this field.</p>
+              </div>
+            ) : (
             <fieldset disabled={submitting || remaining <= 0} className="mt-5 space-y-3">
               <legend className="sr-only">{tn('chooseOne')}</legend>
               {OPTIONS.map((opt) => {
@@ -395,6 +428,7 @@ export default function ExamClient({
                 );
               })}
             </fieldset>
+            )}
           </div>
 
           {/* Controls */}
@@ -421,7 +455,7 @@ export default function ExamClient({
             <button
               type="button"
               onClick={clearResponse}
-              disabled={!currentAnswer?.selectedOption}
+              disabled={currentAnswer?.selectedOption == null && currentAnswer?.numericResponse == null}
               className="rounded-lg border border-border px-4 py-2.5 text-sm font-semibold text-textSecondary hover:bg-surface disabled:opacity-40"
             >
               {t('clear')}

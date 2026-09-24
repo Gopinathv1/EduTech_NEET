@@ -58,7 +58,7 @@ describe('examReducer — answer actions', () => {
       questionId: 'q1',
       option: 'C',
     });
-    expect(s.answers.q1).toEqual({ selectedOption: 'C', markedForReview: false, visited: true });
+    expect(s.answers.q1).toEqual({ selectedOption: 'C', numericResponse: null, markedForReview: false, visited: true });
   });
 
   it('CLEAR removes the option but keeps visited', () => {

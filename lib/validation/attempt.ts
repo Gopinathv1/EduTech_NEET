@@ -19,6 +19,7 @@ export const answerActionSchema = z.object({
   questionId: z.string().min(1),
   action: z.enum(['answer', 'clear', 'mark', 'unmark', 'visit']),
   selectedOption: answerOptionSchema.optional(),
+  numericResponse: z.number().finite().min(-1_000_000_000).max(1_000_000_000).optional(),
   timeSpentDelta: z.number().int().min(0).max(24 * 3600).optional(),
 });
 

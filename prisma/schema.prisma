@@ -53,6 +53,7 @@ enum Difficulty {
 
 enum QuestionType {
   SINGLE_CORRECT
+  NUMERICAL_VALUE
   IMAGE_BASED
   ASSERTION_REASON
 }
@@ -459,11 +460,14 @@ model QuestionTranslation {
   questionId    String
   language      String // "en", "ta", ...
   questionText  String
-  optionA       String
-  optionB       String
-  optionC       String
-  optionD       String
-  correctOption AnswerOption
+  optionA       String?
+  optionB       String?
+  optionC       String?
+  optionD       String?
+  correctOption AnswerOption?
+  /// Canonical answer for NUMERICAL_VALUE questions. Never encode these as fake MCQs.
+  numericAnswer    Decimal? @db.Decimal(18, 8)
+  numericTolerance Decimal? @db.Decimal(18, 8)
   explanation   String?
   // Only reviewed non-English translations are shown to students. English is
   // authoritative and always considered reviewed.
@@ -572,6 +576,7 @@ model Answer {
   attemptId         String
   questionId        String
   selectedOption    AnswerOption? // null => not answered
+  numericResponse   Decimal?      @db.Decimal(18, 8)
   isCorrect         Boolean?
   isMarkedForReview Boolean       @default(false)
   // Whether the student has navigated to this question at least once. Distinguishes

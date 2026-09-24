@@ -10,6 +10,7 @@ export type ExamOption = 'A' | 'B' | 'C' | 'D';
 /** Per-question local state, keyed by questionId in the reducer. */
 export type AnswerState = {
   selectedOption: ExamOption | null;
+  numericResponse?: number | null;
   markedForReview: boolean;
   visited: boolean;
 };
@@ -25,13 +26,14 @@ export type ExamAction =
   | { type: 'NAVIGATE'; index: number }
   | { type: 'VISIT'; questionId: string }
   | { type: 'SELECT_OPTION'; questionId: string; option: ExamOption }
+  | { type: 'SET_NUMERIC_RESPONSE'; questionId: string; value: number }
   | { type: 'CLEAR'; questionId: string }
   | { type: 'TOGGLE_MARK'; questionId: string };
 
 /** The four palette states a question can be in. */
 export type PaletteStatus = 'not_visited' | 'unanswered' | 'answered' | 'marked' | 'answered_marked';
 
-const EMPTY_ANSWER: AnswerState = { selectedOption: null, markedForReview: false, visited: false };
+const EMPTY_ANSWER: AnswerState = { selectedOption: null, numericResponse: null, markedForReview: false, visited: false };
 
 export function emptyAnswer(): AnswerState {
   return { ...EMPTY_ANSWER };
@@ -68,8 +70,11 @@ export function examReducer(state: ExamState, action: ExamAction): ExamState {
     case 'SELECT_OPTION':
       return withAnswer(state, action.questionId, { selectedOption: action.option, visited: true });
 
+    case 'SET_NUMERIC_RESPONSE':
+      return withAnswer(state, action.questionId, { selectedOption: null, numericResponse: action.value, visited: true });
+
     case 'CLEAR':
-      return withAnswer(state, action.questionId, { selectedOption: null, visited: true });
+      return withAnswer(state, action.questionId, { selectedOption: null, numericResponse: null, visited: true });
 
     case 'TOGGLE_MARK': {
       const prev = state.answers[action.questionId] ?? emptyAnswer();
@@ -84,8 +89,9 @@ export function examReducer(state: ExamState, action: ExamAction): ExamState {
 /** Map a question's answer state to its palette status. */
 export function paletteStatus(a: AnswerState | undefined): PaletteStatus {
   if (!a || !a.visited) return 'not_visited';
-  if (a.markedForReview) return a.selectedOption ? 'answered_marked' : 'marked';
-  if (a.selectedOption) return 'answered';
+  const answered = a.selectedOption != null || a.numericResponse != null;
+  if (a.markedForReview) return answered ? 'answered_marked' : 'marked';
+  if (answered) return 'answered';
   return 'unanswered';
 }
 
