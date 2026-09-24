@@ -1,0 +1,37 @@
+{
+  "id": "sivora-neet-full-mock-1",
+  "title": "SIVORA NEET Full Mock 1",
+  "description": "SIVORA-authored NEET practice mock. This is not an official NTA paper or previous-year paper.",
+  "exam": "NEET",
+  "mode": "FULL_MOCK",
+  "durationMinutes": 180,
+  "price": 0,
+  "retake": "FREE_UNLIMITED",
+  "scoring": { "correct": 4, "incorrect": -1, "unanswered": 0, "maximum": 720 },
+  "sources": {
+    "includeAll": [
+      "sivora-neet-physics-full-mock-1-candidates.json",
+      "sivora-neet-chemistry-batch-1.json",
+      "sivora-neet-chemistry-batch-2.json",
+      "sivora-neet-chemistry-batch-3.json",
+      "sivora-neet-chemistry-batch-4.json",
+      "sivora-neet-chemistry-batch-5.json",
+      "sivora-neet-biology-batch-1.json",
+      "sivora-neet-biology-batch-2.json",
+      "sivora-neet-biology-batch-3.json",
+      "sivora-neet-biology-batch-4.json",
+      "sivora-neet-biology-batch-5.json",
+      "sivora-neet-biology-batch-6.json",
+      "sivora-neet-biology-batch-7.json"
+    ],
+    "selected": {
+      "sivora-neet-physics-gravitation-batch-1.json": [
+        "sivora-authored:f1e7c89d0e597eabdf1dc5aa",
+        "sivora-authored:0550535fb86837972bba7c83",
+        "sivora-authored:ea30236a478fc7fd29241ae0",
+        "sivora-authored:1daee9006c07d613e96ff6d4",
+        "sivora-authored:738f4f37da00a690d0282602"
+      ]
+    }
+  }
+}
