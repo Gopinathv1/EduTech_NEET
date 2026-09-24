@@ -37,6 +37,8 @@ describe('question bank V1 taxonomy and official structures', () => {
     expect(validateTaxonomy()).toEqual([]);
     expect(QUESTION_BANK_V1_TAXONOMY.some((entry) => entry.subjectCode === 'BOTANY')).toBe(true);
     expect(QUESTION_BANK_V1_TAXONOMY.some((entry) => entry.subjectCode === 'ZOOLOGY')).toBe(true);
+    const gravitation = QUESTION_BANK_V1_TAXONOMY.find((entry) => entry.unitSlug === 'physics-gravitation');
+    expect(gravitation?.topicSlugs).toEqual(expect.arrayContaining(['keplers-laws', 'gravitational-potential', 'escape-velocity', 'satellite-motion']));
   });
 
   it('pins the verified current full-mock structures', () => {
@@ -66,6 +68,12 @@ describe('question validation', () => {
     expect(validateQuestionBank([question({ questionType: 'NUMERICAL_VALUE', options: [], correctOption: undefined, numericAnswer: 42 })])).toEqual([]);
     const issues = validateQuestionBank([question({ questionType: 'NUMERICAL_VALUE', numericAnswer: 42 })]);
     expect(issues.map((issue) => issue.code)).toContain('numerical_fake_mcq');
+  });
+
+  it('checks supplied deterministic SIVORA identities and review states', () => {
+    const identityKey = 'NEET:Physics:Gravitation:review-candidate';
+    expect(validateQuestionBank([question({ identityKey, externalId: sivoraExternalId(identityKey), status: 'REVIEW', reviewState: 'REVIEW_REQUIRED', contentClass: 'PRODUCTION' })])).toEqual([]);
+    expect(validateQuestionBank([question({ identityKey, externalId: 'sivora-authored:not-a-match' })]).map((issue) => issue.code)).toContain('invalid_external_id');
   });
 });
 

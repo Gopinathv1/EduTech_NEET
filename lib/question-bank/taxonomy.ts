@@ -14,7 +14,7 @@ export type CanonicalTaxonomyEntry = {
  * publishes slugs or divides either exam into SIVORA practice parts.
  */
 export const QUESTION_BANK_V1_TAXONOMY: readonly CanonicalTaxonomyEntry[] = [
-  { exam: 'NEET', subjectCode: 'PHYSICS', unitSlug: 'physics-gravitation', unitName: 'Gravitation', topicSlugs: ['universal-law', 'gravity-variation', 'satellites'], sourceUrl: OFFICIAL_EXAM_SOURCES.NEET_2026_SYLLABUS },
+  { exam: 'NEET', subjectCode: 'PHYSICS', unitSlug: 'physics-gravitation', unitName: 'Gravitation', topicSlugs: ['universal-law', 'gravity-variation', 'keplers-laws', 'gravitational-potential', 'gravitational-potential-energy', 'escape-velocity', 'satellites', 'satellite-motion'], sourceUrl: OFFICIAL_EXAM_SOURCES.NEET_2026_SYLLABUS },
   { exam: 'NEET', subjectCode: 'CHEMISTRY', unitSlug: 'chemistry-some-basic-concepts', unitName: 'Some Basic Concepts in Chemistry', topicSlugs: ['mole-concept', 'stoichiometry'], sourceUrl: OFFICIAL_EXAM_SOURCES.NEET_2026_SYLLABUS },
   { exam: 'NEET', subjectCode: 'BOTANY', unitSlug: 'biology-genetics-and-evolution', unitName: 'Genetics and Evolution', topicSlugs: ['mendelian-inheritance', 'molecular-basis-of-inheritance'], sourceUrl: OFFICIAL_EXAM_SOURCES.NEET_2026_SYLLABUS },
   { exam: 'NEET', subjectCode: 'ZOOLOGY', unitSlug: 'biology-human-physiology', unitName: 'Human Physiology', topicSlugs: ['breathing', 'circulation', 'excretion'], sourceUrl: OFFICIAL_EXAM_SOURCES.NEET_2026_SYLLABUS },

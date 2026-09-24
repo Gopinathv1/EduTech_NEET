@@ -1,8 +1,11 @@
 import { questionTextHash } from '@/lib/admin/bulk';
 import { isAllowedOfficialSource } from './official-sources';
+import { sivoraExternalId } from './identity';
+import { QUESTION_BANK_V1_TAXONOMY } from './taxonomy';
 
 export type BankQuestion = {
   externalId: string;
+  identityKey?: string;
   exam: string;
   subjectCode: string;
   chapterSlug: string;
@@ -24,6 +27,7 @@ export type BankQuestion = {
   reviewedAt?: string;
   status: string;
   contentClass: string;
+  reviewState?: string;
 };
 
 export type ValidationIssue = { externalId: string; code: string; message: string };
@@ -37,10 +41,13 @@ export function validateQuestionBank(questions: readonly BankQuestion[]): Valida
     if (!question.externalId) add('missing_external_id', 'Deterministic externalId is required');
     else if (ids.has(question.externalId)) add('duplicate_external_id', 'externalId is duplicated');
     ids.add(question.externalId);
+    if (question.identityKey && question.externalId !== sivoraExternalId(question.identityKey)) add('invalid_external_id', 'externalId does not match its deterministic identityKey');
     if (!['NEET', 'JEE'].includes(question.exam)) add('unsupported_exam', 'exam must be NEET or JEE');
     if (!question.subjectCode) add('missing_subject', 'subjectCode is required');
     if (!question.chapterSlug) add('missing_chapter', 'chapterSlug is required');
     if (!question.topic) add('missing_topic', 'topic is required');
+    const taxonomy = QUESTION_BANK_V1_TAXONOMY.find((entry) => entry.exam === question.exam && entry.subjectCode === question.subjectCode && entry.unitSlug === question.chapterSlug);
+    if (!taxonomy || !taxonomy.topicSlugs.includes(question.topic)) add('unsupported_taxonomy', 'subject, chapter, and topic must exist in the canonical taxonomy');
     if (!question.questionText.trim()) add('missing_question', 'questionText is required');
     if (!['SINGLE_CORRECT', 'IMAGE_BASED', 'ASSERTION_REASON', 'NUMERICAL_VALUE'].includes(question.questionType)) add('invalid_question_type', 'Unsupported question type');
     if (question.questionType === 'NUMERICAL_VALUE') {
@@ -64,7 +71,8 @@ export function validateQuestionBank(questions: readonly BankQuestion[]): Valida
       if (!question.examYear || !question.paperSession) add('incomplete_official_identity', 'Official content requires year and session/paper identity');
     }
     if (question.sourceType === 'SIVORA_AUTHORED' && /^official|nta|government/i.test(question.sourceName)) add('misleading_source', 'SIVORA content cannot be represented as official');
-    if (question.contentClass === 'PRODUCTION' || question.status === 'PUBLISHED') {
+    if (question.reviewState && !['DRAFT', 'REVIEW_REQUIRED', 'APPROVED', 'REJECTED', 'NEEDS_CORRECTION'].includes(question.reviewState)) add('invalid_review_state', 'Unsupported reviewState');
+    if (question.status === 'PUBLISHED') {
       if (!question.reviewer || !question.reviewedAt) add('incomplete_review', 'Published production content requires reviewer and reviewedAt');
     }
   }
