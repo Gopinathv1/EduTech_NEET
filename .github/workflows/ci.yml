@@ -81,6 +81,8 @@ jobs:
         run: npm run db:seed
       - name: Promote deterministic E2E fixture
         run: npx tsx prisma/seed-e2e.ts
+      - name: Seed controlled sample tests
+        run: npm run db:seed:sivora-samples
       - name: Install Playwright browser (chromium)
         run: npx playwright install --with-deps chromium
       - name: Run E2E happy path
