@@ -17,6 +17,7 @@
     "db:push": "prisma db push",
     "db:seed": "prisma db seed",
     "db:seed:reference": "tsx prisma/seed-reference.ts",
+    "db:sync:taxonomy": "tsx scripts/sync-canonical-taxonomy.ts",
     "db:seed:jee-demo": "tsx prisma/seed-jee-demo.ts",
     "db:seed:sivora-samples": "tsx prisma/seed-sivora-samples.ts",
     "test:sivora-samples": "tsx scripts/verify-sample-lifecycle.ts",
