@@ -83,9 +83,13 @@ async function main() {
     if (dryRun) return;
 
     const reviewerEmail = process.env.NEET_FULL_MOCK_CREATOR_EMAIL?.trim().toLowerCase();
-    if (!reviewerEmail) throw new Error('Set NEET_FULL_MOCK_CREATOR_EMAIL to the authenticated active administrator.');
-    const reviewer = await prisma.admin.findFirst({ where: { email: reviewerEmail, isActive: true }, select: { id: true, name: true } });
-    if (!reviewer) throw new Error('NEET_FULL_MOCK_CREATOR_EMAIL must identify one active administrator.');
+    const reviewerName = process.env.NEET_FULL_MOCK_CREATOR_NAME?.trim();
+    const activeAdmins = await prisma.admin.findMany({ where: { isActive: true }, select: { id: true, name: true, email: true } });
+    const reviewers = reviewerEmail
+      ? activeAdmins.filter((admin) => admin.email.toLowerCase() === reviewerEmail)
+      : reviewerName ? activeAdmins.filter((admin) => admin.name === reviewerName) : activeAdmins;
+    if (reviewers.length !== 1) throw new Error('Set NEET_FULL_MOCK_CREATOR_EMAIL or NEET_FULL_MOCK_CREATOR_NAME to identify exactly one active administrator.');
+    const reviewer = reviewers[0];
 
     if (!matchingExisting) {
       await prisma.$transaction(async (tx) => {
