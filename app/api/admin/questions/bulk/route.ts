@@ -133,7 +133,7 @@ export async function POST(req: Request) {
         await writeQuestionVersion(tx, created.id, 'bulk-created', admin);
         committed += 1;
       }
-    });
+    }, { maxWait: 10_000, timeout: 30_000 });
   }
 
   await logAudit(admin, {
