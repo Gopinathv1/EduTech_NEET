@@ -81,7 +81,7 @@ async function main() {
       }
     }
     return { subjects, chapters };
-  });
+  }, { maxWait: 10_000, timeout: 30_000 });
 
   const after = planCanonicalTaxonomySync(await loadExisting(prisma));
   if (after.subjectsMissing.length || after.chaptersMissing.length || after.duplicateCanonicalChapters.length) {
@@ -96,4 +96,3 @@ main()
     process.exitCode = 1;
   })
   .finally(() => prisma.$disconnect());
-
