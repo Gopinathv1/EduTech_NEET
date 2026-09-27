@@ -6,6 +6,8 @@ import { useTranslations } from 'next-intl';
 import { inputClass, selectClass } from '@/components/ui/Form';
 
 export type CatalogueFilterValues = {
+  exam: string;
+  category: string;
   year: string;
   difficulty: string;
   subject: string;
@@ -14,8 +16,12 @@ export type CatalogueFilterValues = {
   q: string;
 };
 
-const EMPTY: CatalogueFilterValues = { year: '', difficulty: '', subject: '', chapter: '', type: '', q: '' };
+const EMPTY: CatalogueFilterValues = { exam: '', category: '', year: '', difficulty: '', subject: '', chapter: '', type: '', q: '' };
 const TYPES = ['FULL_TEST', 'MINI_TEST', 'CHAPTER_TEST', 'SUBJECT_TEST', 'YEAR_PATTERN'];
+const CATEGORIES = [
+  ['FULL_MOCK', 'Full Mock'], ['QUARTER', 'Quarter'], ['WEEKLY', 'Weekly'], ['SUBJECT', 'Subject'],
+  ['CHAPTER', 'Chapter'], ['MIXED', 'Mixed / Custom'], ['PREVIOUS_YEAR', 'Previous Year'],
+] as const;
 
 export default function CatalogueFilters({
   years,
@@ -49,12 +55,24 @@ export default function CatalogueFilters({
 
   return (
     <form onSubmit={onSubmit} className="student-filters mb-6 border-y border-border bg-surfaceElevated py-4">
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+      <div className="mb-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-7" aria-label="Practice categories">
+        {CATEGORIES.map(([value, label]) => (
+          <button key={value} type="button" onClick={() => set('category', v.category === value ? '' : value)}
+            className={`rounded-md border px-3 py-2 text-sm font-semibold ${v.category === value ? 'border-brand bg-brand text-white' : 'border-border text-textSecondary hover:border-brand'}`}>
+            {label}
+          </button>
+        ))}
+      </div>
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-7">
+        <select className={cls} value={v.exam} onChange={(e) => set('exam', e.target.value)} aria-label="Exam">
+          <option value="">NEET &amp; JEE Main</option><option value="NEET">NEET</option><option value="JEE">JEE Main</option>
+        </select>
         <select className={cls} value={v.subject} onChange={(e) => set('subject', e.target.value)} aria-label={t('filterSubject')}>
           <option value="">{t('anySubject')}</option>
           <option value="physics">{t('subjectPhysics')}</option>
           <option value="chemistry">{t('subjectChemistry')}</option>
           <option value="biology">{t('subjectBiology')}</option>
+          <option value="mathematics">Mathematics</option>
         </select>
 
         <select className={cls} value={v.chapter} onChange={(e) => set('chapter', e.target.value)} aria-label={t('filterChapter')}>

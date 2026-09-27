@@ -5,6 +5,8 @@ import {
   PRODUCTION_SYNC_CONFIRMATION,
   assertSafeSyncTarget,
   canonicalNeetChapters,
+  canonicalJeeChapters,
+  planCanonicalJeeTaxonomySync,
   planCanonicalTaxonomySync,
   type ExistingSubject,
 } from '@/lib/question-bank/taxonomy-sync';
@@ -83,5 +85,16 @@ describe('canonical NEET taxonomy sync', () => {
         .map((entry) => `${entry.subjectCode}:${entry.unitSlug}`),
     );
     expect(questions.every((question) => canonicalUnits.has(`${question.subjectCode}:${question.chapterSlug}`))).toBe(true);
+  });
+});
+
+describe('canonical JEE taxonomy sync', () => {
+  it('defines and idempotently matches the canonical 54 chapters', () => {
+    const canonical = canonicalJeeChapters();
+    expect(canonical).toHaveLength(54);
+    const existing = ['JEE_PHYSICS', 'JEE_CHEMISTRY', 'JEE_MATHEMATICS'].map((code) => ({
+      id: code, code, chapters: canonical.filter((chapter) => chapter.subjectCode === code).map((chapter, index) => ({ id: `${code}-${index}`, name: chapter.name })),
+    }));
+    expect(planCanonicalJeeTaxonomySync(existing)).toMatchObject({ writesRequired: 0 });
   });
 });

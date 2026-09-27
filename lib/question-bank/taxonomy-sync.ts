@@ -1,6 +1,7 @@
 import { QUESTION_BANK_V1_TAXONOMY } from './taxonomy';
 
 export const NEET_SUBJECT_CODES = ['PHYSICS', 'CHEMISTRY', 'BOTANY', 'ZOOLOGY'] as const;
+export const JEE_SUBJECT_CODES = ['JEE_PHYSICS', 'JEE_CHEMISTRY', 'JEE_MATHEMATICS'] as const;
 export type NeetSubjectCode = (typeof NEET_SUBJECT_CODES)[number];
 
 export const PRODUCTION_SYNC_CONFIRMATION = 'SYNC_CANONICAL_NEET_TAXONOMY';
@@ -59,6 +60,33 @@ export function canonicalNeetChapters(): CanonicalChapter[] {
       })
       .map((entry, index) => ({ subjectCode, name: entry.unitName, order: index + 1 }));
   });
+}
+
+export function canonicalJeeChapters() {
+  return QUESTION_BANK_V1_TAXONOMY
+    .filter((entry) => entry.exam === 'JEE')
+    .map((entry, index) => ({ subjectCode: entry.subjectCode, name: entry.unitName, order: index + 1 }));
+}
+
+export function planCanonicalJeeTaxonomySync(existing: ExistingSubject[]) {
+  const canonical = canonicalJeeChapters();
+  const subjectsByCode = new Map(existing.map((subject) => [subject.code, subject]));
+  const chaptersMatched: Array<(typeof canonical)[number] & { id: string }> = [];
+  const chaptersMissing: (typeof canonical)[number][] = [];
+  const duplicates: Array<{ subjectCode: string; canonicalName: string; ids: string[] }> = [];
+  const canonicalKeys = new Map<string, Set<string>>();
+  for (const definition of canonical) {
+    const matches = (subjectsByCode.get(definition.subjectCode)?.chapters ?? []).filter((chapter) => normalizeTaxonomyName(chapter.name) === normalizeTaxonomyName(definition.name));
+    if (matches.length === 1) chaptersMatched.push({ ...definition, id: matches[0].id });
+    else if (matches.length === 0) chaptersMissing.push(definition);
+    else duplicates.push({ subjectCode: definition.subjectCode, canonicalName: definition.name, ids: matches.map((match) => match.id) });
+    const keys = canonicalKeys.get(definition.subjectCode) ?? new Set<string>();
+    keys.add(normalizeTaxonomyName(definition.name)); canonicalKeys.set(definition.subjectCode, keys);
+  }
+  const legacyPreserved = existing.flatMap((subject) => subject.chapters
+    .filter((chapter) => !(canonicalKeys.get(subject.code) ?? new Set()).has(normalizeTaxonomyName(chapter.name)))
+    .map((chapter) => ({ subjectCode: subject.code, id: chapter.id, name: chapter.name })));
+  return { canonicalChapters: canonical.length, chaptersMatched, chaptersMissing, duplicateCanonicalChapters: duplicates, legacyPreserved, writesRequired: chaptersMissing.length };
 }
 
 export function planCanonicalTaxonomySync(existing: ExistingSubject[]): TaxonomySyncPlan {
@@ -142,4 +170,3 @@ export function assertSafeSyncTarget(args: {
   }
   return { database, direct };
 }
-

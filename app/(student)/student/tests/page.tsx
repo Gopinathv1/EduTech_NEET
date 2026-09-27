@@ -11,6 +11,7 @@ import CatalogueFilters, { type CatalogueFilterValues } from '@/components/stude
 import TestCard from '@/components/student/TestCard';
 import ExamProductVisual from '@/components/public/ExamProductVisual';
 import { studentTestWhere } from '@/lib/content/eligibility';
+import { practiceCategory } from '@/lib/student/practice-categories';
 
 type SP = Record<string, string | string[] | undefined>;
 
@@ -18,6 +19,8 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
   const sp = await searchParams;
   const g = (k: string) => (typeof sp[k] === 'string' ? (sp[k] as string) : '');
   const filters: CatalogueFilterValues = {
+    exam: g('exam'),
+    category: g('category'),
     year: g('year'),
     difficulty: g('difficulty'),
     subject: g('subject'),
@@ -95,6 +98,7 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
       test,
       cov,
       exam: ((test.rules as { exam?: string } | null)?.exam ?? (localizedName(test.title, 'en').toLowerCase().includes('jee') ? 'JEE' : 'NEET')),
+      category: practiceCategory(test),
       searchText: searchParts.join(' ').toLowerCase(),
       remaining: paidRetriesEnabled ? (remainingByTestId.get(test.id) ?? FREE_ATTEMPT_LIMIT) : null,
       latestAttempt: latestAttemptByTestId.get(test.id),
@@ -103,7 +107,9 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
 
   // Apply combined filters.
   const subjCodes = subjectFilterCodes(filters.subject);
-  const filtered = items.filter(({ test, cov, searchText }) => {
+  const filtered = items.filter(({ test, cov, searchText, exam, category }) => {
+    if (filters.exam && exam !== filters.exam) return false;
+    if (filters.category && category !== filters.category) return false;
     if (filters.year && String(test.year ?? '') !== filters.year) return false;
     if (filters.difficulty && test.difficulty !== filters.difficulty) return false;
     if (subjCodes.length && !subjCodes.some((c) => cov.subjectCodes.has(c))) return false;
@@ -120,7 +126,7 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
     .map((c) => ({ id: c.id, name: localizedName(c.name, locale) }));
   const practiceGroups = [
     { exam: 'NEET', title: 'NEET practice', description: 'Choose an available NEET full, subject or chapter practice set.' },
-    { exam: 'JEE', title: 'JEE practice', description: 'Demo practice appears here after the reviewed JEE content seed is separately approved and populated.' },
+    { exam: 'JEE', title: 'JEE Main practice', description: 'Choose reviewed JEE Main full, subject, chapter or numerical-answer practice.' },
   ].map((group) => ({ ...group, items: filtered.filter((item) => item.exam === group.exam) }));
 
   return (

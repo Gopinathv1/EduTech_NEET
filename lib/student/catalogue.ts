@@ -42,7 +42,11 @@ export function computeCoverage(
   addChapterById(test.chapterId);
 
   if (test.testType === 'FULL_TEST') {
-    for (const code of allSubjectCodes) subjectCodes.add(code);
+    const exam = test.rules && typeof test.rules === 'object' ? (test.rules as { exam?: unknown }).exam : undefined;
+    const fullCodes = exam === 'JEE'
+      ? allSubjectCodes.filter((code) => code.startsWith('JEE_'))
+      : allSubjectCodes.filter((code) => !code.startsWith('JEE_'));
+    for (const code of fullCodes) subjectCodes.add(code);
   }
 
   if (test.isRandom) {
@@ -76,6 +80,8 @@ export function subjectFilterCodes(value: string): string[] {
       return ['CHEMISTRY'];
     case 'biology':
       return ['BOTANY', 'ZOOLOGY'];
+    case 'mathematics':
+      return ['JEE_MATHEMATICS'];
     default:
       return [];
   }
