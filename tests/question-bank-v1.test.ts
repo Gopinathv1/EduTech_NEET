@@ -132,10 +132,13 @@ describe('readiness and practice planning', () => {
   });
 
   it('treats Botany and Zoology as the official NEET Biology quota without imposing a split', () => {
-    const biology = [record('botany', { subjectCode: 'BOTANY' }), record('zoology', { subjectCode: 'ZOOLOGY' })];
-    const request = { mode: 'FULL_MOCK' as const, exam: 'NEET' as const, totalQuestions: 2, subjectQuotas: { BIOLOGY: 2 } };
-    expect(evaluatePracticeReadiness(biology, request).ready).toBe(true);
-    expect(planPracticeQuestionIds(biology, request, 'biology')).toHaveLength(2);
+    const rows: EligibleQuestionRecord[] = [];
+    for (let i = 0; i < 45; i++) rows.push(record(`physics-${i}`));
+    for (let i = 0; i < 45; i++) rows.push(record(`chemistry-${i}`, { subjectCode: 'CHEMISTRY' }));
+    for (let i = 0; i < 48; i++) rows.push(record(`botany-${i}`, { subjectCode: 'BOTANY' }));
+    for (let i = 0; i < 42; i++) rows.push(record(`zoology-${i}`, { subjectCode: 'ZOOLOGY' }));
+    expect(evaluateFullMockReadiness(rows, 'NEET').ready).toBe(true);
+    expect(evaluateFullMockReadiness(rows.slice(0, -1), 'NEET').ready).toBe(false);
   });
 
   it('enforces official-only year-wise practice', () => {

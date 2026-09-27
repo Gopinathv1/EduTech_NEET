@@ -102,7 +102,13 @@ export default async function QuestionBankPage({ searchParams }: { searchParams:
   const years = yearRows.map((r) => r.year).filter((y): y is number => y != null);
   const eligibleCountBySubject = new Map(eligibleBySubject.map((r) => [r.subjectId, r._count._all]));
   const neetCoverage = subjects.filter((s) => ['PHYSICS', 'CHEMISTRY', 'BOTANY', 'ZOOLOGY'].includes(s.code));
-  const fullMockReady = neetCoverage.length === 4 && neetCoverage.every((s) => (eligibleCountBySubject.get(s.id) ?? 0) >= 45);
+  const countFor = (code: string) => eligibleCountBySubject.get(subjects.find((s) => s.code === code)?.id ?? '') ?? 0;
+  const physicsCount = countFor('PHYSICS');
+  const chemistryCount = countFor('CHEMISTRY');
+  const botanyCount = countFor('BOTANY');
+  const zoologyCount = countFor('ZOOLOGY');
+  const biologyCount = botanyCount + zoologyCount;
+  const fullMockReady = physicsCount >= 45 && chemistryCount >= 45 && biologyCount >= 90;
 
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
   const pageHref = (p: number) => {
@@ -131,7 +137,12 @@ export default async function QuestionBankPage({ searchParams }: { searchParams:
 
       <section className="mb-5 rounded-xl border border-border bg-surfaceElevated p-4" aria-label="NEET production readiness">
         <div className="flex flex-wrap items-baseline justify-between gap-2"><div><h2 className="font-semibold text-textPrimary">NEET production readiness</h2><p className="text-sm text-textSecondary">Eligible reviewed production questions only.</p></div><Badge color={fullMockReady ? 'green' : 'amber'}>FULL MOCK READY: {fullMockReady ? 'YES' : 'NO'}</Badge></div>
-        <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">{neetCoverage.map((s) => { const count = eligibleCountBySubject.get(s.id) ?? 0; return <div key={s.id} className="rounded-lg border border-border px-3 py-2"><p className="text-xs text-textSecondary">{localizedName(s.name) || s.code}</p><p className="mt-1 font-semibold text-textPrimary">{count} / 45</p></div>; })}</div>
+        <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
+          {[['Physics', physicsCount, 45], ['Chemistry', chemistryCount, 45], ['Biology', biologyCount, 90]].map(([label, count, quota]) => (
+            <div key={label as string} className="rounded-lg border border-border px-3 py-2"><p className="text-xs text-textSecondary">{label}</p><p className="mt-1 font-semibold text-textPrimary">{count as number} / {quota as number}</p></div>
+          ))}
+        </div>
+        <p className="mt-2 text-xs text-textSecondary">Biology internally: Botany {botanyCount} · Zoology {zoologyCount}</p>
       </section>
 
       <div className="mb-5 grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-9">
