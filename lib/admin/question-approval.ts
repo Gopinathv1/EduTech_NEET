@@ -104,3 +104,41 @@ export async function approveQuestion(
   });
   return { reviewState: 'APPROVED', alreadyApproved: false };
 }
+
+export async function submitImportedQuestionForReview(
+  id: string,
+  admin: QuestionApprover,
+  topic: string,
+): Promise<void> {
+  const question = await loadQuestionForApproval(id);
+  if (!question) throw new QuestionApprovalError('notFound');
+  if (question.reviewState === 'REVIEW_REQUIRED' || question.reviewState === 'APPROVED') return;
+  if (question.reviewState !== 'DRAFT') throw new QuestionApprovalError('invalidReviewTransition');
+  const normalizedTopic = topic.trim();
+  const issues = approvalIssues({ ...question, topic: normalizedTopic });
+  if (issues.length) throw new QuestionApprovalError('approvalValidation', issues);
+
+  await prisma.$transaction(async (tx) => {
+    const updated = await tx.question.updateMany({
+      where: { id, reviewState: 'DRAFT' },
+      data: {
+        topic: normalizedTopic,
+        reviewState: 'REVIEW_REQUIRED',
+        reviewNote: null,
+        reviewer: null,
+        reviewedAt: null,
+        status: 'REVIEW',
+        contentClass: 'PRODUCTION',
+        isActive: false,
+      },
+    });
+    if (updated.count !== 1) throw new QuestionApprovalError('invalidReviewTransition');
+    await writeQuestionVersion(tx, id, 'updated', admin);
+  });
+  await logAudit(admin, {
+    action: 'question.update',
+    entityType: 'Question',
+    entityId: id,
+    details: { importedSelectionTransition: true },
+  });
+}

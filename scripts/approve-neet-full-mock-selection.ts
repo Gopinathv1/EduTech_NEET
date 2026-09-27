@@ -2,7 +2,7 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { loadEnvConfig } from '@next/env';
 import { PrismaClient } from '@prisma/client';
-import { approvalIssues, approveQuestion } from '../lib/admin/question-approval';
+import { approvalIssues, approveQuestion, submitImportedQuestionForReview } from '../lib/admin/question-approval';
 import { inspectDatabaseTarget } from '../lib/question-bank/taxonomy-sync';
 
 loadEnvConfig(process.cwd());
@@ -27,23 +27,33 @@ const prisma = new PrismaClient({ datasourceUrl: directUrl });
 const selectionPath = path.join(process.cwd(), 'data/question-bank/sivora-neet-full-mock-1-selection.json');
 
 type Selection = { sources?: { includeAll?: string[]; selected?: Record<string, string[]> } };
-type CandidateQuestion = { externalId?: string };
+type CandidateQuestion = { externalId?: string; topic?: string };
 
-async function selectedExternalIds(): Promise<string[]> {
+async function selectedQuestions(): Promise<Map<string, string>> {
   const selection = JSON.parse(await readFile(selectionPath, 'utf8')) as Selection;
   const bankDir = path.dirname(selectionPath);
-  const included = await Promise.all((selection.sources?.includeAll ?? []).map(async (file) => {
-    const questions = JSON.parse(await readFile(path.join(bankDir, file), 'utf8')) as CandidateQuestion[];
-    return questions.map((question) => question.externalId ?? '');
-  }));
-  const ids = [...included.flat(), ...Object.values(selection.sources?.selected ?? {}).flat()];
+  const load = async (file: string) => JSON.parse(await readFile(path.join(bankDir, file), 'utf8')) as CandidateQuestion[];
+  const included = (await Promise.all((selection.sources?.includeAll ?? []).map(load))).flat();
+  const chosen: CandidateQuestion[] = [...included];
+  for (const [file, externalIds] of Object.entries(selection.sources?.selected ?? {})) {
+    const byId = new Map((await load(file)).map((question) => [question.externalId, question]));
+    for (const externalId of externalIds) {
+      const question = byId.get(externalId);
+      if (!question) throw new Error(`Selected question ${externalId} is missing from ${file}.`);
+      chosen.push(question);
+    }
+  }
+  const ids = chosen.map((question) => question.externalId ?? '');
   if (ids.length !== 180) throw new Error(`SELECTED must be 180; found ${ids.length}.`);
   if (new Set(ids).size !== 180) throw new Error('Selection external IDs must be unique.');
-  return ids;
+  const topics = new Map(chosen.map((question) => [question.externalId ?? '', question.topic?.trim() ?? '']));
+  if ([...topics.values()].some((topic) => !topic)) throw new Error('Every selected candidate must provide a topic.');
+  return topics;
 }
 
 async function main() {
-  const externalIds = await selectedExternalIds();
+  const topics = await selectedQuestions();
+  const externalIds = [...topics.keys()];
   const questions = await prisma.question.findMany({
     where: { externalId: { in: externalIds } },
     select: {
@@ -68,7 +78,9 @@ async function main() {
   if (questions.length !== 180) throw new Error(`FOUND must be 180; found ${questions.length}.`);
 
   const alreadyApproved = questions.filter((question) => question.reviewState === 'APPROVED');
-  const eligible = questions.filter((question) => question.reviewState === 'REVIEW_REQUIRED' && approvalIssues(question).length === 0);
+  const eligible = questions.filter((question) =>
+    (question.reviewState === 'REVIEW_REQUIRED' && approvalIssues(question).length === 0)
+    || (question.reviewState === 'DRAFT' && approvalIssues({ ...question, topic: topics.get(question.externalId ?? '') ?? '' }).length === 0));
   const ineligible = questions.filter((question) => question.reviewState !== 'APPROVED' && !eligible.includes(question));
   const currentReviewState = questions.reduce<Record<string, number>>((counts, question) => {
     counts[question.reviewState] = (counts[question.reviewState] ?? 0) + 1;
@@ -99,6 +111,9 @@ async function main() {
   if (!reviewer) throw new Error('Set NEET_SELECTION_APPROVER_EMAIL to one active administrator account.');
 
   for (const question of questions) {
+    if (question.reviewState === 'DRAFT') {
+      await submitImportedQuestionForReview(question.id, { sub: reviewer.id, name: reviewer.name }, topics.get(question.externalId ?? '') ?? '');
+    }
     await approveQuestion(question.id, { sub: reviewer.id, name: reviewer.name }, { allowAlreadyApproved: true });
   }
 

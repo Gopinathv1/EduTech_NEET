@@ -13,7 +13,7 @@ vi.mock('@/lib/prisma', () => ({
 vi.mock('@/lib/admin/question-version', () => versioning);
 vi.mock('@/lib/audit', () => audit);
 
-import { approveQuestion, QuestionApprovalError } from '@/lib/admin/question-approval';
+import { approveQuestion, QuestionApprovalError, submitImportedQuestionForReview } from '@/lib/admin/question-approval';
 
 const admin = { sub: 'admin-1', name: 'Reviewer' };
 const question = {
@@ -58,5 +58,15 @@ describe('approveQuestion', () => {
     db.findUnique.mockResolvedValue({ ...question, topic: null });
     await expect(approveQuestion('selected-1', admin)).rejects.toMatchObject({ code: 'approvalValidation' } satisfies Partial<QuestionApprovalError>);
     expect(db.updateMany).not.toHaveBeenCalled();
+  });
+
+  it('legitimately submits an imported draft with its manifest topic before approval', async () => {
+    db.findUnique.mockResolvedValue({ ...question, topic: null, reviewState: 'DRAFT' });
+    await submitImportedQuestionForReview('selected-1', admin, 'motion');
+    expect(db.updateMany).toHaveBeenCalledWith(expect.objectContaining({
+      where: { id: 'selected-1', reviewState: 'DRAFT' },
+      data: expect.objectContaining({ topic: 'motion', reviewState: 'REVIEW_REQUIRED', status: 'REVIEW', isActive: false }),
+    }));
+    expect(versioning.writeQuestionVersion).toHaveBeenCalledWith(expect.anything(), 'selected-1', 'updated', admin);
   });
 });
