@@ -1,9 +1,8 @@
-import { prisma } from '@/lib/prisma';
 import { getAdminSession } from '@/lib/auth/admin';
 import { publishSchema } from '@/lib/validation/test';
-import { checkFeasibility } from '@/lib/generator/plan';
 import { logAudit } from '@/lib/audit';
-import { notifyNewTestPublished } from '@/lib/notifications/create';
+import { prisma } from '@/lib/prisma';
+import { publishTest } from '@/lib/admin/test-publication';
 import { ok, fail, readJson } from '@/lib/http';
 
 export const runtime = 'nodejs';
@@ -19,23 +18,17 @@ export async function POST(req: Request, { params }: Ctx) {
   const parsed = publishSchema.safeParse(await readJson(req));
   if (!parsed.success) return fail('validation', 400);
 
-  const test = await prisma.test.findUnique({ where: { id }, select: { id: true, isPublished: true, title: true } });
-  if (!test) return fail('notFound', 404);
-
   if (parsed.data.publish) {
-    // Validate the bank can satisfy the test in every offered language.
-    const feasibility = await checkFeasibility(id);
-    if (!feasibility.ok) {
-      return fail('notFeasible', 400, { errors: feasibility.errors });
+    try {
+      return ok(await publishTest(id, admin));
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Publication failed.';
+      return fail(message === 'Test not found.' ? 'notFound' : 'notFeasible', message === 'Test not found.' ? 404 : 400, { errors: [message] });
     }
-    await prisma.test.update({ where: { id }, data: { isPublished: true } });
-    await logAudit(admin, { action: 'test.publish', entityType: 'Test', entityId: id });
-    // Announce to all students, but only on the first publish (not re-publishes).
-    if (!test.isPublished) {
-      await notifyNewTestPublished({ testId: id, title: test.title });
-    }
-    return ok({ isPublished: true, warnings: feasibility.warnings });
   }
+
+  const test = await prisma.test.findUnique({ where: { id }, select: { id: true } });
+  if (!test) return fail('notFound', 404);
 
   await prisma.test.update({ where: { id }, data: { isPublished: false } });
   await logAudit(admin, { action: 'test.unpublish', entityType: 'Test', entityId: id });

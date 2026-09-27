@@ -35,7 +35,8 @@
     "questions:import-official": "tsx scripts/questions-import-official.ts",
     "questions:validate": "tsx scripts/questions-validate.ts",
     "questions:readiness": "tsx scripts/questions-readiness.ts",
-    "questions:approve:neet-full-mock-1": "tsx scripts/approve-neet-full-mock-selection.ts"
+    "questions:approve:neet-full-mock-1": "tsx scripts/approve-neet-full-mock-selection.ts",
+    "tests:create:neet-full-mock-1": "tsx scripts/create-neet-full-mock-1.ts"
   },
   "engines": {
     "node": ">=20.0.0"
