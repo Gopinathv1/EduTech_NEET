@@ -51,7 +51,7 @@ async function main() {
   try {
     const questions = await prisma.question.findMany({
       where: { externalId: { in: externalIds } },
-      select: { id: true, externalId: true, reviewState: true, isActive: true, status: true, contentClass: true, subject: { select: { code: true } } },
+      select: { id: true, externalId: true, reviewer: true, reviewState: true, isActive: true, status: true, contentClass: true, subject: { select: { code: true } } },
     });
     const summary = summarizeFixedNeetSelection(questions.map((question) => ({
       id: question.id,
@@ -85,9 +85,11 @@ async function main() {
     const reviewerEmail = process.env.NEET_FULL_MOCK_CREATOR_EMAIL?.trim().toLowerCase();
     const reviewerName = process.env.NEET_FULL_MOCK_CREATOR_NAME?.trim();
     const activeAdmins = await prisma.admin.findMany({ where: { isActive: true }, select: { id: true, name: true, email: true } });
+    const selectionReviewerNames = new Set(questions.map((question) => question.reviewer).filter((name): name is string => Boolean(name)));
     const reviewers = reviewerEmail
       ? activeAdmins.filter((admin) => admin.email.toLowerCase() === reviewerEmail)
-      : reviewerName ? activeAdmins.filter((admin) => admin.name === reviewerName) : activeAdmins;
+      : reviewerName ? activeAdmins.filter((admin) => admin.name === reviewerName)
+        : activeAdmins.filter((admin) => selectionReviewerNames.has(admin.name));
     if (reviewers.length !== 1) throw new Error('Set NEET_FULL_MOCK_CREATOR_EMAIL or NEET_FULL_MOCK_CREATOR_NAME to identify exactly one active administrator.');
     const reviewer = reviewers[0];
 
