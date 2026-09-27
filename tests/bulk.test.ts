@@ -61,10 +61,16 @@ describe('validateRows', () => {
     expect(r.errors.some((e) => e.includes('en_optionB'))).toBe(true);
   });
 
-  it('rejects non-single-correct types', () => {
+  it('rejects unsupported question types', () => {
     const [r] = validateRows([{ ...baseRow, questionType: 'IMAGE_BASED' }], makeCtx());
     expect(r.status).toBe('error');
-    expect(r.errors.join(' ')).toMatch(/SINGLE_CORRECT/);
+    expect(r.errors.join(' ')).toMatch(/NUMERICAL_VALUE/);
+  });
+
+  it('accepts numerical-value rows without MCQ options', () => {
+    const [r] = validateRows([{ ...baseRow, questionType: 'NUMERICAL_VALUE', correctOption: '', numericAnswer: '12.5', en_optionA: '', en_optionB: '', en_optionC: '', en_optionD: '' }], makeCtx());
+    expect(r.status).toBe('valid');
+    expect(r.data).toMatchObject({ questionType: 'NUMERICAL_VALUE', correctOption: null, numericAnswer: 12.5 });
   });
 
   it('detects duplicates against existing questions and within the file', () => {

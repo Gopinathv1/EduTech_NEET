@@ -7,8 +7,7 @@ export { BULK_COLUMNS, csvTemplate } from './bulk-columns';
  * (no DB access, so it's unit-testable). The API route builds the lookup context
  * from the database and commits valid rows in a transaction.
  *
- * Bulk import supports SINGLE_CORRECT text questions only. Image-based and
- * assertion-reason questions are created via the form.
+ * Bulk import supports single-correct MCQs and numerical-value questions.
  */
 
 /** Collapse whitespace + lowercase, for hashing/dedupe and name lookups. */
@@ -34,7 +33,7 @@ export type NormalizedQuestion = {
   subjectId: string;
   chapterId: string;
   difficulty: 'EASY' | 'MEDIUM' | 'HARD';
-  questionType: 'SINGLE_CORRECT';
+  questionType: 'SINGLE_CORRECT' | 'NUMERICAL_VALUE';
   year: number | null;
   tags: string[];
   contentClass: 'SAMPLE' | 'PRODUCTION';
@@ -46,7 +45,8 @@ export type NormalizedQuestion = {
   licenseReference: string | null;
   reviewer: string | null;
   reviewedAt: string | null;
-  correctOption: 'A' | 'B' | 'C' | 'D';
+  correctOption: 'A' | 'B' | 'C' | 'D' | null;
+  numericAnswer: number | null;
   textHash: string;
   en: {
     questionText: string;
@@ -130,11 +130,10 @@ export function validateRows(
       else difficulty = rawDiff as 'EASY' | 'MEDIUM' | 'HARD';
     }
 
-    // Question type (bulk supports SINGLE_CORRECT only)
+    // Question type
     const rawType = get(row, 'questionType').toUpperCase() || 'SINGLE_CORRECT';
-    if (rawType !== 'SINGLE_CORRECT') {
-      errors.push('Bulk upload supports SINGLE_CORRECT questions only');
-    }
+    if (rawType !== 'SINGLE_CORRECT' && rawType !== 'NUMERICAL_VALUE') errors.push('questionType must be SINGLE_CORRECT or NUMERICAL_VALUE');
+    const questionType = rawType as NormalizedQuestion['questionType'];
 
     // Year
     let year: number | null = null;
@@ -167,8 +166,16 @@ export function validateRows(
 
     // Correct option
     const correctOption = get(row, 'correctOption').toUpperCase();
-    if (!correctOption) errors.push('correctOption is required');
-    else if (!OPTIONS.has(correctOption)) errors.push(`correctOption must be A/B/C/D (got "${correctOption}")`);
+    const rawNumeric = get(row, 'numericAnswer');
+    const numericAnswer = rawNumeric === '' ? null : Number(rawNumeric);
+    if (questionType === 'NUMERICAL_VALUE') {
+      if (numericAnswer === null || !Number.isFinite(numericAnswer)) errors.push('numericAnswer is required and must be finite for NUMERICAL_VALUE');
+      if (correctOption) errors.push('correctOption must be empty for NUMERICAL_VALUE');
+    } else {
+      if (!correctOption) errors.push('correctOption is required');
+      else if (!OPTIONS.has(correctOption)) errors.push(`correctOption must be A/B/C/D (got "${correctOption}")`);
+      if (numericAnswer !== null) errors.push('numericAnswer must be empty for SINGLE_CORRECT');
+    }
 
     // English content (all required)
     const en = {
@@ -186,7 +193,7 @@ export function validateRows(
       ['en_optionC', en.optionC],
       ['en_optionD', en.optionD],
     ] as const) {
-      if (!val) errors.push(`${field} is required`);
+      if (!val && (questionType !== 'NUMERICAL_VALUE' || field === 'en_questionText')) errors.push(`${field} is required`);
     }
 
     // Tamil content (optional; if any present, all core fields required)
@@ -230,7 +237,7 @@ export function validateRows(
         subjectId,
         chapterId,
         difficulty,
-        questionType: 'SINGLE_CORRECT',
+        questionType,
         year,
         tags: get(row, 'tags')
           .split(';')
@@ -245,7 +252,8 @@ export function validateRows(
         licenseReference: get(row, 'licenseReference') || null,
         reviewer,
         reviewedAt,
-        correctOption: correctOption as 'A' | 'B' | 'C' | 'D',
+        correctOption: questionType === 'NUMERICAL_VALUE' ? null : correctOption as 'A' | 'B' | 'C' | 'D',
+        numericAnswer,
         textHash,
         en,
         ta: taAll
