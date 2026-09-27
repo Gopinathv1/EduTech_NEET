@@ -105,10 +105,12 @@ async function main() {
 
   const activeAdmins = await prisma.admin.findMany({ where: { isActive: true }, select: { id: true, name: true, email: true } });
   const requestedEmail = process.env.NEET_SELECTION_APPROVER_EMAIL?.trim().toLowerCase();
-  const reviewer = requestedEmail
-    ? activeAdmins.find((admin) => admin.email.toLowerCase() === requestedEmail)
-    : activeAdmins.length === 1 ? activeAdmins[0] : undefined;
-  if (!reviewer) throw new Error('Set NEET_SELECTION_APPROVER_EMAIL to one active administrator account.');
+  const requestedName = process.env.NEET_SELECTION_APPROVER_NAME?.trim();
+  const matches = requestedEmail
+    ? activeAdmins.filter((admin) => admin.email.toLowerCase() === requestedEmail)
+    : requestedName ? activeAdmins.filter((admin) => admin.name === requestedName) : activeAdmins;
+  const reviewer = matches.length === 1 ? matches[0] : undefined;
+  if (!reviewer) throw new Error('Set NEET_SELECTION_APPROVER_EMAIL or unique NEET_SELECTION_APPROVER_NAME to the authenticated active administrator.');
 
   for (const question of questions) {
     if (question.reviewState === 'DRAFT') {
