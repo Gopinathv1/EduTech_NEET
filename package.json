@@ -34,7 +34,8 @@
     "questions:sync-syllabus": "tsx scripts/questions-sync-syllabus.ts",
     "questions:import-official": "tsx scripts/questions-import-official.ts",
     "questions:validate": "tsx scripts/questions-validate.ts",
-    "questions:readiness": "tsx scripts/questions-readiness.ts"
+    "questions:readiness": "tsx scripts/questions-readiness.ts",
+    "questions:approve:neet-full-mock-1": "tsx scripts/approve-neet-full-mock-selection.ts"
   },
   "engines": {
     "node": ">=20.0.0"

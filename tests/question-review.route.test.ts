@@ -6,6 +6,7 @@ const audit = vi.hoisted(() => ({ logAudit: vi.fn() }));
 const db = vi.hoisted(() => ({
   findUnique: vi.fn(),
   update: vi.fn(),
+  updateMany: vi.fn(),
   transaction: vi.fn(),
 }));
 
@@ -60,7 +61,8 @@ beforeEach(() => {
   auth.getAdminSession.mockResolvedValue(admin);
   db.findUnique.mockResolvedValue(baseQuestion);
   db.update.mockResolvedValue(baseQuestion);
-  db.transaction.mockImplementation(async (callback: (tx: unknown) => Promise<unknown>) => callback({ question: { update: db.update } }));
+  db.updateMany.mockResolvedValue({ count: 1 });
+  db.transaction.mockImplementation(async (callback: (tx: unknown) => Promise<unknown>) => callback({ question: { update: db.update, updateMany: db.updateMany } }));
 });
 
 describe('POST /api/admin/questions/[id]/review', () => {
@@ -68,8 +70,8 @@ describe('POST /api/admin/questions/[id]/review', () => {
     const response = await POST(request('APPROVE'), context);
 
     expect(response.status).toBe(200);
-    expect(db.update).toHaveBeenCalledWith(expect.objectContaining({
-      where: { id: 'question-1' },
+    expect(db.updateMany).toHaveBeenCalledWith(expect.objectContaining({
+      where: { id: 'question-1', reviewState: 'REVIEW_REQUIRED' },
       data: expect.objectContaining({ reviewState: 'APPROVED', status: 'PUBLISHED', contentClass: 'PRODUCTION', isActive: true }),
     }));
     expect(versioning.writeQuestionVersion).toHaveBeenCalledWith(expect.anything(), 'question-1', 'review:APPROVED', admin);
