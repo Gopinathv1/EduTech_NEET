@@ -18,7 +18,9 @@ export const NEET_CONFIG = {
 
 export const FREE_ATTEMPT_LIMIT = 3;
 
-export function validFullMock(test: { testType: string; totalQuestions: number; durationMinutes: number }) {
-  return test.testType !== 'FULL_TEST' ||
-    (test.totalQuestions === NEET_CONFIG.totalQuestions && test.durationMinutes === NEET_CONFIG.durationMinutes);
+export function validFullMock(test: { testType: string; totalQuestions: number; durationMinutes: number; rules?: unknown }) {
+  if (test.testType !== 'FULL_TEST') return true;
+  const exam = test.rules && typeof test.rules === 'object' && 'exam' in test.rules
+    ? (test.rules as { exam?: unknown }).exam : undefined;
+  return test.durationMinutes === 180 && (exam === 'JEE' ? test.totalQuestions === 75 : test.totalQuestions === NEET_CONFIG.totalQuestions);
 }

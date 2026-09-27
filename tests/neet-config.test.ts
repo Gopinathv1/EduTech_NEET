@@ -6,6 +6,8 @@ describe('verified NEET 2026 configuration', () => {
   it('requires the full pattern only for full mocks', () => {
     expect(validFullMock({ testType: 'FULL_TEST', totalQuestions: 180, durationMinutes: 180 })).toBe(true);
     expect(validFullMock({ testType: 'FULL_TEST', totalQuestions: 200, durationMinutes: 200 })).toBe(false);
+    expect(validFullMock({ testType: 'FULL_TEST', totalQuestions: 75, durationMinutes: 180, rules: { exam: 'JEE' } })).toBe(true);
+    expect(validFullMock({ testType: 'FULL_TEST', totalQuestions: 180, durationMinutes: 180, rules: { exam: 'JEE' } })).toBe(false);
     expect(validFullMock({ testType: 'CHAPTER_TEST', totalQuestions: 10, durationMinutes: 15 })).toBe(true);
   });
   it('scores 180 correct answers as 720, and all incorrect as -180', () => {

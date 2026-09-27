@@ -144,7 +144,7 @@ export async function checkFeasibility(testId: string): Promise<FeasibilityResul
   const test = await prisma.test.findUnique({ where: { id: testId } });
   if (!test) return { ok: false, errors: ['Test not found'], warnings: [] };
 
-  const errors: string[] = validFullMock(test) ? [] : ['Full mocks require 180 questions and 180 minutes.'];
+  const errors: string[] = validFullMock(test) ? [] : ['Full mock question count or duration does not match its exam.'];
   if (test.contentClass !== 'PRODUCTION') errors.push('Only production-classified tests can be published to students.');
   const warnings: string[] = [];
   const languages = (test.availableLanguages.length ? test.availableLanguages : ['en']) as ('en' | 'ta' | 'hi')[];
@@ -215,7 +215,7 @@ export async function generateForAttempt(
   return result;
 }
 
-async function validateAttemptQuestions(test: { testType: string; totalQuestions: number; durationMinutes: number }, ids: string[], language: string) {
+async function validateAttemptQuestions(test: { testType: string; totalQuestions: number; durationMinutes: number; rules?: unknown }, ids: string[], language: string) {
   if (!validFullMock(test) || ids.length !== test.totalQuestions || new Set(ids).size !== ids.length) throw new GeneratorError('Invalid test configuration');
   const rows = await prisma.question.findMany({ where: { id: { in: ids }, isActive: true },
     select: { questionType: true, subject: { select: { code: true } }, translations: { select: { language: true, reviewed: true, correctOption: true, numericAnswer: true } } } });

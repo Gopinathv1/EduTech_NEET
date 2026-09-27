@@ -37,7 +37,8 @@
     "questions:readiness": "tsx scripts/questions-readiness.ts",
     "questions:approve:neet-full-mock-1": "tsx scripts/approve-neet-full-mock-selection.ts",
     "questions:approve:jee-main-full-mock-1": "tsx scripts/approve-jee-main-full-mock-1.ts",
-    "tests:create:neet-full-mock-1": "tsx scripts/create-neet-full-mock-1.ts"
+    "tests:create:neet-full-mock-1": "tsx scripts/create-neet-full-mock-1.ts",
+    "tests:create:jee-main-full-mock-1": "tsx scripts/create-jee-main-full-mock-1.ts"
   },
   "engines": {
     "node": ">=20.0.0"
