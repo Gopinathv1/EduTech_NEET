@@ -26,11 +26,17 @@ if (!dryRun && direct.classification === 'PRODUCTION' && process.env.NEET_SELECT
 const prisma = new PrismaClient({ datasourceUrl: directUrl });
 const selectionPath = path.join(process.cwd(), 'data/question-bank/sivora-neet-full-mock-1-selection.json');
 
-type Selection = { sources?: { selected?: Record<string, string[]> } };
+type Selection = { sources?: { includeAll?: string[]; selected?: Record<string, string[]> } };
+type CandidateQuestion = { externalId?: string };
 
 async function selectedExternalIds(): Promise<string[]> {
   const selection = JSON.parse(await readFile(selectionPath, 'utf8')) as Selection;
-  const ids = Object.values(selection.sources?.selected ?? {}).flat();
+  const bankDir = path.dirname(selectionPath);
+  const included = await Promise.all((selection.sources?.includeAll ?? []).map(async (file) => {
+    const questions = JSON.parse(await readFile(path.join(bankDir, file), 'utf8')) as CandidateQuestion[];
+    return questions.map((question) => question.externalId ?? '');
+  }));
+  const ids = [...included.flat(), ...Object.values(selection.sources?.selected ?? {}).flat()];
   if (ids.length !== 180) throw new Error(`SELECTED must be 180; found ${ids.length}.`);
   if (new Set(ids).size !== 180) throw new Error('Selection external IDs must be unique.');
   return ids;
