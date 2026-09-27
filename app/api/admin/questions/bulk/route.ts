@@ -75,8 +75,11 @@ export async function POST(req: Request) {
 
   let committed = 0;
   if (validRows.length > 0) {
-    await prisma.$transaction(async (tx) => {
-      for (const r of validRows) {
+    const batchSize = 25;
+    for (let start = 0; start < validRows.length; start += batchSize) {
+      const batch = validRows.slice(start, start + batchSize);
+      await prisma.$transaction(async (tx) => {
+        for (const r of batch) {
         const d = r.data!;
         const created = await tx.question.create({
           data: {
@@ -132,8 +135,9 @@ export async function POST(req: Request) {
         });
         await writeQuestionVersion(tx, created.id, 'bulk-created', admin);
         committed += 1;
-      }
-    }, { maxWait: 10_000, timeout: 30_000 });
+        }
+      }, { maxWait: 10_000, timeout: 30_000 });
+    }
   }
 
   await logAudit(admin, {
