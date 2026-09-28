@@ -3,6 +3,7 @@ import type { ExamLanguage } from '@/lib/attempts/examState';
 import { formatDuration, round1, type Strength } from '@/lib/attempts/analysis';
 import type { ResultReport } from '@/lib/reports/result-report';
 import { L } from './localize';
+import { studentSubjectLabelKey } from '@/lib/attempts/presentation';
 
 /**
  * Analysis tab of the result page (server component): score summary + subject,
@@ -27,6 +28,7 @@ export default async function ResultAnalysis({
   locale: ExamLanguage;
 }) {
   const t = await getTranslations('results');
+  const tp = await getTranslations('examPresentation');
   const s = report.summary;
 
   const summaryCards = [
@@ -85,7 +87,7 @@ export default async function ResultAnalysis({
             <tbody>
               {report.subjects.map((row) => (
                 <tr key={row.code} className="border-b border-border last:border-0">
-                  <td className="px-4 py-3 font-medium text-textPrimary">{L(row.name, locale)}</td>
+                  <td className="px-4 py-3 font-medium text-textPrimary">{tp(studentSubjectLabelKey(row.code))}</td>
                   <td className="px-4 py-3 text-right text-textSecondary">{row.attempted}</td>
                   <td className="px-4 py-3 text-right text-textSecondary">{row.correct}</td>
                   <td className="px-4 py-3">{row.wrong}</td>
@@ -172,7 +174,7 @@ export default async function ResultAnalysis({
                 const max = Math.max(...report.time.bySubject.map((x) => x.seconds));
                 return (
                   <li key={r.code} className="flex items-center gap-3 text-sm">
-                    <span className="w-24 shrink-0 text-textSecondary">{L(r.name, locale)}</span>
+                    <span className="w-24 shrink-0 text-textSecondary">{tp(studentSubjectLabelKey(r.code))}</span>
                     <div className="h-2 flex-1 overflow-hidden rounded-full bg-surfaceElevated">
                       <div className="h-full rounded-full bg-brand/70" style={{ width: `${max > 0 ? Math.round((r.seconds / max) * 100) : 0}%` }} />
                     </div>

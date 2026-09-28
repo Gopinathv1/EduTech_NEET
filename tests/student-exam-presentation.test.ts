@@ -28,5 +28,10 @@ describe('student exam presentation', () => {
       'BOTANY',
       'ZOOLOGY',
     ]);
+    expect(['JEE_PHYSICS', 'JEE_CHEMISTRY', 'JEE_MATHEMATICS'].map(studentSubjectLabelKey)).toEqual([
+      'subjects.JEE_PHYSICS',
+      'subjects.JEE_CHEMISTRY',
+      'subjects.JEE_MATHEMATICS',
+    ]);
   });
 });
