@@ -52,7 +52,7 @@ const prisma = new PrismaClient({ datasourceUrl: directUrl });
 async function main() {
   const rows = await prisma.question.findMany({
     where: { externalId: { in: corrections.map((correction) => correction.externalId) } },
-    select: { id: true, externalId: true, exam: true, questionType: true, reviewState: true, status: true, contentClass: true, isActive: true, translations: { where: { language: 'en' }, select: { questionText: true, numericAnswer: true, explanation: true } } },
+    select: { id: true, externalId: true, exam: true, questionType: true, reviewState: true, status: true, contentClass: true, isActive: true, reviewer: true, translations: { where: { language: 'en' }, select: { questionText: true, numericAnswer: true, explanation: true } } },
   });
   if (rows.length !== corrections.length) throw new Error(`Expected ${corrections.length} exact questions; found ${rows.length}.`);
 
@@ -71,10 +71,15 @@ async function main() {
 
   const activeAdmins = await prisma.admin.findMany({ where: { isActive: true }, select: { id: true, name: true, email: true } });
   const email = process.env.JEE_NUMERICAL_FIX_REVIEWER_EMAIL?.trim().toLowerCase();
-  const matches = email ? activeAdmins.filter((admin) => admin.email.toLowerCase() === email) : activeAdmins;
+  const originalReviewers = new Set(planned.map((entry) => entry.row?.reviewer?.trim()).filter((name): name is string => Boolean(name)));
+  const matches = email
+    ? activeAdmins.filter((admin) => admin.email.toLowerCase() === email)
+    : originalReviewers.size === 1
+      ? activeAdmins.filter((admin) => admin.name === [...originalReviewers][0])
+      : [];
   const reviewer = matches.length === 1 ? matches[0] : undefined;
   if (!reviewer) {
-    throw new Error('Set JEE_NUMERICAL_FIX_REVIEWER_EMAIL when production has more than one active administrator.');
+    throw new Error('Set JEE_NUMERICAL_FIX_REVIEWER_EMAIL to the active administrator when the original reviewer cannot be identified uniquely.');
   }
 
   for (const entry of planned) {
