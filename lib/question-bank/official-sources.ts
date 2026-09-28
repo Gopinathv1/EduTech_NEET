@@ -4,6 +4,8 @@ export const OFFICIAL_SOURCE_HOSTS = [
   'nta.ac.in',
   'www.nta.ac.in',
   'cdnbbsr.s3waas.gov.in',
+  'cbse.gov.in',
+  'www.cbse.gov.in',
 ] as const;
 
 export const REFERENCE_SOURCE_HOSTS = ['nmc.org.in', 'www.nmc.org.in'] as const;

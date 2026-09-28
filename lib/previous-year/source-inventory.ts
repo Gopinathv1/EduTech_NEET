@@ -1,7 +1,8 @@
 import inventoryJson from '@/data/previous-year/official-source-inventory.json';
+import historicalMatrixJson from '@/data/previous-year/historical-matrix.json';
 import { isAllowedOfficialSource } from '@/lib/question-bank/official-sources';
 
-export const PREVIOUS_YEAR_WINDOW = [2021, 2022, 2023, 2024, 2025] as const;
+export const PREVIOUS_YEAR_WINDOW = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025] as const;
 export const PREVIOUS_YEAR_MODES = ['YEAR_WISE', 'MIXED_FIVE_YEARS', 'SUBJECT_CHAPTER'] as const;
 
 export type PreviousYearExam = 'NEET' | 'JEE';
@@ -25,7 +26,36 @@ export type OfficialSourceRecord = {
   provenanceNotes: string;
 };
 
-export const officialSourceInventory = inventoryJson as OfficialSourceRecord[];
+type HistoricalMatrixSource = {
+  exam: PreviousYearExam;
+  year: number;
+  sessions: string[];
+  officialSourceUrl: string;
+  officialPaperAvailability: PaperAvailability;
+  answerKeyAvailability: string;
+  historicalExamName: string;
+  notes: string;
+  validatedQuestionCount: number;
+};
+
+const historicalSourceRecords = (historicalMatrixJson as HistoricalMatrixSource[])
+  .filter((record) => record.year < 2021)
+  .map((record): OfficialSourceRecord => ({
+    exam: record.exam,
+    year: record.year,
+    session: record.sessions.join(', '),
+    sourceUrl: record.officialSourceUrl,
+    officialDomain: new URL(record.officialSourceUrl).hostname,
+    sourceDocumentTitle: record.historicalExamName,
+    sourceType: record.officialPaperAvailability === 'AVAILABLE' ? 'OFFICIAL_QUESTION_PAPER' : 'OFFICIAL_IDENTITY_RECORD',
+    retrievalNotes: record.notes,
+    paperAvailability: record.officialPaperAvailability,
+    verifiedQuestionCount: record.validatedQuestionCount,
+    answerKeyAvailability: record.answerKeyAvailability === 'AVAILABLE' ? 'AVAILABLE' : 'UNAVAILABLE',
+    provenanceNotes: record.notes,
+  }));
+
+export const officialSourceInventory = [...historicalSourceRecords, ...(inventoryJson as OfficialSourceRecord[])];
 
 export function validateOfficialSourceInventory(records: readonly OfficialSourceRecord[]) {
   const issues: string[] = [];
@@ -38,7 +68,7 @@ export function validateOfficialSourceInventory(records: readonly OfficialSource
     if (!isAllowedOfficialSource(record.sourceUrl)) issues.push(`Non-official source: ${record.sourceUrl}`);
     if (new URL(record.sourceUrl).hostname !== record.officialDomain) issues.push(`Domain mismatch: ${identity}`);
     if (record.paperAvailability !== 'AVAILABLE' && record.verifiedQuestionCount !== 0) issues.push(`Unavailable paper has questions: ${identity}`);
-    if (record.paperAvailability === 'AVAILABLE' && record.verifiedQuestionCount < 1) issues.push(`Available paper has no verified questions: ${identity}`);
+    if (!Number.isInteger(record.verifiedQuestionCount) || record.verifiedQuestionCount < 0) issues.push(`Invalid verified question count: ${identity}`);
   }
   for (const exam of ['NEET', 'JEE'] as const) {
     for (const year of PREVIOUS_YEAR_WINDOW) {

@@ -87,7 +87,9 @@ export default async function PreviousYearPracticePage() {
                         </div>
                         <div>
                           <p className="text-sm font-semibold text-textPrimary">{t(`availability.${record.paperAvailability}`)}</p>
-                          <p className="mt-1 text-sm leading-6 text-textSecondary">{t('officialUnavailable')}</p>
+                          <p className="mt-1 text-sm leading-6 text-textSecondary">
+                            {t(record.paperAvailability === 'AVAILABLE' ? 'officialExtractionRequired' : 'officialUnavailable')}
+                          </p>
                           <a className="mt-2 inline-block text-xs font-semibold text-brand underline" href={record.sourceUrl} target="_blank" rel="noreferrer">
                             {t('officialSource')}
                           </a>
