@@ -12,6 +12,7 @@ import {
   type Strength,
 } from '@/lib/attempts/analysis';
 import type { LocalizedText } from '@/lib/recommendations/types';
+import { orderAttemptSubjectCodes, studentExamFromRules, type StudentExam } from '@/lib/attempts/presentation';
 
 /**
  * Server-side view model for a single attempt's result — the score summary plus
@@ -51,6 +52,7 @@ export type ResultReport = {
   selectedLanguage: 'en' | 'ta' | 'hi';
   testTitle: LocalizedText;
   studentName: string;
+  exam: StudentExam;
   summary: {
     score: number;
     maxScore: number;
@@ -103,7 +105,7 @@ export async function buildResultReport(attemptId: string, studentId: string): P
       selectedLanguage: true,
       questionOrder: true,
       student: { select: { name: true } },
-      test: { select: { title: true, durationMinutes: true, totalQuestions: true } },
+      test: { select: { title: true, durationMinutes: true, totalQuestions: true, rules: true } },
       result: true,
     },
   });
@@ -117,6 +119,7 @@ export async function buildResultReport(attemptId: string, studentId: string): P
   const bySubjectTime = timeAnalysis.bySubject ?? {};
 
   const orderIds = attempt.questionOrder;
+  const exam = studentExamFromRules(attempt.test.rules);
 
   const [subjects, questions] = await Promise.all([
     prisma.subject.findMany({ orderBy: { order: 'asc' }, select: { id: true, code: true, name: true } }),
@@ -129,11 +132,20 @@ export async function buildResultReport(attemptId: string, studentId: string): P
   const subjectById = new Map(subjects.map((s) => [s.id, s]));
   const questionById = new Map(questions.map((q) => [q.id, q]));
 
-  // Subject rows — always all four subjects, in display order.
-  const subjectRows: SubjectRow[] = subjects.map((s) => {
+  // Subject rows are limited to the subjects represented by this attempt. This
+  // prevents unrelated taxonomy subjects from appearing as empty analysis rows.
+  const subjectsInAttempt = new Map<string, (typeof subjects)[number]>();
+  for (const questionId of orderIds) {
+    const question = questionById.get(questionId);
+    const subject = question ? subjectById.get(question.subjectId) : undefined;
+    if (subject) subjectsInAttempt.set(subject.code, subject);
+  }
+  const subjectRows: SubjectRow[] = orderAttemptSubjectCodes(exam, [...subjectsInAttempt.keys()]).flatMap((code) => {
+    const s = subjectsInAttempt.get(code);
+    if (!s) return [];
     const b = subjectAnalysis[s.id] ?? { correct: 0, wrong: 0, skipped: 0, total: 0 };
     const attempted = attemptedOf(b);
-    return {
+    return [{
       code: s.code,
       name: toLocalized(s.name),
       attempted,
@@ -144,7 +156,7 @@ export async function buildResultReport(attemptId: string, studentId: string): P
       accuracy: accuracyPct(b.correct, b.wrong),
       marks: marksFor(b),
       timeSeconds: bySubjectTime[s.id] ?? 0,
-    };
+    }];
   });
 
   // Chapter rows — those actually in the test.
@@ -177,8 +189,8 @@ export async function buildResultReport(attemptId: string, studentId: string): P
   // Time analysis.
   const allottedSeconds = attempt.test.durationMinutes * 60;
   const totalSeconds = attempt.submittedAt ? Math.min(allottedSeconds, Math.max(0, Math.floor((attempt.submittedAt.getTime() - attempt.startedAt.getTime()) / 1000))) : 0;
-  const bySubject = subjects
-    .map((s) => ({ code: s.code, name: toLocalized(s.name), seconds: bySubjectTime[s.id] ?? 0 }))
+  const bySubject = subjectRows
+    .map((s) => ({ code: s.code, name: s.name, seconds: s.timeSeconds }))
     .filter((r) => r.seconds > 0);
 
   const slowest = Object.entries(byQuestion)
@@ -210,6 +222,7 @@ export async function buildResultReport(attemptId: string, studentId: string): P
     selectedLanguage: attempt.selectedLanguage === 'ta' || attempt.selectedLanguage === 'hi' ? attempt.selectedLanguage : 'en',
     testTitle: toLocalized(attempt.test.title),
     studentName: attempt.student.name,
+    exam,
     summary: {
       score: result.score,
       maxScore,

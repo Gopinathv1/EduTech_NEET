@@ -3412,5 +3412,24 @@
     "subject": "विषय टेस्ट",
     "chapter": "अध्याय अभ्यास",
     "answeredMarked": "उत्तर दिया और समीक्षा के लिए चिह्नित"
+  },
+  "examPresentation": {
+    "titles": {
+      "NEET": "नीट मॉक टेस्ट",
+      "JEE": "जेईई मेन मॉक टेस्ट"
+    },
+    "resultTitles": {
+      "NEET": "नीट मॉक टेस्ट परिणाम",
+      "JEE": "जेईई मेन मॉक टेस्ट परिणाम"
+    },
+    "subjects": {
+      "PHYSICS": "भौतिकी",
+      "CHEMISTRY": "रसायन विज्ञान",
+      "BOTANY": "वनस्पति विज्ञान",
+      "ZOOLOGY": "प्राणी विज्ञान",
+      "JEE_PHYSICS": "भौतिकी",
+      "JEE_CHEMISTRY": "रसायन विज्ञान",
+      "JEE_MATHEMATICS": "गणित"
+    }
   }
 }

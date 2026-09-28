@@ -3410,5 +3410,24 @@
     "subject": "Subject Tests",
     "chapter": "Chapter Practice",
     "answeredMarked": "Answered & Marked for Review"
+  },
+  "examPresentation": {
+    "titles": {
+      "NEET": "NEET Mock Test",
+      "JEE": "JEE Main Mock Test"
+    },
+    "resultTitles": {
+      "NEET": "NEET Mock Test Result",
+      "JEE": "JEE Main Mock Test Result"
+    },
+    "subjects": {
+      "PHYSICS": "Physics",
+      "CHEMISTRY": "Chemistry",
+      "BOTANY": "Botany",
+      "ZOOLOGY": "Zoology",
+      "JEE_PHYSICS": "Physics",
+      "JEE_CHEMISTRY": "Chemistry",
+      "JEE_MATHEMATICS": "Mathematics"
+    }
   }
 }

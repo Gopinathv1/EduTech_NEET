@@ -14,6 +14,7 @@ import { studentTestWhere } from '@/lib/content/eligibility';
 import { withReturnParam } from '@/lib/auth/redirect';
 import { examEmailVerificationGateEnabled } from '@/lib/attempts/verification';
 import { ClockIcon, BookIcon } from '@/components/public/icons';
+import { studentExamFromRules, studentExamHeadingKey } from '@/lib/attempts/presentation';
 
 /**
  * Instructions page: marking scheme, navigation help and a per-attempt language
@@ -25,6 +26,7 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
   const locale = (await getLocale()) as ExamLanguage;
   const t = await getTranslations('exam.instructions');
   const tn = await getTranslations('neetPractice');
+  const tp = await getTranslations('examPresentation');
   const tc = await getTranslations('catalogue');
   const session = await getSession();
   if (!session || session.kind !== 'student') redirect(`/login?next=/student/tests/${id}/start`);
@@ -70,7 +72,7 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
   const defaultLanguage: ExamLanguage = languages.includes(locale) ? locale : 'en';
 
   const marking = [t('markCorrect'), t('markWrong'), t('markSkipped')];
-  const exam = (test.rules as { exam?: string } | null)?.exam === 'JEE' ? 'JEE' : 'NEET';
+  const exam = studentExamFromRules(test.rules);
   const examConfig = exam === 'JEE' ? JEE_MAIN_CONFIG : NEET_CONFIG;
 
   return (
@@ -81,7 +83,7 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
           ← {t('back')}
         </Link>
 
-        <h1 className="mt-3 text-2xl font-bold text-textPrimary">{tn('title')}</h1><p className="mt-1 text-textSecondary">{title}</p>
+        <h1 className="mt-3 text-2xl font-bold text-textPrimary">{tp(studentExamHeadingKey(exam))}</h1><p className="mt-1 text-textSecondary">{title}</p>
         <p className="mt-3 text-xs text-textSecondary">{tn('disclaimer')}</p>
 
         {paidRetriesEnabled ? (

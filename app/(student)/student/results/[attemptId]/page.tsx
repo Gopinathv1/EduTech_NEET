@@ -17,6 +17,7 @@ import { shouldShowAdmissionBanner } from '@/lib/admission/config';
 import { getSettings } from '@/lib/settings/service';
 import AdmissionBanner from '@/components/student/admission/AdmissionBanner';
 import { isFreeSampleTest } from '@/lib/content/eligibility';
+import { studentExamHeadingKey } from '@/lib/attempts/presentation';
 
 /**
  * Result page: score summary + subject/chapter/time analysis (Analysis tab) and a
@@ -26,7 +27,7 @@ export default async function ResultPage({ params }: { params: Promise<{ attempt
   const { attemptId } = await params;
   const locale = (await getLocale()) as ExamLanguage;
   const t = await getTranslations('results');
-  const tn = await getTranslations('neetPractice');
+  const tp = await getTranslations('examPresentation');
   const session = await getSession();
   if (!session || session.kind !== 'student') redirect(`/login?next=/student/results/${attemptId}`);
 
@@ -61,7 +62,7 @@ export default async function ResultPage({ params }: { params: Promise<{ attempt
             <Link href="/student" className="text-sm font-medium text-brand hover:text-red-200">
               ← {t('backToDashboard')}
             </Link>
-            <h1 className="mt-2 text-2xl font-bold text-textPrimary">{tn('resultTitle')}</h1><p>{L(report.testTitle, locale)}</p>
+            <h1 className="mt-2 text-2xl font-bold text-textPrimary">{tp(studentExamHeadingKey(report.exam, true))}</h1><p>{L(report.testTitle, locale)}</p>
             <p className="mt-1 text-sm text-textSecondary">
               {t('submittedOn', { date: dateStr })}
               {report.status === 'AUTO_SUBMITTED' ? ` · ${t('autoSubmitted')}` : ''}

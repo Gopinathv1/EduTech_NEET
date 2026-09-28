@@ -14,6 +14,7 @@ import { formatClock } from '@/lib/attempts/format';
 import type { ExamPayload } from '@/lib/attempts/service';
 import QuestionPalette from './QuestionPalette';
 import SubmitDialog from './SubmitDialog';
+import { studentExamFromSubjectCodes, studentExamHeadingKey, studentSubjectLabelKey } from '@/lib/attempts/presentation';
 
 type SaveStatus = 'idle' | 'saving' | 'saved' | 'error';
 
@@ -40,9 +41,12 @@ export default function ExamClient({
   const t = useTranslations('exam.ui');
   const locale = useLocale();
   const tn = useTranslations('neetPractice');
+  const tp = useTranslations('examPresentation');
   const [paletteOpen, setPaletteOpen] = useState(false);
   const { attemptId, questions, availableLanguages } = payload;
   const questionIds = questions.map((q) => q.id);
+  const subjectCodes = [...new Set(questions.map((q) => q.subjectCode))];
+  const exam = studentExamFromSubjectCodes(subjectCodes);
 
   const [state, dispatch] = useReducer(examReducer, {
     lang: payload.selectedLanguage,
@@ -273,7 +277,6 @@ export default function ExamClient({
   // ---- Render -------------------------------------------------------------
   const content = current[state.lang] ?? current.en;
   const showTaNotice = !current[state.lang] || (locale !== 'en' && state.lang === 'en');
-  const subjectCodes = [...new Set(questions.map(q => q.subjectCode))];
   const counts = summarize(questionIds, state.answers);
   const lowTime = remaining <= 60;
 
@@ -282,7 +285,7 @@ export default function ExamClient({
       {/* Header */}
       <header className="sticky top-0 z-30 border-b border-border bg-surfaceElevated">
         <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-2.5 sm:px-6">
-          <div className="min-w-0"><p className="text-xs font-bold text-brand">SIVORA UP↑RISING</p><h1 className="truncate text-sm font-bold text-textPrimary">{tn('title')}</h1><p className="max-w-64 truncate text-xs text-textSecondary">{testTitle}</p></div>
+          <div className="min-w-0"><p className="text-xs font-bold text-brand">SIVORA UP↑RISING</p><h1 className="truncate text-sm font-bold text-textPrimary">{tp(studentExamHeadingKey(exam))}</h1><p className="max-w-64 truncate text-xs text-textSecondary">{testTitle}</p></div>
 
           <div className="flex items-center gap-3">
             <div
@@ -337,7 +340,7 @@ export default function ExamClient({
               }).length;
               return <button key={code} type="button" aria-pressed={current.subjectCode === code}
                 onClick={() => goTo(indices[0])} className={`rounded-lg border p-3 text-sm font-semibold ${current.subjectCode === code ? 'border-brand bg-brand-soft text-brand' : 'border-border text-textSecondary'}`}>
-                {tn(`subjects.${code}`)} <span className="text-xs">{answered}/{indices.length}</span>
+                {tp(studentSubjectLabelKey(code))} <span className="text-xs">{answered}/{indices.length}</span>
               </button>;
             })}
           </nav>
