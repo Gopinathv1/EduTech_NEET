@@ -143,6 +143,16 @@ export default async function TestsCataloguePage({ searchParams }: { searchParam
         </section>
 
         <div className="mt-12">
+          <section className="mb-8 rounded-2xl border border-brand/30 bg-surfaceElevated p-6 sm:flex sm:items-center sm:justify-between sm:gap-6">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand">{t('previousYearEyebrow')}</p>
+              <h2 className="mt-2 text-2xl font-bold text-textPrimary">{t('previousYearTitle')}</h2>
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-textSecondary">{t('previousYearDescription')}</p>
+            </div>
+            <Link href="/student/previous-year" className="mt-5 inline-flex shrink-0 rounded-md bg-brand px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-dark sm:mt-0">
+              {t('previousYearAction')}
+            </Link>
+          </section>
           <CatalogueFilters years={years} chapters={chapterOptions} initial={filters} />
         </div>
 

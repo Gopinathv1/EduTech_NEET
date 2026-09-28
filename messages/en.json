@@ -1274,6 +1274,10 @@
     }
   },
   "catalogue": {
+    "previousYearEyebrow": "Previous-year practice",
+    "previousYearTitle": "Official-source previous-year practice",
+    "previousYearDescription": "Browse year-wise, mixed 2021–2025, and subject or chapter practice. A mode becomes available only when complete question content is verified from official examination material.",
+    "previousYearAction": "View previous-year practice",
     "title": "Mock tests",
     "subtitle": "Choose a test and practise for just ₹30.",
     "searchPlaceholder": "Search tests…",
@@ -3379,6 +3383,25 @@
       "title": "More destination options.",
       "compare": "Compare Destinations"
     }
+  },
+  "previousYearPractice": {
+    "back": "Back to tests",
+    "eyebrow": "Previous year practice",
+    "title": "Verified NEET and JEE Main previous-year practice",
+    "intro": "Choose from year-wise papers, mixed five-year practice, or subject and chapter practice when verified official questions are available.",
+    "disclaimer": "Previous-year questions are sourced from verified official examination materials where available. SIVORA is independent and is not affiliated with or endorsed by NTA.",
+    "yearWise": { "title": "1. Year-wise Test", "description": "Preserves a verified historical paper's identity, structure, and order where officially established." },
+    "mixed": { "title": "2. Mixed 2021–2025", "description": "Uses only eligible verified previous-year questions and the current supported exam structure." },
+    "subjectChapter": { "title": "3. Subject / Chapter Practice", "description": "Choose one year or the five-year range, then a subject and optional SIVORA chapter classification." },
+    "notEnough": "Not enough verified previous-year questions are available yet.",
+    "verifiedInventory": "Official source inventory",
+    "verifiedCount": "{count} verified questions",
+    "questions": "{count} questions",
+    "officialUnavailable": "Official paper content is not currently available in a complete, durable form suitable for verified import.",
+    "officialSource": "View official source record",
+    "classificationNote": "Chapter labels, when future questions become available, will be SIVORA classifications—not NTA classifications.",
+    "exam": { "NEET": "NEET UG", "JEE": "JEE Main Paper 1" },
+    "availability": { "AVAILABLE": "Available", "PARTIAL": "Partial", "UNAVAILABLE": "Unavailable" }
   },
   "neetPractice": {
     "title": "NEET Mock Test",
