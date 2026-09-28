@@ -16,6 +16,21 @@ export const NEET_CONFIG = {
   questionsPerPracticeSubject: 45,
 } as const;
 
+/** JEE Main 2026 Information Bulletin, Paper 1 (B.E./B.Tech), pp. 16–17.
+ * Section B numerical-value responses are entered as nearest integers.
+ */
+export const JEE_MAIN_CONFIG = {
+  version: 'JEE_MAIN_2026_PAPER_1',
+  source: 'https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2025/11/202511021649722475.pdf',
+  totalQuestions: 75,
+  durationMinutes: 180,
+  maximumMarks: 300,
+  correct: 4,
+  wrong: -1,
+  unanswered: 0,
+  numericalResponsesAreIntegers: true,
+} as const;
+
 export const FREE_ATTEMPT_LIMIT = 3;
 
 export function validFullMock(test: { testType: string; totalQuestions: number; durationMinutes: number; rules?: unknown }) {

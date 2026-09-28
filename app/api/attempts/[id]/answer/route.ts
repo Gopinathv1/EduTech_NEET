@@ -40,7 +40,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
   if (action === 'answer' && selectedOption === undefined && numericResponse === undefined) return fail('validation', 400);
   if (action === 'answer' && selectedOption !== undefined && numericResponse !== undefined) return fail('validation', 400);
   const question = action === 'answer'
-    ? await prisma.question.findUnique({ where: { id: questionId }, select: { questionType: true } })
+    ? await prisma.question.findUnique({ where: { id: questionId }, select: { questionType: true, exam: true } })
     : null;
   if (action === 'answer' && !question) return fail('questionNotInAttempt', 400);
   if (action === 'answer' && (question?.questionType === 'NUMERICAL_VALUE' ? numericResponse === undefined : selectedOption === undefined)) return fail('validation', 400);
@@ -58,6 +58,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
     case 'answer':
       if (question?.questionType === 'NUMERICAL_VALUE') {
         if (numericResponse === undefined || selectedOption !== undefined) return fail('validation', 400);
+        if (question.exam === 'JEE' && !Number.isInteger(numericResponse)) return fail('validation', 400);
         update.numericResponse = numericResponse;
         update.selectedOption = null;
         create.numericResponse = numericResponse;

@@ -142,7 +142,7 @@ describe('POST /api/attempts/[id]/answer', () => {
 
   it('persists a numerical response and rejects a fake option response', async () => {
     loadCtxMock.mockResolvedValue(liveAttempt() as never);
-    p.question.findUnique.mockResolvedValue({ questionType: 'NUMERICAL_VALUE' });
+    p.question.findUnique.mockResolvedValue({ questionType: 'NUMERICAL_VALUE', exam: 'NEET' });
     p.answer.upsert.mockResolvedValue({});
 
     const saved = await POST(req({ questionId: 'q1', action: 'answer', numericResponse: 12.5 }), { params });
@@ -151,6 +151,20 @@ describe('POST /api/attempts/[id]/answer', () => {
 
     const rejected = await POST(req({ questionId: 'q1', action: 'answer', selectedOption: 'A' }), { params });
     expect(rejected.status).toBe(400);
+  });
+
+  it('requires an integer numerical response for JEE questions', async () => {
+    loadCtxMock.mockResolvedValue(liveAttempt() as never);
+    p.question.findUnique.mockResolvedValue({ questionType: 'NUMERICAL_VALUE', exam: 'JEE' });
+
+    const rejected = await POST(req({ questionId: 'q1', action: 'answer', numericResponse: 1.5 }), { params });
+    expect(rejected.status).toBe(400);
+    expect(p.answer.upsert).not.toHaveBeenCalled();
+
+    p.answer.upsert.mockResolvedValue({});
+    const saved = await POST(req({ questionId: 'q1', action: 'answer', numericResponse: 2 }), { params });
+    expect(saved.status).toBe(200);
+    expect(p.answer.upsert).toHaveBeenCalledTimes(1);
   });
 });
 

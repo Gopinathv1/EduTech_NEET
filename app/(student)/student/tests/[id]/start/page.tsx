@@ -1,4 +1,4 @@
-import { NEET_CONFIG } from '@/lib/attempts/config';
+import { JEE_MAIN_CONFIG, NEET_CONFIG } from '@/lib/attempts/config';
 import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
 import { getLocale, getTranslations } from 'next-intl/server';
@@ -44,6 +44,7 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
       totalQuestions: true,
       testType: true,
       availableLanguages: true,
+      rules: true,
     },
   });
   if (!test) notFound();
@@ -69,6 +70,8 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
   const defaultLanguage: ExamLanguage = languages.includes(locale) ? locale : 'en';
 
   const marking = [t('markCorrect'), t('markWrong'), t('markSkipped')];
+  const exam = (test.rules as { exam?: string } | null)?.exam === 'JEE' ? 'JEE' : 'NEET';
+  const examConfig = exam === 'JEE' ? JEE_MAIN_CONFIG : NEET_CONFIG;
 
   return (
     <div className="min-h-screen bg-surface">
@@ -137,11 +140,11 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
             </dl>
 
             <div className="mt-4 space-y-2 text-sm text-textSecondary">
-              <p>{tn('maximumMarks')}: <strong>{test.totalQuestions * NEET_CONFIG.correct}</strong></p>
-              <p>{tn('questionType')}</p>
-              {test.testType === 'FULL_TEST' ? <p>{tn('distribution')}</p> : null}
+              <p>{tn('maximumMarks')}: <strong>{test.totalQuestions * examConfig.correct}</strong></p>
+              <p>{exam === 'JEE' ? 'Paper 1 includes multiple-choice and numerical-value questions.' : tn('questionType')}</p>
+              {test.testType === 'FULL_TEST' ? <p>{exam === 'JEE' ? 'Each subject has 20 multiple-choice and 5 numerical-value questions.' : tn('distribution')}</p> : null}
               <p>{tn('languageUnavailable')}</p>
-              <a href={NEET_CONFIG.source} target="_blank" rel="noreferrer" className="text-brand underline">{tn('source')}</a>
+              <a href={examConfig.source} target="_blank" rel="noreferrer" className="text-brand underline">{tn('source')}</a>
             </div>
             <section className="mt-6 rounded-2xl border border-border bg-surfaceElevated p-5">
               <h2 className="text-sm font-semibold text-textPrimary">{t('marking')}</h2>

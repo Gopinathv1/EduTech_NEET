@@ -385,7 +385,7 @@ export default function ExamClient({
                   key={current.id}
                   id={`numeric-${current.id}`}
                   type="number"
-                  step="any"
+                  step={current.subjectCode.startsWith('JEE_') ? 1 : 'any'}
                   defaultValue={currentAnswer?.numericResponse ?? ''}
                   disabled={submitting || remaining <= 0}
                   onBlur={(event) => {
@@ -394,7 +394,7 @@ export default function ExamClient({
                   }}
                   className="mt-2 w-full max-w-xs rounded-lg border border-border bg-surface px-3 py-2 text-textPrimary"
                 />
-                <p className="mt-2 text-xs text-textSecondary">Enter a numeric value. Your response is saved when you leave this field.</p>
+                <p className="mt-2 text-xs text-textSecondary">{current.subjectCode.startsWith('JEE_') ? 'Enter the nearest integer. Your response is saved when you leave this field.' : 'Enter a numeric value. Your response is saved when you leave this field.'}</p>
               </div>
             ) : (
             <fieldset disabled={submitting || remaining <= 0} className="mt-5 space-y-3">
