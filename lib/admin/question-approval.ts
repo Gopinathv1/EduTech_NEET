@@ -26,6 +26,7 @@ const approvalQuestionSelect = {
   sourceType: true,
   sourceName: true,
   sourceUrl: true,
+  officialAnswerKeyReference: true,
   reviewState: true,
   translations: true,
 } satisfies Prisma.QuestionSelect;
@@ -55,6 +56,11 @@ export function approvalIssues(question: ApprovalQuestion): string[] {
   if (question.sourceType === 'OFFICIAL_NTA' || question.sourceType === 'OFFICIAL_PREVIOUS_YEAR') {
     if (!question.examYear) issues.push('Official questions require an exam year.');
     if (!question.sourceUrl || !isAllowedOfficialSource(question.sourceUrl)) issues.push('Official questions require an allowlisted NTA/NIC/NMC source URL.');
+  }
+  if (question.sourceType === 'HISTORICAL_VERIFIED') {
+    if (!question.examYear) issues.push('Historically verified questions require an exam year.');
+    if (!question.sourceUrl) issues.push('Historically verified questions require the actual wording archive URL.');
+    if (!question.officialAnswerKeyReference) issues.push('Historically verified questions require an authoritative answer-key reference.');
   }
   return issues;
 }

@@ -1,0 +1,303 @@
+[
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 6,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "A light ray enters through a right angled prism at point P with the angle of incidence 30° as shown in figure. It travels through the prism parallel to its base BC and emerges along the face AC. The refractive index of the prism is:"
+  },
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 8,
+    "reasons": [
+      "TRANSCRIPTION_PLACEHOLDER",
+      "IMAGE_ASSET_REQUIRED",
+      "CORRUPTED_MATH_GLYPHS"
+    ],
+    "recoveredQuestionText": "The graph which shows the variation of 2 1⎛⎞ ⎜⎟λ⎝⎠ and its kinetic energy, E is (where λ is de Broglie wavelength of a free particle):"
+  },
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 10,
+    "reasons": [
+      "SOURCE_TRANSCRIPTION_MISSING"
+    ],
+    "recoveredQuestionText": null
+  },
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 14,
+    "reasons": [
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "The candidates will write the Correct Test Booklet Code as given in the Test Booklet / Answer Sheet in the Attendance Sheet. Test Booklet Code Q1 PHYSICS SECTION-A 1. A logic circuit provides the output Y as per the following truth table : 0 0 1 0 1 0 1 0 1 1 1 0 A B Y The expression for the output Y is :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 16,
+    "reasons": [
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "A logic circuit provides the output Y as per the following truth table : 0 0 1 0 1 0 1 0 1 1 1 0 A B Y The expression for the output Y is :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 18,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "The terminal voltage of the battery, whose emf is 10 V and internal resistance 1 Ω, when connected through an external resistance of 4 Ω as shown in the figure is:"
+  },
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 19,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "In the above diagram, a strong bar magnet is moving towards solenoid -2 from solenoid -1. The direction of induced current in solenoid-1 and that in solenoid-2, respectively, are through the directions:"
+  },
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 26,
+    "reasons": [
+      "CORRUPTED_MATH_GLYPHS"
+    ],
+    "recoveredQuestionText": "If 5sin m 3 π⎛⎞= π + ⎜⎟⎝⎠ xt represents the motion of a particle executing simple harmonic motion, the amplitude and time period of motion, respectively, are"
+  },
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 30,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "In the following circuit, the equivalent capacitance between terminal A and terminal B is :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 31,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "A horizontal force 10 N is applied to a block A as shown in figure. The mass of blocks A and B are 2 kg and 3 kg respectively. The blocks slide over a frictionless surface. The force exerted by block A on block B is :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 32,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "A wheel of a bullock cart is rolling on a level road as shown in the figure below. If its linear speed is ν in the direction shown, which one of the following options is correct ( P and Q are any highest and lowest points on the wheel, respectively)?"
+  },
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 38,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "A 10 μF capacitor is connected to a 210 V, 50 Hz source as shown in figure. The peak current in the circuit is nearly (π = 3.14):"
+  },
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 39,
+    "reasons": [
+      "TRANSCRIPTION_PLACEHOLDER",
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "Choose the correct circuit which can achieve the bridge balance."
+  },
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 41,
+    "reasons": [
+      "TRANSCRIPTION_PLACEHOLDER",
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "The velocity (v) – time (t) plot of the motion of a body is shown below: The acceleration (a) – time (t) graph that best suits this motion is :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 50,
+    "reasons": [
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "A force defined by F = αt2 + βt acts on a particle at a given time t. The factor which is dimensionless, if α and β are constants, is:"
+  },
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 69,
+    "reasons": [
+      "TRANSCRIPTION_PLACEHOLDER",
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "The most stable carbocation among the following is :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 71,
+    "reasons": [
+      "TRANSCRIPTION_PLACEHOLDER",
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "Which one of the following alcohols reacts instantaneously with Lucas reagent?"
+  },
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 73,
+    "reasons": [
+      "TRANSCRIPTION_PLACEHOLDER",
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "Which plot of ln k vs 1 T is consistent with Arrhenius equation?"
+  },
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 75,
+    "reasons": [
+      "TRANSCRIPTION_PLACEHOLDER",
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "Intramolecular hydrogen bonding is present in"
+  },
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 84,
+    "reasons": [
+      "TRANSCRIPTION_PLACEHOLDER",
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "The compound that will undergo SN1 reaction with the fastest rate is"
+  },
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 86,
+    "reasons": [
+      "TRANSCRIPTION_PLACEHOLDER",
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "Major products A and B formed in the following reaction sequence, are"
+  },
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 88,
+    "reasons": [
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "The work done during reversible isothermal expansion of one mole of hydrogen gas at 25°C from pressure of 20 atmosphere to 10 atmosphere is (Given R = 2.0 cal K–1 mol–1)"
+  },
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 90,
+    "reasons": [
+      "TRANSCRIPTION_PLACEHOLDER",
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "For the given reaction: ‘P’ is"
+  },
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 104,
+    "reasons": [
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "In a plant, black seed color (BB/Bb) is dominant over white seed color (bb). In order to find out the genotype of the black seed plant, with which of the following genotype will you cross it?"
+  },
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 122,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "Identify the part of the seed from the given figure which is destined to form root when the seed germinates."
+  },
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 135,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "In the given figure, which component has thin outer walls and highly thickened inner walls?"
+  },
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 146,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "Identify the correct description about the given figure:"
+  },
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 177,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "The following diagram showing restriction sites in E. coli cloning vector pBR322. Find the role of ‘ X’ and ‘Y’ genes :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2024,
+    "paperCode": "S6",
+    "originalQuestionNumber": 183,
+    "reasons": [
+      "DUPLICATE_TEXT:2021:136"
+    ],
+    "recoveredQuestionText": "Which of the following statements is incorrect?"
+  }
+]

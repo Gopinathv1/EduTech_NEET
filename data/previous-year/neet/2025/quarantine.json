@@ -1,0 +1,133 @@
+[
+  {
+    "exam": "NEET",
+    "year": 2025,
+    "paperCode": "45",
+    "originalQuestionNumber": 1,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "Consider a water tank shown in the figure. It has one wall at $x = L$ and can be taken to be very wide in the $z$ direction. When filled with a liquid of surface tension $S$ and density $\\rho$, the liquid surface makes angle $\\theta_0$ ($\\theta_0 << 1$) with the $x$-axis at $x = L$. If $y(x)$ is the height of the surface then the equation for $y(x)$ is:\n\n(take $\\theta(x) = \\sin\\theta(x) = \\tan\\theta(x) = \\frac{dy}{dx}$, $g$ is the acceleration due to gravity)"
+  },
+  {
+    "exam": "NEET",
+    "year": 2025,
+    "paperCode": "45",
+    "originalQuestionNumber": 6,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "The current passing through the battery in the given circuit, is:"
+  },
+  {
+    "exam": "NEET",
+    "year": 2025,
+    "paperCode": "45",
+    "originalQuestionNumber": 7,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "A bob of heavy mass $m$ is suspended by a light string of length $l$. The bob is given a horizontal velocity $v_0$ as shown in figure. If the string gets slack at some point $P$ making an angle $\\theta$ from the horizontal, the ratio of the speed $v$ of the bob at point $P$ to its initial speed $v_0$ is:"
+  },
+  {
+    "exam": "NEET",
+    "year": 2025,
+    "paperCode": "45",
+    "originalQuestionNumber": 19,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "Three identical heat conducting rods are connected in series as shown in the figure. The rods on the sides have thermal conductivity $2K$ while that in the middle has thermal conductivity $K$. The left end of the combination is maintained at temperature $3T$ and the right end at $T$. The rods are thermally insulated from outside. In steady state, temperature at the left junction is $T_1$ and that at the right junction is $T_2$. The ratio $T_1/T_2$ is"
+  },
+  {
+    "exam": "NEET",
+    "year": 2025,
+    "paperCode": "45",
+    "originalQuestionNumber": 36,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "A constant voltage of 50 V is maintained between the points A and B of the circuit shown in the figure. The current through the branch CD of the circuit is:"
+  },
+  {
+    "exam": "NEET",
+    "year": 2025,
+    "paperCode": "45",
+    "originalQuestionNumber": 39,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "A sphere of radius $R$ is cut from a larger solid sphere of radius $2R$ as shown in the figure. The ratio of the moment of inertia of the smaller sphere to that of the rest part of the sphere about the Y-axis is:"
+  },
+  {
+    "exam": "NEET",
+    "year": 2025,
+    "paperCode": "45",
+    "originalQuestionNumber": 40,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED",
+      "OFFICIAL_KEY_NOT_SINGLE_CORRECT"
+    ],
+    "recoveredQuestionText": "A full wave rectifier circuit with diodes ($D_1$) and ($D_2$) is shown in the figure. If input supply voltage $V_{in} = 220\\sin(100\\pi t)$ volt, then at $t = 15$ msec"
+  },
+  {
+    "exam": "NEET",
+    "year": 2025,
+    "paperCode": "45",
+    "originalQuestionNumber": 50,
+    "reasons": [
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "Energy and radius of first Bohr orbit of He⁺ and Li²⁺ are [Given R_H = 2.18 × 10⁻¹⁸ J, a₀ = 52.9 pm]"
+  },
+  {
+    "exam": "NEET",
+    "year": 2025,
+    "paperCode": "45",
+    "originalQuestionNumber": 63,
+    "reasons": [
+      "OFFICIAL_KEY_NOT_SINGLE_CORRECT"
+    ],
+    "recoveredQuestionText": "Out of the following complex compounds, which of the compound will be having the minimum conductance in solution?"
+  },
+  {
+    "exam": "NEET",
+    "year": 2025,
+    "paperCode": "45",
+    "originalQuestionNumber": 68,
+    "reasons": [
+      "MALFORMED_OPTIONS"
+    ],
+    "recoveredQuestionText": "Among the following, choose the ones with equal number of atoms."
+  },
+  {
+    "exam": "NEET",
+    "year": 2025,
+    "paperCode": "45",
+    "originalQuestionNumber": 125,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "Which of the following diagrams is correct with regard to the proximal (P) and distal (D) tubule of the Nephron."
+  },
+  {
+    "exam": "NEET",
+    "year": 2025,
+    "paperCode": "45",
+    "originalQuestionNumber": 126,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "Identify the part of a bio-reactor which is used as a foam braker from the given figure."
+  },
+  {
+    "exam": "NEET",
+    "year": 2025,
+    "paperCode": "45",
+    "originalQuestionNumber": 177,
+    "reasons": [
+      "MALFORMED_OPTIONS"
+    ],
+    "recoveredQuestionText": "Which of the following microbes is NOT involved in the preparation of household products?"
+  }
+]

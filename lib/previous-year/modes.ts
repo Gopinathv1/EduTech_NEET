@@ -11,7 +11,7 @@ export function previousYearMode(test: PreviousYearTestDescriptor): PreviousYear
   const rules = test.rules && typeof test.rules === 'object'
     ? test.rules as { previousYearMode?: unknown; sourceType?: unknown }
     : {};
-  if (test.testType === 'YEAR_PATTERN' && (rules.sourceType === undefined || rules.sourceType === 'OFFICIAL_NTA')) return 'YEAR_WISE';
+  if (test.testType === 'YEAR_PATTERN' && (rules.sourceType === undefined || rules.sourceType === 'OFFICIAL_NTA' || rules.sourceType === 'HISTORICAL_VERIFIED')) return 'YEAR_WISE';
   if (rules.previousYearMode === 'MIXED_FIVE_YEARS') return 'MIXED_FIVE_YEARS';
   if (rules.previousYearMode === 'SUBJECT_CHAPTER') return 'SUBJECT_CHAPTER';
   return null;

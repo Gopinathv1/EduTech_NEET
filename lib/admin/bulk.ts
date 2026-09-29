@@ -37,7 +37,7 @@ export type NormalizedQuestion = {
   year: number | null;
   tags: string[];
   contentClass: 'SAMPLE' | 'PRODUCTION';
-  sourceType: 'INTERNALLY_AUTHORED' | 'SIVORA_AUTHORED' | 'LICENSED' | 'OFFICIAL_PREVIOUS_YEAR' | 'OFFICIAL_NTA' | 'OTHER' | null;
+  sourceType: 'INTERNALLY_AUTHORED' | 'SIVORA_AUTHORED' | 'LICENSED' | 'OFFICIAL_PREVIOUS_YEAR' | 'OFFICIAL_NTA' | 'HISTORICAL_VERIFIED' | 'OTHER' | null;
   sourceName: string | null;
   exam: string | null;
   examYear: number | null;
@@ -148,7 +148,7 @@ export function validateRows(
     if (rawClass !== 'SAMPLE' && rawClass !== 'PRODUCTION') errors.push(`Invalid contentClassification "${rawClass}"`);
     const contentClass = rawClass as 'SAMPLE' | 'PRODUCTION';
     const rawSource = get(row, 'sourceType').toUpperCase();
-    const sourceTypes = new Set(['INTERNALLY_AUTHORED', 'SIVORA_AUTHORED', 'LICENSED', 'OFFICIAL_PREVIOUS_YEAR', 'OFFICIAL_NTA', 'OTHER']);
+    const sourceTypes = new Set(['INTERNALLY_AUTHORED', 'SIVORA_AUTHORED', 'LICENSED', 'OFFICIAL_PREVIOUS_YEAR', 'OFFICIAL_NTA', 'HISTORICAL_VERIFIED', 'OTHER']);
     if (rawSource && !sourceTypes.has(rawSource)) errors.push(`Invalid sourceType "${rawSource}"`);
     const sourceType = (rawSource || null) as NormalizedQuestion['sourceType'];
     const sourceName = get(row, 'sourceName') || null;
@@ -162,6 +162,9 @@ export function validateRows(
     }
     if ((sourceType === 'OFFICIAL_PREVIOUS_YEAR' || sourceType === 'OFFICIAL_NTA') && (!exam || !Number.isInteger(examYear))) {
       errors.push('Official previous-year rows require exam and examYear');
+    }
+    if (sourceType === 'HISTORICAL_VERIFIED' && (!exam || !Number.isInteger(examYear))) {
+      errors.push('Historically verified rows require exam and examYear');
     }
 
     // Correct option

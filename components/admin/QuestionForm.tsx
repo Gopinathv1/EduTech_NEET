@@ -317,7 +317,7 @@ export default function QuestionForm({
             </Field>
             <Field label="Source type" htmlFor="qSourceType">
               <select id="qSourceType" className={selectClass} value={sourceType} onChange={(e) => setSourceType(e.target.value)}>
-                <option value="">Not specified</option><option value="SIVORA_AUTHORED">SIVORA authored</option><option value="OFFICIAL_NTA">Official NTA</option><option value="INTERNALLY_AUTHORED">Legacy internally authored</option><option value="LICENSED">Licensed</option><option value="OFFICIAL_PREVIOUS_YEAR">Legacy official previous year</option><option value="OTHER">Other</option>
+                <option value="">Not specified</option><option value="SIVORA_AUTHORED">SIVORA authored</option><option value="OFFICIAL_NTA">Official NTA</option><option value="HISTORICAL_VERIFIED">Historically verified</option><option value="INTERNALLY_AUTHORED">Legacy internally authored</option><option value="LICENSED">Licensed</option><option value="OFFICIAL_PREVIOUS_YEAR">Legacy official previous year</option><option value="OTHER">Other</option>
               </select>
             </Field>
           </div>

@@ -82,7 +82,7 @@ export function evaluateCandidateFullMockReadiness(records: readonly EligibleQue
 
 export function evaluatePracticeReadiness(records: readonly EligibleQuestionRecord[], request: PracticeRequest) {
   let pool = records.filter((record) => record.eligible && record.exam === request.exam);
-  if (request.mode === 'YEAR') pool = pool.filter((record) => record.year === request.year && record.sourceType === 'OFFICIAL_NTA');
+  if (request.mode === 'YEAR') pool = pool.filter((record) => record.year === request.year && (record.sourceType === 'OFFICIAL_NTA' || record.sourceType === 'HISTORICAL_VERIFIED'));
   if (request.subjectCodes?.length) pool = pool.filter((record) => request.subjectCodes!.includes(record.subjectCode));
   if (request.chapterSlugs?.length) pool = pool.filter((record) => request.chapterSlugs!.includes(record.chapterSlug));
   if (request.topics?.length) pool = pool.filter((record) => request.topics!.includes(record.topic));

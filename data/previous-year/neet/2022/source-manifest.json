@@ -1,0 +1,86 @@
+{
+  "exam": "NEET",
+  "year": 2022,
+  "paperCode": "R6",
+  "pattern": {
+    "totalPrintedQuestions": 200,
+    "questionsRequiredToAnswer": 180,
+    "durationMinutes": 200,
+    "maximumMarks": 720,
+    "marking": {
+      "correct": 4,
+      "incorrect": -1,
+      "unanswered": 0
+    },
+    "sections": "Section A: 35 compulsory per subject; Section B: answer 10 of 15 per subject"
+  },
+  "completeness": {
+    "expected": 200,
+    "validated": 157,
+    "quarantined": 43,
+    "status": "PARTIAL"
+  },
+  "subjectCounts": {
+    "PHYSICS": 25,
+    "CHEMISTRY": 34,
+    "BOTANY": 49,
+    "ZOOLOGY": 49
+  },
+  "chapterCounts": {
+    "biology-biotechnology": 9,
+    "biology-cell-structure-function": 9,
+    "biology-diversity-living-world": 15,
+    "biology-ecology-environment": 11,
+    "biology-genetics-and-evolution": 12,
+    "biology-human-physiology": 10,
+    "biology-human-welfare": 7,
+    "biology-plant-physiology": 10,
+    "biology-reproduction": 9,
+    "biology-structural-organisation": 6,
+    "chemistry-atomic-structure": 3,
+    "chemistry-biomolecules": 2,
+    "chemistry-chemical-kinetics": 2,
+    "chemistry-coordination-compounds": 2,
+    "chemistry-equilibrium": 1,
+    "chemistry-nitrogen": 1,
+    "chemistry-organic-principles": 3,
+    "chemistry-oxygen": 4,
+    "chemistry-p-block": 6,
+    "chemistry-periodicity": 2,
+    "chemistry-practical": 1,
+    "chemistry-purification-characterisation": 1,
+    "chemistry-redox-electrochemistry": 1,
+    "chemistry-solutions": 3,
+    "chemistry-some-basic-concepts": 1,
+    "chemistry-thermodynamics": 1,
+    "physics-and-measurement": 2,
+    "physics-atoms-nuclei": 2,
+    "physics-current-electricity": 2,
+    "physics-electromagnetic-waves": 2,
+    "physics-electronic-devices": 1,
+    "physics-electrostatics": 2,
+    "physics-emi-ac": 3,
+    "physics-gravitation": 1,
+    "physics-kinematics": 1,
+    "physics-laws-of-motion": 1,
+    "physics-magnetic-effects": 2,
+    "physics-optics": 3,
+    "physics-oscillations-waves": 1,
+    "physics-properties-solids-liquids": 2
+  },
+  "provenance": "HISTORICAL_VERIFIED",
+  "validation": {
+    "exactBookletMatched": true,
+    "officialFinalAnswerKeyMatched": true,
+    "onlySingleCorrectQuestionsRetained": true,
+    "imageDependentOrMalformedQuestionsQuarantined": true
+  },
+  "sources": {
+    "questionPaperArchive": "https://docs.aglasem.com/view/b55e0162-9824-11ed-b3c8-0a5e36bc6706",
+    "questionPaperPdf": "https://cdn.aglasem.com/aglasem-doc/b55e0162-9824-11ed-b3c8-0a5e36bc6706/b55e0162-9824-11ed-b3c8-0a5e36bc6706.pdf",
+    "officialFinalAnswerKey": "https://www.nta.ac.in/Download/Notice/Notice_20220916163026.pdf",
+    "transcriptionAid": "https://neet.training/neet-pyqs/2022/code-R6",
+    "paperSha256": "a1453cbc8dd292119598e5b682e6f72dbdc7f5e81fdef56059ea531e005e05bf",
+    "answerKeySha256": "791217aac11a196ff103258f3e29b44175b129ed4513af2243295736c6d210c8"
+  }
+}

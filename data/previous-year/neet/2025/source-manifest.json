@@ -1,0 +1,92 @@
+{
+  "exam": "NEET",
+  "year": 2025,
+  "paperCode": "45",
+  "pattern": {
+    "totalPrintedQuestions": 180,
+    "questionsRequiredToAnswer": 180,
+    "durationMinutes": 180,
+    "maximumMarks": 720,
+    "marking": {
+      "correct": 4,
+      "incorrect": -1,
+      "unanswered": 0
+    },
+    "sections": "180 compulsory questions"
+  },
+  "completeness": {
+    "expected": 180,
+    "validated": 167,
+    "quarantined": 13,
+    "status": "PARTIAL"
+  },
+  "subjectCounts": {
+    "PHYSICS": 38,
+    "CHEMISTRY": 42,
+    "BOTANY": 43,
+    "ZOOLOGY": 44
+  },
+  "chapterCounts": {
+    "biology-biotechnology": 6,
+    "biology-cell-structure-function": 8,
+    "biology-diversity-living-world": 13,
+    "biology-ecology-environment": 8,
+    "biology-genetics-and-evolution": 12,
+    "biology-human-physiology": 11,
+    "biology-human-welfare": 6,
+    "biology-plant-physiology": 7,
+    "biology-reproduction": 12,
+    "biology-structural-organisation": 4,
+    "chemistry-atomic-structure": 2,
+    "chemistry-biomolecules": 2,
+    "chemistry-chemical-bonding": 3,
+    "chemistry-chemical-kinetics": 3,
+    "chemistry-coordination-compounds": 3,
+    "chemistry-d-f-block": 1,
+    "chemistry-equilibrium": 3,
+    "chemistry-halogens": 1,
+    "chemistry-hydrocarbons": 3,
+    "chemistry-nitrogen": 2,
+    "chemistry-organic-principles": 5,
+    "chemistry-oxygen": 4,
+    "chemistry-p-block": 1,
+    "chemistry-periodicity": 2,
+    "chemistry-purification-characterisation": 1,
+    "chemistry-redox-electrochemistry": 1,
+    "chemistry-solutions": 3,
+    "chemistry-thermodynamics": 2,
+    "physics-and-measurement": 2,
+    "physics-atoms-nuclei": 2,
+    "physics-current-electricity": 2,
+    "physics-dual-nature": 2,
+    "physics-electromagnetic-waves": 1,
+    "physics-electronic-devices": 1,
+    "physics-electrostatics": 3,
+    "physics-emi-ac": 2,
+    "physics-gravitation": 2,
+    "physics-kinematics": 2,
+    "physics-laws-of-motion": 1,
+    "physics-magnetic-effects": 3,
+    "physics-optics": 4,
+    "physics-oscillations-waves": 3,
+    "physics-properties-solids-liquids": 1,
+    "physics-rotational-motion": 2,
+    "physics-thermodynamics": 3,
+    "physics-work-energy-power": 2
+  },
+  "provenance": "HISTORICAL_VERIFIED",
+  "validation": {
+    "exactBookletMatched": true,
+    "officialFinalAnswerKeyMatched": true,
+    "onlySingleCorrectQuestionsRetained": true,
+    "imageDependentOrMalformedQuestionsQuarantined": true
+  },
+  "sources": {
+    "questionPaperArchive": "https://docs.aglasem.com/view/f0119734-0599-11f1-93a7-0a5e36bc6706",
+    "questionPaperPdf": "https://cdn.aglasem.com/aglasem-doc/f0119734-0599-11f1-93a7-0a5e36bc6706/f0119734-0599-11f1-93a7-0a5e36bc6706.pdf",
+    "officialFinalAnswerKey": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2025/06/2025061450.pdf",
+    "transcriptionAid": "https://neet.training/neet-pyqs/2025/code-45",
+    "paperSha256": "b90c598ca1dced2d976119b96d1c214c6a007ac0676139f97d8dac53def0ff43",
+    "answerKeySha256": "0f39fa779ce75ef5dd0767c4ad0dda26b46a3f821d7ea11bc6b5965e1e42c98a"
+  }
+}

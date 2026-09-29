@@ -1,0 +1,283 @@
+[
+  {
+    "exam": "NEET",
+    "year": 2023,
+    "paperCode": "G6",
+    "originalQuestionNumber": 6,
+    "reasons": [
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "In a plane electromagnetic wave travelling in free space, the electric field component oscillates sinusoidally at a frequency of 2.0×10¹⁰ Hz and amplitude 48 V m⁻¹. Then the amplitude of oscillating magnetic field is : (Speed of light in free space = 3 × 10⁸ m s⁻¹)"
+  },
+  {
+    "exam": "NEET",
+    "year": 2023,
+    "paperCode": "G6",
+    "originalQuestionNumber": 8,
+    "reasons": [
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "Light travels a distance x in time t₁ in air and 10x in time t₂ in another denser medium. What is the critical angle for this medium?"
+  },
+  {
+    "exam": "NEET",
+    "year": 2023,
+    "paperCode": "G6",
+    "originalQuestionNumber": 21,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "The magnitude and direction of the current in the following circuit is"
+  },
+  {
+    "exam": "NEET",
+    "year": 2023,
+    "paperCode": "G6",
+    "originalQuestionNumber": 22,
+    "reasons": [
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "The minimum wavelength of X-rays produced by an electron accelerated through a potential difference of V volts is proportional to:"
+  },
+  {
+    "exam": "NEET",
+    "year": 2023,
+    "paperCode": "G6",
+    "originalQuestionNumber": 30,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "The equivalent capacitance of the system shown in the following circuit is :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2023,
+    "paperCode": "G6",
+    "originalQuestionNumber": 32,
+    "reasons": [
+      "OFFICIAL_KEY_NOT_SINGLE_CORRECT"
+    ],
+    "recoveredQuestionText": "The ratio of radius of gyration of a solid sphere of mass M and radius R about its own axis to the radius of gyration of the thin hollow sphere of same mass and radius about its axis is :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2023,
+    "paperCode": "G6",
+    "originalQuestionNumber": 37,
+    "reasons": [
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "The resistance of platinum wire at 0°C is 2Ω and 6.8Ω at 80°C. The temperature coefficient of resistance of the wire is :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2023,
+    "paperCode": "G6",
+    "originalQuestionNumber": 38,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "The net impedance of circuit (as shown in figure) will be: Circuit with 50/π mH inductor, 10/π μF capacitor, 10 Ω resistor, connected to 220 V, 50 Hz AC source."
+  },
+  {
+    "exam": "NEET",
+    "year": 2023,
+    "paperCode": "G6",
+    "originalQuestionNumber": 42,
+    "reasons": [
+      "DUPLICATE_OPTIONS",
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "The x-t graph of a particle performing simple harmonic motion is shown in the figure. The acceleration of the particle at t=2 s is : [Diagram: A graph of x (m) vs t (s). The curve is a sine wave starting at (0,0), peaking at (2,1), crossing zero at (4,0), reaching a trough at (6,-1), and returning to zero at (8,0).]"
+  },
+  {
+    "exam": "NEET",
+    "year": 2023,
+    "paperCode": "G6",
+    "originalQuestionNumber": 43,
+    "reasons": [
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "A satellite is orbiting just above the surface of the earth with period T. If d is the density of the earth and G is the universal constant of gravitation, the quantity 3π/(Gd) represents :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2023,
+    "paperCode": "G6",
+    "originalQuestionNumber": 44,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "A very long conducting wire is bent in a semi-circular shape from A to B as shown in figure. The magnetic field at point P for steady current configuration is given by : [Diagram: A straight wire segment with current i→ enters from left, bends into a semi-circular arc of radius R from point A to B, then continues as a straight wire segment with current i← exiting to the left. Point P is located at the center of the semi-circle.]"
+  },
+  {
+    "exam": "NEET",
+    "year": 2023,
+    "paperCode": "G6",
+    "originalQuestionNumber": 45,
+    "reasons": [
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "In the figure shown here, what is the equivalent focal length of the combination of lenses (Assume that all layers are thin)? n₁=1.5, R₁=R₂=20 cm, n₂=1.6"
+  },
+  {
+    "exam": "NEET",
+    "year": 2023,
+    "paperCode": "G6",
+    "originalQuestionNumber": 47,
+    "reasons": [
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "A wire carrying a current I along the positive x-axis has length L. It is kept in a magnetic field B⃗ = (2î + 3ĵ - 4k̂) T. The magnitude of the magnetic force acting on the wire is :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2023,
+    "paperCode": "G6",
+    "originalQuestionNumber": 49,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "An electric dipole is placed as shown in the figure. Dipole with –q and +q charges separated by 6 cm, point P located 5 cm from center along perpendicular bisector. The electric potential (in 10² V) at point P due to the dipole is (ε₀=permittivity of free space and 1/(4πε₀) = K):"
+  },
+  {
+    "exam": "NEET",
+    "year": 2023,
+    "paperCode": "G6",
+    "originalQuestionNumber": 52,
+    "reasons": [
+      "OPTIONS_EMBEDDED_IN_STEM"
+    ],
+    "recoveredQuestionText": "Identify the product in the following reaction:\n[Reaction scheme: benzene diazonium chloride reacts with (i) Cu2Br2/HBr, (ii) Mg/dry ether, (iii) H2O to give Product]\nOptions show: (1) p-bromophenol, (2) phenol, (3) benzene, (4) phenylmagnesium bromide"
+  },
+  {
+    "exam": "NEET",
+    "year": 2023,
+    "paperCode": "G6",
+    "originalQuestionNumber": 67,
+    "reasons": [
+      "DUPLICATE_TEXT:2022:189"
+    ],
+    "recoveredQuestionText": "Which one of the following statements is correct?"
+  },
+  {
+    "exam": "NEET",
+    "year": 2023,
+    "paperCode": "G6",
+    "originalQuestionNumber": 88,
+    "reasons": [
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "Which amongst the following options is the correct relation between change in enthalpy and change in internal energy?"
+  },
+  {
+    "exam": "NEET",
+    "year": 2023,
+    "paperCode": "G6",
+    "originalQuestionNumber": 109,
+    "reasons": [
+      "DUPLICATE_TEXT:2021:115"
+    ],
+    "recoveredQuestionText": "Which of the following stages of meiosis involves division of centromere?"
+  },
+  {
+    "exam": "NEET",
+    "year": 2023,
+    "paperCode": "G6",
+    "originalQuestionNumber": 113,
+    "reasons": [
+      "DUPLICATE_TEXT:2021:141"
+    ],
+    "recoveredQuestionText": "What is the role of RNA polymerase III in the process of transcription in Eukaryotes?"
+  },
+  {
+    "exam": "NEET",
+    "year": 2023,
+    "paperCode": "G6",
+    "originalQuestionNumber": 121,
+    "reasons": [
+      "DUPLICATE_TEXT:2021:125"
+    ],
+    "recoveredQuestionText": "During the purification process for recombinant DNA technology, addition of chilled ethanol precipitates out"
+  },
+  {
+    "exam": "NEET",
+    "year": 2023,
+    "paperCode": "G6",
+    "originalQuestionNumber": 131,
+    "reasons": [
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "Among eukaryotes, replication of DNA takes place in -"
+  },
+  {
+    "exam": "NEET",
+    "year": 2023,
+    "paperCode": "G6",
+    "originalQuestionNumber": 141,
+    "reasons": [
+      "OFFICIAL_KEY_NOT_SINGLE_CORRECT"
+    ],
+    "recoveredQuestionText": "Main steps in the formation of Recombinant DNA are given below. Arrange these steps in a correct sequence.\nA. Insertion of recombinant DNA into the host cell.\nB. Cutting of DNA at specific location by restriction enzyme.\nC. Isolation of desired DNA fragment.\nD. Amplification of gene of interest using PCR."
+  },
+  {
+    "exam": "NEET",
+    "year": 2023,
+    "paperCode": "G6",
+    "originalQuestionNumber": 171,
+    "reasons": [
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "Vital capacity of lung is _______."
+  },
+  {
+    "exam": "NEET",
+    "year": 2023,
+    "paperCode": "G6",
+    "originalQuestionNumber": 182,
+    "reasons": [
+      "SOURCE_TRANSCRIPTION_MISSING"
+    ],
+    "recoveredQuestionText": null
+  },
+  {
+    "exam": "NEET",
+    "year": 2023,
+    "paperCode": "G6",
+    "originalQuestionNumber": 183,
+    "reasons": [
+      "DUPLICATE_TEXT:2021:144"
+    ],
+    "recoveredQuestionText": "Which of the following statements is correct?"
+  },
+  {
+    "exam": "NEET",
+    "year": 2023,
+    "paperCode": "G6",
+    "originalQuestionNumber": 185,
+    "reasons": [
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "Which one of the following symbols represents mating between relatives in human pedigree analysis?"
+  },
+  {
+    "exam": "NEET",
+    "year": 2023,
+    "paperCode": "G6",
+    "originalQuestionNumber": 198,
+    "reasons": [
+      "SOURCE_TRANSCRIPTION_MISSING"
+    ],
+    "recoveredQuestionText": null
+  },
+  {
+    "exam": "NEET",
+    "year": 2023,
+    "paperCode": "G6",
+    "originalQuestionNumber": 199,
+    "reasons": [
+      "SOURCE_TRANSCRIPTION_MISSING"
+    ],
+    "recoveredQuestionText": null
+  }
+]

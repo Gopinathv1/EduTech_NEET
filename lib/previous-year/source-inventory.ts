@@ -16,6 +16,7 @@ export type OfficialSourceRecord = {
   examDate?: string;
   shift?: string;
   sourceUrl: string;
+  wordingArchiveUrl?: string;
   officialDomain: string;
   sourceDocumentTitle: string;
   sourceType: string;
@@ -67,7 +68,8 @@ export function validateOfficialSourceInventory(records: readonly OfficialSource
     if (!PREVIOUS_YEAR_WINDOW.includes(record.year as (typeof PREVIOUS_YEAR_WINDOW)[number])) issues.push(`Unsupported year: ${record.year}`);
     if (!isAllowedOfficialSource(record.sourceUrl)) issues.push(`Non-official source: ${record.sourceUrl}`);
     if (new URL(record.sourceUrl).hostname !== record.officialDomain) issues.push(`Domain mismatch: ${identity}`);
-    if (record.paperAvailability !== 'AVAILABLE' && record.verifiedQuestionCount !== 0) issues.push(`Unavailable paper has questions: ${identity}`);
+    if (record.paperAvailability === 'UNAVAILABLE' && record.verifiedQuestionCount !== 0) issues.push(`Unavailable paper has questions: ${identity}`);
+    if (record.paperAvailability === 'PARTIAL' && record.verifiedQuestionCount === 0) issues.push(`Partial paper has no verified questions: ${identity}`);
     if (!Number.isInteger(record.verifiedQuestionCount) || record.verifiedQuestionCount < 0) issues.push(`Invalid verified question count: ${identity}`);
   }
   for (const exam of ['NEET', 'JEE'] as const) {

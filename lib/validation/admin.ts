@@ -15,7 +15,7 @@ export const difficultyEnum = z.enum(['EASY', 'MEDIUM', 'HARD']);
 export const questionTypeEnum = z.enum(['SINGLE_CORRECT', 'IMAGE_BASED', 'ASSERTION_REASON']);
 export const questionStatusEnum = z.enum(['DRAFT', 'REVIEW', 'PUBLISHED']);
 export const contentClassificationEnum = z.enum(['SAMPLE', 'PRODUCTION']);
-export const questionSourceTypeEnum = z.enum(['INTERNALLY_AUTHORED', 'SIVORA_AUTHORED', 'LICENSED', 'OFFICIAL_PREVIOUS_YEAR', 'OFFICIAL_NTA', 'OTHER']);
+export const questionSourceTypeEnum = z.enum(['INTERNALLY_AUTHORED', 'SIVORA_AUTHORED', 'LICENSED', 'OFFICIAL_PREVIOUS_YEAR', 'OFFICIAL_NTA', 'HISTORICAL_VERIFIED', 'OTHER']);
 
 export const contactStatusEnum = z.enum(['NEW', 'RESPONDED', 'CLOSED']);
 export const contactStatusUpdateSchema = z.object({ status: contactStatusEnum });
@@ -103,6 +103,9 @@ export const questionSchema = z
     }
     if ((d.sourceType === 'OFFICIAL_PREVIOUS_YEAR' || d.sourceType === 'OFFICIAL_NTA') && !d.sourceUrl) {
       ctx.addIssue({ code: 'custom', path: ['sourceUrl'], message: 'Official questions require an official source URL' });
+    }
+    if (d.sourceType === 'HISTORICAL_VERIFIED' && (!d.exam || !d.examYear || !d.sourceUrl || !d.officialAnswerKeyReference)) {
+      ctx.addIssue({ code: 'custom', path: ['sourceType'], message: 'Historically verified questions require exam, year, wording source, and authoritative answer-key references' });
     }
     if (d.questionType === 'IMAGE_BASED' && !d.imageUrl) {
       ctx.addIssue({ code: 'custom', path: ['imageUrl'], message: 'An image is required for image-based questions' });

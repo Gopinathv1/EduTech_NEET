@@ -29,6 +29,8 @@ export type GeneratorQuestion = {
   difficulty: GeneratorDifficulty;
   /** Whether a reviewed Tamil translation exists (used for language preference). */
   hasReviewedTa: boolean;
+  /** Historical exam year, when a source-filtered previous-year pool is used. */
+  year?: number | null;
 };
 
 export type SubjectQuota = {

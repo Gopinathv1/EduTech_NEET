@@ -41,7 +41,11 @@ export function validateQuestionBank(questions: readonly BankQuestion[]): Valida
     if (!question.externalId) add('missing_external_id', 'Deterministic externalId is required');
     else if (ids.has(question.externalId)) add('duplicate_external_id', 'externalId is duplicated');
     ids.add(question.externalId);
-    if (question.identityKey && question.externalId !== sivoraExternalId(question.identityKey)) add('invalid_external_id', 'externalId does not match its deterministic identityKey');
+    if (question.identityKey) {
+      const historicalId = question.sourceType === 'HISTORICAL_VERIFIED'
+        && /^historical-verified:neet:\d{4}:[a-z0-9-]+:\d+$/.test(question.externalId);
+      if (!historicalId && question.externalId !== sivoraExternalId(question.identityKey)) add('invalid_external_id', 'externalId does not match its deterministic identityKey');
+    }
     if (!['NEET', 'JEE'].includes(question.exam)) add('unsupported_exam', 'exam must be NEET or JEE');
     if (!question.subjectCode) add('missing_subject', 'subjectCode is required');
     if (!question.chapterSlug) add('missing_chapter', 'chapterSlug is required');
@@ -69,6 +73,10 @@ export function validateQuestionBank(questions: readonly BankQuestion[]): Valida
     if (question.sourceType === 'OFFICIAL_NTA') {
       if (!question.sourceUrl || !isAllowedOfficialSource(question.sourceUrl)) add('invalid_official_source', 'Official NTA content requires an allowlisted source URL');
       if (!question.examYear || !question.paperSession) add('incomplete_official_identity', 'Official content requires year and session/paper identity');
+    }
+    if (question.sourceType === 'HISTORICAL_VERIFIED') {
+      if (!question.sourceUrl) add('missing_historical_source', 'Historically verified content requires its wording archive URL');
+      if (!question.examYear || !question.paperSession) add('incomplete_historical_identity', 'Historically verified content requires year and booklet identity');
     }
     if (question.sourceType === 'SIVORA_AUTHORED' && /^official|nta|government/i.test(question.sourceName)) add('misleading_source', 'SIVORA content cannot be represented as official');
     if (question.reviewState && !['DRAFT', 'REVIEW_REQUIRED', 'APPROVED', 'REJECTED', 'NEEDS_CORRECTION'].includes(question.reviewState)) add('invalid_review_state', 'Unsupported reviewState');

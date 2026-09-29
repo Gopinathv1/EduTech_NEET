@@ -9,6 +9,7 @@ import {
   type SubjectQuota,
   type GeneratorQuestion,
 } from './index';
+import { generateBalancedHistoricalSet } from './historical';
 
 /**
  * DB-backed bridge between a stored `Test` and the pure generator:
@@ -25,6 +26,13 @@ export type StoredTestRules = {
     scope: 'FULL_SYLLABUS' | 'SUBJECTS' | 'CHAPTERS';
     subjectIds?: string[];
     chapterIds?: string[];
+    subjectCounts?: Record<string, number>;
+  };
+  historical?: {
+    exam: 'NEET' | 'JEE';
+    years: number[];
+    sourceType: 'HISTORICAL_VERIFIED';
+    balanceYears?: boolean;
   };
 };
 
@@ -83,13 +91,18 @@ export async function buildRandomRules(
   }
 
   // Per-subject counts: equal for FULL_TEST (NEET 45×4), else by weightage sum.
-  const counts =
-    test.testType === 'FULL_TEST'
+  const explicitSubjectCounts = stored.random?.subjectCounts;
+  const counts = explicitSubjectCounts
+    ? subjectIds.map((subjectId) => explicitSubjectCounts[subjectId] ?? 0)
+    : test.testType === 'FULL_TEST'
       ? largestRemainder(test.totalQuestions, subjectIds.map(() => 1))
       : largestRemainder(
           test.totalQuestions,
           subjectIds.map((sid) => bySubject.get(sid)!.reduce((s, c) => s + c.weightage, 0)),
         );
+  if (counts.reduce((sum, count) => sum + count, 0) !== test.totalQuestions) {
+    throw new GeneratorError('Stored subject counts must sum to totalQuestions');
+  }
 
   const subjects: SubjectQuota[] = subjectIds.map((sid, i) => ({
     subjectId: sid,
@@ -99,13 +112,19 @@ export async function buildRandomRules(
 
   // Eligible pool: active questions in scope; flag reviewed-Tamil availability.
   const chapterIds = chaptersInScope.map((c) => c.id);
+  const historicalWhere = stored.historical ? {
+    exam: stored.historical.exam,
+    examYear: { in: stored.historical.years },
+    sourceType: stored.historical.sourceType,
+  } : {};
   const questions = await prisma.question.findMany({
-    where: { ...productionQuestionWhere, chapterId: { in: chapterIds } },
+    where: { ...productionQuestionWhere, ...historicalWhere, chapterId: { in: chapterIds } },
     select: {
       id: true,
       subjectId: true,
       chapterId: true,
       difficulty: true,
+      examYear: true,
       translations: { where: { language: opts.language, reviewed: true }, select: { id: true } },
     },
   });
@@ -115,6 +134,7 @@ export async function buildRandomRules(
     chapterId: q.chapterId,
     difficulty: q.difficulty,
     hasReviewedTa: q.translations.length > 0,
+    year: q.examYear,
   }));
   if (opts.taOnly) pool = pool.filter((q) => q.hasReviewedTa);
 
@@ -153,7 +173,9 @@ export async function checkFeasibility(testId: string): Promise<FeasibilityResul
     for (const language of languages) {
       try {
         const rules = await buildRandomRules(test, { language, taOnly: language !== 'en' });
-        generateQuestionSet(rules, `feasibility:${testId}:${language}`);
+        const stored = parseTestRules(test.rules);
+        if (stored.historical?.balanceYears) generateBalancedHistoricalSet(rules, stored.historical.years, `feasibility:${testId}:${language}`);
+        else generateQuestionSet(rules, `feasibility:${testId}:${language}`);
       } catch (err) {
         const msg = err instanceof GeneratorError ? err.message : 'unknown error';
         errors.push(`Cannot build a ${language.toUpperCase()} set: ${msg}`);
@@ -210,7 +232,10 @@ export async function generateForAttempt(
     return { questionIds, warnings: [] };
   }
   const rules = await buildRandomRules(test, { language, taOnly: language !== 'en' });
-  const result = generateQuestionSet(rules, attemptSeed);
+  const stored = parseTestRules(test.rules);
+  const result = stored.historical?.balanceYears
+    ? generateBalancedHistoricalSet(rules, stored.historical.years, attemptSeed)
+    : generateQuestionSet(rules, attemptSeed);
   await validateAttemptQuestions(test, result.questionIds, language);
   return result;
 }

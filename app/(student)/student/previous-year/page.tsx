@@ -13,6 +13,17 @@ import { previousYearExam, previousYearMode } from '@/lib/previous-year/modes';
 
 const EXAMS: PreviousYearExam[] = ['NEET', 'JEE'];
 
+type PracticeMetadata = {
+  practiceSource?: string;
+  filterLevel?: 'SUBJECT' | 'CHAPTER';
+  subjectCode?: string;
+  chapterSlug?: string | null;
+};
+
+function practiceMetadata(rules: unknown): PracticeMetadata {
+  return rules && typeof rules === 'object' ? rules as PracticeMetadata : {};
+}
+
 export default async function PreviousYearPracticePage() {
   const t = await getTranslations('previousYearPractice');
   const tests = await prisma.test.findMany({
@@ -46,7 +57,7 @@ export default async function PreviousYearPracticePage() {
               <section key={mode} className="rounded-2xl border border-border bg-surfaceElevated p-6">
                 <h2 className="text-xl font-bold text-textPrimary">{t(`${mode}.title`)}</h2>
                 <p className="mt-2 text-sm leading-6 text-textSecondary">{t(`${mode}.description`)}</p>
-                {modeTests.length ? (
+                {modeTests.length && mode !== 'subjectChapter' ? (
                   <ul className="mt-5 space-y-2">
                     {modeTests.map((test) => (
                       <li key={test.id}>
@@ -56,6 +67,44 @@ export default async function PreviousYearPracticePage() {
                       </li>
                     ))}
                   </ul>
+                ) : modeTests.length ? (
+                  <div className="mt-5 space-y-3">
+                    {[...new Set(modeTests.map((test) => practiceMetadata(test.rules).practiceSource).filter(Boolean))].map((source) => {
+                      const periodTests = modeTests.filter((test) => practiceMetadata(test.rules).practiceSource === source);
+                      const periodLabel = source === 'MIXED_2021_2025' ? t('mixedPeriod') : source?.replace('YEAR_', '') ?? '';
+                      return (
+                        <details key={source} className="rounded-lg border border-border bg-surface p-3">
+                          <summary className="cursor-pointer text-sm font-bold text-textPrimary">{periodLabel}</summary>
+                          <div className="mt-3 space-y-3">
+                            {[...new Set(periodTests.map((test) => practiceMetadata(test.rules).subjectCode).filter(Boolean))].map((subject) => {
+                              const subjectTests = periodTests.filter((test) => practiceMetadata(test.rules).subjectCode === subject);
+                              const subjectTest = subjectTests.find((test) => practiceMetadata(test.rules).filterLevel === 'SUBJECT');
+                              const chapters = subjectTests.filter((test) => practiceMetadata(test.rules).filterLevel === 'CHAPTER');
+                              return (
+                                <details key={subject} className="rounded-md border border-border p-3">
+                                  <summary className="cursor-pointer text-sm font-semibold text-textPrimary">{subject === 'PHYSICS' ? t('subject.PHYSICS') : subject === 'CHEMISTRY' ? t('subject.CHEMISTRY') : t('subject.BIOLOGY')}</summary>
+                                  {subjectTest ? (
+                                    <Link href={`/student/tests/${subjectTest.id}/start`} className="mt-3 block rounded-lg border border-brand/40 px-3 py-2 text-sm font-semibold text-brand hover:bg-brand-soft">
+                                      {t('allQuestions')} · {t('questions', { count: subjectTest.totalQuestions })} · {subjectTest.durationMinutes} min
+                                    </Link>
+                                  ) : null}
+                                  <ul className="mt-2 space-y-2">
+                                    {chapters.map((test) => (
+                                      <li key={test.id}>
+                                        <Link href={`/student/tests/${test.id}/start`} className="block rounded-lg px-3 py-2 text-xs font-semibold text-brand hover:bg-brand-soft">
+                                          {localizedName(test.title, 'en')} · {t('questions', { count: test.totalQuestions })}
+                                        </Link>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </details>
+                              );
+                            })}
+                          </div>
+                        </details>
+                      );
+                    })}
+                  </div>
                 ) : (
                   <p className="mt-5 rounded-lg bg-surface px-3 py-2 text-sm font-semibold text-textSecondary">{t('notEnough')}</p>
                 )}
@@ -88,11 +137,16 @@ export default async function PreviousYearPracticePage() {
                         <div>
                           <p className="text-sm font-semibold text-textPrimary">{t(`availability.${record.paperAvailability}`)}</p>
                           <p className="mt-1 text-sm leading-6 text-textSecondary">
-                            {t(record.paperAvailability === 'AVAILABLE' ? 'officialExtractionRequired' : 'officialUnavailable')}
+                            {t(record.paperAvailability === 'PARTIAL' ? 'historicalPartial' : record.paperAvailability === 'AVAILABLE' ? 'officialExtractionRequired' : 'officialUnavailable')}
                           </p>
                           <a className="mt-2 inline-block text-xs font-semibold text-brand underline" href={record.sourceUrl} target="_blank" rel="noreferrer">
                             {t('officialSource')}
                           </a>
+                          {record.wordingArchiveUrl ? (
+                            <a className="ml-4 mt-2 inline-block text-xs font-semibold text-brand underline" href={record.wordingArchiveUrl} target="_blank" rel="noreferrer">
+                              {t('wordingArchive')}
+                            </a>
+                          ) : null}
                         </div>
                         <span className="rounded-full border border-border px-3 py-1 text-xs font-semibold text-textSecondary">
                           {t('questions', { count: record.verifiedQuestionCount })}

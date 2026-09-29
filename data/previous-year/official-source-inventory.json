@@ -7,10 +7,11 @@
     "sourceDocumentTitle": "NEET (UG) 2021 archive and final answer key",
     "sourceType": "FINAL_ANSWER_KEY_AND_ARCHIVE",
     "retrievalNotes": "The official archive confirms the annual examination and final answer key. It does not expose a complete public question paper for durable retrieval.",
-    "paperAvailability": "UNAVAILABLE",
-    "verifiedQuestionCount": 0,
+    "paperAvailability": "PARTIAL",
+    "verifiedQuestionCount": 113,
     "answerKeyAvailability": "AVAILABLE",
-    "provenanceNotes": "An answer key cannot be used to reconstruct missing question wording."
+    "wordingArchiveUrl": "https://docs.aglasem.com/view/7bee1ef2-6ba8-11ec-9402-0a5e36bc6706",
+    "provenanceNotes": "Booklet M4 wording was recovered from a historical mirror and validated against the exact official NTA final key. Unsafe transcriptions remain quarantined."
   },
   {
     "exam": "NEET",
@@ -20,10 +21,11 @@
     "sourceDocumentTitle": "NEET (UG) 2022 archive and final answer keys",
     "sourceType": "FINAL_ANSWER_KEY_AND_ARCHIVE",
     "retrievalNotes": "The official archive provides the final answer key and notices for the annual examination, but no complete public paper content.",
-    "paperAvailability": "UNAVAILABLE",
-    "verifiedQuestionCount": 0,
+    "paperAvailability": "PARTIAL",
+    "verifiedQuestionCount": 157,
     "answerKeyAvailability": "AVAILABLE",
-    "provenanceNotes": "Recorded responses and OMR access do not provide a durable public source for complete wording."
+    "wordingArchiveUrl": "https://docs.aglasem.com/view/b55e0162-9824-11ed-b3c8-0a5e36bc6706",
+    "provenanceNotes": "Booklet R6 wording was recovered from a historical mirror and validated against the exact official NTA final key. Unsafe transcriptions remain quarantined."
   },
   {
     "exam": "NEET",
@@ -33,10 +35,11 @@
     "sourceDocumentTitle": "NEET official document archive",
     "sourceType": "OFFICIAL_ARCHIVE",
     "retrievalNotes": "The current official archive confirms the examination cycle but does not expose a complete 2023 question paper.",
-    "paperAvailability": "UNAVAILABLE",
-    "verifiedQuestionCount": 0,
-    "answerKeyAvailability": "UNAVAILABLE",
-    "provenanceNotes": "No complete official question wording was found in the durable archive."
+    "paperAvailability": "PARTIAL",
+    "verifiedQuestionCount": 172,
+    "answerKeyAvailability": "AVAILABLE",
+    "wordingArchiveUrl": "https://docs.aglasem.com/view/b5019250-4342-11ee-b742-0a5e36bc6706",
+    "provenanceNotes": "Booklet G6 wording was recovered from a historical mirror and validated against the exact official NTA final key. Unsafe transcriptions remain quarantined."
   },
   {
     "exam": "NEET",
@@ -46,10 +49,11 @@
     "sourceDocumentTitle": "NEET official portal",
     "sourceType": "OFFICIAL_PORTAL",
     "retrievalNotes": "Official notices establish the examination and answer-key process; a complete durable public paper was not found.",
-    "paperAvailability": "UNAVAILABLE",
-    "verifiedQuestionCount": 0,
-    "answerKeyAvailability": "PARTIAL",
-    "provenanceNotes": "Do not substitute coaching reproductions for an official paper."
+    "paperAvailability": "PARTIAL",
+    "verifiedQuestionCount": 171,
+    "answerKeyAvailability": "AVAILABLE",
+    "wordingArchiveUrl": "https://docs.aglasem.com/view/fcc6e1ea-2f1c-11f0-a4dd-0a5e36bc6706",
+    "provenanceNotes": "Main booklet S6 wording was recovered from a historical mirror and validated against the revised official NTA final key. Unsafe transcriptions remain quarantined."
   },
   {
     "exam": "NEET",
@@ -59,10 +63,11 @@
     "sourceDocumentTitle": "NEET(UG)-2025 public notices and final answer keys",
     "sourceType": "FINAL_ANSWER_KEY_AND_NOTICES",
     "retrievalNotes": "The official portal publishes the final answer key and challenge notice, not a complete public question paper with durable wording.",
-    "paperAvailability": "UNAVAILABLE",
-    "verifiedQuestionCount": 0,
+    "paperAvailability": "PARTIAL",
+    "verifiedQuestionCount": 167,
     "answerKeyAvailability": "AVAILABLE",
-    "provenanceNotes": "The final key contains answers only and is insufficient for question import."
+    "wordingArchiveUrl": "https://docs.aglasem.com/view/f0119734-0599-11f1-93a7-0a5e36bc6706",
+    "provenanceNotes": "Booklet 45 wording was recovered from a historical mirror and validated against the official NTA final key. Unsafe or multi-answer rows remain quarantined."
   },
   {
     "exam": "JEE",

@@ -1,0 +1,896 @@
+[
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 1,
+    "reasons": [
+      "MALFORMED_OPTIONS",
+      "OPTIONS_EMBEDDED_IN_STEM"
+    ],
+    "recoveredQuestionText": "Consider the following statements (A) and (B) and identify the correct answer. (A) A zener diode is connected in reverse bias, when used as a voltage regulator. (B) The potential barrier of p-n junction lies between 0.1 V to 0.3 V. (1) (A) and (B) both are correct. (2) (A) and (B) both are incorrect. (3) (A) is correct and"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 2,
+    "reasons": [
+      "MANUAL_TRANSCRIPTION_INTEGRITY_REVIEW_FAILED"
+    ],
+    "recoveredQuestionText": "A capacitor of capacitance ‘C’, is connected across an ac source of voltage V, given by V = V 0 sin ω t The displacement current between the plates of the capacitor, would then be given by :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 4,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "The equivalent capacitance of the combination shown in the figure is :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 5,
+    "reasons": [
+      "LEGACY_MATH_TRANSCRIPTION_RISK",
+      "MANUAL_TRANSCRIPTION_INTEGRITY_REVIEW_FAILED"
+    ],
+    "recoveredQuestionText": "Find the value of the angle of emergence from the prism. Refractive index of the glass is 3 ."
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 6,
+    "reasons": [
+      "MANUAL_TRANSCRIPTION_INTEGRITY_REVIEW_FAILED"
+    ],
+    "recoveredQuestionText": "A dipole is placed in an electric field as shown. In which direction will it move ?"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 7,
+    "reasons": [
+      "OPTIONS_EMBEDDED_IN_STEM"
+    ],
+    "recoveredQuestionText": "Match Column - I and Column - II and choose the correct match from the given choices. Column - I Column - II (A) Root mean square (P) 2 1 nm 3 v speed of gas molecules (B) Pressure exerted (Q) 3 RT M by ideal gas (C) Average kinetic energy (R) 5 RT 2 of a molecule (D) Total internal energy (S) B 3 k T 2 of 1 mole of a diatomic gas (1) (A) - (R), (B) - (P), (C) - (S), (D) - (Q) (2) (A) - (Q), (B) - (R), (C) - (S), (D) - (P) (3) (A) - (Q), (B) - (P), (C) - (S), (D) - (R) (4)"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 9,
+    "reasons": [
+      "PAGE_HEADER_CONTAMINATION"
+    ],
+    "recoveredQuestionText": "If force [ F ], acceleration [ A ] and time [ T ] are chosen as the fundamental physical quantities. Find the dimensions of energy."
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 10,
+    "reasons": [
+      "CORRUPTED_DEGREE_SYMBOL",
+      "LEGACY_MATH_TRANSCRIPTION_RISK"
+    ],
+    "recoveredQuestionText": "A cup of coffee cools from 90 8 C to 80 8 C in t minutes, when the room temperature is 20 8 C. The time taken by a similar cup of coffee to cool from 80 8 C to 60 8 C at a room temperature same at 20 8 C is :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 11,
+    "reasons": [
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "A particle is released from height S from the surface of the Earth. At a certain height its kinetic energy is three times its potential energy. The height from the surface of earth and the speed of the particle at that instant are respectively :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 12,
+    "reasons": [
+      "MANUAL_TRANSCRIPTION_INTEGRITY_REVIEW_FAILED"
+    ],
+    "recoveredQuestionText": "The velocity of a small ball of mass M and density d, when dropped in a container filled with glycerine becomes constant after some time. If the density of glycerine is d 2 , then the viscous force acting on the ball will be :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 13,
+    "reasons": [
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "For a plane electromagnetic wave propagating in x -direction, which one of the following combination gives the correct possible directions for electric field (E) and magnetic field (B) respectively ?"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 14,
+    "reasons": [
+      "OPTIONS_EMBEDDED_IN_STEM"
+    ],
+    "recoveredQuestionText": "Column - I gives certain physical terms associated with flow of current through a metallic conductor. Column - II gives some mathematical relations involving electrical quantities. Match Column - I and Column - II with appropriate relations. Column - I Column - II (A) Drift Velocity (P) 2 m ne ρ (B) Electrical Resistivity (Q) ne v d (C) Relaxation Period (R) eE m τ (D) Current Density (S) E J (1) (A)-(R), (B)-(S), (C)-(P), (D)-(Q) (2) (A)-(R), (B)-(S), (C)-(Q), (D)-(P) (3) (A)-(R), (B)-(P), (C)-(S), (D)-(Q) (4)"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 16,
+    "reasons": [
+      "SOURCE_TRANSCRIPTION_MISSING"
+    ],
+    "recoveredQuestionText": null
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 17,
+    "reasons": [
+      "DUPLICATE_OPTIONS",
+      "LEGACY_MATH_TRANSCRIPTION_RISK"
+    ],
+    "recoveredQuestionText": "An infinitely long straight conductor carries a current of 5 A as shown. An electron is moving with a speed of 10 5 m/s parallel to the conductor. The perpendicular distance between the electron and the conductor is 20 cm at an instant. Calculate the magnitude of the force experienced by the electron at that instant."
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 19,
+    "reasons": [
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "A radioactive nucleus \\( _{Z}^{A}X \\) undergoes spontaneous decay in the sequence \\( _{Z}^{A}X \\rightarrow _{Z_1}^{A_1}B \\rightarrow _{Z_2}^{A_2}C \\rightarrow _{Z_3}^{A_3}D \\), where \\( Z \\) is the atomic number of element \\( X \\). The possible decay particles in the sequence are:"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 20,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED",
+      "LEGACY_MATH_TRANSCRIPTION_RISK"
+    ],
+    "recoveredQuestionText": "An inductor of inductance L, a capacitor of capacitance C and a resistor of resistance ‘R’ are connected in series to an ac source of potential difference ‘V’ volts as shown in figure. Potential difference across L, C and R is 40 V, 10 V and 40 V, respectively. The amplitude of current flowing through LCR series circuit is 10 2 A. The impedance of the circuit is :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 24,
+    "reasons": [
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "A small block slides down on a smooth inclined plane, starting from rest at time t = 0. Let S n be the distance travelled by the block in the interval t = n − 1 to t = n. Then, the ratio n n 1 S S + is :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 26,
+    "reasons": [
+      "MALFORMED_OPTIONS",
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "A thick current carrying cable of radius ‘R’ carries current ‘I’ uniformly distributed across its cross-section. The variation of magnetic field B(r) due to the cable with the distance ‘r’ from the axis of the cable is represented by :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 28,
+    "reasons": [
+      "DUPLICATE_OPTIONS",
+      "CORRUPTED_MATH_GLYPHS"
+    ],
+    "recoveredQuestionText": "Two charged spherical conductors of radius R 1 and R 2 are connected by a wire. Then the ratio of surface charge densities of the spheres ( σ 1 / σ 2 ) is :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 29,
+    "reasons": [
+      "DUPLICATE_OPTIONS",
+      "CORRUPTED_MATH_GLYPHS"
+    ],
+    "recoveredQuestionText": "An electromagnetic wave of wavelength ‘ λ ’ is incident on a photosensitive surface of negligible work function. If ‘m’ mass is of photoelectron emitted from the surface has de-Broglie wavelength λ d , then :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 30,
+    "reasons": [
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "The electron concentration in an n-type semiconductor is the same as hole concentration in a p-type semiconductor. An external field (electric) is applied across each of them. Compare the currents in them."
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 31,
+    "reasons": [
+      "LEGACY_MATH_TRANSCRIPTION_RISK"
+    ],
+    "recoveredQuestionText": "The number of photons per second on an average emitted by the source of monochromatic light of wavelength 600 nm, when it delivers the power of 3.3 × 10 − 3 watt will be : (h = 6.6 × 10 − 34 Js)"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 32,
+    "reasons": [
+      "MANUAL_TRANSCRIPTION_INTEGRITY_REVIEW_FAILED"
+    ],
+    "recoveredQuestionText": "If E and G respectively denote energy and gravitational constant, then E G has the dimensions of :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 34,
+    "reasons": [
+      "LEGACY_MATH_TRANSCRIPTION_RISK"
+    ],
+    "recoveredQuestionText": "The half-life of a radioactive nuclide is 100 hours. The fraction of original activity that will remain after 150 hours would be :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 36,
+    "reasons": [
+      "MANUAL_TRANSCRIPTION_INTEGRITY_REVIEW_FAILED"
+    ],
+    "recoveredQuestionText": "Two conducting circular loops of radii R 1 and R 2 are placed in the same plane with their centres coinciding. If R 1 >> R 2 , the mutual inductance M between them will be directly proportional to :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 37,
+    "reasons": [
+      "SOURCE_TRANSCRIPTION_MISSING"
+    ],
+    "recoveredQuestionText": null
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 38,
+    "reasons": [
+      "MALFORMED_OPTIONS",
+      "DUPLICATE_OPTIONS",
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "For the given circuit, the input digital signals are applied at the terminals A, B and C. What would be the output at the terminal y ?"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 40,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED"
+    ],
+    "recoveredQuestionText": "A uniform rod of length 200 cm and mass 500 g is balanced on a wedge placed at 40 cm mark. A mass of 2 kg is suspended from the rod at 20 cm and another unknown mass ‘m’ is suspended from the rod at 160 cm mark as shown in the figure. Find the value of ‘m’ such that the rod is in equilibrium. (g = 10 m/s 2 )"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 42,
+    "reasons": [
+      "MANUAL_TRANSCRIPTION_INTEGRITY_REVIEW_FAILED"
+    ],
+    "recoveredQuestionText": "A car starts from rest and accelerates at 5 m/s 2 . At t = 4 s, a ball is dropped out of a window by a person sitting in the car. What is the velocity and acceleration of the ball at t = 6 s ? (Take g = 10 m/s 2 )"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 44,
+    "reasons": [
+      "MANUAL_TRANSCRIPTION_INTEGRITY_REVIEW_FAILED"
+    ],
+    "recoveredQuestionText": "A uniform conducting wire of length 12a and resistance ‘R’ is wound up as a current carrying coil in the shape of, (i) an equilateral triangle of side ‘a’. (ii) a square of side ‘a’. The magnetic dipole moments of the coil in each case respectively are :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 46,
+    "reasons": [
+      "PAGE_HEADER_CONTAMINATION"
+    ],
+    "recoveredQuestionText": "A step down transformer connected to an ac mains supply of 220 V is made to operate at 11 V, 44 W lamp. Ignoring power losses in the transformer, what is the current in the primary circuit ?"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 47,
+    "reasons": [
+      "CORRUPTED_MATH_GLYPHS",
+      "LEGACY_MATH_TRANSCRIPTION_RISK",
+      "MANUAL_TRANSCRIPTION_INTEGRITY_REVIEW_FAILED"
+    ],
+    "recoveredQuestionText": "A particle moving in a circle of radius R with a uniform speed takes a time T to complete one revolution. If this particle were projected with the same speed at an angle ‘ θ ’ to the horizontal, the maximum height attained by it equals 4R. The angle of projection, θ , is then given by :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 48,
+    "reasons": [
+      "DUPLICATE_OPTIONS",
+      "CORRUPTED_MATH_GLYPHS"
+    ],
+    "recoveredQuestionText": "A particle of mass ‘m’ is projected with a velocity v = kV e (k < 1) from the surface of the earth. (V e = escape velocity) The maximum height above the surface reached by the particle is :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 49,
+    "reasons": [
+      "IMAGE_ASSET_REQUIRED",
+      "MANUAL_TRANSCRIPTION_INTEGRITY_REVIEW_FAILED"
+    ],
+    "recoveredQuestionText": "Three resistors having resistances r 1 , r 2 and r 3 are connected as shown in the given circuit. The ratio 3 1 i i of currents in terms of resistances used in the circuit is :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 50,
+    "reasons": [
+      "LEGACY_MATH_TRANSCRIPTION_RISK"
+    ],
+    "recoveredQuestionText": "From a circular ring of mass ‘M’ and radius ‘R’ an arc corresponding to a 90 8 sector is removed. The moment of inertia of the remaining part of the ring about an axis passing through the centre of the ring and perpendicular to the plane of the ring is ‘K’ times ‘MR 2 ’. Then the value of ‘K’ is :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 51,
+    "reasons": [
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "Which one among the following is the correct option for right relationship between C P and C V for one mole of ideal gas ?"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 60,
+    "reasons": [
+      "MALFORMED_OPTIONS",
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "For a reaction A → B, enthalpy of reaction is − 4.2 kJ mol − 1 and enthalpy of activation is 9.6 kJ mol − 1 . The correct potential energy profile for the reaction is shown in option."
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 62,
+    "reasons": [
+      "MALFORMED_OPTIONS",
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "The major product of the following chemical reaction is :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 63,
+    "reasons": [
+      "MALFORMED_OPTIONS",
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "Choose the correct option for graphical representation of Boyle’s law, which shows a graph of pressure vs. volume of a gas at different temperatures :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 64,
+    "reasons": [
+      "LEGACY_MATH_TRANSCRIPTION_RISK"
+    ],
+    "recoveredQuestionText": "Dihedral angle of least stable conformer of ethane is :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 68,
+    "reasons": [
+      "PAGE_HEADER_CONTAMINATION"
+    ],
+    "recoveredQuestionText": "Zr (Z = 40) and Hf (Z = 72) have similar atomic and ionic radii because of :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 71,
+    "reasons": [
+      "LEGACY_MATH_TRANSCRIPTION_RISK"
+    ],
+    "recoveredQuestionText": "A particular station of All India Radio, New Delhi, broadcasts on a frequency of 1,368 kHz (kilohertz). The wavelength of the electromagnetic radiation emitted by the transmitter is : [speed of light, c = 3.0 × 10 8 ms − 1 ]"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 73,
+    "reasons": [
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "The correct sequence of bond enthalpy of ‘C–X’ bond is :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 79,
+    "reasons": [
+      "MALFORMED_OPTIONS",
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "Identify the compound that will react with Hinsberg’s reagent to give a solid which dissolves in alkali."
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 80,
+    "reasons": [
+      "MANUAL_TRANSCRIPTION_INTEGRITY_REVIEW_FAILED"
+    ],
+    "recoveredQuestionText": "What is the IUPAC name of the organic compound formed in the following chemical reaction ? Acetone 2 5 2 (i) C H MgBr dry Ether (ii) H O H , ,  → + Product"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 81,
+    "reasons": [
+      "MANUAL_TRANSCRIPTION_INTEGRITY_REVIEW_FAILED"
+    ],
+    "recoveredQuestionText": "Which of the following reactions is the metal displacement reaction ? Choose the right option."
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 82,
+    "reasons": [
+      "MALFORMED_OPTIONS",
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "The correct structure of 2,6-Dimethyl-dec-4-ene is :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 86,
+    "reasons": [
+      "MANUAL_TRANSCRIPTION_INTEGRITY_REVIEW_FAILED"
+    ],
+    "recoveredQuestionText": "Match List - I with List - II . List - I List - II (a) 2SO 2 (g) + O 2 (g) → (i) Acid rain 2SO 3 (g) (b) HOCl(g) h  → ν (ii) Smog OH C l + i i (c) CaCO 3 + H 2 SO 4 → (iii) Ozone CaSO 4 + H 2 O + CO 2 depletion (d) NO 2 (g) h  → ν (iv) Tropospheric NO(g) + O(g) pollution Choose the correct answer from the options given below."
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 87,
+    "reasons": [
+      "MANUAL_TRANSCRIPTION_INTEGRITY_REVIEW_FAILED"
+    ],
+    "recoveredQuestionText": "CH 3 CH 2 COO − Na + NaOH, ? Heat  → + CH 3 CH 3 + Na 2 CO 3 . Consider the above reaction and identify the missing reagent/chemical."
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 88,
+    "reasons": [
+      "MALFORMED_OPTIONS",
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "The product formed in the following chemical reaction is :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 89,
+    "reasons": [
+      "MANUAL_TRANSCRIPTION_INTEGRITY_REVIEW_FAILED"
+    ],
+    "recoveredQuestionText": "Match List - I with List - II . List - I List - II (a) [Fe(CN) 6 ] 3 − (i) 5.92 BM (b) [Fe(H 2 O) 6 ] 3 + (ii) 0 BM (c) [Fe(CN) 6 ] 4 − (iii) 4.90 BM (d) [Fe(H 2 O) 6 ] 2 + (iv) 1.73 BM Choose the correct answer from the options given below."
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 91,
+    "reasons": [
+      "MANUAL_TRANSCRIPTION_INTEGRITY_REVIEW_FAILED"
+    ],
+    "recoveredQuestionText": "The reagent ‘R’ in the given sequence of chemical reaction is :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 92,
+    "reasons": [
+      "PAGE_HEADER_CONTAMINATION",
+      "CORRUPTED_DEGREE_SYMBOL"
+    ],
+    "recoveredQuestionText": "Choose the correct option for the total pressure (in atm.) in a mixture of 4 g O 2 and 2 g H 2 confined in a total volume of one litre at 0 8 C is : [Given R = 0.082 L atm mol − 1 K − 1 , T = 273 K]"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 94,
+    "reasons": [
+      "MANUAL_TRANSCRIPTION_INTEGRITY_REVIEW_FAILED"
+    ],
+    "recoveredQuestionText": "In which one of the following arrangements the given sequence is not strictly according to the properties indicated against it ?"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 95,
+    "reasons": [
+      "CORRUPTED_DEGREE_SYMBOL"
+    ],
+    "recoveredQuestionText": "The correct option for the value of vapour pressure of a solution at 45 8 C with benzene to octane in molar ratio 3 : 2 is : [At 45 8 C vapour pressure of benzene is 280 mm Hg and that of octane is 420 mm Hg. Assume Ideal gas]"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 96,
+    "reasons": [
+      "LEGACY_MATH_TRANSCRIPTION_RISK"
+    ],
+    "recoveredQuestionText": "The molar conductivity of 0.007 M acetic acid is 20 S cm 2 mol − 1 . What is the dissociation constant of acetic acid ? Choose the correct option. 2 1 H 2 1 CH COO 3 350 S cm mol 50 S cm mol   Λ     Λ     − − + − = = \u0001 \u0001"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 97,
+    "reasons": [
+      "CORRUPTED_MATH_GLYPHS",
+      "LEGACY_MATH_TRANSCRIPTION_RISK"
+    ],
+    "recoveredQuestionText": "The slope of Arrhenius Plot 1 ln k v/s T       of first order reaction is − 5 × 10 3 K. The value of E a of the reaction is. Choose the correct option for your answer. [Given R = 8.314 JK − 1 mol − 1 ]"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 98,
+    "reasons": [
+      "MANUAL_TRANSCRIPTION_INTEGRITY_REVIEW_FAILED"
+    ],
+    "recoveredQuestionText": "Match List - I with List - II . List - I List - II (a) (i) Hell-Volhard- Zelinsky reaction (b) (ii) Gattermann-Koch reaction (c) R − CH 2 − OH (iii) Haloform + R'COOH reaction 2 4 Conc H SO . → (d) 2 2 2 (i) X /Red P (ii) H O R CH COOH  → − (iv) Esterification Choose the correct answer from the options given below."
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 99,
+    "reasons": [
+      "MALFORMED_OPTIONS",
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "The intermediate compound ‘X’ in the following chemical reaction is :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 100,
+    "reasons": [
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "For irreversible expansion of an ideal gas under isothermal condition, the correct option is :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 103,
+    "reasons": [
+      "DUPLICATE_OPTIONS"
+    ],
+    "recoveredQuestionText": "Amensalism can be represented as :"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 129,
+    "reasons": [
+      "PAGE_HEADER_CONTAMINATION"
+    ],
+    "recoveredQuestionText": "Which of the following are not secondary metabolites in plants ?"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 137,
+    "reasons": [
+      "MANUAL_TRANSCRIPTION_INTEGRITY_REVIEW_FAILED"
+    ],
+    "recoveredQuestionText": "Identify the correct statement."
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 138,
+    "reasons": [
+      "MANUAL_TRANSCRIPTION_INTEGRITY_REVIEW_FAILED"
+    ],
+    "recoveredQuestionText": "Match Column - I with Column - II . Column - I Column - II (a) (i) Brassicaceae (b) (ii) Liliaceae (c) (iii) Fabaceae (d) (iv) Solanaceae Select the correct answer from the options given below. (a) (b) (c) (d)"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 142,
+    "reasons": [
+      "PAGE_HEADER_CONTAMINATION"
+    ],
+    "recoveredQuestionText": "Plasmid pBR322 has PstI restriction enzyme site within gene amp R that confers ampicillin resistance. If this enzyme is used for inserting a gene for β -galactoside production and the recombinant plasmid is inserted in an E.coli strain"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 145,
+    "reasons": [
+      "DUPLICATE_TEXT:2021:136"
+    ],
+    "recoveredQuestionText": "Which of the following statements is incorrect ?"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 159,
+    "reasons": [
+      "OPTIONS_EMBEDDED_IN_STEM",
+      "PAGE_HEADER_CONTAMINATION"
+    ],
+    "recoveredQuestionText": "A specific recognition sequence identified by endonucleases to make cuts at specific positions within the DNA is : (1) Degenerate primer sequence"
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 181,
+    "reasons": [
+      "SOURCE_TRANSCRIPTION_MISSING"
+    ],
+    "recoveredQuestionText": null
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 182,
+    "reasons": [
+      "SOURCE_TRANSCRIPTION_MISSING"
+    ],
+    "recoveredQuestionText": null
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 183,
+    "reasons": [
+      "SOURCE_TRANSCRIPTION_MISSING"
+    ],
+    "recoveredQuestionText": null
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 184,
+    "reasons": [
+      "SOURCE_TRANSCRIPTION_MISSING"
+    ],
+    "recoveredQuestionText": null
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 185,
+    "reasons": [
+      "SOURCE_TRANSCRIPTION_MISSING"
+    ],
+    "recoveredQuestionText": null
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 186,
+    "reasons": [
+      "SOURCE_TRANSCRIPTION_MISSING"
+    ],
+    "recoveredQuestionText": null
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 187,
+    "reasons": [
+      "SOURCE_TRANSCRIPTION_MISSING"
+    ],
+    "recoveredQuestionText": null
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 188,
+    "reasons": [
+      "SOURCE_TRANSCRIPTION_MISSING"
+    ],
+    "recoveredQuestionText": null
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 189,
+    "reasons": [
+      "SOURCE_TRANSCRIPTION_MISSING"
+    ],
+    "recoveredQuestionText": null
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 190,
+    "reasons": [
+      "SOURCE_TRANSCRIPTION_MISSING"
+    ],
+    "recoveredQuestionText": null
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 191,
+    "reasons": [
+      "SOURCE_TRANSCRIPTION_MISSING"
+    ],
+    "recoveredQuestionText": null
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 192,
+    "reasons": [
+      "SOURCE_TRANSCRIPTION_MISSING"
+    ],
+    "recoveredQuestionText": null
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 193,
+    "reasons": [
+      "SOURCE_TRANSCRIPTION_MISSING"
+    ],
+    "recoveredQuestionText": null
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 194,
+    "reasons": [
+      "SOURCE_TRANSCRIPTION_MISSING"
+    ],
+    "recoveredQuestionText": null
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 195,
+    "reasons": [
+      "SOURCE_TRANSCRIPTION_MISSING"
+    ],
+    "recoveredQuestionText": null
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 196,
+    "reasons": [
+      "SOURCE_TRANSCRIPTION_MISSING"
+    ],
+    "recoveredQuestionText": null
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 197,
+    "reasons": [
+      "SOURCE_TRANSCRIPTION_MISSING"
+    ],
+    "recoveredQuestionText": null
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 198,
+    "reasons": [
+      "SOURCE_TRANSCRIPTION_MISSING"
+    ],
+    "recoveredQuestionText": null
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 199,
+    "reasons": [
+      "SOURCE_TRANSCRIPTION_MISSING"
+    ],
+    "recoveredQuestionText": null
+  },
+  {
+    "exam": "NEET",
+    "year": 2021,
+    "paperCode": "M4",
+    "originalQuestionNumber": 200,
+    "reasons": [
+      "SOURCE_TRANSCRIPTION_MISSING"
+    ],
+    "recoveredQuestionText": null
+  }
+]

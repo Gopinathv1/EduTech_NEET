@@ -1,0 +1,89 @@
+{
+  "exam": "NEET",
+  "year": 2024,
+  "paperCode": "S6",
+  "pattern": {
+    "totalPrintedQuestions": 200,
+    "questionsRequiredToAnswer": 180,
+    "durationMinutes": 200,
+    "maximumMarks": 720,
+    "marking": {
+      "correct": 4,
+      "incorrect": -1,
+      "unanswered": 0
+    },
+    "sections": "Section A: 35 compulsory per subject; Section B: answer 10 of 15 per subject"
+  },
+  "completeness": {
+    "expected": 200,
+    "validated": 171,
+    "quarantined": 29,
+    "status": "PARTIAL"
+  },
+  "subjectCounts": {
+    "PHYSICS": 35,
+    "CHEMISTRY": 42,
+    "BOTANY": 46,
+    "ZOOLOGY": 48
+  },
+  "chapterCounts": {
+    "biology-biotechnology": 5,
+    "biology-cell-structure-function": 12,
+    "biology-diversity-living-world": 14,
+    "biology-ecology-environment": 8,
+    "biology-genetics-and-evolution": 13,
+    "biology-human-physiology": 13,
+    "biology-human-welfare": 5,
+    "biology-plant-physiology": 9,
+    "biology-reproduction": 7,
+    "biology-structural-organisation": 8,
+    "chemistry-atomic-structure": 2,
+    "chemistry-biomolecules": 1,
+    "chemistry-chemical-bonding": 2,
+    "chemistry-chemical-kinetics": 2,
+    "chemistry-coordination-compounds": 3,
+    "chemistry-d-f-block": 3,
+    "chemistry-equilibrium": 4,
+    "chemistry-halogens": 2,
+    "chemistry-hydrocarbons": 1,
+    "chemistry-nitrogen": 1,
+    "chemistry-organic-principles": 3,
+    "chemistry-oxygen": 2,
+    "chemistry-p-block": 2,
+    "chemistry-periodicity": 2,
+    "chemistry-purification-characterisation": 1,
+    "chemistry-redox-electrochemistry": 3,
+    "chemistry-some-basic-concepts": 2,
+    "chemistry-thermodynamics": 6,
+    "physics-and-measurement": 2,
+    "physics-atoms-nuclei": 3,
+    "physics-current-electricity": 2,
+    "physics-dual-nature": 1,
+    "physics-electronic-devices": 2,
+    "physics-electrostatics": 3,
+    "physics-emi-ac": 2,
+    "physics-gravitation": 2,
+    "physics-kinematics": 2,
+    "physics-magnetic-effects": 5,
+    "physics-optics": 3,
+    "physics-oscillations-waves": 1,
+    "physics-properties-solids-liquids": 3,
+    "physics-thermodynamics": 2,
+    "physics-work-energy-power": 2
+  },
+  "provenance": "HISTORICAL_VERIFIED",
+  "validation": {
+    "exactBookletMatched": true,
+    "officialFinalAnswerKeyMatched": true,
+    "onlySingleCorrectQuestionsRetained": true,
+    "imageDependentOrMalformedQuestionsQuarantined": true
+  },
+  "sources": {
+    "questionPaperArchive": "https://docs.aglasem.com/view/fcc6e1ea-2f1c-11f0-a4dd-0a5e36bc6706",
+    "questionPaperPdf": "https://cdn.aglasem.com/aglasem-doc/fcc6e1ea-2f1c-11f0-a4dd-0a5e36bc6706/fcc6e1ea-2f1c-11f0-a4dd-0a5e36bc6706.pdf",
+    "officialFinalAnswerKey": "https://nta.ac.in/Download/Notice/Notice_20240726171027.pdf",
+    "transcriptionAid": "https://neet.training/neet-pyqs/2024/code-S6",
+    "paperSha256": "8c417b14a0a6fd58c3336fc1e318af722e4de8464249d3eee04092d35626feaf",
+    "answerKeySha256": "825de227fc838c7e8ef571cc531a0ebf7c7d4984ddedab0329a3ab2b0c540ab9"
+  }
+}

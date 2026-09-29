@@ -1,0 +1,84 @@
+{
+  "exam": "NEET",
+  "years": [
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "provenance": "HISTORICAL_VERIFIED",
+  "generatedFrom": "Exact-code historical paper transcriptions validated against official NTA final answer keys",
+  "yearlySummaries": [
+    {
+      "year": 2021,
+      "expected": 200,
+      "validated": 113,
+      "quarantined": 87,
+      "status": "PARTIAL",
+      "subjectCounts": {
+        "PHYSICS": 15,
+        "CHEMISTRY": 25,
+        "BOTANY": 44,
+        "ZOOLOGY": 29
+      }
+    },
+    {
+      "year": 2022,
+      "expected": 200,
+      "validated": 157,
+      "quarantined": 43,
+      "status": "PARTIAL",
+      "subjectCounts": {
+        "PHYSICS": 25,
+        "CHEMISTRY": 34,
+        "BOTANY": 49,
+        "ZOOLOGY": 49
+      }
+    },
+    {
+      "year": 2023,
+      "expected": 200,
+      "validated": 172,
+      "quarantined": 28,
+      "status": "PARTIAL",
+      "subjectCounts": {
+        "PHYSICS": 36,
+        "CHEMISTRY": 47,
+        "BOTANY": 45,
+        "ZOOLOGY": 44
+      }
+    },
+    {
+      "year": 2024,
+      "expected": 200,
+      "validated": 171,
+      "quarantined": 29,
+      "status": "PARTIAL",
+      "subjectCounts": {
+        "PHYSICS": 35,
+        "CHEMISTRY": 42,
+        "BOTANY": 46,
+        "ZOOLOGY": 48
+      }
+    },
+    {
+      "year": 2025,
+      "expected": 180,
+      "validated": 167,
+      "quarantined": 13,
+      "status": "PARTIAL",
+      "subjectCounts": {
+        "PHYSICS": 38,
+        "CHEMISTRY": 42,
+        "BOTANY": 43,
+        "ZOOLOGY": 44
+      }
+    }
+  ],
+  "totals": {
+    "expected": 980,
+    "validated": 780,
+    "quarantined": 200
+  }
+}

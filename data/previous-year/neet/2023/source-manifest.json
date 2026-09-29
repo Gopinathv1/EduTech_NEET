@@ -1,0 +1,91 @@
+{
+  "exam": "NEET",
+  "year": 2023,
+  "paperCode": "G6",
+  "pattern": {
+    "totalPrintedQuestions": 200,
+    "questionsRequiredToAnswer": 180,
+    "durationMinutes": 200,
+    "maximumMarks": 720,
+    "marking": {
+      "correct": 4,
+      "incorrect": -1,
+      "unanswered": 0
+    },
+    "sections": "Section A: 35 compulsory per subject; Section B: answer 10 of 15 per subject"
+  },
+  "completeness": {
+    "expected": 200,
+    "validated": 172,
+    "quarantined": 28,
+    "status": "PARTIAL"
+  },
+  "subjectCounts": {
+    "PHYSICS": 36,
+    "CHEMISTRY": 47,
+    "BOTANY": 45,
+    "ZOOLOGY": 44
+  },
+  "chapterCounts": {
+    "biology-biotechnology": 1,
+    "biology-cell-structure-function": 6,
+    "biology-diversity-living-world": 10,
+    "biology-ecology-environment": 4,
+    "biology-genetics-and-evolution": 6,
+    "biology-human-physiology": 15,
+    "biology-human-welfare": 11,
+    "biology-plant-physiology": 8,
+    "biology-reproduction": 14,
+    "biology-structural-organisation": 14,
+    "chemistry-atomic-structure": 2,
+    "chemistry-biomolecules": 2,
+    "chemistry-chemical-bonding": 3,
+    "chemistry-chemical-kinetics": 3,
+    "chemistry-coordination-compounds": 1,
+    "chemistry-d-f-block": 2,
+    "chemistry-equilibrium": 1,
+    "chemistry-nitrogen": 1,
+    "chemistry-organic-principles": 11,
+    "chemistry-oxygen": 3,
+    "chemistry-p-block": 3,
+    "chemistry-periodicity": 3,
+    "chemistry-practical": 1,
+    "chemistry-purification-characterisation": 1,
+    "chemistry-redox-electrochemistry": 3,
+    "chemistry-solutions": 2,
+    "chemistry-some-basic-concepts": 1,
+    "chemistry-thermodynamics": 4,
+    "physics-and-measurement": 2,
+    "physics-atoms-nuclei": 3,
+    "physics-current-electricity": 3,
+    "physics-dual-nature": 1,
+    "physics-electronic-devices": 3,
+    "physics-electrostatics": 2,
+    "physics-emi-ac": 4,
+    "physics-gravitation": 1,
+    "physics-kinematics": 5,
+    "physics-kinetic-theory-gases": 1,
+    "physics-laws-of-motion": 2,
+    "physics-magnetic-effects": 1,
+    "physics-optics": 2,
+    "physics-oscillations-waves": 1,
+    "physics-properties-solids-liquids": 3,
+    "physics-thermodynamics": 1,
+    "physics-work-energy-power": 1
+  },
+  "provenance": "HISTORICAL_VERIFIED",
+  "validation": {
+    "exactBookletMatched": true,
+    "officialFinalAnswerKeyMatched": true,
+    "onlySingleCorrectQuestionsRetained": true,
+    "imageDependentOrMalformedQuestionsQuarantined": true
+  },
+  "sources": {
+    "questionPaperArchive": "https://docs.aglasem.com/view/b5019250-4342-11ee-b742-0a5e36bc6706",
+    "questionPaperPdf": "https://cdn.aglasem.com/aglasem-doc/b5019250-4342-11ee-b742-0a5e36bc6706/b5019250-4342-11ee-b742-0a5e36bc6706.pdf",
+    "officialFinalAnswerKey": "https://www.nta.ac.in/Download/Notice/Notice_20230615172159.pdf",
+    "transcriptionAid": "https://neet.training/neet-pyqs/2023/code-G6",
+    "paperSha256": "abb6075d1e357deebd6ffa849bd3cd9b4de058e43c81c44aef60d8492a93be71",
+    "answerKeySha256": "04ed02fd571f5596878f98c1b11ae33c3072f9748bab2aededa2f12e694994ca"
+  }
+}

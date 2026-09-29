@@ -1,0 +1,77 @@
+{
+  "exam": "NEET",
+  "year": 2021,
+  "paperCode": "M4",
+  "pattern": {
+    "totalPrintedQuestions": 200,
+    "questionsRequiredToAnswer": 180,
+    "durationMinutes": 180,
+    "maximumMarks": 720,
+    "marking": {
+      "correct": 4,
+      "incorrect": -1,
+      "unanswered": 0
+    },
+    "sections": "Section A: 35 compulsory per subject; Section B: answer 10 of 15 per subject"
+  },
+  "completeness": {
+    "expected": 200,
+    "validated": 113,
+    "quarantined": 87,
+    "status": "PARTIAL"
+  },
+  "subjectCounts": {
+    "PHYSICS": 15,
+    "CHEMISTRY": 25,
+    "BOTANY": 44,
+    "ZOOLOGY": 29
+  },
+  "chapterCounts": {
+    "biology-biotechnology": 8,
+    "biology-cell-structure-function": 9,
+    "biology-diversity-living-world": 13,
+    "biology-ecology-environment": 7,
+    "biology-genetics-and-evolution": 16,
+    "biology-human-physiology": 1,
+    "biology-human-welfare": 7,
+    "biology-plant-physiology": 7,
+    "biology-reproduction": 3,
+    "biology-structural-organisation": 2,
+    "chemistry-atomic-structure": 1,
+    "chemistry-biomolecules": 2,
+    "chemistry-chemical-bonding": 4,
+    "chemistry-chemical-kinetics": 1,
+    "chemistry-coordination-compounds": 1,
+    "chemistry-equilibrium": 1,
+    "chemistry-organic-principles": 4,
+    "chemistry-p-block": 6,
+    "chemistry-purification-characterisation": 1,
+    "chemistry-redox-electrochemistry": 1,
+    "chemistry-solutions": 3,
+    "physics-and-measurement": 1,
+    "physics-atoms-nuclei": 1,
+    "physics-current-electricity": 2,
+    "physics-electrostatics": 2,
+    "physics-emi-ac": 1,
+    "physics-gravitation": 1,
+    "physics-laws-of-motion": 1,
+    "physics-optics": 3,
+    "physics-oscillations-waves": 2,
+    "physics-work-energy-power": 1
+  },
+  "provenance": "HISTORICAL_VERIFIED",
+  "validation": {
+    "exactBookletMatched": true,
+    "officialFinalAnswerKeyMatched": true,
+    "onlySingleCorrectQuestionsRetained": true,
+    "imageDependentOrMalformedQuestionsQuarantined": true
+  },
+  "sources": {
+    "questionPaperArchive": "https://docs.aglasem.com/view/7bee1ef2-6ba8-11ec-9402-0a5e36bc6706",
+    "questionPaperPdf": "https://cdn.aglasem.com/aglasem-doc/7bee1ef2-6ba8-11ec-9402-0a5e36bc6706/7bee1ef2-6ba8-11ec-9402-0a5e36bc6706.pdf",
+    "officialFinalAnswerKey": "https://nta.ac.in/Download/Notice/Notice_20211101205130.pdf",
+    "transcriptionAid": "https://neet.training/neet-pyqs/2021/code-AGAJHA-M4",
+    "paperSha256": "e9acdfb29dfcff0a3a186819f7336330af4ce51855990d1081c78637b338587a",
+    "answerKeySha256": "838e0ba080eb6b9639f12a1dcfb7f36cd8fe80dd5be11ee0be6d725e4c6f3ca9"
+  }
+}
