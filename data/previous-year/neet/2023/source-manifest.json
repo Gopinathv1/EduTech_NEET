@@ -23,12 +23,12 @@
   "subjectCounts": {
     "PHYSICS": 36,
     "CHEMISTRY": 47,
-    "BOTANY": 45,
-    "ZOOLOGY": 44
+    "BOTANY": 37,
+    "ZOOLOGY": 52
   },
   "chapterCounts": {
     "biology-biotechnology": 1,
-    "biology-cell-structure-function": 6,
+    "biology-cell-structure-function": 7,
     "biology-diversity-living-world": 10,
     "biology-ecology-environment": 4,
     "biology-genetics-and-evolution": 6,
@@ -36,7 +36,7 @@
     "biology-human-welfare": 11,
     "biology-plant-physiology": 8,
     "biology-reproduction": 14,
-    "biology-structural-organisation": 14,
+    "biology-structural-organisation": 13,
     "chemistry-atomic-structure": 2,
     "chemistry-biomolecules": 2,
     "chemistry-chemical-bonding": 3,

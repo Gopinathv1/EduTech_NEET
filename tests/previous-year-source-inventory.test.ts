@@ -16,11 +16,12 @@ describe('Phase 2 official source inventory', () => {
     }
   });
 
-  it('does not turn answer-key-only or unextracted paper records into publishable questions', () => {
-    expect(totalVerifiedQuestions('NEET')).toBe(0);
+  it('counts only the explicitly validated NEET historical subset', () => {
+    expect(totalVerifiedQuestions('NEET')).toBe(780);
     expect(totalVerifiedQuestions('JEE')).toBe(0);
     expect(officialSourceInventory.find((record) => record.exam === 'NEET' && record.year === 2020)?.paperAvailability).toBe('AVAILABLE');
-    expect(officialSourceInventory.every((record) => record.verifiedQuestionCount === 0)).toBe(true);
+    expect(officialSourceInventory.find((record) => record.exam === 'NEET' && record.year === 2020)?.verifiedQuestionCount).toBe(0);
+    expect(officialSourceInventory.filter((record) => record.exam === 'NEET' && record.year >= 2021).every((record) => record.paperAvailability === 'PARTIAL' && record.verifiedQuestionCount > 0)).toBe(true);
   });
 
   it('exposes only the three authorized Phase 2 modes', () => {

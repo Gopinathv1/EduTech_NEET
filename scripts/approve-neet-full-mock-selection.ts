@@ -67,6 +67,7 @@ async function main() {
       sourceType: true,
       sourceName: true,
       sourceUrl: true,
+      officialAnswerKeyReference: true,
       reviewState: true,
       isActive: true,
       status: true,

@@ -41,10 +41,8 @@ type HistoricalQuestion = {
   topic: string;
   difficulty: 'EASY' | 'MEDIUM' | 'HARD';
   explanation: string;
-  sourceType: 'HISTORICAL_VERIFIED';
-  sourceName: string;
-  sourceUrl: string;
-  officialAnswerKeyReference: string;
+  provenance?: 'HISTORICAL_VERIFIED';
+  source?: { wordingArchiveUrl: string; officialFinalAnswerKeyUrl: string };
   examYear: number;
   paperSession: string;
   validationState: 'VALIDATED';
@@ -146,8 +144,9 @@ async function main() {
             difficulty: question.difficulty, year: question.year,
             tags: ['neet-pyq', `neet-${question.year}`, `booklet-${question.paperCode.toLowerCase()}`, `original-question-${question.originalQuestionNumber}`],
             questionType: question.questionType, status: 'REVIEW', contentClass: 'PRODUCTION',
-            sourceType: question.sourceType, sourceName: question.sourceName, sourceUrl: question.sourceUrl,
-            officialAnswerKeyReference: question.officialAnswerKeyReference,
+            sourceType: 'HISTORICAL_VERIFIED', sourceName: `NEET ${question.year} booklet ${question.paperCode} historical paper`,
+            sourceUrl: question.source?.wordingArchiveUrl ?? '',
+            officialAnswerKeyReference: question.source?.officialFinalAnswerKeyUrl ?? '',
             importedAt: new Date(), exam: question.exam, examYear: question.examYear,
             paperSession: question.paperSession, reviewState: 'DRAFT', isActive: false,
             translations: { create: {

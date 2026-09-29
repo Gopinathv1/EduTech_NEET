@@ -12,9 +12,11 @@ describe('2013-2025 historical examination matrix', () => {
     }
   });
 
-  it('keeps every unvalidated paper out of the publishable inventory', () => {
-    expect(matrix.reduce((sum, record) => sum + record.validatedQuestionCount, 0)).toBe(0);
+  it('records only explicitly validated partial rows and excludes quarantine', () => {
+    expect(matrix.reduce((sum, record) => sum + record.validatedQuestionCount, 0)).toBe(780);
     expect(matrix.every((record) => record.validatedQuestionCount <= record.expectedRecoverableQuestionCount)).toBe(true);
+    expect(matrix.filter((record) => record.exam === 'NEET' && record.year >= 2021).every((record) => record.status === 'PARTIAL')).toBe(true);
+    expect(matrix.filter((record) => record.exam === 'JEE').every((record) => record.validatedQuestionCount === 0)).toBe(true);
   });
 
   it('records the one durable official paper corpus without pretending it is extracted', () => {

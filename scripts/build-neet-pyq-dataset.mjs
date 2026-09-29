@@ -62,6 +62,29 @@ function expectedSubject(year, number) {
   return 'ZOOLOGY';
 }
 
+const manualSubjectClassifications = new Map([
+  ['2023:140', 'ZOOLOGY'],
+  ['2023:147', 'ZOOLOGY'],
+  ['2024:149', 'ZOOLOGY'],
+  ['2025:94', 'ZOOLOGY'],
+  ['2025:101', 'ZOOLOGY'],
+  ['2025:112', 'ZOOLOGY'],
+  ['2025:141', 'BOTANY'],
+  ['2025:151', 'BOTANY'],
+  ['2025:153', 'BOTANY'],
+  ['2025:154', 'BOTANY'],
+]);
+
+function subjectFor(year, number, chapter = '') {
+  const normalizedChapter = normalize(chapter);
+  const fallback = manualSubjectClassifications.get(`${year}:${number}`) ?? expectedSubject(year, number);
+  if (fallback === 'BOTANY' || fallback === 'ZOOLOGY') {
+    if (/(body fluids|breathing|digestion|excretory|locomotion|neural control|chemical coordination|human reproduction|reproductive health|human health)/.test(normalizedChapter)) return 'ZOOLOGY';
+    if (/(plant kingdom|morphology of flowering|anatomy of flowering|transport in plants|photosynthesis|respiration in plants|plant growth|sexual reproduction in flowering)/.test(normalizedChapter)) return 'BOTANY';
+  }
+  return fallback;
+}
+
 function sectionFor(year, number) {
   if (year === 2025) return 'COMPULSORY';
   const withinSubject = ((number - 1) % 50) + 1;
@@ -87,7 +110,11 @@ const manualClassifications = new Map([
   ['2023:90', ['chemistry-practical', 'environmental-chemistry']],
   ['2023:92', ['chemistry-p-block', 'group-15-18']],
   ['2023:98', ['chemistry-organic-principles', 'electronic-effects']],
+  ['2023:136', ['biology-structural-organisation', 'plant-anatomy']],
+  ['2023:145', ['biology-structural-organisation', 'plant-morphology']],
+  ['2023:146', ['biology-cell-structure-function', 'cell-organelles']],
   ['2024:22', ['physics-atoms-nuclei', 'atomic-models']],
+  ['2024:117', ['biology-cell-structure-function', 'cell-organelles']],
   ['2024:66', ['chemistry-atomic-structure', 'atomic-models']],
   ['2025:50', ['chemistry-atomic-structure', 'atomic-models']],
 ]);
@@ -233,7 +260,7 @@ function validateRecoveredQuestion({ year, source, recovered, officialAnswers })
   if (!official || official.length !== 1 || official[0] < 1 || official[0] > 4) reasons.push('OFFICIAL_KEY_NOT_SINGLE_CORRECT');
   const recoveredAnswer = recovered.correct_options?.length === 1 ? recovered.correct_options[0]?.toUpperCase() : null;
   if (!recoveredAnswer || !['A', 'B', 'C', 'D'].includes(recoveredAnswer)) reasons.push('INVALID_RECOVERED_ANSWER');
-  const subject = expectedSubject(year, recovered.q_num);
+  const subject = subjectFor(year, recovered.q_num, recovered.chapter ?? '');
   if (!classify(subject, recovered.chapter ?? '', year, recovered.q_num)) reasons.push('UNCLASSIFIED_CANONICAL_TOPIC');
   if (source.code !== String(recovered.code).split('-').at(-1)) reasons.push('BOOKLET_CODE_MISMATCH');
   return [...new Set(reasons)];
@@ -258,7 +285,7 @@ for (const [yearText, source] of Object.entries(sources)) {
     const recovered = recoveredByNumber.get(number);
     const reasons = validateRecoveredQuestion({ year, source, recovered, officialAnswers: officialKey.answers });
     if (recovered && reasons.length === 0) {
-      const subjectCode = expectedSubject(year, number);
+      const subjectCode = subjectFor(year, number, recovered.chapter ?? '');
       const [chapterSlug, topic] = classify(subjectCode, recovered.chapter, year, number);
       const textHash = crypto.createHash('sha256').update(normalize(recovered.question)).digest('hex');
       if (allQuestionHashes.has(textHash)) {

@@ -40,10 +40,10 @@ function loadSelection(): BankQuestion[] {
 }
 
 describe('canonical NEET taxonomy sync', () => {
-  it('defines exactly 57 canonical chapters with the expected subject totals', () => {
+  it('defines exactly 58 canonical chapters with the expected subject totals', () => {
     const canonical = canonicalNeetChapters();
-    expect(canonical).toHaveLength(57);
-    expect(Object.fromEntries(['PHYSICS', 'CHEMISTRY', 'BOTANY', 'ZOOLOGY'].map((code) => [code, canonical.filter((chapter) => chapter.subjectCode === code).length]))).toEqual({ PHYSICS: 20, CHEMISTRY: 20, BOTANY: 9, ZOOLOGY: 8 });
+    expect(canonical).toHaveLength(58);
+    expect(Object.fromEntries(['PHYSICS', 'CHEMISTRY', 'BOTANY', 'ZOOLOGY'].map((code) => [code, canonical.filter((chapter) => chapter.subjectCode === code).length]))).toEqual({ PHYSICS: 20, CHEMISTRY: 20, BOTANY: 9, ZOOLOGY: 9 });
   });
 
   it('adds missing chapters, reuses normalized matches, and preserves legacy records', () => {
@@ -63,7 +63,7 @@ describe('canonical NEET taxonomy sync', () => {
     expect(plan.subjectsMissing).toEqual([]);
     expect(plan.chaptersMissing).toEqual([]);
     expect(plan.writesRequired).toBe(0);
-    expect(plan.chaptersMatched).toHaveLength(57);
+    expect(plan.chaptersMatched).toHaveLength(58);
     expect(plan.legacyPreserved).toEqual([]);
   });
 

@@ -41,7 +41,7 @@ async function main() {
     where: { externalId: { in: ids } },
     select: {
       id: true, externalId: true, exam: true, examYear: true, topic: true, chapterId: true,
-      questionType: true, sourceType: true, sourceName: true, sourceUrl: true, reviewState: true,
+      questionType: true, sourceType: true, sourceName: true, sourceUrl: true, officialAnswerKeyReference: true, reviewState: true,
       isActive: true, status: true, contentClass: true, subject: { select: { code: true } }, translations: true,
     },
   });

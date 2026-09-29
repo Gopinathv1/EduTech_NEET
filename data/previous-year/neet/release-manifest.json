@@ -45,8 +45,8 @@
       "subjectCounts": {
         "PHYSICS": 36,
         "CHEMISTRY": 47,
-        "BOTANY": 45,
-        "ZOOLOGY": 44
+        "BOTANY": 37,
+        "ZOOLOGY": 52
       }
     },
     {
@@ -58,8 +58,8 @@
       "subjectCounts": {
         "PHYSICS": 35,
         "CHEMISTRY": 42,
-        "BOTANY": 46,
-        "ZOOLOGY": 48
+        "BOTANY": 45,
+        "ZOOLOGY": 49
       }
     },
     {
@@ -71,8 +71,8 @@
       "subjectCounts": {
         "PHYSICS": 38,
         "CHEMISTRY": 42,
-        "BOTANY": 43,
-        "ZOOLOGY": 44
+        "BOTANY": 44,
+        "ZOOLOGY": 43
       }
     }
   ],
