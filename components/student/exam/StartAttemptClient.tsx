@@ -1,12 +1,19 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { apiPost } from '@/lib/client/api';
 import type { ExamLanguage } from '@/lib/attempts/examState';
-import CheckoutClient from '@/components/student/CheckoutClient';
 import { requestAttemptStart } from '@/lib/client/paid-retry-flow';
 import Link from 'next/link';
+
+// A free start never renders the retry checkout. Keep its Razorpay client code
+// out of this route's initial hydration boundary and load it only if a paid
+// retry is actually required.
+const CheckoutClient = dynamic(() => import('@/components/student/CheckoutClient'), {
+  ssr: false,
+});
 
 /**
  * The language chooser + Start button on the instructions page. If the student
