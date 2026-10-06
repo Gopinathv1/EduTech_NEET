@@ -3,7 +3,7 @@ import { createHash } from 'node:crypto';
 import { loadEnvConfig } from '@next/env';
 import { PrismaClient, Prisma } from '@prisma/client';
 import { inspectDatabaseTarget } from '../lib/question-bank/taxonomy-sync';
-import { writeQuestionVersion } from '../lib/admin/question-version';
+import { questionVersionSnapshot } from '../lib/admin/question-version';
 import { questionNatureSchema, type QuestionNature } from '../lib/previous-year/question-nature';
 import { QUESTION_BANK_V1_TAXONOMY } from '../lib/question-bank/taxonomy';
 
@@ -82,14 +82,24 @@ async function main() {
       const admins = await tx.admin.findMany({ where: { isActive: true, ...(email ? { email } : {}) }, select: { id: true, name: true } });
       if (admins.length !== 1) throw Error('Identify exactly one active administrator with NEET_HISTORICAL_ADMIN_EMAIL');
       const admin = { sub: admins[0].id, name: admins[0].name };
-      for (const q of changes) {
-        const questionNature = decisions.get(q.externalId!)!;
-        // Raw exact field update avoids @updatedAt changing unrelated metadata.
-        await tx.$executeRaw`UPDATE "Question" SET "questionNature" = ${questionNature}::"QuestionNature" WHERE "id" = ${q.id}`;
-        await writeQuestionVersion(tx, q.id, 'questionNature:classified', admin);
-        await tx.auditLog.create({ data: { adminId: admin.sub, adminName: admin.name,
-          action: 'question.nature.classified', entityType: 'Question', entityId: q.id,
-          details: { before: q.questionNature, after: questionNature, classificationMethod: 'EXACT_PAPER_REASONING_TABLE_V1', manifestSha256: artifact.manifestSha256 } } });
+      if (changes.length) {
+        const values = changes.map(q => Prisma.sql`(${q.id}, ${decisions.get(q.externalId!)!}::"QuestionNature")`);
+        // One exact-field statement avoids @updatedAt changes and per-row
+        // round trips; the entire update and history remain atomic.
+        const affected = await tx.$executeRaw(Prisma.sql`UPDATE "Question" q SET "questionNature" = v.nature
+          FROM (VALUES ${Prisma.join(values)}) AS v(id, nature) WHERE q.id = v.id`);
+        if (affected !== changes.length) throw Error('Unexpected affected row count');
+        const [snapshots, versions] = await Promise.all([
+          tx.question.findMany({where:{id:{in:changes.map(q=>q.id)}},include:{translations:true}}),
+          tx.questionVersion.groupBy({by:['questionId'],where:{questionId:{in:changes.map(q=>q.id)}},_max:{version:true}}),
+        ]);
+        const previousVersions = new Map(versions.map(v=>[v.questionId,v._max.version ?? 0]));
+        await tx.questionVersion.createMany({data:snapshots.map(q=>({questionId:q.id,
+          version:(previousVersions.get(q.id) ?? 0)+1,action:'questionNature:classified',
+          editedById:admin.sub,editedByName:admin.name,snapshot:questionVersionSnapshot(q)}))});
+        await tx.auditLog.createMany({data:changes.map(q=>({adminId:admin.sub,adminName:admin.name,
+          action:'question.nature.classified',entityType:'Question',entityId:q.id,
+          details:{before:q.questionNature,after:decisions.get(q.externalId!)!,classificationMethod:'EXACT_PAPER_REASONING_TABLE_V1',manifestSha256:artifact.manifestSha256}}))});
       }
       const after = await inspect(tx);
       if (after.some(q => q.questionNature !== decisions.get(q.externalId!))) throw Error('Post-update classification mismatch');

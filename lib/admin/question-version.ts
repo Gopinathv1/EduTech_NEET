@@ -26,6 +26,15 @@ export async function writeQuestionVersion(
   });
   const version = (last?.version ?? 0) + 1;
 
+  await tx.questionVersion.create({
+    data: { questionId, version, action, editedById: admin.sub, editedByName: admin.name,
+      snapshot: questionVersionSnapshot(q) },
+  });
+}
+
+/** Shared serializer for single-question edits and exact-manifest batch audits. */
+export function questionVersionSnapshot(q: Prisma.QuestionGetPayload<{ include: { translations: true } }>): Prisma.InputJsonValue {
+
   const snapshot = {
     externalId: q.externalId,
     subjectId: q.subjectId,
@@ -68,14 +77,5 @@ export async function writeQuestionVersion(
       })),
   };
 
-  await tx.questionVersion.create({
-    data: {
-      questionId,
-      version,
-      action,
-      editedById: admin.sub,
-      editedByName: admin.name,
-      snapshot: snapshot as unknown as Prisma.InputJsonValue,
-    },
-  });
+  return snapshot as unknown as Prisma.InputJsonValue;
 }
