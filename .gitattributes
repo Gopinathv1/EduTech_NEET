@@ -1,3 +1,5 @@
 # Release fingerprints use exact bytes across Windows and Linux checkouts.
 data/previous-year/jee/**/*.json text eol=lf
 data/previous-year/jee/*.json text eol=lf
+# The acquired key inventory was sealed with its original CRLF bytes.
+data/previous-year/jee/final-answer-keys.json -text
