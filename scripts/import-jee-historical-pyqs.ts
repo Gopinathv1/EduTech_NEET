@@ -46,7 +46,7 @@ async function main() {
               paperId: entry.question.paperId, ntaQuestionId: entry.question.questionId },
           } });
         }
-      }, { maxWait: 10_000, timeout: 30_000 });
+      }, { maxWait: 10_000, timeout: 120_000 });
       console.log(JSON.stringify({ completedBatch: Math.floor(start / JEE_RELEASE_BATCH_SIZE) + 1,
         imported: Math.min(start + batch.length, missing.length), missing: missing.length }));
     }

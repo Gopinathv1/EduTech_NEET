@@ -116,7 +116,7 @@ export async function approveQuestion(
       adminId: admin.sub, adminName: admin.name, action: 'question.review.approved',
       entityType: 'Question', entityId: id, details: { note },
     } });
-  });
+  }, options.atomicAudit ? { maxWait: 10_000, timeout: 30_000 } : undefined);
 
   if (!options.atomicAudit) await logAudit(admin, {
     action: 'question.review.approved',
@@ -162,7 +162,7 @@ export async function submitImportedQuestionForReview(
       adminId: admin.sub, adminName: admin.name, action: 'question.update',
       entityType: 'Question', entityId: id, details: { importedSelectionTransition: true },
     } });
-  });
+  }, options.atomicAudit ? { maxWait: 10_000, timeout: 30_000 } : undefined);
   if (!options.atomicAudit) await logAudit(admin, {
     action: 'question.update',
     entityType: 'Question',
