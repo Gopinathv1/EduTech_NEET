@@ -1,0 +1,450 @@
+{
+  "schemaVersion": 1,
+  "reviewed": 285,
+  "retained": 218,
+  "quarantined": 67,
+  "notSelectedForV1": 150,
+  "note": "Unreviewed source questions and unselected acquired shifts are outside V1, not quarantined.",
+  "reasons": [
+    {
+      "reason": "AMBIGUOUS_SOURCE_DOMAIN",
+      "count": 1
+    },
+    {
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "count": 32
+    },
+    {
+      "reason": "CONTRADICTORY_SOURCE_PREMISES",
+      "count": 4
+    },
+    {
+      "reason": "DROPPED_BY_NTA",
+      "count": 2
+    },
+    {
+      "reason": "FIGURE_REPRESENTATION_UNSUPPORTED",
+      "count": 4
+    },
+    {
+      "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+      "count": 16
+    },
+    {
+      "reason": "SOURCE_OPTION_AMBIGUITY",
+      "count": 1
+    },
+    {
+      "reason": "STRUCTURAL_OPTIONS_NOT_REPRESENTED",
+      "count": 6
+    },
+    {
+      "reason": "STRUCTURAL_REPRESENTATION_NOT_VALIDATED",
+      "count": 1
+    }
+  ],
+  "records": [
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115161",
+      "reason": "FIGURE_REPRESENTATION_UNSUPPORTED",
+      "detail": "The stem and four answer options require faithful velocity/acceleration graphs; text-only transcription would lose necessary information."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115162",
+      "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+      "detail": "The cyclic-process question references an original pressure-volume diagram that has not been faithfully represented in the structured question."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115164",
+      "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+      "detail": "Original mass-spring arrangement figure is required and has not been represented in the structured question."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115165",
+      "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+      "detail": "Cell polarities and labelled points are specified by the circuit figure; text-only extraction is insufficient."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115168",
+      "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+      "detail": "The original three-dimensional charge arrangement and axis directions are required."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115170",
+      "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+      "detail": "Energy-level transitions A, B and C are specified by the original figure."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115180",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Amplitude modulation belongs to historical Communication Systems, which is not present in the existing canonical JEE taxonomy. No taxonomy changes have been made."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115181",
+      "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+      "detail": "The zener circuit topology, polarity and resistor connections are specified by the required original circuit figure."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115185",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "The historical Surface Chemistry/Freundlich adsorption chapter is absent from the existing canonical JEE taxonomy. The source also requires a graph."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115187",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Historical metallurgy/ore concentration is absent from the existing canonical JEE taxonomy. No unrelated chapter has been assigned."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115189",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "The historical metallurgy/Bayer-process topic has no supported canonical JEE chapter classification in the existing taxonomy."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115192",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Historical Environmental Chemistry is absent from the current canonical JEE taxonomy."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115193",
+      "reason": "STRUCTURAL_OPTIONS_NOT_REPRESENTED",
+      "detail": "All four options are chemical structure diagrams whose connectivity and substitution positions must be represented faithfully."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115196",
+      "reason": "STRUCTURAL_OPTIONS_NOT_REPRESENTED",
+      "detail": "The cyclic and linked-chain answer structures have not been represented faithfully."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115197",
+      "reason": "STRUCTURAL_OPTIONS_NOT_REPRESENTED",
+      "detail": "Required cyclic substrate and rearranged product bond diagrams have not been represented faithfully."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115198",
+      "reason": "STRUCTURAL_OPTIONS_NOT_REPRESENTED",
+      "detail": "Required two-stage cyclic oxidation substrate and paired product structures have not been represented faithfully."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115201",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Historical synthetic Polymers is absent from the existing canonical JEE taxonomy; the synthetic-polymer matching question is not classified as Biomolecules."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115205",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Body-centred cubic lattice coordination belongs to historical Solid State, which is absent from the existing canonical JEE taxonomy. It has not been relabelled as coordination chemistry."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115214",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Composition and injectivity/surjectivity belong to Sets, Relations and Functions, absent from the existing canonical JEE taxonomy."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115215",
+      "reason": "CONTRADICTORY_SOURCE_PREMISES",
+      "detail": "The source states p and q are positive with p + q = 2 but p⁴ + q⁴ = 272. Positive numbers with this sum cannot meet the latter condition. The contradiction has not been silently corrected."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115219",
+      "reason": "AMBIGUOUS_SOURCE_DOMAIN",
+      "detail": "The displayed limit is x → 0, with numerator ∫₀^(x²) sin(√t)dt divided by x³. Its one-sided limits have opposite signs; the final-key option 2/3 requires an unstated right-hand domain. The source limit has not been silently changed."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115233",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Tautology and propositional logic belong to historical Mathematical Reasoning, absent from the existing canonical JEE taxonomy."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115234",
+      "reason": "CONTRADICTORY_SOURCE_PREMISES",
+      "detail": "Writing z = x − 2i gives α = −x/√((x − 1)² + 4). Its supremum 1 as x → −∞ is not attained, so the requested largest real α does not exist. The final-key value cannot justify silently dropping the absolute-value sign constraints."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115238",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "The arithmetic of union and intersection of defined sets belongs to Sets, Relations and Functions, absent from the existing canonical JEE taxonomy."
+    },
+    {
+      "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+      "questionId": "100001",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Counting functions belongs to Sets, Relations and Functions, absent from the current canonical JEE taxonomy."
+    },
+    {
+      "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+      "questionId": "100003",
+      "reason": "DROPPED_BY_NTA",
+      "detail": "The applicable NTA final answer key marks this exact question ID Drop."
+    },
+    {
+      "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+      "questionId": "100033",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Distance and displacement on the original circular-path diagram belong to Kinematics, absent from canonical Physics taxonomy. The required figure is also not represented."
+    },
+    {
+      "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+      "questionId": "100038",
+      "reason": "CONTRADICTORY_SOURCE_PREMISES",
+      "detail": "Statement D says pressure increases while pressure is held constant, yet the final-key option selects D as true. The obvious possible pressure/volume transcription correction is not silently made."
+    },
+    {
+      "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+      "questionId": "100039",
+      "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+      "detail": "Two spring/mass arrangements are specified by required original diagrams, which are not faithfully represented in the structured record."
+    },
+    {
+      "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+      "questionId": "100040",
+      "reason": "FIGURE_REPRESENTATION_UNSUPPORTED",
+      "detail": "The four answer options are voltage-charge graphs with distinct scales and shapes; all graphical alternatives must be represented faithfully."
+    },
+    {
+      "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+      "questionId": "100051",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Stopping-distance kinematics has no matching canonical JEE Physics chapter in the current taxonomy."
+    },
+    {
+      "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+      "questionId": "100052",
+      "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+      "detail": "The directions and angles of four forces are provided by a required original force diagram, which is not faithfully represented here."
+    },
+    {
+      "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+      "questionId": "100061",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "The direct reaction-stoichiometry/mole-concept question lacks a supported canonical JEE Chemistry chapter in the current taxonomy."
+    },
+    {
+      "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+      "questionId": "100065",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "The listed industrial catalyst/reaction matches belong to historical Surface Chemistry, absent from the current canonical taxonomy."
+    },
+    {
+      "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+      "questionId": "100067",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Copper extraction and slag formation belong to historical Metallurgy, absent from current canonical JEE Chemistry taxonomy."
+    },
+    {
+      "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+      "questionId": "100083",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "The moist-gas partial-pressure calculation belongs to historical States of Matter/Gas Laws in Chemistry, absent from the canonical Chemistry taxonomy. It is not reassigned to Physics."
+    },
+    {
+      "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+      "questionId": "7155053682",
+      "reason": "SOURCE_OPTION_AMBIGUITY",
+      "detail": "The first source option refers to an undefined set C; no correction or inference is made."
+    },
+    {
+      "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+      "questionId": "7155053701",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Logical equivalence of implications belongs to Mathematical Reasoning, which is absent from the current canonical JEE taxonomy."
+    },
+    {
+      "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+      "questionId": "7155053723",
+      "reason": "FIGURE_REPRESENTATION_UNSUPPORTED",
+      "detail": "The four answer options are distinct potential-versus-radius graphs; faithfully representing all graph shapes is required."
+    },
+    {
+      "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+      "questionId": "7155053712",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "TV-tower transmission range belongs to historical Communication Systems, absent from the current canonical JEE Physics taxonomy."
+    },
+    {
+      "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+      "questionId": "7155053722",
+      "reason": "FIGURE_REPRESENTATION_UNSUPPORTED",
+      "detail": "Four distinct resistivity-temperature curves are the answer options; those graphs are not faithfully represented in the structured record."
+    },
+    {
+      "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+      "questionId": "7155053720",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Average velocity on a circular path belongs to Kinematics, absent from the current canonical Physics taxonomy."
+    },
+    {
+      "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+      "questionId": "7155053713",
+      "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+      "detail": "The logic-gate equivalent is determined by the LED/switch circuit diagram, which is not represented in the structured record."
+    },
+    {
+      "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+      "questionId": "7155053728",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "The assertion/reason about maximum projectile range belongs to Kinematics, absent from canonical Physics taxonomy."
+    },
+    {
+      "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+      "questionId": "7155053738",
+      "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+      "detail": "The original perpendicular current-loop arrangement and directions are provided in a required diagram that has not been faithfully represented in the structured record."
+    },
+    {
+      "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+      "questionId": "7155053742",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Close packing and tetrahedral void occupancy belong to historical Solid State, absent from the canonical Chemistry taxonomy."
+    },
+    {
+      "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+      "questionId": "7155053760",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Orlon/polyacrylonitrile belongs to historical Polymers, absent from the canonical Chemistry taxonomy."
+    },
+    {
+      "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+      "questionId": "7155053759",
+      "reason": "STRUCTURAL_OPTIONS_NOT_REPRESENTED",
+      "detail": "The substituted aromatic structures and reduced side-chain alternatives have not been fully validated and represented in the limited V1 structured record."
+    },
+    {
+      "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+      "questionId": "7155053757",
+      "reason": "STRUCTURAL_OPTIONS_NOT_REPRESENTED",
+      "detail": "The four cyclic ester/amide/dicarbonyl alternatives require faithful ring connectivity that is not represented in this record."
+    },
+    {
+      "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+      "questionId": "7155053762",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "The limiting-reagent stoichiometry question lacks a matching Mole Concept/basic chemical calculations chapter in the current canonical taxonomy."
+    },
+    {
+      "paperId": "jee-main-2024-s2-2024-04-06-shift-1",
+      "questionId": "68019114064",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Symmetric relations belong to Sets, Relations and Functions, absent from current canonical JEE taxonomy."
+    },
+    {
+      "paperId": "jee-main-2024-s2-2024-04-06-shift-1",
+      "questionId": "68019114065",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Injective and surjective functions belong to Sets, Relations and Functions, absent from current canonical JEE taxonomy."
+    },
+    {
+      "paperId": "jee-main-2024-s2-2024-04-06-shift-1",
+      "questionId": "68019114069",
+      "reason": "DROPPED_BY_NTA",
+      "detail": "The applicable NTA final answer key marks this question DROP; no single-answer scoring semantics are invented."
+    },
+    {
+      "paperId": "jee-main-2024-s2-2024-04-06-shift-1",
+      "questionId": "68019114097",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Uniform acceleration and average speed belong to Kinematics, absent from the current canonical JEE taxonomy."
+    },
+    {
+      "paperId": "jee-main-2024-s2-2024-04-06-shift-1",
+      "questionId": "68019114103",
+      "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+      "detail": "The circuit topology and labelled points determine the unknown resistance; the required original circuit figure is not represented in the structured record."
+    },
+    {
+      "paperId": "jee-main-2024-s2-2024-04-06-shift-1",
+      "questionId": "68019114116",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "This Physics-section question is a scalar triple-product calculation. No matching mathematical-methods/vector-algebra chapter exists within the canonical Physics taxonomy, and the original subject is not reassigned to Mathematics."
+    },
+    {
+      "paperId": "jee-main-2024-s2-2024-04-06-shift-1",
+      "questionId": "68019114127",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Semiconductor classification in the Chemistry section belongs to Solid State, which is absent from the current canonical Chemistry taxonomy. The subject is not reassigned to Physics."
+    },
+    {
+      "paperId": "jee-main-2024-s2-2024-04-06-shift-1",
+      "questionId": "68019114128",
+      "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+      "detail": "The source specifies a partly filled conductivity-cell geometry in a required diagram, which has not been faithfully represented in this structured record."
+    },
+    {
+      "paperId": "jee-main-2025-s1-2025-01-22-shift-1",
+      "questionId": "65644580",
+      "reason": "CONTRADICTORY_SOURCE_PREMISES",
+      "detail": "The displayed partial-sum formula has S₁ = 105/64. For r ≥ 2 its difference gives Tᵣ = (2r − 1)(2r + 1)(2r + 3)/8, but using that formula for r = 1 would contradict S₁. The actual reciprocal sum is 26/35, absent from the options. The final-key choice cannot justify changing the first term."
+    },
+    {
+      "paperId": "jee-main-2025-s1-2025-01-22-shift-1",
+      "questionId": "65644577",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Equivalence relations belong to Sets, Relations and Functions, which is absent from the current canonical JEE taxonomy."
+    },
+    {
+      "paperId": "jee-main-2025-s1-2025-01-22-shift-1",
+      "questionId": "65644576",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "This set cardinality problem involving reduced rational numbers does not have a supported direct chapter in the current canonical taxonomy; no unrelated chapter is assigned."
+    },
+    {
+      "paperId": "jee-main-2025-s1-2025-01-22-shift-1",
+      "questionId": "656445112",
+      "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+      "detail": "The original labelled cube and line-charge placement diagram has not been faithfully represented in the structured record."
+    },
+    {
+      "paperId": "jee-main-2025-s1-2025-01-22-shift-1",
+      "questionId": "656445120",
+      "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+      "detail": "Forward-bias identification requires the diode orientations and electrode potentials of five original circuit diagrams, which are not faithfully represented here."
+    },
+    {
+      "paperId": "jee-main-2025-s1-2025-01-22-shift-1",
+      "questionId": "656445114",
+      "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+      "detail": "The potentiometer tap and external-resistor connections are specified by the required circuit diagram, which is not represented in this structured record."
+    },
+    {
+      "paperId": "jee-main-2025-s1-2025-01-22-shift-1",
+      "questionId": "656445122",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Projectile motion belongs to Kinematics, absent from the current canonical JEE Physics taxonomy."
+    },
+    {
+      "paperId": "jee-main-2025-s1-2025-01-22-shift-1",
+      "questionId": "656445124",
+      "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+      "detail": "The series/parallel arrangement and boundary temperatures of three thermal conductors are specified by a required diagram, which is not represented in this structured record."
+    },
+    {
+      "paperId": "jee-main-2025-s1-2025-01-22-shift-1",
+      "questionId": "656445138",
+      "reason": "STRUCTURAL_REPRESENTATION_NOT_VALIDATED",
+      "detail": "The original branched acid/ester structure and its IUPAC-name options require a fully validated chemical representation and nomenclature review; this record is excluded from the limited V1 pool."
+    }
+  ]
+}

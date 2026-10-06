@@ -1,0 +1,50 @@
+[
+  {
+    "paperId": "jee-main-2024-s2-2024-04-06-shift-1",
+    "questionId": "68019114064",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "Symmetric relations belong to Sets, Relations and Functions, absent from current canonical JEE taxonomy."
+  },
+  {
+    "paperId": "jee-main-2024-s2-2024-04-06-shift-1",
+    "questionId": "68019114065",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "Injective and surjective functions belong to Sets, Relations and Functions, absent from current canonical JEE taxonomy."
+  },
+  {
+    "paperId": "jee-main-2024-s2-2024-04-06-shift-1",
+    "questionId": "68019114069",
+    "reason": "DROPPED_BY_NTA",
+    "detail": "The applicable NTA final answer key marks this question DROP; no single-answer scoring semantics are invented."
+  },
+  {
+    "paperId": "jee-main-2024-s2-2024-04-06-shift-1",
+    "questionId": "68019114097",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "Uniform acceleration and average speed belong to Kinematics, absent from the current canonical JEE taxonomy."
+  },
+  {
+    "paperId": "jee-main-2024-s2-2024-04-06-shift-1",
+    "questionId": "68019114103",
+    "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+    "detail": "The circuit topology and labelled points determine the unknown resistance; the required original circuit figure is not represented in the structured record."
+  },
+  {
+    "paperId": "jee-main-2024-s2-2024-04-06-shift-1",
+    "questionId": "68019114116",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "This Physics-section question is a scalar triple-product calculation. No matching mathematical-methods/vector-algebra chapter exists within the canonical Physics taxonomy, and the original subject is not reassigned to Mathematics."
+  },
+  {
+    "paperId": "jee-main-2024-s2-2024-04-06-shift-1",
+    "questionId": "68019114127",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "Semiconductor classification in the Chemistry section belongs to Solid State, which is absent from the current canonical Chemistry taxonomy. The subject is not reassigned to Physics."
+  },
+  {
+    "paperId": "jee-main-2024-s2-2024-04-06-shift-1",
+    "questionId": "68019114128",
+    "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+    "detail": "The source specifies a partly filled conductivity-cell geometry in a required diagram, which has not been faithfully represented in this structured record."
+  }
+]

@@ -11,7 +11,9 @@ import {
 } from './index';
 import { generateBalancedHistoricalSet } from './historical';
 import type { QuestionNature } from '@/lib/previous-year/question-nature';
-import { generateNaturePractice, supportsNature } from '@/lib/previous-year/nature-pool';
+import { generateNaturePractice, supportsNature, naturePoolWhere } from '@/lib/previous-year/nature-pool';
+import { previousYearExam, previousYearMode } from '@/lib/previous-year/modes';
+import { selectJeeHistoricalPool } from '@/lib/previous-year/jee-practice';
 
 /**
  * DB-backed bridge between a stored `Test` and the pure generator:
@@ -174,6 +176,10 @@ export async function checkFeasibility(testId: string): Promise<FeasibilityResul
   if (test.isRandom) {
     for (const language of languages) {
       try {
+        if (isJeeHistoricalPractice(test)) {
+          await generateJeeHistoricalPractice(test, language, `feasibility:${testId}:${language}`);
+          continue;
+        }
         const rules = await buildRandomRules(test, { language, taOnly: language !== 'en' });
         const stored = parseTestRules(test.rules);
         if (stored.historical?.balanceYears) generateBalancedHistoricalSet(rules, stored.historical.years, `feasibility:${testId}:${language}`);
@@ -225,12 +231,17 @@ export async function generateForAttempt(
   const test = await prisma.test.findUnique({ where: { id: testId } });
   if (!test) throw new GeneratorError('Test not found');
   if (questionNature) {
-    if (!supportsNature(test)) throw new GeneratorError('Question Nature is only available for NEET Previous-Year Practice.');
+    if (!supportsNature(test)) throw new GeneratorError('Question Nature is only available for verified Previous-Year Practice.');
     const result = await generateNaturePractice(test, questionNature, language, attemptSeed);
     // A filtered mixed set is practice, even when its parent catalogue entry
     // is a 180-question FULL_TEST. Original-paper/full-mock quotas apply only
     // to the unchanged All Questions path.
     await validateAttemptQuestions({ ...test, testType: 'MINI_TEST', totalQuestions: result.questionIds.length }, result.questionIds, language);
+    return result;
+  }
+  if (test.isRandom && isJeeHistoricalPractice(test)) {
+    const result = await generateJeeHistoricalPractice(test, language, attemptSeed);
+    await validateAttemptQuestions(test, result.questionIds, language);
     return result;
   }
   if (!test.isRandom) {
@@ -271,4 +282,19 @@ async function validateAttemptQuestions(test: { testType: string; totalQuestions
       ? 'JEE full mock requires 20 MCQ and 5 numerical questions per subject'
       : 'NEET full mock requires Physics 45, Chemistry 45, and Biology 90 questions');
   }
+}
+
+function isJeeHistoricalPractice(test: { testType: string; rules: unknown }) {
+  return previousYearExam(test.rules) === 'JEE' && supportsNature(test);
+}
+
+async function generateJeeHistoricalPractice(test: { id: string; isRandom: boolean; rules: unknown; totalQuestions: number; testType: string }, language: string, seed: string) {
+  const rows = await prisma.question.findMany({ where: { ...naturePoolWhere(test),
+    translations: { some: { language, ...(language === 'en' ? {} : { reviewed: true }) } } },
+    select: { id: true, subjectId: true, chapterId: true, difficulty: true, examYear: true, questionType: true, subject: { select: { code: true } } } });
+  const result = selectJeeHistoricalPool(rows.map(row => ({ id: row.id, subjectId: row.subjectId, chapterId: row.chapterId,
+    difficulty: row.difficulty, year: row.examYear, hasReviewedTa: true, questionType: row.questionType, subjectCode: row.subject.code })),
+    previousYearMode(test) === 'MIXED_FIVE_YEARS', seed);
+  if (result.questionIds.length !== test.totalQuestions) throw new GeneratorError('Verified JEE practice pool no longer matches the published selection.');
+  return result;
 }

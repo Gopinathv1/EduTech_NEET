@@ -1,0 +1,37 @@
+{
+  "year": 2021,
+  "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+  "sourceQuestions": 90,
+  "reviewed": 90,
+  "validated": 66,
+  "quarantined": 24,
+  "notSelectedForV1": 0,
+  "notSelectedQuestionIds": [],
+  "historicalCompleteness": "PARTIAL_VERIFIED_PRACTICE",
+  "questionsSha256": "4b22fa9face3b136cbe9c519dbecb28c945e045e1c961fd8ef6299a46b1965de",
+  "paperIdentity": {
+    "exam": "JEE_MAIN",
+    "paper": "PAPER_1",
+    "year": 2021,
+    "session": 1,
+    "examDate": "2021-02-24",
+    "shift": 1,
+    "regionVariant": "UNSPECIFIED"
+  },
+  "wordingSource": {
+    "url": "https://docs.aglasem.com/view/ac6fbc6e-9dec-11eb-b3ff-02f21f5619c4",
+    "sha256": "5e1ddcb58f49b1399fbb0123c832e327e2ebb52cf1cb98b5bf79db8da28d53ed",
+    "authority": "HISTORICAL_ARCHIVE",
+    "provenance": "HISTORICAL_VERIFIED"
+  },
+  "finalAnswerKey": {
+    "url": "https://www.nta.ac.in/Download/Notice/Notice_20210308221806.pdf",
+    "sha256": "e04f6baaae3ba8e51d10ded321c3f595235a31fe36d8a233aee537f9e30b014c",
+    "page": 3,
+    "authority": "OFFICIAL_NTA_FINAL"
+  },
+  "subjectAuthority": "SOURCE_PAPER_SECTION",
+  "classificationAuthority": "SIVORA_CLASSIFICATION",
+  "numbering": "Printed source question number and exact NTA question ID.",
+  "extractionReview": "Original source question blocks visually reviewed."
+}

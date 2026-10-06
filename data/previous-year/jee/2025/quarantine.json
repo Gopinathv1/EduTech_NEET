@@ -1,0 +1,56 @@
+[
+  {
+    "paperId": "jee-main-2025-s1-2025-01-22-shift-1",
+    "questionId": "65644580",
+    "reason": "CONTRADICTORY_SOURCE_PREMISES",
+    "detail": "The displayed partial-sum formula has S₁ = 105/64. For r ≥ 2 its difference gives Tᵣ = (2r − 1)(2r + 1)(2r + 3)/8, but using that formula for r = 1 would contradict S₁. The actual reciprocal sum is 26/35, absent from the options. The final-key choice cannot justify changing the first term."
+  },
+  {
+    "paperId": "jee-main-2025-s1-2025-01-22-shift-1",
+    "questionId": "65644577",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "Equivalence relations belong to Sets, Relations and Functions, which is absent from the current canonical JEE taxonomy."
+  },
+  {
+    "paperId": "jee-main-2025-s1-2025-01-22-shift-1",
+    "questionId": "65644576",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "This set cardinality problem involving reduced rational numbers does not have a supported direct chapter in the current canonical taxonomy; no unrelated chapter is assigned."
+  },
+  {
+    "paperId": "jee-main-2025-s1-2025-01-22-shift-1",
+    "questionId": "656445112",
+    "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+    "detail": "The original labelled cube and line-charge placement diagram has not been faithfully represented in the structured record."
+  },
+  {
+    "paperId": "jee-main-2025-s1-2025-01-22-shift-1",
+    "questionId": "656445120",
+    "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+    "detail": "Forward-bias identification requires the diode orientations and electrode potentials of five original circuit diagrams, which are not faithfully represented here."
+  },
+  {
+    "paperId": "jee-main-2025-s1-2025-01-22-shift-1",
+    "questionId": "656445114",
+    "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+    "detail": "The potentiometer tap and external-resistor connections are specified by the required circuit diagram, which is not represented in this structured record."
+  },
+  {
+    "paperId": "jee-main-2025-s1-2025-01-22-shift-1",
+    "questionId": "656445122",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "Projectile motion belongs to Kinematics, absent from the current canonical JEE Physics taxonomy."
+  },
+  {
+    "paperId": "jee-main-2025-s1-2025-01-22-shift-1",
+    "questionId": "656445124",
+    "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+    "detail": "The series/parallel arrangement and boundary temperatures of three thermal conductors are specified by a required diagram, which is not represented in this structured record."
+  },
+  {
+    "paperId": "jee-main-2025-s1-2025-01-22-shift-1",
+    "questionId": "656445138",
+    "reason": "STRUCTURAL_REPRESENTATION_NOT_VALIDATED",
+    "detail": "The original branched acid/ester structure and its IUPAC-name options require a fully validated chemical representation and nomenclature review; this record is excluded from the limited V1 pool."
+  }
+]

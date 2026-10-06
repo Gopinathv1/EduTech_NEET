@@ -1,0 +1,74 @@
+[
+  {
+    "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+    "questionId": "100001",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "Counting functions belongs to Sets, Relations and Functions, absent from the current canonical JEE taxonomy."
+  },
+  {
+    "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+    "questionId": "100003",
+    "reason": "DROPPED_BY_NTA",
+    "detail": "The applicable NTA final answer key marks this exact question ID Drop."
+  },
+  {
+    "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+    "questionId": "100033",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "Distance and displacement on the original circular-path diagram belong to Kinematics, absent from canonical Physics taxonomy. The required figure is also not represented."
+  },
+  {
+    "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+    "questionId": "100038",
+    "reason": "CONTRADICTORY_SOURCE_PREMISES",
+    "detail": "Statement D says pressure increases while pressure is held constant, yet the final-key option selects D as true. The obvious possible pressure/volume transcription correction is not silently made."
+  },
+  {
+    "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+    "questionId": "100039",
+    "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+    "detail": "Two spring/mass arrangements are specified by required original diagrams, which are not faithfully represented in the structured record."
+  },
+  {
+    "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+    "questionId": "100040",
+    "reason": "FIGURE_REPRESENTATION_UNSUPPORTED",
+    "detail": "The four answer options are voltage-charge graphs with distinct scales and shapes; all graphical alternatives must be represented faithfully."
+  },
+  {
+    "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+    "questionId": "100051",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "Stopping-distance kinematics has no matching canonical JEE Physics chapter in the current taxonomy."
+  },
+  {
+    "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+    "questionId": "100052",
+    "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+    "detail": "The directions and angles of four forces are provided by a required original force diagram, which is not faithfully represented here."
+  },
+  {
+    "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+    "questionId": "100061",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "The direct reaction-stoichiometry/mole-concept question lacks a supported canonical JEE Chemistry chapter in the current taxonomy."
+  },
+  {
+    "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+    "questionId": "100065",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "The listed industrial catalyst/reaction matches belong to historical Surface Chemistry, absent from the current canonical taxonomy."
+  },
+  {
+    "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+    "questionId": "100067",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "Copper extraction and slag formation belong to historical Metallurgy, absent from current canonical JEE Chemistry taxonomy."
+  },
+  {
+    "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+    "questionId": "100083",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "The moist-gas partial-pressure calculation belongs to historical States of Matter/Gas Laws in Chemistry, absent from the canonical Chemistry taxonomy. It is not reassigned to Physics."
+  }
+]

@@ -15,7 +15,7 @@ it('starts filtered mixed practice with the actual eligible count instead of enf
 });
 it('rejects a nature restriction on a real Full Mock',async()=>{
   vi.mocked(prisma.test.findUnique).mockResolvedValue({...mixed,rules:{exam:'NEET'}} as never);
-  await expect(generateForAttempt('mock','en','seed','CONCEPTUAL_THEORY')).rejects.toThrow('only available for NEET');
+  await expect(generateForAttempt('mock','en','seed','CONCEPTUAL_THEORY')).rejects.toThrow('only available for verified Previous-Year Practice');
   expect(prisma.question.findMany).not.toHaveBeenCalled();
 });
 it('preserves fixed All Questions membership and original order',async()=>{

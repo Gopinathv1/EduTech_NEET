@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 1,
+  "classificationAuthority": "SIVORA_CLASSIFICATION",
+  "taxonomyWrites": 0,
+  "policy": "Questions without a supported canonical chapter remain quarantined; no substitute chapter is inferred.",
+  "affectedQuestions": 32,
+  "records": [
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115180",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Amplitude modulation belongs to historical Communication Systems, which is not present in the existing canonical JEE taxonomy. No taxonomy changes have been made."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115185",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "The historical Surface Chemistry/Freundlich adsorption chapter is absent from the existing canonical JEE taxonomy. The source also requires a graph."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115187",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Historical metallurgy/ore concentration is absent from the existing canonical JEE taxonomy. No unrelated chapter has been assigned."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115189",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "The historical metallurgy/Bayer-process topic has no supported canonical JEE chapter classification in the existing taxonomy."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115192",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Historical Environmental Chemistry is absent from the current canonical JEE taxonomy."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115201",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Historical synthetic Polymers is absent from the existing canonical JEE taxonomy; the synthetic-polymer matching question is not classified as Biomolecules."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115205",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Body-centred cubic lattice coordination belongs to historical Solid State, which is absent from the existing canonical JEE taxonomy. It has not been relabelled as coordination chemistry."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115214",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Composition and injectivity/surjectivity belong to Sets, Relations and Functions, absent from the existing canonical JEE taxonomy."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115233",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Tautology and propositional logic belong to historical Mathematical Reasoning, absent from the existing canonical JEE taxonomy."
+    },
+    {
+      "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+      "questionId": "70819115238",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "The arithmetic of union and intersection of defined sets belongs to Sets, Relations and Functions, absent from the existing canonical JEE taxonomy."
+    },
+    {
+      "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+      "questionId": "100001",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Counting functions belongs to Sets, Relations and Functions, absent from the current canonical JEE taxonomy."
+    },
+    {
+      "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+      "questionId": "100033",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Distance and displacement on the original circular-path diagram belong to Kinematics, absent from canonical Physics taxonomy. The required figure is also not represented."
+    },
+    {
+      "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+      "questionId": "100051",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Stopping-distance kinematics has no matching canonical JEE Physics chapter in the current taxonomy."
+    },
+    {
+      "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+      "questionId": "100061",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "The direct reaction-stoichiometry/mole-concept question lacks a supported canonical JEE Chemistry chapter in the current taxonomy."
+    },
+    {
+      "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+      "questionId": "100065",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "The listed industrial catalyst/reaction matches belong to historical Surface Chemistry, absent from the current canonical taxonomy."
+    },
+    {
+      "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+      "questionId": "100067",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Copper extraction and slag formation belong to historical Metallurgy, absent from current canonical JEE Chemistry taxonomy."
+    },
+    {
+      "paperId": "jee-main-2022-s2-2022-07-25-shift-1",
+      "questionId": "100083",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "The moist-gas partial-pressure calculation belongs to historical States of Matter/Gas Laws in Chemistry, absent from the canonical Chemistry taxonomy. It is not reassigned to Physics."
+    },
+    {
+      "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+      "questionId": "7155053701",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Logical equivalence of implications belongs to Mathematical Reasoning, which is absent from the current canonical JEE taxonomy."
+    },
+    {
+      "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+      "questionId": "7155053712",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "TV-tower transmission range belongs to historical Communication Systems, absent from the current canonical JEE Physics taxonomy."
+    },
+    {
+      "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+      "questionId": "7155053720",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Average velocity on a circular path belongs to Kinematics, absent from the current canonical Physics taxonomy."
+    },
+    {
+      "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+      "questionId": "7155053728",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "The assertion/reason about maximum projectile range belongs to Kinematics, absent from canonical Physics taxonomy."
+    },
+    {
+      "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+      "questionId": "7155053742",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Close packing and tetrahedral void occupancy belong to historical Solid State, absent from the canonical Chemistry taxonomy."
+    },
+    {
+      "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+      "questionId": "7155053760",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Orlon/polyacrylonitrile belongs to historical Polymers, absent from the canonical Chemistry taxonomy."
+    },
+    {
+      "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+      "questionId": "7155053762",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "The limiting-reagent stoichiometry question lacks a matching Mole Concept/basic chemical calculations chapter in the current canonical taxonomy."
+    },
+    {
+      "paperId": "jee-main-2024-s2-2024-04-06-shift-1",
+      "questionId": "68019114064",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Symmetric relations belong to Sets, Relations and Functions, absent from current canonical JEE taxonomy."
+    },
+    {
+      "paperId": "jee-main-2024-s2-2024-04-06-shift-1",
+      "questionId": "68019114065",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Injective and surjective functions belong to Sets, Relations and Functions, absent from current canonical JEE taxonomy."
+    },
+    {
+      "paperId": "jee-main-2024-s2-2024-04-06-shift-1",
+      "questionId": "68019114097",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Uniform acceleration and average speed belong to Kinematics, absent from the current canonical JEE taxonomy."
+    },
+    {
+      "paperId": "jee-main-2024-s2-2024-04-06-shift-1",
+      "questionId": "68019114116",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "This Physics-section question is a scalar triple-product calculation. No matching mathematical-methods/vector-algebra chapter exists within the canonical Physics taxonomy, and the original subject is not reassigned to Mathematics."
+    },
+    {
+      "paperId": "jee-main-2024-s2-2024-04-06-shift-1",
+      "questionId": "68019114127",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Semiconductor classification in the Chemistry section belongs to Solid State, which is absent from the current canonical Chemistry taxonomy. The subject is not reassigned to Physics."
+    },
+    {
+      "paperId": "jee-main-2025-s1-2025-01-22-shift-1",
+      "questionId": "65644577",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Equivalence relations belong to Sets, Relations and Functions, which is absent from the current canonical JEE taxonomy."
+    },
+    {
+      "paperId": "jee-main-2025-s1-2025-01-22-shift-1",
+      "questionId": "65644576",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "This set cardinality problem involving reduced rational numbers does not have a supported direct chapter in the current canonical taxonomy; no unrelated chapter is assigned."
+    },
+    {
+      "paperId": "jee-main-2025-s1-2025-01-22-shift-1",
+      "questionId": "656445122",
+      "reason": "CANONICAL_CHAPTER_MISSING",
+      "detail": "Projectile motion belongs to Kinematics, absent from the current canonical JEE Physics taxonomy."
+    }
+  ]
+}

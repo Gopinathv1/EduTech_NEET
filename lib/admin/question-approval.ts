@@ -1,4 +1,4 @@
-import type { Prisma } from '@prisma/client';
+import type { Prisma, PrismaClient } from '@prisma/client';
 import { prisma } from '@/lib/prisma';
 import { writeQuestionVersion } from '@/lib/admin/question-version';
 import { isAllowedOfficialSource } from '@/lib/question-bank/official-sources';
@@ -33,12 +33,23 @@ const approvalQuestionSelect = {
 
 type ApprovalQuestion = Prisma.QuestionGetPayload<{ select: typeof approvalQuestionSelect }>;
 
-export function approvalIssues(question: ApprovalQuestion): string[] {
+export type QuestionApprovalOptions = {
+  /** Guarded release scripts may supply their already-validated direct client. */
+  client?: PrismaClient;
+  /** Keep release audit records atomic with their transition and version. */
+  atomicAudit?: boolean;
+  /** JEE's canonical taxonomy permits a verified chapter without a finer topic. */
+  allowChapterOnly?: boolean;
+  /** Refuse a release transition if the preflighted question changed meanwhile. */
+  expectedUpdatedAt?: Date;
+};
+
+export function approvalIssues(question: ApprovalQuestion, options: Pick<QuestionApprovalOptions, 'allowChapterOnly'> = {}): string[] {
   const issues: string[] = [];
   const en = question.translations.find((translation) => translation.language === 'en');
   if (!question.externalId) issues.push('A deterministic external ID is required.');
   if (!question.exam || !['NEET', 'JEE'].includes(question.exam)) issues.push('Exam must be NEET or JEE.');
-  if (!question.topic) issues.push('Topic is required.');
+  if (!question.topic && !(options.allowChapterOnly && question.exam === 'JEE' && question.sourceType === 'HISTORICAL_VERIFIED')) issues.push('Topic is required.');
   if (!question.chapterId) issues.push('Chapter is required.');
   if (!question.sourceType || !question.sourceName) issues.push('Source type and source name are required.');
   if (!en?.questionText?.trim() || !en.explanation?.trim()) issues.push('English question text and explanation are required.');
@@ -65,29 +76,30 @@ export function approvalIssues(question: ApprovalQuestion): string[] {
   return issues;
 }
 
-export async function loadQuestionForApproval(id: string): Promise<ApprovalQuestion | null> {
-  return prisma.question.findUnique({ where: { id }, select: approvalQuestionSelect });
+export async function loadQuestionForApproval(id: string, client = prisma): Promise<ApprovalQuestion | null> {
+  return client.question.findUnique({ where: { id }, select: approvalQuestionSelect });
 }
 
 export async function approveQuestion(
   id: string,
   admin: QuestionApprover,
-  options: { note?: string; allowAlreadyApproved?: boolean } = {},
+  options: QuestionApprovalOptions & { note?: string; allowAlreadyApproved?: boolean } = {},
 ): Promise<{ reviewState: 'APPROVED'; alreadyApproved: boolean }> {
-  const question = await loadQuestionForApproval(id);
+  const client = options.client ?? prisma;
+  const question = await loadQuestionForApproval(id, client);
   if (!question) throw new QuestionApprovalError('notFound');
   if (question.reviewState === 'APPROVED' && options.allowAlreadyApproved) {
     return { reviewState: 'APPROVED', alreadyApproved: true };
   }
   if (question.reviewState !== 'REVIEW_REQUIRED') throw new QuestionApprovalError('invalidReviewTransition');
-  const issues = approvalIssues(question);
+  const issues = approvalIssues(question, options);
   if (issues.length) throw new QuestionApprovalError('approvalValidation', issues);
 
   const note = options.note?.trim() || null;
   const now = new Date();
-  await prisma.$transaction(async (tx) => {
+  await client.$transaction(async (tx) => {
     const updated = await tx.question.updateMany({
-      where: { id, reviewState: 'REVIEW_REQUIRED' },
+      where: { id, reviewState: 'REVIEW_REQUIRED', ...(options.expectedUpdatedAt ? { updatedAt: options.expectedUpdatedAt } : {}) },
       data: {
         reviewState: 'APPROVED',
         reviewNote: note,
@@ -100,9 +112,13 @@ export async function approveQuestion(
     });
     if (updated.count !== 1) throw new QuestionApprovalError('invalidReviewTransition');
     await writeQuestionVersion(tx, id, 'review:APPROVED', admin);
+    if (options.atomicAudit) await tx.auditLog.create({ data: {
+      adminId: admin.sub, adminName: admin.name, action: 'question.review.approved',
+      entityType: 'Question', entityId: id, details: { note },
+    } });
   });
 
-  await logAudit(admin, {
+  if (!options.atomicAudit) await logAudit(admin, {
     action: 'question.review.approved',
     entityType: 'Question',
     entityId: id,
@@ -114,19 +130,21 @@ export async function approveQuestion(
 export async function submitImportedQuestionForReview(
   id: string,
   admin: QuestionApprover,
-  topic: string,
+  topic: string | null,
+  options: QuestionApprovalOptions = {},
 ): Promise<void> {
-  const question = await loadQuestionForApproval(id);
+  const client = options.client ?? prisma;
+  const question = await loadQuestionForApproval(id, client);
   if (!question) throw new QuestionApprovalError('notFound');
   if (question.reviewState === 'REVIEW_REQUIRED' || question.reviewState === 'APPROVED') return;
   if (question.reviewState !== 'DRAFT') throw new QuestionApprovalError('invalidReviewTransition');
-  const normalizedTopic = topic.trim();
-  const issues = approvalIssues({ ...question, topic: normalizedTopic });
+  const normalizedTopic = topic?.trim() ?? null;
+  const issues = approvalIssues({ ...question, topic: normalizedTopic }, options);
   if (issues.length) throw new QuestionApprovalError('approvalValidation', issues);
 
-  await prisma.$transaction(async (tx) => {
+  await client.$transaction(async (tx) => {
     const updated = await tx.question.updateMany({
-      where: { id, reviewState: 'DRAFT' },
+      where: { id, reviewState: 'DRAFT', ...(options.expectedUpdatedAt ? { updatedAt: options.expectedUpdatedAt } : {}) },
       data: {
         topic: normalizedTopic,
         reviewState: 'REVIEW_REQUIRED',
@@ -140,8 +158,12 @@ export async function submitImportedQuestionForReview(
     });
     if (updated.count !== 1) throw new QuestionApprovalError('invalidReviewTransition');
     await writeQuestionVersion(tx, id, 'updated', admin);
+    if (options.atomicAudit) await tx.auditLog.create({ data: {
+      adminId: admin.sub, adminName: admin.name, action: 'question.update',
+      entityType: 'Question', entityId: id, details: { importedSelectionTransition: true },
+    } });
   });
-  await logAudit(admin, {
+  if (!options.atomicAudit) await logAudit(admin, {
     action: 'question.update',
     entityType: 'Question',
     entityId: id,

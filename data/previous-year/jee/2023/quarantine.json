@@ -1,0 +1,86 @@
+[
+  {
+    "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+    "questionId": "7155053682",
+    "reason": "SOURCE_OPTION_AMBIGUITY",
+    "detail": "The first source option refers to an undefined set C; no correction or inference is made."
+  },
+  {
+    "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+    "questionId": "7155053701",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "Logical equivalence of implications belongs to Mathematical Reasoning, which is absent from the current canonical JEE taxonomy."
+  },
+  {
+    "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+    "questionId": "7155053723",
+    "reason": "FIGURE_REPRESENTATION_UNSUPPORTED",
+    "detail": "The four answer options are distinct potential-versus-radius graphs; faithfully representing all graph shapes is required."
+  },
+  {
+    "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+    "questionId": "7155053712",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "TV-tower transmission range belongs to historical Communication Systems, absent from the current canonical JEE Physics taxonomy."
+  },
+  {
+    "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+    "questionId": "7155053722",
+    "reason": "FIGURE_REPRESENTATION_UNSUPPORTED",
+    "detail": "Four distinct resistivity-temperature curves are the answer options; those graphs are not faithfully represented in the structured record."
+  },
+  {
+    "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+    "questionId": "7155053720",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "Average velocity on a circular path belongs to Kinematics, absent from the current canonical Physics taxonomy."
+  },
+  {
+    "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+    "questionId": "7155053713",
+    "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+    "detail": "The logic-gate equivalent is determined by the LED/switch circuit diagram, which is not represented in the structured record."
+  },
+  {
+    "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+    "questionId": "7155053728",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "The assertion/reason about maximum projectile range belongs to Kinematics, absent from canonical Physics taxonomy."
+  },
+  {
+    "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+    "questionId": "7155053738",
+    "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+    "detail": "The original perpendicular current-loop arrangement and directions are provided in a required diagram that has not been faithfully represented in the structured record."
+  },
+  {
+    "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+    "questionId": "7155053742",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "Close packing and tetrahedral void occupancy belong to historical Solid State, absent from the canonical Chemistry taxonomy."
+  },
+  {
+    "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+    "questionId": "7155053760",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "Orlon/polyacrylonitrile belongs to historical Polymers, absent from the canonical Chemistry taxonomy."
+  },
+  {
+    "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+    "questionId": "7155053759",
+    "reason": "STRUCTURAL_OPTIONS_NOT_REPRESENTED",
+    "detail": "The substituted aromatic structures and reduced side-chain alternatives have not been fully validated and represented in the limited V1 structured record."
+  },
+  {
+    "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+    "questionId": "7155053757",
+    "reason": "STRUCTURAL_OPTIONS_NOT_REPRESENTED",
+    "detail": "The four cyclic ester/amide/dicarbonyl alternatives require faithful ring connectivity that is not represented in this record."
+  },
+  {
+    "paperId": "jee-main-2023-s2-2023-04-06-shift-1",
+    "questionId": "7155053762",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "The limiting-reagent stoichiometry question lacks a matching Mole Concept/basic chemical calculations chapter in the current canonical taxonomy."
+  }
+]

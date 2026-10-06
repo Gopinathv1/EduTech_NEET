@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "authority": "SIVORA_CLASSIFICATION",
+  "total": 218,
+  "subjects": {
+    "JEE_PHYSICS": 61,
+    "JEE_CHEMISTRY": 68,
+    "JEE_MATHEMATICS": 89
+  },
+  "types": {
+    "SINGLE_CORRECT": 136,
+    "NUMERICAL_VALUE": 82
+  },
+  "natures": {
+    "CONCEPTUAL_THEORY": 51,
+    "NUMERICAL_PROBLEM_SOLVING": 167
+  },
+  "byYear": {
+    "2021": {
+      "total": 66,
+      "subjects": {
+        "JEE_PHYSICS": 22,
+        "JEE_CHEMISTRY": 20,
+        "JEE_MATHEMATICS": 24
+      },
+      "types": {
+        "SINGLE_CORRECT": 41,
+        "NUMERICAL_VALUE": 25
+      },
+      "natures": {
+        "CONCEPTUAL_THEORY": 16,
+        "NUMERICAL_PROBLEM_SOLVING": 50
+      }
+    },
+    "2022": {
+      "total": 33,
+      "subjects": {
+        "JEE_PHYSICS": 9,
+        "JEE_CHEMISTRY": 11,
+        "JEE_MATHEMATICS": 13
+      },
+      "types": {
+        "SINGLE_CORRECT": 21,
+        "NUMERICAL_VALUE": 12
+      },
+      "natures": {
+        "CONCEPTUAL_THEORY": 8,
+        "NUMERICAL_PROBLEM_SOLVING": 25
+      }
+    },
+    "2023": {
+      "total": 46,
+      "subjects": {
+        "JEE_PHYSICS": 8,
+        "JEE_CHEMISTRY": 10,
+        "JEE_MATHEMATICS": 28
+      },
+      "types": {
+        "SINGLE_CORRECT": 28,
+        "NUMERICAL_VALUE": 18
+      },
+      "natures": {
+        "CONCEPTUAL_THEORY": 9,
+        "NUMERICAL_PROBLEM_SOLVING": 37
+      }
+    },
+    "2024": {
+      "total": 37,
+      "subjects": {
+        "JEE_PHYSICS": 12,
+        "JEE_CHEMISTRY": 13,
+        "JEE_MATHEMATICS": 12
+      },
+      "types": {
+        "SINGLE_CORRECT": 23,
+        "NUMERICAL_VALUE": 14
+      },
+      "natures": {
+        "CONCEPTUAL_THEORY": 8,
+        "NUMERICAL_PROBLEM_SOLVING": 29
+      }
+    },
+    "2025": {
+      "total": 36,
+      "subjects": {
+        "JEE_PHYSICS": 10,
+        "JEE_CHEMISTRY": 14,
+        "JEE_MATHEMATICS": 12
+      },
+      "types": {
+        "SINGLE_CORRECT": 23,
+        "NUMERICAL_VALUE": 13
+      },
+      "natures": {
+        "CONCEPTUAL_THEORY": 10,
+        "NUMERICAL_PROBLEM_SOLVING": 26
+      }
+    }
+  }
+}

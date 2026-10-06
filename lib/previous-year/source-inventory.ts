@@ -3,7 +3,7 @@ import historicalMatrixJson from '@/data/previous-year/historical-matrix.json';
 import { isAllowedOfficialSource } from '@/lib/question-bank/official-sources';
 
 export const PREVIOUS_YEAR_WINDOW = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025] as const;
-export const PREVIOUS_YEAR_MODES = ['YEAR_WISE', 'MIXED_FIVE_YEARS', 'SUBJECT_CHAPTER'] as const;
+export const PREVIOUS_YEAR_MODES = ['HISTORICAL_SHIFT', 'YEAR_WISE', 'MIXED_FIVE_YEARS', 'SUBJECT_CHAPTER'] as const;
 
 export type PreviousYearExam = 'NEET' | 'JEE';
 export type PaperAvailability = 'AVAILABLE' | 'PARTIAL' | 'UNAVAILABLE';

@@ -72,6 +72,8 @@ export function questionVersionSnapshot(q: Prisma.QuestionGetPayload<{ include: 
         optionC: t.optionC,
         optionD: t.optionD,
         correctOption: t.correctOption,
+        numericAnswer: t.numericAnswer?.toString() ?? null,
+        numericTolerance: t.numericTolerance?.toString() ?? null,
         explanation: t.explanation,
         reviewed: t.reviewed,
       })),

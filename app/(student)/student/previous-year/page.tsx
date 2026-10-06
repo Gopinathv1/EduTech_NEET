@@ -18,6 +18,7 @@ type PracticeMetadata = {
   filterLevel?: 'SUBJECT' | 'CHAPTER';
   subjectCode?: string;
   chapterSlug?: string | null;
+  paperIdentity?: { year: number; session: number; examDate: string; shift: number; regionVariant: string };
 };
 
 function practiceMetadata(rules: unknown): PracticeMetadata {
@@ -35,6 +36,10 @@ export default async function PreviousYearPracticePage() {
     .map((test) => ({ ...test, mode: previousYearMode(test), exam: previousYearExam(test.rules) }))
     .filter((test) => test.mode && test.exam);
   const modeKey = { yearWise: 'YEAR_WISE', mixed: 'MIXED_FIVE_YEARS', subjectChapter: 'SUBJECT_CHAPTER' } as const;
+  const shifts = available.filter(test => test.mode === 'HISTORICAL_SHIFT' && practiceMetadata(test.rules).paperIdentity);
+  const subjectLabel = (subject: string | undefined) => subject === 'JEE_MATHEMATICS' ? 'Mathematics'
+    : subject === 'PHYSICS' || subject === 'JEE_PHYSICS' ? t('subject.PHYSICS')
+    : subject === 'CHEMISTRY' || subject === 'JEE_CHEMISTRY' ? t('subject.CHEMISTRY') : t('subject.BIOLOGY');
 
   return (
     <div className="min-h-screen bg-surface">
@@ -46,10 +51,39 @@ export default async function PreviousYearPracticePage() {
         <p className="mt-8 text-xs font-semibold uppercase tracking-[0.14em] text-brand">{t('eyebrow')}</p>
         <h1 className="mt-3 text-3xl font-bold tracking-tight text-textPrimary sm:text-4xl">{t('title')}</h1>
         <p className="mt-4 max-w-3xl text-base leading-7 text-textSecondary">{t('intro')}</p>
-        <p className="mt-3 text-sm text-textSecondary">For NEET, choose Question Nature after selecting a year, mixed practice, subject or chapter: All Questions, Conceptual / Theory, or Numerical / Problem-solving. Eligible counts appear before starting.</p>
+        <p className="mt-3 text-sm text-textSecondary">For verified NEET and JEE practice, choose Question Nature after selecting a year, shift, mixed practice, subject or chapter: All Questions, Conceptual / Theory, or Numerical / Problem-solving. Eligible counts appear before starting.</p>
         <p className="mt-3 max-w-3xl rounded-xl border border-border bg-surfaceElevated p-4 text-sm text-textSecondary">
           {t('disclaimer')}
         </p>
+
+        {shifts.length ? (
+          <section className="mt-8 rounded-2xl border border-border bg-surfaceElevated p-6">
+            <h2 className="text-xl font-bold text-textPrimary">JEE Main historical shift practice</h2>
+            <p className="mt-2 text-sm text-textSecondary">Choose year, session, date and shift. These verified subsets are partial practices.</p>
+            <div className="mt-4 space-y-3">
+              {[...new Set(shifts.map(test => practiceMetadata(test.rules).paperIdentity!.year))].sort().map(year => {
+                const yearShifts = shifts.filter(test => practiceMetadata(test.rules).paperIdentity!.year === year);
+                return <details key={year} className="rounded-lg border border-border p-3">
+                  <summary className="cursor-pointer font-semibold">{year}</summary>
+                  {[...new Set(yearShifts.map(test => practiceMetadata(test.rules).paperIdentity!.session))].sort().map(session => {
+                    const sessionShifts = yearShifts.filter(test => practiceMetadata(test.rules).paperIdentity!.session === session);
+                    return <details key={session} className="mt-3 rounded-md border border-border p-3">
+                      <summary className="cursor-pointer text-sm font-semibold">Session {session}</summary>
+                      {[...new Set(sessionShifts.map(test => practiceMetadata(test.rules).paperIdentity!.examDate))].sort().map(date => <details key={date} className="mt-3 p-2">
+                        <summary className="cursor-pointer text-sm">{date}</summary>
+                        <ul className="mt-2 space-y-2">{sessionShifts.filter(test => practiceMetadata(test.rules).paperIdentity!.examDate === date).map(test => <li key={test.id}>
+                          <Link href={`/student/tests/${test.id}/start`} className="block rounded-lg border border-brand/40 px-3 py-2 text-sm font-semibold text-brand hover:bg-brand-soft">
+                            Shift {practiceMetadata(test.rules).paperIdentity!.shift} · Verified partial practice · {test.totalQuestions} questions · Start
+                          </Link>
+                        </li>)}</ul>
+                      </details>)}
+                    </details>;
+                  })}
+                </details>;
+              })}
+            </div>
+          </section>
+        ) : null}
 
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
           {(['yearWise', 'mixed', 'subjectChapter'] as const).map((mode) => {
@@ -70,12 +104,13 @@ export default async function PreviousYearPracticePage() {
                   </ul>
                 ) : modeTests.length ? (
                   <div className="mt-5 space-y-3">
-                    {[...new Set(modeTests.map((test) => practiceMetadata(test.rules).practiceSource).filter(Boolean))].map((source) => {
-                      const periodTests = modeTests.filter((test) => practiceMetadata(test.rules).practiceSource === source);
+                    {[...new Set(modeTests.map((test) => `${test.exam}:${practiceMetadata(test.rules).practiceSource ?? ''}`))].map((period) => {
+                      const [exam, source] = period.split(':');
+                      const periodTests = modeTests.filter((test) => test.exam === exam && practiceMetadata(test.rules).practiceSource === source);
                       const periodLabel = source === 'MIXED_2021_2025' ? t('mixedPeriod') : source?.replace('YEAR_', '') ?? '';
                       return (
-                        <details key={source} className="rounded-lg border border-border bg-surface p-3">
-                          <summary className="cursor-pointer text-sm font-bold text-textPrimary">{periodLabel}</summary>
+                        <details key={period} className="rounded-lg border border-border bg-surface p-3">
+                          <summary className="cursor-pointer text-sm font-bold text-textPrimary">{exam === 'JEE' ? 'JEE Main' : 'NEET'} · {periodLabel}</summary>
                           <div className="mt-3 space-y-3">
                             {[...new Set(periodTests.map((test) => practiceMetadata(test.rules).subjectCode).filter(Boolean))].map((subject) => {
                               const subjectTests = periodTests.filter((test) => practiceMetadata(test.rules).subjectCode === subject);
@@ -83,7 +118,7 @@ export default async function PreviousYearPracticePage() {
                               const chapters = subjectTests.filter((test) => practiceMetadata(test.rules).filterLevel === 'CHAPTER');
                               return (
                                 <details key={subject} className="rounded-md border border-border p-3">
-                                  <summary className="cursor-pointer text-sm font-semibold text-textPrimary">{subject === 'PHYSICS' ? t('subject.PHYSICS') : subject === 'CHEMISTRY' ? t('subject.CHEMISTRY') : t('subject.BIOLOGY')}</summary>
+                                  <summary className="cursor-pointer text-sm font-semibold text-textPrimary">{subjectLabel(subject)}</summary>
                                   {subjectTest ? (
                                     <Link href={`/student/tests/${subjectTest.id}/start`} className="mt-3 block rounded-lg border border-brand/40 px-3 py-2 text-sm font-semibold text-brand hover:bg-brand-soft">
                                       {t('allQuestions')} · {t('questions', { count: subjectTest.totalQuestions })} · {subjectTest.durationMinutes} min

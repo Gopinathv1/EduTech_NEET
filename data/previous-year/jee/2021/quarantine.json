@@ -1,0 +1,146 @@
+[
+  {
+    "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+    "questionId": "70819115161",
+    "reason": "FIGURE_REPRESENTATION_UNSUPPORTED",
+    "detail": "The stem and four answer options require faithful velocity/acceleration graphs; text-only transcription would lose necessary information."
+  },
+  {
+    "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+    "questionId": "70819115162",
+    "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+    "detail": "The cyclic-process question references an original pressure-volume diagram that has not been faithfully represented in the structured question."
+  },
+  {
+    "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+    "questionId": "70819115164",
+    "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+    "detail": "Original mass-spring arrangement figure is required and has not been represented in the structured question."
+  },
+  {
+    "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+    "questionId": "70819115165",
+    "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+    "detail": "Cell polarities and labelled points are specified by the circuit figure; text-only extraction is insufficient."
+  },
+  {
+    "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+    "questionId": "70819115168",
+    "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+    "detail": "The original three-dimensional charge arrangement and axis directions are required."
+  },
+  {
+    "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+    "questionId": "70819115170",
+    "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+    "detail": "Energy-level transitions A, B and C are specified by the original figure."
+  },
+  {
+    "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+    "questionId": "70819115180",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "Amplitude modulation belongs to historical Communication Systems, which is not present in the existing canonical JEE taxonomy. No taxonomy changes have been made."
+  },
+  {
+    "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+    "questionId": "70819115181",
+    "reason": "REQUIRED_FIGURE_NOT_REPRESENTED",
+    "detail": "The zener circuit topology, polarity and resistor connections are specified by the required original circuit figure."
+  },
+  {
+    "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+    "questionId": "70819115185",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "The historical Surface Chemistry/Freundlich adsorption chapter is absent from the existing canonical JEE taxonomy. The source also requires a graph."
+  },
+  {
+    "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+    "questionId": "70819115187",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "Historical metallurgy/ore concentration is absent from the existing canonical JEE taxonomy. No unrelated chapter has been assigned."
+  },
+  {
+    "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+    "questionId": "70819115189",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "The historical metallurgy/Bayer-process topic has no supported canonical JEE chapter classification in the existing taxonomy."
+  },
+  {
+    "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+    "questionId": "70819115192",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "Historical Environmental Chemistry is absent from the current canonical JEE taxonomy."
+  },
+  {
+    "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+    "questionId": "70819115193",
+    "reason": "STRUCTURAL_OPTIONS_NOT_REPRESENTED",
+    "detail": "All four options are chemical structure diagrams whose connectivity and substitution positions must be represented faithfully."
+  },
+  {
+    "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+    "questionId": "70819115196",
+    "reason": "STRUCTURAL_OPTIONS_NOT_REPRESENTED",
+    "detail": "The cyclic and linked-chain answer structures have not been represented faithfully."
+  },
+  {
+    "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+    "questionId": "70819115197",
+    "reason": "STRUCTURAL_OPTIONS_NOT_REPRESENTED",
+    "detail": "Required cyclic substrate and rearranged product bond diagrams have not been represented faithfully."
+  },
+  {
+    "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+    "questionId": "70819115198",
+    "reason": "STRUCTURAL_OPTIONS_NOT_REPRESENTED",
+    "detail": "Required two-stage cyclic oxidation substrate and paired product structures have not been represented faithfully."
+  },
+  {
+    "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+    "questionId": "70819115201",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "Historical synthetic Polymers is absent from the existing canonical JEE taxonomy; the synthetic-polymer matching question is not classified as Biomolecules."
+  },
+  {
+    "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+    "questionId": "70819115205",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "Body-centred cubic lattice coordination belongs to historical Solid State, which is absent from the existing canonical JEE taxonomy. It has not been relabelled as coordination chemistry."
+  },
+  {
+    "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+    "questionId": "70819115214",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "Composition and injectivity/surjectivity belong to Sets, Relations and Functions, absent from the existing canonical JEE taxonomy."
+  },
+  {
+    "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+    "questionId": "70819115215",
+    "reason": "CONTRADICTORY_SOURCE_PREMISES",
+    "detail": "The source states p and q are positive with p + q = 2 but p⁴ + q⁴ = 272. Positive numbers with this sum cannot meet the latter condition. The contradiction has not been silently corrected."
+  },
+  {
+    "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+    "questionId": "70819115219",
+    "reason": "AMBIGUOUS_SOURCE_DOMAIN",
+    "detail": "The displayed limit is x → 0, with numerator ∫₀^(x²) sin(√t)dt divided by x³. Its one-sided limits have opposite signs; the final-key option 2/3 requires an unstated right-hand domain. The source limit has not been silently changed."
+  },
+  {
+    "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+    "questionId": "70819115233",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "Tautology and propositional logic belong to historical Mathematical Reasoning, absent from the existing canonical JEE taxonomy."
+  },
+  {
+    "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+    "questionId": "70819115234",
+    "reason": "CONTRADICTORY_SOURCE_PREMISES",
+    "detail": "Writing z = x − 2i gives α = −x/√((x − 1)² + 4). Its supremum 1 as x → −∞ is not attained, so the requested largest real α does not exist. The final-key value cannot justify silently dropping the absolute-value sign constraints."
+  },
+  {
+    "paperId": "jee-main-2021-s1-2021-02-24-shift-1",
+    "questionId": "70819115238",
+    "reason": "CANONICAL_CHAPTER_MISSING",
+    "detail": "The arithmetic of union and intersection of defined sets belongs to Sets, Relations and Functions, absent from the existing canonical JEE taxonomy."
+  }
+]

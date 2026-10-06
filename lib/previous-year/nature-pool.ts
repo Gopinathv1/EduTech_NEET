@@ -4,20 +4,27 @@ import { productionQuestionWhere } from '@/lib/content/eligibility';
 import { previousYearExam, previousYearMode } from './modes';
 import type { QuestionNature } from './question-nature';
 import manifest from '@/data/previous-year/neet/question-nature.json';
+import jeeManifest from '@/data/previous-year/jee/question-nature.json';
 import { GeneratorError, largestRemainder, type GeneratorQuestion } from '@/lib/generator';
 import { generateBalancedHistoricalSet } from '@/lib/generator/historical';
 
 export function supportsNature(test: { testType: string; rules: unknown }) {
-  return previousYearExam(test.rules) === 'NEET' && previousYearMode(test) !== null;
+  const exam = previousYearExam(test.rules);
+  const rules = test.rules as { sourceType?: unknown } | null;
+  return previousYearMode(test) !== null && (exam === 'NEET' || (exam === 'JEE' && rules?.sourceType === 'HISTORICAL_VERIFIED'));
 }
 
 /** Existing test scope remains authoritative; exact canonical IDs prevent
  * unrelated historical or quarantined content entering filtered practice. */
 export function naturePoolWhere(test: { id: string; isRandom: boolean; rules: unknown }): Prisma.QuestionWhereInput {
-  const stored = test.rules as { historical?: { years?: number[] }; random?: { subjectIds?: string[]; chapterIds?: string[] } } | null;
+  const stored = test.rules as { historical?: { years?: number[]; externalIds?: string[] }; random?: { subjectIds?: string[]; chapterIds?: string[] } } | null;
+  const exam = previousYearExam(test.rules) === 'JEE' ? 'JEE' : 'NEET';
+  const canonicalIds = (exam === 'JEE' ? jeeManifest : manifest).rows.map(row => row.externalId);
+  const selectedIds = exam === 'JEE' && stored?.historical?.externalIds
+    ? canonicalIds.filter(id => stored.historical!.externalIds!.includes(id)) : canonicalIds;
   return {
-    ...productionQuestionWhere, exam: 'NEET', sourceType: 'HISTORICAL_VERIFIED',
-    externalId: { in: manifest.rows.map(row => row.externalId) },
+    ...productionQuestionWhere, exam, sourceType: 'HISTORICAL_VERIFIED',
+    externalId: { in: selectedIds },
     ...(test.isRandom ? {
       examYear: { in: stored?.historical?.years ?? [] },
       ...(stored?.random?.subjectIds?.length ? { subjectId: { in: stored.random.subjectIds } } : {}),
