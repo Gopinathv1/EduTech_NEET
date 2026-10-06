@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { questionNatureSchema } from '@/lib/previous-year/question-nature';
 
 /** Zod schemas for the test-engine (attempt) API. Run on the server. */
 
@@ -8,6 +9,7 @@ export const answerOptionSchema = z.enum(['A', 'B', 'C', 'D']);
 export const startAttemptSchema = z.object({
   testId: z.string().min(1),
   language: attemptLanguageSchema,
+  questionNature: questionNatureSchema.optional(),
 });
 
 /**

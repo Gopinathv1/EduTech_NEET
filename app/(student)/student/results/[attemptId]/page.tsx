@@ -34,7 +34,7 @@ export default async function ResultPage({ params }: { params: Promise<{ attempt
   // If the attempt is still running, send the student back to it.
   const state = await prisma.testAttempt.findFirst({
     where: { id: attemptId, studentId: session.sub },
-    select: { status: true, testId: true, test: { select: { id: true, testType: true, contentClass: true, isPublished: true } } },
+    select: { status: true, testId: true, questionNature: true, test: { select: { id: true, testType: true, contentClass: true, isPublished: true } } },
   });
   if (!state) notFound();
   if (state.status === 'IN_PROGRESS') redirect(`/student/tests/${state.testId}/attempt`);
@@ -86,6 +86,7 @@ export default async function ResultPage({ params }: { params: Promise<{ attempt
         <AttemptHistory
           studentId={session.sub}
           testId={state.testId}
+          questionNature={state.questionNature}
           canStartAnotherAttempt={state.test.isPublished && (state.test.contentClass === 'PRODUCTION' || isFreeSampleTest(state.test))}
         />
       </main>

@@ -58,6 +58,11 @@ enum QuestionType {
   ASSERTION_REASON
 }
 
+enum QuestionNature {
+  CONCEPTUAL_THEORY
+  NUMERICAL_PROBLEM_SOLVING
+}
+
 /// Editorial workflow status for a question. Only PUBLISHED questions are shown
 /// to students / used by the generator (mirrored to `isActive` for compatibility).
 enum QuestionStatus {
@@ -401,6 +406,7 @@ model Question {
   year                       Int? // NEET year this question is drawn from, if any
   tags                       String[]              @default([])
   questionType               QuestionType          @default(SINGLE_CORRECT)
+  questionNature             QuestionNature?
   status                     QuestionStatus        @default(DRAFT)
   contentClass               ContentClassification @default(SAMPLE)
   sourceType                 QuestionSourceType?
@@ -546,6 +552,7 @@ model TestAttempt {
   submittedAt      DateTime?
   status           AttemptStatus @default(IN_PROGRESS)
   selectedLanguage String        @default("en")
+  questionNature   QuestionNature?
   remainingSeconds Int // cached remaining time for a fast resume (authoritative value is recomputed from startedAt + the test duration)
   // Snapshot of the question ids in presentation order, frozen when the attempt
   // starts. For random tests this is the generated set; for fixed tests it is the

@@ -111,6 +111,7 @@ export async function POST(req: Request) {
         topic: d.topic || null,
         difficulty: d.difficulty,
         questionType: d.questionType,
+        questionNature: d.questionNature ?? null,
         status: d.status,
         contentClass: d.contentClass,
         sourceType: d.sourceType ?? null,

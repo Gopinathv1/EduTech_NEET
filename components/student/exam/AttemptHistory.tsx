@@ -4,15 +4,18 @@ import { prisma } from '@/lib/prisma';
 import { FREE_ATTEMPT_LIMIT, NEET_CONFIG } from '@/lib/attempts/config';
 import { examPaidRetriesEnabled } from '@/lib/attempts/paid-retries';
 import { attemptHistoryAction } from '@/lib/attempts/history-action';
+import { natureStartUrl, type QuestionNature } from '@/lib/previous-year/question-nature';
 
 export default async function AttemptHistory({
   studentId,
   testId,
   canStartAnotherAttempt = true,
+  questionNature,
 }: {
   studentId: string;
   testId: string;
   canStartAnotherAttempt?: boolean;
+  questionNature?: QuestionNature | null;
 }) {
   const t = await getTranslations('neetPractice');
   const locale = await getLocale();
@@ -43,7 +46,7 @@ export default async function AttemptHistory({
       </li>)}
     </ul>
     {nextAction === 'practice-again' ?
-      <Link className="mt-4 inline-block rounded-lg bg-brand px-4 py-3 font-semibold text-white" href={`/student/tests/${testId}/start`}>Take Another Attempt</Link> : null}
+      <Link className="mt-4 inline-block rounded-lg bg-brand px-4 py-3 font-semibold text-white" href={natureStartUrl(testId, questionNature)}>Take Another Attempt</Link> : null}
     {nextAction === 'choose-another' ? (
       <div className="mt-4 rounded-lg border border-border bg-surface px-4 py-3 text-sm text-textSecondary">
         <p>This previous practice set is no longer available for a new attempt. Your result remains available above.</p>

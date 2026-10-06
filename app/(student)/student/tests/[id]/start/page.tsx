@@ -15,25 +15,34 @@ import { withReturnParam } from '@/lib/auth/redirect';
 import { examEmailVerificationGateEnabled } from '@/lib/attempts/verification';
 import { ClockIcon, BookIcon } from '@/components/public/icons';
 import { studentExamFromRules, studentExamHeadingKey } from '@/lib/attempts/presentation';
+import { natureCounts, supportsNature } from '@/lib/previous-year/nature-pool';
+import { questionNatureSchema, QUESTION_NATURES, QUESTION_NATURE_LABELS, natureStartUrl } from '@/lib/previous-year/question-nature';
 
 /**
  * Instructions page: marking scheme, navigation help and a per-attempt language
  * choice before the timer begins. Authenticated students get three free starts
  * per test. An in-progress attempt can be resumed without consuming another.
  */
-export default async function StartTestPage({ params }: { params: Promise<{ id: string }> }) {
+export default async function StartTestPage({ params, searchParams }: {
+  params: Promise<{ id: string }>; searchParams: Promise<{ nature?: string }>;
+}) {
   const { id } = await params;
+  const query = await searchParams;
+  const requestedNature = query.nature ? questionNatureSchema.safeParse(query.nature) : null;
+  if (requestedNature && !requestedNature.success) notFound();
+  const selectedNature = requestedNature?.success ? requestedNature.data : undefined;
+  const returnPath = natureStartUrl(id, selectedNature);
   const locale = (await getLocale()) as ExamLanguage;
   const t = await getTranslations('exam.instructions');
   const tn = await getTranslations('neetPractice');
   const tp = await getTranslations('examPresentation');
   const tc = await getTranslations('catalogue');
   const session = await getSession();
-  if (!session || session.kind !== 'student') redirect(`/login?next=/student/tests/${id}/start`);
+  if (!session || session.kind !== 'student') redirect(withReturnParam('/login', returnPath));
   if (examEmailVerificationGateEnabled()) {
     const identity = await prisma.student.findUnique({ where: { id: session.sub }, select: { isEmailVerified: true, isMobileVerified: true } });
     if (!identity || (!identity.isEmailVerified && !identity.isMobileVerified)) {
-      redirect(withReturnParam('/verify-email', `/student/tests/${id}/start`));
+      redirect(withReturnParam('/verify-email', returnPath));
     }
   }
 
@@ -47,16 +56,20 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
       testType: true,
       availableLanguages: true,
       rules: true,
+      isRandom: true,
     },
   });
   if (!test) notFound();
+  const natureSupported = supportsNature(test);
+  if (selectedNature && !natureSupported) notFound();
+  const counts = natureSupported ? await natureCounts(test) : {};
 
   const [summary, inProgress, latestCompleted] = await Promise.all([
     getFreeAttemptSummary(session.sub, id),
     prisma.testAttempt.findFirst({
       where: { studentId: session.sub, testId: id, status: 'IN_PROGRESS' },
       orderBy: { createdAt: 'desc' },
-      select: { id: true, status: true },
+      select: { id: true, status: true, questionNature: true, questionOrder: true },
     }),
     prisma.testAttempt.findFirst({
       where: { studentId: session.sub, testId: id, status: { not: 'IN_PROGRESS' } },
@@ -65,6 +78,9 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
     }),
   ]);
   const paidRetriesEnabled = examPaidRetriesEnabled();
+  const nature = inProgress ? inProgress.questionNature ?? undefined : selectedNature;
+  const questionCount = inProgress ? inProgress.questionOrder.length
+    : nature ? Math.min(test.totalQuestions, counts[nature] ?? 0) : test.totalQuestions;
   const limitReached = paidRetriesEnabled && !inProgress && (summary.remaining ?? 0) <= 0;
 
   const title = localizedName(test.title, locale) || localizedName(test.title, 'en');
@@ -85,6 +101,23 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
 
         <h1 className="mt-3 text-2xl font-bold text-textPrimary">{tp(studentExamHeadingKey(exam))}</h1><p className="mt-1 text-textSecondary">{title}</p>
         <p className="mt-3 text-xs text-textSecondary">{tn('disclaimer')}</p>
+        {natureSupported ? (
+          <section className="mt-5 rounded-xl border border-border p-4" aria-label="Question Nature">
+            <h2 className="text-sm font-bold">Question Nature</h2>
+            {inProgress ? <p className="mt-2 text-sm">Resume preserves the saved question selection: {nature ? QUESTION_NATURE_LABELS[nature] : 'All Questions'}.</p> : (
+              <div className="mt-3 flex flex-wrap gap-2">
+                <Link href={natureStartUrl(id)} aria-current={!nature ? 'page' : undefined} className="rounded-lg border border-brand/40 px-3 py-2 text-sm text-brand">All Questions ({test.totalQuestions})</Link>
+                {QUESTION_NATURES.map(value => (counts[value] ?? 0) > 0 ? (
+                  <Link key={value} href={natureStartUrl(id, value)} aria-current={nature === value ? 'page' : undefined} className="rounded-lg border border-brand/40 px-3 py-2 text-sm text-brand">
+                    {QUESTION_NATURE_LABELS[value]} ({counts[value]})
+                  </Link>
+                ) : null)}
+              </div>
+            )}
+            <p className="mt-3 text-xs text-textSecondary">{nature ? 'Filtered practice using validated questions; this is not the original historical paper. The published practice duration applies.' : 'All Questions preserves the published practice format, including the historical partial paper for year-wise practice.'}</p>
+            {!inProgress && nature && questionCount === 0 ? <p role="status" className="mt-3 text-sm">No validated questions available for this filter.</p> : null}
+          </section>
+        ) : null}
 
         {paidRetriesEnabled ? (
           <p className="mt-4 rounded-xl border border-border bg-surfaceElevated px-4 py-3 text-sm font-semibold text-textPrimary">
@@ -115,6 +148,8 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
                 defaultLanguage={defaultLanguage}
                 resume={false}
                 testType={test.testType}
+                  questionNature={nature}
+                  disabled={!inProgress && questionCount === 0}
               />
             </div>
           </div>
@@ -136,15 +171,15 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
                 <BookIcon className="h-6 w-6 text-brand" />
                 <div>
                   <dt className="text-xs font-medium text-textSecondary">{t('questionsLabel')}</dt>
-                  <dd className="text-sm font-bold text-textPrimary">{test.totalQuestions}</dd>
+                  <dd className="text-sm font-bold text-textPrimary">{questionCount}</dd>
                 </div>
               </div>
             </dl>
 
             <div className="mt-4 space-y-2 text-sm text-textSecondary">
-              <p>{tn('maximumMarks')}: <strong>{test.totalQuestions * examConfig.correct}</strong></p>
+              <p>{tn('maximumMarks')}: <strong>{questionCount * examConfig.correct}</strong></p>
               <p>{exam === 'JEE' ? 'Paper 1 includes multiple-choice and numerical-value questions.' : tn('questionType')}</p>
-              {test.testType === 'FULL_TEST' ? <p>{exam === 'JEE' ? 'Each subject has 20 multiple-choice and 5 numerical-value questions.' : tn('distribution')}</p> : null}
+              {test.testType === 'FULL_TEST' && !nature ? <p>{exam === 'JEE' ? 'Each subject has 20 multiple-choice and 5 numerical-value questions.' : tn('distribution')}</p> : null}
               <p>{tn('languageUnavailable')}</p>
               <a href={examConfig.source} target="_blank" rel="noreferrer" className="text-brand underline">{tn('source')}</a>
             </div>
@@ -177,6 +212,8 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
                     defaultLanguage={defaultLanguage}
                     resume
                     testType={test.testType}
+                  questionNature={nature}
+                  disabled={!inProgress && questionCount === 0}
                   />
                 </div>
               </div>
@@ -188,6 +225,8 @@ export default async function StartTestPage({ params }: { params: Promise<{ id: 
                   defaultLanguage={defaultLanguage}
                   resume={false}
                   testType={test.testType}
+                  questionNature={nature}
+                  disabled={!inProgress && questionCount === 0}
                 />
               </div>
             )}

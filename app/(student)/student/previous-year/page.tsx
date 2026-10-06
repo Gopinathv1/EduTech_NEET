@@ -46,6 +46,7 @@ export default async function PreviousYearPracticePage() {
         <p className="mt-8 text-xs font-semibold uppercase tracking-[0.14em] text-brand">{t('eyebrow')}</p>
         <h1 className="mt-3 text-3xl font-bold tracking-tight text-textPrimary sm:text-4xl">{t('title')}</h1>
         <p className="mt-4 max-w-3xl text-base leading-7 text-textSecondary">{t('intro')}</p>
+        <p className="mt-3 text-sm text-textSecondary">For NEET, choose Question Nature after selecting a year, mixed practice, subject or chapter: All Questions, Conceptual / Theory, or Numerical / Problem-solving. Eligible counts appear before starting.</p>
         <p className="mt-3 max-w-3xl rounded-xl border border-border bg-surfaceElevated p-4 text-sm text-textSecondary">
           {t('disclaimer')}
         </p>

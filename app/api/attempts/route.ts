@@ -5,6 +5,7 @@ import { ok, fail, readJson } from '@/lib/http';
 import { prisma } from '@/lib/prisma';
 import { withReturnParam } from '@/lib/auth/redirect';
 import { examEmailVerificationGateEnabled } from '@/lib/attempts/verification';
+import { natureStartUrl } from '@/lib/previous-year/question-nature';
 
 export const runtime = 'nodejs';
 
@@ -21,11 +22,13 @@ export async function POST(req: Request) {
   if (examEmailVerificationGateEnabled()) {
     const student = await prisma.student.findUnique({ where: { id: session.sub }, select: { isEmailVerified: true, isMobileVerified: true } });
     if (!student || (!student.isEmailVerified && !student.isMobileVerified)) {
-      return fail('verificationRequired', 403, { redirect: withReturnParam('/verify-email', `/student/tests/${parsed.data.testId}/start`) });
+      return fail('verificationRequired', 403, { redirect: withReturnParam('/verify-email', natureStartUrl(parsed.data.testId, parsed.data.questionNature)) });
     }
   }
 
-  const outcome = await startOrResumeAttempt(session.sub, parsed.data.testId, parsed.data.language);
+  const outcome = await (parsed.data.questionNature
+    ? startOrResumeAttempt(session.sub, parsed.data.testId, parsed.data.language, parsed.data.questionNature)
+    : startOrResumeAttempt(session.sub, parsed.data.testId, parsed.data.language));
   if (!outcome.ok) {
     const status =
       outcome.code === 'paymentRequired' ? 402 : outcome.code === 'notFound' ? 404 : 400;

@@ -17,6 +17,7 @@ import {
 } from './options';
 import { buildResultNotificationData } from '@/lib/notifications/create';
 import { isFreeSampleTest } from '@/lib/content/eligibility';
+import type { QuestionNature } from '@/lib/previous-year/question-nature';
 
 /**
  * Server-side orchestration for a test attempt: starting/resuming, building the
@@ -49,6 +50,7 @@ export async function startOrResumeAttempt(
   studentId: string,
   testId: string,
   language: 'en' | 'ta' | 'hi',
+  questionNature?: QuestionNature,
 ): Promise<StartOutcome> {
   const test = await prisma.test.findUnique({ where: { id: testId } });
   if (!test || !test.isPublished || (test.contentClass && test.contentClass !== 'PRODUCTION' && !isFreeSampleTest(test))) return { ok: false, code: 'notFound' };
@@ -64,7 +66,7 @@ export async function startOrResumeAttempt(
   const seed = randomUUID();
   let questionIds: string[];
   try {
-    ({ questionIds } = await generateForAttempt(testId, language, seed));
+    ({ questionIds } = await (questionNature ? generateForAttempt(testId, language, seed, questionNature) : generateForAttempt(testId, language, seed)));
     if (!questionIds.length) throw new GeneratorError('Empty question set');
   } catch (error) {
     if (error instanceof GeneratorError) {
@@ -92,7 +94,8 @@ export async function startOrResumeAttempt(
         const attempt = await tx.testAttempt.create({
           data: { studentId, testId, selectedLanguage: language,
             remainingSeconds: test.durationMinutes * 60, status: ACTIVE,
-            shuffleOptions: true, questionOrder: questionIds, seed },
+            shuffleOptions: true, questionOrder: questionIds, seed,
+            ...(questionNature ? { questionNature } : {}) },
           select: { id: true },
         });
         if (creditId) await tx.paidAttemptCredit.update({ where: { id: creditId }, data: { attemptId: attempt.id, consumedAt: new Date() } });

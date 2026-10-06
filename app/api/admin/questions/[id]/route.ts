@@ -37,6 +37,7 @@ export async function PATCH(req: Request, { params }: Ctx) {
         topic: d.topic || null,
         difficulty: d.difficulty,
         questionType: d.questionType,
+        ...(d.questionNature !== undefined ? { questionNature: d.questionNature } : {}),
         status: d.status,
         contentClass: d.contentClass,
         sourceType: d.sourceType ?? null,

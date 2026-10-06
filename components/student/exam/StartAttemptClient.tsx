@@ -26,12 +26,16 @@ export default function StartAttemptClient({
   defaultLanguage,
   resume,
   testType,
+  questionNature,
+  disabled = false,
 }: {
   testId: string;
   languages: ExamLanguage[];
   defaultLanguage: ExamLanguage;
   resume: boolean;
   testType: string;
+  questionNature?: import('@/lib/previous-year/question-nature').QuestionNature;
+  disabled?: boolean;
 }) {
   const t = useTranslations('exam.instructions');
   const [language, setLanguage] = useState<ExamLanguage>(defaultLanguage);
@@ -47,6 +51,7 @@ export default function StartAttemptClient({
       post: apiPost,
       testId,
       language,
+      questionNature,
       navigate: (url) => { window.location.href = url; },
     });
     if (outcome === 'started') {
@@ -130,7 +135,7 @@ export default function StartAttemptClient({
         <button
           type="button"
           onClick={start}
-          disabled={busy}
+          disabled={busy || disabled}
           className="mt-6 w-full rounded-lg bg-brand px-6 py-3.5 text-base font-bold text-white hover:bg-brand-dark disabled:opacity-60 sm:w-auto sm:px-10"
         >
           {busy ? t('starting') : resume ? t('resume') : t('start')}

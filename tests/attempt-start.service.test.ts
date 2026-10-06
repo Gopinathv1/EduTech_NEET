@@ -58,6 +58,20 @@ beforeEach(() => {
 });
 
 describe('startOrResumeAttempt', () => {
+  it('persists nature and filtered question order for a fresh attempt and retake', async () => {
+    await startOrResumeAttempt('s1','t1','en','NUMERICAL_PROBLEM_SOLVING');
+    expect(generator.generateForAttempt).toHaveBeenLastCalledWith('t1','en',expect.any(String),'NUMERICAL_PROBLEM_SOLVING');
+    expect(p.testAttempt.create).toHaveBeenLastCalledWith(expect.objectContaining({data:expect.objectContaining({questionNature:'NUMERICAL_PROBLEM_SOLVING',questionOrder:['q1','q2']})}));
+    p.testAttempt.count.mockResolvedValue(1);
+    await startOrResumeAttempt('s1','t1','en','NUMERICAL_PROBLEM_SOLVING');
+    expect(p.testAttempt.create).toHaveBeenCalledTimes(2);
+  });
+  it('resumes the frozen attempt regardless of a subsequently selected nature', async () => {
+    p.testAttempt.findFirst.mockResolvedValue({id:'existing',questionNature:'CONCEPTUAL_THEORY',questionOrder:['saved']});
+    expect(await startOrResumeAttempt('s1','t1','en','NUMERICAL_PROBLEM_SOLVING')).toEqual({ok:true,attemptId:'existing',resumed:true});
+    expect(generator.generateForAttempt).not.toHaveBeenCalled();
+    expect(p.testAttempt.create).not.toHaveBeenCalled();
+  });
   it('starts a mock test without requiring payment and freezes generated questions', async () => {
     const out = await startOrResumeAttempt('s1', 't1', 'en');
 

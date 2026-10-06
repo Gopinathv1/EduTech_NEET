@@ -18,9 +18,11 @@ export async function requestAttemptStart(input: {
   post: Post;
   testId: string;
   language: string;
+  questionNature?: string;
   navigate: (url: string) => void;
 }): Promise<'started' | 'paymentRequired' | 'verificationRequired' | 'questionSetUnavailable' | 'failed'> {
-  const result = await input.post('/api/attempts', { testId: input.testId, language: input.language });
+  const result = await input.post('/api/attempts', { testId: input.testId, language: input.language,
+    ...(input.questionNature ? { questionNature: input.questionNature } : {}) });
   if (result.ok && typeof result.redirect === 'string') {
     input.navigate(result.redirect);
     return 'started';

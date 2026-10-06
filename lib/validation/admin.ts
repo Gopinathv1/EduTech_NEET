@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { questionNatureSchema } from '@/lib/previous-year/question-nature';
 
 /**
  * Admin-side validation schemas (question bank). Shared by the admin client
@@ -71,6 +72,7 @@ export const questionSchema = z
     topic: z.string().trim().max(120).optional().default(''),
     difficulty: difficultyEnum,
     questionType: questionTypeEnum,
+    questionNature: questionNatureSchema.nullable().optional(),
     status: questionStatusEnum.default('DRAFT'),
     contentClass: contentClassificationEnum.default('SAMPLE'),
     sourceType: questionSourceTypeEnum.nullable().optional(),

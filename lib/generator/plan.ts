@@ -10,6 +10,8 @@ import {
   type GeneratorQuestion,
 } from './index';
 import { generateBalancedHistoricalSet } from './historical';
+import type { QuestionNature } from '@/lib/previous-year/question-nature';
+import { generateNaturePractice, supportsNature } from '@/lib/previous-year/nature-pool';
 
 /**
  * DB-backed bridge between a stored `Test` and the pure generator:
@@ -218,9 +220,19 @@ export async function generateForAttempt(
   testId: string,
   language: 'en' | 'ta' | 'hi',
   attemptSeed: string,
+  questionNature?: QuestionNature,
 ): Promise<{ questionIds: string[]; warnings: string[] }> {
   const test = await prisma.test.findUnique({ where: { id: testId } });
   if (!test) throw new GeneratorError('Test not found');
+  if (questionNature) {
+    if (!supportsNature(test)) throw new GeneratorError('Question Nature is only available for NEET Previous-Year Practice.');
+    const result = await generateNaturePractice(test, questionNature, language, attemptSeed);
+    // A filtered mixed set is practice, even when its parent catalogue entry
+    // is a 180-question FULL_TEST. Original-paper/full-mock quotas apply only
+    // to the unchanged All Questions path.
+    await validateAttemptQuestions({ ...test, testType: 'MINI_TEST', totalQuestions: result.questionIds.length }, result.questionIds, language);
+    return result;
+  }
   if (!test.isRandom) {
     const rows = await prisma.testQuestion.findMany({
       where: { testId },

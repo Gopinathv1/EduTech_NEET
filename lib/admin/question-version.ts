@@ -33,6 +33,7 @@ export async function writeQuestionVersion(
     topic: q.topic,
     difficulty: q.difficulty,
     questionType: q.questionType,
+    questionNature: q.questionNature,
     status: q.status,
     contentClass: q.contentClass,
     sourceType: q.sourceType,

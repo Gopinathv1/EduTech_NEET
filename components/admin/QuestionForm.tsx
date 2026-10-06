@@ -25,6 +25,7 @@ export type QuestionInitial = {
   topic: string;
   difficulty: string;
   questionType: string;
+  questionNature?: string | null;
   status: string;
   contentClass: string;
   sourceType: string;
@@ -88,6 +89,7 @@ export default function QuestionForm({
   const [topic, setTopic] = useState(base.topic);
   const [difficulty, setDifficulty] = useState(base.difficulty);
   const [questionType, setQuestionType] = useState(base.questionType);
+  const [questionNature, setQuestionNature] = useState(base.questionNature ?? '');
   const [status, setStatus] = useState(base.status);
   const [contentClass, setContentClass] = useState(base.contentClass);
   const [sourceType, setSourceType] = useState(base.sourceType);
@@ -168,6 +170,7 @@ export default function QuestionForm({
       topic: topic.trim(),
       difficulty,
       questionType,
+      questionNature: questionNature || null,
       status,
       contentClass,
       sourceType: sourceType || null,
@@ -313,6 +316,13 @@ export default function QuestionForm({
             <Field label="Content classification" htmlFor="qClass" hint="Sample stays out of the student catalogue.">
               <select id="qClass" className={selectClass} value={contentClass} onChange={(e) => setContentClass(e.target.value)}>
                 <option value="SAMPLE">Sample / development</option><option value="PRODUCTION">Production</option>
+              </select>
+            </Field>
+            <Field label="Question Nature" htmlFor="qNature" hint="Reasoning required; independent of question type. Changes require review.">
+              <select id="qNature" className={selectClass} value={questionNature} onChange={e => setQuestionNature(e.target.value)}>
+                <option value="">Unclassified / Review required</option>
+                <option value="CONCEPTUAL_THEORY">Conceptual / Theory</option>
+                <option value="NUMERICAL_PROBLEM_SOLVING">Numerical / Problem-solving</option>
               </select>
             </Field>
             <Field label="Source type" htmlFor="qSourceType">

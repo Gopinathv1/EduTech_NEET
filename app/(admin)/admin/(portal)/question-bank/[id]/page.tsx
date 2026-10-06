@@ -30,6 +30,7 @@ export default async function EditQuestionPage({ params }: { params: Promise<{ i
     topic: question.topic ?? '',
     difficulty: question.difficulty,
     questionType: question.questionType,
+    questionNature: question.questionNature,
     status: question.status,
     contentClass: question.contentClass,
     sourceType: question.sourceType ?? '',
