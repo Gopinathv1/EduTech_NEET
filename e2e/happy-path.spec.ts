@@ -102,7 +102,7 @@ test('student can register, take a free test, see the result, and request guidan
   for (let i = 0; i < total; i++) {
     await optionLabels.first().click();
     if (i < total - 1) {
-      await page.getByRole('button', { name: 'Save & Next', exact: true }).click();
+      await page.getByRole('button', { name: /Save & Next/ }).click();
       await expect(page.getByText(`Question ${i + 2} of ${total}`)).toBeVisible();
     }
   }
