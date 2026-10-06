@@ -327,7 +327,7 @@ export default function ExamClient({
         </div>
       </header>
 
-      <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-6 px-4 py-6 sm:px-6 lg:flex-row">
+      <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-6 px-4 py-6 pb-24 sm:px-6 lg:flex-row">
         {/* Question area */}
         <main id="main-content" className="min-w-0 flex-1">
           <nav aria-label={tn('subjectsLabel')} className="mb-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
