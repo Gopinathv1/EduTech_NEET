@@ -65,6 +65,7 @@ test('student can register, take a free test, see the result, and request guidan
   // Registration requires real email verification before creating a session.
   await expect(page).toHaveURL(/\/verify-email\?/);
   expect(new URL(page.url()).searchParams.get('callbackUrl')).toBe('/student');
+  await page.waitForLoadState('networkidle');
 
   await installTestEmailVerificationOtp(mobile, email);
   await page.getByLabel('Verification code').fill(TEST_EMAIL_OTP);
@@ -101,8 +102,7 @@ test('student can register, take a free test, see the result, and request guidan
   for (let i = 0; i < total; i++) {
     await optionLabels.first().click();
     if (i < total - 1) {
-      // "Next →" (not the Next.js dev-tools button, which also contains "Next").
-      await page.getByRole('button', { name: 'Next →' }).click();
+      await page.getByRole('button', { name: 'Save & Next', exact: true }).click();
       await expect(page.getByText(`Question ${i + 2} of ${total}`)).toBeVisible();
     }
   }
