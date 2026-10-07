@@ -41,3 +41,12 @@ next-env.d.ts
 
 # local Next.js E2E server output
 .next-dev-*.log
+
+# Local deployment metadata
+/.vercel/
+
+# Local acquisition, OCR, review and release working material
+/tmp/
+
+# Generated coverage
+/coverage/
