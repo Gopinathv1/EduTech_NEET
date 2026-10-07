@@ -1,4 +1,5 @@
 {
+  "questionContent": { "language": "Question language", "fallback": "Translation unavailable — showing English", "explanationFallback": "Explanation unavailable — showing English" },
   "meta": {
     "title": "SIVORA UP↑RISING - Competitive Exam Preparation",
     "description": "Practice previous-year questions, chapter-wise question banks, mock tests and detailed solutions - starting with NEET."

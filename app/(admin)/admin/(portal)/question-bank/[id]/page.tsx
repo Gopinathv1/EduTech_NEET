@@ -4,6 +4,7 @@ import { localizedName } from '@/lib/admin/format';
 import { AdminPageHeader } from '@/components/admin/ui';
 import QuestionForm, { type QuestionInitial } from '@/components/admin/QuestionForm';
 import QuestionReviewActions from '@/components/admin/QuestionReviewActions';
+import Link from 'next/link';
 
 export default async function EditQuestionPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -72,8 +73,9 @@ export default async function EditQuestionPage({ params }: { params: Promise<{ i
   return (
     <div>
       <AdminPageHeader title="Edit question" description="Update content, translation and metadata." />
+      <p className="mb-4"><Link className="text-brand underline" href={`/admin/question-bank/${id}/translations`}>Tamil / Hindi translations and independent review</Link></p>
       <QuestionReviewActions questionId={question.id} reviewState={question.reviewState} reviewNote={question.reviewNote ?? ''} />
-      <QuestionForm subjects={subjectOptions} initial={initial} />
+      {question.questionType === 'NUMERICAL_VALUE' ? <section className="rounded-xl border border-border p-4"><h2 className="font-bold">Canonical English (numerical question)</h2><p className="whitespace-pre-wrap">{en?.questionText}</p><p className="mt-2 text-sm">Use the translation workflow above to edit translated wording. The canonical numerical answer remains unchanged.</p></section> : <QuestionForm subjects={subjectOptions} initial={initial} />}
     </div>
   );
 }

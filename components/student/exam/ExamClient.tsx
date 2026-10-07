@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useReducer, useRef, useState } from 'react';
-import { useLocale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { apiPost } from '@/lib/client/api';
 import {
   examReducer,
@@ -16,6 +16,8 @@ import QuestionPalette from './QuestionPalette';
 import SubmitDialog from './SubmitDialog';
 import { useAttemptMonitoring } from './useAttemptMonitoring';
 import { studentExamFromSubjectCodes, studentExamHeadingKey, studentSubjectLabelKey } from '@/lib/attempts/presentation';
+import QuestionLanguageSelector from '@/components/student/QuestionLanguageSelector';
+import { parseQuestionPreference, questionPreferenceKey } from '@/lib/question-translations/preference';
 
 type SaveStatus = 'idle' | 'saving' | 'saved' | 'error';
 
@@ -40,11 +42,11 @@ export default function ExamClient({
   studentName: string;
 }) {
   const t = useTranslations('exam.ui');
-  const locale = useLocale();
+  const tq = useTranslations('questionContent');
   const tn = useTranslations('neetPractice');
   const tp = useTranslations('examPresentation');
   const [paletteOpen, setPaletteOpen] = useState(false);
-  const { attemptId, questions, availableLanguages } = payload;
+  const { attemptId, questions } = payload;
   const questionIds = questions.map((q) => q.id);
   const subjectCodes = [...new Set(questions.map((q) => q.subjectCode))];
   const exam = studentExamFromSubjectCodes(subjectCodes);
@@ -55,6 +57,7 @@ export default function ExamClient({
     answers: payload.answers as Record<string, AnswerState>,
   });
   const [remaining, setRemaining] = useState(payload.remainingSeconds);
+  const [preferenceReady, setPreferenceReady] = useState(false);
   const [saveStatus, setSaveStatus] = useState<SaveStatus>('idle');
   const [showSubmit, setShowSubmit] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -197,8 +200,21 @@ export default function ExamClient({
   const switchLanguage = (lang: ExamLanguage) => {
     if (lang === state.lang) return;
     dispatch({ type: 'SET_LANGUAGE', lang });
-    void apiPost(`/api/attempts/${attemptId}/language`, { language: lang });
   };
+
+  // Local display preference only: no attempt/answer/monitoring writes or route reload.
+  useEffect(() => {
+    try {
+      const saved = parseQuestionPreference(localStorage.getItem(questionPreferenceKey(attemptId)), questions.length);
+      if (saved) { dispatch({ type: 'SET_LANGUAGE', lang: saved.lang }); dispatch({ type: 'NAVIGATE', index: saved.index }); }
+    } catch { /* Storage is optional. */ }
+    setPreferenceReady(true);
+  }, [attemptId, questions.length]);
+  useEffect(() => {
+    if (!preferenceReady) return;
+    try { localStorage.setItem(questionPreferenceKey(attemptId), JSON.stringify({ lang: state.lang, index: state.currentIndex })); }
+    catch { /* Storage failure never blocks the exam. */ }
+  }, [attemptId, preferenceReady, state.lang, state.currentIndex]);
 
   // ---- Submit -------------------------------------------------------------
   const submit = useCallback(async () => {
@@ -228,10 +244,13 @@ export default function ExamClient({
 
   // Mark the very first question visited on mount.
   useEffect(() => {
-    dispatch({ type: 'VISIT', questionId: questionIds[0] });
-    void persist('visit', questionIds[0]);
+    if (!preferenceReady) return;
+    const qid = questionIds[state.currentIndex];
+    enteredRef.current = { qid, at: performance.now() };
+    dispatch({ type: 'VISIT', questionId: qid });
+    void persist('visit', qid);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [preferenceReady]);
 
   // ---- Timer: local countdown + periodic server resync --------------------
   useEffect(() => {
@@ -279,7 +298,7 @@ export default function ExamClient({
 
   // ---- Render -------------------------------------------------------------
   const content = current[state.lang] ?? current.en;
-  const showTaNotice = !current[state.lang] || (locale !== 'en' && state.lang === 'en');
+  const showTaNotice = state.lang !== 'en' && !current[state.lang];
   const counts = summarize(questionIds, state.answers);
   const lowTime = remaining <= 60;
 
@@ -302,27 +321,7 @@ export default function ExamClient({
               {formatClock(remaining)}
             </div>
 
-            {availableLanguages.length > 1 ? (
-              <div className="inline-flex items-center gap-1 rounded-full border border-border p-1">
-                {availableLanguages.map((code) => {
-                  const lang = code as ExamLanguage;
-                  const active = lang === state.lang;
-                  return (
-                    <button
-                      key={code}
-                      type="button"
-                      onClick={() => switchLanguage(lang)}
-                      aria-pressed={active}
-                      className={`rounded-full px-2.5 py-1 text-xs font-semibold transition-colors ${
-                        active ? 'bg-brand text-white' : 'text-textSecondary hover:bg-surfaceElevated'
-                      }`}
-                    >
-                      {code.toUpperCase()}
-                    </button>
-                  );
-                })}
-              </div>
-            ) : null}
+            <QuestionLanguageSelector language={state.lang} onChange={switchLanguage} />
 
             <button type="button" onClick={() => setShowSubmit(true)} className="rounded-lg bg-brand px-3 py-2 text-xs font-bold text-white">{t('submit')}</button>
             <span className="hidden text-sm text-textSecondary sm:inline">{studentName}</span>
@@ -365,11 +364,11 @@ export default function ExamClient({
 
             {showTaNotice ? (
               <p className="mt-3 rounded-lg border border-amber-500/40 bg-amber-950/30 px-3 py-2 text-xs text-amber-100">
-                {tn('languageUnavailable')}
+                {tq('fallback')}
               </p>
             ) : null}
 
-            <p className="mt-3 whitespace-pre-wrap break-words text-base leading-relaxed text-textPrimary">
+            <p lang={showTaNotice ? 'en' : state.lang} className="mt-3 whitespace-pre-wrap break-words text-base leading-relaxed text-textPrimary">
               {content.questionText}
             </p>
 

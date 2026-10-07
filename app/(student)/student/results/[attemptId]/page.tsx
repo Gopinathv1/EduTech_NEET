@@ -87,7 +87,7 @@ export default async function ResultPage({ params }: { params: Promise<{ attempt
 
         <ResultTabs
           analysis={<ResultAnalysis report={report} locale={locale} />}
-          review={<AnswerReview items={review} locale={locale} />}
+          review={<AnswerReview items={review} locale={locale} attemptId={attemptId} />}
         />
         <AttemptHistory
           studentId={session.sub}
