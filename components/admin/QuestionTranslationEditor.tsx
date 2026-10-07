@@ -14,7 +14,7 @@ export default function QuestionTranslationEditor({ questionId, language, numeri
   questionId: string; language: 'ta' | 'hi'; numerical: boolean; initial: TranslationEditorRow | null;
 }) {
   const router = useRouter();
-  const [row, setRow] = useState<TranslationEditorRow>(initial ?? { questionText: '', optionA: null, optionB: null, optionC: null, optionD: null,
+  const [row, setRow] = useState<TranslationEditorRow>(initial ? { ...initial, translationSource: initial.translationSource ?? 'SIVORA_TRANSLATION' } : { questionText: '', optionA: null, optionB: null, optionC: null, optionD: null,
     explanation: null, revision: 0, reviewState: 'DRAFT', translationSource: 'SIVORA_TRANSLATION', sourceReference: 'SIVORA editorial preparation', reviewNote: null, reviewedByName: null, reviewedAt: null });
   const [dirty, setDirty] = useState(false);
   const [note, setNote] = useState('');
