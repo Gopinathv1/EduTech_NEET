@@ -74,6 +74,7 @@ async function main() {
     if (conflicts.length) throw new Error('Existing JEE practice records conflict with the exact plan.');
     if (!execute) return;
     if (eligible.length !== release.questions.length) throw new Error('All exact JEE questions must be approved/active before practice writes.');
+    let completed = 0;
     for (const plan of resolved) {
       if (missing.some(row => row.id === plan.id)) await client.$transaction(async tx => {
         await tx.test.create({ data: { id: plan.id, title: { en: plan.title, ta: '', hi: '' }, description: { en: plan.description, ta: '', hi: '' },
@@ -85,9 +86,12 @@ async function main() {
           details: { source: 'JEE_MAIN_PAPER_1_2021_2025_V1', releaseSha256: release.releaseSha256 } } });
       });
       await publishTest(plan.id, admin, { client, atomicAudit: true, idempotent: true, skipNotifications: true });
+      completed += 1;
+      if (completed % 25 === 0 || completed === resolved.length) console.log(JSON.stringify({ createdOrVerified: completed, total: resolved.length }));
     }
     const published = await client.test.count({ where: { id: { in: resolved.map(plan => plan.id) }, isPublished: true, price: 0 } });
     if (published !== resolved.length) throw new Error('JEE practice post-publication verification failed.');
+    console.log(JSON.stringify({ publishedFreePracticeTests: published, practiceAuditLogsAdded: missing.length + toPublish.length, unrelatedRecordsModified: 0 }));
   } finally { await client.$disconnect(); }
 }
 main().catch(error => { console.error(error instanceof Error ? error.message : 'JEE practice preflight failed.'); process.exitCode = 1; });
