@@ -571,12 +571,41 @@ model TestAttempt {
   answers           Answer[]
   result            Result?
   paidAttemptCredit PaidAttemptCredit?
+  monitoringEvents  AttemptMonitoringEvent[]
 
   @@index([studentId])
   @@index([testId])
   @@index([status])
   // Attempts-per-day reporting.
   @@index([createdAt])
+}
+
+/// Neutral browser signals; excluded from attempt eligibility and scoring.
+enum AttemptMonitoringEventType {
+  TAB_HIDDEN
+  WINDOW_BLUR
+  FULLSCREEN_EXIT
+  COPY_ATTEMPT
+  PASTE_ATTEMPT
+  CONTEXT_MENU_ATTEMPT
+  TAB_VISIBLE
+  WINDOW_FOCUS
+  FULLSCREEN_ENTER
+}
+
+model AttemptMonitoringEvent {
+  id              String                     @id @default(cuid())
+  attemptId       String
+  clientEventId   String                     @db.Uuid
+  eventType       AttemptMonitoringEventType
+  recordedAt      DateTime                   @default(now())
+  clientTimestamp DateTime?
+  sequence        Int?
+
+  attempt TestAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+
+  @@unique([attemptId, clientEventId])
+  @@index([attemptId, recordedAt])
 }
 
 model Answer {

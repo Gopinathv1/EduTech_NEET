@@ -77,6 +77,8 @@ jobs:
       - run: npm ci
       - name: Sync schema to the test database
         run: npx prisma db push
+      - name: Exercise exact monitoring migration SQL in isolated CI schema
+        run: npx tsx scripts/check-monitoring-migration.ts
       - name: Seed reference data
         run: npm run db:seed
       - name: Promote deterministic E2E fixture

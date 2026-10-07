@@ -1,4 +1,6 @@
 import AttemptHistory from '@/components/student/exam/AttemptHistory';
+import { Suspense } from 'react';
+import MonitoringSummary from '@/components/student/results/MonitoringSummary';
 import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
 import { getLocale, getTranslations } from 'next-intl/server';
@@ -70,6 +72,10 @@ export default async function ResultPage({ params }: { params: Promise<{ attempt
           </div>
           <DownloadReportButton attemptId={report.attemptId} />
         </div>
+
+        <Suspense fallback={null}>
+          <MonitoringSummary attemptId={attemptId} studentId={session.sub} />
+        </Suspense>
 
         {shouldShowAdmissionBanner({
           testType: state.test.testType,

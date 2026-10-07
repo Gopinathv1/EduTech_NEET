@@ -17,6 +17,7 @@ import { ClockIcon, BookIcon } from '@/components/public/icons';
 import { studentExamFromRules, studentExamHeadingKey } from '@/lib/attempts/presentation';
 import { natureCounts, supportsNature } from '@/lib/previous-year/nature-pool';
 import { questionNatureSchema, QUESTION_NATURES, QUESTION_NATURE_LABELS, natureStartUrl } from '@/lib/previous-year/question-nature';
+import { MONITORING_NOTICE } from '@/lib/attempts/monitoring-contract';
 
 /**
  * Instructions page: marking scheme, navigation help and a per-attempt language
@@ -101,6 +102,7 @@ export default async function StartTestPage({ params, searchParams }: {
 
         <h1 className="mt-3 text-2xl font-bold text-textPrimary">{tp(studentExamHeadingKey(exam))}</h1><p className="mt-1 text-textSecondary">{title}</p>
         <p className="mt-3 text-xs text-textSecondary">{tn('disclaimer')}</p>
+        <p className="mt-3 text-xs text-textSecondary">{MONITORING_NOTICE}</p>
         {natureSupported ? (
           <section className="mt-5 rounded-xl border border-border p-4" aria-label="Question Nature">
             <h2 className="text-sm font-bold">Question Nature</h2>

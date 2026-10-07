@@ -14,6 +14,7 @@ import { formatClock } from '@/lib/attempts/format';
 import type { ExamPayload } from '@/lib/attempts/service';
 import QuestionPalette from './QuestionPalette';
 import SubmitDialog from './SubmitDialog';
+import { useAttemptMonitoring } from './useAttemptMonitoring';
 import { studentExamFromSubjectCodes, studentExamHeadingKey, studentSubjectLabelKey } from '@/lib/attempts/presentation';
 
 type SaveStatus = 'idle' | 'saving' | 'saved' | 'error';
@@ -57,6 +58,7 @@ export default function ExamClient({
   const [saveStatus, setSaveStatus] = useState<SaveStatus>('idle');
   const [showSubmit, setShowSubmit] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const stopMonitoring = useAttemptMonitoring({ attemptId, active: remaining > 0 });
 
   // Refs so the interval callbacks and async handlers read the latest values.
   const indexRef = useRef(state.currentIndex);
@@ -70,8 +72,9 @@ export default function ExamClient({
   const goResult = useCallback((url: string) => {
     if (doneRef.current) return;
     doneRef.current = true;
+    stopMonitoring();
     window.location.href = url;
-  }, []);
+  }, [stopMonitoring]);
 
   // ---- Autosave -----------------------------------------------------------
   // Queue of answers/marks whose save failed, keyed by `${questionId}|category`
