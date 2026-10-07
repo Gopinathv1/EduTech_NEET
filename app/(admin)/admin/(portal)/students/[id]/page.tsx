@@ -1,3 +1,4 @@
+import { formatIndianMobile } from '@/lib/phone';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { requireAdminPage } from '@/lib/auth/admin';
@@ -46,7 +47,7 @@ export default async function StudentDetailPage({ params }: Ctx) {
         ← All students
       </Link>
       <div className="mt-2">
-        <AdminPageHeader title={student.name} description={`+91 ${student.mobile}${student.email ? ` · ${student.email}` : ''}`} />
+        <AdminPageHeader title={student.name} description={`${formatIndianMobile(student.mobile)}${student.email ? ` · ${student.email}` : ''}`} />
       </div>
 
       {/* Profile */}

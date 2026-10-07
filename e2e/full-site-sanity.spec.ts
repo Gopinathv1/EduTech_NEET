@@ -13,7 +13,7 @@ test.afterAll(async () => { await prisma.$disconnect(); });
 test.beforeAll(() => {
   for (const key of ['DATABASE_URL', 'DIRECT_URL']) {
     const u = new URL(process.env[key]!);
-    if (u.hostname !== '127.0.0.1' || u.port !== '5433' || u.pathname !== '/sivora_test') throw new Error('Local fixture database required');
+    if (u.hostname !== '127.0.0.1' || u.port !== '5433' || !['/sivora_test','/sivora_sanity_staging'].includes(u.pathname)) throw new Error('Local fixture database required');
   }
 });
 for (const width of [1440, 390]) {
@@ -74,17 +74,6 @@ test('real student login, protected routes, logout and admin role guard', async 
   await expect(page).toHaveURL('http://localhost:3010/');
   await page.goto('/student'); await expect(page).toHaveURL(/\/login/);
 });
-test('populated performance charts have stable subject keys and readable result counters', async ({ page, context }) => {
-  await context.addCookies([{name:'session',value:await signSession({sub:fixtures.student.id,kind:'student',role:'STUDENT',name:'Sanity Review'}),url:'http://localhost:3010'}]);
-  const errors: string[] = []; page.on('console', m => { if(m.type() === 'error') errors.push(m.text()); });
-  await page.goto('/student/performance', { waitUntil: 'networkidle' });
-  await expect(page.locator('.recharts-wrapper').first()).toBeVisible();
-  expect(errors.filter(e => e.includes('same key'))).toEqual([]);
-  const result = await prisma.result.findFirstOrThrow({ where: { attempt: { studentId: fixtures.student.id } } });
-  await page.goto(`/student/results/${result.attemptId}`);
-  await expect(page.locator('.text-green-200').first()).toHaveCSS('color','rgb(21, 128, 61)');
-  await expect(page.locator('.text-red-200').first()).toHaveCSS('color','rgb(180, 35, 24)');
-});
 for (const [exam, id] of [['NEET', 'sivora-neet-sample-practice'], ['JEE', 'sivora-jee-sample-practice']]) {
   test(`${exam} sample lifecycle, persistence and monitoring failure isolation`, async ({ page, context }) => {
     await context.addCookies([{name:'session',value:await signSession({sub:fixtures.student.id,kind:'student',role:'STUDENT',name:'Sanity Review'}),url:'http://localhost:3010'}]);
@@ -138,6 +127,17 @@ for (const [exam, id] of [['NEET', 'sivora-neet-sample-practice'], ['JEE', 'sivo
     await expect(page).toHaveURL(/\/start$/);
   });
 }
+test('populated performance charts have stable subject keys and readable result counters', async ({ page, context }) => {
+  await context.addCookies([{name:'session',value:await signSession({sub:fixtures.student.id,kind:'student',role:'STUDENT',name:'Sanity Review'}),url:'http://localhost:3010'}]);
+  const errors: string[] = []; page.on('console', m => { if(m.type() === 'error') errors.push(m.text()); });
+  await page.goto('/student/performance', { waitUntil: 'networkidle' });
+  await expect(page.locator('.recharts-wrapper').first()).toBeVisible();
+  expect(errors.filter(e => e.includes('same key'))).toEqual([]);
+  const result = await prisma.result.findFirstOrThrow({ where: { attempt: { studentId: fixtures.student.id } } });
+  await page.goto(`/student/results/${result.attemptId}`);
+  await expect(page.locator('.text-green-200').first()).toHaveCSS('color','rgb(21, 128, 61)');
+  await expect(page.locator('.text-red-200').first()).toHaveCSS('color','rgb(180, 35, 24)');
+});
 test('journey tabs, comparison buttons, AI chat and accessibility controls', async ({ page }) => {
   await page.goto('/admission-journey');
   const tabs=page.getByRole('tab');

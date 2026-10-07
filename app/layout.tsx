@@ -6,6 +6,7 @@ import { getA11yPrefs } from '@/lib/a11y';
 import SkipLink from '@/components/a11y/SkipLink';
 import SentryInit from '@/components/observability/SentryInit';
 import WhatsAppFloatingButton from '@/components/contact/WhatsAppFloatingButton';
+import QuickControls from '@/components/navigation/QuickControls';
 import AIChatButton from '@/components/ai/AIChatButton';
 import GlobalNavigationControls from '@/components/navigation/GlobalNavigationControls';
 import { getSession } from '@/lib/auth/session';
@@ -61,10 +62,12 @@ export default async function RootLayout({
           <SentryInit />
           <SkipLink />
           <PeacockBackground />
-          <div className="relative z-10">{children}</div>
-          <WhatsAppFloatingButton />
-          <AIChatButton />
-          <GlobalNavigationControls sessionKind={session?.kind ?? null} />
+          <div className="relative z-10 pb-[calc(5rem+env(safe-area-inset-bottom))]">{children}</div>
+          <QuickControls>
+            <WhatsAppFloatingButton />
+            <GlobalNavigationControls sessionKind={session?.kind ?? null} />
+            <AIChatButton />
+          </QuickControls>
         </NextIntlClientProvider>
       </body>
     </html>

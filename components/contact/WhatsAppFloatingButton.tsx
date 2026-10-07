@@ -34,7 +34,7 @@ export default function WhatsAppFloatingButton() {
       target={result.available ? '_blank' : undefined}
       rel="noopener noreferrer"
       onClick={handleUnavailableClick}
-      className="group fixed bottom-[max(1rem,env(safe-area-inset-bottom))] left-4 z-[60] flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_8px_24px_rgba(7,17,31,0.18)] ring-1 ring-white/20 transition hover:-translate-y-0.5 hover:bg-[#1ebe5d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:left-6 sm:h-14 sm:w-14"
+      className="group relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_8px_24px_rgba(7,17,31,0.18)] transition hover:bg-[#1ebe5d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2774e6] sm:h-14 sm:w-14"
       aria-label="Open WhatsApp support"
       title="Open WhatsApp support"
     >

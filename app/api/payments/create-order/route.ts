@@ -25,6 +25,9 @@ export async function POST(req: Request) {
   });
   if (!test || !test.isPublished || (test.contentClass && test.contentClass !== 'PRODUCTION')) return fail('testNotFound', 404);
 
+  // Free releases never need an order, even if this legacy endpoint is called directly.
+  if (test.price <= 0) return fail('paymentNotRequired', 409);
+
   // Already owned → nothing to buy.
   const owned = await prisma.testEntitlement.count({ where: { studentId: session.sub, testId } });
   if (owned > 0) return fail('alreadyOwned', 409);

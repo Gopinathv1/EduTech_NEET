@@ -1,3 +1,4 @@
+import { formatIndianMobile } from '@/lib/phone';
 import Link from 'next/link';
 import { requireAdminPage } from '@/lib/auth/admin';
 import { prisma } from '@/lib/prisma';
@@ -69,7 +70,7 @@ export default async function AdminStudentsPage({ searchParams }: { searchParams
                 <tr key={s.id} className="border-b border-border">
                   <td className="px-4 py-3">
                     <p className="font-medium text-textPrimary">{s.name}</p>
-                    <p className="text-xs text-textSecondary">+91 {s.mobile}</p>
+                    <p className="text-xs text-textSecondary">{formatIndianMobile(s.mobile)}</p>
                   </td>
                   <td className="px-3 py-3 text-textSecondary">{s.district ?? '—'}</td>
                   <td className="px-3 py-3 text-textSecondary">{s.board ?? '—'}</td>

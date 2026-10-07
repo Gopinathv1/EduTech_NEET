@@ -4,7 +4,8 @@ import { pageMetadata } from '@/lib/seo';
 import PageHero from '@/components/public/PageHero';
 import { Section, Card } from '@/components/public/ui';
 import ContactForm from '@/components/public/ContactForm';
-import { MailIcon, PhoneIcon, MapPinIcon, ClockIcon } from '@/components/public/icons';
+import { PhoneIcon, MapPinIcon, ClockIcon } from '@/components/public/icons';
+import { getConfiguredWhatsAppNumber, getWhatsAppUrl } from '@/lib/whatsapp';
 
 export async function generateMetadata() {
   const t = await getTranslations('seo.contact');
@@ -14,9 +15,10 @@ export async function generateMetadata() {
 export default function ContactPage() {
   const t = useTranslations('contact');
 
+  const number = getConfiguredWhatsAppNumber();
+  const support = getWhatsAppUrl('Hello SIVORA, I have a general enquiry.');
   const rows = [
-    { Icon: MailIcon, label: t('info.emailLabel'), value: t('info.email') },
-    { Icon: PhoneIcon, label: t('info.phoneLabel'), value: t('info.phone') },
+    ...(number ? [{ Icon: PhoneIcon, label: 'WhatsApp', value: `+${number}`, href: support.url }] : []),
     { Icon: MapPinIcon, label: t('info.addressLabel'), value: t('info.address') },
     { Icon: ClockIcon, label: t('info.hoursLabel'), value: t('info.hours') },
   ];
@@ -38,7 +40,7 @@ export default function ContactPage() {
                   </span>
                   <div>
                     <p className="text-sm font-medium text-textSecondary">{r.label}</p>
-                    <p className="text-textPrimary">{r.value}</p>
+                    {'href' in r && r.href ? <a className="text-brand underline" href={r.href} target="_blank" rel="noopener noreferrer">{r.value}</a> : <p className="text-textPrimary">{r.value}</p>}
                   </div>
                 </li>
               ))}

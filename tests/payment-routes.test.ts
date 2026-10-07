@@ -66,6 +66,15 @@ beforeEach(() => {
 });
 
 describe('POST /api/payments/create-order', () => {
+  it('rejects a free test without creating a payment or contacting the gateway', async () => {
+    mocks.testFindUnique.mockResolvedValue({ id: 'free_test', isPublished: true, price: 0 });
+    const res = await createOrderPost(jsonReq('http://localhost/api/payments/create-order', { testId: 'free_test' }));
+    expect(res.status).toBe(409);
+    expect((await res.json()).error).toBe('paymentNotRequired');
+    expect(mocks.paymentCreate).not.toHaveBeenCalled();
+    expect(mocks.createOrder).not.toHaveBeenCalled();
+  });
+
   it('ignores manipulated client price and creates an order from the DB price', async () => {
     mocks.testFindUnique.mockResolvedValue({ id: 'test_1', isPublished: true, title: { en: 'Mock Test' }, price: 45 });
     mocks.entitlementCount.mockResolvedValue(0);

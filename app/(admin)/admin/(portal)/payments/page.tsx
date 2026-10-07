@@ -1,3 +1,4 @@
+import { formatIndianMobile } from '@/lib/phone';
 import { prisma } from '@/lib/prisma';
 import { localizedName } from '@/lib/admin/format';
 import { buildPaymentWhere } from '@/lib/admin/payments-filter';
@@ -94,7 +95,7 @@ export default async function AdminPaymentsPage({ searchParams }: { searchParams
                 <tr key={p.id} className="border-b border-border">
                   <td className="px-4 py-3">
                     <p className="font-medium text-textPrimary">{p.student.name}</p>
-                    <p className="text-xs text-textSecondary">+91 {p.student.mobile}</p>
+                    <p className="text-xs text-textSecondary">{formatIndianMobile(p.student.mobile)}</p>
                   </td>
                   <td className="px-3 py-3 text-textSecondary">{localizedName(p.test.title, 'en')}</td>
                   <td className="px-3 py-3 text-textSecondary">₹{p.amount}</td>

@@ -60,9 +60,9 @@ export default function AIChatButton() {
   }
 
   return (
-    <div className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-4 z-[60] flex flex-col items-end gap-3 sm:right-6">
+    <div className="relative flex flex-col items-end">
       {open ? (
-        <div className="flex h-[min(38rem,calc(100vh-7rem))] w-[min(calc(100vw-2rem),25rem)] flex-col overflow-hidden rounded-md border border-[#e1e5ea] bg-[#f1f3f5] shadow-lg shadow-black/15">
+        <div className="absolute bottom-16 right-0 flex h-[min(38rem,calc(100dvh-7rem))] w-[min(calc(100vw-2rem),25rem)] flex-col overflow-hidden rounded-md border border-[#e1e5ea] bg-[#f1f3f5] shadow-lg shadow-black/15">
           <div className="flex items-start justify-between gap-3 border-b border-[#2b2b2b] bg-[#050505] p-4">
             <div>
               <p className="text-sm font-black text-white">{t('title')}</p>

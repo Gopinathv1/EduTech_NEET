@@ -73,7 +73,7 @@ export default function GlobalNavigationControls({
   return (
     <nav
       aria-label="Global navigation"
-      className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] left-1/2 z-[70] flex -translate-x-1/2 items-center gap-0.5 rounded-md border border-[#d9dee5] bg-white/95 p-1 text-[#10151c] shadow-[0_8px_24px_rgba(7,17,31,0.14)] backdrop-blur-xl"
+      className="mx-auto flex items-center gap-0.5 rounded-md border border-[#d9dee5] bg-white p-1 text-[#10151c]"
     >
       <ControlButton label="Home" onClick={goHome}>
         <HomeIcon />

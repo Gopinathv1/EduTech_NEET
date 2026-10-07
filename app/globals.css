@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+html { scroll-padding-bottom: calc(6rem + env(safe-area-inset-bottom)); }
+input, textarea, select, button, a, [tabindex] { scroll-margin-bottom: calc(6rem + env(safe-area-inset-bottom)); }
+
 :root {
   --background:#f5f7fa; --foreground:#10151c; --surface:#fff; --muted:#5f6975;
   --border:#d9dee5; --accent:#2774e6; --accent-hover:#135bc2; --accent-soft:#eaf2ff;

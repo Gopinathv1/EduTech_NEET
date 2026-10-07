@@ -1,4 +1,5 @@
 'use client';
+import { formatIndianMobile } from '@/lib/phone';
 
 import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -178,7 +179,7 @@ export default function LeadDrawer({
             <section className="rounded-xl border border-border bg-surfaceElevated p-4">
               <h3 className="text-sm font-semibold text-textPrimary">Student profile</h3>
               <dl className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
-                <Row label="Mobile" value={s ? `+91 ${s.mobile}` : '—'} />
+                <Row label="Mobile" value={s ? formatIndianMobile(s.mobile) : '—'} />
                 <Row label="Email" value={s?.email ?? '—'} />
                 <Row label="District" value={s?.district ?? '—'} />
                 <Row label="State" value={s?.state ?? '—'} />

@@ -16,11 +16,11 @@ export default function TermsPage() {
         <div className="mt-6 space-y-4 text-sm leading-7 text-textSecondary">
           <p>
             SIVORA UP↑RISING provides competitive-exam preparation tools including question practice, mock tests,
-            explanations and progress review. NEET is the currently active exam category.
+            explanations and progress review for NEET and JEE Main.
           </p>
           <p>
-            Students are responsible for using the platform honestly and for keeping OTP-based account
-            access secure. Test access, payments and result features are governed by the product flow
+            Students are responsible for using the platform honestly and for keeping their account
+            credentials secure. Test access, payments and result features are governed by the product flow
             shown at the time of use.
           </p>
           <p>
