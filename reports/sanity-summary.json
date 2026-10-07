@@ -1,0 +1,17 @@
+{
+  "templates": 95,
+  "api": 62,
+  "rendered": 300,
+  "concreteRoutes": 130,
+  "controlOccurrences": 14213,
+  "actions": {
+    "ANCHOR_CLICKED": 65,
+    "CLICKED": 344,
+    "HIDDEN_CONTROL_NOT_CLICKED": 18,
+    "SHARED_DESTINATION_COVERED_SEPARATELY": 2001,
+    "DESTINATION_CONSTRUCTION_ONLY": 65,
+    "CLICKED_FIXED_ANCHOR_RECHECKED": 12
+  },
+  "errors": 0,
+  "overflow": 0
+}

@@ -29,20 +29,20 @@ export default function PartnersPage() {
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.32em] text-accent">{t('benefits.eyebrow')}</p>
-            <h2 className="mt-5 text-[clamp(2.75rem,6vw,6rem)] font-black uppercase leading-[0.9] text-white">
+            <h2 className="mt-5 text-[clamp(2.75rem,6vw,6rem)] font-black uppercase leading-[0.9] text-textPrimary">
               {t('benefits.title')}
             </h2>
             <p className="mt-6 max-w-2xl text-base leading-8 text-textSecondary">{t('benefits.subtitle')}</p>
           </div>
 
-          <div className="border-y border-white/10">
+          <div className="border-y border-[#d9dee5]">
             {benefits.map((item) => (
-              <div key={item.title} className="grid gap-4 border-b border-white/10 py-6 last:border-b-0 sm:grid-cols-[auto_1fr]">
+              <div key={item.title} className="grid gap-4 border-b border-[#d9dee5] py-6 last:border-b-0 sm:grid-cols-[auto_1fr]">
                 <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-brand/40 bg-brand-soft text-accent">
                   <CheckIcon className="h-5 w-5" />
                 </span>
                 <div>
-                  <h3 className="text-xl font-black uppercase leading-tight text-white">{item.title}</h3>
+                  <h3 className="text-xl font-black uppercase leading-tight text-textPrimary">{item.title}</h3>
                   <p className="mt-2 text-sm leading-7 text-textSecondary">{item.body}</p>
                 </div>
               </div>

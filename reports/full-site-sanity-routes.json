@@ -1,0 +1,1101 @@
+[
+  {
+    "route": "/admin/access-logs",
+    "source": "app/(admin)/admin/(portal)/access-logs/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/contact-enquiries",
+    "source": "app/(admin)/admin/(portal)/contact-enquiries/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/dashboard",
+    "source": "app/(admin)/admin/(portal)/dashboard/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/financials",
+    "source": "app/(admin)/admin/(portal)/financials/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/leads",
+    "source": "app/(admin)/admin/(portal)/leads/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/manage-admins",
+    "source": "app/(admin)/admin/(portal)/manage-admins/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/notifications",
+    "source": "app/(admin)/admin/(portal)/notifications/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin",
+    "source": "app/(admin)/admin/(portal)/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/partners",
+    "source": "app/(admin)/admin/(portal)/partners/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/partners/[id]",
+    "source": "app/(admin)/admin/(portal)/partners/[id]/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": true
+  },
+  {
+    "route": "/admin/payments",
+    "source": "app/(admin)/admin/(portal)/payments/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/question-bank/bulk-upload",
+    "source": "app/(admin)/admin/(portal)/question-bank/bulk-upload/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/question-bank/new",
+    "source": "app/(admin)/admin/(portal)/question-bank/new/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/question-bank",
+    "source": "app/(admin)/admin/(portal)/question-bank/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/question-bank/subjects",
+    "source": "app/(admin)/admin/(portal)/question-bank/subjects/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/question-bank/[id]/history",
+    "source": "app/(admin)/admin/(portal)/question-bank/[id]/history/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": true
+  },
+  {
+    "route": "/admin/question-bank/[id]",
+    "source": "app/(admin)/admin/(portal)/question-bank/[id]/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": true
+  },
+  {
+    "route": "/admin/reports/country-leads",
+    "source": "app/(admin)/admin/(portal)/reports/country-leads/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/reports/most-attempted-chapters",
+    "source": "app/(admin)/admin/(portal)/reports/most-attempted-chapters/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/reports",
+    "source": "app/(admin)/admin/(portal)/reports/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/reports/payments",
+    "source": "app/(admin)/admin/(portal)/reports/payments/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/reports/question-difficulty",
+    "source": "app/(admin)/admin/(portal)/reports/question-difficulty/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/reports/revenue",
+    "source": "app/(admin)/admin/(portal)/reports/revenue/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/reports/students",
+    "source": "app/(admin)/admin/(portal)/reports/students/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/reports/test-performance",
+    "source": "app/(admin)/admin/(portal)/reports/test-performance/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/reports/top-students",
+    "source": "app/(admin)/admin/(portal)/reports/top-students/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/reports/weak-chapters",
+    "source": "app/(admin)/admin/(portal)/reports/weak-chapters/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/settings",
+    "source": "app/(admin)/admin/(portal)/settings/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/students",
+    "source": "app/(admin)/admin/(portal)/students/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/students/[id]",
+    "source": "app/(admin)/admin/(portal)/students/[id]/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": true
+  },
+  {
+    "route": "/admin/super",
+    "source": "app/(admin)/admin/(portal)/super/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/system",
+    "source": "app/(admin)/admin/(portal)/system/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/tests/new",
+    "source": "app/(admin)/admin/(portal)/tests/new/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/tests",
+    "source": "app/(admin)/admin/(portal)/tests/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/admin/tests/[id]",
+    "source": "app/(admin)/admin/(portal)/tests/[id]/page.tsx",
+    "category": "ADMIN",
+    "auth": true,
+    "dynamic": true
+  },
+  {
+    "route": "/admin/login",
+    "source": "app/(admin)/admin/login/page.tsx",
+    "category": "ADMIN",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/complete-profile",
+    "source": "app/(auth)/complete-profile/page.tsx",
+    "category": "AUTH",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/forgot-password",
+    "source": "app/(auth)/forgot-password/page.tsx",
+    "category": "AUTH",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/login",
+    "source": "app/(auth)/login/page.tsx",
+    "category": "AUTH",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/register",
+    "source": "app/(auth)/register/page.tsx",
+    "category": "AUTH",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/reset-password",
+    "source": "app/(auth)/reset-password/page.tsx",
+    "category": "AUTH",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/verify-email",
+    "source": "app/(auth)/verify-email/page.tsx",
+    "category": "AUTH",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/partner/login",
+    "source": "app/(partner-auth)/partner/login/page.tsx",
+    "category": "INTERNAL/UTILITY",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/partner/register",
+    "source": "app/(partner-auth)/partner/register/page.tsx",
+    "category": "INTERNAL/UTILITY",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/partner/applications",
+    "source": "app/(partner-portal)/partner/applications/page.tsx",
+    "category": "INTERNAL/UTILITY",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/partner/leads",
+    "source": "app/(partner-portal)/partner/leads/page.tsx",
+    "category": "INTERNAL/UTILITY",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/partner",
+    "source": "app/(partner-portal)/partner/page.tsx",
+    "category": "INTERNAL/UTILITY",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/partner/profile",
+    "source": "app/(partner-portal)/partner/profile/page.tsx",
+    "category": "INTERNAL/UTILITY",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/partner/students",
+    "source": "app/(partner-portal)/partner/students/page.tsx",
+    "category": "INTERNAL/UTILITY",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/partner/support",
+    "source": "app/(partner-portal)/partner/support/page.tsx",
+    "category": "INTERNAL/UTILITY",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/partner/tasks",
+    "source": "app/(partner-portal)/partner/tasks/page.tsx",
+    "category": "INTERNAL/UTILITY",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/partner/universities",
+    "source": "app/(partner-portal)/partner/universities/page.tsx",
+    "category": "INTERNAL/UTILITY",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/about",
+    "source": "app/(public)/about/page.tsx",
+    "category": "PUBLIC",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/admission-guidance",
+    "source": "app/(public)/admission-guidance/page.tsx",
+    "category": "PUBLIC",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/admission-journey",
+    "source": "app/(public)/admission-journey/page.tsx",
+    "category": "PUBLIC",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/admissions/compare",
+    "source": "app/(public)/admissions/compare/page.tsx",
+    "category": "ADMISSIONS",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/admissions",
+    "source": "app/(public)/admissions/page.tsx",
+    "category": "ADMISSIONS",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/admissions/[country]",
+    "source": "app/(public)/admissions/[country]/page.tsx",
+    "category": "ADMISSIONS",
+    "auth": false,
+    "dynamic": true
+  },
+  {
+    "route": "/contact",
+    "source": "app/(public)/contact/page.tsx",
+    "category": "PUBLIC",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/counselling",
+    "source": "app/(public)/counselling/page.tsx",
+    "category": "PUBLIC",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/countries",
+    "source": "app/(public)/countries/page.tsx",
+    "category": "PUBLIC",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/courses/astrology",
+    "source": "app/(public)/courses/astrology/page.tsx",
+    "category": "PUBLIC",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/courses",
+    "source": "app/(public)/courses/page.tsx",
+    "category": "PUBLIC",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/exam-preparation/jee",
+    "source": "app/(public)/exam-preparation/jee/page.tsx",
+    "category": "PUBLIC",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/exam-preparation/neet",
+    "source": "app/(public)/exam-preparation/neet/page.tsx",
+    "category": "PUBLIC",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/exam-preparation",
+    "source": "app/(public)/exam-preparation/page.tsx",
+    "category": "PUBLIC",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/faq",
+    "source": "app/(public)/faq/page.tsx",
+    "category": "PUBLIC",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/help",
+    "source": "app/(public)/help/page.tsx",
+    "category": "PUBLIC",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/marketplace",
+    "source": "app/(public)/marketplace/page.tsx",
+    "category": "PUBLIC",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/marketplace/sell",
+    "source": "app/(public)/marketplace/sell/page.tsx",
+    "category": "PUBLIC",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/marketplace/[slug]",
+    "source": "app/(public)/marketplace/[slug]/page.tsx",
+    "category": "PUBLIC",
+    "auth": false,
+    "dynamic": true
+  },
+  {
+    "route": "/mock-tests",
+    "source": "app/(public)/mock-tests/page.tsx",
+    "category": "PUBLIC",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/",
+    "source": "app/(public)/page.tsx",
+    "category": "PUBLIC",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/partners",
+    "source": "app/(public)/partners/page.tsx",
+    "category": "PUBLIC",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/privacy",
+    "source": "app/(public)/privacy/page.tsx",
+    "category": "PUBLIC",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/services",
+    "source": "app/(public)/services/page.tsx",
+    "category": "PUBLIC",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/study-abroad",
+    "source": "app/(public)/study-abroad/page.tsx",
+    "category": "PUBLIC",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/terms",
+    "source": "app/(public)/terms/page.tsx",
+    "category": "PUBLIC",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/testimonials",
+    "source": "app/(public)/testimonials/page.tsx",
+    "category": "PUBLIC",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/why-choose-us",
+    "source": "app/(public)/why-choose-us/page.tsx",
+    "category": "PUBLIC",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/student/admission-guidance",
+    "source": "app/(student)/student/admission-guidance/page.tsx",
+    "category": "STUDENT",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/student/dashboard",
+    "source": "app/(student)/student/dashboard/page.tsx",
+    "category": "STUDENT",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/student/notifications",
+    "source": "app/(student)/student/notifications/page.tsx",
+    "category": "STUDENT",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/student",
+    "source": "app/(student)/student/page.tsx",
+    "category": "STUDENT",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/student/payments",
+    "source": "app/(student)/student/payments/page.tsx",
+    "category": "STUDENT",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/student/performance",
+    "source": "app/(student)/student/performance/page.tsx",
+    "category": "STUDENT",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/student/previous-year",
+    "source": "app/(student)/student/previous-year/page.tsx",
+    "category": "STUDENT",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/student/profile",
+    "source": "app/(student)/student/profile/page.tsx",
+    "category": "STUDENT",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/student/results/[attemptId]",
+    "source": "app/(student)/student/results/[attemptId]/page.tsx",
+    "category": "RESULT",
+    "auth": true,
+    "dynamic": true
+  },
+  {
+    "route": "/student/settings",
+    "source": "app/(student)/student/settings/page.tsx",
+    "category": "STUDENT",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/student/tests",
+    "source": "app/(student)/student/tests/page.tsx",
+    "category": "STUDENT",
+    "auth": true,
+    "dynamic": false
+  },
+  {
+    "route": "/student/tests/[id]/attempt",
+    "source": "app/(student)/student/tests/[id]/attempt/page.tsx",
+    "category": "EXAM",
+    "auth": true,
+    "dynamic": true
+  },
+  {
+    "route": "/student/tests/[id]/checkout",
+    "source": "app/(student)/student/tests/[id]/checkout/page.tsx",
+    "category": "STUDENT",
+    "auth": true,
+    "dynamic": true
+  },
+  {
+    "route": "/student/tests/[id]",
+    "source": "app/(student)/student/tests/[id]/page.tsx",
+    "category": "STUDENT",
+    "auth": true,
+    "dynamic": true
+  },
+  {
+    "route": "/student/tests/[id]/start",
+    "source": "app/(student)/student/tests/[id]/start/page.tsx",
+    "category": "EXAM",
+    "auth": true,
+    "dynamic": true
+  },
+  {
+    "route": "/api/admin/admins",
+    "source": "app/api/admin/admins/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/admin/admins/[id]/reset-password",
+    "source": "app/api/admin/admins/[id]/reset-password/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": true
+  },
+  {
+    "route": "/api/admin/admins/[id]",
+    "source": "app/api/admin/admins/[id]/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": true
+  },
+  {
+    "route": "/api/admin/chapters",
+    "source": "app/api/admin/chapters/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/admin/chapters/[id]",
+    "source": "app/api/admin/chapters/[id]/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": true
+  },
+  {
+    "route": "/api/admin/contact-enquiries",
+    "source": "app/api/admin/contact-enquiries/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/admin/contact-enquiries/[id]/status",
+    "source": "app/api/admin/contact-enquiries/[id]/status/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": true
+  },
+  {
+    "route": "/api/admin/leads/export",
+    "source": "app/api/admin/leads/export/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/admin/leads/[id]/assign",
+    "source": "app/api/admin/leads/[id]/assign/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": true
+  },
+  {
+    "route": "/api/admin/leads/[id]/notes",
+    "source": "app/api/admin/leads/[id]/notes/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": true
+  },
+  {
+    "route": "/api/admin/leads/[id]",
+    "source": "app/api/admin/leads/[id]/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": true
+  },
+  {
+    "route": "/api/admin/leads/[id]/status",
+    "source": "app/api/admin/leads/[id]/status/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": true
+  },
+  {
+    "route": "/api/admin/notifications",
+    "source": "app/api/admin/notifications/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/admin/partners/[id]/status",
+    "source": "app/api/admin/partners/[id]/status/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": true
+  },
+  {
+    "route": "/api/admin/payments/export",
+    "source": "app/api/admin/payments/export/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/admin/questions/bulk",
+    "source": "app/api/admin/questions/bulk/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/admin/questions",
+    "source": "app/api/admin/questions/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/admin/questions/[id]/active",
+    "source": "app/api/admin/questions/[id]/active/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": true
+  },
+  {
+    "route": "/api/admin/questions/[id]/review",
+    "source": "app/api/admin/questions/[id]/review/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": true
+  },
+  {
+    "route": "/api/admin/questions/[id]",
+    "source": "app/api/admin/questions/[id]/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": true
+  },
+  {
+    "route": "/api/admin/reports/[report]",
+    "source": "app/api/admin/reports/[report]/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": true
+  },
+  {
+    "route": "/api/admin/settings",
+    "source": "app/api/admin/settings/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/admin/students/export",
+    "source": "app/api/admin/students/export/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/admin/tests",
+    "source": "app/api/admin/tests/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/admin/tests/[id]/publish",
+    "source": "app/api/admin/tests/[id]/publish/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": true
+  },
+  {
+    "route": "/api/admin/tests/[id]",
+    "source": "app/api/admin/tests/[id]/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": true
+  },
+  {
+    "route": "/api/admin/upload",
+    "source": "app/api/admin/upload/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/admission/leads",
+    "source": "app/api/admission/leads/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/attempts",
+    "source": "app/api/attempts/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/attempts/[id]/answer",
+    "source": "app/api/attempts/[id]/answer/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": true
+  },
+  {
+    "route": "/api/attempts/[id]/language",
+    "source": "app/api/attempts/[id]/language/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": true
+  },
+  {
+    "route": "/api/attempts/[id]/monitoring",
+    "source": "app/api/attempts/[id]/monitoring/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": true
+  },
+  {
+    "route": "/api/attempts/[id]/submit",
+    "source": "app/api/attempts/[id]/submit/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": true
+  },
+  {
+    "route": "/api/attempts/[id]/sync",
+    "source": "app/api/attempts/[id]/sync/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": true
+  },
+  {
+    "route": "/api/auth/admin/login",
+    "source": "app/api/auth/admin/login/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/auth/complete-profile",
+    "source": "app/api/auth/complete-profile/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/auth/email-verification/request",
+    "source": "app/api/auth/email-verification/request/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/auth/email-verification/verify",
+    "source": "app/api/auth/email-verification/verify/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/auth/forgot-password",
+    "source": "app/api/auth/forgot-password/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/auth/google/finish",
+    "source": "app/api/auth/google/finish/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/auth/login",
+    "source": "app/api/auth/login/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/auth/logout",
+    "source": "app/api/auth/logout/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/auth/me",
+    "source": "app/api/auth/me/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/auth/otp/request",
+    "source": "app/api/auth/otp/request/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/auth/otp/verify",
+    "source": "app/api/auth/otp/verify/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/auth/profile",
+    "source": "app/api/auth/profile/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/auth/register",
+    "source": "app/api/auth/register/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/auth/reset-password",
+    "source": "app/api/auth/reset-password/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/auth/[...nextauth]",
+    "source": "app/api/auth/[...nextauth]/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": true
+  },
+  {
+    "route": "/api/contact",
+    "source": "app/api/contact/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/health",
+    "source": "app/api/health/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/notifications/read-all",
+    "source": "app/api/notifications/read-all/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/notifications/[id]/read",
+    "source": "app/api/notifications/[id]/read/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": true
+  },
+  {
+    "route": "/api/partner/auth/login",
+    "source": "app/api/partner/auth/login/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/partner/profile",
+    "source": "app/api/partner/profile/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/partner/register",
+    "source": "app/api/partner/register/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/payments/create-order",
+    "source": "app/api/payments/create-order/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/payments/retry-order",
+    "source": "app/api/payments/retry-order/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/payments/verify",
+    "source": "app/api/payments/verify/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/payments/webhook",
+    "source": "app/api/payments/webhook/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": false
+  },
+  {
+    "route": "/api/payments/[id]/invoice",
+    "source": "app/api/payments/[id]/invoice/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": true
+  },
+  {
+    "route": "/api/reports/[attemptId]/result-pdf",
+    "source": "app/api/reports/[attemptId]/result-pdf/route.ts",
+    "category": "API / NON-VISUAL",
+    "auth": false,
+    "dynamic": true
+  }
+]

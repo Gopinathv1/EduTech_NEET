@@ -48,7 +48,7 @@ export default function PerformanceCharts({
   timeTrend,
 }: {
   scoreTrend: { label: string; score: number }[];
-  subjectAccuracy: { name: string; accuracy: number }[];
+  subjectAccuracy: { code: string; name: string; accuracy: number }[];
   timeTrend: { label: string; avgSeconds: number }[];
 }) {
   const t = useTranslations('performance.charts');
@@ -79,7 +79,7 @@ export default function PerformanceCharts({
             />
             <Bar dataKey="accuracy" name={t('accuracy')} radius={[4, 4, 0, 0]}>
               {subjectAccuracy.map((row) => (
-                <Cell key={row.name} fill={STRENGTH_FILL[strengthOf(row.accuracy)]} />
+                <Cell key={row.code} fill={STRENGTH_FILL[strengthOf(row.accuracy)]} />
               ))}
             </Bar>
           </BarChart>

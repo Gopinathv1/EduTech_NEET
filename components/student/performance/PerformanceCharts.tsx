@@ -29,7 +29,7 @@ function ChartsSkeleton() {
 
 export default function PerformanceCharts(props: {
   scoreTrend: { label: string; score: number }[];
-  subjectAccuracy: { name: string; accuracy: number }[];
+  subjectAccuracy: { code: string; name: string; accuracy: number }[];
   timeTrend: { label: string; avgSeconds: number }[];
 }) {
   return <PerformanceChartsInner {...props} />;

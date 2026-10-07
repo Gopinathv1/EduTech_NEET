@@ -1,0 +1,20 @@
+const fs=require('fs');
+const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
+const routes=read('reports/full-site-sanity-routes.json');
+routes.find(r=>r.route==='/partners').category='PUBLIC';routes.find(r=>r.route==='/partners').auth=false;
+fs.writeFileSync('reports/full-site-sanity-routes.json',JSON.stringify(routes,null,2));
+const evidence=['public','protected','dynamic'].flatMap(n=>read(`reports/sanity-${n}-browser.json`));
+const actions=read('reports/sanity-control-actions.json');
+const esc=v=>String(v??'').replace(/\|/g,'\\|').replace(/\r?\n/g,' ').slice(0,180);
+const matches=(r,p)=>new RegExp('^'+r.replace(/\[[^\]]+\]/g,'[^/]+')+'$').test(p);
+let inv='# Full site sanity route inventory\n\nBaseline: `87b8b41788671afced0dba38a94385b69318b82e`. All templates were inventoried before changes. Browser evidence uses local fixtures at 1440×1000 and 390×844. INSPECTED means rendered inventory, not functional PASS. Redirects and unsupported checkout URLs are identified separately.\n\n| Route | Purpose/category and source | Auth | Desktop | Mobile | Functional controls | Status |\n|---|---|---|---|---|---|---|\n';
+for(const r of routes){const rows=evidence.filter(e=>matches(r.route,e.route));const d=rows.some(e=>e.viewport.width===1440&&e.render),m=rows.some(e=>e.viewport.width===390&&e.render);const controls=rows.reduce((n,e)=>n+(e.render?.controls?.length||0),0);const redirect=rows.some(e=>e.finalPath!==e.route);inv+=`| ${r.route} | ${r.category}; ${r.source} | ${r.auth?'Yes':'No'} | ${d?'Inspected':'Not exercised'} | ${m?'Inspected':'Not exercised'} | ${controls} rendered occurrences; see control matrix | ${rows.length?(redirect?'INSPECTED / redirect or conditional state':'INSPECTED; functional coverage partial'):'NOT EXERCISED (nonvisual API or missing fixture)'} |\n`;}
+fs.writeFileSync('reports/full-site-sanity-route-inventory.md',inv);
+inv=inv.replace(/\| API \/ NON-VISUAL;([^\n]+?)\| No \|/g,'| API / NON-VISUAL;$1| Endpoint guard varies; not inferred |');
+inv=inv.replace(/(\| \/student\/tests\/\[id\]\/attempt \|[^\n]+?\| Yes \|)[^\n]+/,'$1 E2E inspected/exercised | E2E inspected/exercised | Sample answer, navigation, refresh, submit, monitoring; see tests | SAMPLE PASS; full mock coverage missing |');
+fs.writeFileSync('reports/full-site-sanity-route-inventory.md',inv);
+let matrix='# Full site control audit\n\nEach rendered control occurrence is listed by route and viewport. VISUAL INVENTORY ONLY is explicitly not a functional PASS. Public link actions are desktop checks; shared header/footer destinations are deduplicated. External links are construction checks, without sending messages or contacting outside services. Targeted stateful tests are documented in the main report and E2E source; this matrix does not infer that every identically named control passed. Administrative save/delete/publish/import/approval actions were not submitted.\n\n| Route | Viewport | Control | Type/destination | Disabled | Action evidence |\n|---|---|---|---|---|---|\n';
+for(const e of evidence){for(const c of e.render?.controls||[]){const a=e.viewport.width===1440?actions.find(a=>a.route===e.route&&a.href&&a.href===c.href):null;matrix+=`| ${esc(e.route)} | ${e.viewport.width} | ${esc(c.text||c.href||'(unlabelled/field)')} | ${esc(c.tag+' '+(c.type||'')+' '+(c.href||''))} | ${c.disabled?'Yes':'No'} | ${a?esc(a.status):'VISUAL INVENTORY ONLY; see targeted tests'} |\n`;}}
+fs.writeFileSync('reports/full-site-sanity-control-audit.md',matrix);
+const counts={templates:routes.filter(r=>r.category!=='API / NON-VISUAL').length,api:routes.filter(r=>r.category==='API / NON-VISUAL').length,rendered:evidence.filter(e=>e.render).length,concreteRoutes:new Set(evidence.map(e=>e.route)).size,controlOccurrences:evidence.reduce((n,e)=>n+(e.render?.controls?.length||0),0),actions:actions.reduce((o,a)=>(o[a.status]=(o[a.status]||0)+1,o),{}),errors:evidence.reduce((n,e)=>n+e.errors.length,0),overflow:evidence.filter(e=>e.render?.overflow).length};
+fs.writeFileSync('reports/sanity-summary.json',JSON.stringify(counts,null,2));console.log(counts);

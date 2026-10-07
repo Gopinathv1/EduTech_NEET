@@ -1,0 +1,137 @@
+[
+  {
+    "url": "/_next/image?url=%2Fadmissions%2Fstudent-departure-01.jpg&w=3840&q=75",
+    "status": 200,
+    "contentType": "image/jpeg"
+  },
+  {
+    "url": "/_next/image?url=%2Fadmissions%2Fstudent-departure-02.jpg&w=3840&q=75",
+    "status": 200,
+    "contentType": "image/jpeg"
+  },
+  {
+    "url": "/_next/image?url=%2Fadmissions%2Fandijan-students-01.jpg&w=3840&q=75",
+    "status": 200,
+    "contentType": "image/jpeg"
+  },
+  {
+    "url": "/_next/image?url=%2Fadmissions%2Fstudent-success-02.jpg&w=3840&q=75",
+    "status": 200,
+    "contentType": "image/jpeg"
+  },
+  {
+    "url": "/_next/image?url=%2Fadmissions%2Frussia.jpg&w=3840&q=75",
+    "status": 200,
+    "contentType": "image/jpeg"
+  },
+  {
+    "url": "/_next/image?url=%2Fadmissions%2Fgeorgia.jpg&w=3840&q=75",
+    "status": 200,
+    "contentType": "image/jpeg"
+  },
+  {
+    "url": "/og.svg",
+    "status": 200,
+    "contentType": "image/svg+xml"
+  },
+  {
+    "url": "/favicon.ico",
+    "status": 404,
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "/robots.txt",
+    "status": 404,
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "/sitemap.xml",
+    "status": 404,
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "route": "/admissions",
+    "decodedImages": [
+      {
+        "src": "/_next/image?url=%2Fadmissions%2Frussia.jpg&w=3840&q=75",
+        "complete": true,
+        "naturalWidth": 320
+      },
+      {
+        "src": "/_next/image?url=%2Fadmissions%2Fgeorgia.jpg&w=3840&q=75",
+        "complete": true,
+        "naturalWidth": 320
+      },
+      {
+        "src": "/_next/image?url=%2Fadmissions%2Fandijan-students-01.jpg&w=3840&q=75",
+        "complete": true,
+        "naturalWidth": 320
+      }
+    ]
+  },
+  {
+    "route": "/admission-journey",
+    "decodedImages": [
+      {
+        "src": "/_next/image?url=%2Fadmissions%2Fstudent-departure-01.jpg&w=3840&q=75",
+        "complete": true,
+        "naturalWidth": 599
+      },
+      {
+        "src": "/_next/image?url=%2Fadmissions%2Fstudent-departure-02.jpg&w=3840&q=75",
+        "complete": true,
+        "naturalWidth": 599
+      },
+      {
+        "src": "/_next/image?url=%2Fadmissions%2Fandijan-students-01.jpg&w=3840&q=75",
+        "complete": true,
+        "naturalWidth": 599
+      },
+      {
+        "src": "/_next/image?url=%2Fadmissions%2Fstudent-success-02.jpg&w=3840&q=75",
+        "complete": true,
+        "naturalWidth": 599
+      }
+    ]
+  },
+  {
+    "route": "/countries",
+    "decodedImages": [
+      {
+        "src": "/_next/image?url=%2Fadmissions%2Frussia.jpg&w=3840&q=75",
+        "complete": true,
+        "naturalWidth": 320
+      },
+      {
+        "src": "/_next/image?url=%2Fadmissions%2Fgeorgia.jpg&w=3840&q=75",
+        "complete": true,
+        "naturalWidth": 320
+      },
+      {
+        "src": "/_next/image?url=%2Fadmissions%2Fandijan-students-01.jpg&w=3840&q=75",
+        "complete": true,
+        "naturalWidth": 320
+      }
+    ]
+  },
+  {
+    "route": "/study-abroad",
+    "decodedImages": [
+      {
+        "src": "/_next/image?url=%2Fadmissions%2Frussia.jpg&w=3840&q=75",
+        "complete": true,
+        "naturalWidth": 320
+      },
+      {
+        "src": "/_next/image?url=%2Fadmissions%2Fgeorgia.jpg&w=3840&q=75",
+        "complete": true,
+        "naturalWidth": 320
+      },
+      {
+        "src": "/_next/image?url=%2Fadmissions%2Fandijan-students-01.jpg&w=3840&q=75",
+        "complete": true,
+        "naturalWidth": 320
+      }
+    ]
+  }
+]

@@ -9,7 +9,7 @@ export async function generateMetadata() {
 
 export default function TermsPage() {
   return (
-    <Container className="py-14 sm:py-20">
+    <Container className="public-light-section py-14 sm:py-20">
       <div className="max-w-3xl">
         <p className="text-sm font-bold uppercase tracking-wide text-brand">SIVORA UP↑RISING</p>
         <h1 className="mt-3 text-3xl font-extrabold text-textPrimary">Terms & Conditions</h1>

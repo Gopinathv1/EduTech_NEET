@@ -50,3 +50,7 @@ next-env.d.ts
 
 # Generated coverage
 /coverage/
+
+# Full local audit captures; selected visual evidence is versioned separately.
+/reports/sanity-evidence/
+/reports/sanity-dev-*-browser.json

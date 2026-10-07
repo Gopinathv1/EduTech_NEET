@@ -44,7 +44,7 @@ export default function CurrencyConverter({
           onChange={(event) => setAmount(event.target.value)}
           className="min-h-12 w-full rounded-xl border border-[#2B2B2B] bg-[#111111] px-4 py-3 text-base font-bold text-white outline-none transition focus:border-brand"
         />
-        <div className="min-h-12 rounded-xl border border-brand/25 bg-brand-soft px-4 py-3 text-base font-black text-white sm:min-w-56">
+        <div className="min-h-12 rounded-xl border border-brand/25 bg-brand-soft px-4 py-3 text-base font-black text-[#10151c] sm:min-w-56">
           {converted}
         </div>
       </div>

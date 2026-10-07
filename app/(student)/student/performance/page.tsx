@@ -49,7 +49,7 @@ export default async function PerformancePage() {
             {/* Charts */}
             <PerformanceCharts
               scoreTrend={perf.trend.map((p) => ({ label: p.label, score: p.score }))}
-              subjectAccuracy={perf.subjectAccuracy.map((s) => ({ name: L(s.name, locale), accuracy: round1(s.accuracy) }))}
+              subjectAccuracy={perf.subjectAccuracy.map((s) => ({ code: s.code, name: L(s.name, locale), accuracy: round1(s.accuracy) }))}
               timeTrend={perf.trend.map((p) => ({ label: p.label, avgSeconds: p.avgSeconds }))}
             />
 

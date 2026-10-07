@@ -7,7 +7,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 export function useErrorText() {
   const t = useTranslations('auth.errors');
   return useCallback(
-    (code?: string) => t(code && code.length ? code : 'generic'),
+    (code?: string) => t(code && t.has(code) ? code : 'generic'),
     [t],
   );
 }

@@ -46,7 +46,7 @@ export default function ContactPage() {
           </div>
 
           {/* Form */}
-          <Card>
+          <Card className="p-6 sm:p-8">
             <h2 className="text-lg font-semibold text-textPrimary">{t('formTitle')}</h2>
             <p className="mt-1 text-sm text-textSecondary">{t('formSubtitle')}</p>
             <div className="mt-5">

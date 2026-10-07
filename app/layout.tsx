@@ -20,6 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase: new URL(SITE_URL),
     title: { default: t('title'), template: `%s · ${SITE_NAME}` },
     description: t('description'),
+    icons: { icon: '/branding/sivora-su-logo.png' },
     openGraph: {
       siteName: SITE_NAME,
       type: 'website',

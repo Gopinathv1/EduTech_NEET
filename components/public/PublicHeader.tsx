@@ -49,7 +49,7 @@ export default function PublicHeader({ studentAuthenticated = false }: { student
           <Logo className="text-[#171613]" size="compact" />
         </div>
 
-        <nav className="hidden min-w-0 flex-1 items-center justify-center gap-0.5 min-[1440px]:flex" aria-label={tA11y('primaryNav')}>
+        <nav className="hidden min-w-0 flex-1 items-center justify-center gap-0.5 min-[1536px]:flex" aria-label={tA11y('primaryNav')}>
           {NAV_GROUPS.map((group) => (
             <div key={group.key} className="group relative">
               <button
@@ -100,7 +100,7 @@ export default function PublicHeader({ studentAuthenticated = false }: { student
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex items-center justify-center border border-[#e1e5ea] bg-transparent p-2 text-[#171613] transition hover:border-brand/60 hover:text-brand min-[1440px]:hidden"
+            className="inline-flex items-center justify-center border border-[#e1e5ea] bg-transparent p-2 text-[#171613] transition hover:border-brand/60 hover:text-brand min-[1536px]:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={tA11y('openMenu')}
@@ -114,7 +114,7 @@ export default function PublicHeader({ studentAuthenticated = false }: { student
         <nav
           id="mobile-nav"
           aria-label={tA11y('primaryNav')}
-            className="border-t border-[#e1e5ea] bg-white px-4 py-4 shadow-lg min-[1440px]:hidden"
+            className="max-h-[calc(100dvh-76px)] overflow-y-auto border-t border-[#e1e5ea] bg-white px-4 py-4 shadow-lg min-[1536px]:hidden"
         >
           <ul className="flex flex-col">
             {NAV_GROUPS.map((group) => (

@@ -43,7 +43,7 @@ export default function CoursesPage() {
           </div>
           <div className={styles.languageGrid}>
             {['AI & Future Technologies', 'Yoga & Wellness', 'Astrology'].map((name, index) => (
-              <article key={name} className={styles.language}>
+              <article key={name} id={name === 'Astrology' ? 'astrology' : undefined} className={styles.language}>
                 <span>0{index + 1} · COMING LATER</span><h3>{name}</h3><p>Future learning pathway. Details will be shared when this programme is ready.</p>
               </article>
             ))}

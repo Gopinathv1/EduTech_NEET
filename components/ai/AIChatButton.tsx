@@ -132,7 +132,7 @@ export default function AIChatButton() {
                   },
                 ])
               }
-              className="mt-3 w-full rounded-2xl px-3 py-2 text-xs font-bold text-[#d1d1d1] hover:bg-white/5"
+              className="mt-3 w-full rounded-2xl px-3 py-2 text-xs font-bold text-[#5f6975] hover:bg-white/50"
             >
               {t('clear')}
             </button>

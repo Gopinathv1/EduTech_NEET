@@ -41,7 +41,7 @@ export default function Testimonials({ items }: { items: Testimonial[] }) {
       onBlur={() => setPaused(false)}
       aria-roledescription="carousel"
     >
-      <div className="rounded-md border border-[#d2c9bd] bg-[#eee8df] p-6 sm:p-8">
+      <div className="rounded-md border border-[#d9dee5] bg-[#edf1f5] p-6 sm:p-8">
         <QuoteIcon className="h-8 w-8 text-brand/30" />
         <p
           className="mt-3 text-lg leading-relaxed text-[#171613]"

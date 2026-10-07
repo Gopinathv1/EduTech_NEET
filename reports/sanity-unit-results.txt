@@ -1,0 +1,15 @@
+
+> neet-smart-practice-platform@0.1.0 test
+> vitest run
+
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - ESM syntax in a file loaded as CommonJS (vitest.config.ts:1:1). Use a `.mjs` extension or set `"type": "module"` in the closest package.json
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+ RUN  v4.1.10 C:/Users/gopis/Neet_EDU_TECH/EduTech_NEET/.sanity-review
+
+
+ Test Files  71 passed | 1 skipped (72)
+      Tests  526 passed | 3 skipped (529)
+   Start at  10:36:42
+   Duration  26.79s (transform 61.49s, setup 26.64s, import 121.84s, tests 6.10s, environment 11ms)
