@@ -50,6 +50,15 @@ describe('exact JEE V1 guarded release', () => {
     expect(snapshot.translations[0].numericTolerance).toBe('0');
   });
 
+  it('accepts independently versioned translations while still rejecting changed canonical English', async () => {
+    const { questions } = await loadJeeRelease();
+    const canonical = questions.find(question => question.questionType === 'SINGLE_CORRECT')!;
+    const row = existing(canonical);
+    const translated = { ...row.translations[0], id: 'ta-row', language: 'ta', questionText: 'Independent translated wording', correctOption: null };
+    expect(jeeExistingContentIssues(canonical, { ...row, translations: [...row.translations, translated] }, 'jee-subject', 'canonical-chapter')).toEqual([]);
+    expect(jeeExistingContentIssues(canonical, { ...row, translations: [{ ...row.translations[0], optionA: 'changed canonical option' }, translated] }, 'jee-subject', 'canonical-chapter')).not.toEqual([]);
+  });
+
   it('projects exact lifecycle records for fresh and partially resumed selections', () => {
     expect(projectJeeReleaseCounts(Array.from({ length: 218 }, () => 'MISSING' as const))).toMatchObject({
       questionsToImport: 218, questionsToApprove: 218, reviewTransitions: 218,

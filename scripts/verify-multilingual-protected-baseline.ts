@@ -4,6 +4,7 @@ import path from 'node:path';
 import { loadEnvConfig } from '@next/env';
 import { PrismaClient } from '@prisma/client';
 import nature from '../data/previous-year/neet/question-nature.json';
+import proof from '../data/question-translations-v1/proof-manifest.json';
 import { assertJeeDatabaseTargets } from '../lib/previous-year/jee-release';
 
 loadEnvConfig(process.cwd());
@@ -40,7 +41,12 @@ async function main() {
     await scan('data/previous-year/neet');
     const quarantine = (await Promise.all([2021, 2022, 2023, 2024, 2025].map(async year => JSON.parse(await readFile(`data/previous-year/neet/${year}/quarantine.json`, 'utf8')) as unknown[]))).flat();
     if (quarantine.length !== 200) throw new Error('Protected NEET quarantine differs.');
-    const fingerprint = { questionsSha256: hash(questions), testsSha256: hash(tests), files };
+    // The saved baseline predates these exact, separately reviewed proof additions.
+    // Preserve every canonical English row and all existing non-proof translations.
+    const proofIds = new Set(proof.records.map(row => row.externalId));
+    const protectedQuestions = questions.map(question => ({ ...question, translations: question.translations.filter(row =>
+      !question.externalId || !proofIds.has(question.externalId) || row.language !== 'ta' && row.language !== 'hi') }));
+    const fingerprint = { questionsSha256: hash(protectedQuestions), testsSha256: hash(tests), files };
     const report = { status: 'VERIFIED', neetQuestions: selected.length, neetPracticeTests: neetTests.length,
       neetQuarantine: quarantine.length, fullMocks: mockIds.length, sampleTests: sampleIds.length,
       conceptual: selected.filter(row => row.questionNature === 'CONCEPTUAL_THEORY').length,

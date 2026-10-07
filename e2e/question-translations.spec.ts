@@ -47,6 +47,12 @@ test.beforeAll(async ({ browser }) => {
       expect(approve.status()).toBe(200);
     }
   }
+  // Numerical refresh is exercised away from position zero, with an existing MCQ.
+  const numerical = fixtures.get('jee-main-2021-s1-2021-02-24-shift-1-q29-nta-70819115182')!;
+  const mcq = fixtures.get('jee-main-2021-s1-2021-02-24-shift-1-q63-nta-70819115216')!;
+  await db.testQuestion.update({ where: { testId_questionId: { testId: numerical.testId, questionId: numerical.questionId } }, data: { order: 2 } });
+  await db.testQuestion.create({ data: { testId: numerical.testId, questionId: mcq.questionId, order: 1 } });
+  await db.test.update({ where: { id: numerical.testId }, data: { totalQuestions: 2 } });
   canonicalBefore = await canonicalSnapshot();
 });
 test.beforeEach(async ({ context }) => {
@@ -76,6 +82,11 @@ async function start(page: Page, testId: string) {
 async function screenshot(page: Page, name: string) {
   const path = test.info().outputPath(`${name}.png`); await page.screenshot({ path, fullPage: true }); await test.info().attach(name, { path, contentType: 'image/png' });
 }
+async function displayedSeconds(page: Page) {
+  const clock = (await page.getByRole('timer').innerText()).match(/(\d+):(\d{2})/);
+  expect(clock).not.toBeNull();
+  return Number(clock![1]) * 60 + Number(clock![2]);
+}
 const cases = [
   { name: 'NEET MCQ', externalId: 'historical-verified:neet:2021:m4:3', mobile: false },
   { name: 'JEE MCQ', externalId: 'jee-main-2021-s1-2021-02-24-shift-1-q63-nta-70819115216', mobile: false },
@@ -89,25 +100,41 @@ for (const example of cases) test(`${example.name}: language changes preserve an
   const q = await db.question.findUniqueOrThrow({ where: { id: fixture.questionId }, include: { translations: { where: { language: 'en' } } } });
   const en = q.translations[0];
   const numerical = q.questionType === 'NUMERICAL_VALUE';
+  const counter = `Question ${attempt.questionOrder.indexOf(q.id) + 1} of ${attempt.questionOrder.length}`;
+  if (numerical) {
+    await page.getByRole('button', { name: 'Questions', exact: true }).click();
+    await page.getByRole('button', { name: /^2: / }).click();
+    await expect(page.getByText(counter, { exact: true })).toBeVisible();
+  }
   const order = optionDisplayOrder(attempt.seed, q.id, attempt.shuffleOptions && canShuffleOptions(en, q.questionType));
   const answerOption = numerical ? null : canonicalToDisplay(order, en.correctOption!);
-  if (numerical) { await page.getByLabel('Numerical answer', { exact: true }).fill(String(en.numericAnswer)); await page.getByText('Question 1 of 1', { exact: true }).click(); }
+  if (numerical) { await page.getByLabel('Numerical answer', { exact: true }).fill(String(en.numericAnswer)); await page.getByText(counter, { exact: true }).click(); }
   else await page.locator('label').filter({ has: page.getByRole('radio') }).nth(['A', 'B', 'C', 'D'].indexOf(answerOption!)).click();
   await expect.poll(() => db.answer.findUnique({ where: { attemptId_questionId: { attemptId: attempt.id, questionId: q.id } } }).then(row => numerical ? Number(row?.numericResponse) : row?.selectedOption)).toBe(numerical ? Number(en.numericAnswer) : answerOption);
+  await expect(page.getByText('Saved', { exact: true })).toBeVisible();
   const answerBefore = await db.answer.findUniqueOrThrow({ where: { attemptId_questionId: { attemptId: attempt.id, questionId: q.id } } });
+  const savedAttempt = await db.testAttempt.findUniqueOrThrow({ where: { id: attempt.id } });
+  const clockBefore = await displayedSeconds(page);
   for (const [language, label] of [['ta', 'தமிழ்'], ['hi', 'हिन्दी']] as const) {
     await page.getByRole('button', { name: label, exact: true }).click();
     await expect(page.getByText(manifest.records.find(row => row.externalId === example.externalId && row.language === language)!.content.questionText, { exact: true })).toBeVisible();
-    await expect(page.getByText('Question 1 of 1', { exact: true })).toBeVisible();
+    await expect(page.getByText(counter, { exact: true })).toBeVisible();
     if (numerical) await expect(page.getByLabel('Numerical answer', { exact: true })).toHaveValue(String(en.numericAnswer));
     else await expect(page.getByRole('radio').nth(['A', 'B', 'C', 'D'].indexOf(answerOption!))).toBeChecked();
     const after = await db.testAttempt.findUniqueOrThrow({ where: { id: attempt.id } });
-    expect(after.startedAt).toEqual(attempt.startedAt); expect(after.remainingSeconds).toBe(attempt.remainingSeconds);
+    // The deadline is still anchored to startedAt; normal saves/resync can
+    // reduce the cached remainingSeconds while the live countdown continues.
+    expect(after.startedAt).toEqual(attempt.startedAt);
+    expect(after.remainingSeconds).toBeLessThanOrEqual(savedAttempt.remainingSeconds);
+    expect(await displayedSeconds(page)).toBeLessThanOrEqual(clockBefore);
+    expect(await displayedSeconds(page)).toBeGreaterThan(0);
     expect(after.questionOrder).toEqual(attempt.questionOrder); expect(after.selectedLanguage).toBe('en');
     expect(await db.answer.findUniqueOrThrow({ where: { attemptId_questionId: { attemptId: attempt.id, questionId: q.id } } })).toEqual(answerBefore);
   }
   await page.reload(); await expect(page.getByText('Saved', { exact: true })).toBeVisible();
+  await expect(page.getByText(counter, { exact: true })).toBeVisible();
   await expect(page.getByRole('button', { name: 'हिन्दी', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  expect(await displayedSeconds(page)).toBeLessThanOrEqual(clockBefore);
   if (numerical) await expect(page.getByLabel('Numerical answer', { exact: true })).toHaveValue(String(en.numericAnswer));
   else await expect(page.getByRole('radio').nth(['A', 'B', 'C', 'D'].indexOf(answerOption!))).toBeChecked();
   await page.evaluate(() => {
@@ -129,7 +156,7 @@ for (const example of cases) test(`${example.name}: language changes preserve an
   await page.getByRole('button', { name: 'Yes, submit', exact: true }).click();
   await expect(page).toHaveURL(`/student/results/${attempt.id}`);
   expect((await db.result.findUniqueOrThrow({ where: { attemptId: attempt.id } })).score).toBe(4);
-  await page.getByRole('tab', { name: /review/i }).click();
+  await page.getByRole('tab', { name: 'Answer review', exact: true }).click();
   await expect(page.getByText(manifest.records.find(row => row.externalId === example.externalId && row.language === 'hi')!.content.questionText, { exact: true })).toBeVisible();
   await screenshot(page, `translation-result-${example.name.replaceAll(' ', '-')}`);
   const retake = await page.request.post('/api/attempts', { data: { testId: fixture.testId, language: 'en' } }); expect(retake.status()).toBe(200);

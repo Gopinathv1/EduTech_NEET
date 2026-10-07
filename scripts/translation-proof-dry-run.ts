@@ -52,6 +52,10 @@ async function main() {
     const plans = buildJeePracticePlans(release.questions);
     const tests = await db.test.findMany({ where: { id: { in: plans.map(row => row.id) } }, include: { testQuestions: { orderBy: { order: 'asc' } } } });
     assert(tests.length === 227, 'JEE practice count changed.');
+    const questionIds = existing.map(row => row.id);
+    const versionCount = await db.questionVersion.count({ where: { questionId: { in: questionIds } } });
+    const auditCount = await db.auditLog.count({ where: { OR: [{ entityType: 'Question', entityId: { in: questionIds } }, { entityType: 'Test', entityId: { in: tests.map(row => row.id) } }] } });
+    assert(versionCount === 654 && auditCount === 1108, 'Protected JEE history counts differ.');
     for (const plan of plans) {
       const test = tests.find(row => row.id === plan.id)!;
       const rows = plan.externalIds.map(id => existing.find(row => row.externalId === id)!);
@@ -77,12 +81,12 @@ async function main() {
     const sqlHash = createHash('sha256').update(await readFile('prisma/migrations/20261007150000_question_translation_review/migration.sql')).digest('hex');
     // Aggregate fingerprints stay inside Postgres; no attempt/answer/student data is exported.
     const history: Record<string, unknown> = {};
-    for (const table of ['TestAttempt', 'Answer', 'Result', 'AttemptMonitoringEvent'] as const) {
+    for (const table of ['TestAttempt', 'Answer', 'Result', 'AttemptMonitoringEvent', 'QuestionVersion', 'AuditLog'] as const) {
       history[table] = await db.$queryRawUnsafe(`SELECT COUNT(*)::integer AS count, md5(COALESCE(string_agg(md5(row_to_json(t)::text), '' ORDER BY t.id), '')) AS fingerprint FROM "${table}" t`);
     }
     console.log(JSON.stringify({ status: 'VERIFIED_READ_ONLY', proofReleaseSha256: manifest.releaseSha256, migrationSqlSha256: sqlHash,
       questions: 10, neet: 5, jee: 5, translationsToInsert: 20, tamil: 10, hindi: 10, translationVersions: 20, auditLogs: 20, reviewState: 'REVIEW_REQUIRED',
-      studentVisibleBeforeApproval: 0, jeeQuestions: 218, jeePractices: 227, jeeMemberships: 436, jeeQuarantine: release.quarantine.length,
+      studentVisibleBeforeApproval: 0, jeeQuestions: 218, jeePractices: 227, jeeMemberships: 436, jeeQuarantine: release.quarantine.length, jeeQuestionVersions: versionCount, jeeAudits: auditCount,
       existingApplicationRowsModified: 0, productionWrites: 0, protectedHistoryAggregates: history }, null, 2));
   } finally { await db.$disconnect(); }
 }

@@ -176,7 +176,9 @@ export function jeeExistingContentIssues(question: JeeHistoricalQuestion, prior:
   if (JSON.stringify(prior.tags) !== JSON.stringify(data.tags)) issues.push('Existing tags differ from canonical identity.');
   if (prior.imageUrl !== null || prior.licenseReference !== null || prior.importedAt === null) issues.push('Existing media/license/import metadata differs from the release.');
   const en = prior.translations.find(translation => translation.language === 'en');
-  if (!en || prior.translations.length !== 1) issues.push('Existing translations differ from the English-only release.');
+  // Translation-only history can add TA/HI rows without changing this release.
+  // English identity/content/answers remain the exact canonical reconciliation.
+  if (!en || prior.translations.filter(translation => translation.language === 'en').length !== 1) issues.push('Existing canonical English translation differs from the release.');
   else {
     if (en.questionText !== question.questionText || en.explanation !== question.explanation || !en.reviewed
       || en.optionA !== (question.options?.[0] ?? null) || en.optionB !== (question.options?.[1] ?? null)
