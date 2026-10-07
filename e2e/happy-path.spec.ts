@@ -112,7 +112,7 @@ test('student can register, take a free test, see the result, and request guidan
 
   // 5) See the result -----------------------------------------------------
   await page.waitForURL(/\/student\/results\//, { waitUntil: 'domcontentloaded', timeout: 60000 });
-  await expect(page.getByText('Score')).toBeVisible();
+  await expect(page.getByText('Score', { exact: true })).toBeVisible();
 
   // 6) Submit a consultancy lead -----------------------------------------
   await page.goto('/student/admission-guidance');

@@ -52,7 +52,7 @@ async function submitSample(page: import('@playwright/test').Page, title: string
   await page.getByRole('banner').getByRole('button', { name: 'Submit test' }).click();
   await page.getByRole('button', { name: 'Yes, submit' }).click();
   await expect(page).toHaveURL(/\/student\/results\//, { timeout: 60_000 });
-  await expect(page.getByText('Score')).toBeVisible();
+  await expect(page.getByText('Score', { exact: true })).toBeVisible();
   await expect(page.getByText('Unlimited practice attempts are available.')).toBeVisible();
   await expect(page.getByRole('link', { name: 'Take Another Attempt' })).toBeVisible();
   await expect(page.getByLabel('Open WhatsApp support')).toBeVisible();
