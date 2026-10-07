@@ -9,6 +9,7 @@ import {
   type OptLetter,
 } from '@/lib/attempts/options';
 import type { LocalizedText } from '@/lib/recommendations/types';
+import { approvedTranslation, type TranslationContent } from '@/lib/question-translations/content';
 
 /**
  * Per-question answer review for a submitted attempt. Loads both English and
@@ -59,11 +60,11 @@ type TranslationRow = {
   reviewed: boolean;
 };
 
-function toContent(t: TranslationRow): ReviewContent {
+function toContent(t: TranslationContent): ReviewContent {
   return {
     questionText: t.questionText,
     options: { A: t.optionA, B: t.optionB, C: t.optionC, D: t.optionD },
-    explanation: t.explanation,
+    explanation: t.explanation ?? null,
   };
 }
 
@@ -100,6 +101,8 @@ export async function buildAnswerReview(attemptId: string, studentId: string): P
             numericTolerance: true,
             explanation: true,
             reviewed: true,
+            reviewState: true, translationSource: true, reviewedById: true,
+            reviewedAt: true, canonicalContentHash: true,
           },
         },
       },
@@ -121,8 +124,8 @@ export async function buildAnswerReview(attemptId: string, studentId: string): P
     if (!q) return;
     const enRaw = q.translations.find((t) => t.language === 'en') as TranslationRow | undefined;
     if (!enRaw) return; // English is authoritative
-    const hiRaw = q.translations.find(t => t.language === 'hi' && t.reviewed) as TranslationRow | undefined;
-    const taRaw = q.translations.find((t) => t.language === 'ta' && t.reviewed) as TranslationRow | undefined;
+    const hiRaw = approvedTranslation(q.questionType, enRaw, q.translations.find(t => t.language === 'hi'));
+    const taRaw = approvedTranslation(q.questionType, enRaw, q.translations.find(t => t.language === 'ta'));
 
     // Reconstruct the same per-attempt option order the student saw, so the
     // review shows options (and the correct/your-answer markers) in display space.

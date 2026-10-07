@@ -9,7 +9,7 @@ export const runtime = 'nodejs';
 
 type Ctx = { params: Promise<{ id: string }> };
 
-// PATCH /api/admin/questions/[id] — full update incl. EN/TA translations.
+// PATCH /api/admin/questions/[id] — canonical English edit only.
 export async function PATCH(req: Request, { params }: Ctx) {
   const admin = await getAdminSession();
   if (!admin) return fail('unauthorized', 401);
@@ -26,6 +26,7 @@ export async function PATCH(req: Request, { params }: Ctx) {
   if (chapter.subjectId !== d.subjectId) return fail('chapterSubjectMismatch', 400);
 
   const taComplete = isTaComplete(d.ta);
+  if (taComplete) return fail('useTranslationWorkflow', 400);
 
   await prisma.$transaction(async (tx) => {
     await tx.question.update({
@@ -85,36 +86,7 @@ export async function PATCH(req: Request, { params }: Ctx) {
       },
     });
 
-    if (taComplete && d.ta) {
-      await tx.questionTranslation.upsert({
-        where: { questionId_language: { questionId: id, language: 'ta' } },
-        create: {
-          questionId: id,
-          language: 'ta',
-          questionText: d.ta.questionText,
-          optionA: d.ta.optionA,
-          optionB: d.ta.optionB,
-          optionC: d.ta.optionC,
-          optionD: d.ta.optionD,
-          correctOption: d.correctOption,
-          explanation: d.ta.explanation || null,
-          reviewed: d.ta.reviewed,
-        },
-        update: {
-          questionText: d.ta.questionText,
-          optionA: d.ta.optionA,
-          optionB: d.ta.optionB,
-          optionC: d.ta.optionC,
-          optionD: d.ta.optionD,
-          correctOption: d.correctOption,
-          explanation: d.ta.explanation || null,
-          reviewed: d.ta.reviewed,
-        },
-      });
-    } else {
-      // Tamil cleared/incomplete → remove any existing TA translation.
-      await tx.questionTranslation.deleteMany({ where: { questionId: id, language: 'ta' } });
-    }
+    // Non-English content is edited/reviewed through the independent workflow.
 
     await writeQuestionVersion(tx, id, 'updated', admin);
   });

@@ -83,7 +83,7 @@ function buildTranslations(d: QuestionInput): Prisma.QuestionTranslationCreateWi
       optionD: d.ta.optionD,
       correctOption: d.correctOption, // correct option is language-independent
       explanation: d.ta.explanation || null,
-      reviewed: d.ta.reviewed,
+      reviewed: false, reviewState: 'DRAFT', translationSource: 'SIVORA_TRANSLATION', sourceReference: 'Legacy admin preparation; independent review required',
     });
   }
   return rows;

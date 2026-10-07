@@ -127,7 +127,7 @@ export async function POST(req: Request) {
                       correctOption: d.correctOption,
                       numericAnswer: d.numericAnswer,
                         explanation: d.ta.explanation || null,
-                        reviewed: d.ta.reviewed,
+                        reviewed: false, reviewState: 'DRAFT' as const, translationSource: 'SIVORA_TRANSLATION' as const, sourceReference: 'Legacy admin preparation; independent review required',
                       },
                     ]
                   : []),

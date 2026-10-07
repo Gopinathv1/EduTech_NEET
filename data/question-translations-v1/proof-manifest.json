@@ -1,0 +1,961 @@
+{
+  "format": "SIVORA_QUESTION_TRANSLATION_PROOF_V1",
+  "releaseSha256": "0ec36c13423b0b234a4d8bd0a91e7e0388ed8ff83bc7be7d93ab75a69a277898",
+  "proofQuestions": 10,
+  "neet": 5,
+  "jee": 5,
+  "tamil": 10,
+  "hindi": 10,
+  "officialTranslations": 0,
+  "sivoraTranslations": 20,
+  "plannedTranslationVersions": 20,
+  "plannedAuditLogs": 20,
+  "studentVisibleBeforeIndependentApproval": 0,
+  "productionWrites": 0,
+  "records": [
+    {
+      "externalId": "historical-verified:neet:2021:m4:3",
+      "language": "ta",
+      "exam": "NEET",
+      "subjectCode": "PHYSICS",
+      "questionType": "SINGLE_CORRECT",
+      "questionNature": "CONCEPTUAL_THEORY",
+      "canonicalQuestionSha256": "01d89111b758606cb1d2648b42cf2397dd740b19ecac90be7354f9bbb3ffed9c",
+      "canonicalContentHash": "a07a5500e342829975a5b84716f975316e68222ccdd5f25d8e054a07a6b947a7",
+      "translationSource": "SIVORA_TRANSLATION",
+      "sourceReference": "SIVORA V1 proof wording; authored and checked in repository; independent editorial review pending",
+      "reviewState": "REVIEW_REQUIRED",
+      "content": {
+        "questionText": "ஒரு பொருள் ‘n’ அதிர்வெண்ணுடன் எளிய இசை இயக்கத்தில் இயங்குகிறது. அதன் நிலை ஆற்றலின் அதிர்வெண்:",
+        "optionA": "n",
+        "optionB": "2n",
+        "optionC": "3n",
+        "optionD": "4n",
+        "explanation": null
+      },
+      "qa": {
+        "mechanical": "PASS",
+        "optionIdentity": "A/B/C/D fixed; no reordering",
+        "meaning": "Prepared and checked by implementation author; independent editorial approval pending",
+        "protectedTokens": [
+          [
+            "n"
+          ],
+          [
+            "n"
+          ],
+          [
+            "2n"
+          ],
+          [
+            "3n"
+          ],
+          [
+            "4n"
+          ]
+        ],
+        "explanation": "Omitted; canonical English explanation remains available in review"
+      }
+    },
+    {
+      "externalId": "historical-verified:neet:2021:m4:3",
+      "language": "hi",
+      "exam": "NEET",
+      "subjectCode": "PHYSICS",
+      "questionType": "SINGLE_CORRECT",
+      "questionNature": "CONCEPTUAL_THEORY",
+      "canonicalQuestionSha256": "01d89111b758606cb1d2648b42cf2397dd740b19ecac90be7354f9bbb3ffed9c",
+      "canonicalContentHash": "a07a5500e342829975a5b84716f975316e68222ccdd5f25d8e054a07a6b947a7",
+      "translationSource": "SIVORA_TRANSLATION",
+      "sourceReference": "SIVORA V1 proof wording; authored and checked in repository; independent editorial review pending",
+      "reviewState": "REVIEW_REQUIRED",
+      "content": {
+        "questionText": "एक पिंड ‘n’ आवृत्ति से सरल आवर्त गति कर रहा है। उसकी स्थितिज ऊर्जा की आवृत्ति है:",
+        "optionA": "n",
+        "optionB": "2n",
+        "optionC": "3n",
+        "optionD": "4n",
+        "explanation": null
+      },
+      "qa": {
+        "mechanical": "PASS",
+        "optionIdentity": "A/B/C/D fixed; no reordering",
+        "meaning": "Prepared and checked by implementation author; independent editorial approval pending",
+        "protectedTokens": [
+          [
+            "n"
+          ],
+          [
+            "n"
+          ],
+          [
+            "2n"
+          ],
+          [
+            "3n"
+          ],
+          [
+            "4n"
+          ]
+        ],
+        "explanation": "Omitted; canonical English explanation remains available in review"
+      }
+    },
+    {
+      "externalId": "historical-verified:neet:2021:m4:15",
+      "language": "ta",
+      "exam": "NEET",
+      "subjectCode": "PHYSICS",
+      "questionType": "SINGLE_CORRECT",
+      "questionNature": "NUMERICAL_PROBLEM_SOLVING",
+      "canonicalQuestionSha256": "10fe1264137c0f86435c5669960c19817c1da0421273e2230cf05acc60e2af8e",
+      "canonicalContentHash": "12203e4eeaf73297db27a226a62e8eb81b8d274ba0fa49548172790fc7087e2e",
+      "translationSource": "SIVORA_TRANSLATION",
+      "sourceReference": "SIVORA V1 proof wording; authored and checked in repository; independent editorial review pending",
+      "reviewState": "REVIEW_REQUIRED",
+      "content": {
+        "questionText": "10 N விசையால் ஒரு சுருள் வில் 5 cm நீட்டப்படுகிறது. அதில் 2 kg நிறையுள்ள பொருளைத் தொங்கவிடும்போது ஏற்படும் அலைவுகளின் கால அளவு:",
+        "optionA": "0.0628 s",
+        "optionB": "6.28 s",
+        "optionC": "3.14 s",
+        "optionD": "0.628 s",
+        "explanation": null
+      },
+      "qa": {
+        "mechanical": "PASS",
+        "optionIdentity": "A/B/C/D fixed; no reordering",
+        "meaning": "Prepared and checked by implementation author; independent editorial approval pending",
+        "protectedTokens": [
+          [
+            "5",
+            "cm",
+            "10",
+            "N",
+            "2",
+            "kg"
+          ],
+          [
+            "0.0628",
+            "s"
+          ],
+          [
+            "6.28",
+            "s"
+          ],
+          [
+            "3.14",
+            "s"
+          ],
+          [
+            "0.628",
+            "s"
+          ]
+        ],
+        "explanation": "Omitted; canonical English explanation remains available in review"
+      }
+    },
+    {
+      "externalId": "historical-verified:neet:2021:m4:15",
+      "language": "hi",
+      "exam": "NEET",
+      "subjectCode": "PHYSICS",
+      "questionType": "SINGLE_CORRECT",
+      "questionNature": "NUMERICAL_PROBLEM_SOLVING",
+      "canonicalQuestionSha256": "10fe1264137c0f86435c5669960c19817c1da0421273e2230cf05acc60e2af8e",
+      "canonicalContentHash": "12203e4eeaf73297db27a226a62e8eb81b8d274ba0fa49548172790fc7087e2e",
+      "translationSource": "SIVORA_TRANSLATION",
+      "sourceReference": "SIVORA V1 proof wording; authored and checked in repository; independent editorial review pending",
+      "reviewState": "REVIEW_REQUIRED",
+      "content": {
+        "questionText": "10 N बल से एक स्प्रिंग 5 cm खिंचती है। जब उससे 2 kg द्रव्यमान लटकाया जाता है, तो दोलनों का आवर्तकाल है:",
+        "optionA": "0.0628 s",
+        "optionB": "6.28 s",
+        "optionC": "3.14 s",
+        "optionD": "0.628 s",
+        "explanation": null
+      },
+      "qa": {
+        "mechanical": "PASS",
+        "optionIdentity": "A/B/C/D fixed; no reordering",
+        "meaning": "Prepared and checked by implementation author; independent editorial approval pending",
+        "protectedTokens": [
+          [
+            "5",
+            "cm",
+            "10",
+            "N",
+            "2",
+            "kg"
+          ],
+          [
+            "0.0628",
+            "s"
+          ],
+          [
+            "6.28",
+            "s"
+          ],
+          [
+            "3.14",
+            "s"
+          ],
+          [
+            "0.628",
+            "s"
+          ]
+        ],
+        "explanation": "Omitted; canonical English explanation remains available in review"
+      }
+    },
+    {
+      "externalId": "historical-verified:neet:2021:m4:52",
+      "language": "ta",
+      "exam": "NEET",
+      "subjectCode": "CHEMISTRY",
+      "questionType": "SINGLE_CORRECT",
+      "questionNature": "CONCEPTUAL_THEORY",
+      "canonicalQuestionSha256": "eca2722d5023c6b6a058d7abe89a3515d05a81ca673028c364198d4cb7167c93",
+      "canonicalContentHash": "3576d81d40510795bf29b19350d041e142bff3c1a95bb20d2f9764ff5235f071",
+      "translationSource": "SIVORA_TRANSLATION",
+      "sourceReference": "SIVORA V1 proof wording; authored and checked in repository; independent editorial review pending",
+      "reviewState": "REVIEW_REQUIRED",
+      "content": {
+        "questionText": "Bravais படிக அணிக்கோவையின் 14 வகை அலகுக் கூடுகளிலும், உடல் மைய அலகுக் கூடுகளின் எண்ணிக்கைக்கான சரியான விடை:",
+        "optionA": "7",
+        "optionB": "5",
+        "optionC": "2",
+        "optionD": "3",
+        "explanation": null
+      },
+      "qa": {
+        "mechanical": "PASS",
+        "optionIdentity": "A/B/C/D fixed; no reordering",
+        "meaning": "Prepared and checked by implementation author; independent editorial approval pending",
+        "protectedTokens": [
+          [
+            "14"
+          ],
+          [
+            "7"
+          ],
+          [
+            "5"
+          ],
+          [
+            "2"
+          ],
+          [
+            "3"
+          ]
+        ],
+        "explanation": "Omitted; canonical English explanation remains available in review"
+      }
+    },
+    {
+      "externalId": "historical-verified:neet:2021:m4:52",
+      "language": "hi",
+      "exam": "NEET",
+      "subjectCode": "CHEMISTRY",
+      "questionType": "SINGLE_CORRECT",
+      "questionNature": "CONCEPTUAL_THEORY",
+      "canonicalQuestionSha256": "eca2722d5023c6b6a058d7abe89a3515d05a81ca673028c364198d4cb7167c93",
+      "canonicalContentHash": "3576d81d40510795bf29b19350d041e142bff3c1a95bb20d2f9764ff5235f071",
+      "translationSource": "SIVORA_TRANSLATION",
+      "sourceReference": "SIVORA V1 proof wording; authored and checked in repository; independent editorial review pending",
+      "reviewState": "REVIEW_REQUIRED",
+      "content": {
+        "questionText": "Bravais जालक की सभी 14 प्रकार की इकाई कोशिकाओं में अंतःकेंद्रित इकाई कोशिकाओं की संख्या का सही विकल्प है:",
+        "optionA": "7",
+        "optionB": "5",
+        "optionC": "2",
+        "optionD": "3",
+        "explanation": null
+      },
+      "qa": {
+        "mechanical": "PASS",
+        "optionIdentity": "A/B/C/D fixed; no reordering",
+        "meaning": "Prepared and checked by implementation author; independent editorial approval pending",
+        "protectedTokens": [
+          [
+            "14"
+          ],
+          [
+            "7"
+          ],
+          [
+            "5"
+          ],
+          [
+            "2"
+          ],
+          [
+            "3"
+          ]
+        ],
+        "explanation": "Omitted; canonical English explanation remains available in review"
+      }
+    },
+    {
+      "externalId": "historical-verified:neet:2021:m4:101",
+      "language": "ta",
+      "exam": "NEET",
+      "subjectCode": "BOTANY",
+      "questionType": "SINGLE_CORRECT",
+      "questionNature": "CONCEPTUAL_THEORY",
+      "canonicalQuestionSha256": "2b70b335d1ac03961787b59221409f276341a787f193fe68397dcddceb3a23b6",
+      "canonicalContentHash": "5e4f250c12a20905d5c878547818f98499ac9cc98ca3f2a47c860ecbee74afea",
+      "translationSource": "SIVORA_TRANSLATION",
+      "sourceReference": "SIVORA V1 proof wording; authored and checked in repository; independent editorial review pending",
+      "reviewState": "REVIEW_REQUIRED",
+      "content": {
+        "questionText": "GPP − R = NPP என்ற சமன்பாட்டில் R குறிப்பது:",
+        "optionA": "கதிர்வீச்சு ஆற்றல்",
+        "optionB": "தடை காரணி",
+        "optionC": "சுற்றுச்சூழல் காரணி",
+        "optionD": "சுவாச இழப்புகள்",
+        "explanation": null
+      },
+      "qa": {
+        "mechanical": "PASS",
+        "optionIdentity": "A/B/C/D fixed; no reordering",
+        "meaning": "Prepared and checked by implementation author; independent editorial approval pending",
+        "protectedTokens": [
+          [
+            "GPP",
+            "R",
+            "=",
+            "NPP",
+            "R"
+          ],
+          [],
+          [],
+          [],
+          []
+        ],
+        "explanation": "Omitted; canonical English explanation remains available in review"
+      }
+    },
+    {
+      "externalId": "historical-verified:neet:2021:m4:101",
+      "language": "hi",
+      "exam": "NEET",
+      "subjectCode": "BOTANY",
+      "questionType": "SINGLE_CORRECT",
+      "questionNature": "CONCEPTUAL_THEORY",
+      "canonicalQuestionSha256": "2b70b335d1ac03961787b59221409f276341a787f193fe68397dcddceb3a23b6",
+      "canonicalContentHash": "5e4f250c12a20905d5c878547818f98499ac9cc98ca3f2a47c860ecbee74afea",
+      "translationSource": "SIVORA_TRANSLATION",
+      "sourceReference": "SIVORA V1 proof wording; authored and checked in repository; independent editorial review pending",
+      "reviewState": "REVIEW_REQUIRED",
+      "content": {
+        "questionText": "GPP − R = NPP समीकरण में R दर्शाता है:",
+        "optionA": "विकिरण ऊर्जा",
+        "optionB": "मंदन गुणक",
+        "optionC": "पर्यावरण गुणक",
+        "optionD": "श्वसन हानियाँ",
+        "explanation": null
+      },
+      "qa": {
+        "mechanical": "PASS",
+        "optionIdentity": "A/B/C/D fixed; no reordering",
+        "meaning": "Prepared and checked by implementation author; independent editorial approval pending",
+        "protectedTokens": [
+          [
+            "GPP",
+            "R",
+            "=",
+            "NPP",
+            "R"
+          ],
+          [],
+          [],
+          [],
+          []
+        ],
+        "explanation": "Omitted; canonical English explanation remains available in review"
+      }
+    },
+    {
+      "externalId": "historical-verified:neet:2021:m4:151",
+      "language": "ta",
+      "exam": "NEET",
+      "subjectCode": "ZOOLOGY",
+      "questionType": "SINGLE_CORRECT",
+      "questionNature": "CONCEPTUAL_THEORY",
+      "canonicalQuestionSha256": "3237cf59b97e8557f210cf93d7a84da2684467ff212866179cd779634bd8b172",
+      "canonicalContentHash": "261d5b470e696851de8948b48dbc790ca29a8be24792b43deda73e17406da9b0",
+      "translationSource": "SIVORA_TRANSLATION",
+      "sourceReference": "SIVORA V1 proof wording; authored and checked in repository; independent editorial review pending",
+      "reviewState": "REVIEW_REQUIRED",
+      "content": {
+        "questionText": "பின்வரும் உயிரினங்களில் எது உள்ளீடற்ற, காற்றறைகளைக் கொண்ட நீண்ட எலும்புகளை உடையது?",
+        "optionA": "Neophron",
+        "optionB": "Hemidactylus",
+        "optionC": "Macropus",
+        "optionD": "Ornithorhynchus",
+        "explanation": null
+      },
+      "qa": {
+        "mechanical": "PASS",
+        "optionIdentity": "A/B/C/D fixed; no reordering",
+        "meaning": "Prepared and checked by implementation author; independent editorial approval pending",
+        "protectedTokens": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "explanation": "Omitted; canonical English explanation remains available in review"
+      }
+    },
+    {
+      "externalId": "historical-verified:neet:2021:m4:151",
+      "language": "hi",
+      "exam": "NEET",
+      "subjectCode": "ZOOLOGY",
+      "questionType": "SINGLE_CORRECT",
+      "questionNature": "CONCEPTUAL_THEORY",
+      "canonicalQuestionSha256": "3237cf59b97e8557f210cf93d7a84da2684467ff212866179cd779634bd8b172",
+      "canonicalContentHash": "261d5b470e696851de8948b48dbc790ca29a8be24792b43deda73e17406da9b0",
+      "translationSource": "SIVORA_TRANSLATION",
+      "sourceReference": "SIVORA V1 proof wording; authored and checked in repository; independent editorial review pending",
+      "reviewState": "REVIEW_REQUIRED",
+      "content": {
+        "questionText": "निम्नलिखित में से किस जीव में खोखली और वायुयुक्त लंबी हड्डियाँ होती हैं?",
+        "optionA": "Neophron",
+        "optionB": "Hemidactylus",
+        "optionC": "Macropus",
+        "optionD": "Ornithorhynchus",
+        "explanation": null
+      },
+      "qa": {
+        "mechanical": "PASS",
+        "optionIdentity": "A/B/C/D fixed; no reordering",
+        "meaning": "Prepared and checked by implementation author; independent editorial approval pending",
+        "protectedTokens": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "explanation": "Omitted; canonical English explanation remains available in review"
+      }
+    },
+    {
+      "externalId": "jee-main-2021-s1-2021-02-24-shift-1-q29-nta-70819115182",
+      "language": "ta",
+      "exam": "JEE",
+      "subjectCode": "JEE_PHYSICS",
+      "questionType": "NUMERICAL_VALUE",
+      "questionNature": "NUMERICAL_PROBLEM_SOLVING",
+      "canonicalQuestionSha256": "19a9c46cd0ab84b012efa3b890336ca2941fef56ecfb700b26ef58a1f441b9ac",
+      "canonicalContentHash": "3850e7a57e60db7534ea6ba9f550c3677a40e4d2fb4c407867c69d250f212cf1",
+      "translationSource": "SIVORA_TRANSLATION",
+      "sourceReference": "SIVORA V1 proof wording; authored and checked in repository; independent editorial review pending",
+      "reviewState": "REVIEW_REQUIRED",
+      "content": {
+        "questionText": "5 GHz அதிர்வெண் கொண்ட மின்காந்த அலை, சார்பு மின்காப்பு எண் மற்றும் சார்பு காந்த ஊடுருவுதிறன் இரண்டும் 2 ஆக உள்ள ஓர் ஊடகத்தில் பயணிக்கிறது. இந்த ஊடகத்தில் அதன் திசைவேகம் ______ × 10⁷ m/s.",
+        "optionA": null,
+        "optionB": null,
+        "optionC": null,
+        "optionD": null,
+        "explanation": null
+      },
+      "qa": {
+        "mechanical": "PASS",
+        "optionIdentity": "A/B/C/D fixed; no reordering",
+        "meaning": "Prepared and checked by implementation author; independent editorial approval pending",
+        "protectedTokens": [
+          [
+            "5",
+            "GHz",
+            "2",
+            "×",
+            "10⁷",
+            "m/s"
+          ]
+        ],
+        "explanation": "Omitted; canonical English explanation remains available in review"
+      }
+    },
+    {
+      "externalId": "jee-main-2021-s1-2021-02-24-shift-1-q29-nta-70819115182",
+      "language": "hi",
+      "exam": "JEE",
+      "subjectCode": "JEE_PHYSICS",
+      "questionType": "NUMERICAL_VALUE",
+      "questionNature": "NUMERICAL_PROBLEM_SOLVING",
+      "canonicalQuestionSha256": "19a9c46cd0ab84b012efa3b890336ca2941fef56ecfb700b26ef58a1f441b9ac",
+      "canonicalContentHash": "3850e7a57e60db7534ea6ba9f550c3677a40e4d2fb4c407867c69d250f212cf1",
+      "translationSource": "SIVORA_TRANSLATION",
+      "sourceReference": "SIVORA V1 proof wording; authored and checked in repository; independent editorial review pending",
+      "reviewState": "REVIEW_REQUIRED",
+      "content": {
+        "questionText": "5 GHz आवृत्ति की एक विद्युतचुंबकीय तरंग ऐसे माध्यम में चल रही है जिसकी आपेक्षिक विद्युतशीलता और आपेक्षिक चुंबकीय पारगम्यता दोनों 2 हैं। इस माध्यम में उसका वेग ______ × 10⁷ m/s है।",
+        "optionA": null,
+        "optionB": null,
+        "optionC": null,
+        "optionD": null,
+        "explanation": null
+      },
+      "qa": {
+        "mechanical": "PASS",
+        "optionIdentity": "A/B/C/D fixed; no reordering",
+        "meaning": "Prepared and checked by implementation author; independent editorial approval pending",
+        "protectedTokens": [
+          [
+            "5",
+            "GHz",
+            "2",
+            "×",
+            "10⁷",
+            "m/s"
+          ]
+        ],
+        "explanation": "Omitted; canonical English explanation remains available in review"
+      }
+    },
+    {
+      "externalId": "jee-main-2021-s1-2021-02-24-shift-1-q63-nta-70819115216",
+      "language": "ta",
+      "exam": "JEE",
+      "subjectCode": "JEE_MATHEMATICS",
+      "questionType": "SINGLE_CORRECT",
+      "questionNature": "NUMERICAL_PROBLEM_SOLVING",
+      "canonicalQuestionSha256": "5a05dfaa0bb95ea3dafefa33bab1b93bd3b1dee406d9749f0f4aa31aab30da6a",
+      "canonicalContentHash": "f480b6b34ab02398cde8c36c655cfada42320a2d9cab5882293e3f8c48884f0e",
+      "translationSource": "SIVORA_TRANSLATION",
+      "sourceReference": "SIVORA V1 proof wording; authored and checked in repository; independent editorial review pending",
+      "reviewState": "REVIEW_REQUIRED",
+      "content": {
+        "questionText": "பின்வரும் நேரியல் சமன்பாடுகளின் தொகுப்பு\n3x − 2y − kz = 10\n2x − 4y − 2z = 6\nx + 2y − z = 5m\nஎந்த நிலையில் முரண்பாடானது?",
+        "optionA": "k ≠ 3, m ≠ 4/5",
+        "optionB": "k = 3, m = 4/5",
+        "optionC": "k = 3, m ≠ 4/5",
+        "optionD": "k ≠ 3, m ∈ ℝ",
+        "explanation": null
+      },
+      "qa": {
+        "mechanical": "PASS",
+        "optionIdentity": "A/B/C/D fixed; no reordering",
+        "meaning": "Prepared and checked by implementation author; independent editorial approval pending",
+        "protectedTokens": [
+          [
+            "3x",
+            "2y",
+            "=",
+            "10",
+            "2x",
+            "4y",
+            "2z",
+            "=",
+            "6",
+            "x",
+            "2y",
+            "z",
+            "=",
+            "5m"
+          ],
+          [
+            "k",
+            "≠",
+            "3",
+            "m",
+            "≠",
+            "4",
+            "5"
+          ],
+          [
+            "k",
+            "=",
+            "3",
+            "m",
+            "=",
+            "4",
+            "5"
+          ],
+          [
+            "k",
+            "=",
+            "3",
+            "m",
+            "≠",
+            "4",
+            "5"
+          ],
+          [
+            "k",
+            "≠",
+            "3",
+            "m",
+            "∈",
+            "ℝ"
+          ]
+        ],
+        "explanation": "Omitted; canonical English explanation remains available in review"
+      }
+    },
+    {
+      "externalId": "jee-main-2021-s1-2021-02-24-shift-1-q63-nta-70819115216",
+      "language": "hi",
+      "exam": "JEE",
+      "subjectCode": "JEE_MATHEMATICS",
+      "questionType": "SINGLE_CORRECT",
+      "questionNature": "NUMERICAL_PROBLEM_SOLVING",
+      "canonicalQuestionSha256": "5a05dfaa0bb95ea3dafefa33bab1b93bd3b1dee406d9749f0f4aa31aab30da6a",
+      "canonicalContentHash": "f480b6b34ab02398cde8c36c655cfada42320a2d9cab5882293e3f8c48884f0e",
+      "translationSource": "SIVORA_TRANSLATION",
+      "sourceReference": "SIVORA V1 proof wording; authored and checked in repository; independent editorial review pending",
+      "reviewState": "REVIEW_REQUIRED",
+      "content": {
+        "questionText": "रैखिक समीकरणों का निकाय\n3x − 2y − kz = 10\n2x − 4y − 2z = 6\nx + 2y − z = 5m\nकब असंगत है?",
+        "optionA": "k ≠ 3, m ≠ 4/5",
+        "optionB": "k = 3, m = 4/5",
+        "optionC": "k = 3, m ≠ 4/5",
+        "optionD": "k ≠ 3, m ∈ ℝ",
+        "explanation": null
+      },
+      "qa": {
+        "mechanical": "PASS",
+        "optionIdentity": "A/B/C/D fixed; no reordering",
+        "meaning": "Prepared and checked by implementation author; independent editorial approval pending",
+        "protectedTokens": [
+          [
+            "3x",
+            "2y",
+            "=",
+            "10",
+            "2x",
+            "4y",
+            "2z",
+            "=",
+            "6",
+            "x",
+            "2y",
+            "z",
+            "=",
+            "5m"
+          ],
+          [
+            "k",
+            "≠",
+            "3",
+            "m",
+            "≠",
+            "4",
+            "5"
+          ],
+          [
+            "k",
+            "=",
+            "3",
+            "m",
+            "=",
+            "4",
+            "5"
+          ],
+          [
+            "k",
+            "=",
+            "3",
+            "m",
+            "≠",
+            "4",
+            "5"
+          ],
+          [
+            "k",
+            "≠",
+            "3",
+            "m",
+            "∈",
+            "ℝ"
+          ]
+        ],
+        "explanation": "Omitted; canonical English explanation remains available in review"
+      }
+    },
+    {
+      "externalId": "jee-main-2021-s1-2021-02-24-shift-1-q86-nta-70819115239",
+      "language": "ta",
+      "exam": "JEE",
+      "subjectCode": "JEE_MATHEMATICS",
+      "questionType": "NUMERICAL_VALUE",
+      "questionNature": "NUMERICAL_PROBLEM_SOLVING",
+      "canonicalQuestionSha256": "03f578f6c040e5cf97568063fbe4346d7948dbc6be243de3ab2c503861de0410",
+      "canonicalContentHash": "e063d098f7aec9ac0195e350a99ab4b72584e4251c8d19d7177f2ab26310729b",
+      "translationSource": "SIVORA_TRANSLATION",
+      "sourceReference": "SIVORA V1 proof wording; authored and checked in repository; independent editorial review pending",
+      "reviewState": "REVIEW_REQUIRED",
+      "content": {
+        "questionText": "4/(sin x) + 1/(1 − sin x) = α என்ற சமன்பாட்டிற்கு (0, π/2) இடைவெளியில் குறைந்தது ஒரு தீர்வு இருக்குமாறு அமையும் α இன் குறைந்தபட்ச மதிப்பு ______.",
+        "optionA": null,
+        "optionB": null,
+        "optionC": null,
+        "optionD": null,
+        "explanation": null
+      },
+      "qa": {
+        "mechanical": "PASS",
+        "optionIdentity": "A/B/C/D fixed; no reordering",
+        "meaning": "Prepared and checked by implementation author; independent editorial approval pending",
+        "protectedTokens": [
+          [
+            "α",
+            "4",
+            "sin x",
+            "1",
+            "1",
+            "sin x",
+            "=",
+            "α",
+            "0",
+            "π",
+            "2"
+          ]
+        ],
+        "explanation": "Omitted; canonical English explanation remains available in review"
+      }
+    },
+    {
+      "externalId": "jee-main-2021-s1-2021-02-24-shift-1-q86-nta-70819115239",
+      "language": "hi",
+      "exam": "JEE",
+      "subjectCode": "JEE_MATHEMATICS",
+      "questionType": "NUMERICAL_VALUE",
+      "questionNature": "NUMERICAL_PROBLEM_SOLVING",
+      "canonicalQuestionSha256": "03f578f6c040e5cf97568063fbe4346d7948dbc6be243de3ab2c503861de0410",
+      "canonicalContentHash": "e063d098f7aec9ac0195e350a99ab4b72584e4251c8d19d7177f2ab26310729b",
+      "translationSource": "SIVORA_TRANSLATION",
+      "sourceReference": "SIVORA V1 proof wording; authored and checked in repository; independent editorial review pending",
+      "reviewState": "REVIEW_REQUIRED",
+      "content": {
+        "questionText": "α का वह न्यूनतम मान, जिसके लिए समीकरण 4/(sin x) + 1/(1 − sin x) = α का (0, π/2) में कम से कम एक हल है, ______ है।",
+        "optionA": null,
+        "optionB": null,
+        "optionC": null,
+        "optionD": null,
+        "explanation": null
+      },
+      "qa": {
+        "mechanical": "PASS",
+        "optionIdentity": "A/B/C/D fixed; no reordering",
+        "meaning": "Prepared and checked by implementation author; independent editorial approval pending",
+        "protectedTokens": [
+          [
+            "α",
+            "4",
+            "sin x",
+            "1",
+            "1",
+            "sin x",
+            "=",
+            "α",
+            "0",
+            "π",
+            "2"
+          ]
+        ],
+        "explanation": "Omitted; canonical English explanation remains available in review"
+      }
+    },
+    {
+      "externalId": "jee-main-2021-s1-2021-02-24-shift-1-q31-nta-70819115184",
+      "language": "ta",
+      "exam": "JEE",
+      "subjectCode": "JEE_CHEMISTRY",
+      "questionType": "SINGLE_CORRECT",
+      "questionNature": "CONCEPTUAL_THEORY",
+      "canonicalQuestionSha256": "f27986f8b5577834c2ab0ec1bfceccd0766d8a2f28378801bb9cdead08d75ca7",
+      "canonicalContentHash": "c8fc2bdb0671929541affc00ecc1e28a87cf5f9256c216dd4b9cbe1ca6937633",
+      "translationSource": "SIVORA_TRANSLATION",
+      "sourceReference": "SIVORA V1 proof wording; authored and checked in repository; independent editorial review pending",
+      "reviewState": "REVIEW_REQUIRED",
+      "content": {
+        "questionText": "பின்வருவனவற்றில் ஒரே கட்டமைப்பைக் கொண்ட இணைகள் எவை?\nA. SO₄²⁻ மற்றும் CrO₄²⁻\nB. SiCl₄ மற்றும் TiCl₄\nC. NH₃ மற்றும் NO₃⁻\nD. BCl₃ மற்றும் BrCl₃",
+        "optionA": "A மற்றும் B மட்டும்",
+        "optionB": "A மற்றும் C மட்டும்",
+        "optionC": "B மற்றும் C மட்டும்",
+        "optionD": "C மற்றும் D மட்டும்",
+        "explanation": null
+      },
+      "qa": {
+        "mechanical": "PASS",
+        "optionIdentity": "A/B/C/D fixed; no reordering",
+        "meaning": "Prepared and checked by implementation author; independent editorial approval pending",
+        "protectedTokens": [
+          [
+            "SO₄²⁻",
+            "CrO₄²⁻",
+            "B",
+            "SiCl₄",
+            "TiCl₄",
+            "C",
+            "NH₃",
+            "NO₃⁻",
+            "D",
+            "BCl₃",
+            "BrCl₃"
+          ],
+          [
+            "B"
+          ],
+          [
+            "C"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "explanation": "Omitted; canonical English explanation remains available in review"
+      }
+    },
+    {
+      "externalId": "jee-main-2021-s1-2021-02-24-shift-1-q31-nta-70819115184",
+      "language": "hi",
+      "exam": "JEE",
+      "subjectCode": "JEE_CHEMISTRY",
+      "questionType": "SINGLE_CORRECT",
+      "questionNature": "CONCEPTUAL_THEORY",
+      "canonicalQuestionSha256": "f27986f8b5577834c2ab0ec1bfceccd0766d8a2f28378801bb9cdead08d75ca7",
+      "canonicalContentHash": "c8fc2bdb0671929541affc00ecc1e28a87cf5f9256c216dd4b9cbe1ca6937633",
+      "translationSource": "SIVORA_TRANSLATION",
+      "sourceReference": "SIVORA V1 proof wording; authored and checked in repository; independent editorial review pending",
+      "reviewState": "REVIEW_REQUIRED",
+      "content": {
+        "questionText": "निम्नलिखित में से कौन-से समसंरचनात्मक युग्म हैं?\nA. SO₄²⁻ और CrO₄²⁻\nB. SiCl₄ और TiCl₄\nC. NH₃ और NO₃⁻\nD. BCl₃ और BrCl₃",
+        "optionA": "केवल A और B",
+        "optionB": "केवल A और C",
+        "optionC": "केवल B और C",
+        "optionD": "केवल C और D",
+        "explanation": null
+      },
+      "qa": {
+        "mechanical": "PASS",
+        "optionIdentity": "A/B/C/D fixed; no reordering",
+        "meaning": "Prepared and checked by implementation author; independent editorial approval pending",
+        "protectedTokens": [
+          [
+            "SO₄²⁻",
+            "CrO₄²⁻",
+            "B",
+            "SiCl₄",
+            "TiCl₄",
+            "C",
+            "NH₃",
+            "NO₃⁻",
+            "D",
+            "BCl₃",
+            "BrCl₃"
+          ],
+          [
+            "B"
+          ],
+          [
+            "C"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "explanation": "Omitted; canonical English explanation remains available in review"
+      }
+    },
+    {
+      "externalId": "jee-main-2021-s1-2021-02-24-shift-1-q59-nta-70819115212",
+      "language": "ta",
+      "exam": "JEE",
+      "subjectCode": "JEE_CHEMISTRY",
+      "questionType": "NUMERICAL_VALUE",
+      "questionNature": "CONCEPTUAL_THEORY",
+      "canonicalQuestionSha256": "9536f657410d7869073e4cbba4f61edd90be6e2e835a00f3b9a6e42978a34cfa",
+      "canonicalContentHash": "326a01ea1fd54395a2434f70fafbc0ca46d3cd6fd9203c1b5b108e76e74d016f",
+      "translationSource": "SIVORA_TRANSLATION",
+      "sourceReference": "SIVORA V1 proof wording; authored and checked in repository; independent editorial review pending",
+      "reviewState": "REVIEW_REQUIRED",
+      "content": {
+        "questionText": "பின்வருவனவற்றில் ஈரியல்புச் சேர்மங்களின் எண்ணிக்கை ______.\n(A) BeO (B) BaO (C) Be(OH)₂ (D) Sr(OH)₂",
+        "optionA": null,
+        "optionB": null,
+        "optionC": null,
+        "optionD": null,
+        "explanation": null
+      },
+      "qa": {
+        "mechanical": "PASS",
+        "optionIdentity": "A/B/C/D fixed; no reordering",
+        "meaning": "Prepared and checked by implementation author; independent editorial approval pending",
+        "protectedTokens": [
+          [
+            "BeO",
+            "B",
+            "BaO",
+            "C",
+            "Be",
+            "OH",
+            "₂",
+            "D",
+            "Sr",
+            "OH",
+            "₂"
+          ]
+        ],
+        "explanation": "Omitted; canonical English explanation remains available in review"
+      }
+    },
+    {
+      "externalId": "jee-main-2021-s1-2021-02-24-shift-1-q59-nta-70819115212",
+      "language": "hi",
+      "exam": "JEE",
+      "subjectCode": "JEE_CHEMISTRY",
+      "questionType": "NUMERICAL_VALUE",
+      "questionNature": "CONCEPTUAL_THEORY",
+      "canonicalQuestionSha256": "9536f657410d7869073e4cbba4f61edd90be6e2e835a00f3b9a6e42978a34cfa",
+      "canonicalContentHash": "326a01ea1fd54395a2434f70fafbc0ca46d3cd6fd9203c1b5b108e76e74d016f",
+      "translationSource": "SIVORA_TRANSLATION",
+      "sourceReference": "SIVORA V1 proof wording; authored and checked in repository; independent editorial review pending",
+      "reviewState": "REVIEW_REQUIRED",
+      "content": {
+        "questionText": "निम्नलिखित में उभयधर्मी यौगिकों की संख्या ______ है।\n(A) BeO (B) BaO (C) Be(OH)₂ (D) Sr(OH)₂",
+        "optionA": null,
+        "optionB": null,
+        "optionC": null,
+        "optionD": null,
+        "explanation": null
+      },
+      "qa": {
+        "mechanical": "PASS",
+        "optionIdentity": "A/B/C/D fixed; no reordering",
+        "meaning": "Prepared and checked by implementation author; independent editorial approval pending",
+        "protectedTokens": [
+          [
+            "BeO",
+            "B",
+            "BaO",
+            "C",
+            "Be",
+            "OH",
+            "₂",
+            "D",
+            "Sr",
+            "OH",
+            "₂"
+          ]
+        ],
+        "explanation": "Omitted; canonical English explanation remains available in review"
+      }
+    }
+  ]
+}

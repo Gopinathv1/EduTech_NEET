@@ -1,11 +1,13 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import type { ExamLanguage } from '@/lib/attempts/examState';
 import type { ReviewItem, ReviewStatus } from '@/lib/reports/answer-review';
 import type { ScoredOption } from '@/lib/attempts/result';
 import { L } from './localize';
+import QuestionLanguageSelector from '@/components/student/QuestionLanguageSelector';
+import { parseQuestionPreference, questionPreferenceKey } from '@/lib/question-translations/preference';
 
 const OPTIONS: ScoredOption[] = ['A', 'B', 'C', 'D'];
 type Filter = 'all' | 'wrong' | 'skipped' | 'marked';
@@ -21,9 +23,23 @@ const STATUS_BADGE: Record<ReviewStatus, string> = {
  * the explanation, in the preferred language (English fallback + notice when a
  * reviewed Tamil translation is missing). Filterable by wrong / skipped / marked.
  */
-export default function AnswerReview({ items, locale }: { items: ReviewItem[]; locale: ExamLanguage }) {
+export default function AnswerReview({ items, locale, attemptId }: { items: ReviewItem[]; locale: ExamLanguage; attemptId?: string }) {
   const t = useTranslations('results.review');
-  const tn = useTranslations('neetPractice');
+  const tq = useTranslations('questionContent');
+  const [language, setLanguage] = useState(locale);
+  useEffect(() => {
+    if (!attemptId) return;
+    try { const saved = parseQuestionPreference(localStorage.getItem(questionPreferenceKey(attemptId)), items.length); if (saved) setLanguage(saved.lang); }
+    catch { /* Optional preference. */ }
+  }, [attemptId, items.length]);
+  function switchLanguage(lang: ExamLanguage) {
+    setLanguage(lang);
+    if (!attemptId) return;
+    try {
+      const saved = parseQuestionPreference(localStorage.getItem(questionPreferenceKey(attemptId)), items.length);
+      localStorage.setItem(questionPreferenceKey(attemptId), JSON.stringify({ lang, index: saved?.index ?? 0 }));
+    } catch { /* Optional preference. */ }
+  }
   const [filter, setFilter] = useState<Filter>('all');
 
   const counts = useMemo(
@@ -49,6 +65,7 @@ export default function AnswerReview({ items, locale }: { items: ReviewItem[]; l
 
   return (
     <div>
+      <div className="mb-3 inline-block"><QuestionLanguageSelector language={language} onChange={switchLanguage} /></div>
       {/* Filters */}
       <div className="sticky top-16 z-10 -mx-1 flex flex-wrap gap-2 bg-surface/90 px-1 py-2 backdrop-blur">
         {filters.map((f) => {
@@ -76,8 +93,8 @@ export default function AnswerReview({ items, locale }: { items: ReviewItem[]; l
       ) : (
         <ul className="mt-4 space-y-4">
           {filtered.map((item) => {
-            const content = item[locale] ?? item.en;
-            const taNotice = locale !== 'en' && !item[locale];
+            const content = item[language] ?? item.en;
+            const taNotice = language !== 'en' && !item[language];
             return (
               <li key={item.questionId} className="rounded-2xl border border-border bg-surfaceElevated p-4 sm:p-5">
                 <div className="flex flex-wrap items-center gap-2">
@@ -99,11 +116,11 @@ export default function AnswerReview({ items, locale }: { items: ReviewItem[]; l
 
                 {taNotice ? (
                   <p className="mt-3 rounded-lg border border-amber-500/40 bg-amber-950/30 px-3 py-2 text-xs text-amber-100">
-                    {tn('languageUnavailable')}
+                    {tq('fallback')}
                   </p>
                 ) : null}
 
-                <p className="mt-3 whitespace-pre-line text-sm font-medium text-textPrimary">{content.questionText}</p>
+                <p lang={taNotice ? 'en' : language} className="mt-3 whitespace-pre-line text-sm font-medium text-textPrimary">{content.questionText}</p>
 
                 {item.imageUrl ? (
                   // eslint-disable-next-line @next/next/no-img-element
@@ -167,9 +184,10 @@ export default function AnswerReview({ items, locale }: { items: ReviewItem[]; l
                 ) : null}
 
                 <div className="mt-3 rounded-lg bg-surface p-3">
+                  {language !== 'en' && item[language] && !content.explanation && item.en.explanation ? <p className="mb-1 text-xs text-textSecondary">{tq('explanationFallback')}</p> : null}
                   <p className="text-xs font-semibold uppercase tracking-wide text-textSecondary">{t('explanation')}</p>
                   <p className="mt-1 whitespace-pre-line text-sm text-textSecondary">
-                    {content.explanation || t('noExplanation')}
+                    {content.explanation || item.en.explanation || t('noExplanation')}
                   </p>
                 </div>
               </li>

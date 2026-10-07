@@ -18,6 +18,7 @@ import {
 import { buildResultNotificationData } from '@/lib/notifications/create';
 import { isFreeSampleTest } from '@/lib/content/eligibility';
 import type { QuestionNature } from '@/lib/previous-year/question-nature';
+import { approvedTranslation } from '@/lib/question-translations/content';
 
 /**
  * Server-side orchestration for a test attempt: starting/resuming, building the
@@ -223,6 +224,9 @@ export async function buildExamPayload(attempt: {
             optionC: true,
             optionD: true,
             reviewed: true,
+            reviewState: true, translationSource: true, reviewedById: true,
+            reviewedAt: true, canonicalContentHash: true, explanation: true,
+            correctOption: true, numericAnswer: true, numericTolerance: true,
           },
         },
       },
@@ -239,9 +243,9 @@ export async function buildExamPayload(attempt: {
     const q = byId.get(id);
     if (!q) throw new Error('Attempt question missing');
     const en = q.translations.find((tr) => tr.language === 'en');
-    const hi = q.translations.find(tr => tr.language === 'hi' && tr.reviewed);
-    const ta = q.translations.find((tr) => tr.language === 'ta' && tr.reviewed);
     if (!en) throw new Error('Attempt question has no English content');
+    const hi = approvedTranslation(q.questionType, en, q.translations.find(tr => tr.language === 'hi'));
+    const ta = approvedTranslation(q.questionType, en, q.translations.find(tr => tr.language === 'ta'));
 
     // Present options in a per-attempt shuffled order (same order for EN + TA),
     // skipping questions where reordering would break the options.
@@ -277,7 +281,7 @@ export async function buildExamPayload(attempt: {
   return {
     attemptId: attempt.id,
     testTitle: attempt.test.title,
-    availableLanguages: ['en', 'ta', 'hi'].filter(code => examQuestions.every(q => q[code as 'en' | 'ta' | 'hi'] !== null)),
+    availableLanguages: ['en', 'ta', 'hi'],
     selectedLanguage,
     remainingSeconds: computeRemainingSeconds(attempt.startedAt, attempt.test.durationMinutes),
     status: attempt.status,

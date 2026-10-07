@@ -1,6 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { useState, type ChangeEvent } from 'react';
 import { apiPost, apiPatch } from '@/lib/client/api';
 import { inputClass, selectClass, Field, Banner } from '@/components/ui/Form';
@@ -126,8 +127,8 @@ export default function QuestionForm({
     if (!en.questionText.trim()) errs.push('English question text is required.');
     for (const o of OPTIONS) if (!en[`option${o}` as keyof Content].toString().trim()) errs.push(`English option ${o} is required.`);
     if (questionType === 'IMAGE_BASED' && !imageUrl) errs.push('Upload an image for an image-based question.');
-    if (taAny && !taAll) errs.push('Complete all Tamil fields or clear them.');
-    if (taReviewed && !taAll) errs.push('Only a complete Tamil translation can be marked reviewed.');
+    if (!isEdit && taAny && !taAll) errs.push('Complete all Tamil fields or clear them.');
+    if (!isEdit && taReviewed && !taAll) errs.push('Only a complete Tamil translation can be marked reviewed.');
     return errs;
   }
 
@@ -189,7 +190,7 @@ export default function QuestionForm({
       isActive,
       correctOption,
       en,
-      ta: taAll ? { ...ta, reviewed: taReviewed } : undefined,
+      ta: !isEdit && taAll ? { ...ta, reviewed: false } : undefined,
     };
     const res = isEdit
       ? await apiPatch(`/api/admin/questions/${base.id}`, payload)
@@ -407,18 +408,18 @@ export default function QuestionForm({
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
             <TranslationColumn title="English (required)" content={en} onChange={setEn} />
             <div>
-              <TranslationColumn title="Tamil (optional)" content={ta} onChange={setTa} />
+              {isEdit ? <Link className="text-brand underline" href={`/admin/question-bank/${base.id}/translations`}>Edit and review Tamil / Hindi translations separately</Link> : <><TranslationColumn title="Tamil (optional)" content={ta} onChange={setTa} />
               <label className="mt-4 flex items-center gap-2 text-sm text-textSecondary">
                 <input
                   type="checkbox"
                   checked={taReviewed}
                   onChange={(e) => setTaReviewed(e.target.checked)}
-                  disabled={!taAll}
+                  disabled
                   className="h-4 w-4 rounded border-border text-brand disabled:opacity-50"
                 />
                 Translation reviewed
-                <span className="text-xs text-slate-400">(only reviewed Tamil is shown to students)</span>
-              </label>
+                <span className="text-xs text-slate-400">(new translations are drafts; use the translation review workflow)</span>
+              </label></>}
             </div>
           </div>
         </div>

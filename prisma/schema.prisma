@@ -479,12 +479,43 @@ model QuestionTranslation {
   // Only reviewed non-English translations are shown to students. English is
   // authoritative and always considered reviewed.
   reviewed      Boolean      @default(false)
+  // English remains authoritative. Legacy non-English rows require explicit
+  // review under this workflow; no legacy reviewed flags are promoted by DDL.
+  reviewState QuestionReviewState @default(DRAFT)
+  translationSource QuestionTranslationSource?
+  sourceReference String?
+  reviewNote String?
+  reviewedById String?
+  reviewedByName String?
+  reviewedAt DateTime?
+  canonicalContentHash String?
+  revision Int @default(0)
   createdAt     DateTime     @default(now())
   updatedAt     DateTime     @updatedAt
 
   question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  versions QuestionTranslationVersion[]
 
   @@unique([questionId, language])
+}
+
+enum QuestionTranslationSource {
+  OFFICIAL_TRANSLATION
+  SIVORA_TRANSLATION
+}
+
+/// Translation-only history; canonical Question/QuestionVersion are untouched.
+model QuestionTranslationVersion {
+  id String @id @default(cuid())
+  translationId String
+  revision Int
+  action String
+  editedById String
+  editedByName String
+  snapshot Json
+  createdAt DateTime @default(now())
+  translation QuestionTranslation @relation(fields: [translationId], references: [id], onDelete: Cascade)
+  @@unique([translationId, revision])
 }
 
 // ---------------------------------------------------------------------------
