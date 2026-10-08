@@ -1,10 +1,11 @@
 import { prisma } from '@/lib/prisma';
 import type { AdmissionsEnquiryInput } from '@/lib/validation/admissions-enquiry';
+import { admissionsEnquirySchema } from '@/lib/validation/admissions-enquiry';
 
 // Use the existing public enquiry inbox. No schema migration or outbound message.
 export async function createAdmissionsEnquiry(input: AdmissionsEnquiryInput) {
-  const { name, mobile, email, studyPath, destination, programme, contactPreference } = input;
-  const message = ['Admissions counselling request', `Study path: ${studyPath}`, `Destination: ${destination || 'Undecided'}`, `Programme: ${programme || 'Undecided'}`, `Contact preference: ${contactPreference}`, 'Consent: agreed to contact about this enquiry'].join('\n');
+  const { name, mobile, email, studyPath, destination, programme, contactPreference, universityId } = admissionsEnquirySchema.parse(input);
+  const message = ['Admissions counselling request', `Study path: ${studyPath}`, `Destination: ${destination || 'Undecided'}`, `Programme: ${programme || 'Undecided'}`, ...(universityId ? [`University ID: ${universityId}`] : []), `Contact preference: ${contactPreference}`, 'Consent: agreed to contact about this enquiry'].join('\n');
   return prisma.$transaction(async (tx) => {
     // Advisory transaction lock also covers concurrent anonymous submissions.
     await tx.$queryRaw`SELECT 1 AS locked FROM pg_advisory_xact_lock(hashtext(${`admissions:${mobile}:${email}`}))`;

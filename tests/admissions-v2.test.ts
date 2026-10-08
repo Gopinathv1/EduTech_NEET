@@ -76,6 +76,16 @@ describe('Admissions enquiries', () => {
     for (const destination of ['', 'other']) expect(admissionsEnquirySchema.safeParse({ ...valid, destination }).success).toBe(true);
     expect(admissionsEnquirySchema.safeParse({ ...valid, programme: 'a'.repeat(121) }).success).toBe(false);
   });
+  it('uses canonical university IDs and rejects stale names, countries and unknown IDs', () => {
+    for (const universityId of ['russia-1', 'russia-3']) {
+      const university = ADMISSION_UNIVERSITIES.find((item) => item.id === universityId)!;
+      const selected = { ...valid, universityId, programme: university.name };
+      expect(admissionsEnquirySchema.parse(selected).universityId).toBe(universityId);
+      for (const patch of [{ programme: 'Wrong university' }, { destination: 'georgia' }, { universityId: 'missing' }, { universityId: '' }, { universityId: undefined }, { consent: false }]) {
+        expect(admissionsEnquirySchema.safeParse({ ...selected, ...patch }).success).toBe(false);
+      }
+    }
+  });
   it('normalises duplicate destination ids and rejects booleans masquerading as scores', () => {
     const lead = { neetScore: '', marks: '', category: 'General', budget: 'UNSURE', interestedCountryIds: ['c1', 'c1'], parentContact: '9000000001', consent: true };
     const parsed = admissionLeadSchema.parse(lead);
