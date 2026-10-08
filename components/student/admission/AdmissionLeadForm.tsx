@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslations } from 'next-intl';
 import { admissionLeadSchema } from '@/lib/validation/admission';
@@ -29,6 +29,8 @@ export default function AdmissionLeadForm({
   countries: LeadFormCountry[];
   defaults: { neetScore?: number };
 }) {
+  const [ready, setReady] = useState(false);
+  useEffect(() => setReady(true), []);
   const t = useTranslations('consultancy');
   const errText = useErrorText();
   const [selected, setSelected] = useState<string[]>([]);
@@ -108,7 +110,8 @@ export default function AdmissionLeadForm({
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
+    <form onSubmit={handleSubmit(onSubmit)} aria-busy={!ready} noValidate>
+      <fieldset disabled={!ready || isSubmitting} className="min-w-0 space-y-5">
       <div>
         <h2 className="text-lg font-semibold text-textPrimary">{t('form.heading')}</h2>
         <p className="mt-1 text-sm text-textSecondary">{t('form.subtitle')}</p>
@@ -214,6 +217,7 @@ export default function AdmissionLeadForm({
       >
         {isSubmitting ? t('form.submitting') : t('form.submit')}
       </button>
+      </fieldset>
     </form>
   );
 }

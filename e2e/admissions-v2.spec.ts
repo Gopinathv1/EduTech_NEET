@@ -134,8 +134,8 @@ test('student form submits and returns to counselling status', async ({ page }, 
   await page.getByRole('button', { name: 'Russia', exact: true }).click();
   await page.locator('#parentContact').fill('9000000003'); await page.getByRole('checkbox').check();
   await page.locator('form button[type="submit"]').click();
-  await expect(page.locator('a[href="/student/admission-guidance"]')).toBeVisible();
-  await page.locator('a[href="/student/admission-guidance"]').click();
+  await expect(page.getByRole('heading', { name: 'Request received', exact: true })).toBeVisible();
+  await page.getByRole('link', { name: 'Track your request', exact: true }).click();
   await expect(page.getByText('Counselling request status only.', { exact: false })).toBeVisible();
   const lead = await db.admissionLead.findFirstOrThrow({ where: { studentId: student.id } }); expect(lead.neetScore).toBeNull(); expect(lead.consentAt).not.toBeNull();
 });
