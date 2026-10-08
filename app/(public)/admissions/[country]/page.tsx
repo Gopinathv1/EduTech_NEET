@@ -1,3 +1,7 @@
+import UniversityExplorer from '@/components/admissions/UniversityExplorer';
+import AdmissionsEnquiryForm from '@/components/admissions/AdmissionsEnquiryForm';
+import MedicalGuidance from '@/components/admissions/MedicalGuidance';
+import { getCountryUniversities } from '@/lib/data/admissions/universities';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -21,6 +25,7 @@ import { ClockIcon, GlobeIcon, MapPinIcon, RupeeIcon } from '@/components/public
 
 type Props = {
   params: Promise<{ country: string }>;
+  searchParams?: Promise<{ university?: string }>;
 };
 
 type IconComponent = typeof GlobeIcon;
@@ -42,13 +47,15 @@ export async function generateMetadata({ params }: Props) {
   });
 }
 
-export default async function AdmissionCountryPage({ params }: Props) {
+export default async function AdmissionCountryPage({ params, searchParams }: Props) {
   const { country: slug } = await params;
   const country = getAdmissionCountryProfile(slug);
   if (!country) notFound();
 
+  const selection = await searchParams;
+  const enquiryUniversity = getCountryUniversities(country.slug).find((university) => university.id === selection?.university)?.name;
   const fxRates = await getIndicativeFxRates([country.currencyCode]);
-  return <CountryContent country={country} fxRate={fxRates[country.currencyCode]} />;
+  return <CountryContent country={country} fxRate={fxRates[country.currencyCode]} enquiryUniversity={enquiryUniversity} />;
 }
 
 function QuickFact({ label, value, Icon }: { label: string; value: string; Icon: IconComponent }) {
@@ -74,7 +81,7 @@ function DetailRow({ label, value }: { label: string; value: string }) {
   );
 }
 
-function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile; fxRate?: FxRate }) {
+function CountryContent({ country, fxRate, enquiryUniversity }: { country: AdmissionCountryProfile; fxRate?: FxRate; enquiryUniversity?: string }) {
   const t = useTranslations('admissions');
   const mainCity = country.studentCityDetails.find((city) => city.universityCount > 0)?.name ?? country.majorStudentCities[0];
   const budgetValues = [country.budget.tuitionRange?.value, country.budget.livingCost?.value, country.budget.overall?.value].filter(Boolean);
@@ -131,7 +138,7 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
               <span aria-hidden="true">/</span>
               <span className="text-[#D1D1D1]">{t('breadcrumbs.featuredDestinations')}</span>
               <span aria-hidden="true">/</span>
-              <span className="text-brand">{country.name}</span>
+              <span aria-current="page" className="text-brand">{country.name}</span>
             </nav>
             <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('countryHero.eyebrow')}</p>
             <div className="mt-5 flex flex-wrap items-end gap-4">
@@ -141,7 +148,7 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
             <h2 className="mt-5 text-2xl font-black uppercase text-white sm:text-4xl">
               {t('countryHero.studyTitle', { country: country.name })}
             </h2>
-            <p className="mt-5 max-w-2xl text-base leading-8 text-[#D1D1D1]">{t(`countries.${country.slug}.description`)}</p>
+            <p className="mt-5 max-w-2xl text-base leading-8 text-[#D1D1D1]">{country.geography}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <PrimaryLink href="#quick-facts">{t('countryHero.quickFactsCta')}</PrimaryLink>
               <Link
@@ -155,6 +162,7 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
         </div>
       </section>
 
+      <Section><MedicalGuidance /></Section>
       <Section id="quick-facts">
         <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
           <QuickFact label={t('glance.capital')} value={country.capital.value} Icon={MapPinIcon} />
@@ -172,6 +180,7 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
             {t('timeTravel.title')}
           </h2>
         </div>
+<p className="mb-5 text-sm leading-7 text-[#565c60]">Travel information is indicative planning context, not a live airline schedule. Check current routes, transit rules and campus location before booking.</p>
         <DestinationTimeTravelCard
           country={country}
           labels={{
@@ -222,7 +231,7 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
           <h2 className="mt-4 text-[clamp(2.2rem,5vw,4.7rem)] font-black uppercase leading-[0.92] text-[#171717]">
               {t('budget.snapshotTitle')}
             </h2>
-            <p className="mt-4 text-sm leading-7 text-[#D1D1D1]">{t('budget.note')}</p>
+            <p className="mt-4 text-sm leading-7 text-[#565c60]">Tuition and living costs depend on the programme, intake, city and accommodation. Obtain an itemised written quote covering tuition, internship, insurance, visa, travel and refund terms. Confirm with university; no prices are guaranteed.</p>
           </div>
           <div className="space-y-4">
             {budgetValues.length > 0 ? (
@@ -256,26 +265,13 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
         <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.32em] text-brand">{t('universities.eyebrow')}</p>
-            <h2 className="mt-4 text-[clamp(2.2rem,5vw,4.7rem)] font-black uppercase leading-[0.92] text-white">
+            <h2 className="mt-4 text-[clamp(2.2rem,5vw,4.7rem)] font-black uppercase leading-[0.92] text-[#171717]">
               {t('universities.title')}
             </h2>
           </div>
-          <p className="max-w-2xl text-sm leading-7 text-[#D1D1D1]">{t('universities.shortNote')}</p>
+          <p className="max-w-2xl text-sm leading-7 text-[#D1D1D1]">Check institution identity sources and confirm all current programme conditions directly.</p>
         </div>
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {country.universities.map((university) => (
-            <div key={university} className="flex min-h-52 flex-col rounded-md border border-[#dce0e2] bg-white p-5">
-              <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">{mainCity}</p>
-              <h3 className="mt-3 text-lg font-black uppercase leading-tight text-[#171717]">{university}</h3>
-              <p className="mt-4 text-sm leading-6 text-[#565c60]">
-                {country.program.duration?.value ? t('universities.durationLine', { duration: country.program.duration.value }) : t('contactForCurrentDetails')}
-              </p>
-              <div className="mt-auto pt-5">
-                <PrimaryLink href="/counselling">{t('universities.askCta')}</PrimaryLink>
-              </div>
-            </div>
-          ))}
-        </div>
+        <UniversityExplorer universities={getCountryUniversities(country.slug)} />
       </Section>
 
       <Section lazy>
@@ -291,7 +287,7 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
               <div key={city.name} className="rounded-2xl border border-[#2B2B2B] bg-[#111111] p-5">
                 <h3 className="text-lg font-black uppercase text-white">{city.name}</h3>
                 <p className="mt-2 text-xs font-bold uppercase tracking-[0.1em] text-brand">
-                  {t('cities.universityCount', { count: city.universityCount })}
+                  Confirm the institution campus before planning travel
                 </p>
                 {city.nearestAirport ? <p className="mt-3 text-sm leading-6 text-[#D1D1D1]">{city.nearestAirport}</p> : null}
               </div>
@@ -353,6 +349,7 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
         </div>
       </Section>
 
+      <Section id="enquiry"><h2 className="mb-5 text-2xl font-semibold text-[#171717]">Request counselling for {country.name}</h2><div className="max-w-2xl"><AdmissionsEnquiryForm destination={country.slug} programme={enquiryUniversity} /></div></Section>
       <RelatedServicesSection
         eyebrow={t('countryRelated.eyebrow')}
         title={t('countryRelated.title')}
@@ -371,7 +368,7 @@ function CountryContent({ country, fxRate }: { country: AdmissionCountryProfile;
               <div className="mt-3 grid gap-2">
                 {country.studentCityDetails.map((city) => (
                   <p key={city.name} className="text-sm leading-6 text-[#D1D1D1]">
-                    {city.name}: {t('cities.universityCount', { count: city.universityCount })}{city.timezone ? ` · ${city.timezone}` : ''}
+                    {city.name}: Confirm the institution campus before planning travel{city.timezone ? ` · ${city.timezone}` : ''}
                   </p>
                 ))}
               </div>

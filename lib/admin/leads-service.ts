@@ -74,8 +74,8 @@ export async function assignLead(
 
   let assigneeName = 'Unassigned';
   if (assignedToId) {
-    const assignee = await prisma.admin.findUnique({ where: { id: assignedToId }, select: { name: true } });
-    if (!assignee) return { ok: false, code: 'invalidAssignee' };
+    const assignee = await prisma.admin.findUnique({ where: { id: assignedToId }, select: { name: true, isActive: true } });
+    if (!assignee?.isActive) return { ok: false, code: 'invalidAssignee' };
     assigneeName = assignee.name;
   }
 

@@ -9,13 +9,13 @@ export type AdmissionCountry = {
  * researched facts, travel context and display metadata to this same list.
  */
 export const ADMISSION_COUNTRIES: AdmissionCountry[] = [
-  { slug: 'russia', name: 'Russia', universities: ['Omsk State Medical University', 'Orenburg State Medical University', 'Perm State Medical University', 'Mari State University Medical Faculty', 'Tver State Medical University'] },
-  { slug: 'georgia', name: 'Georgia', universities: ['Tbilisi State Medical University Faculty of Medicine', 'Batumi Shota Rustaveli State University', 'BAU International University Faculty of Medicine', 'Caucasus International University Faculty of Medicine', 'David Tvildiani Medical University / AIETI Medical School'] },
-  { slug: 'vietnam', name: 'Vietnam', universities: ['Hong Bang International University Faculty of Medicine', 'Phan Chau Trinh University (PCTU)', 'Buon Ma Thuot Medical University', 'Can Tho University of Medicine', 'Nam Can Tho University'] },
-  { slug: 'armenia', name: 'Armenia', universities: ['Yerevan State Medical University Named for Mkhitar Heratsi', 'Armenian Medical Institute Faculty of Medicine', 'Erebuni Medical Academy Foundation', 'Yerevan Haybusak University Faculty of Medicine', 'Yerevan University of Traditional Medicine'] },
-  { slug: 'uzbekistan', name: 'Uzbekistan', universities: ['Tashkent Medical Academy', 'Bukhara State Medical Institute', 'Samarkand State Medical University', 'Fergana Medical Institute of Public Health', 'Andijan State Medical Institute'] },
-  { slug: 'kyrgyzstan', name: 'Kyrgyzstan', universities: ['Bishkek International Medical Institute', 'Avicenna International Medical University', 'Osh State University Medical Faculty', 'Osh International Medical University', 'Jalal-Abad International University Medical Faculty'] },
-  { slug: 'tajikistan', name: 'Tajikistan', universities: ['Avicenna Tajik State Medical University', 'Tajik National University Faculty of Medicine', 'Stalinabad Medical Institute'] },
+  { slug: 'russia', name: 'Russia', universities: ['Omsk State Medical University', 'Orenburg State Medical University', 'Perm State Medical University', 'Mari State University — Institute of Medicine', 'Tver State Medical University'] },
+  { slug: 'georgia', name: 'Georgia', universities: ['Tbilisi State Medical University Faculty of Medicine', 'Batumi Shota Rustaveli State University', 'BAU International University Batumi', 'Caucasus International University Faculty of Medicine', 'David Tvildiani Medical University / AIETI Medical School'] },
+  { slug: 'vietnam', name: 'Vietnam', universities: ['Hong Bang International University Faculty of Medicine', 'Phan Chau Trinh University (PCTU)', 'Buon Ma Thuot University of Medicine and Pharmacy', 'Can Tho University of Medicine and Pharmacy', 'Nam Can Tho University'] },
+  { slug: 'armenia', name: 'Armenia', universities: ['Yerevan State Medical University Named for Mkhitar Heratsi', 'Armenian Medical Institute', 'Erebuni Medical Academy Foundation', 'Yerevan Haybusak University Faculty of Medicine', 'Yerevan University of Traditional Medicine'] },
+  { slug: 'uzbekistan', name: 'Uzbekistan', universities: ['Tashkent State Medical University', 'Bukhara State Medical Institute', 'Samarkand State Medical University', 'Fergana Medical Institute of Public Health', 'Andijan State Medical Institute'] },
+  { slug: 'kyrgyzstan', name: 'Kyrgyzstan', universities: ['Bishkek International Medical Institute', 'Avicenna International Medical University', 'Osh State University — International Medical Faculty', 'Osh International Medical University', 'Jalal-Abad International University Medical Faculty'] },
+  { slug: 'tajikistan', name: 'Tajikistan', universities: ['Avicenna Tajik State Medical University', 'Tajik National University Faculty of Medicine'] },
   { slug: 'kazakhstan', name: 'Kazakhstan', universities: ['Al-Farabi Kazakh National University Faculty of Medicine and Health Care', 'Asfendiyarov Kazakh National Medical University'] },
 ] as const;
 
@@ -35,7 +35,10 @@ export type AdmissionCountryProfile = {
   slug: string;
   name: string;
   flag: string;
-  region: 'EUROPE' | 'CAUCASUS' | 'CENTRAL_ASIA' | 'SOUTHEAST_ASIA';
+  countryCode: string;
+  primaryContinent: 'Asia' | 'Europe';
+  geography: string;
+  region: 'ASIA' | 'EUROPE' | 'CAUCASUS' | 'CENTRAL_ASIA' | 'SOUTHEAST_ASIA';
   subregion: string;
   status: 'featured';
   featured: boolean;
@@ -139,13 +142,13 @@ const airportSource = (sourceName: string, sourceUrl: string, sourceYear?: strin
 
 const countryBySlug = new Map(ADMISSION_COUNTRIES.map((country) => [country.slug, country]));
 
-export const ADMISSION_COUNTRY_PROFILES: AdmissionCountryProfile[] = [
+const COUNTRY_PROFILES: Omit<AdmissionCountryProfile, 'countryCode' | 'primaryContinent' | 'geography'>[] = [
   {
     slug: 'russia',
     name: 'Russia',
     flag: '🇷🇺',
-    region: 'EUROPE',
-    subregion: 'Eastern Europe',
+    region: 'ASIA',
+    subregion: 'Northern Asia / Eastern Europe',
     status: 'featured',
     featured: true,
     detailAvailable: true,
@@ -487,7 +490,7 @@ export const ADMISSION_COUNTRY_PROFILES: AdmissionCountryProfile[] = [
     climate: { value: 'Mid-latitude continental climate with hot summers and mild winters; semiarid to polar in the Pamir Mountains.', source: worldFactbook('tajikistan') },
     majorStudentCities: ['Dushanbe', 'Khujand'],
     studentCityDetails: [
-      { name: 'Dushanbe', universityCount: 3, timezone: 'Asia/Dushanbe', nearestAirport: 'Dushanbe International Airport (DYU)' },
+      { name: 'Dushanbe', universityCount: 2, timezone: 'Asia/Dushanbe', nearestAirport: 'Dushanbe International Airport (DYU)' },
       { name: 'Khujand', universityCount: 0, timezone: 'Asia/Dushanbe', nearestAirport: 'Khujand Airport (LBD)' },
     ],
     landmark: {
@@ -577,6 +580,48 @@ export const ADMISSION_COUNTRY_PROFILES: AdmissionCountryProfile[] = [
     lastVerified: verifiedAt,
   },
 ];
+
+/** Student navigation uses Asia as the primary region for these destinations.
+ * UN M49 is a statistical grouping; it does not settle continental boundaries.
+ */
+const GEOGRAPHY: Record<string, { countryCode: string; primaryContinent: 'Asia' | 'Europe'; geography: string }> = {
+  russia: { countryCode: 'RU', primaryContinent: 'Asia', geography: 'Russia is transcontinental, spanning Europe and Asia. SIVORA groups it under Asia for destination navigation.' },
+  georgia: { countryCode: 'GE', primaryContinent: 'Asia', geography: 'Georgia is in the South Caucasus at the Europe–Asia boundary. Continental descriptions vary by convention; SIVORA groups it under Asia.' },
+  vietnam: { countryCode: 'VN', primaryContinent: 'Asia', geography: 'Vietnam is in Southeast Asia.' },
+  armenia: { countryCode: 'AM', primaryContinent: 'Asia', geography: 'Armenia is in the South Caucasus, grouped in Western Asia by UN M49. Cultural European associations do not change its navigation region here.' },
+  uzbekistan: { countryCode: 'UZ', primaryContinent: 'Asia', geography: 'Uzbekistan is in Central Asia.' },
+  kyrgyzstan: { countryCode: 'KG', primaryContinent: 'Asia', geography: 'Kyrgyzstan is in Central Asia.' },
+  tajikistan: { countryCode: 'TJ', primaryContinent: 'Asia', geography: 'Tajikistan is in Central Asia.' },
+  kazakhstan: { countryCode: 'KZ', primaryContinent: 'Asia', geography: 'Kazakhstan is transcontinental: most of its territory is in Central Asia, with a smaller part west of the Ural River in Europe. SIVORA groups it under Asia.' },
+};
+
+export const ADMISSION_COUNTRY_PROFILES: AdmissionCountryProfile[] = COUNTRY_PROFILES.map((country) => ({ ...country, ...GEOGRAPHY[country.slug] }));
+
+export const ADMISSION_REGIONS = [
+  { key: 'all', label: 'All destinations' },
+  { key: 'asia', label: 'Asia' },
+  { key: 'europe', label: 'Europe' },
+  { key: 'caucasus', label: 'Caucasus' },
+  { key: 'central-asia', label: 'Central Asia' },
+  { key: 'southeast-asia', label: 'Southeast Asia' },
+] as const;
+export type AdmissionRegion = (typeof ADMISSION_REGIONS)[number]['key'];
+
+export function matchesAdmissionRegion(country: AdmissionCountryProfile, region: string) {
+  if (region === 'asia' || region === 'europe') return country.primaryContinent.toLowerCase() === region;
+  if (region === 'caucasus') return country.region === 'CAUCASUS';
+  if (region === 'central-asia') return country.region === 'CENTRAL_ASIA';
+  if (region === 'southeast-asia') return country.region === 'SOUTHEAST_ASIA';
+  return true;
+}
+
+export function discoverAdmissionCountries({ region = 'all', query = '', sort = 'featured' }: { region?: string; query?: string; sort?: string }) {
+  const search = query.trim().slice(0, 120).toLocaleLowerCase();
+  const countries = ADMISSION_COUNTRY_PROFILES.filter((country) => country.featured && country.detailAvailable && matchesAdmissionRegion(country, region) &&
+    [country.name, country.countryCode, country.subregion, ...country.universities].some((value) => value.toLocaleLowerCase().includes(search)));
+  if (sort === 'name') countries.sort((a, b) => a.name.localeCompare(b.name));
+  return countries;
+}
 
 export function getAdmissionCountryProfile(slug: string) {
   return ADMISSION_COUNTRY_PROFILES.find((country) => country.slug === slug);

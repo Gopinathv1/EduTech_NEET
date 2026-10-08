@@ -1,4 +1,4 @@
-import { getAdminSession } from '@/lib/auth/admin';
+import { getAdmissionsAdminSession } from '@/lib/admission/admin-session';
 import { leadStatusSchema } from '@/lib/validation/admission';
 import { changeLeadStatus } from '@/lib/admin/leads-service';
 import { ok, fail, readJson } from '@/lib/http';
@@ -10,7 +10,7 @@ type Ctx = { params: Promise<{ id: string }> };
 // PATCH /api/admin/leads/[id]/status — move a lead through the pipeline. Logs the
 // transition to the lead timeline and the audit log.
 export async function PATCH(req: Request, { params }: Ctx) {
-  const admin = await getAdminSession();
+  const admin = await getAdmissionsAdminSession();
   if (!admin) return fail('unauthorized', 401);
   const { id } = await params;
 

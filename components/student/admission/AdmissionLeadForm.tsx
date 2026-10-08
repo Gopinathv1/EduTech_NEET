@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { admissionLeadSchema } from '@/lib/validation/admission';
 import { LEAD_CATEGORIES, BUDGET_RANGES } from '@/lib/admission/config';
@@ -86,6 +85,7 @@ export default function AdmissionLeadForm({
       setDone(true);
       return;
     }
+    if (res.error === 'leadExists') { setDone(true); return; }
     setBanner(errText(res.error));
   }
 
@@ -97,12 +97,12 @@ export default function AdmissionLeadForm({
         </span>
         <h3 className="mt-3 text-lg font-semibold text-textPrimary">{t('success.title')}</h3>
         <p className="mt-1 text-sm text-textSecondary">{t('success.body')}</p>
-        <Link
+        <a
           href="/student/admission-guidance"
           className="mt-4 inline-block rounded-lg bg-brand px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-dark"
         >
           {t('success.viewStatus')}
-        </Link>
+        </a>
       </div>
     );
   }
@@ -157,6 +157,7 @@ export default function AdmissionLeadForm({
         </Field>
       </div>
 
+      <p className="text-sm text-textSecondary">Enter your official NEET result only, if available. A SIVORA practice score is not a NEET qualification.</p>
       {/* Interested countries (multi-select) */}
       <div>
         <p className="block text-sm font-medium text-textSecondary">{t('form.countries')}</p>
@@ -205,9 +206,10 @@ export default function AdmissionLeadForm({
         ) : null}
       </div>
 
+      {countries.length === 0 ? <p role="status" className="text-sm text-textSecondary">No destinations are currently available. Please use the public admissions enquiry form.</p> : null}
       <button
         type="submit"
-        disabled={isSubmitting}
+        disabled={isSubmitting || countries.length === 0}
         className="w-full rounded-lg bg-brand px-4 py-3 text-base font-semibold text-white transition-colors hover:bg-brand-dark disabled:opacity-60 sm:w-auto sm:px-8"
       >
         {isSubmitting ? t('form.submitting') : t('form.submit')}
