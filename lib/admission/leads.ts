@@ -15,22 +15,17 @@ export async function createLead(
   studentId: string,
   input: AdmissionLeadInput,
 ): Promise<CreateLeadResult> {
-  // One open request per student — they track the existing one instead.
-  const existing = await prisma.admissionLead.findFirst({ where: { studentId }, select: { id: true } });
-  if (existing) return { ok: false, code: 'leadExists' };
-
-  const countries = await prisma.country.findMany({
-    where: { id: { in: input.interestedCountryIds }, isActive: true },
-    select: { id: true },
-  });
-  const validIds = input.interestedCountryIds.filter((id) => countries.some((c) => c.id === id));
-  if (validIds.length === 0) return { ok: false, code: 'invalidCountry' };
-
-  const student = await prisma.student.findUnique({ where: { id: studentId }, select: { name: true } });
-  const studentName = student?.name ?? 'A student';
   const now = new Date();
-
-  const lead = await prisma.$transaction(async (tx) => {
+  return prisma.$transaction(async (tx): Promise<CreateLeadResult> => {
+    // Serialize submissions for this student without changing records or schema.
+    await tx.$queryRaw`SELECT id FROM "Student" WHERE id = ${studentId} FOR UPDATE`;
+    const existing = await tx.admissionLead.findFirst({ where: { studentId }, select: { id: true } });
+    if (existing) return { ok: false, code: 'leadExists' };
+    const validIds = [...new Set(input.interestedCountryIds)];
+    const countries = await tx.country.findMany({ where: { id: { in: validIds }, isActive: true }, select: { id: true } });
+    if (!validIds.length || countries.length !== validIds.length) return { ok: false, code: 'invalidCountry' };
+    const student = await tx.student.findUnique({ where: { id: studentId }, select: { name: true } });
+    const studentName = student?.name ?? 'A student';
     const created = await tx.admissionLead.create({
       data: {
         studentId,
@@ -59,8 +54,8 @@ export async function createLead(
         targetAudience: 'STUDENTS',
         title: { en: 'Admission request received', ta: 'சேர்க்கை கோரிக்கை பெறப்பட்டது' },
         message: {
-          en: 'Thanks! Our admission counselling team will contact you soon about studying MBBS abroad.',
-          ta: 'நன்றி! வெளிநாட்டில் எம்பிபிஎஸ் படிப்பது குறித்து எங்கள் சேர்க்கை ஆலோசனைக் குழு விரைவில் உங்களைத் தொடர்பு கொள்ளும்.',
+          en: 'Your admission-guidance request has been received. Track its progress in Admission Guidance.',
+          ta: 'உங்கள் சேர்க்கை வழிகாட்டுதல் கோரிக்கை பெறப்பட்டது. சேர்க்கை வழிகாட்டுதல் பக்கத்தில் அதன் நிலையைப் பார்க்கலாம்.',
         },
         publishedAt: now,
       },
@@ -81,10 +76,8 @@ export async function createLead(
       },
     });
 
-    return created;
+    return { ok: true, leadId: created.id };
   });
-
-  return { ok: true, leadId: lead.id };
 }
 
 export type StudentLeadView = {

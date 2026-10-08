@@ -214,7 +214,7 @@ export default function LeadDrawer({
                 <Row label="Marks" value={lead.marks != null ? String(lead.marks) : '—'} />
                 <Row label="Category" value={lead.category ?? '—'} />
                 <Row label="Budget" value={budgetLabelEn(lead.budget)} />
-                <Row label="Parent contact" value={lead.parentContact ? `+91 ${lead.parentContact}` : '—'} />
+                <Row label="Parent contact" value={lead.parentContact ? (lead.parentContact.startsWith('+') ? lead.parentContact : `+91 ${lead.parentContact}`) : '—'} />
                 <Row label="Consent" value={lead.consentAt ? `Yes · ${fmt(lead.consentAt)}` : 'No'} />
               </dl>
               <div className="mt-2 text-sm">

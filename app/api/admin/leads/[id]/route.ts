@@ -1,4 +1,4 @@
-import { getAdminSession } from '@/lib/auth/admin';
+import { getAdmissionsAdminSession } from '@/lib/admission/admin-session';
 import { buildLeadDetail } from '@/lib/admin/leads-service';
 import { ok, fail } from '@/lib/http';
 
@@ -8,7 +8,7 @@ type Ctx = { params: Promise<{ id: string }> };
 
 // GET /api/admin/leads/[id] — full lead detail for the admin drawer.
 export async function GET(_req: Request, { params }: Ctx) {
-  const admin = await getAdminSession();
+  const admin = await getAdmissionsAdminSession();
   if (!admin) return fail('unauthorized', 401);
   const { id } = await params;
 

@@ -1,5 +1,5 @@
 import { prisma } from '@/lib/prisma';
-import { getAdminSession } from '@/lib/auth/admin';
+import { getAdmissionsAdminSession } from '@/lib/admission/admin-session';
 import { buildLeadWhere } from '@/lib/admin/leads-filter';
 import { localizedName } from '@/lib/admin/format';
 import { budgetLabel, LEAD_STATUS_LABEL } from '@/lib/admin/leads-service';
@@ -15,7 +15,7 @@ function csvCell(v: string | number | null | undefined): string {
 
 // GET /api/admin/leads/export — CSV of leads matching the current filters.
 export async function GET(req: Request) {
-  const admin = await getAdminSession();
+  const admin = await getAdmissionsAdminSession();
   if (!admin) return fail('unauthorized', 401);
 
   const url = new URL(req.url);

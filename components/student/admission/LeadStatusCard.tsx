@@ -28,7 +28,7 @@ export default async function LeadStatusCard({ lead, locale }: { lead: StudentLe
         lead.countries.map((c) => localizedName(c.name, locale) || localizedName(c.name, 'en')).join(', ') ||
         t('status.notProvided'),
     },
-    { label: t('status.parentContact'), value: lead.parentContact ? `+91 ${lead.parentContact}` : t('status.notProvided') },
+    { label: t('status.parentContact'), value: lead.parentContact ? (lead.parentContact.startsWith('+') ? lead.parentContact : `+91 ${lead.parentContact}`) : t('status.notProvided') },
   ];
 
   return (
@@ -44,11 +44,12 @@ export default async function LeadStatusCard({ lead, locale }: { lead: StudentLe
                 : 'bg-brand-soft text-brand'
           }`}
         >
-          {t(`status.statusLabel.${lead.status}`)}
+          {lead.status === 'CONVERTED' ? 'Counselling lead converted' : t(`status.statusLabel.${lead.status}`)}
         </span>
       </div>
       <p className="mt-1 text-sm text-textSecondary">{t('status.submittedOn', { date: dateStr })}</p>
 
+      <p className="mt-2 text-sm text-textSecondary">Counselling request status only. This does not confirm a university offer, visa or medical registration.</p>
       {/* 3-step tracker */}
       <ol className="mt-5 flex items-center">
         {LEAD_STUDENT_STEPS.map((step, i) => {

@@ -33,6 +33,7 @@ export async function getIndicativeFxRates(currencyCodes: string[]): Promise<Rec
   try {
     const res = await fetch(FX_PROVIDER_URL, {
       next: { revalidate: 60 * 60 * 12 },
+      signal: AbortSignal.timeout(4000),
     });
     if (res.ok) {
       const data = (await res.json()) as {

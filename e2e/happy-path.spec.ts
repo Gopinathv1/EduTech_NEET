@@ -114,17 +114,21 @@ test('student can register, take a free test, see the result, and request guidan
   await page.waitForURL(/\/student\/results\//, { waitUntil: 'domcontentloaded', timeout: 60000 });
   await expect(page.getByText('Score', { exact: true })).toBeVisible();
 
-  // 6) Submit a consultancy lead -----------------------------------------
+  // 6) Submit a counselling lead through the current consent/validation flow.
   await page.goto('/student/admission-guidance');
-  await expect(page.getByText('Request free guidance')).toBeVisible();
-  await page.getByLabel('NEET score').fill('420');
-  // Consent is required before the form can be submitted.
-  await page.getByRole('checkbox').first().check();
-  // Pick at least one interested country (first available option).
-  const country = page.getByRole('checkbox').nth(1);
-  if (await country.isVisible().catch(() => false)) await country.check();
-  await page.getByRole('button', { name: 'Submit request' }).click();
-
-  // The page flips to the submitted/status view.
-  await expect(page.getByText(/request|submitted|under review/i).first()).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Request free guidance', exact: true })).toBeVisible();
+  await page.locator('#neetScore').fill('420');
+  await page.locator('#category').selectOption('General');
+  await page.locator('#budget').selectOption('UNSURE');
+  await page.locator('#parentContact').fill(mobile);
+  await page.locator('form button[aria-pressed]').first().click();
+  await page.getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'Submit request', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'Request received', exact: true })).toBeVisible();
+  await page.getByRole('link', { name: 'Track your request', exact: true }).click();
+  await expect(page.getByText('Counselling request status only.', { exact: false })).toBeVisible();
+  const student = await prisma.student.findUniqueOrThrow({ where: { mobile: `+91${mobile}` } });
+  const lead = await prisma.admissionLead.findFirstOrThrow({ where: { studentId: student.id } });
+  expect(lead.neetScore).toBe(420);
+  expect(lead.consentAt).not.toBeNull();
 });
