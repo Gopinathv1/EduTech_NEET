@@ -1,5 +1,6 @@
 import { prisma } from '@/lib/prisma';
-import { requireAdminPage } from '@/lib/auth/admin';
+import { getAdmissionsAdminSession } from '@/lib/admission/admin-session';
+import { redirect } from 'next/navigation';
 import { localizedName } from '@/lib/admin/format';
 import { buildLeadWhere } from '@/lib/admin/leads-filter';
 import { AdminPageHeader, AdminCard } from '@/components/admin/ui';
@@ -9,7 +10,7 @@ import LeadsTable, { type LeadRow } from '@/components/admin/leads/LeadsTable';
 type SP = Record<string, string | string[] | undefined>;
 
 export default async function AdminLeadsPage({ searchParams }: { searchParams: Promise<SP> }) {
-  await requireAdminPage();
+  if (!await getAdmissionsAdminSession()) redirect('/admin/login');
   const sp = await searchParams;
   const g = (k: string) => (typeof sp[k] === 'string' ? (sp[k] as string) : '');
   const filters = {
@@ -68,7 +69,7 @@ export default async function AdminLeadsPage({ searchParams }: { searchParams: P
 
   return (
     <div>
-      <AdminPageHeader title="Admission Leads" description="Consultancy pipeline — filter, review and update each lead." />
+      <AdminPageHeader title="Admission Leads" description="Student counselling requests — assign, follow up and update status. Public admissions enquiries appear in Lead Inbox." />
 
       {/* Summary */}
       <div className="mb-4 grid grid-cols-2 gap-4 lg:grid-cols-4">

@@ -16,10 +16,14 @@ export async function POST(req: Request) {
     return fail('validation', 400, { fields: parsed.error.flatten().fieldErrors });
   }
 
+  try {
   const result = await createLead(session.sub, parsed.data);
   if (!result.ok) {
     return fail(result.code, result.code === 'leadExists' ? 409 : 400);
   }
 
   return ok({ leadId: result.leadId });
+  } catch {
+    return fail('generic', 503);
+  }
 }

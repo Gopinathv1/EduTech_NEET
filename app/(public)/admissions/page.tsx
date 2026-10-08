@@ -1,3 +1,4 @@
+import MedicalGuidance from '@/components/admissions/MedicalGuidance';
 import Image from 'next/image';
 import OpportunityVisual from '@/components/public/OpportunityVisual';
 import styles from '@/components/public/RouteExperience.module.css';
@@ -6,18 +7,14 @@ import { getTranslations } from 'next-intl/server';
 import { pageMetadata } from '@/lib/seo';
 import { PrimaryLink, Section } from '@/components/public/ui';
 import WhatsAppLink from '@/components/whatsapp/WhatsAppLink';
-import HomeLeadForm from '@/components/public/HomeLeadForm';
+import AdmissionsEnquiryForm from '@/components/admissions/AdmissionsEnquiryForm';
 import CompareTray from '@/components/admissions/CompareTray';
-import { ADMISSION_COUNTRY_PROFILES } from '@/lib/data/admissions/countries';
+import { ADMISSION_COUNTRY_PROFILES, ADMISSION_REGIONS, discoverAdmissionCountries, matchesAdmissionRegion, type AdmissionRegion } from '@/lib/data/admissions/countries';
 import { ProductFaqSection, RelatedServicesSection } from '@/components/public/ProductPageBlocks';
 
-const REGION_FILTERS = ['all', 'europe', 'caucasus', 'central-asia', 'southeast-asia'] as const;
-
-type RegionFilter = (typeof REGION_FILTERS)[number];
-
-type AdmissionsPageProps = {
-  searchParams?: Promise<{ region?: string }>;
-};
+type RegionFilter = AdmissionRegion;
+const REGION_FILTERS = ADMISSION_REGIONS.map((region) => region.key);
+type AdmissionsPageProps = { searchParams?: Promise<{ region?: string; q?: string; sort?: string }> };
 
 export async function generateMetadata() {
   const t = await getTranslations('seo.admissions');
@@ -28,28 +25,20 @@ function normalizeRegionFilter(region?: string): RegionFilter {
   return REGION_FILTERS.includes(region as RegionFilter) ? (region as RegionFilter) : 'all';
 }
 
-function matchesRegion(country: (typeof ADMISSION_COUNTRY_PROFILES)[number], region: RegionFilter) {
-  if (region === 'all') return true;
-  if (region === 'europe') return country.region === 'EUROPE';
-  if (region === 'caucasus') return country.region === 'CAUCASUS';
-  if (region === 'central-asia') return country.region === 'CENTRAL_ASIA';
-  return country.region === 'SOUTHEAST_ASIA';
-}
-
 export default async function AdmissionsPage({ searchParams }: AdmissionsPageProps) {
-  const params = await searchParams;
+  const rawParams = await searchParams;
+  const params = { region: typeof rawParams?.region === 'string' ? rawParams.region : undefined, q: typeof rawParams?.q === 'string' ? rawParams.q : '', sort: typeof rawParams?.sort === 'string' ? rawParams.sort : 'featured' };
   const activeRegion = normalizeRegionFilter(params?.region);
   const t = await getTranslations('admissions');
   const journey = t.raw('simplifiedJourney.items') as string[];
   const chooseItems = t.raw('choose.items') as { title: string; body: string }[];
   const faqItems = t.raw('faq.items') as { q: string; a: string }[];
   const relatedItems = t.raw('related.items') as { title: string; body: string; href: string; cta: string }[];
-  const regions = (t.raw('regions.items') as { key: RegionFilter | 'other'; title: string; body: string; cta: string }[])
-    .filter((region, index, items) => region.key === 'other' || (REGION_FILTERS.includes(region.key as RegionFilter) && items.findIndex((item) => item.key === region.key) === index));
+  const regions = ADMISSION_REGIONS.filter((region) => region.key !== 'all');
   const studyPaths = t.raw('studyPaths.items') as { title: string; body: string }[];
   const featuredCountries = ADMISSION_COUNTRY_PROFILES.filter((country) => country.featured && country.detailAvailable);
-  const visibleCountries = featuredCountries.filter((country) => matchesRegion(country, activeRegion));
-  const countriesByRegion = Array.from(new Map(
+  const visibleCountries = discoverAdmissionCountries({ region: activeRegion, query: params?.q, sort: params?.sort });
+  const countriesByRegion: [string, typeof visibleCountries][] = params.sort === 'name' ? [['Destinations A–Z', visibleCountries]] : Array.from(new Map(
     visibleCountries.map((country) => [country.subregion, visibleCountries.filter((item) => item.subregion === country.subregion)]),
   ).entries());
 
@@ -97,9 +86,7 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
         <div className={styles.rows}>
           {regions.map((region) => {
             const href =
-              region.key === 'other'
-                ? '/counselling?interest=global-admissions'
-                : `/admissions?region=${region.key}#destinations`;
+              `/admissions?region=${region.key}#destinations`;
 
             return (
               <Link
@@ -107,10 +94,10 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
                 href={href}
                 className="group flex min-h-44 flex-col rounded-2xl border border-[#dce0e2] bg-white p-5 transition hover:-translate-y-1 hover:border-brand/35"
               >
-                <h3 className="text-xl font-black uppercase text-[#171717]">{region.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-[#565c60]">{region.body}</p>
+                <h3 className="text-xl font-black uppercase text-[#171717]">{region.label}</h3>
+                <p className="mt-3 text-sm leading-6 text-[#565c60]">{featuredCountries.filter((country) => matchesAdmissionRegion(country, region.key)).length} published destinations</p>
                 <span className="mt-auto pt-5 text-xs font-black uppercase tracking-[0.12em] text-brand transition group-hover:translate-x-1">
-                  {region.cta}
+                  Explore destinations
                 </span>
               </Link>
             );
@@ -132,17 +119,30 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
           {REGION_FILTERS.map((region) => (
             <Link
               key={region}
-              href={region === 'all' ? '/admissions#destinations' : `/admissions?region=${region}#destinations`}
+              href={`/admissions?${new URLSearchParams({ region, q: params?.q ?? '', sort: params?.sort ?? 'featured' })}#destinations`}
+              aria-current={activeRegion === region ? 'page' : undefined}
               className={`rounded-full border px-4 py-2 text-xs font-black uppercase tracking-[0.08em] transition ${
                 activeRegion === region
                   ? 'border-[#17191c] bg-[#17191c] text-white shadow-sm'
                   : 'border-[#b9c4d0] bg-white text-[#344253] hover:border-[#315f9f] hover:text-[#17191c]'
               }`}
             >
-              {t(`regions.filters.${region}`)}
+              {ADMISSION_REGIONS.find((item) => item.key === region)?.label} ({featuredCountries.filter((country) => matchesAdmissionRegion(country, region)).length})
             </Link>
           ))}
         </div>
+        <form action="/admissions#destinations" className="mb-6 flex flex-wrap items-end gap-3">
+          <input type="hidden" name="region" value={activeRegion} />
+          <label className="flex min-w-0 flex-1 flex-col gap-2 text-sm text-[#344253]">Search countries or universities
+            <input name="q" defaultValue={params?.q ?? ''} maxLength={120} className="min-h-11 rounded-md border border-[#b9c4d0] px-3" />
+          </label>
+          <label className="flex flex-col gap-2 text-sm text-[#344253]">Sort destinations
+            <select name="sort" defaultValue={params?.sort === 'name' ? 'name' : 'featured'} className="min-h-11 rounded-md border border-[#b9c4d0] px-3"><option value="featured">Featured</option><option value="name">Name A–Z</option></select>
+          </label>
+          <button className="min-h-11 rounded-md bg-[#17191c] px-5 text-white">Search</button>
+          <Link href="/admissions#destinations" className="p-3 text-sm underline">Reset filters</Link>
+        </form>
+        <p role="status" className="mb-5 text-sm text-[#344253]">{visibleCountries.length} destinations found</p>
         {visibleCountries.length ? (
         <div className="space-y-10">
           {countriesByRegion.map(([region, countries]) => (
@@ -176,7 +176,7 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
               </div>
               <div className="flex min-h-72 flex-col p-5">
                 <h3 className="text-2xl font-black uppercase text-[#171717]">{country.name}</h3>
-                <p className="mt-3 text-sm leading-6 text-[#565c60]">{t(`countries.${country.slug}.short`)}</p>
+                <p className="mt-3 text-sm leading-6 text-[#565c60]">{country.geography}</p>
                 <p className="mt-4 text-xs font-bold uppercase tracking-[0.1em] text-[#565c60]">
                   {country.subregion} · {country.currencyCode}
                 </p>
@@ -232,6 +232,7 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
         </div>
       </Section>
 
+      <Section><MedicalGuidance /><Link href="/admissions/universities" className="inline-block underline">Explore universities and compare programmes →</Link><p className="mt-3 text-sm text-[#565c60]">Already submitted a student counselling request? <Link href="/student/admission-guidance" className="underline">Track your counselling request</Link>. Public enquiries use the reference in your confirmation; university application decisions are confirmed directly with the institution.</p></Section>
       <Section tinted lazy>
         <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
           <div>
@@ -315,14 +316,14 @@ export default async function AdmissionsPage({ searchParams }: AdmissionsPagePro
       <Section lazy>
         <div className="grid gap-10 lg:grid-cols-[.65fr_1.35fr]">
           <div><p className="text-xs font-bold tracking-[.2em] text-brand">ADMISSION JOURNEY</p><h2 className="mt-5 text-[clamp(3rem,5vw,5.7rem)] font-semibold leading-[.88] tracking-[-.07em] text-[#10151c]">See the whole path before you begin.</h2><p className="mt-6 max-w-sm text-[#5f6975]">From the first question to the next practical step, the detailed journey remains available when you are ready to explore it.</p><Link href="/admission-journey" className="mt-7 inline-block border-b border-current pb-1 text-sm font-semibold text-brand">Explore the admission journey →</Link></div>
-          <div className="border-l border-brand pl-6"><ol className="grid gap-4 text-lg font-semibold tracking-[-.03em] text-[#10151c]">{['Understand your goal', 'Explore courses and destinations', 'Shortlist realistic options', 'Review eligibility and requirements', 'Prepare applications and documents', 'Submit and track the admission process', 'Prepare for the next steps'].map((item, index) => <li key={item} className="flex gap-4 border-b border-[#d9dee5] pb-4"><span className="text-xs font-bold tracking-[.12em] text-brand">0{index + 1}</span>{item}</li>)}</ol></div>
+          <div className="border-l border-brand pl-6"><ol className="grid gap-4 text-lg font-semibold tracking-[-.03em] text-[#10151c]">{['Understand your goal', 'Explore courses and destinations', 'Shortlist realistic options', 'Review eligibility and requirements', 'Prepare applications and documents', 'Follow up with the university on application decisions', 'Prepare for the next steps'].map((item, index) => <li key={item} className="flex gap-4 border-b border-[#d9dee5] pb-4"><span className="text-xs font-bold tracking-[.12em] text-brand">0{index + 1}</span>{item}</li>)}</ol></div>
         </div>
       </Section>
 
       <section className="bg-[#07111f] px-5 py-20 text-[#edf6ff] sm:px-8 lg:px-12 lg:py-28"><div className="mx-auto max-w-[1280px]"><div className="grid gap-10 lg:grid-cols-[.65fr_1.35fr]"><div><p className="text-xs font-bold tracking-[.2em] text-[#75aaff]">PARTNER WITH SIVORA</p><h2 className="mt-5 text-[clamp(3rem,5vw,5.8rem)] font-semibold leading-[.88] tracking-[-.07em]">Support candidates, together.</h2></div><p className="max-w-2xl text-lg leading-8 text-[#b8c5d4]">Education consultants, counsellors, coaching centres, institutes, educators and suitable education organisations may eventually work with SIVORA to support candidates through an admission journey.</p></div><div className="mt-12 border-t border-white/20"><div className="grid gap-4 border-b border-white/20 py-7 sm:grid-cols-[48px_.6fr_1.4fr] sm:gap-7"><span className="text-xs text-[#8fa2ba]">01</span><h3 className="text-2xl font-semibold tracking-[-.045em]">CANDIDATE REFERRALS</h3><p className="text-sm leading-7 text-[#b8c5d4]">A partner may identify or refer a candidate; SIVORA may then support that candidate&apos;s admission journey.</p></div><div className="grid gap-4 border-b border-white/20 py-7 sm:grid-cols-[48px_.6fr_1.4fr] sm:gap-7"><span className="text-xs text-[#8fa2ba]">02</span><h3 className="text-2xl font-semibold tracking-[-.045em]">FUTURE TRACKING</h3><p className="text-sm leading-7 text-[#b8c5d4]">Approved partners may eventually track referrals through a future Partner Portal. Partner onboarding and the portal are Coming Soon.</p></div></div><div className="mt-9 border border-white/20 bg-white/5 p-6 text-sm leading-7 text-[#b8c5d4]">This is a future business proposition only. No partner account, dashboard, commission or payout system is currently operational.</div></div></section>
 
       <Section id="enquiry" tinted lazy>
-        <div className="grid gap-10 border border-[#d9dee5] bg-white p-6 sm:p-10 lg:grid-cols-[.8fr_1.2fr]"><div><p className="text-xs font-bold tracking-[.2em] text-brand">START YOUR ADMISSION ENQUIRY</p><h2 className="mt-5 text-[clamp(2.8rem,5vw,5.5rem)] font-semibold leading-[.9] tracking-[-.065em] text-[#10151c]">Discuss your options with SIVORA.</h2><p className="mt-6 max-w-md text-[#5f6975]">If you are unsure about the right course, career direction or destination, start with Counselling & Career Guidance.</p><Link href="/counselling" className="mt-7 inline-block border-b border-current pb-1 text-sm font-semibold text-brand">Talk to SIVORA Counselling →</Link><WhatsAppLink label="Discuss your admission options" message="Hello SIVORA, I would like to discuss admission options." className="mt-6 flex w-fit items-center justify-center border border-[#25D366]/50 bg-[#25D366]/10 px-5 py-3 text-sm font-semibold text-[#176537]">Discuss your options</WhatsAppLink></div><div className={styles.form}><HomeLeadForm /></div></div>
+        <div className="grid gap-10 border border-[#d9dee5] bg-white p-6 sm:p-10 lg:grid-cols-[.8fr_1.2fr]"><div><p className="text-xs font-bold tracking-[.2em] text-brand">START YOUR ADMISSION ENQUIRY</p><h2 className="mt-5 text-[clamp(2.8rem,5vw,5.5rem)] font-semibold leading-[.9] tracking-[-.065em] text-[#10151c]">Discuss your options with SIVORA.</h2><p className="mt-6 max-w-md text-[#5f6975]">If you are unsure about the right course, career direction or destination, start with Counselling & Career Guidance.</p><Link href="/counselling" className="mt-7 inline-block border-b border-current pb-1 text-sm font-semibold text-brand">Talk to SIVORA Counselling →</Link><WhatsAppLink label="Discuss your admission options" message="Hello SIVORA, I would like to discuss admission options." className="mt-6 flex w-fit items-center justify-center border border-[#25D366]/50 bg-[#25D366]/10 px-5 py-3 text-sm font-semibold text-[#176537]">Discuss your options</WhatsAppLink></div><div className={styles.form}><AdmissionsEnquiryForm /></div></div>
       </Section>
 
       <Section lazy>

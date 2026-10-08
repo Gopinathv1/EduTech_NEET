@@ -1,4 +1,4 @@
-import { getAdminSession } from '@/lib/auth/admin';
+import { getAdmissionsAdminSession } from '@/lib/admission/admin-session';
 import { leadNoteSchema } from '@/lib/validation/admission';
 import { addLeadNote } from '@/lib/admin/leads-service';
 import { ok, fail, readJson } from '@/lib/http';
@@ -9,7 +9,7 @@ type Ctx = { params: Promise<{ id: string }> };
 
 // POST /api/admin/leads/[id]/notes — append a follow-up note to the lead timeline.
 export async function POST(req: Request, { params }: Ctx) {
-  const admin = await getAdminSession();
+  const admin = await getAdmissionsAdminSession();
   if (!admin) return fail('unauthorized', 401);
   const { id } = await params;
 

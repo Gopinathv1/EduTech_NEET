@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import type { AdmissionCountryProfile } from '@/lib/data/admissions/countries';
 
 export default function CompareTray({
@@ -17,12 +17,12 @@ export default function CompareTray({
   };
 }) {
   const [selected, setSelected] = useState<string[]>([]);
-  const href = useMemo(() => `/admissions/compare?countries=${selected.join(',')}`, [selected]);
+  const href = `/admissions/compare?countries=${selected.join(',')}`;
 
   function toggle(slug: string) {
     setSelected((current) => {
       if (current.includes(slug)) return current.filter((item) => item !== slug);
-      if (current.length >= 3) return [...current.slice(1), slug];
+      if (current.length >= 3) return current;
       return [...current, slug];
     });
   }
@@ -37,6 +37,7 @@ export default function CompareTray({
               key={country.slug}
               type="button"
               onClick={() => toggle(country.slug)}
+              disabled={!active && selected.length >= 3}
               className={`flex min-h-16 items-center justify-between gap-3 rounded-xl border px-4 py-3 text-left transition ${
                 active ? 'border-[#75aaff] bg-[#1f4f86] text-white ring-2 ring-[#75aaff]/45' : 'border-[#667789] bg-[#111111] text-[#edf6ff] hover:border-[#75aaff]'
               }`}
@@ -55,7 +56,7 @@ export default function CompareTray({
         })}
       </div>
       <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-sm leading-6 text-[#D1D1D1]">{labels.helper}</p>
+        <p role="status" className="text-sm leading-6 text-[#D1D1D1]">{labels.helper} {selected.length}/3 selected. Remove a destination to choose another.</p>
         {selected.length >= 2 ? (
           <Link
             href={href}

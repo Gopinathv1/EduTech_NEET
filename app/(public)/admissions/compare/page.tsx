@@ -3,6 +3,8 @@ import styles from '@/components/public/RouteExperience.module.css';
 import { getTranslations } from 'next-intl/server';
 import { pageMetadata } from '@/lib/seo';
 import { PrimaryLink, Section } from '@/components/public/ui';
+import UniversityExplorer from '@/components/admissions/UniversityExplorer';
+import { ADMISSION_UNIVERSITIES } from '@/lib/data/admissions/universities';
 import CompareClocks from '@/components/admissions/CompareClocks';
 import { getIndicativeFxRates, formatFx } from '@/lib/admission/fx';
 import { ADMISSION_COUNTRY_PROFILES, getAdmissionCountryProfiles } from '@/lib/data/admissions/countries';
@@ -22,13 +24,13 @@ function valueOrMissing(value: string | undefined, fallback: string) {
 
 export default async function AdmissionsComparePage({ searchParams }: Props) {
   const t = await getTranslations('admissions');
-  const params = await searchParams;
-  const slugs = (params.countries ?? '')
+  const rawParams = await searchParams;
+  const params = { countries: typeof rawParams.countries === 'string' ? rawParams.countries : '' };
+  const slugs = [...new Set((params.countries ?? '')
     .split(',')
     .map((slug) => slug.trim())
-    .filter(Boolean)
-    .slice(0, 3);
-  const selected = getAdmissionCountryProfiles(slugs);
+    .filter(Boolean))];
+  const selected = getAdmissionCountryProfiles(slugs).slice(0, 3);
   const countries =
     selected.length >= 2
       ? selected
@@ -40,7 +42,7 @@ export default async function AdmissionsComparePage({ searchParams }: Props) {
         : ADMISSION_COUNTRY_PROFILES.slice(0, 2);
   const fxRates = await getIndicativeFxRates(countries.map((country) => country.currencyCode));
   const selectedFxRates = countries.map((country) => fxRates[country.currencyCode]).filter(Boolean);
-  const fxAvailable = selectedFxRates.every((rate) => rate.inrToQuote && rate.source === 'provider');
+  const fxAvailable = selectedFxRates.length === countries.length && selectedFxRates.every((rate) => rate.inrToQuote && rate.source === 'provider');
   const fxLastUpdated = Array.from(new Set(selectedFxRates.map((rate) => rate.lastUpdated).filter(Boolean))).join(', ');
 
   const rows = [
@@ -79,7 +81,7 @@ export default async function AdmissionsComparePage({ searchParams }: Props) {
     { label: t('comparison.studentCities'), render: (slug: string) => countries.find((country) => country.slug === slug)?.majorStudentCities.join(', ') },
     { label: t('comparison.tuition'), render: (slug: string) => countries.find((country) => country.slug === slug)?.budget.tuitionRange?.value },
     { label: t('comparison.livingCost'), render: (slug: string) => countries.find((country) => country.slug === slug)?.budget.livingCost?.value },
-    { label: t('comparison.programs'), render: () => t('comparison.medicalPrograms') },
+    { label: t('comparison.programs'), render: () => 'Confirm the specific programme with the university' },
     { label: t('comparison.intake'), render: (slug: string) => countries.find((country) => country.slug === slug)?.program.intake?.value },
     { label: t('comparison.medium'), render: (slug: string) => countries.find((country) => country.slug === slug)?.program.medium?.value },
   ];
@@ -109,6 +111,7 @@ export default async function AdmissionsComparePage({ searchParams }: Props) {
         </div>
       </Section>
 
+      <Section><UniversityExplorer universities={ADMISSION_UNIVERSITIES.filter((university) => countries.some((country) => country.slug === university.countrySlug))} /></Section>
       <Section tinted lazy>
         <CompareClocks
           countries={countries}
@@ -139,15 +142,16 @@ export default async function AdmissionsComparePage({ searchParams }: Props) {
               : t('comparison.fxUnavailable')}
           </p>
         </div>
-        <div className="overflow-x-auto rounded-2xl border border-[#dce0e2] bg-white">
+        <div tabIndex={0} role="region" aria-label="Scrollable destination comparison" className="overflow-x-auto rounded-2xl border border-[#dce0e2] bg-white">
           <table className="min-w-[640px] w-full border-collapse text-left [&_tr:nth-child(even)]:bg-[#f5f7f8] [&_th]:normal-case [&_th]:tracking-normal">
+            <caption className="sr-only">Destination information comparison</caption>
             <thead>
               <tr>
-                <th className="w-56 border-b border-[#dce0e2] p-4 text-xs font-black uppercase tracking-[0.18em] text-brand">
+                <th scope="col" className="w-56 border-b border-[#dce0e2] p-4 text-xs font-black uppercase tracking-[0.18em] text-brand">
                   {t('comparison.field')}
                 </th>
                 {countries.map((country) => (
-                  <th key={country.slug} className="border-b border-[#dce0e2] p-4 text-lg font-black uppercase text-[#171717]">
+                  <th scope="col" key={country.slug} className="border-b border-[#dce0e2] p-4 text-lg font-black uppercase text-[#171717]">
                     <span className="mr-2 text-2xl">{country.flag}</span>
                     {country.name}
                   </th>
@@ -157,12 +161,12 @@ export default async function AdmissionsComparePage({ searchParams }: Props) {
             <tbody>
               {rows.map((row) => (
                 <tr key={row.label} className="align-top">
-                  <th className="border-b border-[#dce0e2] p-4 text-xs font-black uppercase tracking-[0.12em] text-brand">
+                  <th scope="row" className="border-b border-[#dce0e2] p-4 text-xs font-black uppercase tracking-[0.12em] text-brand">
                     {row.label}
                   </th>
                   {countries.map((country) => (
                     <td key={`${row.label}-${country.slug}`} className="border-b border-[#dce0e2] p-4 text-sm leading-6 text-[#565c60]">
-                      {valueOrMissing(row.render(country.slug), t('notVerified'))}
+                      {valueOrMissing(row.render(country.slug), 'Confirm with university')}
                     </td>
                   ))}
                 </tr>
@@ -170,7 +174,7 @@ export default async function AdmissionsComparePage({ searchParams }: Props) {
             </tbody>
           </table>
         </div>
-        <p className="mt-5 text-sm leading-7 text-[#565c60]">{t('comparison.disclaimer')}</p>
+        <p className="mt-5 text-sm leading-7 text-[#565c60]">{t('comparison.disclaimer')} Travel routes and flight times are indicative references, not live schedules. Confirm with airlines before booking.</p>
         <details className="mt-4 rounded-2xl border border-[#dce0e2] bg-white p-5">
           <summary className="cursor-pointer text-sm font-black uppercase tracking-[0.12em] text-brand">
             {t('comparison.detailedCta')}
@@ -180,12 +184,12 @@ export default async function AdmissionsComparePage({ searchParams }: Props) {
               <tbody>
                 {detailRows.map((row) => (
                   <tr key={row.label} className="align-top">
-                    <th className="border-b border-[#dce0e2] p-4 text-xs font-black uppercase tracking-[0.12em] text-brand">
+                    <th scope="row" className="border-b border-[#dce0e2] p-4 text-xs font-black uppercase tracking-[0.12em] text-brand">
                       {row.label}
                     </th>
                     {countries.map((country) => (
                       <td key={`${row.label}-${country.slug}`} className="border-b border-[#dce0e2] p-4 text-sm leading-6 text-[#565c60]">
-                        {valueOrMissing(row.render(country.slug), t('notVerified'))}
+                        {valueOrMissing(row.render(country.slug), 'Confirm with university')}
                       </td>
                     ))}
                   </tr>

@@ -36,8 +36,8 @@ describe('shouldShowAdmissionBanner', () => {
 describe('leadStudentStepIndex', () => {
   it('maps status to the 3-step tracker', () => {
     expect(leadStudentStepIndex('NEW')).toBe(0);
-    expect(leadStudentStepIndex('IN_PROGRESS')).toBe(1);
-    expect(leadStudentStepIndex('CONTACTED')).toBe(2);
+    expect(leadStudentStepIndex('IN_PROGRESS')).toBe(2);
+    expect(leadStudentStepIndex('CONTACTED')).toBe(1);
     expect(leadStudentStepIndex('CONVERTED')).toBe(2);
     expect(leadStudentStepIndex('CLOSED')).toBe(2);
   });

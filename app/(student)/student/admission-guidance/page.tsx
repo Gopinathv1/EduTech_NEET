@@ -5,11 +5,12 @@ import { prisma } from '@/lib/prisma';
 import { localizedName } from '@/lib/admin/format';
 import { getStudentLead } from '@/lib/admission/leads';
 import { COUNTRY_FLAG, type CountryCode } from '@/lib/public/countries';
-import { NEET_MAX_SCORE } from '@/lib/admission/config';
 import type { ExamLanguage } from '@/lib/attempts/examState';
 import StudentHeader from '@/components/student/StudentHeader';
 import AdmissionLeadForm from '@/components/student/admission/AdmissionLeadForm';
 import LeadStatusCard from '@/components/student/admission/LeadStatusCard';
+import MedicalGuidance from '@/components/admissions/MedicalGuidance';
+import Link from 'next/link';
 import { ShieldIcon } from '@/components/public/icons';
 
 function flagFor(code: string): string {
@@ -27,17 +28,11 @@ export default async function AdmissionGuidancePage() {
   const session = await getSession();
   if (!session || session.kind !== 'student') redirect('/login?next=/student/admission-guidance');
 
-  const [countries, lead, best] = await Promise.all([
+  const [countries, lead] = await Promise.all([
     prisma.country.findMany({ where: { isActive: true }, orderBy: { order: 'asc' }, select: { id: true, name: true, description: true, code: true } }),
     getStudentLead(session.sub),
-    prisma.result.findFirst({
-      where: { attempt: { studentId: session.sub } },
-      orderBy: { score: 'desc' },
-      select: { score: true },
-    }),
   ]);
 
-  const prefillScore = best && best.score > 0 && best.score <= NEET_MAX_SCORE ? Math.round(best.score) : undefined;
   const formCountries = countries.map((c) => ({
     id: c.id,
     name: localizedName(c.name, locale) || localizedName(c.name, 'en'),
@@ -90,13 +85,15 @@ export default async function AdmissionGuidancePage() {
           </div>
         </section>
 
+        <MedicalGuidance />
+        <p className="mt-4 text-sm text-textSecondary">This page tracks your counselling request, not a university admission or visa decision. For engineering, other undergraduate or postgraduate options, <Link href="/admissions#enquiry" className="underline">request programme-specific guidance</Link>.</p>
         {/* Form or existing-request status */}
         <section className="mt-8">
           {lead ? (
             <LeadStatusCard lead={lead} locale={locale} />
           ) : (
             <div className="rounded-2xl border border-border bg-surfaceElevated p-6">
-              <AdmissionLeadForm countries={formCountries} defaults={{ neetScore: prefillScore }} />
+              <AdmissionLeadForm countries={formCountries} defaults={{}} />
             </div>
           )}
         </section>

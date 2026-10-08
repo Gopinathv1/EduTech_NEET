@@ -1,21 +1,6 @@
-/**
- * Structural (non-text) data for the admission countries. All display copy —
- * name, tagline, "why study" bullets, cost range, eligibility note — lives in
- * the locale files under `countries.items.<code>`. This keeps the marketing
- * text fully bilingual while the code list / flag / accent stay in one place.
- */
-export const COUNTRY_CODES = ['ru', 'ge', 'vn', 'am', 'uz', 'kg', 'tj', 'kz'] as const;
+import { ADMISSION_COUNTRY_PROFILES } from '@/lib/data/admissions/countries';
 
-export type CountryCode = (typeof COUNTRY_CODES)[number];
-
-// Unicode flag emoji (render as text — zero image requests).
-export const COUNTRY_FLAG: Record<CountryCode, string> = {
-  ru: '🇷🇺',
-  ge: '🇬🇪',
-  vn: '🇻🇳',
-  am: '🇦🇲',
-  uz: '🇺🇿',
-  kg: '🇰🇬',
-  tj: '🇹🇯',
-  kz: '🇰🇿',
-};
+// Country codes and flags share the canonical Admissions profile source.
+export type CountryCode = 'ru' | 'ge' | 'vn' | 'am' | 'uz' | 'kg' | 'tj' | 'kz';
+export const COUNTRY_CODES = ADMISSION_COUNTRY_PROFILES.map((country) => country.countryCode.toLowerCase() as CountryCode);
+export const COUNTRY_FLAG = Object.fromEntries(ADMISSION_COUNTRY_PROFILES.map((country) => [country.countryCode.toLowerCase(), country.flag])) as Record<CountryCode, string>;

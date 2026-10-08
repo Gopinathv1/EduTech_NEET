@@ -17,7 +17,7 @@ const scoreField = z
 
 // Empty string / undefined → undefined; otherwise coerce to a number.
 const optionalScore = z.preprocess(
-  (v) => (v === '' || v === null || v === undefined ? undefined : Number(v)),
+  (v) => (v === '' || v === null || v === undefined || (typeof v === 'string' && !v.trim()) ? undefined : (typeof v === 'number' || typeof v === 'string') ? Number(v) : NaN),
   scoreField.optional(),
 );
 
@@ -26,7 +26,7 @@ export const admissionLeadSchema = z.object({
   marks: optionalScore,
   category: z.enum(LEAD_CATEGORIES, { message: 'selectRequired' }),
   budget: z.enum(BUDGET_RANGES, { message: 'selectRequired' }),
-  interestedCountryIds: z.array(z.string().min(1)).min(1, 'countryRequired'),
+  interestedCountryIds: z.array(z.string().trim().min(1).max(100)).min(1, 'countryRequired').max(50).transform((ids) => [...new Set(ids)]),
   parentContact: mobileSchema,
   consent: z.literal(true, { message: 'consentRequired' }),
 });

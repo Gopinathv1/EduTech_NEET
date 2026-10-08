@@ -54,7 +54,7 @@ export function shouldShowAdmissionBanner(input: {
 }
 
 /** The student-facing progress step a lead status maps to (0-based). */
-export const LEAD_STUDENT_STEPS = ['submitted', 'under_review', 'contacted'] as const;
+export const LEAD_STUDENT_STEPS = ['submitted', 'contacted', 'under_review'] as const;
 export type LeadStudentStep = (typeof LEAD_STUDENT_STEPS)[number];
 
 /**
@@ -65,9 +65,9 @@ export function leadStudentStepIndex(status: string): number {
   switch (status) {
     case 'NEW':
       return 0;
-    case 'IN_PROGRESS':
-      return 1;
     case 'CONTACTED':
+      return 1;
+    case 'IN_PROGRESS':
     case 'CONVERTED':
     case 'CLOSED':
       return 2;
