@@ -68,7 +68,8 @@
     81,
     90
   ],
-  "notationRenderingIssueNumbers": [
+  "notationRenderingIssueNumbers": [],
+  "notationRenderingResolvedNumbers": [
     12,
     18,
     34,
@@ -305,10 +306,12 @@
     }
   ],
   "questionsSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
-  "quarantineSha256": "57e5c5b5341474ba207cb3e299d1a93820aaeff2d3c56132934afe9df67b8e52",
+  "quarantineSha256": "654085059a74014a56e1ffc7a31ede575241bb7a2e734eba17926a3577de55a1",
   "reviewedTranscriptionsSha256": "48c9b818faca936be52de7c08ea119f4f08970c37fee8756698a2c13385e2138",
   "slotManifestSha256": "3a9d4065fe264961f418965935b5d45ac9dc6c7e0c6bd3191e17535aa86874f0",
   "candidateKeySha256": "d4db1189ee75fc383ac26520f0a58122025e8d755873ea8e4727af8f4427d349",
+  "answerKeyAuthenticationReview": "data/previous-year/neet/2018/answer-key-authentication.json",
+  "answerKeyAuthenticationReviewSha256": "8aa3e1562f9799552b544381c33909fcb78bcfbbfd279f1d2ac4b02f1bb06f28",
   "limitations": [
     "Final CBSE answer-key authority remains unauthenticated. A post-challenge date and mirror title do not prove official final status.",
     "All 180 records quarantined; 167 complete text transcriptions, 13 original diagram crops awaiting supported rendering.",

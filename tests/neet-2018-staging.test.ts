@@ -26,6 +26,9 @@ describe('English NEET 2018 AA quarantine staging', () => {
   });
 
   it('does not promote the mirrored key to official final authority', () => {
+    expect(read(manifest.answerKeyAuthenticationReview)).toMatchObject({ paperCode: 'AA', bookletCode: 'ACHLA',
+      officialFinalKeyAuthenticated: false, status: 'BLOCKED', promotionAuthorized: false });
+    expect(digest(manifest.answerKeyAuthenticationReview)).toBe(manifest.answerKeyAuthenticationReviewSha256);
     expect(key).toMatchObject({ paperCode: 'AA', bookletCode: 'ACHLA', printedDate: '2018-05-30',
       authority: 'UNVERIFIED_ARCHIVE_CANDIDATE', officialFinalKeyAuthenticated: false, page: 1 });
     const tokens = key.printedKeyTokens as Record<string, string>;
@@ -68,14 +71,31 @@ describe('English NEET 2018 AA quarantine staging', () => {
 
   it('flags unsupported classification and preserves original subject sections', () => {
     expect(manifest.taxonomyGapNumbers).toEqual([95, 97]);
-    expect(manifest.notationRenderingIssueNumbers).toEqual([12, 18, 34, 36]);
-    for (const n of manifest.notationRenderingIssueNumbers) expect(quarantine[n - 1].reasons).toContain('VECTOR_ARROW_GLYPH_RENDERING_REQUIRES_REVIEW');
+    expect(manifest.notationRenderingIssueNumbers).toEqual([]);
+    expect(manifest.notationRenderingResolvedNumbers).toEqual([12, 18, 34, 36]);
     for (const q of quarantine) {
       expect(q.originalSection).toBe(q.originalQuestionNumber <= 45 ? 'PHYSICS' : q.originalQuestionNumber <= 90 ? 'CHEMISTRY' : 'BIOLOGY');
       const valid = QUESTION_BANK_V1_TAXONOMY.some(t => t.exam === 'NEET' && t.subjectCode === q.proposedSubjectCode
         && t.unitSlug === q.proposedChapterSlug && t.topicSlugs.includes(q.proposedTopic));
       expect(valid).toBe(!q.reasons.includes('CANONICAL_TAXONOMY_GAP'));
     }
+  });
+
+  it('replaces only unsupported vector arrows while retaining frozen source text and scalar notation', () => {
+    for (const row of reviewed.records) {
+      const q = quarantine[(row[0] as number) - 1];
+      const original = row[5] as string;
+      const fixed = [12, 18, 34, 36].includes(q.originalQuestionNumber);
+      expect(q.recoveredQuestionText).toBe(fixed ? original.replace(/([VEF])\u20d7/g, 'vec($1)').replaceAll('qvec(E)', 'q·vec(E)') : original);
+      expect(q.recoveredOptions).toEqual(row[6]);
+      if (fixed) {
+        expect(q.notationRendering?.originalQuestionText).toBe(original);
+        expect(q.recoveredQuestionText).not.toContain('\u20d7');
+        expect(q.recoveredQuestionText).toContain('vec(');
+        expect(q.reasons).not.toContain('VECTOR_ARROW_GLYPH_RENDERING_REQUIRES_REVIEW');
+      }
+    }
+    expect(quarantine[33].recoveredQuestionText).toContain('force q·vec(E)');
   });
 
   it('checks all transcribed stems against protected content and within the paper', () => {

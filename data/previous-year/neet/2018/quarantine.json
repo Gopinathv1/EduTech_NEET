@@ -534,7 +534,7 @@
     "proposedSubjectCode": "PHYSICS",
     "proposedChapterSlug": "physics-dual-nature",
     "proposedTopic": "matter-waves",
-    "recoveredQuestionText": "An electron of mass m with an initial velocity V⃗ = V₀ î (V₀ > 0) enters an electric field E⃗ = −E₀ î (E₀ = constant > 0) at t = 0. If λ₀ is its de-Broglie wavelength initially, then its de-Broglie wavelength at time t is",
+    "recoveredQuestionText": "An electron of mass m with an initial velocity vec(V) = V₀ î (V₀ > 0) enters an electric field vec(E) = −E₀ î (E₀ = constant > 0) at t = 0. If λ₀ is its de-Broglie wavelength initially, then its de-Broglie wavelength at time t is",
     "recoveredOptions": [
       "λ₀t",
       "λ₀(1 + (eE₀/(mV₀))t)",
@@ -542,6 +542,11 @@
       "λ₀"
     ],
     "transcriptionState": "ENGLISH_TEXT_OPTIONS_VISUALLY_REVIEWED",
+    "notationRendering": {
+      "format": "EXPLICIT_LINEAR_VECTOR",
+      "meaning": "vec(X) denotes the vector X; scalar X and unit-vector notation are unchanged.",
+      "originalQuestionText": "An electron of mass m with an initial velocity V⃗ = V₀ î (V₀ > 0) enters an electric field E⃗ = −E₀ î (E₀ = constant > 0) at t = 0. If λ₀ is its de-Broglie wavelength initially, then its de-Broglie wavelength at time t is"
+    },
     "candidatePrintedKeyToken": "3",
     "candidateAnswerKeyReference": "https://www.careerindia.com/exam/neet-ug-all-sets-question-paper-answer-key-2018-846.pdf",
     "candidateAnswerKeyPage": 1,
@@ -550,8 +555,7 @@
       "correctAnswerVerified": false
     },
     "reasons": [
-      "OFFICIAL_FINAL_ANSWER_KEY_PUBLICATION_CHAIN_NOT_AUTHENTICATED",
-      "VECTOR_ARROW_GLYPH_RENDERING_REQUIRES_REVIEW"
+      "OFFICIAL_FINAL_ANSWER_KEY_PUBLICATION_CHAIN_NOT_AUTHENTICATED"
     ],
     "duplicateMatches": [],
     "validationState": "QUARANTINED",
@@ -813,7 +817,7 @@
     "proposedSubjectCode": "PHYSICS",
     "proposedChapterSlug": "physics-electromagnetic-waves",
     "proposedTopic": "electromagnetic-spectrum",
-    "recoveredQuestionText": "An em wave is propagating in a medium with a velocity V⃗ = V î. The instantaneous oscillating electric field of this em wave is along +y axis. Then the direction of oscillating magnetic field of the em wave will be along",
+    "recoveredQuestionText": "An em wave is propagating in a medium with a velocity vec(V) = V î. The instantaneous oscillating electric field of this em wave is along +y axis. Then the direction of oscillating magnetic field of the em wave will be along",
     "recoveredOptions": [
       "−y direction",
       "+z direction",
@@ -821,6 +825,11 @@
       "−x direction"
     ],
     "transcriptionState": "ENGLISH_TEXT_OPTIONS_VISUALLY_REVIEWED",
+    "notationRendering": {
+      "format": "EXPLICIT_LINEAR_VECTOR",
+      "meaning": "vec(X) denotes the vector X; scalar X and unit-vector notation are unchanged.",
+      "originalQuestionText": "An em wave is propagating in a medium with a velocity V⃗ = V î. The instantaneous oscillating electric field of this em wave is along +y axis. Then the direction of oscillating magnetic field of the em wave will be along"
+    },
     "candidatePrintedKeyToken": "2",
     "candidateAnswerKeyReference": "https://www.careerindia.com/exam/neet-ug-all-sets-question-paper-answer-key-2018-846.pdf",
     "candidateAnswerKeyPage": 1,
@@ -829,8 +838,7 @@
       "correctAnswerVerified": false
     },
     "reasons": [
-      "OFFICIAL_FINAL_ANSWER_KEY_PUBLICATION_CHAIN_NOT_AUTHENTICATED",
-      "VECTOR_ARROW_GLYPH_RENDERING_REQUIRES_REVIEW"
+      "OFFICIAL_FINAL_ANSWER_KEY_PUBLICATION_CHAIN_NOT_AUTHENTICATED"
     ],
     "duplicateMatches": [],
     "validationState": "QUARANTINED",
@@ -1578,7 +1586,7 @@
     "proposedSubjectCode": "PHYSICS",
     "proposedChapterSlug": "physics-electrostatics",
     "proposedTopic": "electric-charge-field",
-    "recoveredQuestionText": "A toy car with charge q moves on a frictionless horizontal plane surface under the influence of a uniform electric field E⃗. Due to the force qE⃗, its velocity increases from 0 to 6 m/s in one second duration. At that instant the direction of the field is reversed. The car continues to move for two more seconds under the influence of this field. The average velocity and the average speed of the toy car between 0 to 3 seconds are respectively",
+    "recoveredQuestionText": "A toy car with charge q moves on a frictionless horizontal plane surface under the influence of a uniform electric field vec(E). Due to the force q·vec(E), its velocity increases from 0 to 6 m/s in one second duration. At that instant the direction of the field is reversed. The car continues to move for two more seconds under the influence of this field. The average velocity and the average speed of the toy car between 0 to 3 seconds are respectively",
     "recoveredOptions": [
       "1 m/s, 3·5 m/s",
       "1 m/s, 3 m/s",
@@ -1586,6 +1594,11 @@
       "1·5 m/s, 3 m/s"
     ],
     "transcriptionState": "ENGLISH_TEXT_OPTIONS_VISUALLY_REVIEWED",
+    "notationRendering": {
+      "format": "EXPLICIT_LINEAR_VECTOR",
+      "meaning": "vec(X) denotes the vector X; scalar X and unit-vector notation are unchanged.",
+      "originalQuestionText": "A toy car with charge q moves on a frictionless horizontal plane surface under the influence of a uniform electric field E⃗. Due to the force qE⃗, its velocity increases from 0 to 6 m/s in one second duration. At that instant the direction of the field is reversed. The car continues to move for two more seconds under the influence of this field. The average velocity and the average speed of the toy car between 0 to 3 seconds are respectively"
+    },
     "candidatePrintedKeyToken": "2",
     "candidateAnswerKeyReference": "https://www.careerindia.com/exam/neet-ug-all-sets-question-paper-answer-key-2018-846.pdf",
     "candidateAnswerKeyPage": 1,
@@ -1594,8 +1607,7 @@
       "correctAnswerVerified": false
     },
     "reasons": [
-      "OFFICIAL_FINAL_ANSWER_KEY_PUBLICATION_CHAIN_NOT_AUTHENTICATED",
-      "VECTOR_ARROW_GLYPH_RENDERING_REQUIRES_REVIEW"
+      "OFFICIAL_FINAL_ANSWER_KEY_PUBLICATION_CHAIN_NOT_AUTHENTICATED"
     ],
     "duplicateMatches": [],
     "validationState": "QUARANTINED",
@@ -1670,7 +1682,7 @@
     "proposedSubjectCode": "PHYSICS",
     "proposedChapterSlug": "physics-rotational-motion",
     "proposedTopic": "torque-angular-momentum",
-    "recoveredQuestionText": "The moment of the force, F⃗ = 4î + 5ĵ − 6k̂ at (2, 0, −3), about the point (2, −2, −2), is given by",
+    "recoveredQuestionText": "The moment of the force, vec(F) = 4î + 5ĵ − 6k̂ at (2, 0, −3), about the point (2, −2, −2), is given by",
     "recoveredOptions": [
       "−7î − 8ĵ − 4k̂",
       "−4î − ĵ − 8k̂",
@@ -1678,6 +1690,11 @@
       "−7î − 4ĵ − 8k̂"
     ],
     "transcriptionState": "ENGLISH_TEXT_OPTIONS_VISUALLY_REVIEWED",
+    "notationRendering": {
+      "format": "EXPLICIT_LINEAR_VECTOR",
+      "meaning": "vec(X) denotes the vector X; scalar X and unit-vector notation are unchanged.",
+      "originalQuestionText": "The moment of the force, F⃗ = 4î + 5ĵ − 6k̂ at (2, 0, −3), about the point (2, −2, −2), is given by"
+    },
     "candidatePrintedKeyToken": "4",
     "candidateAnswerKeyReference": "https://www.careerindia.com/exam/neet-ug-all-sets-question-paper-answer-key-2018-846.pdf",
     "candidateAnswerKeyPage": 1,
@@ -1686,8 +1703,7 @@
       "correctAnswerVerified": false
     },
     "reasons": [
-      "OFFICIAL_FINAL_ANSWER_KEY_PUBLICATION_CHAIN_NOT_AUTHENTICATED",
-      "VECTOR_ARROW_GLYPH_RENDERING_REQUIRES_REVIEW"
+      "OFFICIAL_FINAL_ANSWER_KEY_PUBLICATION_CHAIN_NOT_AUTHENTICATED"
     ],
     "duplicateMatches": [],
     "validationState": "QUARANTINED",

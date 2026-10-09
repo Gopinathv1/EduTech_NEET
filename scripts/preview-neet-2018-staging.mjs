@@ -32,8 +32,11 @@ try {
     const first = questions[0].originalQuestionNumber;
     await page.locator(`input[name="q${first}"][value="B"]`).check();
     if (!(await page.locator(`input[name="q${first}"][value="B"]`).isChecked())) throw Error('Option selection failed');
-    const cards = questions.filter(q => [12, 37, 69, 138, 180].includes(q.originalQuestionNumber));
+    const cards = questions.filter(q => [12, 18, 34, 36].includes(q.originalQuestionNumber));
     await page.setContent(html(cards));
+    for (const q of cards) {
+      if (q.questionText.includes('\u20d7') || !q.questionText.includes('vec(')) throw Error('Vector notation fallback missing');
+    }
     await page.screenshot({ path: `${root}/evidence/render-${name}.png`, fullPage: true });
     const diagramCards = quarantine.filter(q => q.sourceEvidence);
     const diagrams = diagramCards.map(q => `<article class="card"><b>AA · Quarantined question ${q.originalQuestionNumber}</b><img style="display:block;max-width:100%;height:auto" alt="Original AA question ${q.originalQuestionNumber}" src="data:image/png;base64,${fs.readFileSync(q.sourceEvidence).toString('base64')}"></article>`).join('');
@@ -43,8 +46,8 @@ try {
     await page.screenshot({ path: `${root}/evidence/diagrams-${name}.png`, fullPage: true });
     results.push({ name, width, quarantinedTextRecordsChecked: questions.length, diagramsChecked: 13, optionsChecked: questions.length * 4,
       horizontalOverflow: false, questionTextPreserved: true, optionTextPreserved: true, radioSelectionPassed: true,
-      visualNotationReviewPassed: false, notationIssueNumbers: [12, 18, 34, 36],
-      visualNotationLimitation: 'Combining vector-arrow U+20D7 shows a missing glyph in the local Arial preview. These four records remain quarantined; DOM equality does not establish visual notation fidelity.',
+      notationIssueNumbers: [], notationResolvedNumbers: cards.map(q => q.originalQuestionNumber),
+      notationFormat: 'Explicit vec(X) preserves vector meaning without the unsupported combining arrow. Screenshots require visual review in addition to DOM checks.',
       scope: 'Local quarantine review only; ExamClient whitespace/wrapping semantics. No validated/student-visible content, authenticated practice, filter or scoring E2E.' });
     await page.close();
   }

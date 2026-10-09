@@ -52,12 +52,17 @@ const hashes = new Map<string, typeof existing>();
 for (const q of existing) { const hash = questionTextHash(q.questionText); hashes.set(hash, [...(hashes.get(hash) ?? []), q]); }
 const quarantine = slots.map(slot => {
   const number = slot.originalQuestionNumber;
-  const candidate = reviewed.find(q => q[0] === number);
+  const original = reviewed.find(q => q[0] === number);
+  // Explicit linear vector notation works in the existing plain-text question renderer.
+  // Keep the frozen source transcription untouched; change only the four reviewed glyph cases.
+  const notationFixed = [12, 18, 34, 36].includes(number);
+  const candidate: Reviewed | undefined = original && notationFixed
+    ? [...original.slice(0, 5), original[5].replace(/([VEF])\u20d7/g, 'vec($1)').replaceAll('qvec(E)', 'q·vec(E)'), original[6]] as Reviewed
+    : original;
   const [subjectCode, chapterSlug, topic] = slot.proposedClassification;
   const reasons = ['OFFICIAL_FINAL_ANSWER_KEY_PUBLICATION_CHAIN_NOT_AUTHENTICATED'];
   const duplicateMatches = candidate ? hashes.get(questionTextHash(candidate[5])) ?? [] : [];
   if (!candidate) reasons.push('DIAGRAM_OR_STRUCTURAL_OPTIONS_NOT_STAGED');
-  if ([12, 18, 34, 36].includes(number)) reasons.push('VECTOR_ARROW_GLYPH_RENDERING_REQUIRES_REVIEW');
   if (!QUESTION_BANK_V1_TAXONOMY.some(t => t.exam === 'NEET' && t.subjectCode === subjectCode
     && t.unitSlug === chapterSlug && t.topicSlugs.includes(topic))) reasons.push('CANONICAL_TAXONOMY_GAP');
   if (duplicateMatches.length) reasons.push('EXISTING_NORMALIZED_STEM_COLLISION_REQUIRES_REVIEW');
@@ -73,6 +78,7 @@ const quarantine = slots.map(slot => {
     sourcePage: slot.sourcePage, sourceColumn: slot.sourceColumn, proposedSubjectCode: subjectCode, proposedChapterSlug: chapterSlug, proposedTopic: topic,
     ...(candidate ? { recoveredQuestionText: candidate[5], recoveredOptions: candidate[6], transcriptionState: 'ENGLISH_TEXT_OPTIONS_VISUALLY_REVIEWED' }
       : { sourceEvidence: `${root}/evidence/quarantine-q${String(number).padStart(3, '0')}.png`, transcriptionState: 'INCOMPLETE_DIAGRAM_TRANSCRIPTION' }),
+    ...(notationFixed ? { notationRendering: { format: 'EXPLICIT_LINEAR_VECTOR', meaning: 'vec(X) denotes the vector X; scalar X and unit-vector notation are unchanged.', originalQuestionText: original![5] } } : {}),
     candidatePrintedKeyToken: key.printedKeyTokens[number], candidateAnswerKeyReference: key.url, candidateAnswerKeyPage: 1,
     answerValidation: { officialFinalKeyAuthenticated: false, correctAnswerVerified: false },
     reasons, duplicateMatches, validationState: 'QUARANTINED', reviewState: 'DRAFT', status: 'DRAFT', isActive: false,
@@ -96,10 +102,11 @@ write('source-manifest.json', { schemaVersion: 1, exam: 'NEET', year: 2018, exam
   duplicateCollisionNumbers: quarantine.filter(q => q.duplicateMatches.length).map(q => q.originalQuestionNumber),
   taxonomyGapNumbers: quarantine.filter(q => q.reasons.includes('CANONICAL_TAXONOMY_GAP')).map(q => q.originalQuestionNumber),
   diagramIncompleteNumbers: quarantine.filter(q => q.transcriptionState === 'INCOMPLETE_DIAGRAM_TRANSCRIPTION').map(q => q.originalQuestionNumber),
-  notationRenderingIssueNumbers: [12, 18, 34, 36],
+  notationRenderingIssueNumbers: [], notationRenderingResolvedNumbers: [12, 18, 34, 36],
   batches: Array.from({ length: 8 }, (_, i) => ({ id: `neet-2018-aa-${String(i + 1).padStart(2, '0')}`, originalQuestionNumbers: slots.slice(i * 25, (i + 1) * 25).map(s => s.originalQuestionNumber), status: 'QUARANTINED_UNPUBLISHED' })),
   questionsSha256: digest(`${root}/questions.json`), quarantineSha256: digest(`${root}/quarantine.json`),
   reviewedTranscriptionsSha256: digest(`${root}/reviewed-transcriptions.json`), slotManifestSha256: digest(`${root}/slot-manifest.json`), candidateKeySha256: digest(`${root}/candidate-answer-key.json`),
+  answerKeyAuthenticationReview: `${root}/answer-key-authentication.json`, answerKeyAuthenticationReviewSha256: digest(`${root}/answer-key-authentication.json`),
   limitations: ['Final CBSE answer-key authority remains unauthenticated. A post-challenge date and mirror title do not prove official final status.',
     'All 180 records quarantined; 167 complete text transcriptions, 13 original diagram crops awaiting supported rendering.',
     'Chapter/topic assignments are proposed; mineral-nutrition lacks a canonical topic. Generic stem collisions are not proof of identical full questions.',

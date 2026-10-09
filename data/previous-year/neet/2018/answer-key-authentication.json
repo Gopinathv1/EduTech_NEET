@@ -1,0 +1,33 @@
+{
+  "reviewDate": "2026-10-09",
+  "paperCode": "AA",
+  "bookletCode": "ACHLA",
+  "issuingAuthority": "Central Board of Secondary Education (CBSE)",
+  "officialFinalKeyAuthenticated": false,
+  "status": "BLOCKED",
+  "promotionAuthorized": false,
+  "evidence": [
+    {
+      "url": "https://www.cbse.gov.in/cbsenew/annual-report/Annual_Report_2018_19.pdf",
+      "location": "PDF page 54, printed page 50, NEET 2018 section",
+      "result": "Official CBSE report confirms answer keys and booklet codes were available in candidate login accounts and challenges were addressed before results. It does not reproduce the AA answers or authenticate the archived 30 May PDF as final."
+    },
+    {
+      "url": "https://www.cbse.gov.in/cbsenew/press_archive.html",
+      "location": "May through July 2018 archive entries",
+      "result": "Official exam-conduct notices exist; no matching AA final-key publication link located in these entries."
+    },
+    {
+      "url": "https://cbseneet.nic.in/cbseneet/Welcome.aspx",
+      "result": "Historical endpoint unavailable through the research tool; no publication chain recovered."
+    },
+    {
+      "url": "https://www.careerindia.com/exam/neet-ug-all-sets-question-paper-answer-key-2018-846.pdf",
+      "location": "Page 1, AA / ACHLA, printed 30/05/2018",
+      "sha256": "81c2560e11580dcbc39126486b76a3c0560276b3a824f9c78d8f834b4256bc9e",
+      "result": "Existing 180 candidate tokens and numbering retained unchanged. Matching header and a later date do not prove official final status. No authenticated official source binds these tokens to the final result key."
+    }
+  ],
+  "alignment": "Existing AA / ACHLA numbered slots 1–180 align structurally to candidate page 1 only; official final answer alignment remains unverified.",
+  "blockingEvidenceNeeded": "An authenticated CBSE final-key artifact or preserved official publication chain for AA / ACHLA, including all 180 answer bindings. Coaching agreement is insufficient."
+}
