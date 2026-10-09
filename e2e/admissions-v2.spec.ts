@@ -9,6 +9,68 @@ const db = new PrismaClient();
 test.beforeAll(async () => { await seedAdmissionsFixtures(db); await db.rateLimit.deleteMany({ where: { key: { startsWith: 'admissions:ip:' } } }); });
 test.afterAll(() => db.$disconnect());
 
+test('university selection follows client navigation, history and refresh', async ({ page }) => {
+  await page.goto('/admissions/russia?university=russia-3#enquiry');
+  const programme = page.getByLabel('Programme or university (optional)');
+  await expect(programme).toHaveValue('Perm State Medical University');
+  await page.locator('a[href="/admissions/russia?university=russia-1#enquiry"]').click();
+  await expect(page).toHaveURL(/university=russia-1/);
+  await expect(programme).toHaveValue('Omsk State Medical University');
+  await expect(page.locator('[name=universityId]')).toHaveValue('russia-1');
+  for (const id of ['russia-3', 'russia-1', 'russia-3']) {
+    await page.locator(`a[href="/admissions/russia?university=${id}#enquiry"]`).click();
+    await expect(programme).toHaveValue(id === 'russia-1' ? 'Omsk State Medical University' : 'Perm State Medical University');
+    await expect(page.locator('[name=universityId]')).toHaveValue(id);
+  }
+  await page.goBack();
+  await expect(programme).toHaveValue('Omsk State Medical University');
+  await expect(page.locator('[name=universityId]')).toHaveValue('russia-1');
+  await page.goForward();
+  await expect(programme).toHaveValue('Perm State Medical University');
+  await page.reload();
+  await expect(programme).toHaveValue('Perm State Medical University');
+  await expect(page.locator('[name=universityId]')).toHaveValue('russia-3');
+  for (const query of ['university=unknown', 'university=', 'university=georgia-1', 'university=russia-1&university=russia-3']) {
+    await page.goto(`/admissions/russia?${query}#enquiry`);
+    await expect(page.getByRole('button', { name: 'Select university again' })).toBeDisabled();
+  }
+});
+
+test('slow client navigation blocks stale submission until the new selection is ready', async ({ page }) => {
+  let release!: () => void;
+  let reached!: () => void;
+  const gate = new Promise<void>((resolve) => { release = resolve; });
+  const intercepted = new Promise<void>((resolve) => { reached = resolve; });
+  await page.route(/\/admissions\/russia\?.*university=russia-1/, async (route) => { reached(); await gate; await route.continue(); });
+  await page.goto('/admissions/russia?university=russia-3#enquiry');
+  const form = page.getByRole('form', { name: 'Admissions counselling enquiry' });
+  await form.getByLabel('Student name').fill('Isolated Slow Navigation');
+  await form.getByLabel('Indian mobile number').fill('9000000012');
+  await form.getByLabel('Email', { exact: true }).fill('slow@example.invalid');
+  await form.getByRole('checkbox').check();
+  const posts: string[] = [];
+  page.on('request', (request) => { if (request.method() === 'POST' && request.url().endsWith('/api/admission/enquiries')) posts.push(request.postData() ?? ''); });
+  await page.locator('a[href="/admissions/russia?university=russia-1#enquiry"]').click();
+  await intercepted;
+  await expect(form.getByRole('button', { name: 'Select university again' })).toBeDisabled();
+  await form.dispatchEvent('submit');
+  await expect(form.getByRole('alert').first()).toBeVisible();
+  expect(posts).toEqual([]);
+  release();
+  await expect(form.getByLabel('Programme or university (optional)')).toHaveValue('Omsk State Medical University');
+  await expect(form.locator('[name=universityId]')).toHaveValue('russia-1');
+  await expect(form.getByRole('button', { name: 'Request counselling', exact: true })).toBeEnabled();
+});
+
+test('submission remains disabled before hydration', async ({ browser }) => {
+  const context = await browser.newContext({ javaScriptEnabled: false });
+  const page = await context.newPage();
+  await page.goto('http://127.0.0.1:3107/admissions/russia?university=russia-1#enquiry');
+  await expect(page.locator('form[aria-label="Admissions counselling enquiry"] button[type="submit"]:enabled')).toHaveCount(0);
+  await expect(page.getByText('Loading university selection…', { exact: true }).or(page.getByRole('button', { name: 'Select university again' }))).toBeVisible();
+  await context.close();
+});
+
 test('destinations, geography, search, comparison and mobile layout', async ({ page }, info) => {
   const errors: string[] = []; page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/admissions?region=asia#destinations');
@@ -44,6 +106,36 @@ test('destinations, geography, search, comparison and mobile layout', async ({ p
   expect(errors).toEqual([]);
 });
 
+for (const [id, name] of [['russia-1', 'Omsk State Medical University'], ['russia-3', 'Perm State Medical University']]) {
+  test(`selected ${id} payload and persisted identity remain canonical`, async ({ page }, info) => {
+    await db.rateLimit.deleteMany({ where: { key: { startsWith: 'admissions:ip:' } } });
+    const email = `identity-${id}-${info.project.name}-${Date.now()}@example.invalid`;
+    await page.goto(`/admissions/russia?university=${id === 'russia-1' ? 'russia-3' : 'russia-1'}#enquiry`);
+    await page.locator(`a[href="/admissions/russia?university=${id}#enquiry"]`).click();
+    const form = page.getByRole('form', { name: 'Admissions counselling enquiry' });
+    await expect(form.getByLabel('Programme or university (optional)')).toHaveValue(name);
+    await expect(form.locator('[name=universityId]')).toHaveValue(id);
+    await form.getByLabel('Student name').fill('Isolated Identity Test');
+    await form.getByLabel('Indian mobile number').fill('9000000011');
+    await form.getByLabel('Email', { exact: true }).fill(email);
+    await form.getByRole('checkbox').check();
+    const requestPromise = page.waitForRequest((request) => request.url().endsWith('/api/admission/enquiries') && request.method() === 'POST');
+    await form.getByRole('button', { name: 'Request counselling', exact: true }).click();
+    const payload = (await requestPromise).postDataJSON();
+    expect(payload).toMatchObject({ universityId: id, programme: name, destination: 'russia', consent: true });
+    await expect(page.getByRole('heading', { name: 'Enquiry received', exact: true })).toBeVisible();
+    const record = await db.contactEnquiry.findFirstOrThrow({ where: { email } });
+    expect(record.message).toContain(`University ID: ${id}`);
+    expect(record.message).toContain(`Programme: ${name}`);
+    const duplicate = await page.request.post('/api/admission/enquiries', { data: payload });
+    expect((await duplicate.json()).duplicate).toBe(true);
+    for (const patch of [{ consent: false }, { universityId: 'missing' }, { universityId: '' }, { destination: 'georgia' }, { programme: 'Stale university name' }]) {
+      expect((await page.request.post('/api/admission/enquiries', { headers: { 'x-forwarded-for': '198.18.9.1' }, data: { ...payload, ...patch } })).status()).toBe(400);
+    }
+    expect(await db.contactEnquiry.count({ where: { email } })).toBe(1);
+  });
+}
+
 test('public counselling form persists consent and contact preference in admin inbox', async ({ page, browser }, info) => {
   const email = `admissions-${info.project.name}-${Date.now()}@example.invalid`;
   await page.goto('/admissions/russia?university=russia-1#enquiry');
@@ -53,14 +145,16 @@ test('public counselling form persists consent and contact preference in admin i
   await form.getByLabel('Indian mobile number').fill('9000000001');
   await form.getByLabel('Email', { exact: true }).fill(email);
   await form.getByLabel('Study path', { exact: true }).selectOption('Engineering');
-  await form.getByLabel('Programme or university (optional)').fill('Mechanical engineering');
+  await expect(form.locator('[name=universityId]')).toHaveValue('russia-1');
   await form.getByLabel('Preferred contact method').selectOption('Email');
   await form.getByRole('checkbox').check();
   await form.getByRole('button', { name: 'Request counselling', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Enquiry received', exact: true })).toBeVisible();
   const record = await db.contactEnquiry.findFirstOrThrow({ where: { email } });
+  expect(record.message).toContain('University ID: russia-1');
+  expect(record.message).toContain('Programme: Omsk State Medical University');
   expect(record.message).toContain('Contact preference: Email'); expect(record.message).toContain('Consent: agreed'); expect(record.message).toContain('Study path: Engineering'); expect(record.message).toContain('Destination: russia');
-  const payload = { name: 'Isolated Admissions Test', mobile: '9000000001', email, studyPath: 'Engineering', programme: 'Mechanical engineering', destination: 'russia', contactPreference: 'Email', consent: true };
+  const payload = { name: 'Isolated Admissions Test', mobile: '9000000001', email, studyPath: 'Engineering', programme: 'Omsk State Medical University', universityId: 'russia-1', destination: 'russia', contactPreference: 'Email', consent: true };
   const duplicate = await page.request.post('/api/admission/enquiries', { data: payload });
   expect((await duplicate.json()).duplicate).toBe(true);
   expect(await db.contactEnquiry.count({ where: { email } })).toBe(1);
