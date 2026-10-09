@@ -1,0 +1,794 @@
+[
+  {
+    "exam": "NEET",
+    "year": 2019,
+    "examDate": "2019-05-05",
+    "paperCode": "P1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2019:p1:6",
+    "originalQuestionNumber": 6,
+    "sourcePage": 3,
+    "sourceColumn": 2,
+    "reasons": [
+      "OFFICIAL_MULTIPLE_ACCEPTED_ANSWERS_UNSUPPORTED_BY_SINGLE_CORRECT_STAGING"
+    ],
+    "recoveredQuestionText": "In which of the following devices, the eddy current effect is not used ?",
+    "recoveredOptions": [
+      "induction furnace",
+      "magnetic braking in train",
+      "electromagnet",
+      "electric heater"
+    ],
+    "proposedSubjectCode": "PHYSICS",
+    "proposedChapterSlug": "physics-emi-ac",
+    "proposedTopic": "electromagnetic-induction",
+    "officialAcceptedOptions": [
+      "C",
+      "D"
+    ],
+    "officialPrintedKeyToken": "F",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdn.aglasem.com/aglasem-doc/c925b19e-2d88-11eb-8a1a-02f21f5619c4/c925b19e-2d88-11eb-8a1a-02f21f5619c4.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/20190605125750.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2019,
+    "examDate": "2019-05-05",
+    "paperCode": "P1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2019:p1:14",
+    "originalQuestionNumber": 14,
+    "sourcePage": 4,
+    "sourceColumn": 2,
+    "reasons": [
+      "CANONICAL_TAXONOMY_GAP"
+    ],
+    "recoveredQuestionText": "A copper rod of 88 cm and an aluminium rod of unknown length have their increase in length independent of increase in temperature. The length of aluminium rod is : (α_Cu = 1.7 × 10⁻⁵ K⁻¹ and α_Al = 2.2 × 10⁻⁵ K⁻¹)",
+    "recoveredOptions": [
+      "6.8 cm",
+      "113.9 cm",
+      "88 cm",
+      "68 cm"
+    ],
+    "proposedSubjectCode": "PHYSICS",
+    "proposedChapterSlug": "physics-properties-solids-liquids",
+    "proposedTopic": "thermal-expansion",
+    "officialAcceptedOptions": [
+      "D"
+    ],
+    "officialPrintedKeyToken": "4",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdn.aglasem.com/aglasem-doc/c925b19e-2d88-11eb-8a1a-02f21f5619c4/c925b19e-2d88-11eb-8a1a-02f21f5619c4.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/20190605125750.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2019,
+    "examDate": "2019-05-05",
+    "paperCode": "P1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2019:p1:17",
+    "originalQuestionNumber": 17,
+    "sourcePage": 5,
+    "sourceColumn": 2,
+    "reasons": [
+      "DIAGRAM_OR_STRUCTURAL_OPTIONS_NOT_STAGED"
+    ],
+    "recoveredQuestionText": "Six similar bulbs are connected as shown in the\n17.\nfigure with a DC source of emf E, and zero internal\nresistance.\nThe ratio of power consumption by the bulbs when\n(i) all are glowing and (i) in the situation when\ntwo from section A and one from section.B are\nglowing, will be :\nA\nB\n00\n00\n4:9\n(1)\n9 :4\n(2)\n(3)\n1:2\n(4)\n2:1",
+    "proposedSubjectCode": "PHYSICS",
+    "proposedChapterSlug": "physics-current-electricity",
+    "proposedTopic": "circuits",
+    "sourceEvidence": "data/previous-year/neet/2019/evidence/quarantine-q017.png",
+    "recoveredTextState": "UNREVIEWED_OCR_NOT_IMPORTABLE",
+    "officialAcceptedOptions": [
+      "B"
+    ],
+    "officialPrintedKeyToken": "2",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdn.aglasem.com/aglasem-doc/c925b19e-2d88-11eb-8a1a-02f21f5619c4/c925b19e-2d88-11eb-8a1a-02f21f5619c4.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/20190605125750.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2019,
+    "examDate": "2019-05-05",
+    "paperCode": "P1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2019:p1:24",
+    "originalQuestionNumber": 24,
+    "sourcePage": 6,
+    "sourceColumn": 2,
+    "reasons": [
+      "DIAGRAM_OR_STRUCTURAL_OPTIONS_NOT_STAGED"
+    ],
+    "recoveredQuestionText": "In the circuits shown below, the readings of the\n24.\nvoltmeters and the ammeters will be :\n100\ni1\n100\n10.0\n10V\n10 V\n10 V\nCircuit 1\nCircuit 2\nV2>V1 and i=i2\n(1)\nV=V2 and i>i2\n(2)\nV1= V2 and i=i2\n(3)\nV>V, and i>i2\n(4)",
+    "proposedSubjectCode": "PHYSICS",
+    "proposedChapterSlug": "physics-current-electricity",
+    "proposedTopic": "circuits",
+    "sourceEvidence": "data/previous-year/neet/2019/evidence/quarantine-q024.png",
+    "recoveredTextState": "UNREVIEWED_OCR_NOT_IMPORTABLE",
+    "officialAcceptedOptions": [
+      "C"
+    ],
+    "officialPrintedKeyToken": "3",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdn.aglasem.com/aglasem-doc/c925b19e-2d88-11eb-8a1a-02f21f5619c4/c925b19e-2d88-11eb-8a1a-02f21f5619c4.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/20190605125750.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2019,
+    "examDate": "2019-05-05",
+    "paperCode": "P1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2019:p1:33",
+    "originalQuestionNumber": 33,
+    "sourcePage": 8,
+    "sourceColumn": 2,
+    "reasons": [
+      "DIAGRAM_OR_STRUCTURAL_OPTIONS_NOT_STAGED"
+    ],
+    "recoveredQuestionText": "A particle moving with velocity V is acted by three\n33.\nforces shown by the vector triangle PQR. The\nvelocity of the particle will :\nR\n(1)\nincrease\n(2)\ndecrease\n(3)\nremain constant\nchange according to the smallest force QR\n(4)",
+    "proposedSubjectCode": "PHYSICS",
+    "proposedChapterSlug": "physics-laws-of-motion",
+    "proposedTopic": "newtons-laws",
+    "sourceEvidence": "data/previous-year/neet/2019/evidence/quarantine-q033.png",
+    "recoveredTextState": "UNREVIEWED_OCR_NOT_IMPORTABLE",
+    "officialAcceptedOptions": [
+      "C"
+    ],
+    "officialPrintedKeyToken": "3",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdn.aglasem.com/aglasem-doc/c925b19e-2d88-11eb-8a1a-02f21f5619c4/c925b19e-2d88-11eb-8a1a-02f21f5619c4.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/20190605125750.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2019,
+    "examDate": "2019-05-05",
+    "paperCode": "P1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2019:p1:39",
+    "originalQuestionNumber": 39,
+    "sourcePage": 10,
+    "sourceColumn": 2,
+    "reasons": [
+      "DIAGRAM_OR_STRUCTURAL_OPTIONS_NOT_STAGED"
+    ],
+    "recoveredQuestionText": "39.\nR\nA1\nLED (Y)\nR\n0\nB\n1\n:EEEK\nThe correct Boolean operation represented by the\ncircuit diagram drawn is :\n(1)\nAND\n(2)\nOR·\n(e)\nNAND\n(4)\nNOR.\n上 Ne bleg be\ng l",
+    "proposedSubjectCode": "PHYSICS",
+    "proposedChapterSlug": "physics-electronic-devices",
+    "proposedTopic": "logic-gates",
+    "sourceEvidence": "data/previous-year/neet/2019/evidence/quarantine-q039.png",
+    "recoveredTextState": "UNREVIEWED_OCR_NOT_IMPORTABLE",
+    "officialAcceptedOptions": [
+      "C"
+    ],
+    "officialPrintedKeyToken": "3",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdn.aglasem.com/aglasem-doc/c925b19e-2d88-11eb-8a1a-02f21f5619c4/c925b19e-2d88-11eb-8a1a-02f21f5619c4.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/20190605125750.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2019,
+    "examDate": "2019-05-05",
+    "paperCode": "P1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2019:p1:42",
+    "originalQuestionNumber": 42,
+    "sourcePage": 11,
+    "sourceColumn": 2,
+    "reasons": [
+      "DIAGRAM_OR_STRUCTURAL_OPTIONS_NOT_STAGED"
+    ],
+    "recoveredQuestionText": "The radius of circle, the period of revolution, initial\n42.\nposition and sense of revolution are indicated in\nthe fig.\nP(t =0)\nT=4s\n3m\n y - projection of the radius vector of rotating particle\nPis :\ny(t)= - 3 cos2t, where y in m\n(1)\ny(t) = 4 sin\nwhere y in m\n(2)\n3mt\ny(t)= 3 cos\n, where y in m\n(3)\n2\nL\ny(t) = 3 cos\n,where y in m\n(4)\n2",
+    "proposedSubjectCode": "PHYSICS",
+    "proposedChapterSlug": "physics-oscillations-waves",
+    "proposedTopic": "simple-harmonic-motion",
+    "sourceEvidence": "data/previous-year/neet/2019/evidence/quarantine-q042.png",
+    "recoveredTextState": "UNREVIEWED_OCR_NOT_IMPORTABLE",
+    "officialAcceptedOptions": [
+      "D"
+    ],
+    "officialPrintedKeyToken": "4",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdn.aglasem.com/aglasem-doc/c925b19e-2d88-11eb-8a1a-02f21f5619c4/c925b19e-2d88-11eb-8a1a-02f21f5619c4.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/20190605125750.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2019,
+    "examDate": "2019-05-05",
+    "paperCode": "P1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2019:p1:45",
+    "originalQuestionNumber": 45,
+    "sourcePage": 12,
+    "sourceColumn": 2,
+    "reasons": [
+      "DIAGRAM_OR_STRUCTURAL_OPTIONS_NOT_STAGED"
+    ],
+    "recoveredQuestionText": "  \nA cylindrical conductor of radius R is carrying a\n45.\nconstant current. The plot of the magnitude of\n出 lal oly\nthe magnetic field, B with the distance, d, from\nRaqu fufafad\nthe centre of the conductor, is correctly\nrepresented by the figure:\nB\n(1)\nR\nd\nB\n(2)\nR\nd\nB\n(3)\nR\np\nB\n(4)\nR\nP\n华斯le (t)",
+    "proposedSubjectCode": "PHYSICS",
+    "proposedChapterSlug": "physics-magnetic-effects",
+    "proposedTopic": "biot-savart-law",
+    "sourceEvidence": "data/previous-year/neet/2019/evidence/quarantine-q045.png",
+    "recoveredTextState": "UNREVIEWED_OCR_NOT_IMPORTABLE",
+    "officialAcceptedOptions": [
+      "C"
+    ],
+    "officialPrintedKeyToken": "3",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdn.aglasem.com/aglasem-doc/c925b19e-2d88-11eb-8a1a-02f21f5619c4/c925b19e-2d88-11eb-8a1a-02f21f5619c4.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/20190605125750.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2019,
+    "examDate": "2019-05-05",
+    "paperCode": "P1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2019:p1:47",
+    "originalQuestionNumber": 47,
+    "sourcePage": 13,
+    "sourceColumn": 2,
+    "reasons": [
+      "DIAGRAM_OR_STRUCTURAL_OPTIONS_NOT_STAGED"
+    ],
+    "recoveredQuestionText": "47.\nreaction, is :\nOH\nCH\nCHg\n0\n02\nH+\n+ HgC人CH;\nH20\nCH3\nCHg\n(1)\nCH3\nHsC-C-O-O-H\n2\nCHg\n0-O-CH\nCH3\n(3)\nCH2-O-O-H\nHC\nCH3\n(4)",
+    "proposedSubjectCode": "CHEMISTRY",
+    "proposedChapterSlug": "chemistry-oxygen",
+    "proposedTopic": "alcohols-phenols-ethers",
+    "sourceEvidence": "data/previous-year/neet/2019/evidence/quarantine-q047.png",
+    "recoveredTextState": "UNREVIEWED_OCR_NOT_IMPORTABLE",
+    "officialAcceptedOptions": [
+      "B"
+    ],
+    "officialPrintedKeyToken": "2",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdn.aglasem.com/aglasem-doc/c925b19e-2d88-11eb-8a1a-02f21f5619c4/c925b19e-2d88-11eb-8a1a-02f21f5619c4.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/20190605125750.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2019,
+    "examDate": "2019-05-05",
+    "paperCode": "P1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2019:p1:48",
+    "originalQuestionNumber": 48,
+    "sourcePage": 14,
+    "sourceColumn": 2,
+    "reasons": [
+      "DIAGRAM_OR_STRUCTURAL_OPTIONS_NOT_STAGED"
+    ],
+    "recoveredQuestionText": "48.\nThe correct structure of tribromooctaoxide is :\n0\n0\n0\nO=Br-Br-Br =O\n(1)\nⅡ\n0\n0\n0\n0\nO =Br-Br\n(2)\n0\n0\nO -Br-Br-Br= O\n(3)\n0\n0\n0\n0\nO=Br-]\nBr -\nBr\n(4)\n0\n0",
+    "proposedSubjectCode": "CHEMISTRY",
+    "proposedChapterSlug": "chemistry-p-block",
+    "proposedTopic": "group-15-18",
+    "sourceEvidence": "data/previous-year/neet/2019/evidence/quarantine-q048.png",
+    "recoveredTextState": "UNREVIEWED_OCR_NOT_IMPORTABLE",
+    "officialAcceptedOptions": [
+      "A"
+    ],
+    "officialPrintedKeyToken": "1",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdn.aglasem.com/aglasem-doc/c925b19e-2d88-11eb-8a1a-02f21f5619c4/c925b19e-2d88-11eb-8a1a-02f21f5619c4.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/20190605125750.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2019,
+    "examDate": "2019-05-05",
+    "paperCode": "P1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2019:p1:55",
+    "originalQuestionNumber": 55,
+    "sourcePage": 15,
+    "sourceColumn": 2,
+    "reasons": [
+      "DIAGRAM_OR_STRUCTURAL_OPTIONS_NOT_STAGED"
+    ],
+    "recoveredQuestionText": "The most suitable reagent for the following\n55.\nconversion, is :\nCHg\nHgC\n3\nHC-C= C-CHs\nH\nH\ncis-2-butene\nNa /liquid NHg\n(1)\nH, Pd/C, quinoline\n(2)\nZn / HC1\n(3)\nHg²+ /H+, H2O\n(4)",
+    "proposedSubjectCode": "CHEMISTRY",
+    "proposedChapterSlug": "chemistry-hydrocarbons",
+    "proposedTopic": "alkenes-alkynes",
+    "sourceEvidence": "data/previous-year/neet/2019/evidence/quarantine-q055.png",
+    "recoveredTextState": "UNREVIEWED_OCR_NOT_IMPORTABLE",
+    "officialAcceptedOptions": [
+      "B"
+    ],
+    "officialPrintedKeyToken": "2",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdn.aglasem.com/aglasem-doc/c925b19e-2d88-11eb-8a1a-02f21f5619c4/c925b19e-2d88-11eb-8a1a-02f21f5619c4.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/20190605125750.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2019,
+    "examDate": "2019-05-05",
+    "paperCode": "P1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2019:p1:65",
+    "originalQuestionNumber": 65,
+    "sourcePage": 17,
+    "sourceColumn": 2,
+    "reasons": [
+      "DIAGRAM_OR_STRUCTURAL_OPTIONS_NOT_STAGED"
+    ],
+    "recoveredQuestionText": "Among the following, the reaction that proceeds\n65.\nthrough an electrophilic substitution, is :\nCugClg\nCl+N2\nNgC1-\n(1)\nA1Clg\nCl+HCl\n(2)\nC1\nC1\nUV light, C1-\nC1\n(3)\nCl\nC1\n1\nCHOH+ HCheat\nCH,C1+ HO\n(4)",
+    "proposedSubjectCode": "CHEMISTRY",
+    "proposedChapterSlug": "chemistry-hydrocarbons",
+    "proposedTopic": "aromatic-hydrocarbons",
+    "sourceEvidence": "data/previous-year/neet/2019/evidence/quarantine-q065.png",
+    "recoveredTextState": "UNREVIEWED_OCR_NOT_IMPORTABLE",
+    "officialAcceptedOptions": [
+      "B"
+    ],
+    "officialPrintedKeyToken": "2",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdn.aglasem.com/aglasem-doc/c925b19e-2d88-11eb-8a1a-02f21f5619c4/c925b19e-2d88-11eb-8a1a-02f21f5619c4.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/20190605125750.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2019,
+    "examDate": "2019-05-05",
+    "paperCode": "P1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2019:p1:69",
+    "originalQuestionNumber": 69,
+    "sourcePage": 18,
+    "sourceColumn": 2,
+    "reasons": [
+      "DIAGRAM_OR_STRUCTURAL_OPTIONS_NOT_STAGED"
+    ],
+    "recoveredQuestionText": "The compound that is most difficult to protonate\n69.\ni8 :\n(1)\nH\n~H\n(2)\nHgC\nH\n(3)\nHC\nCH\n(4)\nPh -\nH",
+    "proposedSubjectCode": "CHEMISTRY",
+    "proposedChapterSlug": "chemistry-oxygen",
+    "proposedTopic": "alcohols-phenols-ethers",
+    "sourceEvidence": "data/previous-year/neet/2019/evidence/quarantine-q069.png",
+    "recoveredTextState": "UNREVIEWED_OCR_NOT_IMPORTABLE",
+    "officialAcceptedOptions": [
+      "D"
+    ],
+    "officialPrintedKeyToken": "4",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdn.aglasem.com/aglasem-doc/c925b19e-2d88-11eb-8a1a-02f21f5619c4/c925b19e-2d88-11eb-8a1a-02f21f5619c4.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/20190605125750.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2019,
+    "examDate": "2019-05-05",
+    "paperCode": "P1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2019:p1:72",
+    "originalQuestionNumber": 72,
+    "sourcePage": 19,
+    "sourceColumn": 2,
+    "reasons": [
+      "OFFICIAL_MULTIPLE_ACCEPTED_ANSWERS_UNSUPPORTED_BY_SINGLE_CORRECT_STAGING"
+    ],
+    "recoveredQuestionText": "Which mixture of the solutions will lead to the formation of negatively charged colloidal [AgI]I⁻ sol. ?",
+    "recoveredOptions": [
+      "50 mL of 1 M AgNO₃ + 50 mL of 1.5 M KI",
+      "50 mL of 1 M AgNO₃ + 50 mL of 2 M KI",
+      "50 mL of 2 M AgNO₃ + 50 mL of 1.5 M KI",
+      "50 mL of 0.1 M AgNO₃ + 50 mL of 0.1 M KI"
+    ],
+    "proposedSubjectCode": "CHEMISTRY",
+    "proposedChapterSlug": "chemistry-chemical-kinetics",
+    "proposedTopic": "surface-chemistry",
+    "officialAcceptedOptions": [
+      "A",
+      "B"
+    ],
+    "officialPrintedKeyToken": "A",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdn.aglasem.com/aglasem-doc/c925b19e-2d88-11eb-8a1a-02f21f5619c4/c925b19e-2d88-11eb-8a1a-02f21f5619c4.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/20190605125750.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2019,
+    "examDate": "2019-05-05",
+    "paperCode": "P1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2019:p1:73",
+    "originalQuestionNumber": 73,
+    "sourcePage": 19,
+    "sourceColumn": 2,
+    "reasons": [
+      "CANONICAL_TAXONOMY_GAP"
+    ],
+    "recoveredQuestionText": "Among the following, the narrow spectrum antibiotic is :",
+    "recoveredOptions": [
+      "penicillin G",
+      "ampicillin",
+      "amoxycillin",
+      "chloramphenicol"
+    ],
+    "proposedSubjectCode": "CHEMISTRY",
+    "proposedChapterSlug": "chemistry-everyday-life",
+    "proposedTopic": "medicines",
+    "officialAcceptedOptions": [
+      "A"
+    ],
+    "officialPrintedKeyToken": "1",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdn.aglasem.com/aglasem-doc/c925b19e-2d88-11eb-8a1a-02f21f5619c4/c925b19e-2d88-11eb-8a1a-02f21f5619c4.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/20190605125750.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2019,
+    "examDate": "2019-05-05",
+    "paperCode": "P1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2019:p1:74",
+    "originalQuestionNumber": 74,
+    "sourcePage": 19,
+    "sourceColumn": 2,
+    "reasons": [
+      "DIAGRAM_OR_STRUCTURAL_OPTIONS_NOT_STAGED"
+    ],
+    "recoveredQuestionText": "An alkene *A\"on reaction with Og and Zn-HgO\n74.\nT\ngives propanone and ethanal in equimolar ratio.\nAddition ofHCl to alkene “A” gives “B” as the major\nproduct. The structure of product*B\" is :\nCH3\nC1 --CH, --CH2-CH\n(1)\nCH,Cl\nHC-- CH2 - CH - CH\n2\nCHg\nHC-CH-C-CH\n(3)\nC1\nCHa\nHC-CH-CH\n(4)\nCHg\nC1\nWhat is the correct electronic configuration of",
+    "proposedSubjectCode": "CHEMISTRY",
+    "proposedChapterSlug": "chemistry-hydrocarbons",
+    "proposedTopic": "alkenes-alkynes",
+    "sourceEvidence": "data/previous-year/neet/2019/evidence/quarantine-q074.png",
+    "recoveredTextState": "UNREVIEWED_OCR_NOT_IMPORTABLE",
+    "officialAcceptedOptions": [
+      "C"
+    ],
+    "officialPrintedKeyToken": "3",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdn.aglasem.com/aglasem-doc/c925b19e-2d88-11eb-8a1a-02f21f5619c4/c925b19e-2d88-11eb-8a1a-02f21f5619c4.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/20190605125750.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2019,
+    "examDate": "2019-05-05",
+    "paperCode": "P1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2019:p1:78",
+    "originalQuestionNumber": 78,
+    "sourcePage": 20,
+    "sourceColumn": 2,
+    "reasons": [
+      "DIAGRAM_OR_STRUCTURAL_OPTIONS_NOT_STAGED"
+    ],
+    "recoveredQuestionText": "The major product of the following reaction is :\n78.\nCOOH\nstrong heating\n+ NHg\nEhl\nCOOH\nHOOO\n(1)\nCONH2\nNH\n(2)\nCOOH\n(3)\nNHg\n(4)\nNH2",
+    "proposedSubjectCode": "CHEMISTRY",
+    "proposedChapterSlug": "chemistry-oxygen",
+    "proposedTopic": "carboxylic-acids",
+    "sourceEvidence": "data/previous-year/neet/2019/evidence/quarantine-q078.png",
+    "recoveredTextState": "UNREVIEWED_OCR_NOT_IMPORTABLE",
+    "officialAcceptedOptions": [
+      "B"
+    ],
+    "officialPrintedKeyToken": "2",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdn.aglasem.com/aglasem-doc/c925b19e-2d88-11eb-8a1a-02f21f5619c4/c925b19e-2d88-11eb-8a1a-02f21f5619c4.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/20190605125750.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2019,
+    "examDate": "2019-05-05",
+    "paperCode": "P1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2019:p1:110",
+    "originalQuestionNumber": 110,
+    "sourcePage": 27,
+    "sourceColumn": 2,
+    "reasons": [
+      "EXISTING_NORMALIZED_STEM_COLLISION_REQUIRES_REVIEW"
+    ],
+    "recoveredQuestionText": "Which of the following statements is not correct ?",
+    "recoveredOptions": [
+      "Lysosomes have numerous hydrolytic enzymes.",
+      "The hydrolytic enzymes of lysosomes are active under acidic pH.",
+      "Lysosomes are membrane bound structures.",
+      "Lysosomes are formed by the process of packaging in the endoplasmic reticulum."
+    ],
+    "proposedSubjectCode": "BOTANY",
+    "proposedChapterSlug": "biology-cell-structure-function",
+    "proposedTopic": "cell-organelles",
+    "officialAcceptedOptions": [
+      "D"
+    ],
+    "officialPrintedKeyToken": "4",
+    "duplicateMatches": [
+      {
+        "file": "data/previous-year/neet/2021/questions.json",
+        "externalId": "historical-verified:neet:2021:m4:123",
+        "questionText": "Which of the following statements is not correct ?"
+      }
+    ],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdn.aglasem.com/aglasem-doc/c925b19e-2d88-11eb-8a1a-02f21f5619c4/c925b19e-2d88-11eb-8a1a-02f21f5619c4.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/20190605125750.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2019,
+    "examDate": "2019-05-05",
+    "paperCode": "P1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2019:p1:124",
+    "originalQuestionNumber": 124,
+    "sourcePage": 30,
+    "sourceColumn": 2,
+    "reasons": [
+      "EXISTING_NORMALIZED_STEM_COLLISION_REQUIRES_REVIEW"
+    ],
+    "recoveredQuestionText": "Select the incorrect statement.",
+    "recoveredOptions": [
+      "Inbreeding increases homozygosity.",
+      "Inbreeding is essential to evolve purelines in any animal.",
+      "Inbreeding selects harmful recessive genes that reduce fertility and productivity.",
+      "Inbreeding helps in accumulation of superior genes and elimination of undesirable genes."
+    ],
+    "proposedSubjectCode": "ZOOLOGY",
+    "proposedChapterSlug": "biology-human-welfare",
+    "proposedTopic": "food-production",
+    "officialAcceptedOptions": [
+      "C"
+    ],
+    "officialPrintedKeyToken": "3",
+    "duplicateMatches": [
+      {
+        "file": "data/previous-year/neet/2019/questions.json",
+        "externalId": "historical-verified:neet:2019:p1:121",
+        "questionText": "Select the incorrect statement."
+      }
+    ],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdn.aglasem.com/aglasem-doc/c925b19e-2d88-11eb-8a1a-02f21f5619c4/c925b19e-2d88-11eb-8a1a-02f21f5619c4.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/20190605125750.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2019,
+    "examDate": "2019-05-05",
+    "paperCode": "P1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2019:p1:131",
+    "originalQuestionNumber": 131,
+    "sourcePage": 31,
+    "sourceColumn": 2,
+    "reasons": [
+      "CANONICAL_TAXONOMY_GAP"
+    ],
+    "recoveredQuestionText": "Thiobacillus is a group of bacteria helpful in carrying out :",
+    "recoveredOptions": [
+      "Nitrogen fixation",
+      "Chemoautotrophic fixation",
+      "Nitrification",
+      "Denitrification"
+    ],
+    "proposedSubjectCode": "BOTANY",
+    "proposedChapterSlug": "biology-plant-physiology",
+    "proposedTopic": "mineral-nutrition",
+    "officialAcceptedOptions": [
+      "D"
+    ],
+    "officialPrintedKeyToken": "4",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdn.aglasem.com/aglasem-doc/c925b19e-2d88-11eb-8a1a-02f21f5619c4/c925b19e-2d88-11eb-8a1a-02f21f5619c4.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/20190605125750.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2019,
+    "examDate": "2019-05-05",
+    "paperCode": "P1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2019:p1:144",
+    "originalQuestionNumber": 144,
+    "sourcePage": 34,
+    "sourceColumn": 2,
+    "reasons": [
+      "SCIENTIFIC_NAME_TYPOGRAPHY_NOT_STAGED"
+    ],
+    "recoveredQuestionText": "144.S\nSelect the correctly written scientific name of\nbl be lre hh\nMango which was first described by\n：\nCarolus Linnaeus :\nMangifera indica Car, Linn.\n(1)\nn,\n(2)\nMangifera indica Linn.\n(3)\nMangifera indica\n(4)\nMangifera Indica",
+    "proposedSubjectCode": "BOTANY",
+    "proposedChapterSlug": "biology-diversity-living-world",
+    "proposedTopic": "taxonomy-systematics",
+    "sourceEvidence": "data/previous-year/neet/2019/evidence/quarantine-q144.png",
+    "recoveredTextState": "UNREVIEWED_OCR_NOT_IMPORTABLE",
+    "officialAcceptedOptions": [
+      "B"
+    ],
+    "officialPrintedKeyToken": "2",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdn.aglasem.com/aglasem-doc/c925b19e-2d88-11eb-8a1a-02f21f5619c4/c925b19e-2d88-11eb-8a1a-02f21f5619c4.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/20190605125750.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2019,
+    "examDate": "2019-05-05",
+    "paperCode": "P1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2019:p1:156",
+    "originalQuestionNumber": 156,
+    "sourcePage": 36,
+    "sourceColumn": 2,
+    "reasons": [
+      "EXISTING_NORMALIZED_STEM_COLLISION_REQUIRES_REVIEW"
+    ],
+    "recoveredQuestionText": "Which of the following statements is incorrect ?",
+    "recoveredOptions": [
+      "Viroids lack a protein coat.",
+      "Viruses are obligate parasites.",
+      "Infective constituent in viruses is the protein coat.",
+      "Prions consist of abnormally folded proteins."
+    ],
+    "proposedSubjectCode": "BOTANY",
+    "proposedChapterSlug": "biology-diversity-living-world",
+    "proposedTopic": "biological-classification",
+    "officialAcceptedOptions": [
+      "C"
+    ],
+    "officialPrintedKeyToken": "3",
+    "duplicateMatches": [
+      {
+        "file": "data/previous-year/neet/2021/questions.json",
+        "externalId": "historical-verified:neet:2021:m4:136",
+        "questionText": "Which of the following statements is incorrect ?"
+      }
+    ],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdn.aglasem.com/aglasem-doc/c925b19e-2d88-11eb-8a1a-02f21f5619c4/c925b19e-2d88-11eb-8a1a-02f21f5619c4.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/20190605125750.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2019,
+    "examDate": "2019-05-05",
+    "paperCode": "P1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2019:p1:159",
+    "originalQuestionNumber": 159,
+    "sourcePage": 37,
+    "sourceColumn": 2,
+    "reasons": [
+      "EXISTING_NORMALIZED_STEM_COLLISION_REQUIRES_REVIEW"
+    ],
+    "recoveredQuestionText": "Which of the following statements is incorrect ?",
+    "recoveredOptions": [
+      "Morels and truffles are edible delicacies.",
+      "Claviceps is a source of many alkaloids and LSD.",
+      "Conidia are produced exogenously and ascospores endogenously.",
+      "Yeasts have filamentous bodies with long thread-like hyphae."
+    ],
+    "proposedSubjectCode": "BOTANY",
+    "proposedChapterSlug": "biology-diversity-living-world",
+    "proposedTopic": "biological-classification",
+    "officialAcceptedOptions": [
+      "D"
+    ],
+    "officialPrintedKeyToken": "4",
+    "duplicateMatches": [
+      {
+        "file": "data/previous-year/neet/2021/questions.json",
+        "externalId": "historical-verified:neet:2021:m4:136",
+        "questionText": "Which of the following statements is incorrect ?"
+      }
+    ],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdn.aglasem.com/aglasem-doc/c925b19e-2d88-11eb-8a1a-02f21f5619c4/c925b19e-2d88-11eb-8a1a-02f21f5619c4.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/20190605125750.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2019,
+    "examDate": "2019-05-05",
+    "paperCode": "P1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2019:p1:164",
+    "originalQuestionNumber": 164,
+    "sourcePage": 38,
+    "sourceColumn": 2,
+    "reasons": [
+      "EXISTING_NORMALIZED_STEM_COLLISION_REQUIRES_REVIEW"
+    ],
+    "recoveredQuestionText": "Which of the following statements is correct ?",
+    "recoveredOptions": [
+      "Cornea is an external, transparent and protective proteinacious covering of the eye-ball.",
+      "Cornea consists of dense connective tissue of elastin and can repair itself.",
+      "Cornea is convex, transparent layer which is highly vascularised.",
+      "Cornea consists of dense matrix of collagen and is the most sensitive portion of the eye."
+    ],
+    "proposedSubjectCode": "ZOOLOGY",
+    "proposedChapterSlug": "biology-human-physiology",
+    "proposedTopic": "neural-control",
+    "officialAcceptedOptions": [
+      "D"
+    ],
+    "officialPrintedKeyToken": "4",
+    "duplicateMatches": [
+      {
+        "file": "data/previous-year/neet/2021/questions.json",
+        "externalId": "historical-verified:neet:2021:m4:144",
+        "questionText": "Which of the following statements is correct ?"
+      }
+    ],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdn.aglasem.com/aglasem-doc/c925b19e-2d88-11eb-8a1a-02f21f5619c4/c925b19e-2d88-11eb-8a1a-02f21f5619c4.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/20190605125750.pdf"
+  }
+]

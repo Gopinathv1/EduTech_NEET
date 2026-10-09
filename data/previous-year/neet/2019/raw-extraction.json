@@ -1,0 +1,2526 @@
+{
+  "warning": "Unreviewed OCR evidence only; never import this file.",
+  "method": "RapidOCR on archived P1 booklet at 170 dpi; every numbered boundary manually checked on English source pages",
+  "records": [
+    {
+      "originalQuestionNumber": 1,
+      "sourcePage": 2,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 141,
+        "bottom": 483,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "When a block of mass M is suspended by a long\n11.\nwire of length L, the length of the wire becomes\n(L+)可\n(L + D). The elastic potential energy stored in the\nextended wire is:\n(1)\nMgl\n(2)\nMgL\n1\nMgl\n(3)\n2\n1\nMgL\n(4)\n12",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 2,
+      "sourcePage": 2,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 483,
+        "bottom": 703,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "A mass m is attached to a thin wire and whirled\n2.\nin a vertical circle. The wire is most likely to break\nwhen:\nthe mass is at the highest point\n(1)\n(2)\nthe wire is horizontal\n(3)\nthe mass is at the lowest point\ninclined at an angle of 60° from vertical\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 3,
+      "sourcePage": 2,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 703,
+        "bottom": 951,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Ionized hydrogen atoms and α-particles with same\n3.\nmomenta enters perpendicular to a constant\nmagnetic field, B. The ratio of their radii of their\npaths rH : ra will be :\n(1)\n2:1\n(2)\n1:2\n(3)\n4:1\n(4)\n1:4",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 4,
+      "sourcePage": 2,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 951,
+        "bottom": 1429,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Body A of mass 4m moving with speed u collides\n4.\nA\nwith another body B of mass 2m, at rest. The\ncollision is head on and elastic in nature. After\nthe collision the fraction of energy lost by the\n3a h3\ncolliding body A is :\nm：\n1\n(1)\n9\n8\n(2)\n9\n4\n(3)\n19\n5\n(4)\n19",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 5,
+      "sourcePage": 2,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1429,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "In a double slit experiment, when light of\n5.\nwavelength 400 nm was used, the angular width\nof the first minima formed on a screen placed 1 m\naway, was found to be 0.2*. What will be the\nangular width of the first minima, if the entire\nexperimental apparatus is immersed in water ?\n(μwater = 4/3)\n(1)\n0.266°\n(2)\n0.15°\n(3)\n0.05°\n(4)\n0.1°",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 6,
+      "sourcePage": 3,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 124,
+        "bottom": 387,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "In which of the following devices, the eddy current\n6.\neffect is not used ?\ninduction furnace\n(1)\nmagnetic braking in train\n(2)\nelectromagnet\n(e)\nelectric heater\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 7,
+      "sourcePage": 3,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 387,
+        "bottom": 766,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "A soap bubble, having radius of 1 mm, is blown\n7.\nfrom a detergent solution having a surface tension\nof2.5 x 10- 2 N/m. The pressure inside the bubble\nequals at a point Zq below. the free surface of water\nTaking g=10 m/s2,\nin a container.\ndensity of water = 103 kg/m?, the value of Zo is :\n100 cm\n(1)\n(2)\n10 cm\n1 cm\n(e)\n(4)\n.0.5 cm.",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 8,
+      "sourcePage": 3,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 766,
+        "bottom": 1051,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Which colour of the light has the longest\n8.\nwavelength ?\nred\n(1)\nblue\n(2)\n(3)\ngreen\nviolet\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 9,
+      "sourcePage": 3,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1051,
+        "bottom": 1342,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "A.disc of radius 2 m and mass 100 kg rolls on a\n9.\nhorizontal floor. Its centre of masa has speed of\n20 cm/s. How much work is needed to stop it ?\n3J\n(1)\n30kJ\n(2)\n2J\n(3)\n1J\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 10,
+      "sourcePage": 3,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1342,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "The displacement of a particle executing simple\n10.\nharmonic motion is given by\ny= Ag +A sinwt + B cosot.\nThen the amplitude of its oscillation is given by :\nA +√A²+ B2\n(1)\n(2)\n√A2 + B2\n√A+ (A+B)2\n(3)\nA+B\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 11,
+      "sourcePage": 4,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 124,
+        "bottom": 526,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Two similar thin equi-convex lenses, of focallength\n11.\nfeach, are kept coaxially in contact with each other\nsuch that the focal length of the combination is\n司\nF1. When the space between the two lenses is\n=1.5)市可限\nfilled with glycerin (which has the same refractive\nindex (μ = 1.5) as that of glass) then the equivalent\nF2 1 3G9\nfocal length is F2. The ratio F1 : F2 will be :\n(1)\n2:1\n1:2\n(2)\n(3)\n2:3\n(4)\n3:4",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 12,
+      "sourcePage": 4,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 526,
+        "bottom": 771,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Increase in temperature of a gas filled in a container\n12.\nwould lead to :\nincrease in its mass\n(1)\nincrease in its kinetic energy\n(2)\n(3)\ndecrease in its pressure\n(4)\ndecrease in intermolecular distance\nERI afaforq",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 13,
+      "sourcePage": 4,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 771,
+        "bottom": 1048,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": " An electron is accelerated through a potential\n13.\n：（E）\ndifference of 10,000 V. Its de Broglie wavelength\nis, (nearly) : (me =9x 10-31 kg)\n12.2 x 10- 13 m\n(1)\n12.2 x 10 - 12 m\n(2)\n12.2 × 10-14 m\n(3)\n12.2 nm\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 14,
+      "sourcePage": 4,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1048,
+        "bottom": 1376,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "A copper rod of 88 cm and an aluminium rod of\n14.\nunknown length have their increase in length\nindependent of increase in temperature. The length\nof aluminium rod is : (αcu = 1.7 x10-5 K-1 and\n×10-5K-1)\nαAl= 2.2 × 10 -5 K-1)\n(1)\n6.8 cm\n(2)\n113.9 cm\n88 cm\n(3)\n(4)\n68 cm",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 15,
+      "sourcePage": 4,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1376,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Pick the wrong answer in the context with\n15.\nrainbow.\n(1)\nWhen the light rays undergo two internal\nreflections in a water drop, a secondary\nrainbow is formed.\nThe order of colours is reversed in the\n(2)\nsecondary rainbow.\n司\n(8)\nAn observer can see a rainbow when his front\nis towards the sun.\nRainbow is a combined effect of dispersion,\n(4)\nrefraction and reflection of sunlight.",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 16,
+      "sourcePage": 5,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 117,
+        "bottom": 380,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "A body weighs 200 N on the surface of the earth.\n16.\nHow much will it weigh half way down to the centre\nof the earth ?\n150 N\n(1)\n200 N\n(2)\n250 N\n(3)\n100 N\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 17,
+      "sourcePage": 5,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 380,
+        "bottom": 1089,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Six similar bulbs are connected as shown in the\n17.\nfigure with a DC source of emf E, and zero internal\nresistance.\nThe ratio of power consumption by the bulbs when\n(i) all are glowing and (i) in the situation when\ntwo from section A and one from section.B are\nglowing, will be :\nA\nB\n00\n00\n4:9\n(1)\n9 :4\n(2)\n(3)\n1:2\n(4)\n2:1",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 18,
+      "sourcePage": 5,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1089,
+        "bottom": 1420,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "For a p-type semiconductor, which of the following\n18.\nstatements is true?\nElectrons are the majority carriers and\n(1)\ntrivalent atoms are the dopants.\nHoles are the majority carriers and trivalent.\n(2)\natoms are the dopants.\nHoles are the majority carriers and\n(③)\npentavalent atoms are the dopants.\nElectrons are the majority carriers and\n(4)\npentavalent atomg are the dopants.",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 19,
+      "sourcePage": 5,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1420,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Average velocity of a particle executing SHM in\n19.\none complete vibration is :\nAo\n(1)\n2\n(2)\nAo\nAa?\n(3)\n2\n(4)\nzero",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 20,
+      "sourcePage": 6,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 112,
+        "bottom": 352,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "20.\nThe unit of thermal conductivity is :\nJm K-1\n(1)\nJm-1K-1\n(2)\nW m K-1\n(3)\nWm-1 K-1\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 21,
+      "sourcePage": 6,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 352,
+        "bottom": 646,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "A solid cylinder of mass 2 kg and radius 4 cm is\n21.\n2π\nrotating about its axis at the rate of 3 rpm. The\ntorque required to stop after 2π revolutions is :\n2x10-6 N m\n(1)\n2×10-3N m\n(2)\n(e)\n12 x 10- 4 N m\n2 ×106 N m\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 22,
+      "sourcePage": 6,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 646,
+        "bottom": 968,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "k plb Ao1 + 0\nA force F = 20 + 10y acts on a particle in y-direction\n22.\nwhere F is in newton and y in meter. Work done\n0=^使\nby this force to move the particle from\ny=0 to y= 1 m is :\n30 J\n(1)\n(2)\n5J\n25J\n(3)\n20 J\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 23,
+      "sourcePage": 6,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 968,
+        "bottom": 1234,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Which of the following acts as a circuit protection\n23.\ndevice?\n(1)\nconductor\n(2)\ninductor\n(3)\nswitch\nfuse\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 24,
+      "sourcePage": 6,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1234,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "In the circuits shown below, the readings of the\n24.\nvoltmeters and the ammeters will be :\n100\ni1\n100\n10.0\n10V\n10 V\n10 V\nCircuit 1\nCircuit 2\nV2>V1 and i=i2\n(1)\nV=V2 and i>i2\n(2)\nV1= V2 and i=i2\n(3)\nV>V, and i>i2\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 25,
+      "sourcePage": 7,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 122,
+        "bottom": 480,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "A hollow metal sphere.of radius R is: uniformrly\n25.\ncharged. The electric field due to the sphere at a\ndistance r from the centre :\nincreases as r increases for r < R and for\n(1)\nr >R\nzero as r increases for r < R, decreases as r\n(2)\nincreases for r > R\n: zero as r increases for r <R,increases asr\n(3)\nincreases for r > R. ::\n：\ndecreases as r increases for r< R and for\n(4)\nr>R",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 26,
+      "sourcePage": 7,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 480,
+        "bottom": 888,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "At a point A on the earth's surface the angle of\n26.\ndip, 8= + 25°. At a point B on the earth's surface\nthe angle of dip, 8=.-25°.. We can interpret\nthat:\nA and B are both located in the northern\n(1)\nhemisphere...\nA is located in the southern hemisphere and\n(2)\nB is located in the northern hemisphere.\nA is located in the northern heimisphere and\n(3)\nB is located in the southern hemisphere.\nA and B are both located in.the southern\n(4)\nhemisphere.",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 27,
+      "sourcePage": 7,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 888,
+        "bottom": 1132,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "The total energy of an electron in an atom in an\n27.\norbit is -- 3.4 eV. Its kinetic and.potential energies\nare, respectivély :\n.\n-3.4eV,-3.4eV\n(1)\n-3.4eV,-6.8eV\n(2)\n3.4eV,-6.8eV\n(3)\n3.4eV,3.4eV\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 28,
+      "sourcePage": 7,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1132,
+        "bottom": 1406,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "In total internal reflection when the.angle of\n28.\nincidenice is equal to the critical angle for the pair\nof media in.contact, what will be angle of\nrefraction?\n180°\n(1)\n0\n(2)\nequalto angle ofincidence\n(3)\n90°\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 29,
+      "sourcePage": 7,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1406,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "The work done to raise a mass m from the surface\n29.\nof the earth to a height h, which is equal to the\nradius of the earth, is :\nmgR\n(1)\n2mgR\n(2)\n1\nmgR\n(3)\n12\n3\nmgR.\n(4)\n12",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 30,
+      "sourcePage": 8,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 113,
+        "bottom": 569,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "When an object is shot from the bottom of a long\n*08\nsmooth inclined plane kept at an angle 60° with\nhorizontal, it can travel a distance x, along the\nplane. But when the inclination is decreased to\n30° and the same object is shot with the same\nvelocity, it can travel xy distance. Then x : x2\n司\nwill be :\n(1)\n1:√2\n√2 :1\n(2)\n(3)\n1:√3\n(4)\n1: 2√3",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 31,
+      "sourcePage": 8,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 569,
+        "bottom": 796,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "α-particle consists of :\n31.\n2 protons and 2 neutrons only\n(1)\n(2)\n2 electrons, 2 protons and 2 neutrons\n(3)\n2 electrons and 4 protons only\n(4)\n2 protons only",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 32,
+      "sourcePage": 8,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 796,
+        "bottom": 1190,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "The speed of a swimmer in still water is 20 m/s.\n32.\nThe speed of river water is 10 m/s and is flowing\ndue east. If he is standing on the south bank and\n毕bh上B地\nwishes to cross the river along the shortest path,\nthe angle at which he should make his strokes\nw.r.t. north is given by :\n(1)\n30° west\n(2)\n0\n(③)\n60° west\n(4)\n45° west",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 33,
+      "sourcePage": 8,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1190,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "A particle moving with velocity V is acted by three\n33.\nforces shown by the vector triangle PQR. The\nvelocity of the particle will :\nR\n(1)\nincrease\n(2)\ndecrease\n(3)\nremain constant\nchange according to the smallest force QR\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 34,
+      "sourcePage": 9,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 123,
+        "bottom": 406,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Two particles A and B are moving in uniform:\n34:\ncircular motion in concentric circles. of radii\nIA and rg with speed uA and up respectively. Their\ntime period of rotation ig the same. The ratio of\nangular apeed of A to that of B will be: \n(1)\nrA\"rB\n(2)\nVA:UB\n(8)\nrB:rA\n(4)\n1: 1",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 35,
+      "sourcePage": 9,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 406,
+        "bottom": 835,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "A block of mass 10 kg is in contact against the\n35.\ninner wall of a hollow cylindrical drum of radius\n1 m. The coefficient of friction between the block\nand the inner wall of the cylinder is 0.1. The\nminimum angular velocity needed for the cylinder\nto keep the block stationary when.the cylinder is\nvertical and rotating about its axis, will be':\n(g= 10 m/s²):1.\ns/per 01\n(1)\n10\nrad/s\n(2)\n2T\n10 rad/s\n(3)\n④\n10 πrad/s.",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 36,
+      "sourcePage": 9,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 835,
+        "bottom": 1307,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "36:. :Two parallel. infinite line charges with linear\ncharge densities +A C/m and -A C/m are placed\nat a distance of 2R in free space. What is the\nelectric field mid-way between the two line\ncharges?\n(1)\nzero\n2入\nN/C\n(2)\nTEgR\nN/C\n(③)\nTEgR\n入\nN/C\n(4)\n2Te0R",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 37,
+      "sourcePage": 9,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1307,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Two point charges A and B, having charges\n37.\n+ Q and - Q respectively, are placed at certain\ndistance apart and force acting between them is\nF. If 25% charge of A is transferred to B, then\nforce between the charges becomes :\n(1)\nF\n9F\n(2)\n16\n16F\n(3)\n9\n4F\n(4)\n3",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 38,
+      "sourcePage": 10,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 119,
+        "bottom": 526,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "A small hole of area of cross-section 2 mm2 is\n38.\npresent near the bottom of a fully filled open tank\nof height 2 m. Taking g= 10 m/s2, the rate of flow\nof water through the open hole would be nearly :\n12.6 x 10 -6 m3/g\n(1)\n8.9 x10-6 m/s\n(2)\n2.23x 10-6 m°/g\n(3)\n6.4× 10-6 m3/s\n(4)\n+6V",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 39,
+      "sourcePage": 10,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 526,
+        "bottom": 1121,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "39.\nR\nA1\nLED (Y)\nR\n0\nB\n1\n:EEEK\nThe correct Boolean operation represented by the\ncircuit diagram drawn is :\n(1)\nAND\n(2)\nOR·\n(e)\nNAND\n(4)\nNOR.\n上 Ne bleg be\ng l",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 40,
+      "sourcePage": 10,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1121,
+        "bottom": 1406,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "In which of the following processes, heat is neither\n40.\nabsorbed nor released by a system ?\nisothermal\n(1)\n(2)\nadiabatic\n(e)\nisobaric\n(4)\nisochoric",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 41,
+      "sourcePage": 10,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1406,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "A 800 turn coil of effective area 0.05 m2 is kept\n41.\nperpendicular to a magnetic field 5 x 10-5 T.\nWhen the plane of the coil is rotated by 90° around\nft\nany of its coplanar axis in 0.1 s, the emf induced\nin the coil will be :\n2V\n(1)\n(2)\n0.2V\n2x10-3V\n(e)\n(4)\n0.02V",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 42,
+      "sourcePage": 11,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 142,
+        "bottom": 949,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "The radius of circle, the period of revolution, initial\n42.\nposition and sense of revolution are indicated in\nthe fig.\nP(t =0)\nT=4s\n3m\n y - projection of the radius vector of rotating particle\nPis :\ny(t)= - 3 cos2t, where y in m\n(1)\ny(t) = 4 sin\nwhere y in m\n(2)\n3mt\ny(t)= 3 cos\n, where y in m\n(3)\n2\nL\ny(t) = 3 cos\n,where y in m\n(4)\n2",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 43,
+      "sourcePage": 11,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 949,
+        "bottom": 1324,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "A parallel plate capacitor of capacitance 20 μF is\n43.\nbeing charged by a voltage source whose potential\n611\nis changing at the rate of 3 V/s. The conduction\ncurrent through the connecting wires, and the\n上h\ndisplacement current through the plates of the\ncapacitor, would be, respectively :\nzero, 60 μA\n(1)\n60 μA, 60 μA\n(2)\n60 μA, zero\n(3)\n(4)\nzero, zero",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 44,
+      "sourcePage": 11,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1324,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "In an experiment, the percentage of error occurred\n44.\n共\nin the measurement of physical quantities A, B, C\n4%\nand D are 1%, 2%, 3% and 4% respectively. Then\nthe maximum percentage of error in the\nA²Bx\nC Da , will be:\nmeasurement X, where X =\n(1)\n(2)\n16%\n-10%\n(3)\n10%\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 45,
+      "sourcePage": 12,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 134,
+        "bottom": 1306,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "  \nA cylindrical conductor of radius R is carrying a\n45.\nconstant current. The plot of the magnitude of\n出 lal oly\nthe magnetic field, B with the distance, d, from\nRaqu fufafad\nthe centre of the conductor, is correctly\nrepresented by the figure:\nB\n(1)\nR\nd\nB\n(2)\nR\nd\nB\n(3)\nR\np\nB\n(4)\nR\nP\n华斯le (t)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 46,
+      "sourcePage": 12,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1306,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "The number of sigma (o) and pi (t) bonds in\n46.\npent-2-en-4-yne is :\n10o bonds and 3πbonds\n(1)\n8o bonds and 5 vbonds\n(2)\n11 o bonds and 2 π bonds\n(3)\n13 o bonds and no v bond\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 47,
+      "sourcePage": 13,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 141,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "47.\nreaction, is :\nOH\nCH\nCHg\n0\n02\nH+\n+ HgC人CH;\nH20\nCH3\nCHg\n(1)\nCH3\nHsC-C-O-O-H\n2\nCHg\n0-O-CH\nCH3\n(3)\nCH2-O-O-H\nHC\nCH3\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 48,
+      "sourcePage": 14,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 130,
+        "bottom": 764,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "48.\nThe correct structure of tribromooctaoxide is :\n0\n0\n0\nO=Br-Br-Br =O\n(1)\nⅡ\n0\n0\n0\n0\nO =Br-Br\n(2)\n0\n0\nO -Br-Br-Br= O\n(3)\n0\n0\n0\n0\nO=Br-]\nBr -\nBr\n(4)\n0\n0",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 49,
+      "sourcePage": 14,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 764,
+        "bottom": 985,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "49.\n4d, 5p, 5f and 6p orbitals are arranged in the order\nof decreasing energy. The correct option is :\n(1)\n5f> 6p > 5p > 4d\n(2)\n6p > 5f> 5p > 4d\n6p >5f> 4d > 5p\n(3)\n5f > 6p > 4d > 5p\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 50,
+      "sourcePage": 14,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 985,
+        "bottom": 1452,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Which of the following reactions are\n50.\ndisproportionation reaction ?\n2Cu+ →Cu2+ +Cu\n(a)\n3MnO2- + 4H+ →> 2MnO7 +MnOg +2H0\nnO2+2H2O\n(b)\nO2+ 0z\n2KMnO4 , K2MnO4 + MnO2 + O2\n(c)\nInO2 +4H\n2MnO +3Mn2+ +2H20 → 5MnOg +4H\n(d)\nSelect the correct option from the following :\n(a) and (b) only\n(1)\n(2)\n(a), (b) and (c)\n(3)\n(a), (c)and (d)\n(a) and (d) only\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 51,
+      "sourcePage": 14,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1452,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Under isothermal condition, a gas at 300 K\n51.\nexpands from 0.1 L to 0.25 L against a constant\nRR \nexternal pressure of2 bar. The work done by the\ngas is :\n[Given that 1 L bar = 100 J]\n- 30J\n(1)\n(2)\n5kJ\n(3)\n25 J\n(4)\n30J",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 52,
+      "sourcePage": 15,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 155,
+        "bottom": 409,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Among the following, the one that is not a\n52.\ngreen house gas is.:\nnitrous oxide\n(1)\nmethane\n(2)\n(3)\nozone\nsulphur dioxide\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 53,
+      "sourcePage": 15,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 409,
+        "bottom": 832,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "For the cell reaction\n53.\n2Fe?+(aq) +2I-(aq) →2Fe2+(ag) + I2(aq)\nEeen = 0.24 V at 298 K. The ;standard Gibbs\n市\nenergy (A,G) of the cell reactionis :\n[Given that Faraday constant F = 96500 C mol - 1]\n- 46.32 kJ mol- 1\n(1)\n- 23.16 kJ mol - 1\n(2)\n46.32 kJ mol - 1\n(e)\n23.16.kJ mol-1\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 54,
+      "sourcePage": 15,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 832,
+        "bottom": 1110,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Enzymes that utilize ATP in phosphate transfer\n54.\nrequire an alkaline earth metal (M) as the cofactor.\nM is :\nBe\n(1)\nMg\n(2)\nCa\n(3)\nS\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 55,
+      "sourcePage": 15,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1110,
+        "bottom": 1546,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "The most suitable reagent for the following\n55.\nconversion, is :\nCHg\nHgC\n3\nHC-C= C-CHs\nH\nH\ncis-2-butene\nNa /liquid NHg\n(1)\nH, Pd/C, quinoline\n(2)\nZn / HC1\n(3)\nHg²+ /H+, H2O\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 56,
+      "sourcePage": 15,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1546,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Which is the correct thermal stability order for\n56.\nHE (E =O, S, Se, Te and Po) ?\nHgS < H2O < HSe < H2Te < HP6 :\n(1)\n< H,Te < HPo\nHO<HS\n(2)\nH2Po < H2Te < HSe < H2S < H2O\n(3)\nH2Se < H2Te < HPo < H2O < HS\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 57,
+      "sourcePage": 16,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 150,
+        "bottom": 425,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "57.\nWhich of the following is incorrect statement ?\n(1)\nPbF4 is covalent in nature\nSiCl, is easily hydrolysed\n(2)\n(3)\nGeX4 (X =F, Cl, Br, I) is more stable than\nGeXz\n(4)\nSnF4 is ionic in nature",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 58,
+      "sourcePage": 16,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 425,
+        "bottom": 972,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "58.\nMatch the following :\nPure nitrogen\n(a)\nChlorine\n(b)\nHaber process\nSulphuric acid\n(i)\nLilebyhh\n(c)\nContact process\nAmmonia\n(ii)\n(d)\nDeacon's process\nSodium· azide or\n(iv)\nf34H da5s\nBariun azide\nWhich of the following is the correct option ?\n(a)\n(q)\n(c)\n(d)\n(1)\n(i)\n#\n(ii)\n(iv)\n(2)\n(i)\n(iv)\n(ii)\n(3)\n(ii)\n(iv)\n(ti)\n(i\n(4)\n(iv)\n(ii)\n(i)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 59,
+      "sourcePage": 16,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 972,
+        "bottom": 1278,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Which of the following diatomic molecular species\n59.\nhas only v bonds according to Molecular Orbital\nTheory ?\n(1)\n70\nN2\n(2)\n(3)\nC2\nBeg\n(4)\nL E",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 60,
+      "sourcePage": 16,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1278,
+        "bottom": 1556,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "For the second period elements the correct\n60.\nincreasing order of first ionisation enthalpy is :\n<Ne\n(1)\nLi<Be<B<C<N<O<F<Ne\n<Ne\n(2)\nLi<B<Be<C<O<N<F<Ne\n^Ne\n(3)\nLi<B<Be<C<N<O<F<Ne\n<Ne\n(4)\nLi<Be<B<C<O<N<F<Ne",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 61,
+      "sourcePage": 16,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1556,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "The biodegradable polymer is:\n61.\nnylon-6, 6\n(1)\n(2)\nnylon 2-nylon 6\n(3)\nnylon-6\n(4)\nBuna-S",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 62,
+      "sourcePage": 17,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 160,
+        "bottom": 430,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "pH of a saturated solution of Ca(OH)2 is 9. The\n62.\nsolubility product (Ksp) of Ca(OH)2 is :\n0.5×10- 15\n(1)\n0.25 x 10 - 10\n(2)\n0.125 x 10~ 15\n(3)\n0.5 x10-10\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 63,
+      "sourcePage": 17,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 430,
+        "bottom": 727,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "If the rate constant for a first order reaction is k,\n63.\nthe time (t) required for the completion of 99% of\nthe reaction is given by :\nt=0.693/k\n(1)\nt=6.909/k\n(2)\nt=4.606/k\n(3)\nt=2.303/k\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 64,
+      "sourcePage": 17,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 727,
+        "bottom": 996,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": " The non-essential amino acid among the following\n64.\ni8 :\nvaline\n(1).\nleucine\n(2)\n(3)\nalanine\nlysine\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 65,
+      "sourcePage": 17,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 996,
+        "bottom": 1532,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Among the following, the reaction that proceeds\n65.\nthrough an electrophilic substitution, is :\nCugClg\nCl+N2\nNgC1-\n(1)\nA1Clg\nCl+HCl\n(2)\nC1\nC1\nUV light, C1-\nC1\n(3)\nCl\nC1\n1\nCHOH+ HCheat\nCH,C1+ HO\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 66,
+      "sourcePage": 17,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1532,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "The mixture that forms maximum boiling\n66.\nazeotrope is :\nWater + Nitric acid\n(1)\nEthanol+ Water\n(2)\nAcetone + Carbon disulphide\n(8)\nHeptane + Octane\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 67,
+      "sourcePage": 18,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 156,
+        "bottom": 650,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "67.\nFor the chemical reaction\nNg(g) + 3H2(g) = 2NHg(g)\nthe correct option is :\nd[H2]\nd[NHg]\n1\n1\n3\n(1)\n3\ndt\n2\ndlt\nd[N2]\nd[NHg]\n(2)\ndt\ndt\nd[N2]\nd[NHg]\n1\n(3)\n12\ndlt\ndt\nd[H2]\nd[NHg]\n(4)\n3\ndt\ndt",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 68,
+      "sourcePage": 18,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 650,
+        "bottom": 919,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "68.\nThe number of moles of hydrogen molecules\nrequired to produce 20 moles of ammonia through\nHaber's process is:\n(1)\n10\n(2)\n20\n(3)\n30\n(4)\n40",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 69,
+      "sourcePage": 18,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 919,
+        "bottom": 1341,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "The compound that is most difficult to protonate\n69.\ni8 :\n(1)\nH\n~H\n(2)\nHgC\nH\n(3)\nHC\nCH\n(4)\nPh -\nH",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 70,
+      "sourcePage": 18,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1341,
+        "bottom": 1555,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "For an ideal solution, the correct option is :\n70.\nAmix S =0 at constant T and P\n(1)\nAmix V≠0 at constant T and P\n(2)\nAmix H =0 at constant T and P\n(③)\nAmix G = 0 at constant T and P\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 71,
+      "sourcePage": 18,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1555,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Conjugate base for Bronsted acids HzO and HF\n71.\nare:\n OH- and HF+,respectively\n(1)\nHO+ and F-, respectively\n(2)\nOH- and F-, respectively\n(3)\nHO+ and H,F+, respectively\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 72,
+      "sourcePage": 19,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 162,
+        "bottom": 426,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "72.\nformation of negatively charged colloidal [Agl]I -\nsol.?\n50 mL of 1 M AgNOg + 50 mL of 1.:5 M KI\n(1)\n50 mL of 1 M AgNOg + 50 mL of 2 M KI\n(2)\n50 mL of 2 M AgNOg + 50 mL of 1.5 M KI\n(3)\n50 mL of 0.1 M AgNOg + 50 mL of 0.1 M KI\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 73,
+      "sourcePage": 19,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 426,
+        "bottom": 663,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Among the following, the narrow spectrum\n73.\nantibiotic is :\npenicillin G\n(1)\nampicillin\n(2)\namoxycillin\n(3)\nchloramphenicol\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 74,
+      "sourcePage": 19,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 663,
+        "bottom": 1399,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "An alkene *A\"on reaction with Og and Zn-HgO\n74.\nT\ngives propanone and ethanal in equimolar ratio.\nAddition ofHCl to alkene “A” gives “B” as the major\nproduct. The structure of product*B\" is :\nCH3\nC1 --CH, --CH2-CH\n(1)\nCH,Cl\nHC-- CH2 - CH - CH\n2\nCHg\nHC-CH-C-CH\n(3)\nC1\nCHa\nHC-CH-CH\n(4)\nCHg\nC1\nWhat is the correct electronic configuration of",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 75,
+      "sourcePage": 19,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1399,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "75.\nthe central atom in K4[Fe(CN)] based on crystal\nfield theory ?\n(1)\n6\n(2)\n(3)\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 76,
+      "sourcePage": 20,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 158,
+        "bottom": 483,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "：\nIdentify the incorrect statement related to PClg\n76.\nfrom the following :\n120可\nThree equatorial P -- Cl bonds make an angle\n(1)\nof 120° with each other\n180可\nTwo axial P -- Cl bonds make an angle of 180°\n(2)\nwith each other\nAxial P - CI bonds are longer than equatorial\n(③)\nP-Cl 3\nP- Clbonds\nPCls molecule is non-reactive\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 77,
+      "sourcePage": 20,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 483,
+        "bottom": 797,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "77.\nWhich will make basic buffer ?\n(1)\n50 mL of 0.1 M NaOH+ 25 mL of 0.1 M\nM CH,C0OH\nCH,COOH\n(2)\n100 mL of 0.1 M CHgCOOH + 100 mL of\n+ 0.1 M NaOH\n0.1 M NaOH\n100 mL of 0.1 M HCl+200 mL of\n(3)\n0.1 M NH4OH\n HO\"HN N\n(4)\n100 mL of 0.1 M HCl+ 100 mL of 0.1 M\nNaOH\nM NaOH ",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 78,
+      "sourcePage": 20,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 797,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "The major product of the following reaction is :\n78.\nCOOH\nstrong heating\n+ NHg\nEhl\nCOOH\nHOOO\n(1)\nCONH2\nNH\n(2)\nCOOH\n(3)\nNHg\n(4)\nNH2",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 79,
+      "sourcePage": 21,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 151,
+        "bottom": 766,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Match the Xenon compounds in Column - I with\n79.\nits structure in Column - II and assign the\ncorrect code:\nColumn - I1\nColumn - I\nXeF4\npyramidal\n(a)\nsquare planar\nXeF6\n(i)\n(b)\ndistorted octahedral\nXeOF4\n(ii)\n(@)\nsquare pyramidal\n(iv)\nXeOg\n(d)\nCode :\n(d)\n(a)\n(b)\n(c)\n(iv)\n(i)\n(ii)\n(i\n(1)\n(i)\n(ii)\n(iv)\n(2)\n(i)\n(i\n(iv)\n(i)\n(8)\n(i)\n(ii)\n(iv)\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 80,
+      "sourcePage": 21,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 766,
+        "bottom": 1127,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "The manganate and permanganate ions are\n补心\n80.\ntetrahedral, due to :\nThe v- bonding involves overlap of p-orbitals\n(1)\nof oxygen with d-orbitals of manganese\nThere is no v- bonding\n(2)\nThe v- bonding involves overlap of p-orbitals\n(3)\nof oxygen with p-orbitals of manganese\n上\nThe v- bonding involves overlap of d-orbitals\n(4)\nof oxygen with d-orbitals of manganese",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 81,
+      "sourcePage": 21,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1127,
+        "bottom": 1393,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Which of the following species is not stable ?\n81.\n[SiF,]2-\n(1)\n[GeClg]2--\n(2)\n[Sn(OH)g]2-\n(e)\n[SiClg]2-\n(4)\nFor a cell involving one electron Eem = 0.59 V at",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 82,
+      "sourcePage": 21,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1393,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "82.\n8K\n298 K, the equilibrium constant for the cell reaction\nis :\n2.303 RT\n= 0.059 V at T = 298 K\nGiven that\nF\n1.0× 102\n(1)\n1.0 x 105\n(2)\n1.0 x 1010\n(3)\n1.0× 1030\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 83,
+      "sourcePage": 22,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 147,
+        "bottom": 401,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "？\nWhich of the following is an amphoteric\n83.\nhydroxide ?\nSr(OH)2\n(1)\nCa(OH)2\n(2)\nMg(OH)2\n(3)\nBe(OH)2\n(4)\n31, 34",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 84,
+      "sourcePage": 22,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 401,
+        "bottom": 709,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "A gas at 350 K and 15 bar has molar volume\n84.\n20 percent smaller than that for an ideal gas under\nthe same conditions. The correct option about\nthe gas and its compressibility factor (Z) is:\n(1)\nZ > 1 and attractive forces are dominant\n(2)\nZ > 1 .and repulsive forces are dominant\n(3)\nZ < 1 and attractive forces are dominant\n(4)\nZ < 1 and repulsive forces are dominant",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 85,
+      "sourcePage": 22,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 709,
+        "bottom": 1017,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "A compound is formed by cation C and anion A.\n85.\nThe anions form hexagonal close packed (hcp)\nlattice and the cations occupy 75% of octahedral\nyoids. The formula of the compound is :\nC2A3\n(1)\nCgA2\n(2)\nCgA4\n(8)\nC4A3\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 86,
+      "sourcePage": 22,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1017,
+        "bottom": 1259,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": " In which case change in entropy is negative ?\n86.\n(1)\nEvaporation of water\n(2)\nExpansion of a gas at constant temperature\n(3\nSublimation of solid to gas\n2H(g) →>H2(g)\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 87,
+      "sourcePage": 22,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1259,
+        "bottom": 1538,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Which of the following series of transitions in the\n87.\nspectrum of hydrogen atom falls in visible\nregion?\nLyman series\n(1)\n(2)\nBalmer series\n(3)\nPaschen series\nBrackett series\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 88,
+      "sourcePage": 22,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1538,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "88.\nThe method used to remove temporary hardness\nof water is :\nCalgon's method\n(1)\n(2)\nClark's method\nIon-exchange method\n(3)\nSynthetic resins method\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 89,
+      "sourcePage": 23,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 130,
+        "bottom": 400,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Which one is malachite from the following ?\n89.\nCuFeS2\n(1)\nCu(OH)2\n(2)\nFegO4\n(3)\nCuCOg.Cu(OH)2\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 90,
+      "sourcePage": 23,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 400,
+        "bottom": 695,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "The correct order of the basic strength of methyl\n90.\nsubstituted amines in aqueous solution is :\n(CHg)2NH > CHNH2 > (CH3)gN\n(1)\n(CH)3N > CH,NH, > (CH3)2NH\n(2)\n(CH)N > (CH)2NH > CHgNH2\n(3)\nCHNH2 > (CH)2NH > (CH)3N\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 91,
+      "sourcePage": 23,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 695,
+        "bottom": 1104,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "The Earth Summit held in Rio de Janeiro in 1992\n91.\nwas called :\nto reduce COg emissions and global\n(1)\nwarming.\nfor conservation of biodiversity and\n(2)\nsustainable utilization of its benefits.\nto assess threat posed to native species by\n(3)\ninvasive weed species.\nfor immediate steps to discontinue use of\n(4)\nCFCs that were damaging the ozone layer.",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 92,
+      "sourcePage": 23,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1104,
+        "bottom": 1461,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Colostrum, the yellowish fluid, secreted by mother\n92.\nduring the initial days oflactation is very essential\nto impart imm unity to the newborn infants because\nit contains :\nNatural killer cells\n(1)\nMonocytes\n(2)\nMacrophages\n(3)\nImmunoglobulin A\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 93,
+      "sourcePage": 23,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1461,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Grass leaves curl inwards during very dry\n93.\nweather. Select the most appropriate reason from\n1\nthe following:\nClosure of stomata\n(1)\nFlaccidity ofbulliform cells\n(2)\nShrinkage of air spaces in spongy mesophyll\n(e)\nTyloses im vessels\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 94,
+      "sourcePage": 24,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 132,
+        "bottom": 405,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "The shorter and longer arms of a submetacentric\n94.\nchromosome are referred to as:\ns-arm and I-arm respectively\n(1)\n(2)\np-arm and q-arm respectively\n(e)\nq-arm and p-arm respectively\nm-arm and n-arm respectively\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 95,
+      "sourcePage": 24,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 405,
+        "bottom": 650,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Respiratory Quotient (RQ) value of tripalmitin is :\n96.\n(1)\n0.9\n(2)\n0.7\n(3)\n0.07\n(4)\n0.09",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 96,
+      "sourcePage": 24,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 650,
+        "bottom": 923,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Which of the following is a commercial blood\n96.\ncholesterollowering agent ?\n(1)\nCyclosporin A\n(2)\nStatin\nStreptokinase\n(3)\nLipases\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 97,
+      "sourcePage": 24,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 923,
+        "bottom": 1487,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Match the following structures with their\n97.\n上l bl $\nrespective location in organs :\n(a)\nCrypts of Lieberkihn\nPancreas\ni\n(b)\nGlisson's Capsule\n(i)\nDuodenum\n(C)\nIslets of Langerhans\n(ii)\nSmall\nintestine\n(d)\nBrunner's Glands\nLiver\n(iv)\nSelect the correct option from the following:\n(a)\n(9)\n(c)\n(d)\n(ii)\n(1)\n(i\n(i)\n(iv)\n(2)\n(i)\n(iv)\n(i\n(ii)\n(iv)\n(3)\n(ii)\n(i\n(i)\n(4)\n(i)\n(i)\n(i\n(iv)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 98,
+      "sourcePage": 24,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1487,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "98.\nWhich of the following is the most important cause\nfor animals and plants being driven to\n可？\nextinction?\n(1)\nHabitat loss and fragmentation\n(2)\nDrought and floods\nEconomic exploitation\n(3)\nAlien species invasion\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 99,
+      "sourcePage": 25,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 137,
+        "bottom": 401,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Which part of the brain is responsible for\n'66\nthermoregulation?\nCerebrum\n(1)\nHypothalamus\n(2)\nCorpus callosum\n(e)\n(4)\nMedulla oblongata",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 100,
+      "sourcePage": 25,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 401,
+        "bottom": 827,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Consider following features :\n100.\nOrgan system level of organisation\n(a)\n(b)\nBilateral symmetry\nTrue coelomates with segmentation of body\n(c)\nSelect the correct option of animal groups which\npossess all the above characteristics.\nAnnelida, Arthropoda and Chordata\n(1)\nAnnelida, Arthropoda and Mcllusca\n(2)\nArthropoda, Mollusca and Chordata\n(3)\nAnnelida, Mollusca and Chordata\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 101,
+      "sourcePage": 25,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 827,
+        "bottom": 1258,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Select the correct sequence of organs in the\n101.\nalimentary canal of cockroach starting from\nmouth :\nPharynx → Oesophagus → Crop →\n(1)\nGizzard → Ileum → Colon -→> Rectum\nPharynx → Oesophagus → Gizzard →\n(2)\nCrop → Ileum → Colon → Rectum\nPharynx → Oesophagus → Gizzard →\n(3)\nHleum → Crop → Colon → Rectum\nPharynx → Oesophagus → leum →\n(4)\nCrop -→ Gizzard → Colon -→ Rectum",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 102,
+      "sourcePage": 25,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1258,
+        "bottom": 1524,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "102. Which of the following pairs of gases is mainly\nresponsible for green house effect ?\nOzone and Ammonia\n(1)\nOxygen and Nitrogen\n(2)\nNitrogen and Sulphur dioxide\n(8)\nCarbon dioxide and Methane\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 103,
+      "sourcePage": 25,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1524,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Which of the following muscular disorders is\n103.\ninherited ?\nTetany\n(1)\n(2)\nMuscular dystrophy\nMyasthenia gravis\n(3)\nBotulism\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 104,
+      "sourcePage": 26,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 132,
+        "bottom": 424,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "The ciliated epithelial cells are required to move\n104.\nparticles or mucus in a specific direction. In\nhumans, these cells are mainly present in:\nBile duct and Bronchioles\n(1)\n(2)\nFallopian tubes and Pancreatic duct\n卡\nEustachian tube and Salivary duct\n(8)\n(4)\nBronchioles and Fallopian tubes",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 105,
+      "sourcePage": 26,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 424,
+        "bottom": 1136,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Match the Column - I with Column -1I :\n105.\nColumn - I\nColumn - II\n-II\nP-wave\n(a)\nDepolarisation of\nventricles\n(b)\nQRS complex\n(i)\nRepolarisation of\nventricles\n(c)\nT-wave\nCoronary\n(ii)\nischemia\n(P)\nReduction in the\nDepolarisation of\n(iv)\nsize ofT - wave\natria\nRepolarisation of\n(v)\natria\nSelect the correct option.\n(a)\n(b)\n(c)\n(d)\n(1)\n(iv)\n(i)\n(ii)\n(2)\n(iv)\n(i)\n(v)\n(3)\n(i)\ni\n(v)\n(ii)\n(i\n(ii)\n(4)\n(v)\n(iv)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 106,
+      "sourcePage": 26,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1136,
+        "bottom": 1398,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Which one of the following is not a method of\n106.\nin situ conservation of biodiversity ?\nBiosphere Reserve\n(1)\nWildlife Sanctuary\n(2)\n(3)\nBotanical Garden\nSacred Grove\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 107,
+      "sourcePage": 26,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1398,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "107. In a species, the weight of newborn ranges from\n2 to 5 kg. 97% of the newborn with an average\nweight between 3 to 3.3 kg survive whereas 99%\nof the infants born with weights from.2 to 2.5 kg\n5 kg a 99%\nor 4.5 to 5 kg die. Which type of selection process\n？\nis taking place ?\nDirectional Selection\n(1)\n(2)\nStabilizing Selection\nDisruptive Selection\n(8)\nCyclical Selection\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 108,
+      "sourcePage": 27,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 155,
+        "bottom": 381,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": " The correct sequence of phases of cell cycle is :\n108.\nM→G→G2→>S\n(1)\nG1 →G2 → S →M\n(2)\nS→G1 →G2 → M\n(3)\nG1 →S→G2→M\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 109,
+      "sourcePage": 27,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 381,
+        "bottom": 736,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "How does steroid hormone influence the cellular\n109.\nactivities ?\nChanging the permeability of .the cell\n(1)\nmembrane.\nBinding to DNA and forming\n(2)\ngene-hormone complex.\n-Activating cyclic AMP located on the cell\n(③)\nmembrane.\nUsing aquaporin channels as second\n(4)\nmessenger.",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 110,
+      "sourcePage": 27,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 736,
+        "bottom": 1030,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Which of the following statements is not correct ?\n110.\nLysosomes have numerous hydrolytic\n(1)\nenzymes.\nThe hydrolytic enzymes of lysosomes are\n(2)\nactive under acidic pH.\nLysosomes are membrane bound structures.\n(3)\nLysosomes are formed by the process of\n(4)\npackaging in the endoplasmic reticulum.",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 111,
+      "sourcePage": 27,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1030,
+        "bottom": 1301,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "11l.  Which one of the following statements regarding\npost-fertilization development in flowering plants\nis incorrect ?\nOvary develops into fruit\n(1)\n(2)\nZygote develops into embryo\nCentral cell develops into endosperm\n(3)\n(4)\nOvules develop into embryo sac",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 112,
+      "sourcePage": 27,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1301,
+        "bottom": 1527,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Concanavalin Ais :\n112.\nan alkaloid\n(1)\nan essential oil\n(2)\na lectin\n(8)\na pigment",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 113,
+      "sourcePage": 27,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1527,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "113. Which one of the following equipments is\nessentially required for growing microbes on a\nlarge scale, for industrial production of enzymes ?\n(1)\nBOD incubator\nSludge digester\n(2)\n(3)\nIndustrial oven\n(4)\nBioreactor",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 114,
+      "sourcePage": 28,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 152,
+        "bottom": 544,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Consider the following statements :\n114.\n \nCoenzyme or metal ion that is tightly bound\n(A)\nto enzyme protein is called prosthetic group.\nA complete catalytic active enzyme with its\n(B)\nbound prosthetic group is called apoenzyme.\nSelect the correct option.\nBoth (A) and (B) are true.\n(1)\n(2)\n(A) is true but (B) is false.\n81\n(8)\nBoth (A) and (B) are false.\n(4)\n(A) is false but (B) is true.\n1",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 115,
+      "sourcePage": 28,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 544,
+        "bottom": 763,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Purines foumd both in DNA and RNA are :\n115.\nAdenine and thymine\n(1)\n(2)\nAdenine and guanine\n(3)\nGuanine and cytosine\n(4)\nCytosine and thymine",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 116,
+      "sourcePage": 28,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 763,
+        "bottom": 1314,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Select the correct sequence for transport of sperm\n116.\ncells in male reproductive system.\n(1)\nTestis → Epididymis → Vasa efferentia\n→Rete testis-→Inguinal canal → Urethra\nSeminiferous tubules → Rete testis\n(2)\n←\n→‘Vasa efferentia -→ Epididymis\n→ Vas deferens → Ejaculatory duct\n个\n→ Urethra → Urethral meatus\n→→\nSeminiferous tubules > Vasa efferentia\n(3)\n-→Epididymis → Inguinal canal\n→ Urethra\nTestis → Epididymis → Vasa efferentia\n(4)\n→ Vas deferens → Ejaculatory duct\n→可\nInguinal\ncanal→ Urethra\n→\n→→\n→ Urethral meatus",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 117,
+      "sourcePage": 28,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1314,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "117. Match the hominids with their correct brain\nsize :\nHomo habilis\n(a)\n(i\n900 cc\n900 cc\nHomo neanderthalensis (i)\n(b)\n1350 cc\n1350 cc\n(c)\nHomo erectus\n(ii)\n650 - 800 cc\nii)\n650 - 800 cc\nHomo sapiens\n(d)\n(iv)\n1400 cc\n1400 cc\nV)\nSelect the correct option.\n(a)\n(c)\n(q)\n(P)\n(ii)\n(1)\n(iv)\n(i\n(i)\n(2)\n(iLi)\n(i)\n(#\n(iv)\n(3)\n(ii)\n(iv)\n(i)\n(4)\n(iv)\n(ii)\n(i\n(t)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 118,
+      "sourcePage": 29,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 162,
+        "bottom": 446,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "118. Variations caused by mutation, as proposed by\nHugo de Vries, are :\nrandom and directional\n(1)\n(2)\nrandom and directionless\nsmall and directional\n(3)\n(4)\nsmall and directionless",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 119,
+      "sourcePage": 29,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 446,
+        "bottom": 721,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Which of the following pair of organelles does not\n119.\ncontain DNA?\nMitochondria and Lysosomes\n(1)\n(2)\nChloroplast and Vacuoles\nLysosomes and Vacuoles\n(3)\n(4)\nNuclear envelope and Mitochondria",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 120,
+      "sourcePage": 29,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 721,
+        "bottom": 1144,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "120. Due to increasing air-borne allergens and\npollutants, many people in urban areas are\nsuffering from respiratory disorder causing\nwheezing due to :\nbenign growth on mucous lining of nasal\n(1)\ncavity.\n(2)\ninflammation of bronchi and bronchioles.\nproliferation of fibrous tissues and damage\n(3)\nof the alveolar walls.\nreduction in the secretion of surfactants by\n(4)\npneumocytes.",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 121,
+      "sourcePage": 29,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1144,
+        "bottom": 1539,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "121. Select the incorrect statement.\n(1)\nMale fruit fly is heterogametic.\nIn male grasshoppers, 50% of sperms have\n(2)\nno sex-chromosome.\nIn domesticated fowls, sex of progeny\n(e)\ndepends on the type of sperm rather than\negg.\nHuman males have one of their\n(4)\nsex-chromosome much shorter than the\nother.",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 122,
+      "sourcePage": 29,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1539,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "DNA. precipitation out of a mixture of biomolecules\n122.1\ncan be achieved by treatment with :\nIsopropanol\n(1)\n(2)\nChilled ethanol\n(8)\nMethanol at room temperature\nChilled chloroform\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 123,
+      "sourcePage": 30,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 162,
+        "bottom": 455,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Select the correct group of biocontrol agents.\n123.\n(1)\nBacillus thuringiensis, Tobacco mosaic\nShjn lhl\nvirus, Aphidg\n(2)\nTrichoderma, Baculovirus,\n6154f\nBacillusthuringiensis\nOscillatoria, Rhizobium, Trichoderma\n(3)\n(4)\nNostoc, Azospirillium,\nNucleopolyhedrovirus",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 124,
+      "sourcePage": 30,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 455,
+        "bottom": 750,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Select the incorrect statement.\n124.\nInbreeding increases homozy gosity.\n(1)\nInbreeding is essential to evolve purelines\n(2)\nin any animal.\nInbreeding selects harmful recessive genes\n(e)\nthat reduce fertility and productivity.\ng 3aieq ai\n(4)\nInbreeding helps in accum ulation of superior\ngenes and elimination of undesirable genes.",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 125,
+      "sourcePage": 30,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 750,
+        "bottom": 1277,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Match the following organisms with the products\n125.\nthey produce :\n(a)\nLactobacillus\nCheese\nSaccharomyces\n(b)\n(i)\nCurd\ncerevisiae\n(c)\nAspergillus niger\n(ni)\nCitric Acid\n3M\n(d)\nAcetobacter aceti\n(iv)\nBread\n(v)\nAcetic Acid\nSelect the correct option.\n(a)\n(b)\n(c)\n(d)\n(iv)\n(v)\n(i)\n(1)\n(i)\n(2)\n(i)\n(ii)\n(iv)\n(v)\n(ii)\n(iv)\n(v)\n(3)\n(i)\n(i\n(4)\n(ii)\n(v)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 126,
+      "sourcePage": 30,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1277,
+        "bottom": 1533,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "What is the direction of movement of sugars in\n126.\nphloem?\nNon-multidirectional\n(1)\nUpward\n(2)\n(3)\nDownward\n(4)\nBi-directional",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 127,
+      "sourcePage": 30,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1533,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "In some plants, the female gamete develops into\n127.\nembryo without fertilization. -This phenomenon\nt？\nis known as :\nAutogamy\n(1)\nParthenocarpy\n(2)\nSyngamy\n(8)\nParthenogenesis\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 128,
+      "sourcePage": 31,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 169,
+        "bottom": 422,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": " 128. Persistent nucellus in the seedis known as :\nChalaza\n(1)\nPerisperm\n(2)\n(3)\nHilum\nTegmen\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 129,
+      "sourcePage": 31,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 422,
+        "bottom": 825,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "129. What map unit (Centimorgan) is adopted in the\nconstruction of genetic maps ?\nA unit of distance between two expressed\n(1)\ngenes, representing 10% cross over.\n(2)\nA unit of distance between two expressed\ngenes, represeniting 100% cross over.\nA unit of distance between genes on\n(3)\nchromosomes, representing 1% cross over.\nA unit of distance between genes on\n(4)\nchromosomes, representing 50% cross over.",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 130,
+      "sourcePage": 31,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 825,
+        "bottom": 1162,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "What would be the heart rate of a person if the\n130.\ncardiac output is 5 L, blood volume in the ventricles\nat the end of diastole is 100 mL and at the end of\nventricular systole is 50 mL?\n(1)\n50 beats per minute\n(2)\n75 beats per minute\n(e)\n100 beats per minute\n(4)\n125 beats per minute",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 131,
+      "sourcePage": 31,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1162,
+        "bottom": 1448,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "131. Thiobacillus is a group of bacteria helpful in\ncarrying out :\nNitrogen fixation\n(1)\n(2)\nChemoautotrophic fixation\n(③\nNitrification\nDenitrification\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 132,
+      "sourcePage": 31,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1448,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "132.  Which of the following factors is responsible for\nthe formation of concentrated urine ?\nLow levels of antidiuretic hormone.\n(1)\n(2)\nMaintaining hyperosmolarity towards inner\nmedullary interstitium in the kidneys.\nSecretion\n(3)\n1oferythropoietin\n by\nJuxtaglomerular complex.\n(4)\nHydrostatic pressure during glomerular\nfiltration.",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 133,
+      "sourcePage": 32,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 160,
+        "bottom": 556,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "T 3fa ?  133. Which of the following statements regarding\nmitochondria is incorrect ?\n，\nOuter membrane is permeable to monomers\n(1)\nof carbohydrates, fats and proteins.\n上\nEnzymes of electron transport are embedded\n(2)\nin outer membrane.\n(e)\nInner membrane is convoluted with\ninfoldings.\n DNA 3U Qai\n(4)\nMitochondrial matrix contains single\ncircular DNA molecule and ribosomes.",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 134,
+      "sourcePage": 32,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 556,
+        "bottom": 863,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "134. Xylem translocates :\nWater only\n(1)\nWater and mineral salts only\n(2)\nWater, mineral salts and some organic\n(3)\nnitrogen only\nWater, mineral salts, some organic nitrogen\n(4)\nand hormones",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 135,
+      "sourcePage": 32,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 863,
+        "bottom": 1116,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "135. Cella in Go phase :\nexit the cell cycle\n(1)\n(2)\nenter the cell cycle\nsuspend the cell cycle\n(3)\n#\n(4)\nterminate the cell cycle",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 136,
+      "sourcePage": 32,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1116,
+        "bottom": 1535,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "136. Which of the statements given below is not true\n \nabout formation of Annual Rings in trees ?\nAnnual ring is a com bination of spring wood\n(1)\nand autumn wood produced in a year.\nDifferential activity of cambium causes light\n：\n(2)\nand dark bands of tissue - early and late\nwood respectively.\nActivity of cam bium depends upon variation\n(3)\nin climate.\nAnnual rings are not prominent in trees of\n(4)\ntemperate region.",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 137,
+      "sourcePage": 32,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1535,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "137. Which of the following ecological pyramids is\ngenerally inverted ?\n(1)\n Pyramid of numbers in grassland\nPyramid of energy\n(2)\n(3)\nPyramid of biomass in a forest\nPyramid of biomass in a sea\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 138,
+      "sourcePage": 33,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 150,
+        "bottom": 432,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "138. Placentation, in which ovules develop on the inner\nwall of the ovary or in peripheral part, is :\nBasal\n(1)\n(2)\nAxile\n(3)\nParietal\n(4)\nFree central",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 139,
+      "sourcePage": 33,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 432,
+        "bottom": 740,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Which of the following protocols did aim for\n139.\nreducing emission of chlorofluorocarbons into the\natmosphere ?\n(1)\nMontreal Protocol\n(2)\nKyoto Protocol\n(3)\nGothenburg Protocol\n(4)\nGeneva Protocol",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 140,
+      "sourcePage": 33,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 740,
+        "bottom": 1101,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Which of the following contraceptive methods do\n140.\ninvolve a role ofhormone ?\nLactational amenorrhea, Pills, Emergency\n(1)\ncontraceptives\n(2)\nBarrier method, Lactational amenorrhea,\nPills\n(3)\nCuT, Pills, Emergency contraceptives\nPills, Emergeney contraceptives, Barrier\n(4)\nmethods",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 141,
+      "sourcePage": 33,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1101,
+        "bottom": 1440,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "141. Tidal Volume and Expiratory Reserve Volume of\nan athlete is 500 mL and 1000 mL respectively.\nWhat will be his Expiratory Capacity if the\nResidual Volume is 1200 mL ?\n1500 mL\n(1)\n1700 mL\n(2)\n(8)\n2200 mL\n2700 mL\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 142,
+      "sourcePage": 33,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1440,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "What is the fate of the male gametes discharged\n142.\nin the synergid ?\nOne fuees with the egg, other(s) degenerate(s)\n(1)\nin the synergid.\nAll fuse with the egg.\n(2)\nOne fuses with the egg, other(s) fuse(e) with\n(3)\nsynergid nucleus.\nOne fuses with the egg and other fuses with\n(4)\ncentral cell nuclei.",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 143,
+      "sourcePage": 34,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 150,
+        "bottom": 378,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "pqe yeI M  143. What is the site of perception of photoperiod\nnecessary for induction of flowering in plants ?\n(1)\nLateral buds\nPulvinus\n(2)\nShoot apex\n(8)\n(4)\nLeaves",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 144,
+      "sourcePage": 34,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 378,
+        "bottom": 634,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "144.S\nSelect the correctly written scientific name of\nbl be lre hh\nMango which was first described by\n：\nCarolus Linnaeus :\nMangifera indica Car, Linn.\n(1)\nn,\n(2)\nMangifera indica Linn.\n(3)\nMangifera indica\n(4)\nMangifera Indica",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 145,
+      "sourcePage": 34,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 634,
+        "bottom": 1017,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Following statements describe the characteristics\n145.1\nof the enzyme Restriction Endonuclease. Identify\nthe incorrect statement.\nThe enzyme cuts DNA molecule at identified\n(1)\nposition within the DNA.\n(2)\nThe enzyme binds DNA at specific sites and\ncuts only one of the two strands.\n(3)\nThe enzyme cuts the sugar-phosphate\n1\nbackbone at specific sites on each strand.\n(4)\nThe enzyme recognizes a specific\npalindromic nucleotide sequence in the DNA.",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 146,
+      "sourcePage": 34,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1017,
+        "bottom": 1315,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "146. From evolutionary point of view, retention of the\nfemale gametophyte with developing young embryo\non the parent sporophyte for some time, ie first\nobserved in:\nLiverworts\n(1)\nMosses\n(2)\nPteridophytes\n(3)\n(4)\nGymnosperms",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 147,
+      "sourcePage": 34,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1315,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "147. In Antirrhinum (Snapdragon), a red flower was\ncrossed with a white flower and in F , generation,\nIb hb\npink flowers were obtained. When pink flowers\n F  aa, \nwere selfed, the F2 generation showed white, red\nand pink flowers. Choose the incorrect statement\nfrom the following :\nThis experiment does not follow the Principle\n(1)\nof Dominance.\nPink colour in F is due to incomplete\n(2)\n巨尼\ndominance.\n1\n():(a)\n2\n1\n1\n(3)\nLaw of Segregation does not apply in this\n(4)\nexperiment.",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 148,
+      "sourcePage": 35,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 145,
+        "bottom": 474,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "148. Conversion of glucose to glucose-6-phosphate, the\nfirst irreversible reaction of glycolysis, is catalyzed\nby:\n(1)\nAldolase\n(2)\nHexokinase\n(3)\nEnolase\nPhosphofructokinase\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 149,
+      "sourcePage": 35,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 474,
+        "bottom": 739,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": " Drug called Heroin' is symthesized by :\n149.1\n(1)\nmethylation of morphine\n(2)\nacetylation of morphine\n(3)\nglycosylation of morphine\n(4)\nnitration of morphine",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 150,
+      "sourcePage": 35,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 739,
+        "bottom": 1035,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "150. Select the hormone-releasing Intra-Uterine\nDevices.\n(1)\nVaults, LNG-20\n(2)\nMultiload 375, Progestasert.\n(3)\nProgestasert, LNG-20\n(4)\nLippes Loop, Multiload 375",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 151,
+      "sourcePage": 35,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1035,
+        "bottom": 1423,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "151. A gene locus has two alleles A, a. Ifthe frequency\nof dominant allele A is 0.4, then what will be the\nfrequency of homozygous dominant, heterozygous\nand homozygous recessive individuals in the\npopulation ?\n(1)\n0.36 (AA); 0.48 (Aa); 0.16 (aa)\n(2)\n0.16 (AA); 0.24 (Aa); 0.36 (aa)\n(3)\n0.16 (AA); 0.48 (Aa); 0.36 (aa)\n(4)\n0.16 (AA); 0.36 (Aa); 0.48 (aa)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 152,
+      "sourcePage": 35,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1423,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Which of the following is truie for Golden rice ?\n152.\nIt is Vitamin A enriched, with a gene from\n(1)\ndaffodil.\n(2)\nIt is pest resistant, with a gene from\nBacillusthuringiensis.\nIt is drought tolerant, developed using\n(e)\nAgrobacterium vector.\nIt has yellow grains, because of a gene\n(4)\nintroduced from a primitive variety of rice.",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 153,
+      "sourcePage": 36,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 147,
+        "bottom": 434,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "市 fT 3ifa 3t | 153. Pinus seed cannot germinate and establish\nwithout fungal association. This is because :\nE巨\nits embryo is imm ature.\n(1)\n(2)\nit has obligate association with mycorrhizae.\n(3)\nit has very hard seed coat.\nits seeds contain inhibitors that prevent\n(4)\ngermination.",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 154,
+      "sourcePage": 36,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 434,
+        "bottom": 742,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "154. Which ofthe following features of genetic code does\nallow bacteria to produce human insulin by\nrecombinant DNA technology ?\n使 E 匠\nGenetic code is not ambiguous\n(1)\nKE\n(2)\nGenetic code is redundant\n(3)\nGenetic code is nearly universal\n架止\n(4)\nGenetic code is specific",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 155,
+      "sourcePage": 36,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 742,
+        "bottom": 1001,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "155. Which of the following sexually transmitted\ndiseases is not completely curable ?\nGonorrhoea\n(1)\n可？\nGenital warts\n(2)\n(3)\nGenital herpes\n(4)\nChlamydiasis",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 156,
+      "sourcePage": 36,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1001,
+        "bottom": 1259,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Which of the following statements is incorrect ?\n156.\n(1)\nViroids lack a protein coat.\nT?\n(2)\nViruses are obligate parasites.\ng elk\n(8)\nInfective constituent in viruses is the protein\ncoat.\n(4)\nPrions consist of abnormally folded proteins.\neEle belle 上2l",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 157,
+      "sourcePage": 36,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1259,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "157. Match the following organisms with their\nrespective characteristics :\nFlame cells\n(a)\nPila\nol \nBombyx\n(b)\n(i)\nComb plates\nlh \n(c)\nPleurobrachia\n(ii)\nRadula\nMalpighian\n(d)\nTaenia\n(iv)\ntubules\nSelect the correct option from the following :\n：\n(a)\n(b)\n(c)\n(d)\n(i)\n(i)\n(iv)\n(1)\n(ii)\n(iv)\n(i\n(2)\n(i)\n(3)\n(i)\n(iv)\n(ii)\n(4)\n(iv)\n(ii)\n(i)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 158,
+      "sourcePage": 37,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 131,
+        "bottom": 363,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Expressed Sequence Tags (ESTe) refere to :\n158.\n(1)\nGenee expressed as RNA\nPolypeptide expression\n(2)\nDNA polymorphism\n(3)\n(4)\nNovel DNA sequences",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 159,
+      "sourcePage": 37,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 363,
+        "bottom": 664,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Which of the following statements ie incorrect ?\n159.\n(1)\nMorels and truffles are edible delicaciee.\nClaviceps is a source of many alkaloide and\n(2)\nLSD.\n(e)\nConidia are produced exogenouely and\nascospores endogenoualy.. .\nYeasts have filamentous bodies with long\n(4)\nthread-like hyphae.",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 160,
+      "sourcePage": 37,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 664,
+        "bottom": 1290,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": " Match Column - I with Column - 11.\n160.\nColumn -I\nColumn -I1\n(i\nSaprophyte\nSymbiotic association of\n(a)\nfungi with plant roote\nParasite\n(i)\n(b)\nDecompositicn of dead\norganic materials\nLichens\n(@)\n(ii)\nLiving on living plants\nor animals\nMycorrhiza\n(iv)\n(d)\nSymbiotic association of\nalgae and fungi\nChoose the correct answer from the options given\nbelow:\n(a)\n(c)\n(b)\n(P)\n(1)\n(i)\n(ii)\n(iv)\n(i)\n(2)\n(ii)\n(iv)\n(i)\n(i\n(ii)\n(3)\n(iv)\n(i)\n(ii)\n(iv)\n(4)\n(i",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 161,
+      "sourcePage": 37,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1290,
+        "bottom": 1532,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Which of the following glucose transporters is\n161.\nineulin-dependent ?\n(1)\nGLUT I\n(2)\nGLUT II\n(3)\nGLUTIII\n(4)\nGLUTIV",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 162,
+      "sourcePage": 37,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1532,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Which of the following immune responses is\n162.\nreeponeible for rejection of kidney graft ?\n(1)\nAuto-immune response\n(2)\nHumoral immune response\nInflammatory imm une response\n(3)\n(4)\nCell-mediated immune response",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 163,
+      "sourcePage": 38,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 120,
+        "bottom": 651,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "may result in :\nNitrogenous waste build-up in the body\n(a)\n(b)\nNon-elimination of excess potassium ions\n(c)\nReduced absorption of calcium ions from\ngastro-intestinal tract\nReduced RBC production\n(d)\nWhich of the following options is the most\n？\nappropriate ?\n(a) and (b) are correct\n(1)\n(2)\n(b) and (c) are correct\n(3)\n(c) and (d) are correct\n(a) and (d) are correct\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 164,
+      "sourcePage": 38,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 651,
+        "bottom": 1013,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Which of the following statements is correct ?\n164.\nRa\n(1)\nCornea is an external, transparent and\nprotective proteinacious covering of the\neye-ball.\n(2)\nCornea consists of dense connective tissue\nof elastin and can repair itself.\n(3)\nCornea is convex, transparent layer which\nis highly vascularised.\n(4)\nCornea consists of dense matrix of collagen\nT1\nand is the most sensitive portion of the eye.\n毕上 ",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 165,
+      "sourcePage": 38,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1013,
+        "bottom": 1291,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": " The frequency of recombination between gene pairs\n165.\non the same chromosome as a measure of the\ndistance between genes was explained by :\n(1)\nT.H. Morgan\nGregor J. Mendel\n(2)\n(3)\nAlfred Sturtevant\nSutton Boveri\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 166,
+      "sourcePage": 38,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1291,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": " Match the following genes of the Lac operon with\n166.\n  a f\ntheir respective products :\nβ-galactosidase\nigene\n(a)\n(b)\nPermease\n(i)\nzgene\n(c)\na gene\n(ii)\nRepressor\n(d)\n(iv)\nTransacetylase\ny gene\nSelect the correct option.\n(a)\n(b)\n(c)\n(d)\n(i)\n(i)\n(iv)\n(1)\n(i)\ni\n(i)\n(iv)\n(2)\n(iv)\n(i)\n(i)\n(3)\n(i)\n(4)\n(L)\n(i\n(iv)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 167,
+      "sourcePage": 39,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 125,
+        "bottom": 457,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "167. It takes very long time for pineapple plants to\nproduce flowers. Which combination of hormones\ncan be applied to artificially induce flowering in\npineapple plants throughout the year to increase\nyield?\nAuxin and Ethylene\n(1)\n(2)\nGibberellin and Cytokinin\n(3)\nGibberellin and Abscisic acid\n(4)\nCytokinin and Abscisic acid",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 168,
+      "sourcePage": 39,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 457,
+        "bottom": 699,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Identify the cells whose secretion protects the lining\n168.\nof gastro-intestinal tract.from various enzymes.\n(1)\nChief Cells\nGoblet Cells\n(2)\nOxyntic Cells\n(8)\nDuodenal Cells\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 169,
+      "sourcePage": 39,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 699,
+        "bottom": 945,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Which of the following can be used as a biocontrol\n169.\nagent in the treatment of plant disease ?\nTrichoderma\n(1)\n(2)\nChlorella\nAnabiena\n(3)\nLactobacillus\n(4)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 170,
+      "sourcePage": 39,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 945,
+        "bottom": 1161,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Phloem in gymnosperms lacks :\n170.\n(1)\nAlbuminous cells and sieve cells\n(2)\nSieve tubes only\nCompanion cells only\n(3)\n(4)\nBoth sieve tubes and companion cells",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 171,
+      "sourcePage": 39,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1161,
+        "bottom": 1406,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Extrusion of second polar body from egg nucleus\n171.\noccurs :\n(1)\nafter entry of sperm but before fertilization\nafter fertilization\n(2)\n(3)\nbefore entry of sperm into ovum\n(4)\nsimultaneously with first cleavage",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 172,
+      "sourcePage": 39,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1406,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Under which of the following conditions will there\n172.\nbe no change in the reading frame of following\nmRNA?\n5' AACAGCGGUGCUAUU 3'\nInsertion of G at 5th position\n(1)\n(2)\nDeletion of G from 5th position'\nInsertion of A and G at 4th and 5th positions\n(c)\nrespectively\nDeletion of GGU from 7th, 8th and gth\n(4)\npositions",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 173,
+      "sourcePage": 40,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 122,
+        "bottom": 441,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "dgMI-F gmr' 173. The concept of \"Omnis cellula-e cellula\"regarding\ncell division was first proposed by :\n(1)\nRudolf Virchow\n(2)\nTheodore Schwann\n(3)\nSchleiden\n(4)\nAristotle",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 174,
+      "sourcePage": 40,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 441,
+        "bottom": 766,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "bejlle8 $\n174. What triggers activation of protoxin to active Bt\ntoxin of Bacillus thuringiensis in boll worm ?\nBody temperature\n(1)\n(2)\nMoist surface of midgut\n(3)\nAlkaline pH of gut\n(4)\nAcidic pH of stomach",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 175,
+      "sourcePage": 40,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 766,
+        "bottom": 1114,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "175. Identify the correct pair representing the\ncausative agent of typhoid fever and the\nconfirmatory test for typhoid.\n(1)\nPlasmodium vivax / UTI test\n度.T&\nStreptococcus pneumoniae / Widal test\n(2)\n(8)\nSalmonella typhi / Anthrone test\n(4)\nSalmonella typhi/ Widaltest\nLn",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 176,
+      "sourcePage": 40,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1114,
+        "bottom": 1464,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "176. What is the genetic disorder in which an individual\ng afa a gen:\nhas an overall masculine development,\ngynaecomastia, and is sterile ?\nTurner's symdrome\n(1)\n(2)\nKlinefelter's symdrome\n(3)\nEdward syndrome\nDown's syndrome\n(4)\n435",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 177,
+      "sourcePage": 40,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1464,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "177. Polyblend, a fine powder of recycled modified\nplastic, has proved to be a good materialfor :\n(1)\nmaking plastic sacks\n(2)\nuse as a fertilizer\nconstruction of roads\n(3)\n(4)\nmaking tubes and pipes",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 178,
+      "sourcePage": 41,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 133,
+        "bottom": 513,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Which of these following methods is the most\n178.\nsuitable for disposal ofnuclear waste ?\n(1)\nShoot the waste into space\n(2)\nBury the waste under Antarctic ice-cover\n(8)\nDump the waste within rocks under deep\noceanl\nBury the waste within rocks deep below the\n(4)\nEarth's surface",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 179,
+      "sourcePage": 41,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 513,
+        "bottom": 1161,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": " Match the following hormones with the respective\n179.\ndisease :\n(a)\nInsulin\nAddison's disease\n(i\n(b)\nThyroxin\n(i)\nDiabetes insipidus\n(c)\nAcromegaly\nCorticoids\n(ii)\n(d)\nGrowth Hormone\nGoitre\n(iv)\n(v)\nDiabetes mellitus\nSelect the correct option.\n(a)\n(c)\n(b)\n(d)\n(y)\n(1)\n#\n(i)\n(ii)\n(2)\n(i)\n(iv)\n(ii)\n(v)\n(iv)\n(3)\n(i\n(ii)\n(i)\n(4)\n(iv)\n(i)",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    },
+    {
+      "originalQuestionNumber": 180,
+      "sourcePage": 41,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "sourceBounds170Dpi": {
+        "top": 1161,
+        "bottom": 1800,
+        "cropLeftFraction": 0.43
+      },
+      "rawOcrText": "Select the correct option.\n180.\n8th, 9th and 1oth pairs of ribs articulate\n(1)\ndirectly with the sternum.\n11th and 12th pairs of ribs are connected to\n(2)\nthe sternum with the help of hyaline\ncartilage.\nEach rib is a flat thin bone and all the ribs\n(3)\nare connected dorsally to the thoracic\nvertebrae and ventrally to the sternum.\nThere are seven pairs of vertebrosternal,\n(4)\nthree pairs of vertebrochondral and two pairs\nof vertebral ribs.\n- 00o -",
+      "extractionState": "UNREVIEWED_OCR",
+      "boundaryReview": "PRINTED_NUMBER_AND_PAGE_VISUALLY_CHECKED"
+    }
+  ]
+}

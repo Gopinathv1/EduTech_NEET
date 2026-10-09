@@ -1,0 +1,24 @@
+[
+  {
+    "name": "mobile",
+    "width": 360,
+    "questionsChecked": 156,
+    "optionsChecked": 624,
+    "horizontalOverflow": false,
+    "questionTextPreserved": true,
+    "optionTextPreserved": true,
+    "radioSelectionPassed": true,
+    "scope": "Local staging HTML using ExamClient whitespace/wrapping semantics; not authenticated app practice or scoring E2E."
+  },
+  {
+    "name": "desktop",
+    "width": 1100,
+    "questionsChecked": 156,
+    "optionsChecked": 624,
+    "horizontalOverflow": false,
+    "questionTextPreserved": true,
+    "optionTextPreserved": true,
+    "radioSelectionPassed": true,
+    "scope": "Local staging HTML using ExamClient whitespace/wrapping semantics; not authenticated app practice or scoring E2E."
+  }
+]
