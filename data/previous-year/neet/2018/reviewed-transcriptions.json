@@ -1,0 +1,2352 @@
+{
+  "columns": [
+    "originalQuestionNumber",
+    "sourcePage",
+    "subjectCode",
+    "chapterSlug",
+    "topic",
+    "questionText",
+    "options"
+  ],
+  "warning": "167 complete English transcriptions visually checked against original booklet pages. Answer authority remains unverified; no row is importable.",
+  "records": [
+    [
+      2,
+      2,
+      "PHYSICS",
+      "physics-oscillations-waves",
+      "standing-waves",
+      "The fundamental frequency in an open organ pipe is equal to the third harmonic of a closed organ pipe. If the length of the closed organ pipe is 20 cm, the length of the open organ pipe is",
+      [
+        "12·5 cm",
+        "8 cm",
+        "13·2 cm",
+        "16 cm"
+      ]
+    ],
+    [
+      3,
+      2,
+      "PHYSICS",
+      "physics-kinetic-theory-gases",
+      "kinetic-theory",
+      "At what temperature will the rms speed of oxygen molecules become just sufficient for escaping from the Earth’s atmosphere ?\n(Given :\nMass of oxygen molecule (m) = 2·76 × 10⁻²⁶ kg\nBoltzmann’s constant k_B = 1·38 × 10⁻²³ J K⁻¹)",
+      [
+        "5·016 × 10⁴ K",
+        "8·360 × 10⁴ K",
+        "2·508 × 10⁴ K",
+        "1·254 × 10⁴ K"
+      ]
+    ],
+    [
+      4,
+      2,
+      "PHYSICS",
+      "physics-thermodynamics",
+      "second-law",
+      "The efficiency of an ideal heat engine working between the freezing point and boiling point of water, is",
+      [
+        "6·25%",
+        "20%",
+        "26·8%",
+        "12·5%"
+      ]
+    ],
+    [
+      5,
+      2,
+      "PHYSICS",
+      "physics-current-electricity",
+      "ohms-law",
+      "A carbon resistor of (47 ± 4·7) kΩ is to be marked with rings of different colours for its identification. The colour code sequence will be",
+      [
+        "Yellow – Green – Violet – Gold",
+        "Yellow – Violet – Orange – Silver",
+        "Violet – Yellow – Orange – Silver",
+        "Green – Orange – Violet – Gold"
+      ]
+    ],
+    [
+      6,
+      2,
+      "PHYSICS",
+      "physics-current-electricity",
+      "cells",
+      "A set of ‘n’ equal resistors, of value ‘R’ each, are connected in series to a battery of emf ‘E’ and internal resistance ‘R’. The current drawn is I. Now, the ‘n’ resistors are connected in parallel to the same battery. Then the current drawn from battery becomes 10 I. The value of ‘n’ is",
+      [
+        "20",
+        "11",
+        "10",
+        "9"
+      ]
+    ],
+    [
+      8,
+      3,
+      "PHYSICS",
+      "physics-optics",
+      "wave-optics",
+      "Unpolarised light is incident from air on a plane surface of a material of refractive index ‘μ’. At a particular angle of incidence ‘i’, it is found that the reflected and refracted rays are perpendicular to each other. Which of the following options is correct for this situation ?",
+      [
+        "i = sin⁻¹(1/μ)",
+        "Reflected light is polarised with its electric vector perpendicular to the plane of incidence",
+        "Reflected light is polarised with its electric vector parallel to the plane of incidence",
+        "i = tan⁻¹(1/μ)"
+      ]
+    ],
+    [
+      9,
+      3,
+      "PHYSICS",
+      "physics-optics",
+      "wave-optics",
+      "In Young’s double slit experiment the separation d between the slits is 2 mm, the wavelength λ of the light used is 5896 Å and distance D between the screen and slits is 100 cm. It is found that the angular width of the fringes is 0·20°. To increase the fringe angular width to 0·21° (with same λ and D) the separation between the slits needs to be changed to",
+      [
+        "2·1 mm",
+        "1·9 mm",
+        "1·8 mm",
+        "1·7 mm"
+      ]
+    ],
+    [
+      10,
+      3,
+      "PHYSICS",
+      "physics-optics",
+      "optical-instruments",
+      "An astronomical refracting telescope will have large angular magnification and high angular resolution, when it has an objective lens of",
+      [
+        "large focal length and large diameter",
+        "large focal length and small diameter",
+        "small focal length and large diameter",
+        "small focal length and small diameter"
+      ]
+    ],
+    [
+      11,
+      3,
+      "PHYSICS",
+      "physics-atoms-nuclei",
+      "atomic-models",
+      "The ratio of kinetic energy to the total energy of an electron in a Bohr orbit of the hydrogen atom, is",
+      [
+        "2 : – 1",
+        "1 : – 1",
+        "1 : 1",
+        "1 : – 2"
+      ]
+    ],
+    [
+      12,
+      3,
+      "PHYSICS",
+      "physics-dual-nature",
+      "matter-waves",
+      "An electron of mass m with an initial velocity V⃗ = V₀ î (V₀ > 0) enters an electric field E⃗ = −E₀ î (E₀ = constant > 0) at t = 0. If λ₀ is its de-Broglie wavelength initially, then its de-Broglie wavelength at time t is",
+      [
+        "λ₀t",
+        "λ₀(1 + (eE₀/(mV₀))t)",
+        "λ₀/(1 + (eE₀/(mV₀))t)",
+        "λ₀"
+      ]
+    ],
+    [
+      13,
+      3,
+      "PHYSICS",
+      "physics-atoms-nuclei",
+      "radioactivity",
+      "For a radioactive material, half-life is 10 minutes. If initially there are 600 number of nuclei, the time taken (in minutes) for the disintegration of 450 nuclei is",
+      [
+        "30",
+        "10",
+        "20",
+        "15"
+      ]
+    ],
+    [
+      14,
+      3,
+      "PHYSICS",
+      "physics-dual-nature",
+      "photoelectric-effect",
+      "When the light of frequency 2ν₀ (where ν₀ is threshold frequency), is incident on a metal plate, the maximum velocity of electrons emitted is v₁. When the frequency of the incident radiation is increased to 5ν₀, the maximum velocity of electrons emitted from the same plate is v₂. The ratio of v₁ to v₂ is",
+      [
+        "4 : 1",
+        "1 : 4",
+        "1 : 2",
+        "2 : 1"
+      ]
+    ],
+    [
+      16,
+      4,
+      "PHYSICS",
+      "physics-electronic-devices",
+      "diodes",
+      "In a p-n junction diode, change in temperature due to heating",
+      [
+        "does not affect resistance of p-n junction",
+        "affects only forward resistance",
+        "affects only reverse resistance",
+        "affects the overall V – I characteristics of p-n junction"
+      ]
+    ],
+    [
+      18,
+      4,
+      "PHYSICS",
+      "physics-electromagnetic-waves",
+      "electromagnetic-spectrum",
+      "An em wave is propagating in a medium with a velocity V⃗ = V î. The instantaneous oscillating electric field of this em wave is along +y axis. Then the direction of oscillating magnetic field of the em wave will be along",
+      [
+        "−y direction",
+        "+z direction",
+        "−z direction",
+        "−x direction"
+      ]
+    ],
+    [
+      19,
+      4,
+      "PHYSICS",
+      "physics-optics",
+      "ray-optics",
+      "The refractive index of the material of a prism is √2 and the angle of the prism is 30°. One of the two refracting surfaces of the prism is made a mirror inwards, by silver coating. A beam of monochromatic light entering the prism from the other face will retrace its path (after reflection from the silvered surface) if its angle of incidence on the prism is",
+      [
+        "30°",
+        "45°",
+        "60°",
+        "zero"
+      ]
+    ],
+    [
+      20,
+      4,
+      "PHYSICS",
+      "physics-optics",
+      "ray-optics",
+      "An object is placed at a distance of 40 cm from a concave mirror of focal length 15 cm. If the object is displaced through a distance of 20 cm towards the mirror, the displacement of the image will be",
+      [
+        "30 cm towards the mirror",
+        "36 cm away from the mirror",
+        "30 cm away from the mirror",
+        "36 cm towards the mirror"
+      ]
+    ],
+    [
+      21,
+      4,
+      "PHYSICS",
+      "physics-emi-ac",
+      "electromagnetic-induction",
+      "The magnetic potential energy stored in a certain inductor is 25 mJ, when the current in the inductor is 60 mA. This inductor is of inductance",
+      [
+        "1·389 H",
+        "138·88 H",
+        "0·138 H",
+        "13·89 H"
+      ]
+    ],
+    [
+      22,
+      5,
+      "PHYSICS",
+      "physics-electrostatics",
+      "electric-charge-field",
+      "An electron falls from rest through a vertical distance h in a uniform and vertically upward directed electric field E. The direction of electric field is now reversed, keeping its magnitude the same. A proton is allowed to fall from rest in it through the same vertical distance h. The time of fall of the electron, in comparison to the time of fall of the proton is",
+      [
+        "10 times greater",
+        "5 times greater",
+        "smaller",
+        "equal"
+      ]
+    ],
+    [
+      23,
+      5,
+      "PHYSICS",
+      "physics-electrostatics",
+      "potential-capacitance",
+      "The electrostatic force between the metal plates of an isolated parallel plate capacitor C having a charge Q and area A, is",
+      [
+        "proportional to the square root of the distance between the plates.",
+        "linearly proportional to the distance between the plates.",
+        "independent of the distance between the plates.",
+        "inversely proportional to the distance between the plates."
+      ]
+    ],
+    [
+      24,
+      5,
+      "PHYSICS",
+      "physics-oscillations-waves",
+      "standing-waves",
+      "A tuning fork is used to produce resonance in a glass tube. The length of the air column in this tube can be adjusted by a variable piston. At room temperature of 27°C two successive resonances are produced at 20 cm and 73 cm of column length. If the frequency of the tuning fork is 320 Hz, the velocity of sound in air at 27°C is",
+      [
+        "350 m/s",
+        "339 m/s",
+        "330 m/s",
+        "300 m/s"
+      ]
+    ],
+    [
+      25,
+      5,
+      "PHYSICS",
+      "physics-oscillations-waves",
+      "simple-harmonic-motion",
+      "A pendulum is hung from the roof of a sufficiently high building and is moving freely to and fro like a simple harmonic oscillator. The acceleration of the bob of the pendulum is 20 m/s² at a distance of 5 m from the mean position. The time period of oscillation is",
+      [
+        "2 s",
+        "π s",
+        "2π s",
+        "1 s"
+      ]
+    ],
+    [
+      26,
+      5,
+      "PHYSICS",
+      "physics-magnetic-effects",
+      "lorentz-force",
+      "A metallic rod of mass per unit length 0·5 kg m⁻¹ is lying horizontally on a smooth inclined plane which makes an angle of 30° with the horizontal. The rod is not allowed to slide down by flowing a current through it when a magnetic field of induction 0·25 T is acting on it in the vertical direction. The current flowing in the rod to keep it stationary is",
+      [
+        "14·76 A",
+        "5·98 A",
+        "7·14 A",
+        "11·32 A"
+      ]
+    ],
+    [
+      27,
+      5,
+      "PHYSICS",
+      "physics-emi-ac",
+      "electromagnetic-induction",
+      "A thin diamagnetic rod is placed vertically between the poles of an electromagnet. When the current in the electromagnet is switched on, then the diamagnetic rod is pushed up, out of the horizontal magnetic field. Hence the rod gains gravitational potential energy. The work required to do this comes from",
+      [
+        "the lattice structure of the material of the rod",
+        "the magnetic field",
+        "the current source",
+        "the induced electric field due to the changing magnetic field"
+      ]
+    ],
+    [
+      28,
+      5,
+      "PHYSICS",
+      "physics-emi-ac",
+      "alternating-current",
+      "An inductor 20 mH, a capacitor 100 μF and a resistor 50 Ω are connected in series across a source of emf, V = 10 sin 314 t. The power loss in the circuit is",
+      [
+        "2·74 W",
+        "0·43 W",
+        "0·79 W",
+        "1·13 W"
+      ]
+    ],
+    [
+      29,
+      5,
+      "PHYSICS",
+      "physics-magnetic-effects",
+      "magnetism",
+      "Current sensitivity of a moving coil galvanometer is 5 div/mA and its voltage sensitivity (angular deflection per unit voltage applied) is 20 div/V. The resistance of the galvanometer is",
+      [
+        "250 Ω",
+        "25 Ω",
+        "40 Ω",
+        "500 Ω"
+      ]
+    ],
+    [
+      31,
+      6,
+      "PHYSICS",
+      "physics-rotational-motion",
+      "moment-of-inertia",
+      "Three objects, A : (a solid sphere), B : (a thin circular disk) and C : (a circular ring), each have the same mass M and radius R. They all spin with the same angular speed ω about their own symmetry axes. The amounts of work (W) required to bring them to rest, would satisfy the relation",
+      [
+        "W_B > W_A > W_C",
+        "W_A > W_B > W_C",
+        "W_C > W_B > W_A",
+        "W_A > W_C > W_B"
+      ]
+    ],
+    [
+      32,
+      6,
+      "PHYSICS",
+      "physics-work-energy-power",
+      "collisions",
+      "A moving block having mass m, collides with another stationary block having mass 4m. The lighter block comes to rest after collision. When the initial velocity of the lighter block is v, then the value of coefficient of restitution (e) will be",
+      [
+        "0·8",
+        "0·25",
+        "0·5",
+        "0·4"
+      ]
+    ],
+    [
+      33,
+      6,
+      "PHYSICS",
+      "physics-laws-of-motion",
+      "friction",
+      "Which one of the following statements is incorrect ?",
+      [
+        "Frictional force opposes the relative motion.",
+        "Limiting value of static friction is directly proportional to normal reaction.",
+        "Rolling friction is smaller than sliding friction.",
+        "Coefficient of sliding friction has dimensions of length."
+      ]
+    ],
+    [
+      34,
+      6,
+      "PHYSICS",
+      "physics-electrostatics",
+      "electric-charge-field",
+      "A toy car with charge q moves on a frictionless horizontal plane surface under the influence of a uniform electric field E⃗. Due to the force qE⃗, its velocity increases from 0 to 6 m/s in one second duration. At that instant the direction of the field is reversed. The car continues to move for two more seconds under the influence of this field. The average velocity and the average speed of the toy car between 0 to 3 seconds are respectively",
+      [
+        "1 m/s, 3·5 m/s",
+        "1 m/s, 3 m/s",
+        "2 m/s, 4 m/s",
+        "1·5 m/s, 3 m/s"
+      ]
+    ],
+    [
+      36,
+      6,
+      "PHYSICS",
+      "physics-rotational-motion",
+      "torque-angular-momentum",
+      "The moment of the force, F⃗ = 4î + 5ĵ − 6k̂ at (2, 0, −3), about the point (2, −2, −2), is given by",
+      [
+        "−7î − 8ĵ − 4k̂",
+        "−4î − ĵ − 8k̂",
+        "−8î − 4ĵ − 7k̂",
+        "−7î − 4ĵ − 8k̂"
+      ]
+    ],
+    [
+      37,
+      6,
+      "PHYSICS",
+      "physics-and-measurement",
+      "measurement-errors",
+      "A student measured the diameter of a small steel ball using a screw gauge of least count 0·001 cm. The main scale reading is 5 mm and zero of circular scale division coincides with 25 divisions above the reference level. If screw gauge has a zero error of −0·004 cm, the correct diameter of the ball is",
+      [
+        "0·053 cm",
+        "0·525 cm",
+        "0·521 cm",
+        "0·529 cm"
+      ]
+    ],
+    [
+      38,
+      7,
+      "PHYSICS",
+      "physics-rotational-motion",
+      "torque-angular-momentum",
+      "A solid sphere is rotating freely about its symmetry axis in free space. The radius of the sphere is increased keeping its mass same. Which of the following physical quantities would remain constant for the sphere ?",
+      [
+        "Rotational kinetic energy",
+        "Moment of inertia",
+        "Angular velocity",
+        "Angular momentum"
+      ]
+    ],
+    [
+      40,
+      7,
+      "PHYSICS",
+      "physics-gravitation",
+      "universal-law",
+      "If the mass of the Sun were ten times smaller and the universal gravitational constant were ten times larger in magnitude, which of the following is not correct ?",
+      [
+        "Time period of a simple pendulum on the Earth would decrease.",
+        "Walking on the ground would become more difficult.",
+        "Raindrops will fall faster.",
+        "‘g’ on the Earth will not change."
+      ]
+    ],
+    [
+      41,
+      7,
+      "PHYSICS",
+      "physics-rotational-motion",
+      "moment-of-inertia",
+      "A solid sphere is in rolling motion. In rolling motion a body possesses translational kinetic energy (Kₜ) as well as rotational kinetic energy (Kᵣ) simultaneously. The ratio Kₜ : (Kₜ + Kᵣ) for the sphere is",
+      [
+        "10 : 7",
+        "5 : 7",
+        "7 : 10",
+        "2 : 5"
+      ]
+    ],
+    [
+      42,
+      7,
+      "PHYSICS",
+      "physics-properties-solids-liquids",
+      "fluid-mechanics",
+      "A small sphere of radius ‘r’ falls from rest in a viscous liquid. As a result, heat is produced due to viscous force. The rate of production of heat when the sphere attains its terminal velocity, is proportional to",
+      [
+        "r⁵",
+        "r²",
+        "r³",
+        "r⁴"
+      ]
+    ],
+    [
+      43,
+      7,
+      "PHYSICS",
+      "physics-thermodynamics",
+      "heat-transfer",
+      "The power radiated by a black body is P and it radiates maximum energy at wavelength, λ₀. If the temperature of the black body is now changed so that it radiates maximum energy at wavelength (3/4)λ₀, the power radiated by it becomes nP. The value of n is",
+      [
+        "256/81",
+        "4/3",
+        "3/4",
+        "81/256"
+      ]
+    ],
+    [
+      44,
+      7,
+      "PHYSICS",
+      "physics-properties-solids-liquids",
+      "elasticity",
+      "Two wires are made of the same material and have the same volume. The first wire has cross-sectional area A and the second wire has cross-sectional area 3A. If the length of the first wire is increased by Δl on applying a force F, how much force is needed to stretch the second wire by the same amount ?",
+      [
+        "4 F",
+        "6 F",
+        "9 F",
+        "F"
+      ]
+    ],
+    [
+      45,
+      7,
+      "PHYSICS",
+      "physics-thermodynamics",
+      "first-law",
+      "A sample of 0·1 g of water at 100°C and normal pressure (1·013 × 10⁵ N m⁻²) requires 54 cal of heat energy to convert to steam at 100°C. If the volume of the steam produced is 167·1 cc, the change in internal energy of the sample, is",
+      [
+        "42·2 J",
+        "208·7 J",
+        "104·3 J",
+        "84·5 J"
+      ]
+    ],
+    [
+      46,
+      8,
+      "CHEMISTRY",
+      "chemistry-p-block",
+      "group-15-18",
+      "The correct order of N-compounds in its decreasing order of oxidation states is",
+      [
+        "HNO₃, NH₄Cl, NO, N₂",
+        "HNO₃, NO, NH₄Cl, N₂",
+        "HNO₃, NO, N₂, NH₄Cl",
+        "NH₄Cl, N₂, NO, HNO₃"
+      ]
+    ],
+    [
+      47,
+      8,
+      "CHEMISTRY",
+      "chemistry-p-block",
+      "group-13-14",
+      "Which one of the following elements is unable to form MF₆³⁻ ion ?",
+      [
+        "B",
+        "Al",
+        "Ga",
+        "In"
+      ]
+    ],
+    [
+      48,
+      8,
+      "CHEMISTRY",
+      "chemistry-purification-characterisation",
+      "metallurgy",
+      "Considering Ellingham diagram, which of the following metals can be used to reduce alumina ?",
+      [
+        "Mg",
+        "Zn",
+        "Fe",
+        "Cu"
+      ]
+    ],
+    [
+      49,
+      8,
+      "CHEMISTRY",
+      "chemistry-p-block",
+      "group-13-14",
+      "The correct order of atomic radii in group 13 elements is",
+      [
+        "B < Ga < Al < Tl < In",
+        "B < Al < Ga < In < Tl",
+        "B < Al < In < Ga < Tl",
+        "B < Ga < Al < In < Tl"
+      ]
+    ],
+    [
+      50,
+      8,
+      "CHEMISTRY",
+      "chemistry-p-block",
+      "group-15-18",
+      "Which of the following statements is not true for halogens ?",
+      [
+        "All but fluorine show positive oxidation states.",
+        "All are oxidizing agents.",
+        "All form monobasic oxyacids.",
+        "Chlorine has the highest electron-gain enthalpy."
+      ]
+    ],
+    [
+      51,
+      8,
+      "CHEMISTRY",
+      "chemistry-chemical-bonding",
+      "vsepr-hybridization",
+      "In the structure of ClF₃, the number of lone pairs of electrons on central atom ‘Cl’ is",
+      [
+        "four",
+        "two",
+        "one",
+        "three"
+      ]
+    ],
+    [
+      53,
+      8,
+      "CHEMISTRY",
+      "chemistry-biomolecules",
+      "proteins",
+      "Which of the following compounds can form a zwitterion ?",
+      [
+        "Benzoic acid",
+        "Acetanilide",
+        "Aniline",
+        "Glycine"
+      ]
+    ],
+    [
+      54,
+      9,
+      "CHEMISTRY",
+      "chemistry-organic-principles",
+      "polymers",
+      "Regarding cross-linked or network polymers, which of the following statements is incorrect ?",
+      [
+        "Examples are bakelite and melamine.",
+        "They are formed from bi- and tri-functional monomers.",
+        "They contain covalent bonds between various linear polymer chains.",
+        "They contain strong covalent bonds in their polymer chains."
+      ]
+    ],
+    [
+      55,
+      9,
+      "CHEMISTRY",
+      "chemistry-nitrogen",
+      "amines",
+      "Nitration of aniline in strong acidic medium also gives m-nitroaniline because",
+      [
+        "In absence of substituents nitro group always goes to m-position.",
+        "In electrophilic substitution reactions amino group is meta directive.",
+        "In spite of substituents nitro group always goes to only m-position.",
+        "In acidic (strong) medium aniline is present as anilinium ion."
+      ]
+    ],
+    [
+      56,
+      9,
+      "CHEMISTRY",
+      "chemistry-biomolecules",
+      "carbohydrates",
+      "The difference between amylose and amylopectin is",
+      [
+        "Amylopectin have 1 → 4 α-linkage and 1 → 6 β-linkage",
+        "Amylose have 1 → 4 α-linkage and 1 → 6 β-linkage",
+        "Amylopectin have 1 → 4 α-linkage and 1 → 6 α-linkage",
+        "Amylose is made up of glucose and galactose"
+      ]
+    ],
+    [
+      57,
+      9,
+      "CHEMISTRY",
+      "chemistry-some-basic-concepts",
+      "stoichiometry",
+      "A mixture of 2·3 g formic acid and 4·5 g oxalic acid is treated with conc. H₂SO₄. The evolved gaseous mixture is passed through KOH pellets. Weight (in g) of the remaining product at STP will be",
+      [
+        "2·8",
+        "3·0",
+        "1·4",
+        "4·4"
+      ]
+    ],
+    [
+      58,
+      9,
+      "CHEMISTRY",
+      "chemistry-periodicity",
+      "periodic-trends",
+      "Which of the following oxides is most acidic in nature ?",
+      [
+        "BaO",
+        "BeO",
+        "MgO",
+        "CaO"
+      ]
+    ],
+    [
+      59,
+      9,
+      "CHEMISTRY",
+      "chemistry-practical",
+      "environmental-chemistry",
+      "Which oxide of nitrogen is not a common pollutant introduced into the atmosphere both due to natural and human activity ?",
+      [
+        "N₂O",
+        "NO₂",
+        "N₂O₅",
+        "NO"
+      ]
+    ],
+    [
+      60,
+      9,
+      "CHEMISTRY",
+      "chemistry-oxygen",
+      "alcohols-phenols-ethers",
+      "The compound A on treatment with Na gives B, and with PCl₅ gives C. B and C react together to give diethyl ether. A, B and C are in the order",
+      [
+        "C₂H₅Cl, C₂H₆, C₂H₅OH",
+        "C₂H₅OH, C₂H₅Cl, C₂H₅ONa",
+        "C₂H₅OH, C₂H₆, C₂H₅Cl",
+        "C₂H₅OH, C₂H₅ONa, C₂H₅Cl"
+      ]
+    ],
+    [
+      61,
+      9,
+      "CHEMISTRY",
+      "chemistry-hydrocarbons",
+      "aromatic-hydrocarbons",
+      "The compound C₇H₈ undergoes the following reactions :\nC₇H₈ —[3 Cl₂ / Δ]→ A —[Br₂ / Fe]→ B —[Zn / HCl]→ C\nand the product ‘C’ is",
+      [
+        "3-bromo-2,4,6-trichlorotoluene",
+        "o-bromotoluene",
+        "m-bromotoluene",
+        "p-bromotoluene"
+      ]
+    ],
+    [
+      62,
+      9,
+      "CHEMISTRY",
+      "chemistry-hydrocarbons",
+      "alkanes",
+      "Hydrocarbon (A) reacts with bromine by substitution to form an alkyl bromide which by Wurtz reaction is converted to gaseous hydrocarbon containing less than four carbon atoms. (A) is",
+      [
+        "CH₃ − CH₃",
+        "CH₂ = CH₂",
+        "CH ≡ CH",
+        "CH₄"
+      ]
+    ],
+    [
+      63,
+      10,
+      "CHEMISTRY",
+      "chemistry-chemical-bonding",
+      "vsepr-hybridization",
+      "Which of the following molecules represents the order of hybridisation sp², sp², sp, sp from left to right atoms ?",
+      [
+        "CH₂ = CH − CH = CH₂",
+        "CH₂ = CH − C ≡ CH",
+        "HC ≡ C − C ≡ CH",
+        "CH₃ − CH = CH − CH₃"
+      ]
+    ],
+    [
+      65,
+      10,
+      "CHEMISTRY",
+      "chemistry-organic-principles",
+      "electronic-effects",
+      "Which of the following is correct with respect to − I effect of the substituents ? (R = alkyl)",
+      [
+        "−NH₂ > −OR > −F",
+        "−NR₂ < −OR < −F",
+        "−NH₂ < −OR < −F",
+        "−NR₂ > −OR > −F"
+      ]
+    ],
+    [
+      67,
+      10,
+      "CHEMISTRY",
+      "chemistry-oxygen",
+      "carboxylic-acids",
+      "Carboxylic acids have higher boiling points than aldehydes, ketones and even alcohols of comparable molecular mass. It is due to their",
+      [
+        "more extensive association of carboxylic acid via van der Waals force of attraction",
+        "formation of carboxylate ion",
+        "formation of intramolecular H-bonding",
+        "formation of intermolecular H-bonding"
+      ]
+    ],
+    [
+      69,
+      11,
+      "CHEMISTRY",
+      "chemistry-d-f-block",
+      "transition-elements",
+      "Match the metal ions given in Column I with the spin magnetic moments of the ions given in Column II and assign the correct code :\nColumn I\na. Co³⁺\nb. Cr³⁺\nc. Fe³⁺\nd. Ni²⁺\nColumn II\ni. √8 B.M.\nii. √35 B.M.\niii. √3 B.M.\niv. √24 B.M.\nv. √15 B.M.\n     a   b   c   d",
+      [
+        "iv   i   ii   iii",
+        "i   ii   iii   iv",
+        "iv   v   ii   i",
+        "iii   v   i   ii"
+      ]
+    ],
+    [
+      70,
+      11,
+      "CHEMISTRY",
+      "chemistry-d-f-block",
+      "transition-elements",
+      "Which one of the following ions exhibits d-d transition and paramagnetism as well ?",
+      [
+        "MnO₄⁻",
+        "Cr₂O₇²⁻",
+        "CrO₄²⁻",
+        "MnO₄²⁻"
+      ]
+    ],
+    [
+      71,
+      11,
+      "CHEMISTRY",
+      "chemistry-coordination-compounds",
+      "bonding",
+      "Iron carbonyl, Fe(CO)₅ is",
+      [
+        "trinuclear",
+        "mononuclear",
+        "tetranuclear",
+        "dinuclear"
+      ]
+    ],
+    [
+      72,
+      11,
+      "CHEMISTRY",
+      "chemistry-coordination-compounds",
+      "nomenclature-isomerism",
+      "The type of isomerism shown by the complex [CoCl₂(en)₂] is",
+      [
+        "Ionization isomerism",
+        "Coordination isomerism",
+        "Geometrical isomerism",
+        "Linkage isomerism"
+      ]
+    ],
+    [
+      73,
+      11,
+      "CHEMISTRY",
+      "chemistry-coordination-compounds",
+      "bonding",
+      "The geometry and magnetic behaviour of the complex [Ni(CO)₄] are",
+      [
+        "square planar geometry and paramagnetic",
+        "tetrahedral geometry and diamagnetic",
+        "square planar geometry and diamagnetic",
+        "tetrahedral geometry and paramagnetic"
+      ]
+    ],
+    [
+      74,
+      11,
+      "CHEMISTRY",
+      "chemistry-equilibrium",
+      "ionic-equilibrium",
+      "Following solutions were prepared by mixing different volumes of NaOH and HCl of different concentrations :\na. 60 mL (M/10) HCl + 40 mL (M/10) NaOH\nb. 55 mL (M/10) HCl + 45 mL (M/10) NaOH\nc. 75 mL (M/5) HCl + 25 mL (M/5) NaOH\nd. 100 mL (M/10) HCl + 100 mL (M/10) NaOH\npH of which one of them will be equal to 1 ?",
+      [
+        "d",
+        "a",
+        "b",
+        "c"
+      ]
+    ],
+    [
+      75,
+      11,
+      "CHEMISTRY",
+      "chemistry-chemical-kinetics",
+      "surface-chemistry",
+      "On which of the following properties does the coagulating power of an ion depend ?",
+      [
+        "Both magnitude and sign of the charge on the ion",
+        "Size of the ion alone",
+        "The magnitude of the charge on the ion alone",
+        "The sign of charge on the ion alone"
+      ]
+    ],
+    [
+      76,
+      11,
+      "CHEMISTRY",
+      "chemistry-thermodynamics",
+      "states-of-matter",
+      "Given van der Waals constant for NH₃, H₂, O₂ and CO₂ are respectively 4·17, 0·244, 1·36 and 3·59, which one of the following gases is most easily liquefied ?",
+      [
+        "O₂",
+        "H₂",
+        "NH₃",
+        "CO₂"
+      ]
+    ],
+    [
+      77,
+      11,
+      "CHEMISTRY",
+      "chemistry-equilibrium",
+      "ionic-equilibrium",
+      "The solubility of BaSO₄ in water is 2·42 × 10⁻³ gL⁻¹ at 298 K. The value of its solubility product (Kₛₚ) will be\n(Given molar mass of BaSO₄ = 233 g mol⁻¹)",
+      [
+        "1·08 × 10⁻¹⁴ mol² L⁻²",
+        "1·08 × 10⁻¹² mol² L⁻²",
+        "1·08 × 10⁻¹⁰ mol² L⁻²",
+        "1·08 × 10⁻⁸ mol² L⁻²"
+      ]
+    ],
+    [
+      78,
+      12,
+      "CHEMISTRY",
+      "chemistry-some-basic-concepts",
+      "mole-concept",
+      "In which case is the number of molecules of water maximum ?",
+      [
+        "0·00224 L of water vapours at 1 atm and 273 K",
+        "0·18 g of water",
+        "18 mL of water",
+        "10⁻³ mol of water"
+      ]
+    ],
+    [
+      79,
+      12,
+      "CHEMISTRY",
+      "chemistry-chemical-kinetics",
+      "order-molecularity",
+      "The correct difference between first- and second-order reactions is that",
+      [
+        "a first-order reaction can be catalyzed; a second-order reaction cannot be catalyzed",
+        "the half-life of a first-order reaction does not depend on [A]₀; the half-life of a second-order reaction does depend on [A]₀",
+        "the rate of a first-order reaction does not depend on reactant concentrations; the rate of a second-order reaction does depend on reactant concentrations",
+        "the rate of a first-order reaction does depend on reactant concentrations; the rate of a second-order reaction does not depend on reactant concentrations"
+      ]
+    ],
+    [
+      80,
+      12,
+      "CHEMISTRY",
+      "chemistry-periodicity",
+      "s-block-elements",
+      "Among CaH₂, BeH₂, BaH₂, the order of ionic character is",
+      [
+        "BeH₂ < BaH₂ < CaH₂",
+        "CaH₂ < BeH₂ < BaH₂",
+        "BeH₂ < CaH₂ < BaH₂",
+        "BaH₂ < BeH₂ < CaH₂"
+      ]
+    ],
+    [
+      82,
+      12,
+      "CHEMISTRY",
+      "chemistry-redox-electrochemistry",
+      "redox-reactions",
+      "For the redox reaction\nMnO₄⁻ + C₂O₄²⁻ + H⁺ → Mn²⁺ + CO₂ + H₂O\nthe correct coefficients of the reactants for the balanced equation are\nMnO₄⁻   C₂O₄²⁻   H⁺",
+      [
+        "2   16   5",
+        "2   5   16",
+        "16   5   2",
+        "5   16   2"
+      ]
+    ],
+    [
+      83,
+      12,
+      "CHEMISTRY",
+      "chemistry-equilibrium",
+      "chemical-equilibrium",
+      "Which one of the following conditions will favour maximum formation of the product in the reaction,\nA₂(g) + B₂(g) ⇌ X₂(g)   ΔᵣH = −X kJ ?",
+      [
+        "High temperature and high pressure",
+        "Low temperature and low pressure",
+        "Low temperature and high pressure",
+        "High temperature and low pressure"
+      ]
+    ],
+    [
+      84,
+      12,
+      "CHEMISTRY",
+      "chemistry-chemical-kinetics",
+      "order-molecularity",
+      "When initial concentration of the reactant is doubled, the half-life period of a zero order reaction",
+      [
+        "is tripled",
+        "is doubled",
+        "is halved",
+        "remains unchanged"
+      ]
+    ],
+    [
+      85,
+      12,
+      "CHEMISTRY",
+      "chemistry-thermodynamics",
+      "enthalpy",
+      "The bond dissociation energies of X₂, Y₂ and XY are in the ratio of 1 : 0·5 : 1. ΔH for the formation of XY is −200 kJ mol⁻¹. The bond dissociation energy of X₂ will be",
+      [
+        "800 kJ mol⁻¹",
+        "100 kJ mol⁻¹",
+        "200 kJ mol⁻¹",
+        "400 kJ mol⁻¹"
+      ]
+    ],
+    [
+      86,
+      12,
+      "CHEMISTRY",
+      "chemistry-thermodynamics",
+      "states-of-matter",
+      "The correction factor ‘a’ to the ideal gas equation corresponds to",
+      [
+        "electric field present between the gas molecules",
+        "volume of the gas molecules",
+        "density of the gas molecules",
+        "forces of attraction between the gas molecules"
+      ]
+    ],
+    [
+      87,
+      13,
+      "CHEMISTRY",
+      "chemistry-chemical-bonding",
+      "molecular-orbital-theory",
+      "Consider the following species :\nCN⁺, CN⁻, NO and CN\nWhich one of these will have the highest bond order ?",
+      [
+        "CN⁺",
+        "CN⁻",
+        "NO",
+        "CN"
+      ]
+    ],
+    [
+      88,
+      13,
+      "CHEMISTRY",
+      "chemistry-chemical-bonding",
+      "ionic-covalent-bonding",
+      "Magnesium reacts with an element (X) to form an ionic compound. If the ground state electronic configuration of (X) is 1s² 2s² 2p³, the simplest formula for this compound is",
+      [
+        "Mg₂X",
+        "MgX₂",
+        "Mg₂X₃",
+        "Mg₃X₂"
+      ]
+    ],
+    [
+      89,
+      13,
+      "CHEMISTRY",
+      "chemistry-solutions",
+      "solid-state",
+      "Iron exhibits bcc structure at room temperature. Above 900°C, it transforms to fcc structure. The ratio of density of iron at room temperature to that at 900°C (assuming molar mass and atomic radii of iron remains constant with temperature) is",
+      [
+        "(3√3)/(4√2)",
+        "(4√3)/(3√2)",
+        "√3/√2",
+        "1/2"
+      ]
+    ],
+    [
+      91,
+      13,
+      "BOTANY",
+      "biology-plant-physiology",
+      "photosynthesis",
+      "Oxygen is not produced during photosynthesis by",
+      [
+        "Cycas",
+        "Nostoc",
+        "Green sulphur bacteria",
+        "Chara"
+      ]
+    ],
+    [
+      92,
+      13,
+      "BOTANY",
+      "biology-reproduction",
+      "sexual-reproduction-plants",
+      "Double fertilization is",
+      [
+        "Fusion of two male gametes with one egg",
+        "Fusion of one male gamete with two polar nuclei",
+        "Fusion of two male gametes of a pollen tube with two different eggs",
+        "Syngamy and triple fusion"
+      ]
+    ],
+    [
+      93,
+      13,
+      "BOTANY",
+      "biology-ecology-environment",
+      "organisms-populations",
+      "Which one of the following plants shows a very close relationship with a species of moth, where none of the two can complete its life cycle without the other ?",
+      [
+        "Banana",
+        "Yucca",
+        "Hydrilla",
+        "Viola"
+      ]
+    ],
+    [
+      94,
+      13,
+      "BOTANY",
+      "biology-reproduction",
+      "sexual-reproduction-plants",
+      "Pollen grains can be stored for several years in liquid nitrogen having a temperature of",
+      [
+        "– 196°C",
+        "– 80°C",
+        "– 120°C",
+        "– 160°C"
+      ]
+    ],
+    [
+      95,
+      13,
+      "BOTANY",
+      "biology-plant-physiology",
+      "mineral-nutrition",
+      "Which of the following elements is responsible for maintaining turgor in cells ?",
+      [
+        "Potassium",
+        "Sodium",
+        "Magnesium",
+        "Calcium"
+      ]
+    ],
+    [
+      96,
+      13,
+      "BOTANY",
+      "biology-plant-physiology",
+      "respiration",
+      "What is the role of NAD⁺ in cellular respiration ?",
+      [
+        "It is a nucleotide source for ATP synthesis.",
+        "It functions as an electron carrier.",
+        "It functions as an enzyme.",
+        "It is the final electron acceptor for anaerobic respiration."
+      ]
+    ],
+    [
+      97,
+      13,
+      "BOTANY",
+      "biology-plant-physiology",
+      "mineral-nutrition",
+      "In which of the following forms is iron absorbed by plants ?",
+      [
+        "Free element",
+        "Ferrous",
+        "Ferric",
+        "Both ferric and ferrous"
+      ]
+    ],
+    [
+      98,
+      14,
+      "BOTANY",
+      "biology-biotechnology",
+      "biotechnology-applications",
+      "Which of the following is commonly used as a vector for introducing a DNA fragment in human lymphocytes ?",
+      [
+        "λ phage",
+        "Ti plasmid",
+        "Retrovirus",
+        "pBR 322"
+      ]
+    ],
+    [
+      99,
+      14,
+      "BOTANY",
+      "biology-biotechnology",
+      "biotechnology-applications",
+      "Use of bioresources by multinational companies and organisations without authorisation from the concerned country and its people is called",
+      [
+        "Biodegradation",
+        "Biopiracy",
+        "Bio-infringement",
+        "Bioexploitation"
+      ]
+    ],
+    [
+      100,
+      14,
+      "BOTANY",
+      "biology-biotechnology",
+      "biotechnology-applications",
+      "In India, the organisation responsible for assessing the safety of introducing genetically modified organisms for public use is",
+      [
+        "Research Committee on Genetic Manipulation (RCGM)",
+        "Council for Scientific and Industrial Research (CSIR)",
+        "Indian Council of Medical Research (ICMR)",
+        "Genetic Engineering Appraisal Committee (GEAC)"
+      ]
+    ],
+    [
+      101,
+      14,
+      "BOTANY",
+      "biology-biotechnology",
+      "biotechnology-principles",
+      "The correct order of steps in Polymerase Chain Reaction (PCR) is",
+      [
+        "Denaturation, Extension, Annealing",
+        "Annealing, Extension, Denaturation",
+        "Extension, Denaturation, Annealing",
+        "Denaturation, Annealing, Extension"
+      ]
+    ],
+    [
+      102,
+      14,
+      "BOTANY",
+      "biology-genetics-and-evolution",
+      "molecular-basis-of-inheritance",
+      "Select the correct match :",
+      [
+        "T.H. Morgan — Transduction",
+        "F₂ × Recessive parent — Dihybrid cross",
+        "Ribozyme — Nucleic acid",
+        "G. Mendel — Transformation"
+      ]
+    ],
+    [
+      103,
+      14,
+      "BOTANY",
+      "biology-biotechnology",
+      "biotechnology-applications",
+      "A ‘new’ variety of rice was patented by a foreign company, though such varieties have been present in India for a long time. This is related to",
+      [
+        "Lerma Rojo",
+        "Sharbati Sonora",
+        "Co-667",
+        "Basmati"
+      ]
+    ],
+    [
+      104,
+      14,
+      "BOTANY",
+      "biology-genetics-and-evolution",
+      "mendelian-inheritance",
+      "Which of the following pairs is wrongly matched ?",
+      [
+        "XO type sex determination : Grasshopper",
+        "ABO blood grouping : Co-dominance",
+        "Starch synthesis in pea : Multiple alleles",
+        "T.H. Morgan : Linkage"
+      ]
+    ],
+    [
+      105,
+      14,
+      "BOTANY",
+      "biology-genetics-and-evolution",
+      "mendelian-inheritance",
+      "Select the correct statement :",
+      [
+        "Spliceosomes take part in translation.",
+        "Punnett square was developed by a British scientist.",
+        "Franklin Stahl coined the term ‘‘linkage’’.",
+        "Transduction was discovered by S. Altman."
+      ]
+    ],
+    [
+      106,
+      14,
+      "BOTANY",
+      "biology-genetics-and-evolution",
+      "molecular-basis-of-inheritance",
+      "The experimental proof for semiconservative replication of DNA was first shown in a",
+      [
+        "Plant",
+        "Bacterium",
+        "Fungus",
+        "Virus"
+      ]
+    ],
+    [
+      107,
+      14,
+      "BOTANY",
+      "biology-reproduction",
+      "reproduction-organisms",
+      "Which of the following flowers only once in its life-time ?",
+      [
+        "Mango",
+        "Jackfruit",
+        "Bamboo species",
+        "Papaya"
+      ]
+    ],
+    [
+      108,
+      14,
+      "BOTANY",
+      "biology-reproduction",
+      "reproduction-organisms",
+      "Offsets are produced by",
+      [
+        "Parthenocarpy",
+        "Mitotic divisions",
+        "Meiotic divisions",
+        "Parthenogenesis"
+      ]
+    ],
+    [
+      109,
+      14,
+      "BOTANY",
+      "biology-genetics-and-evolution",
+      "molecular-basis-of-inheritance",
+      "Select the correct match :",
+      [
+        "Matthew Meselson and F. Stahl — Pisum sativum",
+        "Alfred Hershey and Martha Chase — TMV",
+        "Alec Jeffreys — Streptococcus pneumoniae",
+        "Francois Jacob and Jacques Monod — Lac operon"
+      ]
+    ],
+    [
+      110,
+      14,
+      "BOTANY",
+      "biology-reproduction",
+      "sexual-reproduction-plants",
+      "Which of the following has proved helpful in preserving pollen as fossils ?",
+      [
+        "Oil content",
+        "Cellulosic intine",
+        "Pollenkitt",
+        "Sporopollenin"
+      ]
+    ],
+    [
+      111,
+      15,
+      "BOTANY",
+      "biology-ecology-environment",
+      "organisms-populations",
+      "Natality refers to",
+      [
+        "Number of individuals leaving the habitat",
+        "Birth rate",
+        "Death rate",
+        "Number of individuals entering a habitat"
+      ]
+    ],
+    [
+      112,
+      15,
+      "BOTANY",
+      "biology-ecology-environment",
+      "environmental-issues",
+      "World Ozone Day is celebrated on",
+      [
+        "16ᵗʰ September",
+        "21ˢᵗ April",
+        "5ᵗʰ June",
+        "22ⁿᵈ April"
+      ]
+    ],
+    [
+      113,
+      15,
+      "BOTANY",
+      "biology-ecology-environment",
+      "environmental-issues",
+      "Which of the following is a secondary pollutant ?",
+      [
+        "SO₂",
+        "CO₂",
+        "CO",
+        "O₃"
+      ]
+    ],
+    [
+      114,
+      15,
+      "BOTANY",
+      "biology-ecology-environment",
+      "organisms-populations",
+      "Niche is",
+      [
+        "the range of temperature that the organism needs to live",
+        "the physical space where an organism lives",
+        "all the biological factors in the organism’s environment",
+        "the functional role played by the organism where it lives"
+      ]
+    ],
+    [
+      115,
+      15,
+      "BOTANY",
+      "biology-ecology-environment",
+      "ecosystems",
+      "What type of ecological pyramid would be obtained with the following data ?\nSecondary consumer : 120 g\nPrimary consumer : 60 g\nPrimary producer : 10 g",
+      [
+        "Upright pyramid of numbers",
+        "Pyramid of energy",
+        "Inverted pyramid of biomass",
+        "Upright pyramid of biomass"
+      ]
+    ],
+    [
+      116,
+      15,
+      "BOTANY",
+      "biology-ecology-environment",
+      "environmental-issues",
+      "In stratosphere, which of the following elements acts as a catalyst in degradation of ozone and release of molecular oxygen ?",
+      [
+        "Fe",
+        "Cl",
+        "Carbon",
+        "Oxygen"
+      ]
+    ],
+    [
+      117,
+      15,
+      "BOTANY",
+      "biology-cell-structure-function",
+      "biomolecules",
+      "The two functional groups characteristic of sugars are",
+      [
+        "carbonyl and phosphate",
+        "carbonyl and methyl",
+        "hydroxyl and methyl",
+        "carbonyl and hydroxyl"
+      ]
+    ],
+    [
+      118,
+      15,
+      "BOTANY",
+      "biology-diversity-living-world",
+      "biological-classification",
+      "Which among the following is not a prokaryote ?",
+      [
+        "Nostoc",
+        "Mycobacterium",
+        "Saccharomyces",
+        "Oscillatoria"
+      ]
+    ],
+    [
+      119,
+      15,
+      "BOTANY",
+      "biology-cell-structure-function",
+      "cell-organelles",
+      "The Golgi complex participates in",
+      [
+        "Respiration in bacteria",
+        "Formation of secretory vesicles",
+        "Fatty acid breakdown",
+        "Activation of amino acid"
+      ]
+    ],
+    [
+      120,
+      15,
+      "BOTANY",
+      "biology-plant-physiology",
+      "photosynthesis",
+      "Which of the following is not a product of light reaction of photosynthesis ?",
+      [
+        "NADPH",
+        "NADH",
+        "ATP",
+        "Oxygen"
+      ]
+    ],
+    [
+      121,
+      15,
+      "BOTANY",
+      "biology-cell-structure-function",
+      "cell-organelles",
+      "Which of the following is true for nucleolus ?",
+      [
+        "It takes part in spindle formation.",
+        "It is a membrane-bound structure.",
+        "Larger nucleoli are present in dividing cells.",
+        "It is a site for active ribosomal RNA synthesis."
+      ]
+    ],
+    [
+      122,
+      15,
+      "BOTANY",
+      "biology-plant-physiology",
+      "transport-plants",
+      "Stomatal movement is not affected by",
+      [
+        "O₂ concentration",
+        "Light",
+        "Temperature",
+        "CO₂ concentration"
+      ]
+    ],
+    [
+      123,
+      15,
+      "BOTANY",
+      "biology-cell-structure-function",
+      "cell-division",
+      "The stage during which separation of the paired homologous chromosomes begins is",
+      [
+        "Diakinesis",
+        "Diplotene",
+        "Pachytene",
+        "Zygotene"
+      ]
+    ],
+    [
+      124,
+      15,
+      "BOTANY",
+      "biology-structural-organisation",
+      "plant-anatomy",
+      "Stomata in grass leaf are",
+      [
+        "Rectangular",
+        "Kidney shaped",
+        "Dumb-bell shaped",
+        "Barrel shaped"
+      ]
+    ],
+    [
+      125,
+      16,
+      "BOTANY",
+      "biology-structural-organisation",
+      "plant-anatomy",
+      "Secondary xylem and phloem in dicot stem are produced by",
+      [
+        "Phellogen",
+        "Vascular cambium",
+        "Apical meristems",
+        "Axillary meristems"
+      ]
+    ],
+    [
+      126,
+      16,
+      "BOTANY",
+      "biology-structural-organisation",
+      "plant-morphology",
+      "Pneumatophores occur in",
+      [
+        "Carnivorous plants",
+        "Free-floating hydrophytes",
+        "Halophytes",
+        "Submerged hydrophytes"
+      ]
+    ],
+    [
+      127,
+      16,
+      "BOTANY",
+      "biology-structural-organisation",
+      "plant-anatomy",
+      "Casparian strips occur in",
+      [
+        "Cortex",
+        "Pericycle",
+        "Epidermis",
+        "Endodermis"
+      ]
+    ],
+    [
+      128,
+      16,
+      "BOTANY",
+      "biology-structural-organisation",
+      "plant-anatomy",
+      "Plants having little or no secondary growth are",
+      [
+        "Conifers",
+        "Deciduous angiosperms",
+        "Grasses",
+        "Cycads"
+      ]
+    ],
+    [
+      129,
+      16,
+      "BOTANY",
+      "biology-structural-organisation",
+      "plant-morphology",
+      "Sweet potato is a modified",
+      [
+        "Tap root",
+        "Adventitious root",
+        "Stem",
+        "Rhizome"
+      ]
+    ],
+    [
+      130,
+      16,
+      "BOTANY",
+      "biology-diversity-living-world",
+      "plant-kingdom",
+      "Which of the following statements is correct ?",
+      [
+        "Horsetails are gymnosperms.",
+        "Selaginella is heterosporous, while Salvinia is homosporous.",
+        "Ovules are not enclosed by ovary wall in gymnosperms.",
+        "Stems are usually unbranched in both Cycas and Cedrus."
+      ]
+    ],
+    [
+      131,
+      16,
+      "BOTANY",
+      "biology-diversity-living-world",
+      "biological-classification",
+      "Select the wrong statement :",
+      [
+        "Pseudopodia are locomotory and feeding structures in Sporozoans.",
+        "Mushrooms belong to Basidiomycetes.",
+        "Cell wall is present in members of Fungi and Plantae.",
+        "Mitochondria are the powerhouse of the cell in all kingdoms except Monera."
+      ]
+    ],
+    [
+      132,
+      16,
+      "BOTANY",
+      "biology-diversity-living-world",
+      "biological-classification",
+      "After karyogamy followed by meiosis, spores are produced exogenously in",
+      [
+        "Agaricus",
+        "Alternaria",
+        "Neurospora",
+        "Saccharomyces"
+      ]
+    ],
+    [
+      133,
+      16,
+      "BOTANY",
+      "biology-diversity-living-world",
+      "taxonomy-systematics",
+      "Match the items given in Column I with those in Column II and select the correct option given below :\nColumn I\na. Herbarium\nb. Key\nc. Museum\nd. Catalogue\nColumn II\ni. It is a place having a collection of preserved plants and animals.\nii. A list that enumerates methodically all the species found in an area with brief description aiding identification.\niii. Is a place where dried and pressed plant specimens mounted on sheets are kept.\niv. A booklet containing a list of characters and their alternates which are helpful in identification of various taxa.\n     a   b   c   d",
+      [
+        "ii   iv   iii   i",
+        "iii   ii   i   iv",
+        "i   iv   iii   ii",
+        "iii   iv   i   ii"
+      ]
+    ],
+    [
+      134,
+      16,
+      "BOTANY",
+      "biology-reproduction",
+      "sexual-reproduction-plants",
+      "Winged pollen grains are present in",
+      [
+        "Mango",
+        "Cycas",
+        "Mustard",
+        "Pinus"
+      ]
+    ],
+    [
+      135,
+      16,
+      "BOTANY",
+      "biology-diversity-living-world",
+      "plant-kingdom",
+      "Which one is wrongly matched ?",
+      [
+        "Gemma cups — Marchantia",
+        "Biflagellate zoospores — Brown algae",
+        "Uniflagellate gametes — Polysiphonia",
+        "Unicellular organism — Chlorella"
+      ]
+    ],
+    [
+      136,
+      17,
+      "ZOOLOGY",
+      "biology-human-physiology",
+      "breathing",
+      "Which of the following options correctly represents the lung conditions in asthma and emphysema, respectively ?",
+      [
+        "Increased respiratory surface; Inflammation of bronchioles",
+        "Increased number of bronchioles; Increased respiratory surface",
+        "Inflammation of bronchioles; Decreased respiratory surface",
+        "Decreased respiratory surface; Inflammation of bronchioles"
+      ]
+    ],
+    [
+      137,
+      17,
+      "ZOOLOGY",
+      "biology-human-physiology",
+      "circulation",
+      "Match the items given in Column I with those in Column II and select the correct option given below :\nColumn I\na. Tricuspid valve\nb. Bicuspid valve\nc. Semilunar valve\nColumn II\ni. Between left atrium and left ventricle\nii. Between right ventricle and pulmonary artery\niii. Between right atrium and right ventricle\n     a   b   c",
+      [
+        "i   ii   iii",
+        "i   iii   ii",
+        "iii   i   ii",
+        "ii   i   iii"
+      ]
+    ],
+    [
+      138,
+      17,
+      "ZOOLOGY",
+      "biology-human-physiology",
+      "breathing",
+      "Match the items given in Column I with those in Column II and select the correct option given below :\nColumn I\na. Tidal volume\nb. Inspiratory Reserve volume\nc. Expiratory Reserve volume\nd. Residual volume\nColumn II\ni. 2500 – 3000 mL\nii. 1100 – 1200 mL\niii. 500 – 550 mL\niv. 1000 – 1100 mL\n     a   b   c   d",
+      [
+        "i   iv   ii   iii",
+        "iii   i   iv   ii",
+        "iii   ii   i   iv",
+        "iv   iii   ii   i"
+      ]
+    ],
+    [
+      139,
+      17,
+      "ZOOLOGY",
+      "biology-human-physiology",
+      "neural-control",
+      "The transparent lens in the human eye is held in its place by",
+      [
+        "smooth muscles attached to the iris",
+        "ligaments attached to the iris",
+        "ligaments attached to the ciliary body",
+        "smooth muscles attached to the ciliary body"
+      ]
+    ],
+    [
+      140,
+      17,
+      "ZOOLOGY",
+      "biology-human-physiology",
+      "chemical-coordination",
+      "Which of the following is an amino acid derived hormone ?",
+      [
+        "Estradiol",
+        "Ecdysone",
+        "Epinephrine",
+        "Estriol"
+      ]
+    ],
+    [
+      141,
+      17,
+      "ZOOLOGY",
+      "biology-human-physiology",
+      "chemical-coordination",
+      "Which of the following hormones can play a significant role in osteoporosis ?",
+      [
+        "Estrogen and Parathyroid hormone",
+        "Progesterone and Aldosterone",
+        "Aldosterone and Prolactin",
+        "Parathyroid hormone and Prolactin"
+      ]
+    ],
+    [
+      142,
+      17,
+      "ZOOLOGY",
+      "biology-human-physiology",
+      "neural-control",
+      "Which of the following structures or regions is incorrectly paired with its function ?",
+      [
+        "Hypothalamus : production of releasing hormones and regulation of temperature, hunger and thirst.",
+        "Limbic system : consists of fibre tracts that interconnect different regions of brain; controls movement.",
+        "Medulla oblongata : controls respiration and cardiovascular reflexes.",
+        "Corpus callosum : band of fibers connecting left and right cerebral hemispheres."
+      ]
+    ],
+    [
+      143,
+      18,
+      "ZOOLOGY",
+      "biology-reproduction",
+      "human-reproduction",
+      "The amnion of mammalian embryo is derived from",
+      [
+        "mesoderm and trophoblast",
+        "endoderm and mesoderm",
+        "ectoderm and mesoderm",
+        "ectoderm and endoderm"
+      ]
+    ],
+    [
+      144,
+      18,
+      "ZOOLOGY",
+      "biology-reproduction",
+      "human-reproduction",
+      "Hormones secreted by the placenta to maintain pregnancy are",
+      [
+        "hCG, hPL, progestogens, estrogens",
+        "hCG, hPL, estrogens, relaxin, oxytocin",
+        "hCG, hPL, progestogens, prolactin",
+        "hCG, progestogens, estrogens, glucocorticoids"
+      ]
+    ],
+    [
+      145,
+      18,
+      "ZOOLOGY",
+      "biology-reproduction",
+      "human-reproduction",
+      "The difference between spermiogenesis and spermiation is",
+      [
+        "In spermiogenesis spermatozoa from sertoli cells are released into the cavity of seminiferous tubules, while in spermiation spermatozoa are formed.",
+        "In spermiogenesis spermatozoa are formed, while in spermiation spermatids are formed.",
+        "In spermiogenesis spermatids are formed, while in spermiation spermatozoa are formed.",
+        "In spermiogenesis spermatozoa are formed, while in spermiation spermatozoa are released from sertoli cells into the cavity of seminiferous tubules."
+      ]
+    ],
+    [
+      146,
+      18,
+      "ZOOLOGY",
+      "biology-reproduction",
+      "reproductive-health",
+      "The contraceptive ‘SAHELI’",
+      [
+        "is an IUD.",
+        "increases the concentration of estrogen and prevents ovulation in females.",
+        "blocks estrogen receptors in the uterus, preventing eggs from getting implanted.",
+        "is a post-coital contraceptive."
+      ]
+    ],
+    [
+      147,
+      18,
+      "ZOOLOGY",
+      "biology-diversity-living-world",
+      "biological-classification",
+      "Ciliates differ from all other protozoans in",
+      [
+        "using pseudopodia for capturing prey",
+        "having a contractile vacuole for removing excess water",
+        "using flagella for locomotion",
+        "having two types of nuclei"
+      ]
+    ],
+    [
+      148,
+      18,
+      "ZOOLOGY",
+      "biology-diversity-living-world",
+      "animal-kingdom",
+      "Identify the vertebrate group of animals characterized by crop and gizzard in its digestive system.",
+      [
+        "Aves",
+        "Reptilia",
+        "Amphibia",
+        "Osteichthyes"
+      ]
+    ],
+    [
+      149,
+      18,
+      "ZOOLOGY",
+      "biology-structural-organisation",
+      "animal-morphology",
+      "Which of the following features is used to identify a male cockroach from a female cockroach ?",
+      [
+        "Forewings with darker tegmina",
+        "Presence of caudal styles",
+        "Presence of a boat shaped sternum on the 9ᵗʰ abdominal segment",
+        "Presence of anal cerci"
+      ]
+    ],
+    [
+      150,
+      18,
+      "ZOOLOGY",
+      "biology-diversity-living-world",
+      "animal-kingdom",
+      "Which one of these animals is not a homeotherm ?",
+      [
+        "Camelus",
+        "Chelone",
+        "Macropus",
+        "Psittacula"
+      ]
+    ],
+    [
+      151,
+      18,
+      "ZOOLOGY",
+      "biology-diversity-living-world",
+      "animal-kingdom",
+      "Which of the following animals does not undergo metamorphosis ?",
+      [
+        "Moth",
+        "Tunicate",
+        "Earthworm",
+        "Starfish"
+      ]
+    ],
+    [
+      152,
+      18,
+      "BOTANY",
+      "biology-diversity-living-world",
+      "biological-classification",
+      "Which of the following organisms are known as chief producers in the oceans ?",
+      [
+        "Cyanobacteria",
+        "Diatoms",
+        "Dinoflagellates",
+        "Euglenoids"
+      ]
+    ],
+    [
+      153,
+      19,
+      "BOTANY",
+      "biology-ecology-environment",
+      "organisms-populations",
+      "Which one of the following population interactions is widely used in medical science for the production of antibiotics ?",
+      [
+        "Parasitism",
+        "Mutualism",
+        "Commensalism",
+        "Amensalism"
+      ]
+    ],
+    [
+      154,
+      19,
+      "BOTANY",
+      "biology-ecology-environment",
+      "biodiversity-conservation",
+      "All of the following are included in ‘Ex-situ conservation’ except",
+      [
+        "Botanical gardens",
+        "Sacred groves",
+        "Wildlife safari parks",
+        "Seed banks"
+      ]
+    ],
+    [
+      155,
+      19,
+      "BOTANY",
+      "biology-ecology-environment",
+      "environmental-issues",
+      "Match the items given in Column I with those in Column II and select the correct option given below :\nColumn I\na. Eutrophication\nb. Sanitary landfill\nc. Snow blindness\nd. Jhum cultivation\nColumn II\ni. UV-B radiation\nii. Deforestation\niii. Nutrient enrichment\niv. Waste disposal\n     a   b   c   d",
+      [
+        "iii   iv   i   ii",
+        "i   iii   iv   ii",
+        "ii   i   iii   iv",
+        "i   ii   iv   iii"
+      ]
+    ],
+    [
+      156,
+      19,
+      "BOTANY",
+      "biology-ecology-environment",
+      "organisms-populations",
+      "In a growing population of a country,",
+      [
+        "reproductive and pre-reproductive individuals are equal in number.",
+        "reproductive individuals are less than the post-reproductive individuals.",
+        "pre-reproductive individuals are more than the reproductive individuals.",
+        "pre-reproductive individuals are less than the reproductive individuals."
+      ]
+    ],
+    [
+      157,
+      19,
+      "ZOOLOGY",
+      "biology-human-welfare",
+      "human-health-disease",
+      "Which part of poppy plant is used to obtain the drug ‘‘Smack’’ ?",
+      [
+        "Roots",
+        "Latex",
+        "Flowers",
+        "Leaves"
+      ]
+    ],
+    [
+      158,
+      19,
+      "BOTANY",
+      "biology-genetics-and-evolution",
+      "molecular-basis-of-inheritance",
+      "All of the following are part of an operon except",
+      [
+        "an enhancer",
+        "structural genes",
+        "an operator",
+        "a promoter"
+      ]
+    ],
+    [
+      159,
+      19,
+      "ZOOLOGY",
+      "biology-genetics-and-evolution",
+      "mendelian-inheritance",
+      "A woman has an X-linked condition on one of her X chromosomes. This chromosome can be inherited by",
+      [
+        "Only grandchildren",
+        "Only sons",
+        "Only daughters",
+        "Both sons and daughters"
+      ]
+    ],
+    [
+      160,
+      19,
+      "ZOOLOGY",
+      "biology-genetics-and-evolution",
+      "evolution",
+      "According to Hugo de Vries, the mechanism of evolution is",
+      [
+        "Phenotypic variations",
+        "Saltation",
+        "Multiple step mutations",
+        "Minor mutations"
+      ]
+    ],
+    [
+      161,
+      19,
+      "BOTANY",
+      "biology-genetics-and-evolution",
+      "molecular-basis-of-inheritance",
+      "AGGTATCGCAT is a sequence from the coding strand of a gene. What will be the corresponding sequence of the transcribed mRNA ?",
+      [
+        "ACCUAUGCGAU",
+        "UGGTUTCGCAT",
+        "AGGUAUCGCAU",
+        "UCCAUAGCGUA"
+      ]
+    ],
+    [
+      162,
+      19,
+      "ZOOLOGY",
+      "biology-reproduction",
+      "human-reproduction",
+      "Match the items given in Column I with those in Column II and select the correct option given below :\nColumn I\na. Proliferative Phase\nb. Secretory Phase\nc. Menstruation\nColumn II\ni. Breakdown of endometrial lining\nii. Follicular Phase\niii. Luteal Phase\n     a   b   c",
+      [
+        "ii   iii   i",
+        "i   iii   ii",
+        "iii   ii   i",
+        "iii   i   ii"
+      ]
+    ],
+    [
+      163,
+      20,
+      "ZOOLOGY",
+      "biology-human-physiology",
+      "excretion",
+      "Match the items given in Column I with those in Column II and select the correct option given below :\nColumn I\na. Glycosuria\nb. Gout\nc. Renal calculi\nd. Glomerular nephritis\nColumn II\ni. Accumulation of uric acid in joints\nii. Mass of crystallised salts within the kidney\niii. Inflammation in glomeruli\niv. Presence of glucose in urine\n     a   b   c   d",
+      [
+        "ii   iii   i   iv",
+        "i   ii   iii   iv",
+        "iii   ii   iv   i",
+        "iv   i   ii   iii"
+      ]
+    ],
+    [
+      164,
+      20,
+      "ZOOLOGY",
+      "biology-human-physiology",
+      "excretion",
+      "Match the items given in Column I with those in Column II and select the correct option given below :\nColumn I (Function)\na. Ultrafiltration\nb. Concentration of urine\nc. Transport of urine\nd. Storage of urine\nColumn II (Part of Excretory System)\ni. Henle’s loop\nii. Ureter\niii. Urinary bladder\niv. Malpighian corpuscle\nv. Proximal convoluted tubule\n     a   b   c   d",
+      [
+        "v   iv   i   ii",
+        "iv   i   ii   iii",
+        "iv   v   ii   iii",
+        "v   iv   ii   iii"
+      ]
+    ],
+    [
+      165,
+      20,
+      "ZOOLOGY",
+      "biology-human-physiology",
+      "digestion-absorption",
+      "Which of the following gastric cells indirectly help in erythropoiesis ?",
+      [
+        "Goblet cells",
+        "Mucous cells",
+        "Chief cells",
+        "Parietal cells"
+      ]
+    ],
+    [
+      166,
+      20,
+      "ZOOLOGY",
+      "biology-human-physiology",
+      "circulation",
+      "Match the items given in Column I with those in Column II and select the correct option given below :\nColumn I\na. Fibrinogen\nb. Globulin\nc. Albumin\nColumn II\ni. Osmotic balance\nii. Blood clotting\niii. Defence mechanism\n     a   b   c",
+      [
+        "i   iii   ii",
+        "i   ii   iii",
+        "iii   ii   i",
+        "ii   iii   i"
+      ]
+    ],
+    [
+      167,
+      20,
+      "ZOOLOGY",
+      "biology-human-physiology",
+      "breathing",
+      "Which of the following is an occupational respiratory disorder ?",
+      [
+        "Botulism",
+        "Silicosis",
+        "Anthracis",
+        "Emphysema"
+      ]
+    ],
+    [
+      168,
+      20,
+      "ZOOLOGY",
+      "biology-human-physiology",
+      "locomotion-movement",
+      "Calcium is important in skeletal muscle contraction because it",
+      [
+        "detaches the myosin head from the actin filament.",
+        "activates the myosin ATPase by binding to it.",
+        "binds to troponin to remove the masking of active sites on actin for myosin.",
+        "prevents the formation of bonds between the myosin cross bridges and the actin filament."
+      ]
+    ],
+    [
+      169,
+      21,
+      "ZOOLOGY",
+      "biology-human-physiology",
+      "neural-control",
+      "Nissl bodies are mainly composed of",
+      [
+        "Nucleic acids and SER",
+        "DNA and RNA",
+        "Proteins and lipids",
+        "Free ribosomes and RER"
+      ]
+    ],
+    [
+      170,
+      21,
+      "BOTANY",
+      "biology-plant-physiology",
+      "respiration",
+      "Which of these statements is incorrect ?",
+      [
+        "Glycolysis operates as long as it is supplied with NAD that can pick up hydrogen atoms.",
+        "Glycolysis occurs in cytosol.",
+        "Enzymes of TCA cycle are present in mitochondrial matrix.",
+        "Oxidative phosphorylation takes place in outer mitochondrial membrane."
+      ]
+    ],
+    [
+      171,
+      21,
+      "BOTANY",
+      "biology-cell-structure-function",
+      "cell-division",
+      "Select the incorrect match :",
+      [
+        "Submetacentric chromosomes — L-shaped chromosomes",
+        "Allosomes — Sex chromosomes",
+        "Lampbrush chromosomes — Diplotene bivalents",
+        "Polytene chromosomes — Oocytes of amphibians"
+      ]
+    ],
+    [
+      172,
+      21,
+      "ZOOLOGY",
+      "biology-human-physiology",
+      "digestion-absorption",
+      "Which of the following terms describe human dentition ?",
+      [
+        "Pleurodont, Monophyodont, Homodont",
+        "Thecodont, Diphyodont, Heterodont",
+        "Thecodont, Diphyodont, Homodont",
+        "Pleurodont, Diphyodont, Heterodont"
+      ]
+    ],
+    [
+      173,
+      21,
+      "BOTANY",
+      "biology-cell-structure-function",
+      "cell-organelles",
+      "Which of the following events does not occur in rough endoplasmic reticulum ?",
+      [
+        "Cleavage of signal peptide",
+        "Protein glycosylation",
+        "Protein folding",
+        "Phospholipid synthesis"
+      ]
+    ],
+    [
+      174,
+      21,
+      "BOTANY",
+      "biology-cell-structure-function",
+      "cell-organelles",
+      "Many ribosomes may associate with a single mRNA to form multiple copies of a polypeptide simultaneously. Such strings of ribosomes are termed as",
+      [
+        "Plastidome",
+        "Polyhedral bodies",
+        "Polysome",
+        "Nucleosome"
+      ]
+    ],
+    [
+      175,
+      21,
+      "ZOOLOGY",
+      "biology-human-welfare",
+      "human-health-disease",
+      "In which disease does mosquito transmitted pathogen cause chronic inflammation of lymphatic vessels ?",
+      [
+        "Ringworm disease",
+        "Ascariasis",
+        "Elephantiasis",
+        "Amoebiasis"
+      ]
+    ],
+    [
+      176,
+      21,
+      "ZOOLOGY",
+      "biology-human-welfare",
+      "human-health-disease",
+      "Which of the following is not an autoimmune disease ?",
+      [
+        "Alzheimer’s disease",
+        "Rheumatoid arthritis",
+        "Psoriasis",
+        "Vitiligo"
+      ]
+    ],
+    [
+      177,
+      21,
+      "ZOOLOGY",
+      "biology-genetics-and-evolution",
+      "evolution",
+      "Among the following sets of examples for divergent evolution, select the incorrect option :",
+      [
+        "Brain of bat, man and cheetah",
+        "Heart of bat, man and cheetah",
+        "Forelimbs of man, bat and cheetah",
+        "Eye of octopus, bat and man"
+      ]
+    ],
+    [
+      178,
+      21,
+      "BOTANY",
+      "biology-human-welfare",
+      "microbes-human-welfare",
+      "Conversion of milk to curd improves its nutritional value by increasing the amount of",
+      [
+        "Vitamin B₁₂",
+        "Vitamin A",
+        "Vitamin D",
+        "Vitamin E"
+      ]
+    ],
+    [
+      179,
+      21,
+      "ZOOLOGY",
+      "biology-genetics-and-evolution",
+      "evolution",
+      "The similarity of bone structure in the forelimbs of many vertebrates is an example of",
+      [
+        "Convergent evolution",
+        "Analogy",
+        "Homology",
+        "Adaptive radiation"
+      ]
+    ],
+    [
+      180,
+      21,
+      "ZOOLOGY",
+      "biology-genetics-and-evolution",
+      "mendelian-inheritance",
+      "Which of the following characteristics represent ‘Inheritance of blood groups’ in humans ?\na. Dominance\nb. Co-dominance\nc. Multiple allele\nd. Incomplete dominance\ne. Polygenic inheritance",
+      [
+        "b, d and e",
+        "a, b and c",
+        "b, c and e",
+        "a, c and e"
+      ]
+    ]
+  ]
+}

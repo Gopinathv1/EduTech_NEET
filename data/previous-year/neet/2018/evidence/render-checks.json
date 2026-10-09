@@ -1,0 +1,42 @@
+[
+  {
+    "name": "mobile",
+    "width": 360,
+    "quarantinedTextRecordsChecked": 167,
+    "diagramsChecked": 13,
+    "optionsChecked": 668,
+    "horizontalOverflow": false,
+    "questionTextPreserved": true,
+    "optionTextPreserved": true,
+    "radioSelectionPassed": true,
+    "visualNotationReviewPassed": false,
+    "notationIssueNumbers": [
+      12,
+      18,
+      34,
+      36
+    ],
+    "visualNotationLimitation": "Combining vector-arrow U+20D7 shows a missing glyph in the local Arial preview. These four records remain quarantined; DOM equality does not establish visual notation fidelity.",
+    "scope": "Local quarantine review only; ExamClient whitespace/wrapping semantics. No validated/student-visible content, authenticated practice, filter or scoring E2E."
+  },
+  {
+    "name": "desktop",
+    "width": 1100,
+    "quarantinedTextRecordsChecked": 167,
+    "diagramsChecked": 13,
+    "optionsChecked": 668,
+    "horizontalOverflow": false,
+    "questionTextPreserved": true,
+    "optionTextPreserved": true,
+    "radioSelectionPassed": true,
+    "visualNotationReviewPassed": false,
+    "notationIssueNumbers": [
+      12,
+      18,
+      34,
+      36
+    ],
+    "visualNotationLimitation": "Combining vector-arrow U+20D7 shows a missing glyph in the local Arial preview. These four records remain quarantined; DOM equality does not establish visual notation fidelity.",
+    "scope": "Local quarantine review only; ExamClient whitespace/wrapping semantics. No validated/student-visible content, authenticated practice, filter or scoring E2E."
+  }
+]

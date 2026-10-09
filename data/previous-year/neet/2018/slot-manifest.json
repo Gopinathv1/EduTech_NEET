@@ -1,0 +1,2885 @@
+{
+  "method": "Original English text-native booklet; all numbered boundaries visually checked. No temporary OCR text retained.",
+  "records": [
+    {
+      "originalQuestionNumber": 1,
+      "sourcePage": 2,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        21.42220000000009,
+        276.48,
+        292.1122
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-thermodynamics",
+        "first-law"
+      ]
+    },
+    {
+      "originalQuestionNumber": 2,
+      "sourcePage": 2,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        291.1122,
+        276.48,
+        403.6122
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-oscillations-waves",
+        "standing-waves"
+      ]
+    },
+    {
+      "originalQuestionNumber": 3,
+      "sourcePage": 2,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        402.6122,
+        276.48,
+        563.6022
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-kinetic-theory-gases",
+        "kinetic-theory"
+      ]
+    },
+    {
+      "originalQuestionNumber": 4,
+      "sourcePage": 2,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        562.6022,
+        276.48,
+        658.36
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-thermodynamics",
+        "second-law"
+      ]
+    },
+    {
+      "originalQuestionNumber": 5,
+      "sourcePage": 2,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        22.62220000000002,
+        552.96,
+        143.0422000000001
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-current-electricity",
+        "ohms-law"
+      ]
+    },
+    {
+      "originalQuestionNumber": 6,
+      "sourcePage": 2,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        142.0422000000001,
+        552.96,
+        306.99219999999997
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-current-electricity",
+        "cells"
+      ]
+    },
+    {
+      "originalQuestionNumber": 7,
+      "sourcePage": 2,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        305.99219999999997,
+        552.96,
+        658.36
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-current-electricity",
+        "cells"
+      ]
+    },
+    {
+      "originalQuestionNumber": 8,
+      "sourcePage": 3,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        25.022199999999998,
+        276.48,
+        308.0722
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-optics",
+        "wave-optics"
+      ]
+    },
+    {
+      "originalQuestionNumber": 9,
+      "sourcePage": 3,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        307.0722,
+        276.48,
+        532.1622
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-optics",
+        "wave-optics"
+      ]
+    },
+    {
+      "originalQuestionNumber": 10,
+      "sourcePage": 3,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        531.1622,
+        276.48,
+        658.36
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-optics",
+        "optical-instruments"
+      ]
+    },
+    {
+      "originalQuestionNumber": 11,
+      "sourcePage": 3,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        22.982200000000034,
+        552.96,
+        142.56220000000008
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-atoms-nuclei",
+        "atomic-models"
+      ]
+    },
+    {
+      "originalQuestionNumber": 12,
+      "sourcePage": 3,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        141.56220000000008,
+        552.96,
+        370.9722
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-dual-nature",
+        "matter-waves"
+      ]
+    },
+    {
+      "originalQuestionNumber": 13,
+      "sourcePage": 3,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        369.9722,
+        552.96,
+        491.36220000000003
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-atoms-nuclei",
+        "radioactivity"
+      ]
+    },
+    {
+      "originalQuestionNumber": 14,
+      "sourcePage": 3,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        490.36220000000003,
+        552.96,
+        658.36
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-dual-nature",
+        "photoelectric-effect"
+      ]
+    },
+    {
+      "originalQuestionNumber": 15,
+      "sourcePage": 4,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        24.42220000000009,
+        276.48,
+        317.43219999999997
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-electronic-devices",
+        "semiconductors"
+      ]
+    },
+    {
+      "originalQuestionNumber": 16,
+      "sourcePage": 4,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        316.43219999999997,
+        276.48,
+        435.17220000000003
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-electronic-devices",
+        "diodes"
+      ]
+    },
+    {
+      "originalQuestionNumber": 17,
+      "sourcePage": 4,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        434.17220000000003,
+        276.48,
+        658.36
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-electronic-devices",
+        "logic-gates"
+      ]
+    },
+    {
+      "originalQuestionNumber": 18,
+      "sourcePage": 4,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        25.982200000000034,
+        552.96,
+        194.6422
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-electromagnetic-waves",
+        "electromagnetic-spectrum"
+      ]
+    },
+    {
+      "originalQuestionNumber": 19,
+      "sourcePage": 4,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        193.6422,
+        552.96,
+        403.9722
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-optics",
+        "ray-optics"
+      ]
+    },
+    {
+      "originalQuestionNumber": 20,
+      "sourcePage": 4,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        402.9722,
+        552.96,
+        545.7222
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-optics",
+        "ray-optics"
+      ]
+    },
+    {
+      "originalQuestionNumber": 21,
+      "sourcePage": 4,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        544.7222,
+        552.96,
+        658.36
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-emi-ac",
+        "electromagnetic-induction"
+      ]
+    },
+    {
+      "originalQuestionNumber": 22,
+      "sourcePage": 5,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        21.42220000000009,
+        276.48,
+        196.92219999999998
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-electrostatics",
+        "electric-charge-field"
+      ]
+    },
+    {
+      "originalQuestionNumber": 23,
+      "sourcePage": 5,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        195.92219999999998,
+        276.48,
+        351.6522
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-electrostatics",
+        "potential-capacitance"
+      ]
+    },
+    {
+      "originalQuestionNumber": 24,
+      "sourcePage": 5,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        350.6522,
+        276.48,
+        513.5622000000001
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-oscillations-waves",
+        "standing-waves"
+      ]
+    },
+    {
+      "originalQuestionNumber": 25,
+      "sourcePage": 5,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        512.5622000000001,
+        276.48,
+        658.36
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-oscillations-waves",
+        "simple-harmonic-motion"
+      ]
+    },
+    {
+      "originalQuestionNumber": 26,
+      "sourcePage": 5,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        22.982200000000034,
+        552.96,
+        206.91219999999998
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-magnetic-effects",
+        "lorentz-force"
+      ]
+    },
+    {
+      "originalQuestionNumber": 27,
+      "sourcePage": 5,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        205.91219999999998,
+        552.96,
+        406.49219999999997
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-emi-ac",
+        "electromagnetic-induction"
+      ]
+    },
+    {
+      "originalQuestionNumber": 28,
+      "sourcePage": 5,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        405.49219999999997,
+        552.96,
+        539.8422
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-emi-ac",
+        "alternating-current"
+      ]
+    },
+    {
+      "originalQuestionNumber": 29,
+      "sourcePage": 5,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        538.8422,
+        552.96,
+        658.36
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-magnetic-effects",
+        "magnetism"
+      ]
+    },
+    {
+      "originalQuestionNumber": 30,
+      "sourcePage": 6,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        21.42220000000009,
+        276.48,
+        247.4722
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-work-energy-power",
+        "work-energy-theorem"
+      ]
+    },
+    {
+      "originalQuestionNumber": 31,
+      "sourcePage": 6,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        246.4722,
+        276.48,
+        411.2922
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-rotational-motion",
+        "moment-of-inertia"
+      ]
+    },
+    {
+      "originalQuestionNumber": 32,
+      "sourcePage": 6,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        410.2922,
+        276.48,
+        537.9222
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-work-energy-power",
+        "collisions"
+      ]
+    },
+    {
+      "originalQuestionNumber": 33,
+      "sourcePage": 6,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        536.9222,
+        276.48,
+        658.36
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-laws-of-motion",
+        "friction"
+      ]
+    },
+    {
+      "originalQuestionNumber": 34,
+      "sourcePage": 6,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        22.742200000000025,
+        552.96,
+        210.0322
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-electrostatics",
+        "electric-charge-field"
+      ]
+    },
+    {
+      "originalQuestionNumber": 35,
+      "sourcePage": 6,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        209.0322,
+        552.96,
+        434.3322
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-laws-of-motion",
+        "newtons-laws"
+      ]
+    },
+    {
+      "originalQuestionNumber": 36,
+      "sourcePage": 6,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        433.3322,
+        552.96,
+        538.7622
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-rotational-motion",
+        "torque-angular-momentum"
+      ]
+    },
+    {
+      "originalQuestionNumber": 37,
+      "sourcePage": 6,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        537.7622,
+        552.96,
+        658.36
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-and-measurement",
+        "measurement-errors"
+      ]
+    },
+    {
+      "originalQuestionNumber": 38,
+      "sourcePage": 7,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        21.42220000000009,
+        276.48,
+        158.4022
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-rotational-motion",
+        "torque-angular-momentum"
+      ]
+    },
+    {
+      "originalQuestionNumber": 39,
+      "sourcePage": 7,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        157.4022,
+        276.48,
+        389.0922
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-gravitation",
+        "keplers-laws"
+      ]
+    },
+    {
+      "originalQuestionNumber": 40,
+      "sourcePage": 7,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        388.0922,
+        276.48,
+        536.1222
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-gravitation",
+        "universal-law"
+      ]
+    },
+    {
+      "originalQuestionNumber": 41,
+      "sourcePage": 7,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        535.1222,
+        276.48,
+        658.36
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-rotational-motion",
+        "moment-of-inertia"
+      ]
+    },
+    {
+      "originalQuestionNumber": 42,
+      "sourcePage": 7,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        21.42220000000009,
+        552.96,
+        158.0422000000001
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-properties-solids-liquids",
+        "fluid-mechanics"
+      ]
+    },
+    {
+      "originalQuestionNumber": 43,
+      "sourcePage": 7,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        157.0422000000001,
+        552.96,
+        381.4122
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-thermodynamics",
+        "heat-transfer"
+      ]
+    },
+    {
+      "originalQuestionNumber": 44,
+      "sourcePage": 7,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        380.4122,
+        552.96,
+        534.5622000000001
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-properties-solids-liquids",
+        "elasticity"
+      ]
+    },
+    {
+      "originalQuestionNumber": 45,
+      "sourcePage": 7,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        533.5622000000001,
+        552.96,
+        658.36
+      ],
+      "proposedClassification": [
+        "PHYSICS",
+        "physics-thermodynamics",
+        "first-law"
+      ]
+    },
+    {
+      "originalQuestionNumber": 46,
+      "sourcePage": 8,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        21.42220000000009,
+        276.48,
+        134.6422
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-p-block",
+        "group-15-18"
+      ]
+    },
+    {
+      "originalQuestionNumber": 47,
+      "sourcePage": 8,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        133.6422,
+        276.48,
+        243.99219999999997
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-p-block",
+        "group-13-14"
+      ]
+    },
+    {
+      "originalQuestionNumber": 48,
+      "sourcePage": 8,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        242.99219999999997,
+        276.48,
+        345.5322
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-purification-characterisation",
+        "metallurgy"
+      ]
+    },
+    {
+      "originalQuestionNumber": 49,
+      "sourcePage": 8,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        344.5322,
+        276.48,
+        447.0522
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-p-block",
+        "group-13-14"
+      ]
+    },
+    {
+      "originalQuestionNumber": 50,
+      "sourcePage": 8,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        446.0522,
+        276.48,
+        569.4822
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-p-block",
+        "group-15-18"
+      ]
+    },
+    {
+      "originalQuestionNumber": 51,
+      "sourcePage": 8,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        568.4822,
+        276.48,
+        658.36
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-chemical-bonding",
+        "vsepr-hybridization"
+      ]
+    },
+    {
+      "originalQuestionNumber": 52,
+      "sourcePage": 8,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        25.022199999999998,
+        552.96,
+        522.3222000000001
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-oxygen",
+        "alcohols-phenols-ethers"
+      ]
+    },
+    {
+      "originalQuestionNumber": 53,
+      "sourcePage": 8,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        521.3222000000001,
+        552.96,
+        658.36
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-biomolecules",
+        "proteins"
+      ]
+    },
+    {
+      "originalQuestionNumber": 54,
+      "sourcePage": 9,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        21.42220000000009,
+        276.48,
+        151.32220000000007
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-organic-principles",
+        "polymers"
+      ]
+    },
+    {
+      "originalQuestionNumber": 55,
+      "sourcePage": 9,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        150.32220000000007,
+        276.48,
+        292.1122
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-nitrogen",
+        "amines"
+      ]
+    },
+    {
+      "originalQuestionNumber": 56,
+      "sourcePage": 9,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        291.1122,
+        276.48,
+        436.73220000000003
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-biomolecules",
+        "carbohydrates"
+      ]
+    },
+    {
+      "originalQuestionNumber": 57,
+      "sourcePage": 9,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        435.73220000000003,
+        276.48,
+        575.0022
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-some-basic-concepts",
+        "stoichiometry"
+      ]
+    },
+    {
+      "originalQuestionNumber": 58,
+      "sourcePage": 9,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        574.0022,
+        276.48,
+        658.36
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-periodicity",
+        "periodic-trends"
+      ]
+    },
+    {
+      "originalQuestionNumber": 59,
+      "sourcePage": 9,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        24.062200000000075,
+        552.96,
+        166.56220000000008
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-practical",
+        "environmental-chemistry"
+      ]
+    },
+    {
+      "originalQuestionNumber": 60,
+      "sourcePage": 9,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        165.56220000000008,
+        552.96,
+        316.3522
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-oxygen",
+        "alcohols-phenols-ethers"
+      ]
+    },
+    {
+      "originalQuestionNumber": 61,
+      "sourcePage": 9,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        315.3522,
+        552.96,
+        486.8022
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-hydrocarbons",
+        "aromatic-hydrocarbons"
+      ]
+    },
+    {
+      "originalQuestionNumber": 62,
+      "sourcePage": 9,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        485.8022,
+        552.96,
+        658.36
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-hydrocarbons",
+        "alkanes"
+      ]
+    },
+    {
+      "originalQuestionNumber": 63,
+      "sourcePage": 10,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        24.062200000000075,
+        276.48,
+        177.24220000000003
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-chemical-bonding",
+        "vsepr-hybridization"
+      ]
+    },
+    {
+      "originalQuestionNumber": 64,
+      "sourcePage": 10,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        176.24220000000003,
+        276.48,
+        547.8822
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-organic-principles",
+        "reaction-intermediates"
+      ]
+    },
+    {
+      "originalQuestionNumber": 65,
+      "sourcePage": 10,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        546.8822,
+        276.48,
+        658.36
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-organic-principles",
+        "electronic-effects"
+      ]
+    },
+    {
+      "originalQuestionNumber": 66,
+      "sourcePage": 10,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        23.10220000000004,
+        552.96,
+        241.9522
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-oxygen",
+        "alcohols-phenols-ethers"
+      ]
+    },
+    {
+      "originalQuestionNumber": 67,
+      "sourcePage": 10,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        240.9522,
+        552.96,
+        387.4122
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-oxygen",
+        "carboxylic-acids"
+      ]
+    },
+    {
+      "originalQuestionNumber": 68,
+      "sourcePage": 10,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        386.4122,
+        552.96,
+        658.36
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-oxygen",
+        "alcohols-phenols-ethers"
+      ]
+    },
+    {
+      "originalQuestionNumber": 69,
+      "sourcePage": 11,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        21.42220000000009,
+        276.48,
+        270.3922
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-d-f-block",
+        "transition-elements"
+      ]
+    },
+    {
+      "originalQuestionNumber": 70,
+      "sourcePage": 11,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        269.3922,
+        276.48,
+        391.7322
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-d-f-block",
+        "transition-elements"
+      ]
+    },
+    {
+      "originalQuestionNumber": 71,
+      "sourcePage": 11,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        390.7322,
+        276.48,
+        476.45220000000006
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-coordination-compounds",
+        "bonding"
+      ]
+    },
+    {
+      "originalQuestionNumber": 72,
+      "sourcePage": 11,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        475.45220000000006,
+        276.48,
+        573.0822000000001
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-coordination-compounds",
+        "nomenclature-isomerism"
+      ]
+    },
+    {
+      "originalQuestionNumber": 73,
+      "sourcePage": 11,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        572.0822000000001,
+        276.48,
+        658.36
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-coordination-compounds",
+        "bonding"
+      ]
+    },
+    {
+      "originalQuestionNumber": 74,
+      "sourcePage": 11,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        21.42220000000009,
+        552.96,
+        258.99219999999997
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-equilibrium",
+        "ionic-equilibrium"
+      ]
+    },
+    {
+      "originalQuestionNumber": 75,
+      "sourcePage": 11,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        257.99219999999997,
+        552.96,
+        378.7722
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-chemical-kinetics",
+        "surface-chemistry"
+      ]
+    },
+    {
+      "originalQuestionNumber": 76,
+      "sourcePage": 11,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        377.7722,
+        552.96,
+        508.1622
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-thermodynamics",
+        "states-of-matter"
+      ]
+    },
+    {
+      "originalQuestionNumber": 77,
+      "sourcePage": 11,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        507.1622,
+        552.96,
+        658.36
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-equilibrium",
+        "ionic-equilibrium"
+      ]
+    },
+    {
+      "originalQuestionNumber": 78,
+      "sourcePage": 12,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        21.42220000000009,
+        276.48,
+        131.8822
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-some-basic-concepts",
+        "mole-concept"
+      ]
+    },
+    {
+      "originalQuestionNumber": 79,
+      "sourcePage": 12,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        130.8822,
+        276.48,
+        340.3522
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-chemical-kinetics",
+        "order-molecularity"
+      ]
+    },
+    {
+      "originalQuestionNumber": 80,
+      "sourcePage": 12,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        339.3522,
+        276.48,
+        448.73220000000003
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-periodicity",
+        "s-block-elements"
+      ]
+    },
+    {
+      "originalQuestionNumber": 81,
+      "sourcePage": 12,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        447.73220000000003,
+        276.48,
+        658.36
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-redox-electrochemistry",
+        "redox-reactions"
+      ]
+    },
+    {
+      "originalQuestionNumber": 82,
+      "sourcePage": 12,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        25.022199999999998,
+        552.96,
+        181.4422
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-redox-electrochemistry",
+        "redox-reactions"
+      ]
+    },
+    {
+      "originalQuestionNumber": 83,
+      "sourcePage": 12,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        180.4422,
+        552.96,
+        303.7522
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-equilibrium",
+        "chemical-equilibrium"
+      ]
+    },
+    {
+      "originalQuestionNumber": 84,
+      "sourcePage": 12,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        302.7522,
+        552.96,
+        411.4122
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-chemical-kinetics",
+        "order-molecularity"
+      ]
+    },
+    {
+      "originalQuestionNumber": 85,
+      "sourcePage": 12,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        410.4122,
+        552.96,
+        548.0022
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-thermodynamics",
+        "enthalpy"
+      ]
+    },
+    {
+      "originalQuestionNumber": 86,
+      "sourcePage": 12,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        547.0022,
+        552.96,
+        658.36
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-thermodynamics",
+        "states-of-matter"
+      ]
+    },
+    {
+      "originalQuestionNumber": 87,
+      "sourcePage": 13,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        21.42220000000009,
+        276.48,
+        154.68220000000008
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-chemical-bonding",
+        "molecular-orbital-theory"
+      ]
+    },
+    {
+      "originalQuestionNumber": 88,
+      "sourcePage": 13,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        153.68220000000008,
+        276.48,
+        286.9522
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-chemical-bonding",
+        "ionic-covalent-bonding"
+      ]
+    },
+    {
+      "originalQuestionNumber": 89,
+      "sourcePage": 13,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        285.9522,
+        276.48,
+        497.0022
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-solutions",
+        "solid-state"
+      ]
+    },
+    {
+      "originalQuestionNumber": 90,
+      "sourcePage": 13,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        496.0022,
+        276.48,
+        658.36
+      ],
+      "proposedClassification": [
+        "CHEMISTRY",
+        "chemistry-atomic-structure",
+        "quantum-numbers"
+      ]
+    },
+    {
+      "originalQuestionNumber": 91,
+      "sourcePage": 13,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        21.42220000000009,
+        552.96,
+        96.36220000000003
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-plant-physiology",
+        "photosynthesis"
+      ]
+    },
+    {
+      "originalQuestionNumber": 92,
+      "sourcePage": 13,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        95.36220000000003,
+        552.96,
+        194.7622
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-reproduction",
+        "sexual-reproduction-plants"
+      ]
+    },
+    {
+      "originalQuestionNumber": 93,
+      "sourcePage": 13,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        193.7622,
+        552.96,
+        305.1922
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-ecology-environment",
+        "organisms-populations"
+      ]
+    },
+    {
+      "originalQuestionNumber": 94,
+      "sourcePage": 13,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        304.1922,
+        552.96,
+        394.0122
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-reproduction",
+        "sexual-reproduction-plants"
+      ]
+    },
+    {
+      "originalQuestionNumber": 95,
+      "sourcePage": 13,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        393.0122,
+        552.96,
+        482.1222
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-plant-physiology",
+        "mineral-nutrition"
+      ]
+    },
+    {
+      "originalQuestionNumber": 96,
+      "sourcePage": 13,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        481.1222,
+        552.96,
+        581.4822
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-plant-physiology",
+        "respiration"
+      ]
+    },
+    {
+      "originalQuestionNumber": 97,
+      "sourcePage": 13,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        580.4822,
+        552.96,
+        658.36
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-plant-physiology",
+        "mineral-nutrition"
+      ]
+    },
+    {
+      "originalQuestionNumber": 98,
+      "sourcePage": 14,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        21.42220000000009,
+        276.48,
+        129.00220000000002
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-biotechnology",
+        "biotechnology-applications"
+      ]
+    },
+    {
+      "originalQuestionNumber": 99,
+      "sourcePage": 14,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        128.00220000000002,
+        276.48,
+        235.4722
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-biotechnology",
+        "biotechnology-applications"
+      ]
+    },
+    {
+      "originalQuestionNumber": 100,
+      "sourcePage": 14,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        234.4722,
+        276.48,
+        382.37219999999996
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-biotechnology",
+        "biotechnology-applications"
+      ]
+    },
+    {
+      "originalQuestionNumber": 101,
+      "sourcePage": 14,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        381.37219999999996,
+        276.48,
+        476.45220000000006
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-biotechnology",
+        "biotechnology-principles"
+      ]
+    },
+    {
+      "originalQuestionNumber": 102,
+      "sourcePage": 14,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        475.45220000000006,
+        276.48,
+        561.9222
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-genetics-and-evolution",
+        "molecular-basis-of-inheritance"
+      ]
+    },
+    {
+      "originalQuestionNumber": 103,
+      "sourcePage": 14,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        560.9222,
+        276.48,
+        658.36
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-biotechnology",
+        "biotechnology-applications"
+      ]
+    },
+    {
+      "originalQuestionNumber": 104,
+      "sourcePage": 14,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        21.42220000000009,
+        552.96,
+        125.88220000000001
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-genetics-and-evolution",
+        "mendelian-inheritance"
+      ]
+    },
+    {
+      "originalQuestionNumber": 105,
+      "sourcePage": 14,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        124.88220000000001,
+        552.96,
+        215.91219999999998
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-genetics-and-evolution",
+        "mendelian-inheritance"
+      ]
+    },
+    {
+      "originalQuestionNumber": 106,
+      "sourcePage": 14,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        214.91219999999998,
+        552.96,
+        298.1122
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-genetics-and-evolution",
+        "molecular-basis-of-inheritance"
+      ]
+    },
+    {
+      "originalQuestionNumber": 107,
+      "sourcePage": 14,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        297.1122,
+        552.96,
+        380.3322
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-reproduction",
+        "reproduction-organisms"
+      ]
+    },
+    {
+      "originalQuestionNumber": 108,
+      "sourcePage": 14,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        379.3322,
+        552.96,
+        450.4122
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-reproduction",
+        "reproduction-organisms"
+      ]
+    },
+    {
+      "originalQuestionNumber": 109,
+      "sourcePage": 14,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        449.4122,
+        552.96,
+        579.0822000000001
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-genetics-and-evolution",
+        "molecular-basis-of-inheritance"
+      ]
+    },
+    {
+      "originalQuestionNumber": 110,
+      "sourcePage": 14,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        578.0822000000001,
+        552.96,
+        658.36
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-reproduction",
+        "sexual-reproduction-plants"
+      ]
+    },
+    {
+      "originalQuestionNumber": 111,
+      "sourcePage": 15,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        21.42220000000009,
+        276.48,
+        106.32220000000007
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-ecology-environment",
+        "organisms-populations"
+      ]
+    },
+    {
+      "originalQuestionNumber": 112,
+      "sourcePage": 15,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        105.32220000000007,
+        276.48,
+        210.75220000000002
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-ecology-environment",
+        "environmental-issues"
+      ]
+    },
+    {
+      "originalQuestionNumber": 113,
+      "sourcePage": 15,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        209.75220000000002,
+        276.48,
+        302.0722
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-ecology-environment",
+        "environmental-issues"
+      ]
+    },
+    {
+      "originalQuestionNumber": 114,
+      "sourcePage": 15,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        301.0722,
+        276.48,
+        418.6122
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-ecology-environment",
+        "organisms-populations"
+      ]
+    },
+    {
+      "originalQuestionNumber": 115,
+      "sourcePage": 15,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        417.6122,
+        276.48,
+        562.2822
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-ecology-environment",
+        "ecosystems"
+      ]
+    },
+    {
+      "originalQuestionNumber": 116,
+      "sourcePage": 15,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        561.2822,
+        276.48,
+        658.36
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-ecology-environment",
+        "environmental-issues"
+      ]
+    },
+    {
+      "originalQuestionNumber": 117,
+      "sourcePage": 15,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        21.42220000000009,
+        552.96,
+        110.6422
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-cell-structure-function",
+        "biomolecules"
+      ]
+    },
+    {
+      "originalQuestionNumber": 118,
+      "sourcePage": 15,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        109.6422,
+        552.96,
+        182.6422
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-diversity-living-world",
+        "biological-classification"
+      ]
+    },
+    {
+      "originalQuestionNumber": 119,
+      "sourcePage": 15,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        181.6422,
+        552.96,
+        258.7522
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-cell-structure-function",
+        "cell-organelles"
+      ]
+    },
+    {
+      "originalQuestionNumber": 120,
+      "sourcePage": 15,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        257.7522,
+        552.96,
+        342.8922
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-plant-physiology",
+        "photosynthesis"
+      ]
+    },
+    {
+      "originalQuestionNumber": 121,
+      "sourcePage": 15,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        341.8922,
+        552.96,
+        431.0922
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-cell-structure-function",
+        "cell-organelles"
+      ]
+    },
+    {
+      "originalQuestionNumber": 122,
+      "sourcePage": 15,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        430.0922,
+        552.96,
+        508.1622
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-plant-physiology",
+        "transport-plants"
+      ]
+    },
+    {
+      "originalQuestionNumber": 123,
+      "sourcePage": 15,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        507.1622,
+        552.96,
+        592.2782
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-cell-structure-function",
+        "cell-division"
+      ]
+    },
+    {
+      "originalQuestionNumber": 124,
+      "sourcePage": 15,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        591.2782,
+        552.96,
+        658.36
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-structural-organisation",
+        "plant-anatomy"
+      ]
+    },
+    {
+      "originalQuestionNumber": 125,
+      "sourcePage": 16,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        21.42220000000009,
+        276.48,
+        113.6422
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-structural-organisation",
+        "plant-anatomy"
+      ]
+    },
+    {
+      "originalQuestionNumber": 126,
+      "sourcePage": 16,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        112.6422,
+        276.48,
+        192.60219999999998
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-structural-organisation",
+        "plant-morphology"
+      ]
+    },
+    {
+      "originalQuestionNumber": 127,
+      "sourcePage": 16,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        191.60219999999998,
+        276.48,
+        271.7122
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-structural-organisation",
+        "plant-anatomy"
+      ]
+    },
+    {
+      "originalQuestionNumber": 128,
+      "sourcePage": 16,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        270.7122,
+        276.48,
+        350.6922
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-structural-organisation",
+        "plant-anatomy"
+      ]
+    },
+    {
+      "originalQuestionNumber": 129,
+      "sourcePage": 16,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        349.6922,
+        276.48,
+        432.6522
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-structural-organisation",
+        "plant-morphology"
+      ]
+    },
+    {
+      "originalQuestionNumber": 130,
+      "sourcePage": 16,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        431.6522,
+        276.48,
+        551.2422
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-diversity-living-world",
+        "plant-kingdom"
+      ]
+    },
+    {
+      "originalQuestionNumber": 131,
+      "sourcePage": 16,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        550.2422,
+        276.48,
+        658.36
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-diversity-living-world",
+        "biological-classification"
+      ]
+    },
+    {
+      "originalQuestionNumber": 132,
+      "sourcePage": 16,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        22.982200000000034,
+        552.96,
+        119.6422
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-diversity-living-world",
+        "biological-classification"
+      ]
+    },
+    {
+      "originalQuestionNumber": 133,
+      "sourcePage": 16,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        118.6422,
+        552.96,
+        508.7622
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-diversity-living-world",
+        "taxonomy-systematics"
+      ]
+    },
+    {
+      "originalQuestionNumber": 134,
+      "sourcePage": 16,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        507.7622,
+        552.96,
+        587.7182
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-reproduction",
+        "sexual-reproduction-plants"
+      ]
+    },
+    {
+      "originalQuestionNumber": 135,
+      "sourcePage": 16,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        586.7182,
+        552.96,
+        658.36
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-diversity-living-world",
+        "plant-kingdom"
+      ]
+    },
+    {
+      "originalQuestionNumber": 136,
+      "sourcePage": 17,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        21.42220000000009,
+        276.48,
+        177.36220000000003
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-human-physiology",
+        "breathing"
+      ]
+    },
+    {
+      "originalQuestionNumber": 137,
+      "sourcePage": 17,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        176.36220000000003,
+        276.48,
+        428.5722
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-human-physiology",
+        "circulation"
+      ]
+    },
+    {
+      "originalQuestionNumber": 138,
+      "sourcePage": 17,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        427.5722,
+        276.48,
+        658.36
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-human-physiology",
+        "breathing"
+      ]
+    },
+    {
+      "originalQuestionNumber": 139,
+      "sourcePage": 17,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        22.982200000000034,
+        552.96,
+        138.00220000000002
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-human-physiology",
+        "neural-control"
+      ]
+    },
+    {
+      "originalQuestionNumber": 140,
+      "sourcePage": 17,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        137.00220000000002,
+        552.96,
+        264.5122
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-human-physiology",
+        "chemical-coordination"
+      ]
+    },
+    {
+      "originalQuestionNumber": 141,
+      "sourcePage": 17,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        263.5122,
+        552.96,
+        376.6122
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-human-physiology",
+        "chemical-coordination"
+      ]
+    },
+    {
+      "originalQuestionNumber": 142,
+      "sourcePage": 17,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        375.6122,
+        552.96,
+        658.36
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-human-physiology",
+        "neural-control"
+      ]
+    },
+    {
+      "originalQuestionNumber": 143,
+      "sourcePage": 18,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        25.022199999999998,
+        276.48,
+        141.96220000000005
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-reproduction",
+        "human-reproduction"
+      ]
+    },
+    {
+      "originalQuestionNumber": 144,
+      "sourcePage": 18,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        140.96220000000005,
+        276.48,
+        275.0722
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-reproduction",
+        "human-reproduction"
+      ]
+    },
+    {
+      "originalQuestionNumber": 145,
+      "sourcePage": 18,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        274.0722,
+        276.48,
+        545.1222
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-reproduction",
+        "human-reproduction"
+      ]
+    },
+    {
+      "originalQuestionNumber": 146,
+      "sourcePage": 18,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        544.1222,
+        276.48,
+        658.36
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-reproduction",
+        "reproductive-health"
+      ]
+    },
+    {
+      "originalQuestionNumber": 147,
+      "sourcePage": 18,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        21.42220000000009,
+        552.96,
+        123.60220000000004
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-diversity-living-world",
+        "biological-classification"
+      ]
+    },
+    {
+      "originalQuestionNumber": 148,
+      "sourcePage": 18,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        122.60220000000004,
+        552.96,
+        236.91219999999998
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-diversity-living-world",
+        "animal-kingdom"
+      ]
+    },
+    {
+      "originalQuestionNumber": 149,
+      "sourcePage": 18,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        235.91219999999998,
+        552.96,
+        353.3322
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-structural-organisation",
+        "animal-morphology"
+      ]
+    },
+    {
+      "originalQuestionNumber": 150,
+      "sourcePage": 18,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        352.3322,
+        552.96,
+        466.61220000000003
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-diversity-living-world",
+        "animal-kingdom"
+      ]
+    },
+    {
+      "originalQuestionNumber": 151,
+      "sourcePage": 18,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        465.61220000000003,
+        552.96,
+        564.8022
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-diversity-living-world",
+        "animal-kingdom"
+      ]
+    },
+    {
+      "originalQuestionNumber": 152,
+      "sourcePage": 18,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        563.8022,
+        552.96,
+        658.36
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-diversity-living-world",
+        "biological-classification"
+      ]
+    },
+    {
+      "originalQuestionNumber": 153,
+      "sourcePage": 19,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        21.42220000000009,
+        276.48,
+        129.72220000000004
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-ecology-environment",
+        "organisms-populations"
+      ]
+    },
+    {
+      "originalQuestionNumber": 154,
+      "sourcePage": 19,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        128.72220000000004,
+        276.48,
+        224.91219999999998
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-ecology-environment",
+        "biodiversity-conservation"
+      ]
+    },
+    {
+      "originalQuestionNumber": 155,
+      "sourcePage": 19,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        223.91219999999998,
+        276.48,
+        438.8922
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-ecology-environment",
+        "environmental-issues"
+      ]
+    },
+    {
+      "originalQuestionNumber": 156,
+      "sourcePage": 19,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        437.8922,
+        276.48,
+        573.5622000000001
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-ecology-environment",
+        "organisms-populations"
+      ]
+    },
+    {
+      "originalQuestionNumber": 157,
+      "sourcePage": 19,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        572.5622000000001,
+        276.48,
+        658.36
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-human-welfare",
+        "human-health-disease"
+      ]
+    },
+    {
+      "originalQuestionNumber": 158,
+      "sourcePage": 19,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        23.10220000000004,
+        552.96,
+        109.68220000000008
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-genetics-and-evolution",
+        "molecular-basis-of-inheritance"
+      ]
+    },
+    {
+      "originalQuestionNumber": 159,
+      "sourcePage": 19,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        108.68220000000008,
+        552.96,
+        223.35219999999998
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-genetics-and-evolution",
+        "mendelian-inheritance"
+      ]
+    },
+    {
+      "originalQuestionNumber": 160,
+      "sourcePage": 19,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        222.35219999999998,
+        552.96,
+        322.9522
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-genetics-and-evolution",
+        "evolution"
+      ]
+    },
+    {
+      "originalQuestionNumber": 161,
+      "sourcePage": 19,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        321.9522,
+        552.96,
+        434.5722
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-genetics-and-evolution",
+        "molecular-basis-of-inheritance"
+      ]
+    },
+    {
+      "originalQuestionNumber": 162,
+      "sourcePage": 19,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        433.5722,
+        552.96,
+        658.36
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-reproduction",
+        "human-reproduction"
+      ]
+    },
+    {
+      "originalQuestionNumber": 163,
+      "sourcePage": 20,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        24.062200000000075,
+        276.48,
+        321.6322
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-human-physiology",
+        "excretion"
+      ]
+    },
+    {
+      "originalQuestionNumber": 164,
+      "sourcePage": 20,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        320.6322,
+        276.48,
+        658.36
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-human-physiology",
+        "excretion"
+      ]
+    },
+    {
+      "originalQuestionNumber": 165,
+      "sourcePage": 20,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        25.022199999999998,
+        552.96,
+        143.0422000000001
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-human-physiology",
+        "digestion-absorption"
+      ]
+    },
+    {
+      "originalQuestionNumber": 166,
+      "sourcePage": 20,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        142.0422000000001,
+        552.96,
+        368.0922
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-human-physiology",
+        "circulation"
+      ]
+    },
+    {
+      "originalQuestionNumber": 167,
+      "sourcePage": 20,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        367.0922,
+        552.96,
+        485.1222
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-human-physiology",
+        "breathing"
+      ]
+    },
+    {
+      "originalQuestionNumber": 168,
+      "sourcePage": 20,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        484.1222,
+        552.96,
+        658.36
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-human-physiology",
+        "locomotion-movement"
+      ]
+    },
+    {
+      "originalQuestionNumber": 169,
+      "sourcePage": 21,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        21.42220000000009,
+        276.48,
+        108.48220000000003
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-human-physiology",
+        "neural-control"
+      ]
+    },
+    {
+      "originalQuestionNumber": 170,
+      "sourcePage": 21,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        107.48220000000003,
+        276.48,
+        231.0322
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-plant-physiology",
+        "respiration"
+      ]
+    },
+    {
+      "originalQuestionNumber": 171,
+      "sourcePage": 21,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        230.0322,
+        276.48,
+        349.49219999999997
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-cell-structure-function",
+        "cell-division"
+      ]
+    },
+    {
+      "originalQuestionNumber": 172,
+      "sourcePage": 21,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        348.49219999999997,
+        276.48,
+        447.6522
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-human-physiology",
+        "digestion-absorption"
+      ]
+    },
+    {
+      "originalQuestionNumber": 173,
+      "sourcePage": 21,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        446.6522,
+        276.48,
+        545.9622
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-cell-structure-function",
+        "cell-organelles"
+      ]
+    },
+    {
+      "originalQuestionNumber": 174,
+      "sourcePage": 21,
+      "sourceColumn": 1,
+      "bounds": [
+        0,
+        544.9622,
+        276.48,
+        658.36
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-cell-structure-function",
+        "cell-organelles"
+      ]
+    },
+    {
+      "originalQuestionNumber": 175,
+      "sourcePage": 21,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        21.42220000000009,
+        552.96,
+        126.72220000000004
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-human-welfare",
+        "human-health-disease"
+      ]
+    },
+    {
+      "originalQuestionNumber": 176,
+      "sourcePage": 21,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        125.72220000000004,
+        552.96,
+        218.91219999999998
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-human-welfare",
+        "human-health-disease"
+      ]
+    },
+    {
+      "originalQuestionNumber": 177,
+      "sourcePage": 21,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        217.91219999999998,
+        552.96,
+        311.43219999999997
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-genetics-and-evolution",
+        "evolution"
+      ]
+    },
+    {
+      "originalQuestionNumber": 178,
+      "sourcePage": 21,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        310.43219999999997,
+        552.96,
+        406.1322
+      ],
+      "proposedClassification": [
+        "BOTANY",
+        "biology-human-welfare",
+        "microbes-human-welfare"
+      ]
+    },
+    {
+      "originalQuestionNumber": 179,
+      "sourcePage": 21,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        405.1322,
+        552.96,
+        493.2822
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-genetics-and-evolution",
+        "evolution"
+      ]
+    },
+    {
+      "originalQuestionNumber": 180,
+      "sourcePage": 21,
+      "sourceColumn": 2,
+      "bounds": [
+        276.48,
+        492.2822,
+        552.96,
+        658.36
+      ],
+      "proposedClassification": [
+        "ZOOLOGY",
+        "biology-genetics-and-evolution",
+        "mendelian-inheritance"
+      ]
+    }
+  ]
+}
