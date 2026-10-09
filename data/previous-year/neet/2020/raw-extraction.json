@@ -1,0 +1,1626 @@
+{
+  "warning": "Unreviewed OCR evidence only; never import this file.",
+  "method": "RapidOCR on official PDF at 170 dpi; every numbered boundary manually located on source pages",
+  "records": [
+    {
+      "originalQuestionNumber": 1,
+      "sourcePage": 2,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Which of thefollowingis not an attribute of a\n1.\npopulation?\n(1)\nSexratio\nNatality\n(2)\n(3)\nMortality\nSpecies interaction\n(4",
+      "rawOcrMinimumConfidence": 0.7708053588867188,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 2,
+      "sourcePage": 2,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Theprocess ofgrowthis maximum during:\n2.\n(1)\nLog phase\nLag phase\n(2)\nSenescence\n(3\nDormancy\n(4",
+      "rawOcrMinimumConfidence": 0.8461313843727112,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 3,
+      "sourcePage": 2,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "The roots that originate from the base ofthe stem\n3.\nare:\nFibrous roots\n(1)\nPrimaryroots\n(2)\n(e)\nProp roots\nLateralroots\n(4)",
+      "rawOcrMinimumConfidence": 0.7460649212201437,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 4,
+      "sourcePage": 2,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Matchthefollowingdiseaseswiththecausative\n4.\norganism and selectthe correctoption.\nColumn-I\nColumn-II\nTyphoid\nWuchereria\n(a)\ni\nPneumonia\n(b)\n(i)\nPlasmodium\nSalmonella\n(c)\nFilariasis\n(ii)\n(d\nMalaria\n(iv)\nHaemophilus\n(P)\n(b)\n(c)\n(a)\n(1)\n(i\n(ii)\n(i)\n(iv)\n(i\n(i)\n(2)\n(ii)\n(iv)\n(i)\n(i)\n(③)\n(iv)\n(i)\n(4)\n(iv)\n(ii)",
+      "rawOcrMinimumConfidence": 0.5277130305767059,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 5,
+      "sourcePage": 2,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Inwhichofthefollowingtechniques,theembryos\n5.\naretransferredtoassistthosefemaleswhocannot\nconceive?\n(1)\nZIFTandIUT\n(2)\nGIFTandZIFT\n(3)\nICSIandZIFT\n(4)\nGIFTandICSI",
+      "rawOcrMinimumConfidence": 0.8922309080759684,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 6,
+      "sourcePage": 2,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Identify thewrongstatementwithreference to\n6.\nthe geneT'that controls ABOblood groups.\n(1)\nThe gene(I)hasthree alleles.\n(2)\nApersonwill have onlytwo of thethree\nalleles.\nWhenIA and 1Barepresenttogether,they\n(3)\nexpresssametypeofsugar.\nAlleleidoes notproduce anysugar.\n(4)",
+      "rawOcrMinimumConfidence": 0.8660666743914286,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 7,
+      "sourcePage": 2,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Choose thecorrect pair from thefollowing:\n7.\n(1)\nLigases\nJointhetwoDNA\nmolecules\nPolymerases -\n(2)\nBreak theDNA into\nfragments\nNucleases\n(3\nSeparatethetwostrands\nofDNA\nExonucleases-\n(④\nMake cuts atspecific\npositions withinDNA",
+      "rawOcrMinimumConfidence": 0.7574526965618134,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 8,
+      "sourcePage": 2,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Selectthecorrectmatch.\n8.\nHaemophilia\nYlinked\n(1)\n-\n(2)\nPhenylketonuria\nAutosomal\ndominanttrait\nSickle cell anaemia-\n(3\nAutosomal\nrecessivetrait,\nchromosome-11\nThalassemia\nXlinked\n(4)",
+      "rawOcrMinimumConfidence": 0.5026084780693054,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 9,
+      "sourcePage": 2,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Matchthefollowingcolumnsandselectthe\n9.\ncorrect option.\nColumn-I\nColumn-II\nGregarious, polyphagous (i)\n(a)\nAsterias\npest\nScorpion\n(b)\nAdultwithradial\n(i)\nsymmetryandlarva\nwithbilateralsymmetry\nBook lungs\n(c)\nCtenoplana\n(ii)\nBioluminescence\n(d)\nLocusta\n(iv)\n(d)\n(a)\n(b)\n(c)\n(i\n(i\n(iv)\n(1)\n#\n(i\n(iv)\n(2)\n(ii)\n(i)\n(iv)\n(i\n(3\n(i\n(i\n(iv)\n(4\n(ii)",
+      "rawOcrMinimumConfidence": 0.6086480021476746,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 10,
+      "sourcePage": 2,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "TheinfectiousstageofPlasmodiumthatenters\n10.\nthe human bodyis:\nTrophozoites\n(1)\nSporozoites\n(2)\nFemale gametocytes\n(3\nMale gametocytes\n(④",
+      "rawOcrMinimumConfidence": 0.7472616732120514,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 11,
+      "sourcePage": 3,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Identify the substances havingglycosidic bond and\n11.\npeptide bond,respectively in their structure:\n(1)\nChitin,cholesterol\n(2)\nGlycerol,trypsin\n(3)\nCellulose,lecithin\nInulin,insulin\n(4)",
+      "rawOcrMinimumConfidence": 0.84588623046875,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 12,
+      "sourcePage": 3,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "The plant parts which consist oftwo generations-\n12.\none within theother:\nPollengrainsinsidethe anther\n(a)\n(b)\nGerminatedpollengrainwithtwomale\ngametes\nSeedinsidethefruit\n(c)\n(d)\nEmbryosacinsidetheovule\n(a) only\n(1)\n(2)\n(a), (b) and (c)\n(c) and (d)\n(3)\n(4)\n(a)and (d)",
+      "rawOcrMinimumConfidence": 0.8859662413597107,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 13,
+      "sourcePage": 3,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Theproduct(s)ofreactioncatalyzed bynitrogenase\n13.\nin root nodulesofleguminousplantsis/are:\n(1)\nAmmoniaalone\n(2)\nNitrate alone\n(3)\nAmmonia and oxygen\n(4)\nAmmoniaandhydrogen",
+      "rawOcrMinimumConfidence": 0.8952659169832865,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 14,
+      "sourcePage": 3,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Identifythecorrectstatementwithregardto\n14.\nGphase(Gap1)ofinterphase.\nDNA synthesisorreplicationtakesplace.\n(1)\nReorganisationof all cellcomponents takes\n(2)\nplace.\n(3)\nCellismetabolically active,growsbutdoes\nnot replicate its DNA.\nNuclearDivisiontakesplace.\n(4)",
+      "rawOcrMinimumConfidence": 0.9545331597328186,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 15,
+      "sourcePage": 3,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Cuboidalepitheliumwithbrushborderofmicrovilli\n15.\nis found in:\nlining of intestine\n(1)\n(2)\nductsofsalivaryglands\nproximalconvolutedtubuleofnephron\n(3)\n(4)\neustachiantube",
+      "rawOcrMinimumConfidence": 0.8744343121846517,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 16,
+      "sourcePage": 3,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Whichofthefollowingstatementsaboutinclusion\n16.\nbodies is incorrect?\n(1)\nThey arenotboundby anymembrane.\n(2)\nTheseareinvolvediningestionoffood\nparticles.\n(3)\nTheyliefreeinthe cytoplasm.\nThese represent reserve material in\n(4\ncytoplasm.",
+      "rawOcrMinimumConfidence": 0.6837705771128336,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 17,
+      "sourcePage": 3,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Whichistheimportantsiteofformationof\n17.\nglycoproteins and glycolipids ineukaryotic cells?\nEndoplasmicreticulum\n(1)\n(2)\nPeroxisomes\nGolgibodies\n(3\n(④\nPolysomes",
+      "rawOcrMinimumConfidence": 0.7139924913644791,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 18,
+      "sourcePage": 3,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "In gelelectrophoresis,separated DNAfragments\n18.\ncan bevisualizedwith thehelpof:\n(1)\nAcetocarmineinbrightbluelight\n(2)\nEthidiumbromideinUVradiation\n(3\nAcetocarmineinUVradiation\nEthidiumbromideininfraredradiation\n(4",
+      "rawOcrMinimumConfidence": 0.8034757673740387,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 19,
+      "sourcePage": 3,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Identifythewrongstatementwithreferenceto\n19.\ntransport ofoxygen.\n(1)\nBindingofoxygenwithhaemoglobinis\nmainly related to partial pressure of O2.\nPartialpressureofCOcaninterferewith\n(2)\nO2bindingwithhaemoglobin.\n(3)\nHigherH+conc.inalveoli favoursthe\nformationofoxyhaemoglobin.\n(4\nLowpCO2in alveolifavours theformation\nofoxyhaemoglobin.",
+      "rawOcrMinimumConfidence": 0.8296514550844828,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 20,
+      "sourcePage": 3,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Ray florets have :\n20.\n(1)\nInferiorovary\n(2)\nSuperiorovary\n(③\nHypogynous ovary\nHalfinferior ovary\n(4",
+      "rawOcrMinimumConfidence": 0.7474234700202942,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 21,
+      "sourcePage": 3,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "The specificpalindromicsequencewhich is\n21.\nrecognized by EcoRIis:\n(1)\n5'-GAATTC-3'\n3'-CTTAAG-5'\n(2)\n5'-GGAACC-3'\n3'-CCTTGG-5'\n(3\n5'-CTTAAG-3\n3'-GAATTC-5'\n(4\n5'-GGATCC-3\n3'-CCTAGG-5'",
+      "rawOcrMinimumConfidence": 0.7678506374359131,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 22,
+      "sourcePage": 4,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Identifythewrongstatementwithregardto\n22.\nRestriction Enzymes.\n(1)\nEachrestrictionenzymefunctionsby\ninspectingthelengthofaDNAsequence.\nThey cut the strand of DNA at palindromic\n(2)\nsites.\n(3\nTheyareusefulingeneticengineering\n(4\nSticky ends can be joined by usingDNA\nligases.",
+      "rawOcrMinimumConfidence": 0.824148952960968,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 23,
+      "sourcePage": 4,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "WhichofthefollowingisputintoAnaerobicsludge\n23.\ndigesterforfurthersewagetreatment?\nPrimary sludge\n(1)\nFloating debris\n(2)\nEffluents of primary treatment\n(3\n(4\nActivatedsludge",
+      "rawOcrMinimumConfidence": 0.9218111634254456,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 24,
+      "sourcePage": 4,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Selectthe correcteventsthatoccur during\n24.\ninspiration.\n(a)\nContraction of diaphragm\n(b)\nContractionofexternalinter-costalmuscles\n(c)\nPulmonaryvolumedecreases\n(d)\nIntra pulmonary pressureincreases\n(a)and (b)\n(1)\n(2)\n(c) and (d)\n(a), (b) and (d)\n(g)\n(4)\nonly (d)",
+      "rawOcrMinimumConfidence": 0.7601284881432852,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 25,
+      "sourcePage": 4,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Ifthehead ofcockroachisremoved,it maylivefor\n25.\nfew daysbecause:\nthe supra-oesophageal ganglia of the\n(1)\ncockroach aresituated inventralpart of\nabdomen.\nthecockroachdoesnothavenervous system.\n(2)\n(3)\ntheheadholdsasmallproportionofanervous\nsystem whiletherestis situated along the\nventralpartofitsbody.\nthe headholds a1/3rdofa nervous system\n(4)\nwhiletherestissituatedalongthedorsal\npart ofits body.",
+      "rawOcrMinimumConfidence": 0.9422722856203715,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 26,
+      "sourcePage": 4,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Whichof thefollowingstatementsaretruefor\n26.\nthephylum-Chordata?\n(a)\nInUrochordatanotochordextendsfrom\nhead totail and it ispresentthroughout\ntheirlife.\nIn Vertebrata notochord is present during\n(b)\nthe embryonic period only.\n(c)\nCentralnervous systemis dorsaland\nhollow.\nChordata isdividedinto3subphyla:\n(d)\nHemichordata,\nTunicata\nand\nCephalochordata.\n(1)\n(d)and (c)\n(c)and (a)\n(2)\n(3)\n(a)and (b)\n(4\n(b)and (c)",
+      "rawOcrMinimumConfidence": 0.738824705282847,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 27,
+      "sourcePage": 4,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Match the organism with its use in biotechnology.\n27.\nCloning vector\n(a)\nBacillus\n(i\nthuringiensis\n(b)\nThermus\n(i)\nConstructionof\naquaticus\nfirstrDNA\nmolecule\nDNA polymerase\n(c)\nAgrobacterium\n(ii)\ntumefaciens\nSalmonella\n(d\n(iv)\nCry proteins\ntyphimurium\nSelect the correctoptionfrom thefollowing:\n(a)\n(c)\n(P)\n(b)\n(iv)\n(i\ni\n(1)\n(ii)\n(i\n(2)\n(iv)\n(ii)\n(i)\n(i\n(iv)\n(i\n(3\n(i)\n(iv)\n(i\n(4",
+      "rawOcrMinimumConfidence": 0.6023187786340714,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 28,
+      "sourcePage": 4,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Matchthefollowing concerningessentialelements\n28.\nand their functionsin plants:\n(a)\nPhotolysis of water\nIron\n(b)\nZinc\n(i\nPollen germination\nBoron\n(c)\n(i)\nRequiredforchlorophyll\nbiosynthesis\nManganese\n(d)\nIAAbiosynthesis\n(iv)\nSelectthe correctoption:\n(a)\n(d)\n(c)\n(b)\n(iv)\n(i)\n(1)\n(i\n(ii)\n(2)\n(iv)\n(i\n(ii)\n(i\n(i\n(i\n(3\n(i)\n(iv)\n(iv)\n(i\n(4\n(i",
+      "rawOcrMinimumConfidence": 0.5605300962924957,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 29,
+      "sourcePage": 5,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Identifytheincorrectstatement.\n29.\nHeartwooddoesnotconductwaterbutgives\n(1)\nmechanicalsupport.\nSapwoodisinvolvedinconductionofwater\n(2)\nandmineralsfromroottoleaf.\nSapwoodistheinnermostsecondaryxylem\n(3)\nandislighterin colour.\nDue to depositionoftannins,resins,oils etc.,\n(4)\nheartwoodisdarkincolour.",
+      "rawOcrMinimumConfidence": 0.9359713395436605,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 30,
+      "sourcePage": 5,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Match thefollowing:\n30.\nRicin\n(a)\nInhibitorofcatalytic\n(\nactivity\nMalonate\n(b)\nPossess peptidebonds\n(i\nChitin\nCell wall materialin\n(c)\n(ii)\nfungi\n(d)\nSecondarymetabolite\n(iv)\nCollagen\nChoose the correct option from the following:\n(a)\n(b)\n(c)\n(P)\n(iv)\n(i\n(i\n#\n(1)\n(i\n(iv)\n(2)\n(i\n(iv)\n(i)\n#\n(3)\n(i\n(i)\n(i\n(4)\n(iv)",
+      "rawOcrMinimumConfidence": 0.5262709259986877,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 31,
+      "sourcePage": 5,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Meioticdivisionofthesecondaryoocyteis\n31.\ncompleted:\n(1)\nPrior to ovulation\nAtthetimeofcopulation\n(2)\nAfter zygote formation\n(③\nAtthetimeoffusionofaspermwithan\n(4)\novum",
+      "rawOcrMinimumConfidence": 0.8504981994628906,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 32,
+      "sourcePage": 5,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "According toRobert May,the global species\n32.\ndiversityis about:\n1.5 million\n(1)\n(2)\n20million\n(3)\n50million\n(4)\n7million",
+      "rawOcrMinimumConfidence": 0.7967140277226766,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 33,
+      "sourcePage": 5,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "The first phase of translation is:\n33.\n(1)\nBindingofmRNAtoribosome\n(2)\nRecognitionof DNAmolecule\n(3)\nAminoacylationoftRNA\n(4)\nRecognition ofan anti-codon",
+      "rawOcrMinimumConfidence": 0.8925402959187826,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 34,
+      "sourcePage": 5,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Which of the followingregions of the globe exhibits\n34.\nhighest species diversity?\n(1)\nWestern GhatsofIndia\nMadagascar\n(2)\nHimalayas\n(3\nAmazonforests\n(4",
+      "rawOcrMinimumConfidence": 0.8076314032077789,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 35,
+      "sourcePage": 5,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Whichofthefollowingstatementsisnot\n35.\ncorrect?\nIn man insulin is synthesised as a\n(1)\nproinsulin.\nThe proinsulin has an extra peptide called\n(2)\nC-peptide.\nThefunctionalinsulinhasAand Bchains\n(3\nlinked togetherbyhydrogenbonds.\nGeneticallyengineered insulin is produced\n(4\ninE-Coli.",
+      "rawOcrMinimumConfidence": 0.7461265623569489,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 36,
+      "sourcePage": 5,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "The transversesectionofaplantshowsfollowing\n36.\nanatomicalfeatures:\nLarge numberof scattered vascularbundles\n(a)\nsurrounded bybundle sheath.\n(b)\nLarge conspicuous parenchymatousground\ntissue.\n(c)\nVascularbundlesconjointandclosed.\n(P)\nPhloemparenchyma absent.\nIdentify the category of plant and its part:\nMonocotyledonous stem\n(1)\n(2)\nMonocotyledonousroot\n(3\nDicotyledonous stem\nDicotyledonousroot\n(4)",
+      "rawOcrMinimumConfidence": 0.744012326002121,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 37,
+      "sourcePage": 5,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Matchthefollowingcolumnsandselectthe\n37.\ncorrectoption.\nColumn-I\nColumn-II\n6 - 15 pairs of\n(a)\nTrygon\n(i\ngill slits\nHeterocercal\nCyclostomes\n(i\n(b)\ncaudalfin\n(c)\nChondrichthyes\nAirBladder\n(ii)\nPoison sting\n(P)\n(iv)\nOsteichthyes\n(a)\n(c)\n(b)\n(P)\n(1)\n(i\n(ii)\n(iv)\n(2)\n(i)\n(iv)\n(i)\n(iv)\n(i\n(3\n(i\n(ii)\n(4\n(i\n(iv)\n(i)\n(i)",
+      "rawOcrMinimumConfidence": 0.5068378001451492,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 38,
+      "sourcePage": 6,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "From his experiments,S.L.Miller produced amino\n38.\nacids by mixing thefollowingin a closed flask:\nCH,H2,NHandwatervapor at800°℃\n(1)\nCH,H2,NHand water vapor at 800°C\n(2)\n(e)\nCH,H2,NH3andwatervaporat600°C\nCH3,H2,NH3andwatervapor at600°℃\n(4",
+      "rawOcrMinimumConfidence": 0.7589108943939209,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 39,
+      "sourcePage": 6,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Embryologicalsupportforevolutionwas\n39.\ndisapproved by:\nKarl ErnstvonBaer\n(1\n(2)\nAlfredWallace\nCharles Darwin\n(3)\nOparin\n(4)",
+      "rawOcrMinimumConfidence": 0.8235655228296915,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 40,
+      "sourcePage": 6,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Theprocessresponsibleforfacilitatinglossofwater\n40.\ninliquidformfromthetipofgrassblades atnight\nand in early morning is:\nTranspiration\n(1)\n(2)\nRoot pressure\nImbibition\n(3)\nPlasmolysis\n(4)",
+      "rawOcrMinimumConfidence": 0.8598871231079102,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 41,
+      "sourcePage": 6,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Secondarymetabolitessuchasnicotine,strychnine\n41.\nandcaffeineareproduced byplantsfor their:\n(1)\nNutritivevalue\n(2)\nGrowthresponse\n(3)\nDefence action\nEffect on reproduction\n(4)",
+      "rawOcrMinimumConfidence": 0.8593170245488485,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 42,
+      "sourcePage": 6,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Theoxygenation activityofRuBisCoenzymein\n42.\nphotorespirationleadstotheformationof:\n(1)\n2molecules of3-Ccompound\n(2)\n1 moleculeof3-Ccompound\n(3)\n1 moleculeof6-Ccompound\n1 molecule of4-Ccompound and1molecule\n(4)\nof2-Ccompound",
+      "rawOcrMinimumConfidence": 0.8993773659070333,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 43,
+      "sourcePage": 6,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Btcottonvarietythatwasdevelopedbythe\n43.\nintroductionoftoxingeneofBacillusthuringiensis\n(Bt)is resistantto:\nInsect pests\n(1)\nFungal diseases\n(2)\n(3)\nPlantnematodes\n(4)\nInsectpredators",
+      "rawOcrMinimumConfidence": 0.8927115996678671,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 44,
+      "sourcePage": 6,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Whichofthefollowingrefertocorrectexample(s)\n44.\noforganismswhichhaveevolvedduetochanges\ninenvironmentbroughtaboutbyanthropogenic\naction?\nDarwin'sFinchesof Galapagosislands.\n(a)\n(b)\nHerbicideresistantweeds.\n(c)\nDrug resistant eukaryotes.\n(d\nMan-createdbreedsofdomesticatedanimals\nlike dogs.\n(1)\nonly (a)\n(2)\n(a) and (c)\n(3\n(b), (c) and (d)\nonly (d)\n(④",
+      "rawOcrMinimumConfidence": 0.7254077792167664,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 45,
+      "sourcePage": 6,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Identifythewrongstatementwithreference to\n45.\nimmunity.\n(1\nWhen exposed to antigen (living or dead)\nantibodies areproducedinthehost'sbody.\nIt iscalled“Activeimmunity\".\n(2)\nWhenready-made antibodiesaredirectly\ngiven, itis called“Passive immunity”.\n(3)\nActive immunityis quick andgives full\nresponse.\n(4)\nFoetusreceivessomeantibodiesfrom\nmother,it is anexample for passive\nimmunity.",
+      "rawOcrMinimumConfidence": 0.7060256401697794,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 46,
+      "sourcePage": 6,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "BywhichmethodwasanewbreedHisardale'of\n46.\nsheepformed byusingBikaneriewes and Marino\nrams?\nOut crossing\n(1)\nMutationalbreeding\n(2)\nCrossbreeding\n(e)\nInbreeding\n(4",
+      "rawOcrMinimumConfidence": 0.7582736412684122,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 47,
+      "sourcePage": 6,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Identifythecorrectstatementwithreferenceto\n47.\nhuman digestive system.\nIleum opens intosmallintestine.\n(1)\nSerosaistheinnermostlayerofthe\n(2)\nalimentary canal.\n(3\nIleum is ahighly coiled part.\n(4)\nVermiformappendixarisesfromduodenum.",
+      "rawOcrMinimumConfidence": 0.757051557302475,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 48,
+      "sourcePage": 7,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Match thefollowingcolumnsandselectthe\n48.\ncorrectoption.\nColumn-II\nColumn-I\nCyclosporin-A\n(a)\nClostridium\n#\nbutylicum\nButyric Acid\n(b)\nTrichoderma\n(i)\npolysporum\n(c)\nMonascus\n(ii)\nCitricAcid\npurpureus\nAspergillus niger(iv)\n(d)\nBlood cholesterol\nlowering agent\n(a)\n(0)\n(d)\n(b)\n(i\n(iv)\n(1)\nGi\n(iv)\n(i\n(i)\n(2)\n(i\n(8)\n(iv)\n(i)\n(iv)\n(i)\n(i)\n(4)",
+      "rawOcrMinimumConfidence": 0.5580124258995056,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 49,
+      "sourcePage": 7,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Presence ofwhich ofthefollowing conditionsin\n49.\nurine areindicative ofDiabetesMellitus?\nUremiaandKetonuria\n(1)\nUremia andRenal Calculi\n(2)\n(e)\nKetonuria and Glycosuria\nRenalcalculiandHyperglycaemia\n(4)",
+      "rawOcrMinimumConfidence": 0.7739368776480356,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 50,
+      "sourcePage": 7,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Floridean starchhasstructuresimilarto:\n50.\nStarchand cellulose\n(1)\n(2)\nAmylopectinandglycogen\nMannitolandalgin\n(3)\nLaminarin andcellulose\n(4)",
+      "rawOcrMinimumConfidence": 0.8951471845308939,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 51,
+      "sourcePage": 7,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Selectthe optionincluding allsexuallytransmitted\n51.\ndiseases.\nGonorrhoea,Syphilis,Genitalherpes\n(1)\nGonorrhoea,Malaria,Genitalherpes\n(2)\n(3)\nAIDS,Malaria,Filaria\nCancer,AIDS,Syphilis\n(4)",
+      "rawOcrMinimumConfidence": 0.8860548138618469,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 52,
+      "sourcePage": 7,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Matchthefollowingwithrespecttomeiosis:\n52.\n(a)\nZygotene\nTerminalization\nChiasmata\nPachytene\n(b)\n(i\n(c)\nDiplotene\nCrossing over\n(i)\nDiakinesis\n(pP)\nSynapsis\n(iv)\nSelectthe correct optionfromthefollowing:\n(a)\n(c)\n(d)\n(q)\n(i)\n(iv)\n(i\n(1)\n(\n(2)\n(iv)\n(ii)\n(i\n(i\n(i)\n(ii)\n(3\n(iv)\n(4\n(i\n(iv)\n(ii)\n(i",
+      "rawOcrMinimumConfidence": 0.5042434930801392,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 53,
+      "sourcePage": 7,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Which of thefollowingpairs is ofunicellular\n53.\nalgae?\nLaminaria andSargassum\n(1)\n(2)\nGelidiumandGracilaria\n(3\nAnabaenaandVoluox\n(4\nChlorellaandSpirulina",
+      "rawOcrMinimumConfidence": 0.8570765058199564,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 54,
+      "sourcePage": 7,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Whichofthefollowinghormonelevelswillcause\n54.\nrelease ofovum(ovulation)from the graffian\nfollicle?\nHigh concentration of Estrogen\n(1)\n(2)\nHighconcentrationofProgesterone\n(3)\nLow concentration ofLH\n(4\nLowconcentrationofFSH",
+      "rawOcrMinimumConfidence": 0.7283117175102234,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 55,
+      "sourcePage": 7,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Matchthefollowingcolumns andselectthe\n55.\ncorrectoption.\nColumn-I\nColumn-II\nGene therapy\nBtcotton\n(i\n(a)\n(b)\n(i\nAdenosine\nCellulardefence\ndeaminase\ndeficiency\n(c)\nRNAi\n(ii)\nDetectionofHIV\ninfection\n(d\n(iv)\nBacillus\nPCR\nthuringiensis\n(a)\n(b)\n(d)\n(c)\n(1)\n(i\n(iv)\n(i\n(ii)\n(i\n(iv)\n(i)\n(i\n(2)\n(3\n(i\n(ii)\n(iv)\n(i\n(i)\n(iv)\n(i\n(i)\n(4",
+      "rawOcrMinimumConfidence": 0.5033187717199326,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 56,
+      "sourcePage": 8,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Montrealprotocolwas signed in1987forcontrol\n56.\nof:\n(1)\nTransportofGeneticallymodifiedorganisms\nfrom one country to another\n(2)\nEmissionofozone depletingsubstances\n(3)\nRelease of GreenHousegases\nDisposal of e-wastes\n(4",
+      "rawOcrMinimumConfidence": 0.8281243244806925,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 57,
+      "sourcePage": 8,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Which ofthe followingis correct about viroids?\n57.\nThey have RNA with protein coat.\n(1)\n(2)\nTheyhavefreeRNAwithoutproteincoat.\nThey have DNA with protein coat.\n(e)\nTheyhavefreeDNA without protein coat.\n(4",
+      "rawOcrMinimumConfidence": 0.7893922130266825,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 58,
+      "sourcePage": 8,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "The ovaryishalfinferiorin:\n58.\nBrinjal\n(1)\nMustard\n(2)\nSunflower\n(3)\n(4)\nPlum",
+      "rawOcrMinimumConfidence": 0.8649954597155253,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 59,
+      "sourcePage": 8,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "The enzyme enterokinase helpsinconversion of:\n59.\nprotein into polypeptides\n(1)\n(2)\ntrypsinogen into trypsin\n(3)\ncaseinogeninto casein\n(4)\npepsinogen into pepsin",
+      "rawOcrMinimumConfidence": 0.8197937409083048,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 60,
+      "sourcePage": 8,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Matchthetrophiclevelswiththeircorrectspecies\n60.\nexamples in grassland ecosystem.\nFourth trophiclevel\nCrow\n(a)\n(b)\nVulture\n(i)\nSecondtrophiclevel\nFirst trophic level\n(i)\n(c)\nRabbit\n(iv)\nGrass\n(d\nThirdtrophiclevel\nSelectthecorrectoption:\n(a)\n(d)\n(b)\n(c)\n(i)\n(1)\n(i\n(iv)\n(i)\n(iv)\n(2)\n(i\n(iv)\n(ii)\n(3)\n(i\n()\n(i\n(ii)\n(iv)\n(4)",
+      "rawOcrMinimumConfidence": 0.6385946472485861,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 61,
+      "sourcePage": 8,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Howmany truebreeding pea plant varieties did\n61.\nMendelselectaspairs,whichweresimilarexcept\ninonecharacterwithcontrastingtraits?\n(1)\n4\n(2)\n2\n(③\n14\n(4\n8",
+      "rawOcrMinimumConfidence": 0.7285752594470978,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 62,
+      "sourcePage": 8,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Matchthefollowingcolumnsandselectthe\n62.\ncorrect option.\nColumn-I\nColumn-II\n(a)\nOrgan of Corti\nConnects middle\n(i\near and pharynx\nCoiled partofthe\n(b)\nCochlea\n(i\nlabyrinth\n(c)\nAttachedtothe\nEustachiantube\n(ii)\novalwindow\n(d\nStapes\n(iv)\nLocated onthe\nbasilar\nmembrane\n(a)\n(b)\n(c)\n(d)\n(1)\n(i)\n(ii\n(iv)\n(i\n(2)\n(i)\n(iv)\n(i\n#\n(i)\n(3\n(iv)\n(i\n(ii)\n(i\n(4\n(iv)\n(ii)",
+      "rawOcrMinimumConfidence": 0.5021288990974426,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 63,
+      "sourcePage": 8,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Inwaterhyacinthandwaterlily,pollinationtakes\n63.\nplace by:\n(1)\ninsects orwind\n(2)\nwatercurrentsonly\n(③\nwind andwater\n(4\ninsects and water",
+      "rawOcrMinimumConfidence": 0.7807111740112305,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 64,
+      "sourcePage": 8,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Name theplantgrowthregulatorwhichupon\n64.\nsprayingonsugarcane crop,increases thelength\nofstem,thus increasing theyield of sugarcane\ncrop.\n(1)\nCytokinin\n(2)\nGibberellin\nEthylene\n(3)\n(4)\nAbscisic acid",
+      "rawOcrMinimumConfidence": 0.7760634819666544,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 65,
+      "sourcePage": 8,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Inlightreaction,plastoquinonefacilitates the\n65.\ntransferofelectronsfrom:\n(1)\nPS-IItoCytbgfcomplex\nCytbgfcomplextoPS-I\n(2\nPS-ItoNADP+\n(3)\nPS-ItoATPsynthase\n(4)",
+      "rawOcrMinimumConfidence": 0.7780788938204447,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 66,
+      "sourcePage": 9,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Whichofthefollowingisnotaninhibitory\n66.\nsubstancegoverningseed dormancy?\n(1)\nGibberellic acid\n(2)\nAbscisic acid\n(3)\nPhenolic acid\n(4)\nPara-ascorbic acid",
+      "rawOcrMinimumConfidence": 0.9441325627267361,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 67,
+      "sourcePage": 9,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Nametheenzyme thatfacilitatesopeningofDNA\n67.\nhelix during transcription.\n(1)\nDNA ligase\n(2)\nDNA helicase\nDNA polymerase\n(3)\nRNApolymerase\n(4",
+      "rawOcrMinimumConfidence": 0.8965463836987814,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 68,
+      "sourcePage": 9,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Whichofthefollowingwouldhelpinpreventionof\n68.\ndiuresis?\n(1)\nMorewaterreabsorptiondueto\nundersecretionofADH\nReabsorptionofNa+andwaterfromrenal\n(2)\ntubulesduetoaldosterone\n(3)\nAtrial\nnatriuretic\nfactor\ncauses\nvasoconstriction\n(4)\nDecreaseinsecretion ofreninbyJGcells",
+      "rawOcrMinimumConfidence": 0.8706507682800293,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 69,
+      "sourcePage": 9,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Inrelationto Grossprimaryproductivity and Net\n69.\nprimaryproductivityofanecosystem,whichone\nofthefollowingstatementsiscorrect?\n(1)\nGrossprimaryproductivityis alwaysless\nthannetprimaryproductivity.\nGross primary productivity is always more\n(2)\nthan net primaryproductivity.\n(3)\nGrossprimaryproductivity andNetprimary\nproductivity are one and same.\nThereisnorelationshipbetweenGross\n(4)\nprimaryproductivityandNetprimary\nproductivity.",
+      "rawOcrMinimumConfidence": 0.9396551847457886,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 70,
+      "sourcePage": 9,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Matchthefollowingcolumnsandselectthe\n70.\ncorrectoption.\nColumn-I\nColumn-II\nPlacenta\nAndrogens\n(a)\n(i\n(b)\n(i\nZona pellucida\nHuman Chorionic\nGonadotropin\n(hCG)\nBulbo-urethral\nLayerof the ovum\n(c)\n(ii)\nglands\nLeydig cells\n(P)\n(iv)\nLubrication ofthe\nPenis\n(a)\n(P)\n(c)\n(b)\n(i\n(1)\n(iv)\n(ii)\n(iv)\n(2)\n(i\n(i)\n(i)\n(iv)\n(3\n(i\n(i\n(i\n(4\n(i\n(iv)\n(i",
+      "rawOcrMinimumConfidence": 0.6132695823907852,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 71,
+      "sourcePage": 9,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "71.\nStrobili orcones arefound in:\nSalvinia\n(1)\n(2)\nPteris\nMarchantia\n(g)\nEquisetum\n(4",
+      "rawOcrMinimumConfidence": 0.761772612730662,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 72,
+      "sourcePage": 9,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Some dividingcellsexitthecell cycleandenter\n72.\nvegetativeinactive stage.Thisiscalledquiescent\nstage(Go).This process occurs atthe end of:\nM phase\n(1)\nGphase\n(2)\nSphase\n(3\n(4\nG2phase",
+      "rawOcrMinimumConfidence": 0.7268680334091187,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 73,
+      "sourcePage": 9,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Flippers of Penguins and Dolphins are examples\n73.\nof:\n(1)\nAdaptiveradiation\n(2)\nConvergentevolution\nIndustrialmelanism\n(3\nNatural selection\n(④",
+      "rawOcrMinimumConfidence": 0.7427346408367157,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 74,
+      "sourcePage": 9,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Ifthedistancebetweentwoconsecutivebasepairs\n74.\nis0.34nmandthetotalnumberofbasepairsofa\nDNAdoublehelixina typicalmammaliancellis\n6.6x109bp,then thelengthof theDNA is\napproximately:\n(1)\n2.0meters\n(2)\n2.5meters\n(3)\n2.2meters\n(4)\n2.7meters",
+      "rawOcrMinimumConfidence": 0.8033687472343445,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 75,
+      "sourcePage": 10,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "The QRS complex in a standard ECG represents:\n75.\n(1)\nRepolarisationofauricles\n(2)\nDepolarisationofauricles\nDepolarisation ofventricles\n(3\nRepolarisation of ventricles\n(4",
+      "rawOcrMinimumConfidence": 0.7887850403785706,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 76,
+      "sourcePage": 10,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Matchthefollowingcolumns andselectthe\n76.\ncorrectoption.\nColumn -II\nColumn-I\nEosinophils\nImmuneresponse\n(a)\nBasophils\n(b)\n(i)\nPhagocytosis\nNeutrophils\n(i\nRelease\n(#\nhistaminase,\ndestructive\nenzymes\nRelease granules\nLymphocytes\n(iv)\n(d)\ncontaining\nhistamine\n(a)\n(b)\n(d)\n(c)\n(ni)\n(1)\n(iv)\n(i)\n(iv)\n(2)\n(i\n(i)\n(Li)\n(i)\n(iv)\n(i\n(3)\n(i)\n(i)\n(i\n(ii)\n(4)\n(iv)",
+      "rawOcrMinimumConfidence": 0.5504830703139305,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 77,
+      "sourcePage": 10,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Whichofthefollowingstatements iscorrect?\n77.\n(1)\nAdeninepairswith thymine through two\nH-bonds.\n(2)\nAdeninepairswiththymine throughone\nH-bond.\nAdeninepairswiththymine through three\n(3)\nH-bonds.\nAdeninedoesnotpairwiththymine.\n(4)",
+      "rawOcrMinimumConfidence": 0.9255185127258301,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 78,
+      "sourcePage": 10,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "The sequence thatcontrolsthecopy numberofthe\n78.\nlinked DNA in thevector,is termed:\n(1)\nSelectablemarker\n(2)\nOrisite\nPalindromic sequence\n(3)\nRecognition site\n(4",
+      "rawOcrMinimumConfidence": 0.914294977982839,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 79,
+      "sourcePage": 10,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Identify thebasic amino acid from the following.\n79.\n(1)\nTyrosine\nGlutamicAcid\n(2)\nLysine\n(3)\n(4)\nValine",
+      "rawOcrMinimumConfidence": 0.9524830381075541,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 80,
+      "sourcePage": 10,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Matchthefollowing columnsandselect the\n80.\ncorrectoption.\nColumn-I\nColumn-II\nGrave'sdisease\n(a)\nPituitary gland\n(i\nThyroid gland\n(i\nDiabetesmellitus\n(b)\nAdrenal gland\n(i)\n(c)\nDiabetesinsipidus\n(iv)\nPancreas\nAddison's disease\n(d\n(a)\n(c)\n(b)\n(d)\n(i)\n(i\n(iv)\n(1)\n(iv)\n(2\n(i\n(ii)\n(iv)\n(3\n(ii)\n(i\n(i)\n(i)\n(4\n(iv)",
+      "rawOcrMinimumConfidence": 0.707522968451182,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 81,
+      "sourcePage": 10,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Selectthecorrectstatement.\n81.\nGlucocorticoidsstimulategluconeogenesis.\n(1)\n(2\nGlucagonis associatedwithhypoglycemia.\nInsulin acts on pancreatic cells and\n(3)\nadipocytes.\nInsulinis associatedwithhyperglycemia.\n(4",
+      "rawOcrMinimumConfidence": 0.7353747089703878,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 82,
+      "sourcePage": 10,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Whichoneofthefollowingisthemost abundant\n82.\nproteininthe animals?\nHaemoglobin\n(1)\nCollagen\n(2)\nLectin\n(e)\nInsulin\n(4",
+      "rawOcrMinimumConfidence": 0.7420013149579366,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 83,
+      "sourcePage": 10,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Experimentalverificationofthechromosomal\n83.\ntheoryofinheritancewasdoneby:\nMendel\n(1)\nSutton\n(2)\nBoveri\n(3\nMorgan\n(4",
+      "rawOcrMinimumConfidence": 0.7502774596214294,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 84,
+      "sourcePage": 11,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Matchthefollowing columns andselectthe\n84.\ncorrect option.\nColumn-I\nColumn-II\nFloatingRibs\nLocatedbetween\n(a)\nsecondand\nseventhribs\n(b)\n(i)\nHead ofthe\nAcromion\nHumerus\nScapula\n(i\n(c)\nClavicle\nGlenoidcavity\n(d\n(iv)\nDonotconnect\nwiththesternum\n(a)\n(c)\n(b)\n(P)\n(iv)\n(i)\n(i\n#\n(1)\n(i)\n(iv)\n(i\n(2)\n(iv)\n(i\n(3)\n(ii)\n#\n(i)\n(4)\n(iv)\n(i)",
+      "rawOcrMinimumConfidence": 0.5216303467750549,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 85,
+      "sourcePage": 11,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Thenumberofsubstratelevelphosphorylations\n85.\nin one turn of citric acid cycle is:\nZero\n(1)\nOne\n(2)\nTwo\n(3)\nThree\n(4)",
+      "rawOcrMinimumConfidence": 0.9128541151682535,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 86,
+      "sourcePage": 11,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Dissolution of the synaptonemal complex occurs\n86.\nduring:\nPachytene\n(1)\nZygotene\n(2)\nDiplotene\n(3)\nLeptotene\n(4)",
+      "rawOcrMinimumConfidence": 0.9363764921824137,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 87,
+      "sourcePage": 11,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "87.\nBilaterallysymmetricalandacoelomate animals\nare exemplifiedby:\nCtenophora\n(1)\nPlatyhelminthes\n(2)\nAschelminthes\n(3)\n(4)\nAnnelida",
+      "rawOcrMinimumConfidence": 0.952409823735555,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 88,
+      "sourcePage": 11,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Theb\nbodyoftheovuleisfusedwithinthefunicle\n88.\nat:\nHilum\n(1)\nMicropyle\n(2)\nNucellus\n(3)\nChalaza\n(4)",
+      "rawOcrMinimumConfidence": 0.8998174866040548,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 89,
+      "sourcePage": 11,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Gobletcellsofalimentarycanalaremodified\n89.\nfrom:\n(1)\nSquamousepithelialcells\n(2)\nColumnarepithelialcells\nChondrocytes\n(3\nCompound epithelial cells\n(4",
+      "rawOcrMinimumConfidence": 0.8517702519893646,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 90,
+      "sourcePage": 11,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Snow-blindnessin Antarctic region is due to:\n90.\nFreezing of fluids in the eye bylow\n(1)\ntemperature\nInflammation of cornea due to high dose of\n(2\nUV-Bradiation\n(3\nHighreflection of lightfrom snow\n(4)\nDamagetoretinacausedbyinfra-redrays",
+      "rawOcrMinimumConfidence": 0.906979481379191,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 91,
+      "sourcePage": 11,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Identify a moleculewhichdoesnotexist.\n91.\nHe2\n(1)\nLi2\n(2)\nC2\n(3\n02\n(4",
+      "rawOcrMinimumConfidence": 0.811879426240921,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 92,
+      "sourcePage": 11,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Findout the solubilityofNi(OH)2in 0.1MNaOH.\n92.\nGiven that the ionicproduct ofNi(OH)2is\n2×10-15.\n2×10-13M\n(1)\n2×10-8M\n(2)\n1×10-13M\n(3\n1×108M\n(4)",
+      "rawOcrMinimumConfidence": 0.8499299089113871,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 93,
+      "sourcePage": 11,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Identifythecorrectstatementsfromthe\n93.\nfollowing:\n(a)\nCO2(g) is used as refrigerant for ice-cream\nand frozen food.\nThe structure of Cco contains twelve six\n(b)\ncarbon ringsand twentyfive carbonrings.\n(c)\nZSM-5,a type of zeolite,is used to convert\nalcohols into gasoline.\n(P)\nCOis colorless and odourless gas.\n(1)\n(a),(b)and (c)only\n(a) and (c) only\n(2)\n(3)\n(b) and (c) only\n(4\n(c) and (d) only",
+      "rawOcrMinimumConfidence": 0.8228762944539388,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 94,
+      "sourcePage": 12,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Hydrolysis of sucrose is given by the following\n94.\nreaction.\nSucrose+H2OGlucose+Fructose\nIf the equilibrium constant (K) is 2x1013at\n300K,thevalueof△G°atthesametemperature\nwillbe:\n-8.314Jmol-1K-1x300K×ln(2×1013)\n(1)\n8.314Jmol-1K-1×300K×ln(2×1013)\n(2)\n8.314Jmol-lK-1x300K×ln(3×1013)\n(3)\n-8.314Jmol-1K-1x300Kxln(4×1013)\n(4",
+      "rawOcrMinimumConfidence": 0.9014212318829128,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 95,
+      "sourcePage": 12,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Identify compound Xin the following sequence of\n95.\nreactions:\nCHg\nCHO\nH2O\nCl2/hv\nX\n373K\nC1\n(1)\nCH,C1\n(2)\nCHCl2\n(3)\nCCl3\n(4)",
+      "rawOcrMinimumConfidence": 0.7855650385220846,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 96,
+      "sourcePage": 12,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Identify theincorrect match.\n96.\nName\nIUPACOfficialName\n(a)\nUnnilunium\nMendelevium\n(i\nUnniltrium\n(i\n(b)\nLawrencium\n(c)\nUnnilhexium\nSeaborgium\n(ii)\n(d\nUnununnium\n(iv)\nDarmstadtium\n(1)\n(a),(i)\n(2)\n(b),(i)\n(c),(ii)\n(3\n(d),(iv)\n(4④",
+      "rawOcrMinimumConfidence": 0.7183689773082733,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 97,
+      "sourcePage": 12,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Anelementhasabodycentered cubic(bcc)\n97.\nstructurewithacelledgeof288pm.The atomic\nradius is:\n√3\n(1)\n×288pm\n4\n√2\n×288pm\n(2)\n4\n4\n×288pm\n(3\n√3\n4\n×288pm\n(4\n√",
+      "rawOcrMinimumConfidence": 0.6377213597297668,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 98,
+      "sourcePage": 12,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Whichofthefollowingsetofmoleculeswillhave\n98.\nzero dipolemoment?\nAmmonia,beryllium difluoride,water,\n(1)\n1,4-dichlorobenzene\nBoron trifluoride,hydrogenfluoride,carbon\n(2)\ndioxide,1,3-dichlorobenzene\nNitrogen trifluoride, beryllium difluoride,\n(3\nwater,1,3-dichlorobenzene\nBoron trifluoride,beryllium difluoride,\n(4)\ncarbondioxide,1,4-dichlorobenzene",
+      "rawOcrMinimumConfidence": 0.7621310353279114,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 99,
+      "sourcePage": 12,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Onelectrolysis ofdil.sulphuric acidusing\n99.\nPlatinum(Pt)electrode,theproductobtainedat\nanode will be:\nHydrogen gas\n(1)\nOxygen gas\n(2)\nH2S gas\n(3)\nSO2gas\n(④",
+      "rawOcrMinimumConfidence": 0.7223930358886719,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 100,
+      "sourcePage": 13,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "100.Reactionbetweenacetone and methylmagnesium\nchloridefollowed byhydrolysiswillgive:\nIsopropylalcohol\n(1)\nSec.butylalcohol\n(2)\n(3)\nTert.butylalcohol\n(4)\nIsobutylalcohol",
+      "rawOcrMinimumConfidence": 0.8678780396779379,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 101,
+      "sourcePage": 13,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Whichof thefollowingoxoacidofsulphurhas\n101.\n-O-O-linkage?\nHSO3,sulphurous acid\n(1)\nHSO4, sulphuric acid\n(2)\nHS2Ogperoxodisulphuric acid\n(3)\nH2S2O7, pyrosulphuric acid\n(4)",
+      "rawOcrMinimumConfidence": 0.8117930690447489,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 102,
+      "sourcePage": 13,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "102.Whichof thefollowing amine willgive the\ncarbylaminetest?\nNH2\n(1)\nNHCH3\n(2)\nN(CH3)2\n(3)\nNHC2H5\n(4)",
+      "rawOcrMinimumConfidence": 0.8955318729082743,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 103,
+      "sourcePage": 13,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "103. The calculated spin only magnetic moment of Cr2+\nionis:\n3.87BM\n(1)\n(2\n4.90 BM\n5.92BM\n(3)\n2.84 BM\n(4",
+      "rawOcrMinimumConfidence": 0.758118192354838,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 104,
+      "sourcePage": 13,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Thecorrectoptionforfreeexpansion ofanideal\n104.\ngas under adiabatic condition is:\nq=0,△T=0andw=0\n(1)\nq=0,△T<0and w>0\n(2)\nq<0,△T=0 and w=0\n(3\nq>0,△T>0and w>0\n(4",
+      "rawOcrMinimumConfidence": 0.760898619890213,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 105,
+      "sourcePage": 13,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "105.The freezing point depression constant (Kf)of\nbenzene is 5.12 K kg mol-1.The freezing point\ndepressionforthesolutionof molality0.078m\ncontaininganon-electrolyte soluteinbenzeneis\n(roundedoffuptotwodecimalplaces):\n(1)\n0.20 K\n(2)\n0.80K\n0.40K\n(3\n(4\n0.60K",
+      "rawOcrMinimumConfidence": 0.7520016729831696,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 106,
+      "sourcePage": 13,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "ThenumberofFaradays(F)required toproduce\n106.\n20gofcalciumfrom molten CaCl2(Atomic mass\nofCa=40gmol-1)is:\n(1)\n1\n(2)\n2\n(3\n3\n(4\n4",
+      "rawOcrMinimumConfidence": 0.7983593344688416,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 107,
+      "sourcePage": 13,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Reactionbetweenbenzaldehydeandacetophenone\n107.\nin presence of diluteNaOHis known as:\n(1)\nAldolcondensation\nCannizzaro's reaction\n(2)\n(3\nCrossCannizzaro'sreaction\n(4\nCrossAldol condensation",
+      "rawOcrMinimumConfidence": 0.7601752281188965,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 108,
+      "sourcePage": 13,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Paperchromatographyisanexampleof:\n108.\n(1)\nAdsorptionchromatography\nPartitionchromatography\n(2)\nThin layer chromatography\n(3)\nColumnchromatography\n(4",
+      "rawOcrMinimumConfidence": 0.8172854781150818,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 109,
+      "sourcePage": 14,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": ".Anincreaseintheconcentrationofthereactants\n109.\nofareactionleadsto changein:\nactivationenergy\n(1)\n(2)\nheatofreaction\nthreshold energy\n(e)\ncollision frequency\n(4",
+      "rawOcrMinimumConfidence": 0.7250599265098572,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 110,
+      "sourcePage": 14,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "110.Amixture of NandArgasesina cylindercontains\n7g of N2and 8g of Ar.Ifthe totalpressure ofthe\nmixtureofthegasesinthecylinderis27bar,the\npartial pressure of N2is :\n[Use atomic masses (in g mol-1) : N= 14,Ar=40]\n9bar\n(1)\n(2)\n12 bar\n(3)\n15 bar\n18 bar\n(4)",
+      "rawOcrMinimumConfidence": 0.9180454810460409,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 111,
+      "sourcePage": 14,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "111.Identifythecorrectstatementfromthe\nfollowing:\nWroughtironisimpureironwith\n(1)\n4% carbon.\nBlistercopperhasblistered appearancedue\n(2)\nto evolution of CO2\n(3)\nVapour phase refining is carried out for\nNickelbyVanArkelmethod.\nPig iron can be moulded into a variety of\n(4\nshapes.",
+      "rawOcrMinimumConfidence": 0.9303932785987854,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 112,
+      "sourcePage": 14,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "112.A tertiarybutyl carbocationismore stable thana\nsecondarybutylcarbocationbecauseofwhichof\nthefollowing?\n-Ieffect of -CH3 groups\n(1)\n(2)\n+Reffectof-CH3groups\n-R effect of -CH3 groups\n(e)\n(4\nHyperconjugation",
+      "rawOcrMinimumConfidence": 0.6725675264994303,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 113,
+      "sourcePage": 14,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Which ofthefollowing isa cationic detergent?\n113.\n(1)\nSodiumlaurylsulphate\n(2)\nSodium stearate\n(e)\nCetyltrimethylammoniumbromide\n(4\nSodiumdodecylbenzenesulphonate",
+      "rawOcrMinimumConfidence": 0.7558434208234152,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 114,
+      "sourcePage": 14,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "114.Eliminationreaction of2-Bromo-pentane toform\npent-2-ene is:\n(a)\nβ-Elimination reaction\nFollows Zaitsevrule\n(b)\n(c)\nDehydrohalogenationreaction\n(d\nDehydrationreaction\n(1)\n(a), (b), (c)\n(2)\n(a),(c),(d)\n(b), (c), (d)\n(3\n(4\n(a),(b),(d)",
+      "rawOcrMinimumConfidence": 0.7781448364257812,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 115,
+      "sourcePage": 14,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Themixturewhich showspositivedeviationfrom\n115.\nRaoult's law is :\nEthanol+Acetone\n(1)\n(2)\nBenzene+Toluene\n(3\nAcetone+Chloroform\nChloroethane+Bromoethane\n(4",
+      "rawOcrMinimumConfidence": 0.7262797554334005,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 116,
+      "sourcePage": 14,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Which of thefollowing is the correctorder of\n116.\nincreasingfieldstrengthofligandstoform\ncoordinationcompounds?\n(1)\nSCN<F-<C2O²-<CN\nSCN-<F-<CN-<C202\n(2)\nF- <SCN-<C2O²-<CN-\n(3)\n(4\nCN-<C2O²-<SCN-<F",
+      "rawOcrMinimumConfidence": 0.803322414557139,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 117,
+      "sourcePage": 14,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Whichof the followingis a basicamino acid?\n117.\nSerine\n(1)\n(2)\nAlanine\nTyrosine\n(3\nLysine\n(4",
+      "rawOcrMinimumConfidence": 0.7119818528493246,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 118,
+      "sourcePage": 14,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "HCl waspassed througha solutionofCaCl2,MgCl2\n118.\nand NaCl.Whichof the following compound(s)\ncrystallise(s)?\nBoth MgCl2 and CaCl2\n(1)\n(2)\nOnly NaCl\nOnly MgCl2\n(3\n(4\nNaCl, MgCl2 and CaCl2",
+      "rawOcrMinimumConfidence": 0.793226957321167,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 119,
+      "sourcePage": 14,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Whichofthefollowingisanaturalpolymer?\n119.\n(1)\ncis-1,4-polyisoprene\npoly (Butadiene-styrene)\n(2)\npolybutadiene\n(3\npoly (Butadiene-acrylonitrile)\n(4",
+      "rawOcrMinimumConfidence": 0.7915985584259033,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 120,
+      "sourcePage": 15,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "120.Which ofthefollowingisnot correctaboutcarbon\nmonoxide?\n(1)\nIt forms carboxyhaemoglobin.\n(2)\nIt reducesoxygen carrying abilityof blood.\nThecarboxyhaemoglobin(haemoglobin\n(3)\nboundtoCO)islessstablethan\noxyhaemoglobin.\nItis produced due toincomplete combustion.\n(4)",
+      "rawOcrMinimumConfidence": 0.929280161857605,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 121,
+      "sourcePage": 15,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "121.Sucrose on hydrolysis gives :\n(1)\nβ-D-Glucose+α-D-Fructose\n(2)\nα-D-Glucose+β-D-Glucose\n(3)\nα-D-Glucose+β-D-Fructose\n(4)\nα-D-Fructose+β-D-Fructose",
+      "rawOcrMinimumConfidence": 0.8325646718343099,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 122,
+      "sourcePage": 15,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "122.Thefollowingmetalion activates many enzymes,\nparticipatesintheoxidationofglucosetoproduce\nATP and withNa,isresponsible for the\ntransmission of nerve signals.\nIron\n(1)\n(2)\nCopper\n(3)\nCalcium\n(4)\nPotassium",
+      "rawOcrMinimumConfidence": 0.9140523672103882,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 123,
+      "sourcePage": 15,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "123.Whichone ofthefollowingshasmaximumnumber\nofatoms?\n(1)\n1 g ofAg(s) [Atomic mass of Ag=108]\n1g of Mg(s) [Atomic mass ofMg =24]\n(2)\n(3)\n1g of O2(g) [Atomic mass ofO= 16]\n(4)\n1 gofLi(s) [Atomic mass ofLi=7]",
+      "rawOcrMinimumConfidence": 0.8458945155143738,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 124,
+      "sourcePage": 15,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "124.The numberof protons,neutrons and electrons in\n(1)\n71, 104 and 71\n(2)\n104, 71 and 71\n(3)\n71,71 and 104\n(4)\n175,104 and 71",
+      "rawOcrMinimumConfidence": 0.9114946722984314,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 125,
+      "sourcePage": 15,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "125.Whatisthe changeinoxidation numberof carbon\nin thefollowingreaction?\nCH4(g)+4Cl2(g)→CCL4()+4HCI(g)\n+4to+4\n(1)\n(2)\n0to+4\n(3\n-4 to + 4\n(4\n0to-4",
+      "rawOcrMinimumConfidence": 0.7378071248531342,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 126,
+      "sourcePage": 15,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "126.Identifytheincorrect statement.\nCr2+(d4) is a stronger reducing agent than\n(1)\nFe2+(d6)in water.\n(2)\nThetransitionmetalsandtheircompounds\nareknownfortheircatalyticactivitydueto\ntheirabilitytoadoptmultipleoxidation\nstatesandtoformcomplexes.\nInterstitialcompoundsarethosethatare\n(③)\nformedwhensmall atomslikeH,Cor N\nare trappedinside thecrystallattices of\nmetals.\nThe oxidation states of chromium in CrO2\n(4)\nand Cr,O² are not the same.",
+      "rawOcrMinimumConfidence": 0.8224787712097168,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 127,
+      "sourcePage": 15,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "127.For the reaction,2Cl(g)→ Cl2(g),the correct\noptionis:\n(1)\n△H>0 and △,S >0\n(2)\n△H>0 and△S<0\nH<0 and △,S >0\n(e)\n(4\nH<0and△S<0",
+      "rawOcrMinimumConfidence": 0.7080612281958262,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 128,
+      "sourcePage": 15,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Measuring Zeta potentialis usefulin determining\n128.\nwhichpropertyofcolloidalsolution?\nViscosity\n(1)\nSolubility\n(2)\n(3)\nStabilityofthecolloidalparticles\n(4\nSizeofthecolloidalparticles",
+      "rawOcrMinimumConfidence": 0.731280525525411,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 129,
+      "sourcePage": 16,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "UreareactswithwatertoformAwhichwill\n129.\ndecompose to formB.Bwhenpassed through\nCu2+ (aq),deep blue colour solution Cis formed.\nWhatistheformulaofCfromthefollowing?\nCuSO4\n(1)\n[Cu(NH3)4]2+\n(2)\nCu(OH)2\n(③\nCuCO,Cu(OH)2\n(4)",
+      "rawOcrMinimumConfidence": 0.7242728670438131,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 130,
+      "sourcePage": 16,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Matchthefollowingandidentifythecorrect\n130.\noption.\nCO(g)+H2(g)\nMg(HCO3)2+\n(a)\n(i\nCa(HCO)2\nAn electron\n(b)\nTemporary\n(i\nhardness of\ndeficienthydride\nwater\nBH6\n(c)\n(i)\nSynthesis gas\nH2O2\n(d\n(iv)\nNon-planar\nstructure\n(a)\n(b)\n(c)\n(d)\n(i)\n(i)\n(i\n(iv)\n(1)\n(i)\n(iv)\n(2)\n(i)\n(i)\n(iv)\n(i)\n(3)\n(i)\n(iv)\n(4)\n(i\n(i)",
+      "rawOcrMinimumConfidence": 0.5944710373878479,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 131,
+      "sourcePage": 16,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Matchthefollowing:\n131.\nNature\nOxide\n(a)\n(i\nBasic\nCO\nBaO\n(i)\n(b)\nNeutral\nAl2O3\n(ii)\n(c)\nAcidic\nCl2O7\nAmphoteric\n(d)\n(iv)\nWhichofthefollowingiscorrectoption?\n(a)\n(c)\n(d)\n(b)\n(i)\n(ii)\n(1)\n(i\n(iv)\n(i\n(iv)\n(2)\n(i)\n(\n(i)\n(iv)\n(i\n(i\n(3)\n(i\n(ii)\n(4)\n(iv)",
+      "rawOcrMinimumConfidence": 0.5665002465248108,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 132,
+      "sourcePage": 16,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "The rate constant for a first orderreaction is\n132.\n4.606x10-3 s-1.The time required to reduce\n2.0 g of the reactant to 0.2 g is:\n(1)\n100s\n200s\n(2)\n500s\n(③)\n1000s\n(4)",
+      "rawOcrMinimumConfidence": 0.7997678915659586,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 133,
+      "sourcePage": 16,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "133.An alkene on ozonolysisgives methanal as one of\ntheproduct.Itsstructureis:\nCH=CH-CH3\n(1)\nCH2-CH2-CHg\n(2)\nCH2-CH=CH2\n(3\nCHCHCH3\n(4)",
+      "rawOcrMinimumConfidence": 0.7655810713768005,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 134,
+      "sourcePage": 16,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "134.Which ofthefollowing alkane cannot bemadein\ngood yield by Wurtzreaction?\n(1)\nn-Hexane\n(2)\n2,3-Dimethylbutane\nn-Heptane\n(3)\n(4\nn-Butane",
+      "rawOcrMinimumConfidence": 0.7354459166526794,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 135,
+      "sourcePage": 17,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "135.Anisoleon cleavagewithHIgives:\nOH\n(1)\n+CH\n(2)\n+CHOH\nOH\n(3)\n(4)\n+CHOH",
+      "rawOcrMinimumConfidence": 0.8793620665868124,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 136,
+      "sourcePage": 17,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "136.For which one ofthe following,Bohr modelis not\nvalid?\nHydrogen atom\n(1)\n(2)\nSinglyionisedheliumatom(He+)\n(3)\nDeuteron atom\n(4)\nSinglyionisedneonatom(Ne+)",
+      "rawOcrMinimumConfidence": 0.9615065654118856,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 137,
+      "sourcePage": 17,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Theratioofcontributionsmadebytheelectricfield\n137.\nandmagneticfieldcomponentstotheintensityof\nan electromagneticwave is:(c=speedof\nelectromagneticwaves)\nc:1\n(1)\n(2)\n1: 1\n(3)\n1:c\n1:c2\n(4)",
+      "rawOcrMinimumConfidence": 0.8510374824206034,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 138,
+      "sourcePage": 17,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Brewsters angle ip,for aninterface should be:\n138.\nTheH\n(1)\n08>9!>.0\n(2)\n30°<ib<45°\n45°<ib<90°\n(3)\nib=90°\n(4)",
+      "rawOcrMinimumConfidence": 0.7577995769679546,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 139,
+      "sourcePage": 17,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "139. A cylinder contains hydrogen gas at pressure of\n249kPaandtemperature27°C.\nIts density is:(R=8.3Jmol-1K-1)\n0.5 kg/m3\n(1)\n0.2 kg/m3\n(2)\n0.1 kg/m3\n(e)\n0.02 kg/m3\n(4)",
+      "rawOcrMinimumConfidence": 0.7621903618176779,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 140,
+      "sourcePage": 17,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "140.Arayisincident atan angle ofincidenceion one\nsurfaceofasmallangleprism(with angleofprism\nA)andemergesnormallyfromtheoppositesurface.\nIftherefractiveindexofthematerial oftheprism\nisμ,then the angle ofincidence is nearly equal\nto:\nA\n(1)\n2u\n2A\n(2)\nμ\n(3\nμA\nμA\n(4\n2",
+      "rawOcrMinimumConfidence": 0.5848532319068909,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 141,
+      "sourcePage": 17,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "141.Twocylinders A and Bofequalcapacityare\nconnectedtoeach othervia astopcock.Acontains\nanideal gas at standard temperature andpressure.\nBiscompletelyevacuated.Theentiresystemis\nthermallyinsulated.The stop cockis suddenly\nopened. The process is :\nisothermal\n(1)\n(2)\nadiabatic\nisochoric\n(3\n(4)\nisobaric",
+      "rawOcrMinimumConfidence": 0.7736119627952576,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 142,
+      "sourcePage": 17,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "The energyequivalent of0.5gof asubstance is:\n142.\n4.5×1016J\n(1)\n4.5×1013J\n(2)\n1.5 ×1013J\n(3\n0.5×1013J\n(4",
+      "rawOcrMinimumConfidence": 0.7594452699025472,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 143,
+      "sourcePage": 17,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "143.Abodyweighs72 Non thesurface of theearth.\nWhatisthegravitational force onit,ataheight\nequaltohalftheradiusoftheearth?\n(1)\n48 N\n32 N\n(2)\n30 N\n(3\n24 N\n(4)",
+      "rawOcrMinimumConfidence": 0.8651433785756429,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 144,
+      "sourcePage": 18,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Thesolidswhichhavethenegativetemperature\n144.\ncoefficient ofresistance are:\nmetals\n(1)\ninsulatorsonly\n(2)\n(e)\nsemiconductorsonly\n(4\ninsulatorsandsemiconductors",
+      "rawOcrMinimumConfidence": 0.8225868741671244,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 145,
+      "sourcePage": 18,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Thephasedifferencebetweendisplacementand\n145.\naccelerationofaparticleina simpleharmonic\nmotionis:\nTrad\n(1)\n3π\nrad\n(2)\n2\n(3)\nrad\n2\n(4)\nzero",
+      "rawOcrMinimumConfidence": 0.8839775919914246,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 146,
+      "sourcePage": 18,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "A screwgaugehasleastcount of0.01mmand\n146.\nthere are50divisionsinitscircular scale.\nThepitch ofthe screwgaugeis:\n(1)\n0.01mm\n0.25mm\n(2)\n0.5mm\n(3)\n(4)\n1.0mm",
+      "rawOcrMinimumConfidence": 0.8936542073885599,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 147,
+      "sourcePage": 18,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Ina guitar,two strings A and B made ofsame\n147.\nmaterialareslightlyoutoftune andproducebeats\noffrequency6Hz.When tensioninBisslightly\ndecreased, the beat frequency increases to 7 Hz.\nIf the frequency ofA is530 Hz,the original\nfrequency of Bwillbe:\n(1)\n523Hz\n(2)\n524Hz\n(3\n536Hz\n(4)\n537Hz",
+      "rawOcrMinimumConfidence": 0.8706196347872416,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 148,
+      "sourcePage": 18,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Twoparticlesofmass5kgand10kgrespectively\n148.\nareattachedtothetwoendsofarigidrodoflength\n1 mwith negligiblemass.\nThecentreofmassofthesystemfromthe5kg\nparticle is nearly at a distance of:\n(1)\n33cm\n(2)\n50cm\n(e)\n67cm\n(4)\n80cm",
+      "rawOcrMinimumConfidence": 0.8222410678863525,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 149,
+      "sourcePage": 18,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "149.Find the torque about the origin whena force of\n3j N acts on a particle whose positionvector is\n2km.\n(1)\n6iNm\n6jNm\n(2)\n(3)\nA\n6kNm\n(4",
+      "rawOcrMinimumConfidence": 0.5140534043312073,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 150,
+      "sourcePage": 18,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Lightwithanaveragefluxof20W/cm2fallsona\n150.\nnon-reflectingsurface atnormalincidence having\nsurfacearea20cm2.Theenergyreceivedbythe\nsurfaceduringtime spanof1minuteis:\n10×103J\n(1)\n12×103J\n(2)\n24×103J\n(3\n48×103J\n(4",
+      "rawOcrMinimumConfidence": 0.8846005797386169,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 151,
+      "sourcePage": 18,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "151.Aspherical conductor ofradius 10 cm has a charge\nof 3.2x10-7C distributeduniformly.What is\nthemagnitudeofelectricfieldatapoint15cm\nfrom thecentreofthe sphere?\n=9×109 N m2/C2\n4TTEO\n1.28 × 104 N/C\n(1)\n1.28 ×105N/C\n(2)\n1.28 × 106 N/C\n(3\n1.28×107N/C\n(4)",
+      "rawOcrMinimumConfidence": 0.8247675895690918,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 152,
+      "sourcePage": 18,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "In a certain region of space with volume 0.2 m3,\n152.\ntheelectricpotentialisfoundtobe5Vthroughout.\nThemagnitudeofelectricfieldinthisregionis:\n(1)\nzero\n0.5N/C\n(2)\n1 N/C\n(3\n(④\n5N/C",
+      "rawOcrMinimumConfidence": 0.7563463747501373,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 153,
+      "sourcePage": 18,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Theincreaseinthewidth ofthedepletionregion\n153.\nin a p-njunction diodeis due to:\nforward bias only\n(1)\nreverse bias only\n(2)\n(3)\nbothforwardbiasandreversebias\n(4\nincreaseinforwardcurrent",
+      "rawOcrMinimumConfidence": 0.6987504363059998,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 154,
+      "sourcePage": 19,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "154.A 40μF capacitor is connected to a200V,50Hz\nac supply.Thermsvalue of the currentin the\ncircuitis,nearly:\n(1)\n1.7 A\n(2)\n2.05A\n2.5A\n(3)\n(4)\n25.1A",
+      "rawOcrMinimumConfidence": 0.8442665139834086,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 155,
+      "sourcePage": 19,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "The mean freepathfor a gas,withmolecular\n155.\ndiameterdandnumberdensityncanbeexpressed\nas:\n1\n(1)\n√2nπd\n1\n(2)\n√2nπd2\n1\n(3)\n√2n²πd²\n1\n(4)\n√2n²=²a2",
+      "rawOcrMinimumConfidence": 0.7382930256426334,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 156,
+      "sourcePage": 19,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "For transistor action,which of the following\n156.\nstatementsis correct?\n(1)\nBase,emitter and collectorregions should\nhave same doping concentrations.\n(2)\nBase,emitter and collectorregions should\nhave same size.\n(3)\nBothemitterjunction aswellasthe collector\njunction areforward biased.\nThe baseregion must be verythin and lightly\n(4)\ndoped.",
+      "rawOcrMinimumConfidence": 0.9407257569390673,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 157,
+      "sourcePage": 19,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Lightoffrequency1.5timesthethreshold\n157.\nfrequencyisincidenton aphotosensitivematerial.\nWhatwillbethephotoelectriccurrentif the\nfrequencyishalved andintensityisdoubled?\ndoubled\n(1)\nfourtimes\n(2)\n(3)\none-fourth\n(4)\nzero\n 233 U is bombarded with",
+      "rawOcrMinimumConfidence": 0.9495366215705872,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 158,
+      "sourcePage": 19,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Whenauraniumisotope\n158.\n92\na neutron,it generates\nand:\n(1)\n91Zr\n(2)\n101\n36Kr\n(3)\n(4)",
+      "rawOcrMinimumConfidence": 0.5839549750089645,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 159,
+      "sourcePage": 19,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "The energyrequired tobreakonebondinDNAis\n159.\n10-20 J.This value in eV is nearly :\n(1)\n6\n(2)\n0.6\n(3\n0.06\n(4)\n0.006",
+      "rawOcrMinimumConfidence": 0.7653211752573649,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 160,
+      "sourcePage": 19,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Twobodiesof mass 4kg and6kgare tied to the\n160.\nends ofa massless string.The stringpassesover\na pulley which is frictionless (see figure).The\naccelerationofthesystemintermsofacceleration\ndue to gravity (g)is :\n4kg\n6kg\n(1)\ng\ng/2\n(2\ng/5\n(e)\ng/10\n(4",
+      "rawOcrMinimumConfidence": 0.8393651048342387,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 161,
+      "sourcePage": 19,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "A wire oflengthL,area of cross sectionAishanging\n161.\nfrom a fixed support.The length of the wire\nchanges to L, when mass Mis suspended from its\nfree end.The expressionforYoung'smodulus is:\nMgL1\n(1)\nAL\nMg(L -L)\n(2)\nAL\nMgL\n(3\nAL1\nMgL\n(4\nA(L1-L)",
+      "rawOcrMinimumConfidence": 0.8681081533432007,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 162,
+      "sourcePage": 19,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "The averagethermalenergyforamono-atomicgas\n162.\nis : (kp is Boltzmann constant and T, absolute\ntemperature)\n1\nkBT\n(1)\n2\n3\nkpT\n(2)\n二\n2\n5\nkpT\n(3\n一\n2\n7\nkBT\n(4)\n2",
+      "rawOcrMinimumConfidence": 0.5504561066627502,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 163,
+      "sourcePage": 20,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Whichofthefollowinggraphrepresentsthe\n163.\nvariationofresistivity(p)withtemperature(T)for\ncopper?\n(1)\n(2)\nD\n(3)\nT\n(4)\nP\nT",
+      "rawOcrMinimumConfidence": 0.7079994082450867,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 164,
+      "sourcePage": 20,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "164.The color code ofa resistanceisgivenbelow:\nYellowVioletBrown\nGold\nThevaluesofresistanceand tolerance,respectively,\nare:\n(1)\n470k0,5%\n(2)\n47kΩ,10%\n(3\n4.7k0,5%\n(4)\n470Ω,5%",
+      "rawOcrMinimumConfidence": 0.8756433576345444,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 165,
+      "sourcePage": 20,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "InYoung'sdoubleslitexperiment,iftheseparation\n165.\nbetweencoherentsourcesishalvedandthe\ndistanceofthescreenfromthecoherentsourcesis\ndoubled,thenthefringewidthbecomes:\ndouble\n(1)\n(2)\nhalf\n(3)\nfour times\none-fourth\n(4",
+      "rawOcrMinimumConfidence": 0.7749758064746857,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 166,
+      "sourcePage": 20,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "166.The capacitanceofa parallelplatecapacitorwith\nairasmediumis6pF.Withtheintroductionofa\ndielectricmedium,thecapacitancebecomes30μF.\nThepermittivityofthe medium is:\n(∈o=8.85×10-12 C2N-1 m-2)\n0.44×10-13C2N-1m-2\n(1)\n1.77×10-12C2N-1m-2\n(2)\n0.44×10-10C2N-1m-2\n(3)\n5.00C2N-1m-2\n(4)",
+      "rawOcrMinimumConfidence": 0.8217775225639343,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 167,
+      "sourcePage": 20,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Dimensions of stress are:\n167.\n[MLT-2]\n(1)\n[ML2T-2]\n(2)\n[MLOT-2]\n(3)\n[ML-1T-2]\n(4",
+      "rawOcrMinimumConfidence": 0.845192015171051,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 168,
+      "sourcePage": 20,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Assumethatlightofwavelength600nmiscoming\n168.\nfroma star.Thelimitof resolution of telescope\nwhoseobjectivehasadiameterof2mis:\n3.66x10-7rad\n(1)\n1.83×10-7rad\n(2)\n7.32×10-7rad\n(3)\n6.00×10-7rad\n(4)",
+      "rawOcrMinimumConfidence": 0.7685344417889913,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 169,
+      "sourcePage": 20,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "AseriesLCRcircuitisconnectedtoanacvoltage\n169.\nsource.WhenLisremovedfromthecircuit,the\nphasedifferencebetween currentandvoltage\nIfinstead Cisremoved from the circuit,\nis\nbetween current\nthephasedifferenceisagain\nandvoltage.The powerfactorofthe circuitis:\n(1)\nzero\n(2)\n0.5\n(③\n1.0\n-1.0\n(4",
+      "rawOcrMinimumConfidence": 0.7284786403179169,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 170,
+      "sourcePage": 20,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "A shortelectricdipolehasadipolemomentof\n170.\n16x10-9Cm.The electricpotential due tothe\ndipoleatapoint at adistanceof0.6mfromthe\ncentreofthedipole,situatedonalinemakingan\nangleof60°withthedipoleaxisis:\n1\n= 9 × 109 N m2/C2\n4TTEO\n(1)\n50V\n(2)\n200V\n(3\n400V\n(4)\nzero",
+      "rawOcrMinimumConfidence": 0.8036389470100402,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 171,
+      "sourcePage": 21,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "171.Anironrodof susceptibility599issubjectedtoa\nmagnetising field of 1200 A m-1.The\npermeabilityofthematerialoftherodis:\n(μo=4π×10-7TmA-1)\n2.4π×10-4 TmA-1\n(1)\n8.0×10-5 TmA-1\n(2)\n2.4π×10-5TmA-1\n(3)\n2.4π×10-7T mA-1\n(4)",
+      "rawOcrMinimumConfidence": 0.9271057923634847,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 172,
+      "sourcePage": 21,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Alongsolenoidof50cmlengthhaving100turns\n172.\ncarries a current of 2.5A.Themagneticfield at\nthecentre ofthesolenoidis:\n(μo=4πx10-7TmA-1)\n6.28×10-4T\n(1)\n3.14×10-4T\n(2)\n(3)\n6.28×10-5T\n3.14×10-5T\n(4)",
+      "rawOcrMinimumConfidence": 0.9075271645013023,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 173,
+      "sourcePage": 21,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "A charged particlehaving driftvelocity of\n173.\n7.5×10-4\nms-lin an electric fieldof\nof:\n2.25×1015\n(1)\n2.5x106\n(2)\n2.5×10-6\n(3)\n2.25×10-15\n(4)",
+      "rawOcrMinimumConfidence": 0.9200476408004761,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 174,
+      "sourcePage": 21,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "174.\nThequantitiesofheatrequiredtoraisethe\ntemperatureoftwosolidcopperspheresofradii\nr1 and r2 (r1=1.5 r2) through 1 K are in the\nratio:\n27\n(1)\n8\n9\n(2)\n4\n3\n(3)\n2\n5\n(4)\n13",
+      "rawOcrMinimumConfidence": 0.6576171517372131,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 175,
+      "sourcePage": 21,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "175.Anelectron isaccelerated fromrestthrougha\npotential difference of Vvolt.If the de Broglie\nwavelengthofthe electron is1.227x10-2nm,the\npotential difference is:\n(1)\n10V\n102V\n(2)\n103V\n(3)\n104V\n(4)",
+      "rawOcrMinimumConfidence": 0.8275749882062277,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 176,
+      "sourcePage": 21,
+      "sourceColumn": 1,
+      "boundaryDetected": true,
+      "rawOcrText": "Takinginto account ofthesignificantfigures,what\n176.\nis thevalue of9.99m-0.0099m?\n(1)\n9.9801m\n9.98m\n(2)\n(3)\n9.980 m\n9.9 m\n(4)",
+      "rawOcrMinimumConfidence": 0.9360460996627807,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 177,
+      "sourcePage": 21,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "177.Aball is thrownverticallydownwardwith a\nvelocityof20m/sfromthetopofatower.Ithits\nthegroundaftersometimewithavelocityof\n80m/s.Theheightofthetoweris:(g=10 m/s2)\n360m\n(1)\n340m\n(2)\n320m\n(③\n(4)\n300m",
+      "rawOcrMinimumConfidence": 0.7971981763839722,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 178,
+      "sourcePage": 21,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Acapillarytubeofradiusrisimmersedinwater\n178.\nandwaterrisesinittoaheighth.Themassof\nthe waterinthe capillaryis5g.Anothercapillary\ntubeofradius2risimmersedinwater.The mass\nofwaterthatwill risein this tubeis:\n2.5g\n(1)\n5.0g\n(2)\n10.0g\n(③\n20.0g\n(4",
+      "rawOcrMinimumConfidence": 0.7220312058925629,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 179,
+      "sourcePage": 21,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Aresistancewireconnectedintheleftgapofa\n179.\nmetrebridgebalancesa10Qresistanceinthe\nrightgapata pointwhichdividesthebridgewire\nin the ratio3:2.If thelengthof theresistance\nwireis1.5m,thenthelengthof1Ωofthe\nresistance wire is:\n1.0×10-2m\n(1)\n1.0×10-1m\n(2)\n1.5×10-1m\n(③\n1.5×10-2m\n(4)",
+      "rawOcrMinimumConfidence": 0.7511477172374725,
+      "extractionState": "UNREVIEWED_OCR"
+    },
+    {
+      "originalQuestionNumber": 180,
+      "sourcePage": 21,
+      "sourceColumn": 2,
+      "boundaryDetected": true,
+      "rawOcrText": "Forthelogiccircuit shown,thetruthtable is:\n180.\nB\nB\nY\nA\n(1)\n0\n0\n0\n0\n1\n0\n1\n0\n0\n1\n1\n1\n(2)\nB\nA\nY\n0\n0\n0\n0\n1\n1\n1\n0\n1\n1\n1\n1\n(3\nA\nB\nY\n0\n1\n0\n0\n1\n1\n0\n1\n1\n1\n1\n0\nB\n人\n(4\nA\n0\n0\n1\n0\n1\n0\n1\n0\n0\n1\n0\n1\n-000-",
+      "rawOcrMinimumConfidence": 0.7620750367641449,
+      "extractionState": "UNREVIEWED_OCR"
+    }
+  ]
+}

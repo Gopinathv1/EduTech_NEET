@@ -1,0 +1,16 @@
+[
+  {
+    "name": "mobile",
+    "width": 360,
+    "horizontalOverflow": false,
+    "optionTextPreserved": true,
+    "scope": "Local staging preview with ExamClient whitespace/wrapping semantics; not authenticated practice E2E"
+  },
+  {
+    "name": "desktop",
+    "width": 1100,
+    "horizontalOverflow": false,
+    "optionTextPreserved": true,
+    "scope": "Local staging preview with ExamClient whitespace/wrapping semantics; not authenticated practice E2E"
+  }
+]

@@ -1,0 +1,791 @@
+[
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:4",
+    "originalQuestionNumber": 4,
+    "sourcePage": 2,
+    "sourceColumn": 1,
+    "reasons": [
+      "TABLE_LAYOUT_TRANSCRIPTION_NOT_VALIDATED"
+    ],
+    "recoveredQuestionText": "Matchthefollowingdiseaseswiththecausative\n4.\norganism and selectthe correctoption.\nColumn-I\nColumn-II\nTyphoid\nWuchereria\n(a)\ni\nPneumonia\n(b)\n(i)\nPlasmodium\nSalmonella\n(c)\nFilariasis\n(ii)\n(d\nMalaria\n(iv)\nHaemophilus\n(P)\n(b)\n(c)\n(a)\n(1)\n(i\n(ii)\n(i)\n(iv)\n(i\n(i)\n(2)\n(ii)\n(iv)\n(i)\n(i)\n(③)\n(iv)\n(i)\n(4)\n(iv)\n(ii)",
+    "officialFinalKeyOption": "B",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:9",
+    "originalQuestionNumber": 9,
+    "sourcePage": 2,
+    "sourceColumn": 2,
+    "reasons": [
+      "TABLE_LAYOUT_TRANSCRIPTION_NOT_VALIDATED"
+    ],
+    "recoveredQuestionText": "Matchthefollowingcolumnsandselectthe\n9.\ncorrect option.\nColumn-I\nColumn-II\nGregarious, polyphagous (i)\n(a)\nAsterias\npest\nScorpion\n(b)\nAdultwithradial\n(i)\nsymmetryandlarva\nwithbilateralsymmetry\nBook lungs\n(c)\nCtenoplana\n(ii)\nBioluminescence\n(d)\nLocusta\n(iv)\n(d)\n(a)\n(b)\n(c)\n(i\n(i\n(iv)\n(1)\n#\n(i\n(iv)\n(2)\n(ii)\n(i)\n(iv)\n(i\n(3\n(i\n(i\n(iv)\n(4\n(ii)",
+    "officialFinalKeyOption": "B",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:13",
+    "originalQuestionNumber": 13,
+    "sourcePage": 3,
+    "sourceColumn": 1,
+    "reasons": [
+      "CANONICAL_TAXONOMY_GAP"
+    ],
+    "recoveredQuestionText": "The product(s) of reaction catalyzed by nitrogenase in root nodules of leguminous plants is/are :",
+    "recoveredOptions": [
+      "Ammonia alone",
+      "Nitrate alone",
+      "Ammonia and oxygen",
+      "Ammonia and hydrogen"
+    ],
+    "proposedSubjectCode": "BOTANY",
+    "proposedChapterSlug": "biology-plant-physiology",
+    "proposedTopic": "mineral-nutrition",
+    "officialFinalKeyOption": "D",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:27",
+    "originalQuestionNumber": 27,
+    "sourcePage": 4,
+    "sourceColumn": 2,
+    "reasons": [
+      "TABLE_LAYOUT_TRANSCRIPTION_NOT_VALIDATED"
+    ],
+    "recoveredQuestionText": "Match the organism with its use in biotechnology.\n27.\nCloning vector\n(a)\nBacillus\n(i\nthuringiensis\n(b)\nThermus\n(i)\nConstructionof\naquaticus\nfirstrDNA\nmolecule\nDNA polymerase\n(c)\nAgrobacterium\n(ii)\ntumefaciens\nSalmonella\n(d\n(iv)\nCry proteins\ntyphimurium\nSelect the correctoptionfrom thefollowing:\n(a)\n(c)\n(P)\n(b)\n(iv)\n(i\ni\n(1)\n(ii)\n(i\n(2)\n(iv)\n(ii)\n(i)\n(i\n(iv)\n(i\n(3\n(i)\n(iv)\n(i\n(4",
+    "officialFinalKeyOption": "B",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:28",
+    "originalQuestionNumber": 28,
+    "sourcePage": 4,
+    "sourceColumn": 2,
+    "reasons": [
+      "TABLE_LAYOUT_TRANSCRIPTION_NOT_VALIDATED"
+    ],
+    "recoveredQuestionText": "Matchthefollowing concerningessentialelements\n28.\nand their functionsin plants:\n(a)\nPhotolysis of water\nIron\n(b)\nZinc\n(i\nPollen germination\nBoron\n(c)\n(i)\nRequiredforchlorophyll\nbiosynthesis\nManganese\n(d)\nIAAbiosynthesis\n(iv)\nSelectthe correctoption:\n(a)\n(d)\n(c)\n(b)\n(iv)\n(i)\n(1)\n(i\n(ii)\n(2)\n(iv)\n(i\n(ii)\n(i\n(i\n(i\n(3\n(i)\n(iv)\n(iv)\n(i\n(4\n(i",
+    "officialFinalKeyOption": "C",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:30",
+    "originalQuestionNumber": 30,
+    "sourcePage": 5,
+    "sourceColumn": 1,
+    "reasons": [
+      "TABLE_LAYOUT_TRANSCRIPTION_NOT_VALIDATED"
+    ],
+    "recoveredQuestionText": "Match thefollowing:\n30.\nRicin\n(a)\nInhibitorofcatalytic\n(\nactivity\nMalonate\n(b)\nPossess peptidebonds\n(i\nChitin\nCell wall materialin\n(c)\n(ii)\nfungi\n(d)\nSecondarymetabolite\n(iv)\nCollagen\nChoose the correct option from the following:\n(a)\n(b)\n(c)\n(P)\n(iv)\n(i\n(i\n#\n(1)\n(i\n(iv)\n(2)\n(i\n(iv)\n(i)\n#\n(3)\n(i\n(i)\n(i\n(4)\n(iv)",
+    "officialFinalKeyOption": "A",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:35",
+    "originalQuestionNumber": 35,
+    "sourcePage": 5,
+    "sourceColumn": 2,
+    "reasons": [
+      "EXISTING_NORMALIZED_STEM_COLLISION_REQUIRES_REVIEW"
+    ],
+    "recoveredQuestionText": "Which of the following statements is not correct ?",
+    "recoveredOptions": [
+      "In man insulin is synthesised as a proinsulin.",
+      "The proinsulin has an extra peptide called C-peptide.",
+      "The functional insulin has A and B chains linked together by hydrogen bonds.",
+      "Genetically engineered insulin is produced in E-Coli."
+    ],
+    "proposedSubjectCode": "ZOOLOGY",
+    "proposedChapterSlug": "biology-biotechnology",
+    "proposedTopic": "biotechnology-applications",
+    "officialFinalKeyOption": "C",
+    "duplicateMatches": [
+      {
+        "file": "data/previous-year/neet/2021/questions.json",
+        "externalId": "historical-verified:neet:2021:m4:123",
+        "questionText": "Which of the following statements is not correct ?"
+      }
+    ],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:37",
+    "originalQuestionNumber": 37,
+    "sourcePage": 5,
+    "sourceColumn": 2,
+    "reasons": [
+      "TABLE_LAYOUT_TRANSCRIPTION_NOT_VALIDATED"
+    ],
+    "recoveredQuestionText": "Matchthefollowingcolumnsandselectthe\n37.\ncorrectoption.\nColumn-I\nColumn-II\n6 - 15 pairs of\n(a)\nTrygon\n(i\ngill slits\nHeterocercal\nCyclostomes\n(i\n(b)\ncaudalfin\n(c)\nChondrichthyes\nAirBladder\n(ii)\nPoison sting\n(P)\n(iv)\nOsteichthyes\n(a)\n(c)\n(b)\n(P)\n(1)\n(i\n(ii)\n(iv)\n(2)\n(i)\n(iv)\n(i)\n(iv)\n(i\n(3\n(i\n(ii)\n(4\n(i\n(iv)\n(i)\n(i)",
+    "officialFinalKeyOption": "A",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:48",
+    "originalQuestionNumber": 48,
+    "sourcePage": 7,
+    "sourceColumn": 1,
+    "reasons": [
+      "TABLE_LAYOUT_TRANSCRIPTION_NOT_VALIDATED"
+    ],
+    "recoveredQuestionText": "Match thefollowingcolumnsandselectthe\n48.\ncorrectoption.\nColumn-II\nColumn-I\nCyclosporin-A\n(a)\nClostridium\n#\nbutylicum\nButyric Acid\n(b)\nTrichoderma\n(i)\npolysporum\n(c)\nMonascus\n(ii)\nCitricAcid\npurpureus\nAspergillus niger(iv)\n(d)\nBlood cholesterol\nlowering agent\n(a)\n(0)\n(d)\n(b)\n(i\n(iv)\n(1)\nGi\n(iv)\n(i\n(i)\n(2)\n(i\n(8)\n(iv)\n(i)\n(iv)\n(i)\n(i)\n(4)",
+    "officialFinalKeyOption": "B",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:52",
+    "originalQuestionNumber": 52,
+    "sourcePage": 7,
+    "sourceColumn": 2,
+    "reasons": [
+      "TABLE_LAYOUT_TRANSCRIPTION_NOT_VALIDATED"
+    ],
+    "recoveredQuestionText": "Matchthefollowingwithrespecttomeiosis:\n52.\n(a)\nZygotene\nTerminalization\nChiasmata\nPachytene\n(b)\n(i\n(c)\nDiplotene\nCrossing over\n(i)\nDiakinesis\n(pP)\nSynapsis\n(iv)\nSelectthe correct optionfromthefollowing:\n(a)\n(c)\n(d)\n(q)\n(i)\n(iv)\n(i\n(1)\n(\n(2)\n(iv)\n(ii)\n(i\n(i\n(i)\n(ii)\n(3\n(iv)\n(4\n(i\n(iv)\n(ii)\n(i",
+    "officialFinalKeyOption": "B",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:55",
+    "originalQuestionNumber": 55,
+    "sourcePage": 7,
+    "sourceColumn": 2,
+    "reasons": [
+      "TABLE_LAYOUT_TRANSCRIPTION_NOT_VALIDATED"
+    ],
+    "recoveredQuestionText": "Matchthefollowingcolumns andselectthe\n55.\ncorrectoption.\nColumn-I\nColumn-II\nGene therapy\nBtcotton\n(i\n(a)\n(b)\n(i\nAdenosine\nCellulardefence\ndeaminase\ndeficiency\n(c)\nRNAi\n(ii)\nDetectionofHIV\ninfection\n(d\n(iv)\nBacillus\nPCR\nthuringiensis\n(a)\n(b)\n(d)\n(c)\n(1)\n(i\n(iv)\n(i\n(ii)\n(i\n(iv)\n(i)\n(i\n(2)\n(3\n(i\n(ii)\n(iv)\n(i\n(i)\n(iv)\n(i\n(i)\n(4",
+    "officialFinalKeyOption": "A",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:60",
+    "originalQuestionNumber": 60,
+    "sourcePage": 8,
+    "sourceColumn": 1,
+    "reasons": [
+      "TABLE_LAYOUT_TRANSCRIPTION_NOT_VALIDATED"
+    ],
+    "recoveredQuestionText": "Matchthetrophiclevelswiththeircorrectspecies\n60.\nexamples in grassland ecosystem.\nFourth trophiclevel\nCrow\n(a)\n(b)\nVulture\n(i)\nSecondtrophiclevel\nFirst trophic level\n(i)\n(c)\nRabbit\n(iv)\nGrass\n(d\nThirdtrophiclevel\nSelectthecorrectoption:\n(a)\n(d)\n(b)\n(c)\n(i)\n(1)\n(i\n(iv)\n(i)\n(iv)\n(2)\n(i\n(iv)\n(ii)\n(3)\n(i\n()\n(i\n(ii)\n(iv)\n(4)",
+    "officialFinalKeyOption": "A",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:62",
+    "originalQuestionNumber": 62,
+    "sourcePage": 8,
+    "sourceColumn": 2,
+    "reasons": [
+      "TABLE_LAYOUT_TRANSCRIPTION_NOT_VALIDATED"
+    ],
+    "recoveredQuestionText": "Matchthefollowingcolumnsandselectthe\n62.\ncorrect option.\nColumn-I\nColumn-II\n(a)\nOrgan of Corti\nConnects middle\n(i\near and pharynx\nCoiled partofthe\n(b)\nCochlea\n(i\nlabyrinth\n(c)\nAttachedtothe\nEustachiantube\n(ii)\novalwindow\n(d\nStapes\n(iv)\nLocated onthe\nbasilar\nmembrane\n(a)\n(b)\n(c)\n(d)\n(1)\n(i)\n(ii\n(iv)\n(i\n(2)\n(i)\n(iv)\n(i\n#\n(i)\n(3\n(iv)\n(i\n(ii)\n(i\n(4\n(iv)\n(ii)",
+    "officialFinalKeyOption": "C",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:70",
+    "originalQuestionNumber": 70,
+    "sourcePage": 9,
+    "sourceColumn": 2,
+    "reasons": [
+      "TABLE_LAYOUT_TRANSCRIPTION_NOT_VALIDATED"
+    ],
+    "recoveredQuestionText": "Matchthefollowingcolumnsandselectthe\n70.\ncorrectoption.\nColumn-I\nColumn-II\nPlacenta\nAndrogens\n(a)\n(i\n(b)\n(i\nZona pellucida\nHuman Chorionic\nGonadotropin\n(hCG)\nBulbo-urethral\nLayerof the ovum\n(c)\n(ii)\nglands\nLeydig cells\n(P)\n(iv)\nLubrication ofthe\nPenis\n(a)\n(P)\n(c)\n(b)\n(i\n(1)\n(iv)\n(ii)\n(iv)\n(2)\n(i\n(i)\n(i)\n(iv)\n(3\n(i\n(i\n(i\n(4\n(i\n(iv)\n(i",
+    "officialFinalKeyOption": "D",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:76",
+    "originalQuestionNumber": 76,
+    "sourcePage": 10,
+    "sourceColumn": 1,
+    "reasons": [
+      "TABLE_LAYOUT_TRANSCRIPTION_NOT_VALIDATED"
+    ],
+    "recoveredQuestionText": "Matchthefollowingcolumns andselectthe\n76.\ncorrectoption.\nColumn -II\nColumn-I\nEosinophils\nImmuneresponse\n(a)\nBasophils\n(b)\n(i)\nPhagocytosis\nNeutrophils\n(i\nRelease\n(#\nhistaminase,\ndestructive\nenzymes\nRelease granules\nLymphocytes\n(iv)\n(d)\ncontaining\nhistamine\n(a)\n(b)\n(d)\n(c)\n(ni)\n(1)\n(iv)\n(i)\n(iv)\n(2)\n(i\n(i)\n(Li)\n(i)\n(iv)\n(i\n(3)\n(i)\n(i)\n(i\n(ii)\n(4)\n(iv)",
+    "officialFinalKeyOption": "A",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:77",
+    "originalQuestionNumber": 77,
+    "sourcePage": 10,
+    "sourceColumn": 1,
+    "reasons": [
+      "EXISTING_NORMALIZED_STEM_COLLISION_REQUIRES_REVIEW"
+    ],
+    "recoveredQuestionText": "Which of the following statements is correct ?",
+    "recoveredOptions": [
+      "Adenine pairs with thymine through two H-bonds.",
+      "Adenine pairs with thymine through one H-bond.",
+      "Adenine pairs with thymine through three H-bonds.",
+      "Adenine does not pair with thymine."
+    ],
+    "proposedSubjectCode": "BOTANY",
+    "proposedChapterSlug": "biology-genetics-and-evolution",
+    "proposedTopic": "molecular-basis-of-inheritance",
+    "officialFinalKeyOption": "A",
+    "duplicateMatches": [
+      {
+        "file": "data/previous-year/neet/2021/questions.json",
+        "externalId": "historical-verified:neet:2021:m4:144",
+        "questionText": "Which of the following statements is correct ?"
+      }
+    ],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:80",
+    "originalQuestionNumber": 80,
+    "sourcePage": 10,
+    "sourceColumn": 2,
+    "reasons": [
+      "TABLE_LAYOUT_TRANSCRIPTION_NOT_VALIDATED"
+    ],
+    "recoveredQuestionText": "Matchthefollowing columnsandselect the\n80.\ncorrectoption.\nColumn-I\nColumn-II\nGrave'sdisease\n(a)\nPituitary gland\n(i\nThyroid gland\n(i\nDiabetesmellitus\n(b)\nAdrenal gland\n(i)\n(c)\nDiabetesinsipidus\n(iv)\nPancreas\nAddison's disease\n(d\n(a)\n(c)\n(b)\n(d)\n(i)\n(i\n(iv)\n(1)\n(iv)\n(2\n(i\n(ii)\n(iv)\n(3\n(ii)\n(i\n(i)\n(i)\n(4\n(iv)",
+    "officialFinalKeyOption": "C",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:84",
+    "originalQuestionNumber": 84,
+    "sourcePage": 11,
+    "sourceColumn": 1,
+    "reasons": [
+      "TABLE_LAYOUT_TRANSCRIPTION_NOT_VALIDATED"
+    ],
+    "recoveredQuestionText": "Matchthefollowing columns andselectthe\n84.\ncorrect option.\nColumn-I\nColumn-II\nFloatingRibs\nLocatedbetween\n(a)\nsecondand\nseventhribs\n(b)\n(i)\nHead ofthe\nAcromion\nHumerus\nScapula\n(i\n(c)\nClavicle\nGlenoidcavity\n(d\n(iv)\nDonotconnect\nwiththesternum\n(a)\n(c)\n(b)\n(P)\n(iv)\n(i)\n(i\n#\n(1)\n(i)\n(iv)\n(i\n(2)\n(iv)\n(i\n(3)\n(ii)\n#\n(i)\n(4)\n(iv)\n(i)",
+    "officialFinalKeyOption": "D",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:95",
+    "originalQuestionNumber": 95,
+    "sourcePage": 12,
+    "sourceColumn": 1,
+    "reasons": [
+      "DIAGRAM_OR_STRUCTURAL_OPTIONS_NOT_STAGED"
+    ],
+    "recoveredQuestionText": "Identify compound Xin the following sequence of\n95.\nreactions:\nCHg\nCHO\nH2O\nCl2/hv\nX\n373K\nC1\n(1)\nCH,C1\n(2)\nCHCl2\n(3)\nCCl3\n(4)",
+    "officialFinalKeyOption": "C",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:96",
+    "originalQuestionNumber": 96,
+    "sourcePage": 12,
+    "sourceColumn": 2,
+    "reasons": [
+      "TABLE_LAYOUT_TRANSCRIPTION_NOT_VALIDATED"
+    ],
+    "recoveredQuestionText": "Identify theincorrect match.\n96.\nName\nIUPACOfficialName\n(a)\nUnnilunium\nMendelevium\n(i\nUnniltrium\n(i\n(b)\nLawrencium\n(c)\nUnnilhexium\nSeaborgium\n(ii)\n(d\nUnununnium\n(iv)\nDarmstadtium\n(1)\n(a),(i)\n(2)\n(b),(i)\n(c),(ii)\n(3\n(d),(iv)\n(4④",
+    "officialFinalKeyOption": "D",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:102",
+    "originalQuestionNumber": 102,
+    "sourcePage": 13,
+    "sourceColumn": 1,
+    "reasons": [
+      "DIAGRAM_OR_STRUCTURAL_OPTIONS_NOT_STAGED"
+    ],
+    "recoveredQuestionText": "102.Whichof thefollowing amine willgive the\ncarbylaminetest?\nNH2\n(1)\nNHCH3\n(2)\nN(CH3)2\n(3)\nNHC2H5\n(4)",
+    "officialFinalKeyOption": "A",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:113",
+    "originalQuestionNumber": 113,
+    "sourcePage": 14,
+    "sourceColumn": 1,
+    "reasons": [
+      "CANONICAL_TAXONOMY_GAP"
+    ],
+    "recoveredQuestionText": "Which of the following is a cationic detergent ?",
+    "recoveredOptions": [
+      "Sodium lauryl sulphate",
+      "Sodium stearate",
+      "Cetyltrimethylammonium bromide",
+      "Sodium dodecylbenzenesulphonate"
+    ],
+    "proposedSubjectCode": "CHEMISTRY",
+    "proposedChapterSlug": "chemistry-in-everyday-life",
+    "proposedTopic": "cleansing-agents",
+    "officialFinalKeyOption": "C",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:126",
+    "originalQuestionNumber": 126,
+    "sourcePage": 15,
+    "sourceColumn": 2,
+    "reasons": [
+      "EXISTING_NORMALIZED_STEM_COLLISION_REQUIRES_REVIEW"
+    ],
+    "recoveredQuestionText": "Identify the incorrect statement.",
+    "recoveredOptions": [
+      "Cr²⁺ (d⁴) is a stronger reducing agent than Fe²⁺ (d⁶) in water.",
+      "The transition metals and their compounds are known for their catalytic activity due to their ability to adopt multiple oxidation states and to form complexes.",
+      "Interstitial compounds are those that are formed when small atoms like H, C or N are trapped inside the crystal lattices of metals.",
+      "The oxidation states of chromium in CrO₄²⁻ and Cr₂O₇²⁻ are not the same."
+    ],
+    "proposedSubjectCode": "CHEMISTRY",
+    "proposedChapterSlug": "chemistry-d-f-block",
+    "proposedTopic": "transition-elements",
+    "officialFinalKeyOption": "D",
+    "duplicateMatches": [
+      {
+        "file": "data/previous-year/neet/2020/questions.json",
+        "externalId": "historical-verified:neet:2020:e1:29",
+        "questionText": "Identify the incorrect statement."
+      }
+    ],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:130",
+    "originalQuestionNumber": 130,
+    "sourcePage": 16,
+    "sourceColumn": 1,
+    "reasons": [
+      "TABLE_LAYOUT_TRANSCRIPTION_NOT_VALIDATED"
+    ],
+    "recoveredQuestionText": "Matchthefollowingandidentifythecorrect\n130.\noption.\nCO(g)+H2(g)\nMg(HCO3)2+\n(a)\n(i\nCa(HCO)2\nAn electron\n(b)\nTemporary\n(i\nhardness of\ndeficienthydride\nwater\nBH6\n(c)\n(i)\nSynthesis gas\nH2O2\n(d\n(iv)\nNon-planar\nstructure\n(a)\n(b)\n(c)\n(d)\n(i)\n(i)\n(i\n(iv)\n(1)\n(i)\n(iv)\n(2)\n(i)\n(i)\n(iv)\n(i)\n(3)\n(i)\n(iv)\n(4)\n(i\n(i)",
+    "officialFinalKeyOption": "A",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:131",
+    "originalQuestionNumber": 131,
+    "sourcePage": 16,
+    "sourceColumn": 1,
+    "reasons": [
+      "TABLE_LAYOUT_TRANSCRIPTION_NOT_VALIDATED"
+    ],
+    "recoveredQuestionText": "Matchthefollowing:\n131.\nNature\nOxide\n(a)\n(i\nBasic\nCO\nBaO\n(i)\n(b)\nNeutral\nAl2O3\n(ii)\n(c)\nAcidic\nCl2O7\nAmphoteric\n(d)\n(iv)\nWhichofthefollowingiscorrectoption?\n(a)\n(c)\n(d)\n(b)\n(i)\n(ii)\n(1)\n(i\n(iv)\n(i\n(iv)\n(2)\n(i)\n(\n(i)\n(iv)\n(i\n(i\n(3)\n(i\n(ii)\n(4)\n(iv)",
+    "officialFinalKeyOption": "B",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:133",
+    "originalQuestionNumber": 133,
+    "sourcePage": 16,
+    "sourceColumn": 2,
+    "reasons": [
+      "DIAGRAM_OR_STRUCTURAL_OPTIONS_NOT_STAGED"
+    ],
+    "recoveredQuestionText": "133.An alkene on ozonolysisgives methanal as one of\ntheproduct.Itsstructureis:\nCH=CH-CH3\n(1)\nCH2-CH2-CHg\n(2)\nCH2-CH=CH2\n(3\nCHCHCH3\n(4)",
+    "officialFinalKeyOption": "C",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:135",
+    "originalQuestionNumber": 135,
+    "sourcePage": 17,
+    "sourceColumn": 1,
+    "reasons": [
+      "DIAGRAM_OR_STRUCTURAL_OPTIONS_NOT_STAGED"
+    ],
+    "recoveredQuestionText": "135.Anisoleon cleavagewithHIgives:\nOH\n(1)\n+CH\n(2)\n+CHOH\nOH\n(3)\n(4)\n+CHOH",
+    "officialFinalKeyOption": "A",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:149",
+    "originalQuestionNumber": 149,
+    "sourcePage": 18,
+    "sourceColumn": 2,
+    "reasons": [
+      "MATHEMATICAL_NOTATION_TRANSCRIPTION_NOT_VALIDATED"
+    ],
+    "recoveredQuestionText": "149.Find the torque about the origin whena force of\n3j N acts on a particle whose positionvector is\n2km.\n(1)\n6iNm\n6jNm\n(2)\n(3)\nA\n6kNm\n(4",
+    "officialFinalKeyOption": "C",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:155",
+    "originalQuestionNumber": 155,
+    "sourcePage": 19,
+    "sourceColumn": 1,
+    "reasons": [
+      "MATHEMATICAL_NOTATION_TRANSCRIPTION_NOT_VALIDATED"
+    ],
+    "recoveredQuestionText": "The mean freepathfor a gas,withmolecular\n155.\ndiameterdandnumberdensityncanbeexpressed\nas:\n1\n(1)\n√2nπd\n1\n(2)\n√2nπd2\n1\n(3)\n√2n²πd²\n1\n(4)\n√2n²=²a2",
+    "officialFinalKeyOption": "B",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:160",
+    "originalQuestionNumber": 160,
+    "sourcePage": 19,
+    "sourceColumn": 2,
+    "reasons": [
+      "DIAGRAM_OR_STRUCTURAL_OPTIONS_NOT_STAGED"
+    ],
+    "recoveredQuestionText": "Twobodiesof mass 4kg and6kgare tied to the\n160.\nends ofa massless string.The stringpassesover\na pulley which is frictionless (see figure).The\naccelerationofthesystemintermsofacceleration\ndue to gravity (g)is :\n4kg\n6kg\n(1)\ng\ng/2\n(2\ng/5\n(e)\ng/10\n(4",
+    "officialFinalKeyOption": "C",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:163",
+    "originalQuestionNumber": 163,
+    "sourcePage": 20,
+    "sourceColumn": 1,
+    "reasons": [
+      "DIAGRAM_OR_STRUCTURAL_OPTIONS_NOT_STAGED"
+    ],
+    "recoveredQuestionText": "Whichofthefollowinggraphrepresentsthe\n163.\nvariationofresistivity(p)withtemperature(T)for\ncopper?\n(1)\n(2)\nD\n(3)\nT\n(4)\nP\nT",
+    "officialFinalKeyOption": "C",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:164",
+    "originalQuestionNumber": 164,
+    "sourcePage": 20,
+    "sourceColumn": 1,
+    "reasons": [
+      "DIAGRAM_OR_STRUCTURAL_OPTIONS_NOT_STAGED"
+    ],
+    "recoveredQuestionText": "164.The color code ofa resistanceisgivenbelow:\nYellowVioletBrown\nGold\nThevaluesofresistanceand tolerance,respectively,\nare:\n(1)\n470k0,5%\n(2)\n47kΩ,10%\n(3\n4.7k0,5%\n(4)\n470Ω,5%",
+    "officialFinalKeyOption": "D",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  },
+  {
+    "exam": "NEET",
+    "year": 2020,
+    "examDate": "2020-09-13",
+    "paperCode": "E1",
+    "language": "en",
+    "externalId": "historical-verified:neet:2020:e1:180",
+    "originalQuestionNumber": 180,
+    "sourcePage": 21,
+    "sourceColumn": 2,
+    "reasons": [
+      "DIAGRAM_OR_STRUCTURAL_OPTIONS_NOT_STAGED"
+    ],
+    "recoveredQuestionText": "Forthelogiccircuit shown,thetruthtable is:\n180.\nB\nB\nY\nA\n(1)\n0\n0\n0\n0\n1\n0\n1\n0\n0\n1\n1\n1\n(2)\nB\nA\nY\n0\n0\n0\n0\n1\n1\n1\n0\n1\n1\n1\n1\n(3\nA\nB\nY\n0\n1\n0\n0\n1\n1\n0\n1\n1\n1\n1\n0\nB\n人\n(4\nA\n0\n0\n1\n0\n1\n0\n1\n0\n0\n1\n0\n1\n-000-",
+    "officialFinalKeyOption": "A",
+    "duplicateMatches": [],
+    "validationState": "QUARANTINED",
+    "reviewState": "DRAFT",
+    "isActive": false,
+    "sourceUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+    "officialAnswerKeyReference": "https://www.nta.ac.in/Download/Notice/Notice_20201016104324.pdf"
+  }
+]
