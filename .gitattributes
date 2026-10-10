@@ -1,4 +1,6 @@
 # Release fingerprints use exact bytes across Windows and Linux checkouts.
+data/previous-year/neet/release-2013-2025/*.json text eol=lf
+data/previous-year/neet/2014/source-gate.json text eol=lf
 data/previous-year/jee/**/*.json text eol=lf
 data/previous-year/jee/*.json text eol=lf
 # The acquired key inventory was sealed with its original CRLF bytes.

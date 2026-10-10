@@ -1,0 +1,46 @@
+[
+  {
+    "viewport": "mobile",
+    "width": 360,
+    "yearCards": 13,
+    "comingSoonWithoutLaunch": [
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020
+    ],
+    "questions": 780,
+    "options": 3120,
+    "questionTextPreserved": true,
+    "optionsPreserved": true,
+    "horizontalOverflow": false,
+    "radioSelection": "PASS",
+    "scope": "Actual React year component SSR; ExamClient-equivalent question layout. No authenticated app/attempt/scoring E2E."
+  },
+  {
+    "viewport": "desktop",
+    "width": 1280,
+    "yearCards": 13,
+    "comingSoonWithoutLaunch": [
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020
+    ],
+    "questions": 780,
+    "options": 3120,
+    "questionTextPreserved": true,
+    "optionsPreserved": true,
+    "horizontalOverflow": false,
+    "radioSelection": "PASS",
+    "scope": "Actual React year component SSR; ExamClient-equivalent question layout. No authenticated app/attempt/scoring E2E."
+  }
+]

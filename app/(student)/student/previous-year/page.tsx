@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 import StudentHeader from '@/components/student/StudentHeader';
+import NeetYearNavigation from '@/components/student/NeetYearNavigation';
+import { getNeetYearNavigation } from '@/lib/previous-year/neet-year-navigation';
+import { neetYearAvailability } from '@/lib/previous-year/neet-release-readiness';
 import {
   sourceInventoryFor,
   totalVerifiedQuestions,
@@ -11,7 +14,7 @@ import { studentTestWhere } from '@/lib/content/eligibility';
 import { localizedName } from '@/lib/admin/format';
 import { previousYearExam, previousYearMode } from '@/lib/previous-year/modes';
 
-const EXAMS: PreviousYearExam[] = ['NEET', 'JEE'];
+const EXAMS: PreviousYearExam[] = ['JEE'];
 
 type PracticeMetadata = {
   practiceSource?: string;
@@ -30,11 +33,23 @@ export default async function PreviousYearPracticePage() {
   const tests = await prisma.test.findMany({
     where: studentTestWhere,
     orderBy: { createdAt: 'desc' },
-    select: { id: true, title: true, testType: true, totalQuestions: true, durationMinutes: true, rules: true },
+    select: { id: true, title: true, testType: true, totalQuestions: true, durationMinutes: true, rules: true,
+      year: true, isRandom: true, availableLanguages: true, testQuestions: { select: { questionId: true } } },
   });
-  const available = tests
+  let available = tests
     .map((test) => ({ ...test, mode: previousYearMode(test), exam: previousYearExam(test.rules) }))
-    .filter((test) => test.mode && test.exam);
+    .filter((test) => test.mode && test.exam && (test.exam !== 'NEET' || test.totalQuestions > 0));
+  let neetAvailability = neetYearAvailability([], []);
+  let neetAvailabilityVerified = false;
+  try {
+    const navigation = await getNeetYearNavigation(available.filter(test => test.exam === 'NEET'));
+    neetAvailability = navigation.years;
+    available = available.filter(test => test.exam !== 'NEET' || navigation.usableTestIds.has(test.id));
+    neetAvailabilityVerified = true;
+  } catch {
+    // No repository counts or launch links are substituted for unavailable database evidence.
+    available = available.filter(test => test.exam !== 'NEET');
+  }
   const modeKey = { yearWise: 'YEAR_WISE', mixed: 'MIXED_FIVE_YEARS', subjectChapter: 'SUBJECT_CHAPTER' } as const;
   const shifts = available.filter(test => test.mode === 'HISTORICAL_SHIFT' && practiceMetadata(test.rules).paperIdentity);
   const subjectLabel = (subject: string | undefined) => subject === 'JEE_MATHEMATICS' ? 'Mathematics'
@@ -85,9 +100,11 @@ export default async function PreviousYearPracticePage() {
           </section>
         ) : null}
 
+        <NeetYearNavigation years={neetAvailability} verified={neetAvailabilityVerified} />
+
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
           {(['yearWise', 'mixed', 'subjectChapter'] as const).map((mode) => {
-            const modeTests = available.filter((test) => test.mode === modeKey[mode]);
+            const modeTests = available.filter((test) => test.mode === modeKey[mode] && !(mode === 'yearWise' && test.exam === 'NEET'));
             return (
               <section key={mode} className="rounded-2xl border border-border bg-surfaceElevated p-6">
                 <h2 className="text-xl font-bold text-textPrimary">{t(`${mode}.title`)}</h2>
