@@ -14,7 +14,7 @@ export default defineConfig({
   testDir: './e2e',
   // These suites have separate configs and guarded, separately provisioned DBs.
   // Never collect local staging fixtures inside the disposable neet_test job.
-  testIgnore: ['**/admissions-v2.spec.ts', '**/full-site-sanity.spec.ts', '**/production-blocker*.spec.ts'],
+  testIgnore: ['**/admissions-v2.spec.ts', '**/full-site-sanity.spec.ts', '**/production-blocker*.spec.ts', '**/neet-navigation.spec.ts'],
   // Generous: in dev mode each route compiles on first hit, and this single
   // spec walks the whole app (register → pay → exam → result → lead).
   timeout: 180_000,

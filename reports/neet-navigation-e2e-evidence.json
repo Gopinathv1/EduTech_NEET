@@ -1,0 +1,44 @@
+{
+  "tests": [
+    {
+      "title": "all thirteen years and unpublished isolation at 390px",
+      "durationMs": 15363,
+      "status": "passed"
+    },
+    {
+      "title": "all thirteen years and unpublished isolation at 1440px",
+      "durationMs": 4649,
+      "status": "passed"
+    },
+    {
+      "title": "2021: authenticated launch, answer, resume and idempotent result",
+      "durationMs": 31307,
+      "status": "passed"
+    },
+    {
+      "title": "2022: authenticated launch, answer, resume and idempotent result",
+      "durationMs": 16801,
+      "status": "passed"
+    },
+    {
+      "title": "2023: authenticated launch, answer, resume and idempotent result",
+      "durationMs": 16696,
+      "status": "passed"
+    },
+    {
+      "title": "2024: authenticated launch, answer, resume and idempotent result",
+      "durationMs": 16989,
+      "status": "passed"
+    },
+    {
+      "title": "2025: authenticated launch, answer, resume and idempotent result",
+      "durationMs": 20740,
+      "status": "passed"
+    }
+  ],
+  "completedAtUtc": "2026-10-10T15:20:18.8303534Z",
+  "passed": 7,
+  "failed": 0,
+  "scope": "Real authenticated local app with disposable PostgreSQL; signed fixture sessions; no production writes",
+  "skipped": 0
+}

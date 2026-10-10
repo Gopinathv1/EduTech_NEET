@@ -40,7 +40,7 @@ The sealed package is `data/previous-year/neet/release-2013-2025/`:
 
 The package remains local with `productionReleaseAuthorized: false`, `importReady: false`, `published: false`. Snapshot approval evidence must be refreshed before any later release. The 780 records already exist in production; do not re-import them as new questions.
 
-Student-visible means exact approved content reachable in a published compatible English PYQ pool, verified from stored membership/rules and the current question-nature allowlist. All 780 are members of the five published fixed year practices. It does not certify every random difficulty/subject quota, checkout, authenticated student attempt or scoring E2E.
+Student-visible means exact approved content reachable in a published compatible English PYQ pool, verified from stored membership/rules and the current question-nature allowlist. All 780 are members of the five published fixed year practices. It does not certify every random difficulty/subject quota, checkout or every random quota. Authenticated fixed-year attempt and scoring E2E are verified separately below.
 
 ## Historical source gates and outstanding issues
 
@@ -64,6 +64,26 @@ Focused NEET checks: **66 tests passed across 12 suites**, including source evid
 
 ## Next release recommendation
 
-Review and release the NEET year-navigation change separately from new historical content; it exposes the existing 780 approved questions and clearly marks unavailable years. Re-check approval evidence and the authenticated English start flow before release. Then prepare a separately authorized 2019/2020 administrator-review/import batch. Continue 2014 from retained drafts and a complete same-code scan; retry failed 2013/2015–2018 gates only when new primary evidence is available. Stop before production release, push, merge or deployment.
+Review and release the NEET year-navigation change separately from new historical content; it exposes the existing 780 approved questions and clearly marks unavailable years. The final read-only approval check and isolated authenticated English start flow verification are recorded below. Then prepare a separately authorized 2019/2020 administrator-review/import batch. Continue 2014 from retained drafts and a complete same-code scan; retry failed 2013/2015–2018 gates only when new primary evidence is available. Stop before production release, push, merge or deployment.
 
 COMMIT: Local readiness commit; hash returned on delivery.
+
+## Final navigation release verification — 10 October 2026
+
+Production approval/visibility reconciliation was refreshed at **2026-10-10T15:18:34.134Z** using the existing database-enforced read-only transaction. Results remain **780 approved and visible**: 2021 113, 2022 157, 2023 172, 2024 171, 2025 167. All approved source datasets, the sealed question payload and the 303 unpublished 2019/2020 records are unchanged. Only the snapshot timestamp changed. Historical source research was not restarted.
+
+**Authenticated attempt E2E: PASS — seven Chromium tests.** The real local Next.js application ran against a newly initialized, disposable PostgreSQL database at `127.0.0.1:5547/neet_navigation_test`. A hard guard checks both connection URLs before fixture writes or browser startup. Only copies of the 780 already-approved payload records and five fixed year practices were loaded. Practice fixtures reconstruct the sealed fixed membership and year/source binding, with local free access and the existing default NEET scoring; they are not a full production database clone. This does not approve or import any staged record. Test students received signed, email-verified fixture sessions using the real session verifier; password/OTP login and external payment systems are outside this verification.
+
+- Mobile 390 px and desktop 1,440 px: all thirteen year cards, exact five published year URLs/counts, partial-coverage wording and no horizontal overflow.
+- 2013–2020: “Questions coming soon,” no count and no launch link. For 2019/2020, guessed direct start URLs contain no start button and authenticated start API requests return 404; no attempt is created.
+- Each year 2021–2025: authenticated launch freezes the full approved year membership (113/157/172/171/167), English question access works, a correct answer is persisted, and resume retains that answer with exactly one attempt.
+- Each year: real UI confirmation submits successfully and opens results. Database result is score 4, one correct, zero wrong and all remaining questions skipped. Repeating the submission API returns 200 while retaining exactly one result and one attempt.
+- The first test run encountered a post-resume hydration race in the test driver. Waiting for the existing “Saved” readiness signal fixed the test; the complete rerun passed. No application, scoring, approval or attempt code was changed.
+
+Reproducible browser suite: `playwright.neet-navigation.config.ts`, `e2e/neet-navigation.spec.ts`, `scripts/prepare-neet-navigation-e2e.ts`. Initialize an empty disposable local database with the repository schema, set **both** URLs to the guarded endpoint and a disposable `JWT_SECRET`, run `npx tsx scripts/prepare-neet-navigation-e2e.ts`, then `npx playwright test --config playwright.neet-navigation.config.ts`. The generic Playwright job excludes this separately guarded suite. Safe summarized evidence is [neet-navigation-e2e-evidence.json](neet-navigation-e2e-evidence.json); temporary databases, raw browser outputs and fixture sessions remain ignored.
+
+Preservation: no runtime/application changes in this verification commit; JEE PYQs/mocks, NEET Full Mock, Admissions, Multilingual, scoring and existing attempts/results are untouched. Browser attempt writes occurred only in the disposable local database. Production access was SELECT-only. The 303 unpublished records remain absent from production and from the browser fixture.
+
+Final checks: **7/7 browser E2E tests passed; 81/81 focused tests passed across 13 suites; typecheck, lint and build passed (144 static pages).** Existing workspace-root, deprecated Next lint and OpenTelemetry dependency warnings remain. The disposable database was stopped after verification.
+
+**READY FOR DEPLOYMENT: YES for the existing approved-content NEET navigation, subject to the requested separate release decision.** No outstanding navigation/attempt verification blocker remains. Historical source blockers and unpublished 2019/2020 content remain excluded and do not authorize content release. No push, merge, deployment or production import was performed.
